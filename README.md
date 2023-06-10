@@ -941,7 +941,7 @@ type X = {
 const x: X = { // Type declaration
   a: 'a'
 }
-``
+```
 
 If the variable is not in the specified format, TypeScript will report an error. For instance:
 
@@ -971,7 +971,7 @@ const x = {
   a: 'a',
   b:'b'
 } as X
-``
+```
 
 In the above example, the object x is asserted to have the type X using the as keyword. This informs the TypeScript compiler that the object conforms to the specified type, even though it has an additional property b not present in the type definition.
 
