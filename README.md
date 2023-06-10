@@ -238,10 +238,10 @@ TypeScript is a strongly typed language that helps prevent common programming mi
 A strongly typed language allows the developer to specify various program constraints and behaviors in the data type definitions, facilitating the ability to verify the correctness of the software and prevent defects. This is especially valuable in large-scale applications.
 
 Some of the benefits of TypeScript:
-_ Static typing, optionally strongly typed
-_ Type Inference
-_ Access to ES6 and ES7 features
-_ Cross-Platform and Cross-browser Compatibility \* Tooling support with IntelliSense
+- Static typing, optionally strongly typed
+- Type Inference
+- Access to ES6 and ES7 features
+- Cross-Platform and Cross-browser Compatibility \* Tooling support with IntelliSense
 
 ### TypeScript and JavaScript
 
