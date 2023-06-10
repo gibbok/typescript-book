@@ -216,10 +216,10 @@ Simone Poggiali is an experienced Senior Front-end Developer with a passion for 
 
 You can reach Simone Poggiali on the following platforms:
 
-LinkedIn: https://www.linkedin.com/in/simone-poggiali/\
-GitHub: https://github.com/gibbok\
-Twitter: https://twitter.com/gibbok_coding\
-Email: gibbok.coding📧gmail.com
+- LinkedIn: https://www.linkedin.com/in/simone-poggiali
+- GitHub: https://github.com/gibbok
+- Twitter: https://twitter.com/gibbok_coding
+- Email: gibbok.coding📧gmail.com
 
 ## TypeScript an introduction
 
