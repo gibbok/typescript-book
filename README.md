@@ -845,42 +845,42 @@ The primary task of TypeScript is to check and verify whether one set is a subse
 TypeScript supports various types of sets:
 
 
-| Set term           | TypeScript                      | Notes                                           |     |     |     |     |     |     |     |
-| ------------------ | ------------------------------- | ----------------------------------------------- | --- | --- | --- | --- | --- | --- | --- |
-| Empty set          | never                           | “never” contains anything apart itself          |     |     |     |     |     |     |     |
-| Single element set | undefined / null / literal type |
-|                    |                                 |                                                 |     |     |     |     |     |
-| Finite set         | boolean / union                 |                                                 |     |     |     |     |     |     |     |
-| Infinite set       | string / number / object        |                                                 |     |     |     |     |     |     |     |
-| Universal set      | any / unknown                   | / “unknown” is a type-safe counterpart of “any” |     |     |     |     |     |     |     |
-|                    |                                 |                                                 |     |     |     |     |     |     |     |
-
-
+| Set term           | TypeScript                      | Notes                                                                                                              |
+| ------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Empty set          | never                           | “never” contains anything apart itself                                                                             |
+| Single element set | undefined / null / literal type |                                                                                                                    |
+| Finite set         | boolean / union                 |                                                                                                                    |
+| Infinite set       | string / number / object        |                                                                                                                    |
+| Universal set      | any / unknown                   | Every element is a member of “any” and every set is a subset of it / “unknown” is a type-safe counterpart of “any” |
 
 Here few examples:
 
-| TypScript             | Set term              | Example                                                                          |      |     |     |     |     |     |     |
-| --------------------- | --------------------- | -------------------------------------------------------------------------------- | ---- | --- | --- | --- | --- | --- | --- |
-| never                 | ∅ (empty set)         | const x: never = 'x'; // Error: Type 'string' is not assignable to type 'never'. |      |     |     |     |     |     |     |
-| Literal type          | Single element set    | type X = 'X';                                                                    |
-| type Y = 7;           |                       |                                                                                  |      |     |     |     |     |
-| Value assignable to T | Value ∈ T (member of) | type XY = 'X'                                                                    | 'Y'; |
-const x: XY = 'X';
-                                                                  |   |   |   |   |   |   |   |
-| T1 assignable to T2   | T1 ⊆ T2 (subset of)    | type XY = 'X' | 'Y';
-const x: XY = 'X';
-const j: XY = 'J'; // Type '"J"' is not assignable to type 'XY'.
- |   |   |   |   |   |   |   |
-| T1 extends T2         | T1 ⊆ T2 (subset of)    | type X = 'X' extends string ? true : false;                                                               |   |   |   |   |   |   |   |
-| T1 | T2               | T1 ∪ T2 (union)        | type XY = 'X' | 'Y';
-type JK = 1 | 2;                                                                     |   |   |   |   |   |   |   |
-| T1 & T2               | T1 ∩ T2 (intersection) | type X = { a: string }
-type Y = { b: string }
-type XY = X & Y
-const x: XY = { a: 'a', b: 'b' }
-           |   |   |   |   |   |   |   |
-| unknown               | Universal set          | const x: unknown = 1                                                                                      |   |   |   |   |   |   |   |
-|                       |                        |                                                                                                           |   |   |   |   |   |   |   |
+| TypScript             | Set term               | Example                                                                         |
+| --------------------- | ---------------------- | ------------------------------------------------------------------------------- |
+| never                 | ∅ (empty set)          | const x: never = 'x'; // Error: Type 'string' is not assignable to type 'never' |
+|                       |                        |
+| Literal type          | Single element set     | type X = 'X';                                                                   |
+|                       |                        | type Y = 7;                                                                     |
+|                       |                        |
+| Value assignable to T | Value ∈ T (member of)  | type XY = 'X' \| 'Y';                                                           |
+|                       |                        | const x: XY = 'X';                                                              |
+|                       |                        |
+| T1 assignable to T2   | T1 ⊆ T2 (subset of)    | type XY = 'X' \| 'Y';                                                           |
+|                       |                        | const x: XY = 'X';                                                              |
+|                       |                        | const j: XY = 'J'; // Type '"J"' is not assignable to type 'XY'.                |
+|                       |                        |                                                                                 |
+| T1 extends T2         | T1 ⊆ T2 (subset of)    | type X = 'X' extends string ? true : false;                                     |
+|                       |                        |
+| T1 \| T2              | T1 ∪ T2 (union)        | type XY = 'X' \| 'Y';                                                           |
+|                       |                        | type JK = 1 \| 2;                                                               |
+|                       |                        |
+| T1 & T2               | T1 ∩ T2 (intersection) | type X = { a: string }                                                          |
+|                       |                        | type Y = { b: string }                                                          |
+|                       |                        | type XY = X & Y                                                                 |
+|                       |                        | const x: XY = { a: 'a', b: 'b' }                                                |
+|                       |                        |
+| unknown               | Universal set          | const x: unknown = 1                                                            |
+
 
 An union, (T1 | T2) creates a wider set (both):
 
