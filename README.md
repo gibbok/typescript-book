@@ -38,13 +38,13 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
     - [TypeScript Fundamental Comparison Rules](#typescript-fundamental-comparison-rules)
     - [Types as sets](#types-as-sets)
     - [Assign a type: Type Declarations and Type Assertions](#assign-a-type-type-declarations-and-type-assertions)
-      - [Type Declaration:](#type-declaration)
+      - [Type Declaration](#type-declaration)
       - [Type Assertion](#type-assertion)
       - [Non-null assertion](#non-null-assertion)
       - [Ambient Declarations](#ambient-declarations)
     - [Property Checking and Excess Property Checking](#property-checking-and-excess-property-checking)
     - [Weak Types](#weak-types)
-    - [Strict Object Literal Checking (Freshness):](#strict-object-literal-checking-freshness)
+    - [Strict Object Literal Checking (Freshness)](#strict-object-literal-checking-freshness)
     - [Type Inference](#type-inference)
     - [More advanced inferences](#more-advanced-inferences)
     - [Type Widening](#type-widening)
@@ -54,8 +54,8 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
     - [Type Narrowing](#type-narrowing)
       - [Conditions](#conditions)
       - [Throwing or returning](#throwing-or-returning)
-      - [Using a “discriminated union”](#using-a-discriminated-union)
-      - [Using user-defined type guards](#using-user-defined-type-guards)
+      - [Discriminated union](#discriminated-union)
+      - [User-defined type guards](#user-defined-type-guards)
   - [Primitive Types](#primitive-types)
     - [string](#string)
     - [boolean](#boolean)
@@ -78,12 +78,11 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
   - [strictNullChecks](#strictnullchecks)
   - [Non-null Assertion Operator (Postfix !)](#non-null-assertion-operator-postfix-)
   - [Enums](#enums)
-    - [Enums can be defined in different ways:](#enums-can-be-defined-in-different-ways)
-      - [Numeric enums](#numeric-enums)
-      - [String enums](#string-enums)
-      - [Constant enums](#constant-enums)
-      - [Reverse mapping](#reverse-mapping)
-      - [Ambient enums](#ambient-enums)
+    - [Numeric enums](#numeric-enums)
+    - [String enums](#string-enums)
+    - [Constant enums](#constant-enums)
+    - [Reverse mapping](#reverse-mapping)
+    - [Ambient enums](#ambient-enums)
     - [Computed and constant members](#computed-and-constant-members)
   - [Narrowing](#narrowing)
     - [typeof type guards](#typeof-type-guards)
@@ -118,9 +117,9 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
   - [Never type](#never-type)
   - [Interface and Type](#interface-and-type)
     - [Common Syntax](#common-syntax)
-      - [Basic types:](#basic-types)
-      - [Objects and interfaces:](#objects-and-interfaces)
-      - [Union and intersection types:](#union-and-intersection-types)
+    - [Basic types:](#basic-types)
+    - [Objects and interfaces:](#objects-and-interfaces)
+    - [Union and intersection types:](#union-and-intersection-types)
   - [Built-in Type Primitives](#built-in-type-primitives)
   - [Common Built-in JS Objects](#common-built-in-js-objects)
   - [Overloads](#overloads)
@@ -952,7 +951,7 @@ const r: Z1 = z // valid
 ### Assign a type: Type Declarations and Type Assertions
 A type can be assigned in different ways in TypeScript:
 
-#### Type Declaration:
+#### Type Declaration
 
 In the following example, we use x: X (": Type") to declare a type for the variable x.
 
@@ -1114,7 +1113,7 @@ const fn = (options: Options) => undefined
 fn({ c: 'c' }) // valid
 ```
 
-### Strict Object Literal Checking (Freshness):
+### Strict Object Literal Checking (Freshness)
 
 Strict object literal checking, sometimes referred to as freshness, is a feature in TypeScript that helps catch excess or misspelled properties that would otherwise go unnoticed in normal structural type checks.
 
@@ -1295,7 +1294,7 @@ Other ways to narrow down types in TypeScript include:
          * `typeof` operator: Used to check the type of a value at runtime.
          * Built-in functions like `Array.isArray()`: Used to check if a value is an array.
 
-#### Using a “discriminated union”
+#### Discriminated union
 
 Using a "discriminated union" is a pattern in TypeScript where an explicit "tag" is added to objects to distinguish between different types within a union. This pattern is also referred to as a "tagged union." In the following example, the "tag" is represented by the property "type":
 
@@ -1313,7 +1312,7 @@ const x = (input: A | B): string | number => {
 }
 ```
 
-#### Using user-defined type guards
+#### User-defined type guards
 
 In cases where TypeScript is unable to determine a type, it is possible to write a helper function known as a "user-defined type guard." In the following example, we will utilize a Type Predicate to narrow down the type after applying certain filtering:
 
@@ -1721,9 +1720,9 @@ enum Color {
 }
 ```
 
-### Enums can be defined in different ways:
+Enums can be defined in different ways:
 
-#### Numeric enums
+### Numeric enums
 In TypeScript, a numeric enum is an enum where each constant is assigned a numeric value, starting from 0 by default.
 
 ```typescript
@@ -1745,7 +1744,7 @@ enum Size {
 console.log(Size.Medium) // 11
 ```
 
-#### String enums
+### String enums
 In TypeScript, a string enum is an enum where each constant is assigned a string value.
 
 ```typescript
@@ -1757,7 +1756,7 @@ enum Language {
 
 Note: TypeScript allows the usage of heterogeneous enums where string and numeric members can coexist.
 
-#### Constant enums
+### Constant enums
 
 A constant enum in TypeScript is a special type of enum where all the values are known at compile time and are inlined wherever the enum is used, resulting in more efficient code.
 
@@ -1778,7 +1777,7 @@ console.log("EN" /* Language.English */);
 Notes:
 Const enums have hardcoded values, erasing the enum, which can be more efficient in self-contained libraries but is generally not desirable. Also, const enums cannot have computed members.
 
-#### Reverse mapping
+### Reverse mapping
 
 In TypeScript, reverse mappings in enums refer to the ability to retrieve the enum member name from its value. By default, enum members have forward mappings from name to value, but reverse mappings can be created by explicitly setting values for each member. Reverse mappings are useful when you need to look up an enum member by its value, or when you need to iterate over all the enum members.
 
@@ -1802,7 +1801,7 @@ Compiles to:
 console.log(Language.English);
 ```
 
-#### Ambient enums
+### Ambient enums
 An ambient enum in TypeScript is a type of enum that is defined in a declaration file (*.d.ts) without an associated implementation. It allows you to define a set of named constants that can be used in a type-safe way across different files without having to import the implementation details in each file.
 
 ### Computed and constant members
@@ -2408,7 +2407,7 @@ method1(arg1: string, arg2: string): string;
 
 In TypeScript, types are used to define the shape of data and enforce type checking. There are several common syntaxes for defining types in TypeScript, depending on the specific use case. Here are some examples:
 
-#### Basic types:
+### Basic types:
 
 ```typescript
 let myNumber: number = 123; // number type
@@ -2417,13 +2416,13 @@ let myArray: string[] = ['a', 'b'] // array of strings
 let myTuple: [string, number] = ['a', 123]; // tuple
 ```
 
-#### Objects and interfaces:
+### Objects and interfaces:
 
 ```typescript
 const x: { name: string, age: number } = { name: 'Simon', age: 7 };
 ```
 
-#### Union and intersection types:
+### Union and intersection types:
 
 ```typescript
 type MyType = string | number; // union type
@@ -4320,6 +4319,9 @@ concat([1, 2, 3], ['4', '5', '6']) // [1, 2, 3, "4", "5", "6"]
 
 ## TODO
 
+- Create a cover/logo
+- Add PDF version
+- Add TypeScript version covered in the book (4.8)
 - Key Remapping in Mapped Types
 - abstractConstruct Signatures
 - Contextual Narrowing for Generics
