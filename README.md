@@ -11,7 +11,7 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
   - [Introduction](#introduction)
   - [About the author](#about-the-author)
   - [TypeScript an introduction](#typescript-an-introduction)
-    - [What is TypeScript](#what-is-typescript)
+    - [What is TypeScript?](#what-is-typescript)
     - [Why TypeScript?](#why-typescript)
     - [TypeScript and JavaScript](#typescript-and-javascript)
     - [TypeScript code generation](#typescript-code-generation)
@@ -224,7 +224,7 @@ Email: gibbok.coding📧gmail.com
 
 ## TypeScript an introduction
 
-### What is TypeScript
+### What is TypeScript?
 
 TypeScript is a strongly typed programming language that builds on JavaScript. It was originally designed by Anders Hejlsberg in 2012 and is currently developed and maintained by Microsoft as an open source project.
 
