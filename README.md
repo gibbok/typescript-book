@@ -1,199 +1,190 @@
 TypeScript an introduction
 
-
-* What is TypeScript
-* Why TypeScript
-* TypeScript and JavaScript
-* TypeScript code generation
-* Modern JavaScript Now
-* Getting Started With TypeScript
-   * Installation
-   * Configuration
-* TypeScript configuration file ​​tsconfig.json
-* Migration to TypeScript advices
-
+- What is TypeScript
+- Why TypeScript
+- TypeScript and JavaScript
+- TypeScript code generation
+- Modern JavaScript Now
+- Getting Started With TypeScript
+  - Installation
+  - Configuration
+- TypeScript configuration file ​​tsconfig.json
+- Migration to TypeScript advices
 
 Exploring the Type System
 
+- The TypeScript language service
+- Structural Typing
+  - TypeScript fundamental comparison rules
+- Types as sets
+- Assign a type: Type Declarations and Type Assertions
+- Ambient Declarations
+- Property Checking and Excess Property Checking
+- Weak Types
+- Strict object literal checking (Freshness)
+- Type Inference
+- Type Widening
+- Type Narrowing
+- ADD 4.9 release
 
-* The TypeScript language service
-* Structural Typing
-   * TypeScript fundamental comparison rules
-* Types as sets
-* Assign a type: Type Declarations and Type Assertions
-* Ambient Declarations
-* Property Checking and Excess Property Checking
-* Weak Types
-* Strict object literal checking (Freshness)
-* Type Inference
-* Type Widening
-* Type Narrowing
-* 
-ADD 4.9 release
-
-
-
-
-   * Types
-   * Primitive Type
-   * string
-   * number
-   * boolean
-   * bigInt
-   * symbol
-   * null and undefined
-   * array
-   * any
-   * noImplicitAny
-   * Type Annotations on Variables
-   * Object Types
-   * Optional Properties
-   * Readonly Properties
-   * Index Signatures
-   * Extending Types
-   * Intersection Types
-   * Literal Types
-   * Literal Inference
-   * null and undefined
-   * strictNullChecks
-   * Non-null Assertion Operator (Postfix !)
-   * Enums
-   * Numeric enums
-   * String enums
-   * Constant enums
-   * Reverse mapping
-   * Ambient enums
-   * Computed and constant members
-   * Narrowing
-   * typeof type guards
-   * Truthiness narrowing
-   * Equality narrowing
-   * In operator narrowing
-   * instanceof narrowing
-   * Assignments
-   * Control flow analysis
-   * type predicates
-   * Discriminated unions
-   * The never type
-   * Exhaustiveness checking
-   * Structural Type System
-   * Object Types
-   * Tuple Type
-   * Fixed Length Tuples
-   * Union Type
-   * Intersection Types
-   * Type Indexing
-   * Type from Value
-   * Type from Func Return
-   * Type from Module
-   * Mapped Types
-   * Conditional Types
-   * Distributive conditional types
-   * “infer” Type inference in conditional types
-   * Predefined conditional types
-   * Template Union Types
-   * Any type
-   * Unknown type
-   * Void type
-   * Never type
-   * Interface and Types
-   * Common Syntax
-   * Built-in Type Primitives
-   * Common Built-in JS Objects
-   * Overloads
-   * Get & Set
-   * Merging and Extension
-   * Differences between Type and Interface
-   * Class
-   * Common Syntax
-   * Constructor and Constructor Overloads
-   * Private and Protected Constructors
-   * Access modifiers
-   * this
-   * Parameter Properties
-   * Abstract Classes
-   * With Generics
-   * Decorators
-   * Inheritance
-   * Statics
-   * Property initialization
-   * Method overloading
-   * Generics
-   * Avoid repetition using Generics
-   * Generic Type
-   * Generic Classes
-   * Generic Constraints
-   * Others
-   * Boxed types
-   * Erased Structural Types
-Modules
-   * Namespaces
-   * Symbols
-   * Triple-Slash Directives
-Type Manipulation
-   * Creating Types from Types
-   * Indexed Access Types
-
+  - Types
+  - Primitive Type
+  - string
+  - number
+  - boolean
+  - bigInt
+  - symbol
+  - null and undefined
+  - array
+  - any
+  - noImplicitAny
+  - Type Annotations on Variables
+  - Object Types
+  - Optional Properties
+  - Readonly Properties
+  - Index Signatures
+  - Extending Types
+  - Intersection Types
+  - Literal Types
+  - Literal Inference
+  - null and undefined
+  - strictNullChecks
+  - Non-null Assertion Operator (Postfix !)
+  - Enums
+  - Numeric enums
+  - String enums
+  - Constant enums
+  - Reverse mapping
+  - Ambient enums
+  - Computed and constant members
+  - Narrowing
+  - typeof type guards
+  - Truthiness narrowing
+  - Equality narrowing
+  - In operator narrowing
+  - instanceof narrowing
+  - Assignments
+  - Control flow analysis
+  - type predicates
+  - Discriminated unions
+  - The never type
+  - Exhaustiveness checking
+  - Structural Type System
+  - Object Types
+  - Tuple Type
+  - Fixed Length Tuples
+  - Union Type
+  - Intersection Types
+  - Type Indexing
+  - Type from Value
+  - Type from Func Return
+  - Type from Module
+  - Mapped Types
+  - Conditional Types
+  - Distributive conditional types
+  - “infer” Type inference in conditional types
+  - Predefined conditional types
+  - Template Union Types
+  - Any type
+  - Unknown type
+  - Void type
+  - Never type
+  - Interface and Types
+  - Common Syntax
+  - Built-in Type Primitives
+  - Common Built-in JS Objects
+  - Overloads
+  - Get & Set
+  - Merging and Extension
+  - Differences between Type and Interface
+  - Class
+  - Common Syntax
+  - Constructor and Constructor Overloads
+  - Private and Protected Constructors
+  - Access modifiers
+  - this
+  - Parameter Properties
+  - Abstract Classes
+  - With Generics
+  - Decorators
+  - Inheritance
+  - Statics
+  - Property initialization
+  - Method overloading
+  - Generics
+  - Avoid repetition using Generics
+  - Generic Type
+  - Generic Classes
+  - Generic Constraints
+  - Others
+  - Boxed types
+  - Erased Structural Types
+    Modules
+  - Namespaces
+  - Symbols
+  - Triple-Slash Directives
+    Type Manipulation
+  - Creating Types from Types
+  - Indexed Access Types
 
 Utility Types
-   * Awaited<T>
-   * Partial<T>
-   * Required<T>
-   * Readonly<T>
-   * Record<K, T>
-   * Pick<T, K>
-   * Omit<T, K>
-   * Exclude<T, U>
-   * Extract<T, U>
-   * NonNullable<T>
-   * Parameters<T>
-   * ConstructorParameters<T>
-   * ReturnType<T>
-   * InstanceType<T>
-   * ThisParameterType<T>
-   * OmitThisParameter<T>
-   * ThisType<T>
-   * Uppercase<T>
-   * Lowercase<T>
-   * Capitalize<T>
-   * Uncapitalize<T>
-Others
-   * Errors and Exception Handling
-   * Mixin Classes
-   * Asynchronous Language Features
-   * Iterators and Generators
-   * TsDocs JSDoc Reference
-   * @types
-   * JSX
-   * ES6 Modules
-   * ES7 exponentiation operator
-   * The for-await-of Statement
-   * new.target 
-   * Dynamic Import Expressions
-   * “tsc –watch”
-   * Definite Assignment Assertions
-   * Defaulted declarations
-   * “const“ assertions
-   * Optional Chaining (!)
-   * Nullish Coalescing (??)
-   * Template Literal Types
-   * Recursive Conditional Types
-   * ECMAScript Module Support in Node.js
-   * Function overloading        
-   * Assertion Functions
-   * Variadic Tuple Types
+
+- Awaited<T>
+- Partial<T>
+- Required<T>
+- Readonly<T>
+- Record<K, T>
+- Pick<T, K>
+- Omit<T, K>
+- Exclude<T, U>
+- Extract<T, U>
+- NonNullable<T>
+- Parameters<T>
+- ConstructorParameters<T>
+- ReturnType<T>
+- InstanceType<T>
+- ThisParameterType<T>
+- OmitThisParameter<T>
+- ThisType<T>
+- Uppercase<T>
+- Lowercase<T>
+- Capitalize<T>
+- Uncapitalize<T>
+  Others
+- Errors and Exception Handling
+- Mixin Classes
+- Asynchronous Language Features
+- Iterators and Generators
+- TsDocs JSDoc Reference
+- @types
+- JSX
+- ES6 Modules
+- ES7 exponentiation operator
+- The for-await-of Statement
+- new.target
+- Dynamic Import Expressions
+- “tsc –watch”
+- Definite Assignment Assertions
+- Defaulted declarations
+- “const“ assertions
+- Optional Chaining (!)
+- Nullish Coalescing (??)
+- Template Literal Types
+- Recursive Conditional Types
+- ECMAScript Module Support in Node.js
+- Function overloading
+- Assertion Functions
+- Variadic Tuple Types
 
 TODO
-   * Key Remapping in Mapped Types
-   * abstractConstruct Signatures
-   * Contextual Narrowing for Generics
-   * Symbol and Template String Pattern Index Signatures
-   * Strict contravariance for callback parameters
-   * Optional Variance Annotations for Type Parameters
-   * Covariance and Contravariance in TypeScript
 
-
-
+- Key Remapping in Mapped Types
+- abstractConstruct Signatures
+- Contextual Narrowing for Generics
+- Symbol and Template String Pattern Index Signatures
+- Strict contravariance for callback parameters
+- Optional Variance Annotations for Type Parameters
+- Covariance and Contravariance in TypeScript
 
 # The Concise TypeScript Book
 
@@ -209,8 +200,8 @@ TODO
 
 TODO
 
-
 ## TypeScript an introduction
+
 ### What is TypeScript
 
 TypeScript is a strongly typed programming language that builds on JavaScript. It was originally designed by Anders Hejlsberg in 2012 and is currently developed and maintained by Microsoft as an open source project.
@@ -226,11 +217,10 @@ TypeScript is a strongly typed language that helps prevent common programming mi
 A strongly typed language allows the developer to specify various program constraints and behaviors in the data type definitions, facilitating the ability to verify the correctness of the software and prevent defects. This is especially valuable in large-scale applications.
 
 Some of the benefits of TypeScript:
-      * Static typing, optionally strongly typed
-      * Type Inference
-      * Access to ES6 and ES7 features
-      * Cross-Platform and Cross-browser Compatibility
-      * Tooling support with IntelliSense
+_ Static typing, optionally strongly typed
+_ Type Inference
+_ Access to ES6 and ES7 features
+_ Cross-Platform and Cross-browser Compatibility \* Tooling support with IntelliSense
 
 ### TypeScript and JavaScript
 
@@ -262,7 +252,7 @@ const result = items.filter(item => item.y)
 In this case, TypeScript detects an error and reports:
 
 Property 'y' does not exist on type '{ x: number; }'.
-                                        
+
 TypeScript's type system is largely influenced by the runtime behavior of JavaScript. For example, the addition operator (+), which in JavaScript can either perform string concatenation or numeric addition, is modeled in the same way in TypeScript:
 
 ```
@@ -339,6 +329,7 @@ const dog: Dog = {
 }
 makeNoise(dog)
 ```
+
 The property "kind" is a value that can be used at runtime to distinguish between objects in JavaScript.
 
 It is also possible for a value at runtime to have a type different from the one declared in the type declaration. For instance, if the developer has misinterpreted an API type and annotated it incorrectly.
@@ -384,18 +375,19 @@ TypeScript can compile code to any released version of JavaScript since ECMAScri
 It's important to note that during transpilation to an older version of JavaScript, TypeScript may generate code that could incur a performance overhead compared to native implementations.
 
 Here are some of the modern JavaScript features that can be used in TypeScript:
-      * ECMAScript modules instead of AMD-style "define" callbacks or CommonJS "require" statements.
-      * Classes instead of prototypes.
-      * Variables declaration using "let" or "const" instead of "var".
-      * "for-of" loop or ".forEach" instead of the traditional "for" loop.
-      * Arrow functions instead of function expressions.
-      * Destructuring assignment.
-      * Shorthand property/method names and computed property names.
-      * Default function parameters.
+_ ECMAScript modules instead of AMD-style "define" callbacks or CommonJS "require" statements.
+_ Classes instead of prototypes.
+_ Variables declaration using "let" or "const" instead of "var".
+_ "for-of" loop or ".forEach" instead of the traditional "for" loop.
+_ Arrow functions instead of function expressions.
+_ Destructuring assignment.
+_ Shorthand property/method names and computed property names.
+_ Default function parameters.
 
 By leveraging these modern JavaScript features, developers can write more expressive and concise code in TypeScript.
-                
+
 ## Getting Started With TypeScript
+
 ### Installation
 
 Visual Studio Code provides excellent support for the TypeScript language but does not include the TypeScript compiler. To install the TypeScript compiler, you can use a package manager like npm or yarn:
@@ -429,6 +421,7 @@ It is recommended to install TypeScript project-wise rather than globally, as it
 ```
 npx tsc
 ```
+
 or installing it globally:
 
 ```
@@ -443,9 +436,8 @@ Install-Package Microsoft.TypeScript.MSBuild
 
 During the TypeScript installation, two executables are installed: "tsc" as the TypeScript compiler and "tsserver" as the TypeScript standalone server. The standalone server contains the compiler and language services that can be utilized by editors and IDEs to provide intelligent code completion.
 
-
 Additionally, there are several TypeScript-compatible transpilers available, such as Babel (via a plugin) or swc. These transpilers can be used to convert TypeScript code into other target languages or versions.
-                                  
+
 ### Configuration
 
 TypeScript can be configured using the tsc CLI options or by utilizing a dedicated configuration file called tsconfig.json placed in the root of the project.
@@ -468,11 +460,11 @@ tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts an
 
 ### TypeScript configuration file ​​tsconfig.json
 
-A tsconfig.json file is used to configure the TypeScript Compiler (tsc). Usually, it is added to the root of the project, together with the `package.json` file. 
+A tsconfig.json file is used to configure the TypeScript Compiler (tsc). Usually, it is added to the root of the project, together with the `package.json` file.
 
 Notes:
-         * tsconfig.json accepts comments even if it is in json format.
-         * It is advisable to use this configuration file instead of the command-line options.
+_ tsconfig.json accepts comments even if it is in json format.
+_ It is advisable to use this configuration file instead of the command-line options.
 
 At the following link you can find the complete documentation and its schema:
 https://www.typescriptlang.org/tsconfig
@@ -482,20 +474,19 @@ The following represents a list of the common and useful configurations:
 
 #### target
 
-The "target" property is used to specify which version of  JavaScript ECMAScript version your TypeScript should emit/compile into. For modern browsers ES6 is a good option, for older browsers, ES5 is recommended.
+The "target" property is used to specify which version of JavaScript ECMAScript version your TypeScript should emit/compile into. For modern browsers ES6 is a good option, for older browsers, ES5 is recommended.
 
 #### lib
-
 
 The "lib" property is used to specify which library files to include at compilation time. TypeScript automatically includes APIs for features specified in the "target" property, but it is possible to omit or pick specific libraries for particular needs. For instance, if you are working on a server project, you could exclude the "DOM" library, which is useful only in a browser environment.
 
 #### strict
 
 The "strict" property enables stronger guarantees and enhances type safety. It is advisable to always include this property in your project's tsconfig.json file. Enabling the "strict" property allows TypeScript to:
-         * Emit code using "use strict" for each source file.
-         * Consider "null" and "undefined" in the type checking process.
-         * Disable the usage of the "any" type when no type annotations are present.
-         * Raise an error on the usage of the "this" expression, which would otherwise imply the "any" type.
+_ Emit code using "use strict" for each source file.
+_ Consider "null" and "undefined" in the type checking process.
+_ Disable the usage of the "any" type when no type annotations are present.
+_ Raise an error on the usage of the "this" expression, which would otherwise imply the "any" type.
 
 #### module
 
@@ -507,12 +498,11 @@ Note: The module system should be chosen based on the target environment and the
 
 #### moduleResolution
 
-
 The "moduleResolution" property specifies the module resolution strategy. Use “node” for modern TypeScript code, the “classic” strategy is used only for old versions of TypeScript (before 1.6).
 
 #### esModuleInterop
 
-The "esModuleInterop" property allows import default from CommonJS modules that did not export using the “default” property, this property provides a shim to ensure compatibility in the emitted JavaScript. After enabling this option we can use “import  MyLibrary from ‘my-library’” instead of  “import * as MyLibrary from ‘my-library’”.
+The "esModuleInterop" property allows import default from CommonJS modules that did not export using the “default” property, this property provides a shim to ensure compatibility in the emitted JavaScript. After enabling this option we can use “import MyLibrary from ‘my-library’” instead of “import \* as MyLibrary from ‘my-library’”.
 
 #### jsx
 
@@ -528,7 +518,7 @@ The "files" property indicates to the compiler a list of files that must always 
 
 #### include
 
-The "include" property indicates to the compiler a list of files that we would like to include. This property allows glob-like patterns, such as "**" for any subdirectory, "*" for any file name, and "?" for optional characters.
+The "include" property indicates to the compiler a list of files that we would like to include. This property allows glob-like patterns, such as "\*_" for any subdirectory, "_" for any file name, and "?" for optional characters.
 
 #### exclude
 
@@ -536,14 +526,14 @@ The "exclude" property indicates to the compiler a list of files that should not
 Note: tsconfig.json allows comments.
 
 ### Migration to TypeScript Advice
-For large projects, it is recommended to adopt a gradual transition where TypeScript and JavaScript code will initially coexist. Only small projects can be migrated to TypeScript in one go.
 
+For large projects, it is recommended to adopt a gradual transition where TypeScript and JavaScript code will initially coexist. Only small projects can be migrated to TypeScript in one go.
 
 The first step of this transition is to introduce TypeScript into the build chain process. This can be done by using the "allowJs" compiler option, which permits .ts and .tsx files to coexist with existing JavaScript files. As TypeScript will fall back to a type of "any" for a variable when it cannot infer the type from JavaScript files, it is recommended to disable "noImplicitAny" in your compiler options at the beginning of the migration.
 
 The second step is to ensure that your JavaScript tests work alongside TypeScript files so that you can run tests as you convert each module. If you are using Jest, consider using `ts-jest`, which allows you to test TypeScript projects with Jest.
 
-The third step is to include type declarations for third-party libraries in your project. These declarations can be found either bundled or on DefinitelyTyped. You can search for them using https://www.typescriptlang.org/dt/search and install them using 
+The third step is to include type declarations for third-party libraries in your project. These declarations can be found either bundled or on DefinitelyTyped. You can search for them using https://www.typescriptlang.org/dt/search and install them using
 
 ```
 npm install --save-dev @types/package-name or yarn add --dev @types/package-name.
@@ -563,7 +553,7 @@ During the migration, you can use the `@ts-check` directive, which enables TypeS
 
 Consider keeping the default value of `noEmitOnError` in your tsconfig.json as false. This will allow you to output JavaScript source code even if errors are reported.
 
-## Exploring the Type System                                
+## Exploring the Type System
 
 ### The TypeScript language service
 
@@ -726,7 +716,7 @@ console.log(getA(new Z('z'))) // Valid
 
 Enums are comparable and valid with numbers and vice versa, but comparing Enum values from different Enum types is invalid.
 
-````
+```
 enum X {
  A,
  B,
@@ -798,7 +788,7 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' }
-x === y // Invalid as the type argument is used in the final structure 
+x === y // Invalid as the type argument is used in the final structure
 ```
 
 ```
@@ -1032,13 +1022,13 @@ and can be installed using:
 npm install --save-dev @types/library-name
 ```
 
-For your defined Ambient Declarations, you can import using the “triple-slash” reference: 
+For your defined Ambient Declarations, you can import using the “triple-slash” reference:
 
 ```
-/// <reference path="./library-types.d.ts" /> 
+/// <reference path="./library-types.d.ts" />
 ``
 You can use Ambient Declarations even within JavaScript files using `// @ts-check`.
-                                                   
+
 ### Property Checking and Excess Property Checking
 
 TypeScript is based on a structural type system but excess property checking is a property of TypeScript which allows it to check whether an object has the exact properties specified in the type.
@@ -1053,9 +1043,9 @@ const y = { a: 'a', b: 'b' }
 const x: X = y; // Valid because structural typing
 const w: X = { a: 'a', b: 'b' } // Invalid because excess property checking
 ```
-                                  
-### Weak Types                        
-                                
+
+### Weak Types
+
 A type is considered weak when it contains nothing but a set of all-optional properties:
 
 ```
@@ -1161,11 +1151,11 @@ let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
 ```
 
 TypeScript utilizes "contextual typing" based on the variable's location to infer types. In the following example, the compiler knows that `e` is of type `MouseEvent` because of the `click` event type defined in the lib.d.ts file, which contains ambient declarations for various common JavaScript constructs and the DOM:
- 
+
 ```
 window.addEventListener('click', function (e) {}); // e inferred type is MouseEvent
 ```
-                                                                 
+
 ### Type Widening
 
 Type widening is the process in which TypeScript assigns a type to a variable initialized when no type annotation was provided. It allows narrow to wider types but not vice versa.
@@ -1183,7 +1173,7 @@ TypeScript provides ways to have control of the widening process, for instance u
 
 ### Const
 
-Using the `const` keyword when declaring a variable results in a narrower type inference in TypeScript. 
+Using the `const` keyword when declaring a variable results in a narrower type inference in TypeScript.
 
 For example:
 
@@ -1424,7 +1414,7 @@ The `any` type could be useful during a gradual migration from JavaScript to Typ
 For new projects use TypeScript configuration `noImplicitAny` which enables TypeScript to issue errors where `any` is used or inferred.
 
 The `any`type  is usually a source of errors which can mask real problems with your types. Avoid using it as much as possible.
-                
+
 ## Type Annotations
 
 On variables declared using `var`, `let` and `const`, it is possible to optionally add a type:
@@ -1691,11 +1681,11 @@ When the `strictNullChecks` option is enabled, TypeScript requires that variable
 
 ## strictNullChecks
 
-`strictNullChecks` is a TypeScript compiler option that enforces strict null checking. When this option is enabled, variables and parameters can only be assigned `null` or `undefined` if they have been explicitly declared to be of that type using the union type `null` | `undefined`. If a variable or parameter is not explicitly declared as nullable, TypeScript will generate an error to prevent potential runtime errors.        
+`strictNullChecks` is a TypeScript compiler option that enforces strict null checking. When this option is enabled, variables and parameters can only be assigned `null` or `undefined` if they have been explicitly declared to be of that type using the union type `null` | `undefined`. If a variable or parameter is not explicitly declared as nullable, TypeScript will generate an error to prevent potential runtime errors.
 
 ## Non-null Assertion Operator (Postfix !)
 
-The Non-null Assertion Operator (Postfix !) is a TypeScript feature that allows you to assert that a variable or property is not `null` or `undefined`, even if TypeScript's static type analysis suggests that it might be. With this feature it is possible to remove any explicit checking. 
+The Non-null Assertion Operator (Postfix !) is a TypeScript feature that allows you to assert that a variable or property is not `null` or `undefined`, even if TypeScript's static type analysis suggests that it might be. With this feature it is possible to remove any explicit checking.
 
 ## Enums
 
@@ -1712,7 +1702,7 @@ enum Color {
 ### Enums can be defined in different ways:
 
 #### Numeric enums
-In TypeScript, a numeric enum is an enum where each constant is assigned a numeric value, starting from 0 by default.        
+In TypeScript, a numeric enum is an enum where each constant is assigned a numeric value, starting from 0 by default.
 
 ```
 enum Size {
@@ -1761,7 +1751,7 @@ Will be compiled into:
 console.log("EN" /* Language.English */);
 ```
 
-Notes: 
+Notes:
 Const enums have hardcoded values, erasing the enum, which can be more efficient in self-contained libraries but is generally not desirable. Also, const enums cannot have computed members.
 
 #### Reverse mapping
@@ -1927,7 +1917,7 @@ if (typeof value === "number") {
 ## Control flow analysis
 Control flow analysis in TypeScript is a way to statically analyze the code flow to infer the types of variables, allowing the compiler to narrow the types of those variables as needed, based on the results of the analysis.
 
-Prior to TypeScript 4.4, code flow analysis would only be applied to code within an if statement, but from TypeScript 4.4, it can also be applied to conditional expressions and discriminant property accesses indirectly referenced through const variables. 
+Prior to TypeScript 4.4, code flow analysis would only be applied to code within an if statement, but from TypeScript 4.4, it can also be applied to conditional expressions and discriminant property accesses indirectly referenced through const variables.
 
 For example:
 
@@ -2087,12 +2077,12 @@ type Point = {
 
 ## Tuple Type
 
-A Tuple Type is a type that represents an array with a fixed number of elements and their corresponding types. A tuple type enforces a specific number of elements and their respective types in a fixed order. Tuple types are useful when you want to represent a collection of values with specific types, where the position of each element in the array has a specific meaning. 
+A Tuple Type is a type that represents an array with a fixed number of elements and their corresponding types. A tuple type enforces a specific number of elements and their respective types in a fixed order. Tuple types are useful when you want to represent a collection of values with specific types, where the position of each element in the array has a specific meaning.
 
 ```
 type Point = [number, number];
 ```
-## Fixed length tuple                                 
+## Fixed length tuple
 
 A Fixed length tuple is a specific type of tuple that enforces a fixed number of elements of specific types, and disallows any modifications to the length of the tuple once it is defined.
 
@@ -2112,8 +2102,8 @@ x = 'hello' // valid
 x = 123 // valid
 ```
 
-## Intersection Types                
-                
+## Intersection Types
+
 An Intersection Type is a type that represents a value that has all the properties of two or more types. Intersection Types are denoted using the & symbol between each type.
 
 ```
@@ -2132,8 +2122,8 @@ const j: J = {
  b: 'b',
 };
 ```
-               
-## Type Indexing                                
+
+## Type Indexing
 
 Type indexing refers to the ability to define types that can be indexed by a key that is not known in advance, using an index signature to specify the type for properties that are not explicitly declared.
 
@@ -2143,11 +2133,11 @@ type Dictionary<T> = {
 }
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
 console.log(myDict['a']); // return a
-```        
+```
 
-## Type from Value                
+## Type from Value
 
-"Type from Value" in TypeScript refers to the automatic inference of a type from a value or expression through type inference.                
+"Type from Value" in TypeScript refers to the automatic inference of a type from a value or expression through type inference.
 ```
 const x = "x"; // TypeScript can automatically infer that the type of the message variable is string
 ```
@@ -2157,8 +2147,8 @@ Type from Func Return refers to the ability to automatically infer the return ty
 ```
 const add = (x: number, y: number) => x + y  // TypeScript can infer that the return type of the function is a number
 ```
-                        
-## Type from Module                
+
+## Type from Module
 Type from Module refers to the ability to use a module's exported values to automatically infer their types. When a module exports a value with a specific type, TypeScript can use that information to automatically infer the type of that value when it is imported into another module.
 
 ```
@@ -2167,10 +2157,10 @@ export const add = (x: number, y: number)
 // index.ts
 import { add } from 'calc'
 const r = add(1, 2) // r is number
-```                                                                         
+```
 
 ## Mapped types
-Mapped types in TypeScript allow you to create new types based on an existing type by transforming each property using a mapping function. By mapping existing types, you can create new types that represent the same information in a different format. To create a mapped type, you access the properties of an existing type using the `keyof` operator and then alter them to produce a new type.        
+Mapped types in TypeScript allow you to create new types based on an existing type by transforming each property using a mapping function. By mapping existing types, you can create new types that represent the same information in a different format. To create a mapped type, you access the properties of an existing type using the `keyof` operator and then alter them to produce a new type.
 In the following example:
 
 ```
@@ -2187,7 +2177,7 @@ const x: MyNewType = {
  bar: [1, 2, 3],
 };
 ```
-we define MyMappedType to map over T's properties, creating a new type with each property as an array of its original type. Using this, we create MyNewType to represent the same info as MyType, but with each property as an array.                
+we define MyMappedType to map over T's properties, creating a new type with each property as an array of its original type. Using this, we create MyNewType to represent the same info as MyType, but with each property as an array.
 
 ## Conditional Types
 Conditional types are a way to create a type that depends on a condition, where the type to be created is determined based on the result of the condition. They are defined using the `extends` keyword and a ternary operator to conditionally choose between two types.
@@ -2301,7 +2291,7 @@ const sayHello = (): void => {
 
 ## Never type
 
-The `never` type represents values that never occur. It is used to denote functions or expressions that never return or throw an error. 
+The `never` type represents values that never occur. It is used to denote functions or expressions that never return or throw an error.
 
 For instance an infinite loop:
 
@@ -2573,7 +2563,7 @@ const dog: Bird = {
 
 ## Differences between Type and Interface
 
-Declaration merging (augmentation): Interfaces support declaration merging, which means that you can define multiple interfaces with the same name, and TypeScript will merge them into a single interface with the combined properties and methods. On the other hand, types do not support declaration merging. This can be helpful when you want to add extra functionality or customize existing types without modifying the original definitions or patching missing or incorrect types.                                
+Declaration merging (augmentation): Interfaces support declaration merging, which means that you can define multiple interfaces with the same name, and TypeScript will merge them into a single interface with the combined properties and methods. On the other hand, types do not support declaration merging. This can be helpful when you want to add extra functionality or customize existing types without modifying the original definitions or patching missing or incorrect types.
 
 ```
 interface A {
@@ -2589,7 +2579,7 @@ const j: A = {
 ```
 
 Extending other types/interfaces: Both types and interfaces can extend other types/interfaces, but the syntax is different. With interfaces, you use the `extends` keyword to inherit properties and methods from other interfaces. However, an interface cannot extend a complex type like a union type.
-                                
+
 ```
 interface A {
  x: string;
@@ -2806,7 +2796,7 @@ The `public` modifier provides unrestricted access to the class member, allowing
 
 ### this
 
-In TypeScript, the `this` keyword refers to the current instance of a class within its methods or constructors. It allows you to access and modify the properties and methods of the class from within its own scope. 
+In TypeScript, the `this` keyword refers to the current instance of a class within its methods or constructors. It allows you to access and modify the properties and methods of the class from within its own scope.
 It provides a way to access and manipulate the internal state of an object within its own methods.
 
 ```
@@ -3041,8 +3031,8 @@ Parameter decorators are used mainly to record information which can be passed t
 
 ```
 function ParameterDecorator(
- target: Function, 
- propertyKey: string | symbol, 
+ target: Function,
+ propertyKey: string | symbol,
  parameterIndex: number
  ) {
  console.log("ParameterDecorator called on: ", target, propertyKey, parameterIndex);
@@ -3216,7 +3206,7 @@ console.log(r.add(10, 5))
 
 ## Generics
 
-Generics allow you to create reusable components and functions that can work with multiple types. With generics, you can parameterize types, functions, and interfaces, allowing them to operate on different types without explicitly specifying them beforehand. 
+Generics allow you to create reusable components and functions that can work with multiple types. With generics, you can parameterize types, functions, and interfaces, allowing them to operate on different types without explicitly specifying them beforehand.
 
 Generics allow you to make code more flexible and reusable.
 
@@ -3263,7 +3253,7 @@ console.log(stringContainer.getItem()); // hello
 
 Generic parameters can be constrained using the `extends` keyword followed by a type or interface that the type parameter must satisfy.
 
-In the following example T it is must containing a properly `length` in order to be valid: 
+In the following example T it is must containing a properly `length` in order to be valid:
 
 ```
 const printLen = <T extends { length: number }>(value: T): void => {
@@ -3316,7 +3306,7 @@ boolean => Boolean
 symbol => Symbol
 bigint => BigInt
 
-The boxed types are usually not needed. Avoid using boxed types and instead use type for the primitives,  for instance `string` instead of `String`. 
+The boxed types are usually not needed. Avoid using boxed types and instead use type for the primitives,  for instance `string` instead of `String`.
 
 ## Erased Structural Types
 
@@ -3732,7 +3722,7 @@ throw new CustomError("This is a custom error.");
 ```
 
 
-### Mixin Classes 
+### Mixin Classes
 Mixin classes allow you to combine and compose behavior from multiple classes into a single class. They provide a way to reuse and extend functionality without the need for deep inheritance chains.
 
 ```
@@ -3848,7 +3838,7 @@ for (const num of iterator) {
 }
 ```
 
-Generators are special functions defined using the `function*` syntax that simplifies the creation of iterators. They use the `yield` keyword to define the sequence of values and automatically pause and resume execution when values are requested. 
+Generators are special functions defined using the `function*` syntax that simplifies the creation of iterators. They use the `yield` keyword to define the sequence of values and automatically pause and resume execution when values are requested.
 
 Generators make it easier to create iterators and are especially useful for working with large or infinite sequences.
 
@@ -3869,9 +3859,9 @@ for (const num of generator) {
 ```
 
 TypeScript also supports async iterators and async Generators.
-                        
+
 To learn more:
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator                
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator
 ### TsDocs JSDoc Reference
 When working with a JavaScript code base, it is possible to help TypeScript to infer the right Type by using JSDoc comments with additional annotation to provide type information.
 
@@ -3927,7 +3917,7 @@ https://www.typescriptlang.org/tsconfig#jsx
 
 TypeScript does support ES6 (ECMAScript 2015) and many subsequent versions. This means you can use ES6 syntax, such as arrow functions, template literals, classes, modules, destructuring, and more.
 
-To enable ES6 features in your project, you can specify the `target` property in the tsconfig.json. 
+To enable ES6 features in your project, you can specify the `target` property in the tsconfig.json.
 
 A configuration example:
 
@@ -4115,7 +4105,7 @@ function makeGreeting(person: unknown): unknown {
 }
 
 makeGreeting('Simon')
-makeGreeting(['Simone', 'John']) 
+makeGreeting(['Simone', 'John'])
 ```
 
 ### Recursive Conditional Types
@@ -4196,14 +4186,14 @@ const isNumber1 = (value: unknown): asserts value is number => {
 }
 ```
 
-Assertion functions share similarities with type guards. Type guards were initially introduced to perform runtime checks and ensure the type of a value within a specific scope. 
+Assertion functions share similarities with type guards. Type guards were initially introduced to perform runtime checks and ensure the type of a value within a specific scope.
 Specifically, a type guard is a function that evaluates a type predicate and returns a boolean value indicating whether the predicate is true or false. This differs slightly from assertion functions,where the intention is to throw an error rather than returning false when the predicate is not satisfied.
 
 Example of type guard:
 
 ```
 const isNumber = (value: unknown): value is number => typeof value === "number"
-``` 
+```
 
 ### Variadic Tuple Types
 
