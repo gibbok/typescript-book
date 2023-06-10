@@ -254,19 +254,19 @@ TypeScript is a typed superset of JavaScript (ECMAScript 2015) in terms of synta
 
 For instance, consider a function in a JavaScript file with the `.js` extension, such as the following:
 
-```
+```typescript
 const sum = (a, b) => a + b
 ```
 
 The function can be converted and used in TypeScript by changing the file extension to `.ts`. However, if the same function is annotated with TypeScript types, it cannot be executed in any JavaScript engine without compilation. The following TypeScript code will produce a syntax error if it is not compiled:
 
-```
+```typescript
 const sum = (a: number, b: number): number => a + b
 ```
 
 TypeScript was designed to detect possible exceptions that can occur at runtime during compilation time by having the developer define the intent with type annotations. In addition, TypeScript can also catch issues if no type annotation is provided. For instance, the following code snippet does not specify any TypeScript types:
 
-```
+```typescript
 const items = [{ x: 1 }, { x: 2 }]
 const result = items.filter(item => item.y)
 ```
@@ -277,13 +277,13 @@ Property 'y' does not exist on type '{ x: number; }'.
 
 TypeScript's type system is largely influenced by the runtime behavior of JavaScript. For example, the addition operator (+), which in JavaScript can either perform string concatenation or numeric addition, is modeled in the same way in TypeScript:
 
-```
+```typescript
 const result = '1' + 1; // Result is of type string
 ```
 
 The team behind TypeScript has made a deliberate decision to flag unusual usage of JavaScript as errors. For instance, consider the following valid JavaScript code:
 
-```
+```typescript
 const result = 1 + true; // In JavaScript, the result is equal 2
 ```
 
@@ -298,14 +298,14 @@ This error occurs because TypeScript strictly enforces type compatibility, and i
 The TypeScript compiler has two main responsibilities: checking for type errors and compiling to JavaScript. These two processes are independent of each other. Types do not affect the execution of the code in a JavaScript engine, as they are completely erased during compilation. TypeScript can still output JavaScript even in the presence of type errors.
 Here is an example of TypeScript code with a type error:
 
-```
+```typescript
 const add = (a: number, b: number): number => a + b
 const result = add('x', 'y')// argument of type 'string' is not assignable to parameter of type 'number'.
 ```
 
 However, it can still produce executable JavaScript output:
 
-```
+```typescript
 "use strict";
 const add = (a, b) => a + b;
 const result = add('x', 'y'); // xy
@@ -313,7 +313,7 @@ const result = add('x', 'y'); // xy
 
 It is not possible to check TypeScript types at runtime. For example:
 
-```
+```typescript
 interface Animal { name: string; };
 interface Dog extends Animal { bark: () => void; }
 interface Cat extends Animal { meow: () => void; }
@@ -326,7 +326,7 @@ const makeNoise = (animal: Animal) => {
 
 As the types are erased after compilation, there is no way to run this code in JavaScript. To recognize types at runtime, we need to use another mechanism. TypeScript provides several options, with a common one being "tagged union". For example:
 
-```
+```typescript
 interface Dog {
    kind: 'dog', // Tagged union
    bark: () => void;
@@ -358,7 +358,7 @@ It is also possible for a value at runtime to have a type different from the one
 
 TypeScript is a superset of JavaScript, so the "class" keyword can be used as a type and value at runtime.
 
-```
+```typescript
 class Animal {
    constructor(public name: string) { }
 }
@@ -414,13 +414,13 @@ By leveraging these modern JavaScript features, developers can write more expres
 
 Visual Studio Code provides excellent support for the TypeScript language but does not include the TypeScript compiler. To install the TypeScript compiler, you can use a package manager like npm or yarn:
 
-```
+```shell
 npm install typescript --save-dev
 ```
 
 or
 
-```
+```shell
 yarn add typescript --dev
 ```
 
@@ -428,31 +428,31 @@ Make sure to commit the generated lockfile to ensure that every team member uses
 
 To run the TypeScript compiler, you can use the following commands
 
-```
+```shell
 npx tsc
 ```
 
 or
 
-```
+```shell
 yarn tsc
 ```
 
 It is recommended to install TypeScript project-wise rather than globally, as it provides a more predictable build process. However, for one-off occasions, you can use the following command:
 
-```
+```shell
 npx tsc
 ```
 
 or installing it globally:
 
-```
+```shell
 npm install -g typescript
 ```
 
 If you are using Microsoft Visual Studio, you can obtain TypeScript as a package in NuGet for your MSBuild projects. In the NuGet Package Manager Console, run the following command:
 
-```
+```shell
 Install-Package Microsoft.TypeScript.MSBuild
 ```
 
@@ -466,7 +466,7 @@ TypeScript can be configured using the tsc CLI options or by utilizing a dedicat
 
 To generate a tsconfig.json file prepopulated with recommended settings, you can use the following command:
 
-```
+```shell
 tsc --init
 ```
 
@@ -474,7 +474,7 @@ When executing the `tsc` command locally, TypeScript will compile the code using
 
 Here are some examples of CLI commands that run with the default settings:
 
-```
+```typescript
 tsc main.ts // Compile a specific file (main.ts) to JavaScript
 tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
 tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
@@ -557,7 +557,7 @@ The second step is to ensure that your JavaScript tests work alongside TypeScrip
 
 The third step is to include type declarations for third-party libraries in your project. These declarations can be found either bundled or on DefinitelyTyped. You can search for them using https://www.typescriptlang.org/dt/search and install them using
 
-```
+```shell
 npm install --save-dev @types/package-name or yarn add --dev @types/package-name.
 ```
 
@@ -595,7 +595,7 @@ TypeScript's structural type system was designed based on how JavaScript's dynam
 
 The following example is valid TypeScript code. As you can observe, "X" and "Y" have the same member "a," even though they have different declaration names. The types are determined by their structures, and in this case, since the structures are the same, they are compatible and valid.
 
-```
+```typescript
 type X = {
  a: string;
 }
@@ -612,7 +612,7 @@ The TypeScript comparison process is recursive and executed on types nested at a
 
 A type 'X' is compatible with 'Y' if 'Y' has at least the same members as 'X'.
 
-```
+```typescript
 type X = {
   a: string;
 }
@@ -622,7 +622,7 @@ const r: X = y
 
 Function parameters are compared by types, not by their names:
 
-```
+```typescript
 type X = (a:number) => void
 type Y = (a:number) => void
 let x: X = (j: number) => undefined;
@@ -633,7 +633,7 @@ x = y; // Valid
 
 Function return types must be the same:
 
-```
+```typescript
 type X = (a: number) => undefined
 type Y = (a: number) => number
 let x: X = (a: number) => undefined;
@@ -644,7 +644,7 @@ x = y; // Invalid
 
 The return type of a source function must be a subtype of the return type of a target function:
 
-```
+```typescript
 let x = () => ({ a: "A" });
 let y = () => ({ a: "A", b: "B" })
 x = y; // Valid
@@ -653,13 +653,13 @@ y = x; // Invalid member b is missing
 
 Discarding function parameters is allowed, as it is a common practice in JavaScript, for instance using Array.prototype.map():
 
-```
+```typescript
 [1, 2, 3].map((element, _index, _array) => element + 'x')
 ```
 
 Therefore, the following type declarations are completely valid:
 
-```
+```typescript
 type X = (a: number) => undefined
 type Y = (a: number, b: number) => undefined
 let x: X = (a: number) => undefined;
@@ -669,7 +669,7 @@ y = x; // Valid
 
 Any additional optional parameters of the source type are valid:
 
-```
+```typescript
 type X = (a: number, b?: number, c?: number) => undefined
 type Y = (a: number) => undefined
 let x: X = (a) => undefined;
@@ -680,7 +680,7 @@ x = y; //Valid
 
 Any optional parameters of the target type without corresponding parameters in the source type are valid and not an error:
 
-```
+```typescript
 type X = (a: number) => undefined
 type Y = (a: number, b?: number) => undefined
 let x: X = (a) => undefined;
@@ -691,14 +691,14 @@ x = y; // Valid
 
 The rest parameter is treated as an infinite series of optional parameters:
 
-```
+```typescript
 type X = (a: number, ...rest:number[]) => undefined
 let x: X = (a) => undefined; //valid
 ```
 
 Functions with overloads are valid if the overload signature is compatible with its implementation signature:
 
-```
+```typescript
 function x(a: string): void;
 function x(a: string, b: number): void;
 function x(a: string, b?: number): void { console.log(a,b) }
@@ -714,7 +714,7 @@ y('a', 1);
 
 Function parameter comparison succeeds if the source and target parameters are assignable to supertypes or subtypes (bivariance).
 
-```
+```typescript
 // Supertype
 class X {
    a: string;
@@ -738,7 +738,7 @@ console.log(getA(new Z('z'))) // Valid
 
 Enums are comparable and valid with numbers and vice versa, but comparing Enum values from different Enum types is invalid.
 
-```
+```typescript
 enum X {
  A,
  B,
@@ -755,7 +755,7 @@ X.A === Y.A // invalid
 
 Instances of a class are subject to a compatibility check for their private and protected members:
 
-```
+```typescript
 class X {
    public a: string;
    constructor(value: string) {
@@ -775,7 +775,7 @@ let x : X = new Y('y') // invalid
 
 The comparison check does not take into consideration the different inheritance hierarchy, for instance:
 
-```
+```typescript
 class X {
   public a: string;
   constructor(value: string) {
@@ -804,7 +804,7 @@ x === z // valid even if z is from a different inheritance hierarchy
 ```
 Generics are compared using their structures based on the resulting type after applying the generic parameter, only the final result is compared as a non-generic type.
 
-```
+```typescript
 interface X<T> {
    a: T
 }
@@ -813,7 +813,7 @@ let y: X<string> = { a: 'a' }
 x === y // Invalid as the type argument is used in the final structure
 ```
 
-```
+```typescript
 interface X<T> { }
 const x: X<number> = 1
 const y: X<string> = 'a'
@@ -822,7 +822,7 @@ x === y;  // Valid as the type argument is not used in the final structure
 
 When generics do not have their type argument specified, all the unspecified arguments are treated as types with "any":
 
-```
+```typescript
 type X = <T>(x: T) => T
 type Y = <K>(y: K) => K
 let x: X = (x) => x
@@ -832,7 +832,7 @@ x = y // valid
 
 Remember:
 
-```
+```typescript
 let a: number = 1
 let b: number = 2
 a = b // Valid, everything is assignable to itself
@@ -919,7 +919,7 @@ const r: XY = { a: 'a', b: 'x' } // valid
 
 An intersection, (T1 & T2) create a narrower set (only shared):
 
-```
+```typescript
 type X = {
   a: string
 }
@@ -931,11 +931,12 @@ type XY = X & Y
 const r: XY = { a: 'a' } // invalid
 const j: XY = { a: 'a', b:'b' } // valid
 ```
+
 The `extends` keyword could be considered as a “subset of” in this context. It sets a constraint for a type. The extends used with a generic, take the generic as an infinite set and it will constrain it to a more specific type.
 Please note that `extends` has nothing to do with hierarchy in a OOP sense (there is no this concept in TypScript).
 TypeScript works with sets and does not have a strict hierarchy, infact, as in the example below, two types could overlap without either being a subtype of the other type (TypScript considers the structure, shape of the objects).
 
-```
+```typescript
 interface X { a: string; }
 interface Y extends X { b: string; }
 interface Z extends Y { c: string; }
@@ -955,7 +956,7 @@ A type can be assigned in different ways in TypeScript:
 
 In the following example, we use x: X (": Type") to declare a type for the variable x.
 
-```
+```typescript
 type X = {
   a: string
 }
@@ -967,8 +968,7 @@ const x: X = { // Type declaration
 
 If the variable is not in the specified format, TypeScript will report an error. For instance:
 
-```
-
+```typescript
 type X = {
   a: string
 }
@@ -985,7 +985,7 @@ It is possible to add an assertion by using the `as` keyword. This tells the com
 
 For example:
 
-```
+```typescript
 type X = {
   a: string
 }
@@ -999,14 +999,14 @@ In the above example, the object x is asserted to have the type X using the as k
 
 Type assertions are useful in situations where a more specific type needs to be specified, especially when working with the DOM. For instance:
 
-```
+```typescript
 const myInput = document.getElementById("my_input") as HTMLInputElement;
 ```
 
 Here, the type assertion as HTMLInputElement is used to tell TypeScript that the result of getElementById should be treated as an HTMLInputElement.
 Type assertions can also be used to remap keys, as shown in the example below with template literals:
 
-```
+```typescript
 type J<Type> = {
    [Property in keyof Type as `prefix_${string & Property}`]: () => Type[Property]
 };
@@ -1015,7 +1015,6 @@ type X = {
    b: number;
 }
 type Y = J<X>
-
 ```
 
 In this example, the type J<Type> uses a mapped type with a template literal to remap the keys of Type. It creates new properties with a prefix_ added to each key, and their corresponding values are functions returning the original property values.
@@ -1026,7 +1025,7 @@ It is worth noting that when using a type assertion, TypeScript will not execute
 
 This assertion is applied using a post-fix `!` expression operator, which tells TypeScript that a value cannot be null or undefined.
 
-```
+```typescript
 let x: null | number;
 let y  = x! // number
 ```
@@ -1040,13 +1039,13 @@ https://github.com/DefinitelyTyped/DefinitelyTyped/
 
 and can be installed using:
 
-```
+```shell
 npm install --save-dev @types/library-name
 ```
 
 For your defined Ambient Declarations, you can import using the “triple-slash” reference:
 
-```
+```typescript
 /// <reference path="./library-types.d.ts" />
 ```
 You can use Ambient Declarations even within JavaScript files using `// @ts-check`.
@@ -1057,7 +1056,7 @@ TypeScript is based on a structural type system but excess property checking is 
 
 Excess Property Checking is performed when assigning object literals to variables or when passing them as arguments to the function's excess property, for instance.
 
-```
+```typescript
 type X = {
    a: string;
 }
@@ -1070,7 +1069,7 @@ const w: X = { a: 'a', b: 'b' } // Invalid because excess property checking
 
 A type is considered weak when it contains nothing but a set of all-optional properties:
 
-```
+```typescript
 type X = {
    a?: string;
    b?: string
@@ -1079,7 +1078,7 @@ type X = {
 
 TypeScript considers an error to assign anything to a weak type when there is no overlap, for instance, the following throws an error:
 
-```
+```typescript
 type Options = {
    a?: string;
    b?: string
@@ -1092,7 +1091,7 @@ fn({ c: 'c' }) // invalid
 
 Although not recommended, if needed, it is possible to bypass this check by using type assertion:
 
-```
+```typescript
 type Options = {
    a?: string;
    b?: string
@@ -1103,7 +1102,7 @@ fn({ c: 'c' } as Options) // valid
 
 Or by adding `unknown` to the index signature to the weak type:
 
-```
+```typescript
 type Options = {
    [prop: string]: unknown;
    a?: string;
@@ -1124,7 +1123,7 @@ When creating an object literal, the TypeScript compiler considers it "fresh." I
 However, strict object literal checking does not apply when the type of an object literal is widened, meaning the object literal is structurally type compatible with a broader type.
 Here are some examples to illustrate:
 
-```
+```typescript
 type X = { a: string }
 type Y = { a: string, b: string }
 
@@ -1152,7 +1151,7 @@ TypeScript can infer types when no annotation is provided during:
 
 For example:
 
-```
+```typescript
 let x = 'x' // The type inferred is string
 ```
 
@@ -1162,19 +1161,19 @@ The TypeScript compiler analyzes the value or expression and determines its type
 
 When multiple expressions are used in type inference, TypeScript looks for the "best common types." For instance:
 
-```
+```typescript
 let x = [1, 'x', 1, null] // The type inferred is: (string | number | null)[]
 ```
 
 If the compiler cannot find the best common types, it returns a union type. For example:
 
-```
+```typescript
 let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
 ```
 
 TypeScript utilizes "contextual typing" based on the variable's location to infer types. In the following example, the compiler knows that `e` is of type `MouseEvent` because of the `click` event type defined in the lib.d.ts file, which contains ambient declarations for various common JavaScript constructs and the DOM:
 
-```
+```typescript
 window.addEventListener('click', function (e) {}); // e inferred type is MouseEvent
 ```
 
@@ -1183,7 +1182,7 @@ window.addEventListener('click', function (e) {}); // e inferred type is MouseEv
 Type widening is the process in which TypeScript assigns a type to a variable initialized when no type annotation was provided. It allows narrow to wider types but not vice versa.
 In the following example:
 
-```
+```typescript
 let x = 'x' // ts infers as string, a wide type
 let y: 'y'|'x' = 'y' // y types is a union of literal types
 y = x; // invalid Type 'string' is not assignable to type '"x" | "y"'.
@@ -1199,7 +1198,7 @@ Using the `const` keyword when declaring a variable results in a narrower type i
 
 For example:
 
-```
+```typescript
 const x = 'x' // TypeScript infers the type of x as 'x', a narrower type
 let y: 'y'|'x' = 'y'
 y = x; // Valid: The type of x is inferred as 'x'
@@ -1212,7 +1211,7 @@ The reason the type can be inferred is because const variables cannot be reassig
 
 We can be specific and pass a type, in the following example property `x` is of type `number`:
 
-```
+```typescript
 const v = {
    x: 1, // Inferred type: number (widening)
 };
@@ -1221,7 +1220,7 @@ v.x = 3; // Valid
 
 We can make the type annotation more specific by using a union of literal types:
 
-```
+```typescript
 const v: { x: 1 | 2 | 3 } = {
    x: 1, // x is now a union of literal types: 1 | 2 | 3
 };
@@ -1234,7 +1233,7 @@ Const assertion allows us to be more specific by asserting a `const` type. It ca
 
 On a single property:
 
-```
+```typescript
 const v = {
    x: 3 as const,
 };
@@ -1243,7 +1242,7 @@ v.x = 3;
 
 On an entire object:
 
-```
+```typescript
 const v = {
    x: 1,
    y: 2,
@@ -1252,7 +1251,7 @@ const v = {
 
 This can be particularly useful when defining the type for a tuple:
 
-```
+```typescript
 const x = [1, 2, 3]; // number[]
 const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
 ```
@@ -1266,7 +1265,7 @@ Narrowing types can occur in different ways, including:
 #### Conditions
 By using conditional statements, such as `if` or `switch`, TypeScript can narrow down the type based on the outcome of the condition. For example:
 
-```
+```typescript
 let x: number | undefined = 10
 
 
@@ -1278,7 +1277,7 @@ if (x !== undefined) {
 #### Throwing or returning
 Throwing an error or returning early from a branch can be used to help TypeScript narrow down a type. For example:
 
-```
+```typescript
 let x: number | undefined = 10
 
 
@@ -1300,7 +1299,7 @@ Other ways to narrow down types in TypeScript include:
 
 Using a "discriminated union" is a pattern in TypeScript where an explicit "tag" is added to objects to distinguish between different types within a union. This pattern is also referred to as a "tagged union." In the following example, the "tag" is represented by the property "type":
 
-```
+```typescript
 type A = { type: 'type_a', value: number }
 type B = { type: 'type_b', value: string }
 
@@ -1318,7 +1317,7 @@ const x = (input: A | B): string | number => {
 
 In cases where TypeScript is unable to determine a type, it is possible to write a helper function known as a "user-defined type guard." In the following example, we will utilize a Type Predicate to narrow down the type after applying certain filtering:
 
-```
+```typescript
 const data = ['a', null, 'c', 'd', null, 'f']
 
 const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
@@ -1336,14 +1335,14 @@ TypeScript supports 7 primitive types. A primitive data type refers to a type th
 
 The `string` primitive type stores textual data, and the value is always double or single-quoted.
 
-```
+```typescript
 const x: string = 'x'
 const y: string = "y"
 ```
 
 Strings can span multiple lines if surrounded by the backtick (`) character:
 
-```
+```typescript
 let sentence: string =`xxx,
    yyy`
 ```
@@ -1361,7 +1360,7 @@ const isReady: boolean = true
 A `number` data type in TypeScript is represented with a 64-bit floating point value. A `number` type can represent integers and fractions.
 TypeScript also supports hexadecimal, binary, and octal, for instance:
 
-```
+```typescript
 const decimal: number = 10;
 const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
 const binary: number = 0b1010; // Binary starts with 0b
@@ -1374,7 +1373,7 @@ A `bigInt` represents numeric values that are very large (253 – 1) and cannot 
 
 A `bigInt` can be created by calling the built-in function `BigInt()` or by adding `n` to the end of any integer numeric literal:
 
-```
+```typescript
 const x: bigint = BigInt(9007199254740991)
 const y: bigint = 9007199254740991n
 ```
@@ -1391,7 +1390,6 @@ let sym = Symbol("x"); // Type symbol
 
 ### null and undefined
 
-
 `null` and `undefined` types both represent no value or the absence of any value.
 
 The `undefined` type means the value is not assigned or initialized or indicates an unintentional absence of value.
@@ -1403,7 +1401,7 @@ The `null` type means that we know that the field does not have a value, so valu
 
 An `array` is a data type that can store multiple values of the same type or not. It can be defined using the following syntax:
 
-```
+```typescript
 const x: string[] = ['a', 'b']
 const y: Array<string> = ['a', 'b']
 const j: Array<string | number> = ['a', 1, 'b', 2] // Union
@@ -1411,7 +1409,7 @@ const j: Array<string | number> = ['a', 1, 'b', 2] // Union
 
 TypeScript supports readonly arrays using the following syntax:
 
-```
+```typescript
 const x: readonly string[] = ['a', 'b'] // readonly modifier
 const y: ReadonlyArray<string> = ['a', 'b']
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2]
@@ -1420,7 +1418,7 @@ j.push('x') // invalid
 
 TypeScript supports tuple and readonly tuple:
 
-```
+```typescript
 const x: [string, number] = ['a', 1]
 const y: readonly [string, number] = ['a', 1]
 ```
@@ -1441,7 +1439,7 @@ The `any`type  is usually a source of errors which can mask real problems with y
 
 On variables declared using `var`, `let` and `const`, it is possible to optionally add a type:
 
-```
+```typescript
 const x: number = 1;
 ```
 
@@ -1449,7 +1447,7 @@ TypeScript does a good job of inferring types, especially when simple one, so th
 
 On functions is possible to add type annotations to parameters:
 
-```
+```typescript
 function sum(a: number, b: number) {
    return a + b;
 }
@@ -1457,19 +1455,19 @@ function sum(a: number, b: number) {
 
 The following is an example using a anonymous functions (so called lambda function):
 
-```
+```typescript
 const sum = (a:number, b:number) => a + b
 ```
 
 These annotation can be avoided when a default value for a parameter is present:
 
-```
+```typescript
 const sum = (a = 10, b:number) => a + b
 ```
 
 Return type annotations can be added to functions:
 
-```
+```typescript
 const sum = (a = 10, b: number): number => a + b
 ```
 
@@ -1481,7 +1479,7 @@ Generally consider annotating type signatures but not the body local variables a
 
 Objects can be type annotated in TypeScript using an `interface` or a `type alias`
 
-```
+```typescript
 interface Y {
    b: number
 }
@@ -1492,7 +1490,7 @@ type X = {
 
 Or anonymously:
 
-```
+```typescript
 const sum = (x: { a: number, b: number }) => x.a + x.b;
 console.log(sum({ a: 5, b: 1 }))
 ```
@@ -1501,15 +1499,16 @@ console.log(sum({ a: 5, b: 1 }))
 
 An object can specify Optional Properties by adding a question mark `?` to the end of the property name:
 
-```
+```typescript
 type X = {
   a: number;
-  b?: number // optional
+  b?: number // Optional
 }
 ```
+
 It is possible to specify a default value when a property is optional”
 
-```
+```typescript
 type X = {
   a: number;
   b?: number;
@@ -1521,7 +1520,7 @@ const x = ({ a, b = 100 }: X) => a + b
 
 Is it possible to prevent writing on a property by using the modifier `readonly`which  makes sure that the property cannot be re-written but does not provide any guarantee of total immutability:
 
-```
+```typescript
 interface Y {
    readonly a: number;
 }
@@ -1543,7 +1542,7 @@ type K = {
 
 In TypeScript we can use as index signature `string`, `number`, and `symbol`:
 
-```
+```typescript
 type K = {
  [name: string | number]: string
 }
@@ -1558,7 +1557,7 @@ Please note that JavaScript automatically converts an index with `number` to an 
 ## Extending Types
 It is possible to extend an `interface` (copy members from another type):
 
-```
+```typescript
 interface X {
   a: string;
 }
@@ -1569,7 +1568,7 @@ interface Y extends X {
 
 It is also possible to extend from multiple types:
 
-```
+```typescript
 interface A {
   a: string;
 }
@@ -1583,7 +1582,7 @@ interface Y extends A, B {
 
 The `extends` keyword works only on interfaces and classes, for types use an intersection:
 
-```
+```typescript
 type A = {
    a: number
 }
@@ -1595,7 +1594,7 @@ type C = A & B
 
 It is possible to extend a type using an inference but not vice versa:
 
-```
+```typescript
 type A = {
   a: string;
 }
@@ -1603,11 +1602,12 @@ interface B extends A {
   b: string;
 }
 ```
+
 ## Intersection Types
 
 Intersection Types are defined by the `&` operator, and are the main mechanism to extends types `extends`works only with interfaces:
 
-```
+```typescript
 type A = {
     a: string
 }
@@ -1619,7 +1619,7 @@ type C = A & B
 
 Or:
 
-```
+```typescript
 interface X {
     x: string
 }
@@ -1637,7 +1637,7 @@ Literal Types in TypeScript are numbers, strings, and booleans.
 
 Example of literals:
 
-```
+```typescript
 const a = 'a' // string literal type
 const b = 1 // numeric literal type
 const c = true // boolean literal type
@@ -1646,7 +1646,7 @@ const c = true // boolean literal type
 String, Numeric, and Boolean Literal Types are used in the union, type guard, and type aliases.
 In the following example you can see a type alias union, `O` can be the only value specified and not any other string:
 
-```
+```typescript
 type O = 'a' | 'b' | 'c'
 ```
 
@@ -1656,14 +1656,14 @@ Literal Inference is a feature in TypeScript that allows the type of a variable 
 
 In the following example we can see that TypeScript considers `x` a literal type as the value cannot be changed any time later, when instead `y` is inferred as string as it can be modified any time later.
 
-```
+```typescript
 const x = 'x' // literal type of x, because this value cannot be changed
 let y = 'y' // string, as we can change this value
 ```
 
 In the following example we can see that `o.x` was inferred as a `string` (and not a literal of `a`) as TypeScript considers that the value can be changed any time later.
 
-```
+```typescript
 type X = 'a' | 'b'
 
 let o = {
@@ -1679,7 +1679,7 @@ As you can see the code throws an error when passing `o.x` to `fn` as X is a nar
 
 We can solve this issue by using type assertion using `const` or the `X` type:
 
-```
+```typescript
 let o = {
    x: 'a' as const
 }
@@ -1687,7 +1687,7 @@ let o = {
 
 or:
 
-```
+```typescript
 let o = {
    x: 'a' as X
 }
@@ -1713,7 +1713,7 @@ The Non-null Assertion Operator (Postfix !) is a TypeScript feature that allows 
 
 In TypeScript, an enum is a set of named constant values.
 
-```
+```typescript
 enum Color {
  Red = "#ff0000",
  Green = "#00ff00",
@@ -1726,7 +1726,7 @@ enum Color {
 #### Numeric enums
 In TypeScript, a numeric enum is an enum where each constant is assigned a numeric value, starting from 0 by default.
 
-```
+```typescript
 enum Size {
    Small, // value starts from 0
    Medium,
@@ -1736,7 +1736,7 @@ enum Size {
 
 It is possible to specify custom values by explicitly assigning them:
 
-```
+```typescript
 enum Size {
    Small = 10,
    Medium,
@@ -1747,19 +1747,21 @@ console.log(Size.Medium) // 11
 
 #### String enums
 In TypeScript, a string enum is an enum where each constant is assigned a string value.
-```
+
+```typescript
 enum Language {
  English = "EN",
  Spanish = "ES"
 }
 ```
+
 Note: TypeScript allows the usage of heterogeneous enums where string and numeric members can coexist.
 
 #### Constant enums
 
 A constant enum in TypeScript is a special type of enum where all the values are known at compile time and are inlined wherever the enum is used, resulting in more efficient code.
 
-```
+```typescript
 const enum Language {
    English = "EN",
    Spanish = "ES"
@@ -1769,7 +1771,7 @@ console.log(Language.English)
 
 Will be compiled into:
 
-```
+```typescript
 console.log("EN" /* Language.English */);
 ```
 
@@ -1782,15 +1784,17 @@ In TypeScript, reverse mappings in enums refer to the ability to retrieve the en
 
 The following enum:
 
-```
+```typescript
 const enum Language {
    English = "EN",
    Spanish = "ES"
 }
 console.log(Language.English)
 ```
+
 Compiles to:
-```
+
+```typescript
 (function (Language) {
     Language["English"] = "EN";
     Language["Spanish"] = "ES";
@@ -1804,7 +1808,7 @@ An ambient enum in TypeScript is a type of enum that is defined in a declaration
 ### Computed and constant members
 In TypeScript, a computed member is a member of an enum that has a value calculated at runtime, while a constant member is a member whose value is set at compile-time and cannot be changed during runtime. Computed members are allowed in regular enums, while constant members are allowed in both regular and const enums.
 
-```
+```typescript
 // constant members
 enum Color {
  Red = 1,
@@ -1814,7 +1818,7 @@ enum Color {
 console.log(Color.Blue); // 6 generation at compilation time
 ```
 
-```
+```typescript
 // computed members
 enum Color {
  Red = 1,
@@ -1834,7 +1838,7 @@ TypeScript recognizes several ways to narrow the type:
 
 The typeof type guard is one specific type guard in TypeScript that checks the type of a variable based on its built-in JavaScript type.
 
-```
+```typescript
 const fn = (x: number | string): number => {
    if (typeof x === "number") {
        return x + 1; // x is number
@@ -1847,7 +1851,7 @@ const fn = (x: number | string): number => {
 
 Truthiness narrowing in TypeScript works by checking whether a variable is truthy or falsy to narrow its type accordingly.
 
-```
+```typescript
 const printName = (name: string | null | undefined) => {
  if (name) {
    console.log(name.toUpperCase());
@@ -1860,7 +1864,7 @@ const printName = (name: string | null | undefined) => {
 ### Equality narrowing
 Equality narrowing in TypeScript works by checking whether a variable is equal to a specific value or not, to narrow its type accordingly.
 
-```
+```typescript
 const logMessage = (status: "success" | "error") => {
  switch (status) {
    case "success":
@@ -1876,23 +1880,24 @@ const logMessage = (status: "success" | "error") => {
 ### In operator narrowing
 
 The in operator narrowing in TypeScript is a way to narrow the type of a variable based on whether a property exists within the variable's type.
-```
+
+```typescript
 type Dog = {
-        name: string;
-        breed: string;
+    name: string;
+    breed: string;
 }
 
 type Cat = {
-        name: string;
-        likesCream: boolean;
+    name: string;
+    likesCream: boolean;
 }
 
 const printPet = (pet: Dog | Cat) => {
-        if ("breed" in pet) {
-                  console.log(`This is a ${pet.breed} dog named ${pet.name}.`);
-        } else {
-                  console.log(`This is a cat named ${pet.name} that ${pet.likesCream ? "likes" : "doesn't like"} cream.`);
-}
+    if ("breed" in pet) {
+        console.log(`This is a ${pet.breed} dog named ${pet.name}.`);
+    } else {
+        console.log(`This is a cat named ${pet.name} that ${pet.likesCream ? "likes" : "doesn't like"} cream.`);
+    }
 }
 ```
 
@@ -1900,7 +1905,7 @@ const printPet = (pet: Dog | Cat) => {
 
 The instanceof operator narrowing in TypeScript is a way to narrow the type of a variable based on its constructor function, by checking if an object is an instance of a certain class or interface.
 
-```
+```typescript
 class Square {
  constructor(public width: number) {}
 }
@@ -1924,7 +1929,7 @@ console.log(area(rectangle)); // 50
 
 TypeScript narrowing using assignments is a way to narrow the type of a variable based on the value assigned to it. When a variable is assigned a value, TypeScript infers its type based on the assigned value, and it narrows the type of the variable to match the inferred type.
 
-```
+```typescript
 let value: string | number;
 value = "hello";
 if (typeof value === "string") {
@@ -1943,7 +1948,7 @@ Prior to TypeScript 4.4, code flow analysis would only be applied to code within
 
 For example:
 
-```
+```typescript
 const f1 = (x: unknown) => {
  const isString = typeof x === 'string';
  if (isString) {
@@ -1963,7 +1968,7 @@ const f2 = (obj: { kind: 'foo', foo: string } | { kind: 'bar', bar: number }) =>
 
 Some examples where narrowing does not occur:
 
-```
+```typescript
 const f1 = (x: unknown) => {
   let isString = typeof x === 'string';
   if (isString) {
@@ -2001,7 +2006,7 @@ const foo = (bar: unknown) => {
 ## Discriminated unions
 Discriminated unions in TypeScript are a type of union type that uses a common property, known as the discriminant, to narrow down the set of possible types for the union.
 
-```
+```typescript
 type Square = {
  kind: "square"; // Discriminant
  size: number;
@@ -2034,7 +2039,7 @@ console.log(area(circle)); // 12.566370614359172
 
 When a variable is narrowed to a type that cannot contain any values, the TypeScript compiler will infer that the variable must be of the `never` type. This is because the never type represents a value that can never be produced.
 
-```
+```typescript
 const printValue = (val: string | number) => {
  if (typeof val === "string") {
    console.log(val.toUpperCase());
@@ -2052,7 +2057,7 @@ const printValue = (val: string | number) => {
 
 Exhaustiveness checking is a feature in TypeScript that ensures all possible cases of a discriminated union are handled in a switch statement or an if statement.
 
-```
+```typescript
 type Direction = "up" | "down"
 
 const move = (direction: Direction) => {
@@ -2080,7 +2085,7 @@ In TypeScript, you can define object types in two primary ways:
 
 Interface which defines the shape of an object by specifying the names, types, and optionality of its properties.
 
-```
+```typescript
 interface User {
  name: string;
  age: number;
@@ -2090,7 +2095,7 @@ interface User {
 
 Type alias, similar to an interface, defines the shape of an object. However, it can also create a new custom type that is based on an existing type or a combination of existing types. This includes defining union types, intersection types, and other complex types.
 
-```
+```typescript
 type Point = {
  x: number;
  y: number;
@@ -2101,7 +2106,7 @@ type Point = {
 
 A Tuple Type is a type that represents an array with a fixed number of elements and their corresponding types. A tuple type enforces a specific number of elements and their respective types in a fixed order. Tuple types are useful when you want to represent a collection of values with specific types, where the position of each element in the array has a specific meaning.
 
-```
+```typescript
 type Point = [number, number];
 ```
 ## Fixed length tuple
@@ -2110,7 +2115,7 @@ A Fixed length tuple is a specific type of tuple that enforces a fixed number of
 
 Fixed length tuples are useful when you need to represent a collection of values with a specific number of elements and specific types, and you want to ensure that the length and types of the tuple cannot be changed inadvertently.
 
-```
+```typescript
 const x = [10, "hello"] as const;
 x.push(2) // Error
 ```
@@ -2118,7 +2123,7 @@ x.push(2) // Error
 
 A Union Type is a type that represents a value that can be one of several types. Union Types are denoted using the | symbol between each possible type.
 
-```
+```typescript
 let x: string | number;
 x = 'hello' // valid
 x = 123 // valid
@@ -2128,7 +2133,7 @@ x = 123 // valid
 
 An Intersection Type is a type that represents a value that has all the properties of two or more types. Intersection Types are denoted using the & symbol between each type.
 
-```
+```typescript
 type X = {
  a: string;
 }
@@ -2137,7 +2142,7 @@ type Y = {
  b: string;
 }
 
-type J = X & Y; // intersection
+type J = X & Y; // Intersection
 
 const j: J = {
  a: 'a',
@@ -2149,7 +2154,7 @@ const j: J = {
 
 Type indexing refers to the ability to define types that can be indexed by a key that is not known in advance, using an index signature to specify the type for properties that are not explicitly declared.
 
-```
+```typescript
 type Dictionary<T> = {
  [key: string]: T;
 }
@@ -2160,20 +2165,21 @@ console.log(myDict['a']); // return a
 ## Type from Value
 
 "Type from Value" in TypeScript refers to the automatic inference of a type from a value or expression through type inference.
-```
+
+```typescript
 const x = "x"; // TypeScript can automatically infer that the type of the message variable is string
 ```
 ## Type from Func Return
 Type from Func Return refers to the ability to automatically infer the return type of a function based on its implementation. This allows TypeScript to determine the type of the value returned by the function without explicit type annotations.
 
-```
+```typescript
 const add = (x: number, y: number) => x + y  // TypeScript can infer that the return type of the function is a number
 ```
 
 ## Type from Module
 Type from Module refers to the ability to use a module's exported values to automatically infer their types. When a module exports a value with a specific type, TypeScript can use that information to automatically infer the type of that value when it is imported into another module.
 
-```
+```typescript
 // calc.ts
 export const add = (x: number, y: number)
 // index.ts
@@ -2185,7 +2191,7 @@ const r = add(1, 2) // r is number
 Mapped types in TypeScript allow you to create new types based on an existing type by transforming each property using a mapping function. By mapping existing types, you can create new types that represent the same information in a different format. To create a mapped type, you access the properties of an existing type using the `keyof` operator and then alter them to produce a new type.
 In the following example:
 
-```
+```typescript
 type MyMappedType<T> = {
  [P in keyof T]: T[P][];
 };
@@ -2199,12 +2205,13 @@ const x: MyNewType = {
  bar: [1, 2, 3],
 };
 ```
+
 we define MyMappedType to map over T's properties, creating a new type with each property as an array of its original type. Using this, we create MyNewType to represent the same info as MyType, but with each property as an array.
 
 ## Conditional Types
 Conditional types are a way to create a type that depends on a condition, where the type to be created is determined based on the result of the condition. They are defined using the `extends` keyword and a ternary operator to conditionally choose between two types.
 
-```
+```typescript
 type IsArray<T> = T extends any[] ? true : false;
 
 const myArray = [1, 2, 3];
@@ -2219,7 +2226,7 @@ type IsMyNumberAnArray = IsArray<typeof myNumber>; // Type false
 Distributive conditional types are a feature that allow a type to be distributed over a union of types, by applying a transformation to each member of the union individually.
 This can be especially useful when working with mapped types or higher-order types.
 
-```
+```typescript
 type Nullable<T> = T extends any ? T | null : never;
 type NumberOrBool = number | boolean;
 type NullableNumberOrBool = Nullable<NumberOrBool>; // number | boolean | null
@@ -2229,7 +2236,7 @@ type NullableNumberOrBool = Nullable<NumberOrBool>; // number | boolean | null
 
 The `infer`keyword is used in conditional types to infer (extract) the type of a generic parameter from a type that depends on it. This allows you to write more flexible and reusable type definitions.
 
-```
+```typescript
 type ElementType<T> = T extends (infer U)[] ? U : never;
 type Numbers = ElementType<number[]>; // number
 type Strings = ElementType<string[]>; // string
@@ -2258,7 +2265,7 @@ Readonly<Type>: This type makes all properties in Type readonly.
 ## Template Union Types
 Template union types can be used to merge and manipulate text inside the type system for instance:
 
-```
+```typescript
 type Status = 'active' | 'inactive'
 type Products = 'p1' | 'p2'
 type ProductId = `id-${Products}-${Status}` // "id-p1-active" | "id-p1-inactive" | "id-p2-active" | "id-p2-inactive"
@@ -2274,7 +2281,7 @@ By utilizing any type, you are indicating to the TypeScript compiler that values
          * Do not return `any` types from a function as you will lose type safety in the code using that function weakening your type safety.
          * Instead of `any` use @ts-ignore` if you need to silence the compiler.
 
-```
+```typescript
 let value: any;
 value = true; // valid
 value = 7; // valid
@@ -2286,7 +2293,7 @@ In TypeScript, the unknown type represents a value that is of an unknown type. U
 
 The `unknown` type is only assignable to any type and the unknown type itself, it is a type-safe alternative to any.
 
-```
+```typescript
 let value: unknown;
 
 let value1: unknown = value; // valid
@@ -2295,7 +2302,7 @@ let value3: boolean = value; // invalid
 let value4: number = value; // invalid
 ```
 
-```
+```typescript
 const add = (a: unknown, b: unknown): number | undefined =>
    typeof a === 'number' && typeof b === 'number' ? a + b : undefined
 console.log(add(1, 2)); // 3
@@ -2305,7 +2312,7 @@ console.log(add('x', 2)); // undefined
 ## Void type
 The `void` type is used to indicate that a function does not return a value.
 
-```
+```typescript
 const sayHello = (): void => {
    console.log("Hello!");
 }
@@ -2317,7 +2324,7 @@ The `never` type represents values that never occur. It is used to denote functi
 
 For instance an infinite loop:
 
-```
+```typescript
 const infiniteLoop = (): never => {
    while (true) {
        // do something
@@ -2327,7 +2334,7 @@ const infiniteLoop = (): never => {
 
 Throwing an error:
 
-```
+```typescript
 const throwError = (message: string): never => {
    throw new Error(message);
 }
@@ -2335,7 +2342,7 @@ const throwError = (message: string): never => {
 
 The `never` type is useful in ensuring type safety and catching potential errors in your code. It helps TypeScript analyze and infer more precise types when used in combination with other types and control flow statements, for instance:
 
-```
+```typescript
 type Direction = 'up' | 'down'
 const move = (direction: Direction): void => {
    switch (direction) {
@@ -2357,7 +2364,7 @@ const move = (direction: Direction): void => {
 
 In TypeScript, interfaces define the structure of objects, specifying the names and types of properties or methods that an object must have. The common syntax for defining an interface in TypeScript is as follows:
 
-```
+```typescript
 interface InterfaceName {
  property1: Type1;
  // ...
@@ -2368,7 +2375,7 @@ interface InterfaceName {
 
 Similarly for type definition:
 
-```
+```typescript
 type TypeName = {
 property1: Type1;
 // …
@@ -2383,7 +2390,7 @@ method1(arg1: ArgType1, arg2: ArgType2): ReturnType;
 
 Example interface:
 
-```
+```typescript
 interface Person {
    name: string;
    age: number;
@@ -2391,7 +2398,8 @@ interface Person {
 }
 ```
 Example of type:
-```
+
+```typescript
 type TypeName = {
 property1: string;
 method1(arg1: string, arg2: string): string;
@@ -2402,7 +2410,7 @@ In TypeScript, types are used to define the shape of data and enforce type check
 
 #### Basic types:
 
-```
+```typescript
 let myNumber: number = 123; // number type
 let myBoolean: boolean = true; // boolean type
 let myArray: string[] = ['a', 'b'] // array of strings
@@ -2411,13 +2419,13 @@ let myTuple: [string, number] = ['a', 123]; // tuple
 
 #### Objects and interfaces:
 
-```
+```typescript
 const x: { name: string, age: number } = { name: 'Simon', age: 7 };
 ```
 
 #### Union and intersection types:
 
-```
+```typescript
 type MyType = string | number; // union type
 let myUnion: MyType = 'hello'; // can be a string
 myUnion = 123; // or a number
@@ -2449,27 +2457,27 @@ TypeScript is a superset of JavaScript, it includes all the commonly used built-
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 Here is a list of some commonly used built-in JavaScript objects:
-            * Function
-            * Object
-            * Boolean
-            * Error
-            * Number
-            * BigInt
-            * Math
-            * Date
-            * String
-            * RegExp
-            * Array
-            * Map
-            * Set
-            * Promise
-            * Intl
+* Function
+* Object
+* Boolean
+* Error
+* Number
+* BigInt
+* Math
+* Date
+* String
+* RegExp
+* Array
+* Map
+* Set
+* Promise
+* Intl
 
 ## Overloads
 
 Function overloads in TypeScript allow you to define multiple function signatures for a single function name, enabling you to define functions that can be called in multiple ways. Here's an example:
 
-```
+```typescript
 // Overloads
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
@@ -2490,7 +2498,7 @@ sayHi(['aa', 'bb']) // Valid
 
 Here's another example of using function overloads within a `class`:
 
-```
+```typescript
 class Greeter {
    message: string;
 
@@ -2499,11 +2507,9 @@ class Greeter {
        this.message = message;
    }
 
-
    // overload
    sayHi(name: string): string;
    sayHi(names: string[]): ReadonlyArray<string>;
-
 
    // implementation
    sayHi(name: unknown): unknown {
@@ -2517,11 +2523,12 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'))
 ```
+
 ## Get & Set
 Getters and setters are special methods that allow you to define custom access and modification behavior for class properties. They enable you to encapsulate the internal state of an object and provide additional logic when getting or setting the values of properties.
 In TypeScript, getters and setters are defined using the `get` and `set` keywords respectively. Here's an example:
 
-```
+```typescript
 class MyClass {
    private _myProperty: string;
 
@@ -2543,16 +2550,14 @@ Merging and extension refer to two different concepts related to working with ty
 
 Merging allows you to combine multiple declarations of the same name into a single definition, for example, when you define an interface with the same name multiple times:
 
-```
+```typescript
 interface X {
  a: string;
 }
 
-
 interface X {
  b: number;
 }
-
 
 const person: X = {
  a: "a",
@@ -2562,7 +2567,7 @@ const person: X = {
 
 Extension refers to the ability to extend or inherit from existing types or interfaces to create new ones. It is a mechanism to add additional properties or methods to an existing type without modifying its original definition. Example:
 
-```
+```typescript
 interface Animal {
  name: string;
  eat(): void;
@@ -2587,7 +2592,7 @@ const dog: Bird = {
 
 Declaration merging (augmentation): Interfaces support declaration merging, which means that you can define multiple interfaces with the same name, and TypeScript will merge them into a single interface with the combined properties and methods. On the other hand, types do not support declaration merging. This can be helpful when you want to add extra functionality or customize existing types without modifying the original definitions or patching missing or incorrect types.
 
-```
+```typescript
 interface A {
  x: string;
 }
@@ -2602,7 +2607,7 @@ const j: A = {
 
 Extending other types/interfaces: Both types and interfaces can extend other types/interfaces, but the syntax is different. With interfaces, you use the `extends` keyword to inherit properties and methods from other interfaces. However, an interface cannot extend a complex type like a union type.
 
-```
+```typescript
 interface A {
  x: string;
  y: number;
@@ -2619,7 +2624,7 @@ const car: B = {
 
 For types, you use the & operator to combine multiple types into a single type (intersection).
 
-```
+```typescript
 interface A {
  x: string;
  y: number;
@@ -2638,8 +2643,7 @@ const c: B = {
 
 Union and intersection types: Types are more flexible when it comes to defining union and intersection types. With the `type` keyword, you can easily create union types using the | operator and intersection types using the `&` operator. While interfaces can also represent union types indirectly, they don't have built-in support for intersection types.
 
-```
-
+```typescript
 type Department = 'dep-x' | 'dep-y' // Union
 
 type Person = {
@@ -2667,9 +2671,10 @@ type C = A | B // Union of interfaces
 
 ## Class
 ### Common Syntax
+
 The `class` keyword is used in TypeScript to define a class. Below, you can see an example:
 
-```
+```typescript
 class Person {
  private name: string;
  private age: number;
@@ -2693,14 +2698,16 @@ The class has a `public` method named sayHi that logs a greeting message.
 
 To create an instance of a class in TypeScript, you can use the `new` keyword followed by the class name, followed by parentheses (). For instance:
 
-```
+```typescript
 const myObject = new Person("John Doe", 25);
 myObject.sayHi(); // output: Hello, my name is John Doe and I am 25 years old.
 ```
+
 ### Constructor
+
 Constructors are special methods within a class that are used to initialize the object's properties when an instance of the class is created.
 
-```
+```typescript
 class Person {
   public name: string;
   public age: number;
@@ -2721,14 +2728,13 @@ john.sayHello();
 
 It is possible to overload a constructor using the following syntax:
 
-```
+```typescript
 type Sex = 'm' | 'f'
 
 class Person {
   name: string;
   age: number;
   sex: Sex;
-
 
   constructor(name: string, age: number, sex?: Sex);
   constructor(name: string, age: number, sex: Sex) {
@@ -2738,14 +2744,13 @@ class Person {
   }
 }
 
-
 const p1 = new Person('Simon', 17)
 const p2 = new Person('Alice', 22, 'f')
 ```
 
 In TypeScript, it is possible to define multiple constructor overloads, but you can have only one implementation that must be compatible with all the overloads, this can be achieved  by using an optional parameter.
 
-```
+```typescript
 class Person {
   name: string;
   age: number;
@@ -2772,7 +2777,6 @@ person2.displayInfo(); // Name: John, Age: 0
 
 const person3 = new Person('Jane', 25);
 person3.displayInfo(); // Name: Jane, Age: 25
-
 ```
 
 ### Private and Protected Constructors
@@ -2785,7 +2789,7 @@ Can be called only within the class itself. Private constructors are often used 
 Protected Constructors:
 Protected constructors are useful when you want to create a base class that should not be instantiated directly but can be extended by subclasses.
 
-```
+```typescript
 class BaseClass {
  protected constructor() {
  }
@@ -2808,6 +2812,7 @@ const derivedObj = new DerivedClass(10);
 ```
 
 ### Access modifiers
+
 Access modifiers `private`, `protected`, and `public` are used to control the visibility and accessibility of class members, such as properties and methods, in TypeScript classes. These modifiers are essential for enforcing encapsulation and establishing boundaries for accessing and modifying the internal state of a class.
 
 The `private` modifier restricts access to the class member only within the containing class.
@@ -2821,7 +2826,7 @@ The `public` modifier provides unrestricted access to the class member, allowing
 In TypeScript, the `this` keyword refers to the current instance of a class within its methods or constructors. It allows you to access and modify the properties and methods of the class from within its own scope.
 It provides a way to access and manipulate the internal state of an object within its own methods.
 
-```
+```typescript
 class Person {
  private name: string;
  constructor(name: string) {
@@ -2840,7 +2845,7 @@ person1.introduce(); // Hello, my name is Alice.
 
 Parameter properties allow you to declare and initialize class properties directly within the constructor parameters avoiding boilerplate code, example:
 
-```
+```typescript
 class Person {
  constructor(private name: string, public age: number) {
    // the "private" and "public" keywords in the constructor
@@ -2859,7 +2864,7 @@ person.introduce();
 Abstract Classes are used in TypeScript mainly for inheritance, they provide a way to define common properties and methods that can be inherited by subclasses.
 This is useful when you want to define common behavior and enforce that subclasses implement certain methods. They provide a way to create a hierarchy of classes where the abstract base class provides a shared interface and common functionality for the subclasses.
 
-```
+```typescript
 abstract class Animal {
  protected name: string;
 
@@ -2884,7 +2889,7 @@ cat.makeSound(); // Output: Whiskers meows.
 
 Classes with generics allow you to define reusable classes which can work with different types.
 
-```
+```typescript
 class Container<T> {
  private item: T;
 
@@ -2920,15 +2925,15 @@ Decorators are experimental features, in TypeScript version < 5 should be enable
 The following examples are compatible only for TypeScript version 5 or above using ES6.
 
 Some of the common use cases for decorators:
-            * Watch properties changes
-            * Watch methods calls
-            * Add extra properties of methods
-            * Validation at run time
-            * Automatic serialization and deserialization
-            * Logging
-            * Validation
-            * Authorization and Authentication
-            * Error guarding
+* Watch properties changes
+* Watch methods calls
+* Add extra properties of methods
+* Validation at run time
+* Automatic serialization and deserialization
+* Logging
+* Validation
+* Authorization and Authentication
+* Error guarding
 
 Evaluation order:
 
@@ -2943,7 +2948,7 @@ Types of decorators:
 
 Useful to extend an existing class for example with some properties of methods, in the following example we add a `toString` method which will stringify the class.
 
-```
+```typescript
 type ClassConstructor = { new (...args: any[]): any };
 
 function toString<T extends ClassConstructor>(BaseClass: T) {
@@ -2964,7 +2969,7 @@ console.log(new Class().toString())
 
 You can also pass parameters to decorators:
 
-```
+```typescript
 function ClassDecoratorParams(param1: number, param2: string) {
  return function(
      target: Function
@@ -2983,7 +2988,7 @@ class ClassExample {
 
 Useful to change the behavior of a property. In the following code we have a script to set a property to text to be always uppercase:
 
-```
+```typescript
 function uppercase() {
  return function (
    target: any,
@@ -3020,7 +3025,7 @@ console.log(u.sayHello());
 
 Allow to change or enhance the behavior of methods and accessors, below an example of a simple logger:
 
-```
+```typescript
 function logger(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
  const original = descriptor.value;
 
@@ -3051,7 +3056,7 @@ Accessor decorators share similarities with method decorators, but they differ i
 
 Parameter decorators are used mainly to record information which can be passed to other decorators.
 
-```
+```typescript
 function ParameterDecorator(
  target: Function,
  propertyKey: string | symbol,
@@ -3072,7 +3077,7 @@ x.method('x', 1)
 
 Inheritance refers to the mechanism by which a class can inherit properties and methods from another class, known as the base class or superclass. The derived class, also called the child class or subclass, can extend and specialize the functionality of the base class by adding new properties and methods or overriding existing ones.
 
-```
+```typescript
 class Animal {
  name: string;
 
@@ -3110,7 +3115,7 @@ dog.speak(); // Woof! Woof!"
 TypeScript does not support multiple inheritance in the traditional sense and instead allows inheritance from a single base class.
 TypeScript supports multiple interfaces. An interface can define a contract for the structure of an object, and a class can implement multiple interfaces. This allows a class to inherit behavior and structure from multiple sources.
 
-```
+```typescript
 interface Flyable {
  fly(): void;
 }
@@ -3137,9 +3142,10 @@ flyingFish.swim()
 The `class` keyword in TypeScript, similar to JavaScript, is often referred to as syntactic sugar. It was introduced in ECMAScript 2015 (ES6) to offer a more familiar syntax for creating and working with objects in a class-based manner. However, it's important to note that TypeScript, being a superset of JavaScript, ultimately compiles down to JavaScript, which remains prototype-based at its core.
 
 ### Statics
+
 TypeScript has static members. To access the static members of a class, you can use the class name followed by a dot, without the need to create an object.
 
-```
+```typescript
 class OfficeWorker {
   static memberCount: number = 0;
 
@@ -3166,7 +3172,7 @@ Inline:
 
 In the following example these initial values will be used when an instance of the class is created.
 
-```
+```typescript
 class MyClass {
   property1: string = "default value";
   property2: number = 42;
@@ -3175,7 +3181,7 @@ class MyClass {
 
 In the constructor:
 
-```
+```typescript
 class MyClass {
   property1: string;
   property2: number;
@@ -3189,7 +3195,7 @@ class MyClass {
 
 Using constructor parameters:
 
-```
+```typescript
 class MyClass {
   constructor(private property1: string = "default value", public property2: number = 42) {
     // there is no need to assign the values to the properties explicitly.
@@ -3206,7 +3212,7 @@ x.log()
 
 Method overloading allows a class to have multiple methods with the same name but different parameter types or a different number of parameters. This allows us to call a method in different ways based on the arguments passed.
 
-```
+```typescript
 class MyClass {
   add(a: number, b: number): number; // Overload signature 1
   add(a: string, b: string): string; // Overload signature 2
@@ -3236,7 +3242,7 @@ Generics allow you to make code more flexible and reusable.
 
 To define a generic type, you use angle brackets (<>) to specify the type parameters, for instance:
 
-```
+```typescript
 function identity<T>(arg: T): T {
   return arg;
 }
@@ -3251,7 +3257,7 @@ const len = getLen([1, 2, 3])
 
 Generics can be applied also to classes, in this way they can work with multiple types by using type parameters. This is useful to create reusable class definitions that can operate on different data types while maintaining type safety.
 
-```
+```typescript
 class Container<T> {
   private item: T;
 
@@ -3277,7 +3283,7 @@ Generic parameters can be constrained using the `extends` keyword followed by a 
 
 In the following example T it is must containing a properly `length` in order to be valid:
 
-```
+```typescript
 const printLen = <T extends { length: number }>(value: T): void => {
   console.log(value.length);
 }
@@ -3290,7 +3296,7 @@ printLen(123); // invalid
 
 An interesting feature of generic introduced in version 3.4 RC is Higher order function type inference which introduced  propagated generic type arguments:
 
-```
+```typescript
 declare function pipe<A extends any[], B, C>(ab: (...args: A) => B, bc: (b: B) => C): (...args: A) => C;
 
 declare function list<T>(a: T): T[];
@@ -3311,7 +3317,7 @@ When you access a method like `charAt` or `normalize` on a `string` primitive, J
 
 Demonstration:
 
-```
+```typescript
 const originalNormalize = String.prototype.normalize;
 String.prototype.normalize = function() {
   console.log(this, typeof this);
@@ -3335,7 +3341,7 @@ The boxed types are usually not needed. Avoid using boxed types and instead use 
 In TypeScript, objects do not have to match a specific, exact type. For instance, if we create an object that fulfills an interface's requirements, we can utilize that object in places where that interface is required, even if there was no explicit connection between them.
 Example:
 
-```
+```typescript
 type NameProp1 = {
     prop1: string;
 }
@@ -3357,7 +3363,7 @@ log(obj); // valid
 In TypeScript, namespaces are used to organize code into logical containers, preventing naming collisions and providing a way to group related code together.
 The usage of the `export` keywords allows access to the namespace in “outside” modules.
 
-```
+```typescript
 export namespace MyNamespace {
   export interface MyInterface1 {
     prop1: boolean
@@ -3378,10 +3384,9 @@ Symbols are a primitive data type that represents an immutable value which is gu
 
 Symbols can be used as keys for object properties and provide a way to create non-enumerable properties.
 
-```
+```typescript
 const key1: symbol = Symbol('key1');
 const key2: symbol = Symbol('key2');
-
 
 const obj = {
 [key1]: 'value 1',
@@ -3400,31 +3405,32 @@ Triple-slash directives are used to reference external dependencies, specify mod
 
 Referencing a declaration file:
 
-```
+```typescript
 /// <reference path="path/to/declaration/file.d.ts" />
 ```
 
 Indicate the module format:
 
-```
+```typescript
 /// <amd|commonjs|system|umd|es6|es2015|none>
 ```
 
 Enable compiler options, in the following example strict mode:
 
-```
+```typescript
 /// <strict|noImplicitAny|noUnusedLocals|noUnusedParameters>
 ```
 
 ## Type Manipulation
 ### Creating Types from Types
+
 Is it possible to create new types composing, manipulating or transforming existing types.
 
 Intersection Types (`&`):
 
 Allow you to combine multiple types into a single  type:
 
-```
+```typescript
 type A = { foo: number };
 type B = { bar: string };
 type C = A & B; // Intersection of A and B
@@ -3434,7 +3440,7 @@ Union Types (`|`):
 
 Allow you to define a type that can be one of several types:
 
-```
+```typescript
 type Result = string | number;
 const value1: Result = 'hello';
 const value2: Result = 42;
@@ -3444,7 +3450,7 @@ Mapped Types:
 
 Allow you to transform the properties of an existing type to create new type:
 
-```
+```typescript
 type Mutable<T> = {
   readonly [P in keyof T]: T[P];
 };
@@ -3459,7 +3465,7 @@ Conditional types:
 
 Allow you to create types based on some conditions:
 
-```
+```typescript
 type ExtractParam<T> = T extends (param: infer P) => any ? P : never;
 type MyFunction = (name: string) => number;
 type ParamType = ExtractParam<MyFunction>; // string
@@ -3469,7 +3475,7 @@ type ParamType = ExtractParam<MyFunction>; // string
 
 In TypeScript is it possible to access and manipulate  the types of properties within another type using an index, `Type[Key]`.
 
-```
+```typescript
 type Person = {
   name: string;
   age: number;
@@ -3478,23 +3484,24 @@ type Person = {
 type AgeType = Person['age']; // number
 ```
 
-```
+```typescript
 type MyTuple = [string, number, boolean]
 type MyType = MyTuple[2] // boolean
 ```
+
 ### Utility Types
 
 Several built-in utility types can be used to manipulate types, below a list of the most common used:
 
 #### Awaited<T>: Constructs a type recursively unwrap Promises.
 
-```
+```typescript
 type A = Awaited<Promise<string>>; // string
 ```
 
 #### Partial<T>: Constructs a type with all properties of T set to optional.
 
-```
+```typescript
 type Person = {
     name: string;
     age: number;
@@ -3505,7 +3512,7 @@ type A = Partial<Person> // { name?: string | undefined; age?: number | undefine
 
 #### Required<T>: Constructs a type with all properties of T set to required.
 
-```
+```typescript
 type Person = {
     name?: string;
     age?: number;
@@ -3516,7 +3523,7 @@ type A = Required<Person> // { name: string; age: number; }
 
 #### Readonly<T>: Constructs a type with all properties of T set to readonly.
 
-```
+```typescript
 type Person = {
     name: string;
     age: number;
@@ -3530,7 +3537,7 @@ a.name = 'John'  // invalid
 
 #### Record<K, T>: Constructs a type with a set of properties K of type T.
 
-```
+```typescript
 type Product = {
   name: string;
   price: number;
@@ -3546,7 +3553,7 @@ console.log(products.apple); // { name: 'Apple', price: 0.5 }
 
 #### Pick<T, K>: Constructs a type by picking the specified properties K from T.
 
-```
+```typescript
 type Product = {
   name: string;
   price: number;
@@ -3558,7 +3565,7 @@ type Price = Pick<Product, 'price'> // { price: number; }
 
 #### Omit<T, K>: Constructs a type by omitting the specified properties K from T.
 
-```
+```typescript
 type Product = {
   name: string;
   price: number;
@@ -3570,35 +3577,35 @@ type Name = Omit<Product, 'price'> // { name: string; }
 
 #### Exclude<T, U>: Constructs a type by excluding all values of type U from T.
 
-```
+```typescript
 type Union = 'a' | 'b' | 'c'
 type MyType = Exclude<Union, 'a' | 'c'> // b
 ```
 
 #### Extract<T, U>: Constructs a type by extracting all values of type U from T.
 
-```
+```typescript
 ​​type Union = 'a' | 'b' | 'c'
 type MyType = Extract<Union, 'a' | 'c'> // a | c
 ```
 
 #### NonNullable<T>: Constructs a type by excluding null and undefined from T.
 
-```
+```typescript
 type Union = 'a' | null | undefined | 'b'
 type MyType = NonNullable<Union> // 'a' | 'b'
 ```
 
 #### Parameters<T>: Extracts the parameter types of a function type T.
 
-```
+```typescript
 type Func = (a: string, b: number) => void
 type MyType = Parameters<Func> // [a: string, b: number]
 ```
 
 #### ConstructorParameters<T>: Extracts the parameter types of a constructor function type T.
 
-```
+```typescript
 class Person {
 constructor(public name: string, public age: number) {}
 }
@@ -3610,14 +3617,14 @@ console.log(person); // Person { name: 'John', age: 30 }
 
 #### ReturnType<T>: Extracts the return type of a function type T.
 
-```
+```typescript
 type Func = (name: string)=> number
 type MyType = ReturnType<Func> // number
 ```
 
 #### InstanceType<T>: Extracts the instance type of a class type T.
 
-```
+```typescript
 class Person {
   name: string;
 
@@ -3639,7 +3646,7 @@ person.sayHello(); // Hello, my name is John!
 
 #### ThisParameterType<T>: Extracts the type of 'this' parameter from a function type T.
 
-```
+```typescript
 interface Person {
   name: string;
   greet(this: Person): void;
@@ -3649,7 +3656,7 @@ type PersonThisType = ThisParameterType<Person["greet"]>; // Person
 
 #### OmitThisParameter<T>: Removes the 'this' parameter from a function type T.
 
-```
+```typescript
 function capitalize(this: String) {
   return this[0].toUpperCase + this.substring(1).toLowerCase()
 }
@@ -3659,7 +3666,7 @@ type CapitalizeType = OmitThisParameter<typeof capitalize> // () => string
 
 #### ThisType<T>: Servers as a market for a contextual `this` type.
 
-```
+```typescript
 type Logger = {
     log: (error: string) => void;
 }
@@ -3674,25 +3681,25 @@ let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
 
 #### Uppercase<T>: Make uppercase the name of the input type T.
 
-```
+```typescript
 type MyType = Uppercase<'abc'> // "ABC"
 ```
 
 #### Lowercase<T>: Make lowercase the name of the input type T.
 
-```
+```typescript
 type MyType = Lowercase<'ABC'> // "abc"
 ```
 
 #### Capitalize<T>: Capitalize the name of the input type T.
 
-```
+```typescript
 type MyType = Capitalize<'abc'> // "Abc"
 ```
 
 #### Uncapitalize<T>: Uncapitalize the name of the input type T.
 
-```
+```typescript
 type MyType = Uncapitalize<'Abc'> // "abc"
 ```
 
@@ -3702,7 +3709,7 @@ TypeScript allows you to catch and handle errors using standard JavaScript error
 
 Try-Catch-Finally Blocks:
 
-```
+```typescript
 try {
   // code that might throw an error
 } catch (error) {
@@ -3714,7 +3721,7 @@ try {
 
 You can also handle different types of error:
 
-```
+```typescript
 try {
   // code that might throw different types of errors
 } catch (error) {
@@ -3732,7 +3739,7 @@ Custom Error Types:
 
 It is possible to specify more specific error by extending on the Error `class`:
 
-```
+```typescript
 class CustomError extends Error {
   constructor(message: string) {
     super(message);
@@ -3747,7 +3754,7 @@ throw new CustomError("This is a custom error.");
 ### Mixin Classes
 Mixin classes allow you to combine and compose behavior from multiple classes into a single class. They provide a way to reuse and extend functionality without the need for deep inheritance chains.
 
-```
+```typescript
 abstract class Identifiable {
     name: string = ''
     logId() {
@@ -3829,7 +3836,7 @@ Both Interators and Generators are well supported in TypeScript.
 
 Iterators are objects that implement the iterator protocol, providing a way to access elements of a collection or sequence one by one. It is a structure that contains a pointer to the next element in the iteration. They have a `next()` method that returns the next value in the sequence along with a boolean indicating if the sequence is `done`.
 
-```
+```typescript
 class NumberIterator implements Iterable<number> {
   private current: number;
 
@@ -3866,7 +3873,7 @@ Generators make it easier to create iterators and are especially useful for work
 
 Example:
 
-```
+```typescript
 function* numberGenerator(start: number, end: number): Generator<number> {
   for (let i = start; i <= end; i++) {
     yield i;
@@ -3884,12 +3891,13 @@ TypeScript also supports async iterators and async Generators.
 
 To learn more:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator
+
 ### TsDocs JSDoc Reference
 When working with a JavaScript code base, it is possible to help TypeScript to infer the right Type by using JSDoc comments with additional annotation to provide type information.
 
 Example:
 
-```
+```typescript
 /**
 * Computes the power of a given number
 * @constructor
@@ -3913,7 +3921,7 @@ https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html
 
 Packages under the @types organization are special package naming conventions used to provide type definitions for existing JavaScript libraries or modules. For instance using:
 
-```
+```typescript
 npm install --save-dev @types/lodash
 ```
 
@@ -3943,7 +3951,7 @@ To enable ES6 features in your project, you can specify the `target` property in
 
 A configuration example:
 
-```
+```json
 {
   "compilerOptions": {
     "target": "es6",
@@ -3960,14 +3968,14 @@ A configuration example:
 The exponentiation (**) operator computes the value obtained by raising the first operand to the power of the second operand. It functions similarly to Math.pow(), but with the added capability of accepting BigInts as operands.
 TypeScript fully supports this operator using as `target` in your tsconfig.json file `es2016` or larger version.
 
-```
+```typescript
 console.log(2 ** 2 ** 2) // 16
 ```
 
 ### The for-await-of Statement
 This is a JavaScript feature fully supported in TypeScript which allows you to iterate over asynchronous iterable objects from target version es2018.
 
-```
+```typescript
 async function* asyncNumbers(): AsyncIterableIterator<number> {
   yield Promise.resolve(1);
   yield Promise.resolve(2);
@@ -3985,7 +3993,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 
 You can use in TypeScript the `new.target` meta-property which enables you to determine if a function or constructor was invoked using the new operator. It allows you to detect whether an object was created as a result of a constructor call.
 
-```
+```typescript
 class Parent {
   constructor() {
     debugger
@@ -4021,10 +4029,11 @@ async function renderWidget() {
 
 renderWidget();
 ```
+
 ### “tsc –watch”
 This command starts a TypeScript compiler with --watch parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
 
-```
+```shell
 tsc --watch
 ```
 
@@ -4032,7 +4041,7 @@ tsc --watch
 
 The Definite Assignment Assertions or also called non-null assertion operator tells the TypeScript compiler that a value typed cannot be null or undefined which is a way to override the compiler's analysis and inform it that a variable will be assigned a value before it is used.
 
-```
+```typescript
 type Person = {
   name: string
 }
@@ -4046,9 +4055,9 @@ const printName = (person?: Person) => {
 
 Defaulted declarations are used when a variable or parameter is assigned a default value. This means that if no value is provided for that variable or parameter, the default value will be used instead.
 
-```
+```typescript
 function greet(name: string = "Anonymous"): void {
-console.log(`Hello, ${name}!`);
+  console.log(`Hello, ${name}!`);
 }
 greet(); // Hello, Anonymous!
 greet("John"); // Hello, John!
@@ -4058,7 +4067,7 @@ greet("John"); // Hello, John!
 
 Const assertions are a feature that allows you to declare a variable with a more specific literal type based on its initialization value. It is a way to state to the compiler that the value has to be treated as an immutable literal.
 
-```
+```typescript
 let arr = [1, 2, 3] as const; // readonly [1, 2, 3]
 arr.push(4) // invalid
 ```
@@ -4067,7 +4076,7 @@ arr.push(4) // invalid
 
 The optional chaining operator ?. works like the regular dot operator (.) for accessing properties or methods. However, it gracefully handles null or undefined values by terminating the expression and returning undefined, instead of throwing an error.
 
-```
+```typescript
 type Person = {
   name: string;
   age?: number;
@@ -4088,7 +4097,7 @@ console.log(person.address?.city); // undefined
 
 The nullish coalescing operator `??` returns the right-hand side value if the left-hand side is `null` or `undefined`; otherwise, it returns the left-hand side value.
 
-```
+```typescript
 const foo = null ?? 'foo';
 console.log(foo); // "default string"
 
@@ -4102,7 +4111,7 @@ console.log(baz2); // 0
 
 Template Literal Types allow to manipulate string value at type level and generate new string types based on existing ones. They are useful to create more expressive and precise types from string-based operations.
 
-```
+```typescript
 type Department = "enginnering" | "hr";
 type Language = "english" | "spanish";
 type Id = `${Department}-${Language}-id` // "enginnering-english-id" | "enginnering-spanish-id" | "hr-english-id" | "hr-spanish-id"
@@ -4113,7 +4122,7 @@ type Id = `${Department}-${Language}-id` // "enginnering-english-id" | "enginner
 Function overloading allows you to define multiple function signatures for the same function name, each with different parameter types and return type.
 When you call an overloaded function, TypeScript uses the provided arguments to determine the correct function signature:
 
-```
+```typescript
 function makeGreeting(name: string): string;
 function makeGreeting(names: string[]): string[];
 
@@ -4137,7 +4146,7 @@ Let’s break it down in simple terms:
 
 Conditional Types: allows you to define types based on boolean conditions:
 
-```
+```typescript
 type CheckNumber<T> = T extends number ? 'Number' : 'Not a number';
 type A = CheckNumber<123> // 'Number'
 type B = CheckNumber<'abc'> // 'Not a number'
@@ -4145,7 +4154,7 @@ type B = CheckNumber<'abc'> // 'Not a number'
 
 Recursion: means a type definition that refers to itself within its own definition:
 
-```
+```typescript
 type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
 
 const data: Json = {
@@ -4159,7 +4168,7 @@ const data: Json = {
 
 Recursive Conditional Types combine both conditional logic and recursion. It means that a type definition can depend on itself through conditional logic, creating complex and flexible type relationships.
 
-```
+```typescript
 type Flatten<T> = T extends Array<infer U> ? Flatten<U> : T;
 
 type NestedArray = [1, [2, [3, 4], 5], 6];
@@ -4170,7 +4179,7 @@ type FlattenedArray = Flatten<NestedArray>; // 2 | 3 | 4 | 5 | 1 | 6
 
 Node.js added support for ECMAScript Modules starting from version 15.3.0, and TypeScript has had ECMAScript Module Support for Node.js since version 4.7. This support can be enabled by using the `module` property with the value `nodenext` in the tsconfig.json file. Here's an example:
 
-```
+```json
 {
   "compilerOptions": {
     "module": "nodenext",
@@ -4190,7 +4199,7 @@ Additionally, TypeScript also supports type declarations in .d.ts files. These d
 
 In TypeScript, assertion functions are functions that indicate the verification of a specific condition based on their return value. In their simplest form, an assert function examines a provided predicate and raises an error when the predicate evaluates to false.
 
-```
+```typescript
 function isNumber(value: unknown): asserts value is number {
     if (typeof value !== "number") {
         throw new Error("not a number")
@@ -4200,7 +4209,7 @@ function isNumber(value: unknown): asserts value is number {
 
 Or can be declared as function expression:
 
-```
+```typescript
 const isNumber1 = (value: unknown): asserts value is number => {
     if (typeof value !== "number") {
         throw new Error("not a number")
@@ -4213,7 +4222,7 @@ Specifically, a type guard is a function that evaluates a type predicate and ret
 
 Example of type guard:
 
-```
+```typescript
 const isNumber = (value: unknown): value is number => typeof value === "number"
 ```
 
@@ -4223,7 +4232,7 @@ Variadic Tuple Types are a features introduces in TypeScript version 4.0, let’
 
 A tuple type is an array which has a defined length, and were the type of each element is known:
 
-```
+```typescript
 type Student = [string, number]
 const [name, age]: Student = ['Simone', 20]
 ```
@@ -4232,9 +4241,8 @@ The term “variadic” means indefinite arity (accept a variable number of argu
 
 A variadic tuple is a tuple type which has all the property as before but the exact shape is not defined yet:
 
-```
+```typescript
 type Bar<T extends unknown[]> = [boolean, ...T, number];
-
 
 type A = Bar<[boolean]>; // [boolean, boolean, number]
 type B = Bar<['a', 'b']>; // [boolean, 'a', 'b', number]
@@ -4245,7 +4253,7 @@ In the previous code we can see that the tuple shape is defined by the `T` gener
 
 Variadic tuples can accept multiple generics make them very flexible:
 
-```
+```typescript
 type Bar<T extends unknown[], G extends unknown[]> = [...T, boolean, ... G];
 
 type A = Bar<[number], [string]>; // [number, boolean, string]
@@ -4258,7 +4266,7 @@ With the new variadic tuples we can use:
 
 Example:
 
-```
+```typescript
 type Items = readonly unknown[];
 
 function concat<T extends Items, U extends Items>(arr1: T, arr2: U): [...T, ...U] {
