@@ -159,27 +159,27 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
     - [Creating Types from Types](#creating-types-from-types)
     - [Indexed Access Types](#indexed-access-types)
     - [Utility Types](#utility-types)
-      - [Awaited: Constructs a type recursively unwrap Promises.](#awaited-constructs-a-type-recursively-unwrap-promises)
-      - [Partial: Constructs a type with all properties of T set to optional.](#partial-constructs-a-type-with-all-properties-of-t-set-to-optional)
-      - [Required: Constructs a type with all properties of T set to required.](#required-constructs-a-type-with-all-properties-of-t-set-to-required)
-      - [Readonly: Constructs a type with all properties of T set to readonly.](#readonly-constructs-a-type-with-all-properties-of-t-set-to-readonly)
-      - [Record\<K, T\>: Constructs a type with a set of properties K of type T.](#recordk-t-constructs-a-type-with-a-set-of-properties-k-of-type-t)
-      - [Pick\<T, K\>: Constructs a type by picking the specified properties K from T.](#pickt-k-constructs-a-type-by-picking-the-specified-properties-k-from-t)
-      - [Omit\<T, K\>: Constructs a type by omitting the specified properties K from T.](#omitt-k-constructs-a-type-by-omitting-the-specified-properties-k-from-t)
-      - [Exclude\<T, U\>: Constructs a type by excluding all values of type U from T.](#excludet-u-constructs-a-type-by-excluding-all-values-of-type-u-from-t)
-      - [Extract\<T, U\>: Constructs a type by extracting all values of type U from T.](#extractt-u-constructs-a-type-by-extracting-all-values-of-type-u-from-t)
-      - [NonNullable: Constructs a type by excluding null and undefined from T.](#nonnullable-constructs-a-type-by-excluding-null-and-undefined-from-t)
-      - [Parameters: Extracts the parameter types of a function type T.](#parameters-extracts-the-parameter-types-of-a-function-type-t)
-      - [ConstructorParameters: Extracts the parameter types of a constructor function type T.](#constructorparameters-extracts-the-parameter-types-of-a-constructor-function-type-t)
-      - [ReturnType: Extracts the return type of a function type T.](#returntype-extracts-the-return-type-of-a-function-type-t)
-      - [InstanceType: Extracts the instance type of a class type T.](#instancetype-extracts-the-instance-type-of-a-class-type-t)
-      - [ThisParameterType: Extracts the type of 'this' parameter from a function type T.](#thisparametertype-extracts-the-type-of-this-parameter-from-a-function-type-t)
-      - [OmitThisParameter: Removes the 'this' parameter from a function type T.](#omitthisparameter-removes-the-this-parameter-from-a-function-type-t)
-      - [ThisType: Servers as a market for a contextual `this` type.](#thistype-servers-as-a-market-for-a-contextual-this-type)
-      - [Uppercase: Make uppercase the name of the input type T.](#uppercase-make-uppercase-the-name-of-the-input-type-t)
-      - [Lowercase: Make lowercase the name of the input type T.](#lowercase-make-lowercase-the-name-of-the-input-type-t)
-      - [Capitalize: Capitalize the name of the input type T.](#capitalize-capitalize-the-name-of-the-input-type-t)
-      - [Uncapitalize: Uncapitalize the name of the input type T.](#uncapitalize-uncapitalize-the-name-of-the-input-type-t)
+      - [Awaited](#awaited)
+      - [Partial](#partial)
+      - [Required](#required)
+      - [Readonly](#readonly)
+      - [Record\<K, T\>](#recordk-t)
+      - [Pick\<T, K\>](#pickt-k)
+      - [Omit\<T, K\>](#omitt-k)
+      - [Exclude\<T, U\>](#excludet-u)
+      - [Extract\<T, U\>](#extractt-u)
+      - [NonNullable](#nonnullable)
+      - [Parameters](#parameters)
+      - [ConstructorParameters](#constructorparameters)
+      - [ReturnType](#returntype)
+      - [InstanceType](#instancetype)
+      - [ThisParameterType](#thisparametertype)
+      - [OmitThisParameter](#omitthisparameter)
+      - [ThisType](#thistype)
+      - [Uppercase](#uppercase)
+      - [Lowercase](#lowercase)
+      - [Capitalize](#capitalize)
+      - [Uncapitalize](#uncapitalize)
   - [Others](#others-1)
     - [Errors and Exception Handling](#errors-and-exception-handling)
     - [Mixin Classes](#mixin-classes)
@@ -2977,7 +2977,7 @@ function ClassDecoratorParams(param1: number, param2: string) {
      console.log("ClassDecoratorParams(" + param1 + ", '" + param2 + "') called on: ", target);
  }
 }
-
+1
 @ClassDecoratorParams(1, "a")
 @ClassDecoratorParams(2, "b")
 class ClassExample {
@@ -3493,13 +3493,17 @@ type MyType = MyTuple[2] // boolean
 
 Several built-in utility types can be used to manipulate types, below a list of the most common used:
 
-#### Awaited<T>: Constructs a type recursively unwrap Promises.
+#### Awaited<T>
+
+Constructs a type recursively unwrap Promises.
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
 ```
 
-#### Partial<T>: Constructs a type with all properties of T set to optional.
+#### Partial<T>
+
+Constructs a type with all properties of T set to optional.
 
 ```typescript
 type Person = {
@@ -3510,7 +3514,9 @@ type Person = {
 type A = Partial<Person> // { name?: string | undefined; age?: number | undefined; }
 ```
 
-#### Required<T>: Constructs a type with all properties of T set to required.
+#### Required<T>
+
+Constructs a type with all properties of T set to required.
 
 ```typescript
 type Person = {
@@ -3521,7 +3527,9 @@ type Person = {
 type A = Required<Person> // { name: string; age: number; }
 ```
 
-#### Readonly<T>: Constructs a type with all properties of T set to readonly.
+#### Readonly<T>
+
+Constructs a type with all properties of T set to readonly.
 
 ```typescript
 type Person = {
@@ -3535,7 +3543,9 @@ const a:A = {name: 'Simon', age: 17}
 a.name = 'John'  // invalid
 ```
 
-#### Record<K, T>: Constructs a type with a set of properties K of type T.
+#### Record<K, T>
+
+Constructs a type with a set of properties K of type T.
 
 ```typescript
 type Product = {
@@ -3551,7 +3561,9 @@ const products: Record<string, Product> = {
 console.log(products.apple); // { name: 'Apple', price: 0.5 }
 ```
 
-#### Pick<T, K>: Constructs a type by picking the specified properties K from T.
+#### Pick<T, K>
+
+Constructs a type by picking the specified properties K from T.
 
 ```typescript
 type Product = {
@@ -3563,7 +3575,9 @@ type Product = {
 type Price = Pick<Product, 'price'> // { price: number; }
 ```
 
-#### Omit<T, K>: Constructs a type by omitting the specified properties K from T.
+#### Omit<T, K>
+
+Constructs a type by omitting the specified properties K from T.
 
 ```typescript
 type Product = {
@@ -3575,35 +3589,45 @@ type Product = {
 type Name = Omit<Product, 'price'> // { name: string; }
 ```
 
-#### Exclude<T, U>: Constructs a type by excluding all values of type U from T.
+#### Exclude<T, U>
+
+Constructs a type by excluding all values of type U from T.
 
 ```typescript
 type Union = 'a' | 'b' | 'c'
 type MyType = Exclude<Union, 'a' | 'c'> // b
 ```
 
-#### Extract<T, U>: Constructs a type by extracting all values of type U from T.
+#### Extract<T, U>
+
+Constructs a type by extracting all values of type U from T.
 
 ```typescript
 ​​type Union = 'a' | 'b' | 'c'
 type MyType = Extract<Union, 'a' | 'c'> // a | c
 ```
 
-#### NonNullable<T>: Constructs a type by excluding null and undefined from T.
+#### NonNullable<T>
+
+Constructs a type by excluding null and undefined from T.
 
 ```typescript
 type Union = 'a' | null | undefined | 'b'
 type MyType = NonNullable<Union> // 'a' | 'b'
 ```
 
-#### Parameters<T>: Extracts the parameter types of a function type T.
+#### Parameters<T>
+
+Extracts the parameter types of a function type T.
 
 ```typescript
 type Func = (a: string, b: number) => void
 type MyType = Parameters<Func> // [a: string, b: number]
 ```
 
-#### ConstructorParameters<T>: Extracts the parameter types of a constructor function type T.
+#### ConstructorParameters<T>
+
+Extracts the parameter types of a constructor function type T.
 
 ```typescript
 class Person {
@@ -3615,14 +3639,18 @@ const person = new Person(...params);
 console.log(person); // Person { name: 'John', age: 30 }
 ```
 
-#### ReturnType<T>: Extracts the return type of a function type T.
+#### ReturnType<T>
+
+Extracts the return type of a function type T.
 
 ```typescript
 type Func = (name: string)=> number
 type MyType = ReturnType<Func> // number
 ```
 
-#### InstanceType<T>: Extracts the instance type of a class type T.
+#### InstanceType<T>
+
+Extracts the instance type of a class type T.
 
 ```typescript
 class Person {
@@ -3644,7 +3672,9 @@ const person: PersonInstance = new Person("John");
 person.sayHello(); // Hello, my name is John!
 ```
 
-#### ThisParameterType<T>: Extracts the type of 'this' parameter from a function type T.
+#### ThisParameterType<T>
+
+Extracts the type of 'this' parameter from a function type T.
 
 ```typescript
 interface Person {
@@ -3654,7 +3684,9 @@ interface Person {
 type PersonThisType = ThisParameterType<Person["greet"]>; // Person
 ```
 
-#### OmitThisParameter<T>: Removes the 'this' parameter from a function type T.
+#### OmitThisParameter<T>
+
+Removes the 'this' parameter from a function type T.
 
 ```typescript
 function capitalize(this: String) {
@@ -3664,7 +3696,9 @@ function capitalize(this: String) {
 type CapitalizeType = OmitThisParameter<typeof capitalize> // () => string
 ```
 
-#### ThisType<T>: Servers as a market for a contextual `this` type.
+#### ThisType<T>
+
+Servers as a market for a contextual `this` type.
 
 ```typescript
 type Logger = {
@@ -3679,25 +3713,33 @@ let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
 }
 ```
 
-#### Uppercase<T>: Make uppercase the name of the input type T.
+#### Uppercase<T>
+
+Make uppercase the name of the input type T.
 
 ```typescript
 type MyType = Uppercase<'abc'> // "ABC"
 ```
 
-#### Lowercase<T>: Make lowercase the name of the input type T.
+#### Lowercase<T>
+
+Make lowercase the name of the input type T.
 
 ```typescript
 type MyType = Lowercase<'ABC'> // "abc"
 ```
 
-#### Capitalize<T>: Capitalize the name of the input type T.
+#### Capitalize<T>
+
+Capitalize the name of the input type T.
 
 ```typescript
 type MyType = Capitalize<'abc'> // "Abc"
 ```
 
-#### Uncapitalize<T>: Uncapitalize the name of the input type T.
+#### Uncapitalize<T>
+
+Uncapitalize the name of the input type T.
 
 ```typescript
 type MyType = Uncapitalize<'Abc'> // "abc"
