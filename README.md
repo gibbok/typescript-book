@@ -1,192 +1,46 @@
-TypeScript an introduction
-
-- What is TypeScript
-- Why TypeScript
-- TypeScript and JavaScript
-- TypeScript code generation
-- Modern JavaScript Now
-- Getting Started With TypeScript
-  - Installation
-  - Configuration
-- TypeScript configuration file ​​tsconfig.json
-- Migration to TypeScript advices
-
-Exploring the Type System
-
-- The TypeScript language service
-- Structural Typing
-  - TypeScript fundamental comparison rules
-- Types as sets
-- Assign a type: Type Declarations and Type Assertions
-- Ambient Declarations
-- Property Checking and Excess Property Checking
-- Weak Types
-- Strict object literal checking (Freshness)
-- Type Inference
-- Type Widening
-- Type Narrowing
-- ADD 4.9 release
-
-  - Types
-  - Primitive Type
-  - string
-  - number
-  - boolean
-  - bigInt
-  - symbol
-  - null and undefined
-  - array
-  - any
-  - noImplicitAny
-  - Type Annotations on Variables
-  - Object Types
-  - Optional Properties
-  - Readonly Properties
-  - Index Signatures
-  - Extending Types
-  - Intersection Types
-  - Literal Types
-  - Literal Inference
-  - null and undefined
-  - strictNullChecks
-  - Non-null Assertion Operator (Postfix !)
-  - Enums
-  - Numeric enums
-  - String enums
-  - Constant enums
-  - Reverse mapping
-  - Ambient enums
-  - Computed and constant members
-  - Narrowing
-  - typeof type guards
-  - Truthiness narrowing
-  - Equality narrowing
-  - In operator narrowing
-  - instanceof narrowing
-  - Assignments
-  - Control flow analysis
-  - type predicates
-  - Discriminated unions
-  - The never type
-  - Exhaustiveness checking
-  - Structural Type System
-  - Object Types
-  - Tuple Type
-  - Fixed Length Tuples
-  - Union Type
-  - Intersection Types
-  - Type Indexing
-  - Type from Value
-  - Type from Func Return
-  - Type from Module
-  - Mapped Types
-  - Conditional Types
-  - Distributive conditional types
-  - “infer” Type inference in conditional types
-  - Predefined conditional types
-  - Template Union Types
-  - Any type
-  - Unknown type
-  - Void type
-  - Never type
-  - Interface and Types
-  - Common Syntax
-  - Built-in Type Primitives
-  - Common Built-in JS Objects
-  - Overloads
-  - Get & Set
-  - Merging and Extension
-  - Differences between Type and Interface
-  - Class
-  - Common Syntax
-  - Constructor and Constructor Overloads
-  - Private and Protected Constructors
-  - Access modifiers
-  - this
-  - Parameter Properties
-  - Abstract Classes
-  - With Generics
-  - Decorators
-  - Inheritance
-  - Statics
-  - Property initialization
-  - Method overloading
-  - Generics
-  - Avoid repetition using Generics
-  - Generic Type
-  - Generic Classes
-  - Generic Constraints
-  - Others
-  - Boxed types
-  - Erased Structural Types
-    Modules
-  - Namespaces
-  - Symbols
-  - Triple-Slash Directives
-    Type Manipulation
-  - Creating Types from Types
-  - Indexed Access Types
-
-Utility Types
-
-- Awaited<T>
-- Partial<T>
-- Required<T>
-- Readonly<T>
-- Record<K, T>
-- Pick<T, K>
-- Omit<T, K>
-- Exclude<T, U>
-- Extract<T, U>
-- NonNullable<T>
-- Parameters<T>
-- ConstructorParameters<T>
-- ReturnType<T>
-- InstanceType<T>
-- ThisParameterType<T>
-- OmitThisParameter<T>
-- ThisType<T>
-- Uppercase<T>
-- Lowercase<T>
-- Capitalize<T>
-- Uncapitalize<T>
-  Others
-- Errors and Exception Handling
-- Mixin Classes
-- Asynchronous Language Features
-- Iterators and Generators
-- TsDocs JSDoc Reference
-- @types
-- JSX
-- ES6 Modules
-- ES7 exponentiation operator
-- The for-await-of Statement
-- new.target
-- Dynamic Import Expressions
-- “tsc –watch”
-- Definite Assignment Assertions
-- Defaulted declarations
-- “const“ assertions
-- Optional Chaining (!)
-- Nullish Coalescing (??)
-- Template Literal Types
-- Recursive Conditional Types
-- ECMAScript Module Support in Node.js
-- Function overloading
-- Assertion Functions
-- Variadic Tuple Types
-
+# The Concise TypeScript Book
 TODO
 
-- Key Remapping in Mapped Types
-- abstractConstruct Signatures
-- Contextual Narrowing for Generics
-- Symbol and Template String Pattern Index Signatures
-- Strict contravariance for callback parameters
-- Optional Variance Annotations for Type Parameters
-- Covariance and Contravariance in TypeScript
+## Table of content:
 
-# The Concise TypeScript Book
+- [The Concise TypeScript Book](#the-concise-typescript-book)
+  - [Table of content:](#table-of-content)
+  - [Preface](#preface)
+  - [Who This Book is For](#who-this-book-is-for)
+  - [About the author](#about-the-author)
+  - [TypeScript an introduction](#typescript-an-introduction)
+    - [What is TypeScript](#what-is-typescript)
+    - [Why TypeScript?](#why-typescript)
+    - [TypeScript and JavaScript](#typescript-and-javascript)
+    - [TypeScript code generation](#typescript-code-generation)
+    - [Modern JavaScript Now (Downleveling)](#modern-javascript-now-downleveling)
+  - [Getting Started With TypeScript](#getting-started-with-typescript)
+    - [Installation](#installation)
+    - [Configuration](#configuration)
+    - [TypeScript configuration file ​​tsconfig.json](#typescript-configuration-file-tsconfigjson)
+      - [target](#target)
+      - [lib](#lib)
+      - [strict](#strict)
+      - [module](#module)
+      - [moduleResolution](#moduleresolution)
+      - [esModuleInterop](#esmoduleinterop)
+      - [jsx](#jsx)
+      - [skipLibCheck](#skiplibcheck)
+      - [files](#files)
+      - [include](#include)
+      - [exclude](#exclude)
+    - [Migration to TypeScript Advice](#migration-to-typescript-advice)
+  - [Exploring the Type System](#exploring-the-type-system)
+    - [The TypeScript language service](#the-typescript-language-service)
+    - [Structural Typing](#structural-typing)
+    - [TypeScript Fundamental Comparison Rules](#typescript-fundamental-comparison-rules)
+    - [Types as sets](#types-as-sets)
+    - [Assign a type: Type Declarations and Type Assertions](#assign-a-type-type-declarations-and-type-assertions)
+      - [Type Declaration:](#type-declaration)
+      - [Type Assertion](#type-assertion)
+      - [Non-null assertion](#non-null-assertion)
+      - [Ambient Declarations](#ambient-declarations)
+  - [TODO](#todo)
 
 ## Preface
 
@@ -4245,3 +4099,13 @@ return [...arr1, ...arr2];
 
 concat([1, 2, 3], ['4', '5', '6']) // [1, 2, 3, "4", "5", "6"]
 ```
+
+## TODO
+
+- Key Remapping in Mapped Types
+- abstractConstruct Signatures
+- Contextual Narrowing for Generics
+- Symbol and Template String Pattern Index Signatures
+- Strict contravariance for callback parameters
+- Optional Variance Annotations for Type Parameters
+- Covariance and Contravariance in TypeScript
