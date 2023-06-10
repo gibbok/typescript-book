@@ -4319,6 +4319,9 @@ concat([1, 2, 3], ['4', '5', '6']) // [1, 2, 3, "4", "5", "6"]
 
 ## TODO
 
+- Create a cover/logo
+- Add PDF version
+- Add TypeScript version covered in the book (4.8)
 - Key Remapping in Mapped Types
 - abstractConstruct Signatures
 - Contextual Narrowing for Generics
