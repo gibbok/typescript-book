@@ -108,7 +108,7 @@ This book is completely Free and Open Source.
   - [Mapped types](#mapped-types)
   - [Conditional Types](#conditional-types)
   - [Distributive conditional types](#distributive-conditional-types)
-  - [“infer” Type inference in conditional types](#infer-type-inference-in-conditional-types)
+  - [Type inference in conditional types using infer keyword](#type-inference-in-conditional-types-using-infer-keyword)
   - [Predefined conditional types](#predefined-conditional-types)
   - [Template Union Types](#template-union-types)
   - [Any type](#any-type)
@@ -2233,7 +2233,7 @@ type NumberOrBool = number | boolean;
 type NullableNumberOrBool = Nullable<NumberOrBool>; // number | boolean | null
 ```
 
-## “infer” Type inference in conditional types
+## Type inference in conditional types using infer keyword
 
 The `infer`keyword is used in conditional types to infer (extract) the type of a generic parameter from a type that depends on it. This allows you to write more flexible and reusable type definitions.
 
