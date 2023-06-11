@@ -205,6 +205,7 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
     - [Variadic Tuple Types](#variadic-tuple-types)
     - [Boxed types](#boxed-types)
     - [Key Remapping in Mapped Types](#key-remapping-in-mapped-types)
+    - [Symbol and Template String Pattern Index Signatures](#symbol-and-template-string-pattern-index-signatures)
   - [TODO](#todo)
 
 ## Introduction
@@ -4361,12 +4362,32 @@ const partialPerson: PartialPerson = {
 partialPerson.email = "john@example.com";
 ```
 
+### Symbol and Template String Pattern Index Signatures
+
+Symbols are unique identifiers that can be used as property keys in objects to prevent naming conflicts.
+
+Template string pattern index signatures allow us to define flexible index signatures using template string patterns. This feature enables us to create objects that can be indexed with specific patterns of string keys, providing more control and specificity when accessing and manipulating properties.
+
+TypeScript from version 4.4 allows index signatures for symbols and template string patterns.
+
+```typescript
+type Obj = {
+  [sym: symbol]: number;
+}
+
+const a = Symbol("a");
+const b = Symbol("b");
+ 
+let obj: Obj = {};
+ 
+obj[b] = 123;
+```
+
 ## TODO
 
 - Create a cover/logo
 - Add PDF version
 - Add TypeScript version covered in the book (4.8)
-- Symbol and Template String Pattern Index Signatures
 - Strict contravariance for callback parameters
 - Optional Variance Annotations for Type Parameters
 - Covariance and Contravariance in TypeScript
