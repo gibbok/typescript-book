@@ -1,8 +1,8 @@
 # The Concise TypeScript Book
 
-A Concise Guide to Effective Development in TypeScript.
+The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects, from its powerful type system to advanced features. Whether you're a beginner or experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.
 
-The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-NC-SA 4.0.
+Free and Open Source.
 
 ## Table of content:
 
@@ -210,7 +210,7 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
 
 ## Introduction
 
-Welcome to The Concise TypeScript Book! This guide equips you with essential knowledge and practical skills for effective TypeScript development. Discover key concepts and techniques to write clean, robust code. Whether you're a beginner or an experienced developer, this book serves as both a comprehensive guide and a handy reference for leveraging TypeScript's power in your projects. Unleash the full potential of TypeScript and elevate your development skills.
+Welcome to The Concise TypeScript Book! This guide equips you with essential knowledge and practical skills for effective TypeScript development. Discover key concepts and techniques to write clean, robust code. Whether you're a beginner or an experienced developer, this book serves as both a comprehensive guide and a handy reference for leveraging TypeScript's power in your projects. 
 
 ## About the author
 
