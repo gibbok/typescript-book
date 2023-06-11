@@ -148,6 +148,7 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
     - [Generic Type](#generic-type)
     - [Generic Classes](#generic-classes)
     - [Generic Constraints](#generic-constraints)
+    - [Generic contextual narrowing](#generic-contextual-narrowing)
     - [Others](#others)
       - [Boxed types](#boxed-types)
   - [Erased Structural Types](#erased-structural-types)
@@ -3307,6 +3308,25 @@ const boxList = pipe(box, list);  // <V>(x: V) => { value: V }[]
 
 This functionality allows more easily typed safe pointfree style programming which is common in functional programming.
 
+### Generic contextual narrowing
+
+Contextual narrowing for generics is the mechanism in TypeScript that allows the compiler to narrow down the type of a generic parameter based on the context in which it is used, it is useful when working with generic types in conditional statements:
+
+```typescript
+function process<T>(value: T): void {
+  if (typeof value === 'string') {
+    // Value is narrowed down to type 'string'
+    console.log(value.length);
+  } else if (typeof value === 'number') {
+    // Value is narrowed down to type 'number'
+    console.log(value.toFixed(2));
+  }
+}
+
+process('hello');  // 5
+process(3.14159);  // 3.14
+```
+
 ### Others
 #### Boxed types
 
@@ -4323,7 +4343,6 @@ concat([1, 2, 3], ['4', '5', '6']) // [1, 2, 3, "4", "5", "6"]
 - Add PDF version
 - Add TypeScript version covered in the book (4.8)
 - Key Remapping in Mapped Types
-- abstractConstruct Signatures
 - Contextual Narrowing for Generics
 - Symbol and Template String Pattern Index Signatures
 - Strict contravariance for callback parameters
