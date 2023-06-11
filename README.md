@@ -149,8 +149,6 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
     - [Generic Classes](#generic-classes)
     - [Generic Constraints](#generic-constraints)
     - [Generic contextual narrowing](#generic-contextual-narrowing)
-    - [Others](#others)
-      - [Boxed types](#boxed-types)
   - [Erased Structural Types](#erased-structural-types)
   - [Namespacing](#namespacing)
   - [Symbols](#symbols)
@@ -180,7 +178,7 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
       - [Lowercase](#lowercase)
       - [Capitalize](#capitalize)
       - [Uncapitalize](#uncapitalize)
-  - [Others](#others-1)
+  - [Others](#others)
     - [Errors and Exception Handling](#errors-and-exception-handling)
     - [Mixin Classes](#mixin-classes)
     - [Asynchronous Language Features](#asynchronous-language-features)
@@ -205,6 +203,7 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
     - [ECMAScript Module Support in Node.js](#ecmascript-module-support-in-nodejs)
     - [Assertion Functions](#assertion-functions)
     - [Variadic Tuple Types](#variadic-tuple-types)
+    - [Boxed types](#boxed-types)
   - [TODO](#todo)
 
 ## Introduction
@@ -3327,33 +3326,7 @@ process('hello');  // 5
 process(3.14159);  // 3.14
 ```
 
-### Others
-#### Boxed types
 
-Boxed types refer to the wrapper objects that are used to represent primitive types as objects. These wrapper objects provide additional functionality and methods that are not available directly on the primitive values.
-
-When you access a method like `charAt` or `normalize` on a `string` primitive, JavaScript wraps it in a `String` object, calls the method, and then throws the object away.
-
-Demonstration:
-
-```typescript
-const originalNormalize = String.prototype.normalize;
-String.prototype.normalize = function() {
-  console.log(this, typeof this);
-  return originalNormalize.call(this);
-};
-console.log("\u0041".normalize());
-```
-
-TypeScript represents this differentiation by providing separate types for the primitives and their corresponding object wrappers:
-
-string => String
-number => Number
-boolean => Boolean
-symbol => Symbol
-bigint => BigInt
-
-The boxed types are usually not needed. Avoid using boxed types and instead use type for the primitives,  for instance `string` instead of `String`.
 
 ## Erased Structural Types
 
@@ -4337,13 +4310,39 @@ return [...arr1, ...arr2];
 concat([1, 2, 3], ['4', '5', '6']) // [1, 2, 3, "4", "5", "6"]
 ```
 
+### Boxed types
+
+Boxed types refer to the wrapper objects that are used to represent primitive types as objects. These wrapper objects provide additional functionality and methods that are not available directly on the primitive values.
+
+When you access a method like `charAt` or `normalize` on a `string` primitive, JavaScript wraps it in a `String` object, calls the method, and then throws the object away.
+
+Demonstration:
+
+```typescript
+const originalNormalize = String.prototype.normalize;
+String.prototype.normalize = function() {
+  console.log(this, typeof this);
+  return originalNormalize.call(this);
+};
+console.log("\u0041".normalize());
+```
+
+TypeScript represents this differentiation by providing separate types for the primitives and their corresponding object wrappers:
+
+string => String
+number => Number
+boolean => Boolean
+symbol => Symbol
+bigint => BigInt
+
+The boxed types are usually not needed. Avoid using boxed types and instead use type for the primitives,  for instance `string` instead of `String`.
+
 ## TODO
 
 - Create a cover/logo
 - Add PDF version
 - Add TypeScript version covered in the book (4.8)
 - Key Remapping in Mapped Types
-- Contextual Narrowing for Generics
 - Symbol and Template String Pattern Index Signatures
 - Strict contravariance for callback parameters
 - Optional Variance Annotations for Type Parameters
