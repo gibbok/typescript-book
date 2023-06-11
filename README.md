@@ -204,6 +204,7 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
     - [Assertion Functions](#assertion-functions)
     - [Variadic Tuple Types](#variadic-tuple-types)
     - [Boxed types](#boxed-types)
+    - [Key Remapping in Mapped Types](#key-remapping-in-mapped-types)
   - [TODO](#todo)
 
 ## Introduction
@@ -4337,12 +4338,34 @@ bigint => BigInt
 
 The boxed types are usually not needed. Avoid using boxed types and instead use type for the primitives,  for instance `string` instead of `String`.
 
+### Key Remapping in Mapped Types
+
+Mapped types allow you to create new types by transforming the properties of an existing type. Using the `keyof` and `in` keywords, you can iterate over the properties of a type and define modifications, such as making them optional or readonly. Here an example:
+
+```typescript
+type Person = {
+  name: string;
+  age: number;
+  email: string;
+};
+
+type PartialPerson = {
+  [K in keyof Person]?: Person[K]; // This will make all properties are optional
+};
+
+const partialPerson: PartialPerson = {
+  name: "John",
+  age: 30,
+};
+
+partialPerson.email = "john@example.com";
+```
+
 ## TODO
 
 - Create a cover/logo
 - Add PDF version
 - Add TypeScript version covered in the book (4.8)
-- Key Remapping in Mapped Types
 - Symbol and Template String Pattern Index Signatures
 - Strict contravariance for callback parameters
 - Optional Variance Annotations for Type Parameters
