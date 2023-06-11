@@ -148,8 +148,7 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
     - [Generic Type](#generic-type)
     - [Generic Classes](#generic-classes)
     - [Generic Constraints](#generic-constraints)
-    - [Others](#others)
-      - [Boxed types](#boxed-types)
+    - [Generic contextual narrowing](#generic-contextual-narrowing)
   - [Erased Structural Types](#erased-structural-types)
   - [Namespacing](#namespacing)
   - [Symbols](#symbols)
@@ -179,7 +178,7 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
       - [Lowercase](#lowercase)
       - [Capitalize](#capitalize)
       - [Uncapitalize](#uncapitalize)
-  - [Others](#others-1)
+  - [Others](#others)
     - [Errors and Exception Handling](#errors-and-exception-handling)
     - [Mixin Classes](#mixin-classes)
     - [Asynchronous Language Features](#asynchronous-language-features)
@@ -204,6 +203,9 @@ The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-N
     - [ECMAScript Module Support in Node.js](#ecmascript-module-support-in-nodejs)
     - [Assertion Functions](#assertion-functions)
     - [Variadic Tuple Types](#variadic-tuple-types)
+    - [Boxed types](#boxed-types)
+    - [Key Remapping in Mapped Types](#key-remapping-in-mapped-types)
+    - [Symbol and Template String Pattern Index Signatures](#symbol-and-template-string-pattern-index-signatures)
   - [TODO](#todo)
 
 ## Introduction
@@ -3307,33 +3309,26 @@ const boxList = pipe(box, list);  // <V>(x: V) => { value: V }[]
 
 This functionality allows more easily typed safe pointfree style programming which is common in functional programming.
 
-### Others
-#### Boxed types
+### Generic contextual narrowing
 
-Boxed types refer to the wrapper objects that are used to represent primitive types as objects. These wrapper objects provide additional functionality and methods that are not available directly on the primitive values.
-
-When you access a method like `charAt` or `normalize` on a `string` primitive, JavaScript wraps it in a `String` object, calls the method, and then throws the object away.
-
-Demonstration:
+Contextual narrowing for generics is the mechanism in TypeScript that allows the compiler to narrow down the type of a generic parameter based on the context in which it is used, it is useful when working with generic types in conditional statements:
 
 ```typescript
-const originalNormalize = String.prototype.normalize;
-String.prototype.normalize = function() {
-  console.log(this, typeof this);
-  return originalNormalize.call(this);
-};
-console.log("\u0041".normalize());
+function process<T>(value: T): void {
+  if (typeof value === 'string') {
+    // Value is narrowed down to type 'string'
+    console.log(value.length);
+  } else if (typeof value === 'number') {
+    // Value is narrowed down to type 'number'
+    console.log(value.toFixed(2));
+  }
+}
+
+process('hello');  // 5
+process(3.14159);  // 3.14
 ```
 
-TypeScript represents this differentiation by providing separate types for the primitives and their corresponding object wrappers:
 
-string => String
-number => Number
-boolean => Boolean
-symbol => Symbol
-bigint => BigInt
-
-The boxed types are usually not needed. Avoid using boxed types and instead use type for the primitives,  for instance `string` instead of `String`.
 
 ## Erased Structural Types
 
@@ -4317,15 +4312,82 @@ return [...arr1, ...arr2];
 concat([1, 2, 3], ['4', '5', '6']) // [1, 2, 3, "4", "5", "6"]
 ```
 
+### Boxed types
+
+Boxed types refer to the wrapper objects that are used to represent primitive types as objects. These wrapper objects provide additional functionality and methods that are not available directly on the primitive values.
+
+When you access a method like `charAt` or `normalize` on a `string` primitive, JavaScript wraps it in a `String` object, calls the method, and then throws the object away.
+
+Demonstration:
+
+```typescript
+const originalNormalize = String.prototype.normalize;
+String.prototype.normalize = function() {
+  console.log(this, typeof this);
+  return originalNormalize.call(this);
+};
+console.log("\u0041".normalize());
+```
+
+TypeScript represents this differentiation by providing separate types for the primitives and their corresponding object wrappers:
+
+string => String
+number => Number
+boolean => Boolean
+symbol => Symbol
+bigint => BigInt
+
+The boxed types are usually not needed. Avoid using boxed types and instead use type for the primitives,  for instance `string` instead of `String`.
+
+### Key Remapping in Mapped Types
+
+Mapped types allow you to create new types by transforming the properties of an existing type. Using the `keyof` and `in` keywords, you can iterate over the properties of a type and define modifications, such as making them optional or readonly. Here an example:
+
+```typescript
+type Person = {
+  name: string;
+  age: number;
+  email: string;
+};
+
+type PartialPerson = {
+  [K in keyof Person]?: Person[K]; // This will make all properties are optional
+};
+
+const partialPerson: PartialPerson = {
+  name: "John",
+  age: 30,
+};
+
+partialPerson.email = "john@example.com";
+```
+
+### Symbol and Template String Pattern Index Signatures
+
+Symbols are unique identifiers that can be used as property keys in objects to prevent naming conflicts.
+
+Template string pattern index signatures allow us to define flexible index signatures using template string patterns. This feature enables us to create objects that can be indexed with specific patterns of string keys, providing more control and specificity when accessing and manipulating properties.
+
+TypeScript from version 4.4 allows index signatures for symbols and template string patterns.
+
+```typescript
+type Obj = {
+  [sym: symbol]: number;
+}
+
+const a = Symbol("a");
+const b = Symbol("b");
+ 
+let obj: Obj = {};
+ 
+obj[b] = 123;
+```
+
 ## TODO
 
 - Create a cover/logo
 - Add PDF version
 - Add TypeScript version covered in the book (4.8)
-- Key Remapping in Mapped Types
-- abstractConstruct Signatures
-- Contextual Narrowing for Generics
-- Symbol and Template String Pattern Index Signatures
 - Strict contravariance for callback parameters
 - Optional Variance Annotations for Type Parameters
 - Covariance and Contravariance in TypeScript
