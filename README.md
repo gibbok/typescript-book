@@ -2,8 +2,6 @@
 
 A Concise Guide to Effective Development in TypeScript.
 
-The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-NC-SA 4.0.
-
 ## Table of content:
 
 - [The Concise TypeScript Book](#the-concise-typescript-book)

@@ -1,5 +1,4 @@
-The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under CC BY-NC-SA 4.0
+The Concise TypeScript Book © 2023 by Simone Poggiali is licensed under Attribution 4.0 International.
 
-https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1
-
-https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+For more information visit:
+https://creativecommons.org/licenses/by/4.0/
