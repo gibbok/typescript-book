@@ -4464,5 +4464,3 @@ obj[b] = 123;
 - Create a cover/logo
 - Add PDF version
 - Add TypeScript version covered in the book (4.8)
-- Strict contravariance for callback parameters
-- Optional Variance Annotations for Type Parameters
