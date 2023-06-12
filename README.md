@@ -206,6 +206,7 @@ This book is completely Free and Open Source.
     - [Boxed types](#boxed-types)
     - [Key Remapping in Mapped Types](#key-remapping-in-mapped-types)
     - [Covariance and Contravariance in TypeScript](#covariance-and-contravariance-in-typescript)
+      - [Optional Variance Annotations for Type Parameters](#optional-variance-annotations-for-type-parameters)
     - [Symbol and Template String Pattern Index Signatures](#symbol-and-template-string-pattern-index-signatures)
   - [TODO](#todo)
 
@@ -4423,11 +4424,17 @@ In TypeScript, type relationships for arrays are covariant, while type relations
 
 As of typescript 4.7.0, we can generalize a Covariant by using the `out` keyword:
 
+#### Optional Variance Annotations for Type Parameters
+
+Using the `out` and `in` keywords is possible to be specific about Variance annotation:
+
+For Covariant use the `in` keyword:
+
 ```typescript
 type AnimalCallback<out T> = () => T; // T is Covariant here
 ```
 
-and Contravariance by using the `in` keyword:
+and for Contravariance use the `in` keyword:
 
 ```typescript
 type AnimalCallback<in T> = () => T; // T is Contravariance here
@@ -4461,4 +4468,3 @@ obj[b] = 123;
 - Add TypeScript version covered in the book (4.8)
 - Strict contravariance for callback parameters
 - Optional Variance Annotations for Type Parameters
-- Covariance and Contravariance in TypeScript
