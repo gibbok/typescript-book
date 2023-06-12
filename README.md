@@ -4372,7 +4372,7 @@ Covariance means that a type relationship preserves the direction of inheritance
 
 Contravariance means that a type relationship reverses the direction of inheritance or assignment, so if a type A is a subtype of type B, then an array of type B is considered a subtype of an array of type A. The subtype relationship is reversed this means that Contravariance accept supertype but doesn't accept subtype.
 
-Bivariance means accept both supertype & subtype.
+Notes: Bivariance means accept both supertype & subtype.
 
 Example: Let's say we have a space for all animals and a separate space just for dogs.
 
