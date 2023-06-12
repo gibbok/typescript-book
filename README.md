@@ -4401,20 +4401,22 @@ let dogs: Dog[] = [];
 
 // Covariance allows assigning subtype (Dog) array to supertype (Animal) array
 animals = dogs;
+dogs = animals // Invalid: Type 'Animal[]' is not assignable to type 'Dog[]'
 
 // Contravariance example
-type AnimalCallback<in T> = (animal: T) => void;
+type Feed<in T> = (animal: T) => void;
 
-let animalCallback: AnimalCallback<Animal> = (animal: Animal) => {
+let feedAnimal: Feed<Animal> = (animal: Animal) => {
   console.log(`Animal name: ${animal.name}`);
 };
 
-let dogCallback: AnimalCallback<Dog> = (dog: Dog) => {
+let feedDog: Feed<Dog> = (dog: Dog) => {
   console.log(`Dog name: ${dog.name}, Breed: ${dog.breed}`);
 };
 
 // Contravariance allows assigning supertype (Animal) callback to subtype (Dog) callback
-dogCallback = animalCallback;
+feedDog = feedAnimal;
+feedAnimal = feedDog // Invalid: Type 'Feed<Dog>' is not assignable to type 'Feed<Animal>'.
 ```
 
 In TypeScript, type relationships for arrays are covariant, while type relationships for function parameters are contravariant. This means that TypeScript exhibits both covariance and contravariance, depending on the context.
