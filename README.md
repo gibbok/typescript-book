@@ -4422,19 +4422,17 @@ feedAnimal = feedDog // Invalid: Type 'Feed<Dog>' is not assignable to type 'Fee
 
 In TypeScript, type relationships for arrays are covariant, while type relationships for function parameters are contravariant. This means that TypeScript exhibits both covariance and contravariance, depending on the context.
 
-As of typescript 4.7.0, we can generalize a Covariant by using the `out` keyword:
-
 #### Optional Variance Annotations for Type Parameters
 
-Using the `out` and `in` keywords is possible to be specific about Variance annotation:
+As of typescript 4.7.0, we can use the `out` and `in` keywords to be specific about Variance annotation:
 
-For Covariant use the `in` keyword:
+For Covariant, use the `out` keyword:
 
 ```typescript
 type AnimalCallback<out T> = () => T; // T is Covariant here
 ```
 
-and for Contravariance use the `in` keyword:
+And for Contravariant, use the `in` keyword:
 
 ```typescript
 type AnimalCallback<in T> = () => T; // T is Contravariance here
