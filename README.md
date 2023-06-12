@@ -205,6 +205,7 @@ This book is completely Free and Open Source.
     - [Variadic Tuple Types](#variadic-tuple-types)
     - [Boxed types](#boxed-types)
     - [Key Remapping in Mapped Types](#key-remapping-in-mapped-types)
+    - [Covariance and Contravariance in TypeScript](#covariance-and-contravariance-in-typescript)
     - [Symbol and Template String Pattern Index Signatures](#symbol-and-template-string-pattern-index-signatures)
   - [TODO](#todo)
 
@@ -4361,6 +4362,84 @@ const partialPerson: PartialPerson = {
 
 partialPerson.email = "john@example.com";
 ```
+
+### Covariance and Contravariance in TypeScript
+
+Covariance and Contravariance are used to describe how relationships work when dealing with inheritance or assignment of types.
+
+Covariance means that a type relationship preserves the direction of inheritance or assignment, so if a type A is a subtype of type B, then an array or generic type of A is also considered a subtype of an array or generic type of B. The important thing to note here is that the subtype relationship is maintained this means that Covariance accept subtype but doesn't accept supertype.
+
+As of typescript 4.7.0, we can generalize a Covariant by using the `out` keyword:
+
+```typescript
+type Fruit<out T> = () => T; // T is Covariant here
+```
+
+Contravariance means that a type relationship reverses the direction of inheritance or assignment, so this case, if a type A is a subtype of type B, then an array or generic type of B is considered a subtype of an array or generic type of A. The subtype relationship is reversed this means that Contravariance accept supertype but doesn't accept subtype.
+
+As of typescript 4.7.0, we can generalize a Contravariance producer by using the `in` keyword:
+
+```typescript
+type Fruit<in T> = () => T; // T is Contravariance here
+```
+
+Bivariance means accept both supertype & subtype.
+
+Example: Let's say we have a box for all fruits and a separate box just for apples.
+
+In Covariance, you can put all the apples in the fruit box because apples are a type of fruit. But you cannot put all the fruits in the apple box because there might be bananas or other fruits mixed in.
+
+In Contravariance, You cannot put all the fruits in the apple box because the fruit box might contain bananas or other fruits as well. However, you can put all the apples in the fruit box because all apples are also fruits.
+
+```typescript
+class Fruit {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+class Apple extends Fruit {
+  constructor() {
+    super("Apple");
+  }
+
+  eat() {
+    console.log("Eating an apple!");
+  }
+}
+
+class Banana extends Fruit {
+  constructor() {
+    super("Banana");
+  }
+
+  peel() {
+    console.log("Peeling a banana!");
+  }
+}
+
+let fruits: Fruit[] = []; // Covariance
+
+let apple = new Apple();
+let banana = new Banana();
+
+fruits.push(apple); // Covariance: Putting an apple in the fruit basket
+fruits.push(banana); // Covariance: Putting a banana in the fruit basket
+
+fruits.forEach((fruit) => {
+  console.log(fruit.name);
+  
+  if (fruit instanceof Apple) {
+    fruit.eat(); // Contravariance: Calling the 'eat' method specific to Apples
+  } else if (fruit instanceof Banana) {
+    fruit.peel(); // Contravariance: Calling the 'peel' method specific to Bananas
+  }
+});
+```
+
+In TypeScript, type relationships for arrays are covariant, while type relationships for function parameters are contravariant. This means that TypeScript exhibits both covariance and contravariance, depending on the context.
 
 ### Symbol and Template String Pattern Index Signatures
 
