@@ -4424,7 +4424,7 @@ In TypeScript, type relationships for arrays are covariant, while type relations
 
 #### Optional Variance Annotations for Type Parameters
 
-As of typescript 4.7.0, we can use the `out` and `in` keywords to be specific about Variance annotation:
+As of typescript 4.7.0, we can use the `out` and `in` keywords to be specific about Variance annotation.
 
 For Covariant, use the `out` keyword:
 
