@@ -4367,79 +4367,69 @@ partialPerson.email = "john@example.com";
 
 Covariance and Contravariance are used to describe how relationships work when dealing with inheritance or assignment of types.
 
-Covariance means that a type relationship preserves the direction of inheritance or assignment, so if a type A is a subtype of type B, then an array or generic type of A is also considered a subtype of an array or generic type of B. The important thing to note here is that the subtype relationship is maintained this means that Covariance accept subtype but doesn't accept supertype.
+Covariance means that a type relationship preserves the direction of inheritance or assignment, so if a type A is a subtype of type B, then an array of type A is also considered a subtype of an array of type B. The important thing to note here is that the subtype relationship is maintained this means that Covariance accept subtype but doesn't accept supertype.
 
-As of typescript 4.7.0, we can generalize a Covariant by using the `out` keyword:
-
-```typescript
-type Fruit<out T> = () => T; // T is Covariant here
-```
-
-Contravariance means that a type relationship reverses the direction of inheritance or assignment, so this case, if a type A is a subtype of type B, then an array or generic type of B is considered a subtype of an array or generic type of A. The subtype relationship is reversed this means that Contravariance accept supertype but doesn't accept subtype.
-
-As of typescript 4.7.0, we can generalize a Contravariance producer by using the `in` keyword:
-
-```typescript
-type Fruit<in T> = () => T; // T is Contravariance here
-```
+Contravariance means that a type relationship reverses the direction of inheritance or assignment, so if a type A is a subtype of type B, then an array of type B is considered a subtype of an array of type A. The subtype relationship is reversed this means that Contravariance accept supertype but doesn't accept subtype.
 
 Bivariance means accept both supertype & subtype.
 
-Example: Let's say we have a box for all fruits and a separate box just for apples.
+Example: Let's say we have a space for all animals and a separate space just for dogs.
 
-In Covariance, you can put all the apples in the fruit box because apples are a type of fruit. But you cannot put all the fruits in the apple box because there might be bananas or other fruits mixed in.
+In Covariance, you can put all the dogs in the animals space because dogs are a type of animal. But you cannot put all the animals in the dog space because there might be other animals mixed in.
 
-In Contravariance, You cannot put all the fruits in the apple box because the fruit box might contain bananas or other fruits as well. However, you can put all the apples in the fruit box because all apples are also fruits.
+In Contravariance, you cannot put all the animals in the dogs space because the animals space might contain other animals as well. However, you can put all the dogs in the animal space because all dogs are also animals.
 
 ```typescript
-class Fruit {
+// Covariance example
+class Animal {
   name: string;
-
   constructor(name: string) {
     this.name = name;
   }
 }
 
-class Apple extends Fruit {
-  constructor() {
-    super("Apple");
-  }
-
-  eat() {
-    console.log("Eating an apple!");
+class Dog extends Animal {
+  breed: string;
+  constructor(name: string, breed: string) {
+    super(name);
+    this.breed = breed;
   }
 }
 
-class Banana extends Fruit {
-  constructor() {
-    super("Banana");
-  }
+let animals: Animal[] = [];
+let dogs: Dog[] = [];
 
-  peel() {
-    console.log("Peeling a banana!");
-  }
-}
+// Covariance allows assigning subtype (Dog) array to supertype (Animal) array
+animals = dogs;
 
-let fruits: Fruit[] = []; // Covariance
+// Contravariance example
+type AnimalCallback<in T> = (animal: T) => void;
 
-let apple = new Apple();
-let banana = new Banana();
+let animalCallback: AnimalCallback<Animal> = (animal: Animal) => {
+  console.log(`Animal name: ${animal.name}`);
+};
 
-fruits.push(apple); // Covariance: Putting an apple in the fruit basket
-fruits.push(banana); // Covariance: Putting a banana in the fruit basket
+let dogCallback: AnimalCallback<Dog> = (dog: Dog) => {
+  console.log(`Dog name: ${dog.name}, Breed: ${dog.breed}`);
+};
 
-fruits.forEach((fruit) => {
-  console.log(fruit.name);
-  
-  if (fruit instanceof Apple) {
-    fruit.eat(); // Contravariance: Calling the 'eat' method specific to Apples
-  } else if (fruit instanceof Banana) {
-    fruit.peel(); // Contravariance: Calling the 'peel' method specific to Bananas
-  }
-});
+// Contravariance allows assigning supertype (Animal) callback to subtype (Dog) callback
+dogCallback = animalCallback;
 ```
 
 In TypeScript, type relationships for arrays are covariant, while type relationships for function parameters are contravariant. This means that TypeScript exhibits both covariance and contravariance, depending on the context.
+
+As of typescript 4.7.0, we can generalize a Covariant by using the `out` keyword:
+
+```typescript
+type AnimalCallback<out T> = () => T; // T is Covariant here
+```
+
+and Contravariance by using the `in` keyword:
+
+```typescript
+type AnimalCallback<in T> = () => T; // T is Contravariance here
+```
 
 ### Symbol and Template String Pattern Index Signatures
 
