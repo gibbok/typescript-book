@@ -4527,7 +4527,7 @@ const user2 = {
 user2.attributes?.map(console.log) // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
 user2.nickName // string | string[] | undefined
 
-// Using `satisfies` operators we can properly infer the types
+// Using `satisfies` operators we can properly infer the types now
 const user3 = {
     name: 'Simon',
     nickName: undefined,
