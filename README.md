@@ -4069,11 +4069,14 @@ renderWidget();
 ```
 
 ### “tsc –watch”
+
 This command starts a TypeScript compiler with --watch parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
 
 ```shell
 tsc --watch
 ```
+
+Starting from TypeScript version 4.9, file monitoring primarily relies on file system events, automatically resorting to polling if an event-based watcher cannot be established.
 
 ### Definite Assignment Assertions (!)
 
