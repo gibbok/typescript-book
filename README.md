@@ -4505,7 +4505,8 @@ type Columns = 'name' | 'nickName' | 'attributes'
 
 type User = Record<Columns, string | string[] | undefined>
 
-const user: User = { // Type annotation without using satisfies
+// Annotation without using the `satisfies` operator
+const user: User = { 
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin']
