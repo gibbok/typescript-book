@@ -131,6 +131,7 @@ This book is completely Free and Open Source.
     - [Constructor](#constructor)
     - [Private and Protected Constructors](#private-and-protected-constructors)
     - [Access modifiers](#access-modifiers)
+    - [Auto-Accessors in Classes](#auto-accessors-in-classes)
     - [this](#this)
     - [Parameter Properties](#parameter-properties)
     - [Abstract Classes](#abstract-classes)
@@ -208,6 +209,7 @@ This book is completely Free and Open Source.
     - [Covariance and Contravariance in TypeScript](#covariance-and-contravariance-in-typescript)
       - [Optional Variance Annotations for Type Parameters](#optional-variance-annotations-for-type-parameters)
     - [Symbol and Template String Pattern Index Signatures](#symbol-and-template-string-pattern-index-signatures)
+    - [The satisfies Operator](#the-satisfies-operator)
   - [TODO](#todo)
 
 ## Introduction
