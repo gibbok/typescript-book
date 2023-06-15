@@ -4542,4 +4542,4 @@ user3.nickName // TypeScript infers correctly: undefined
 
 - Create a cover/logo
 - Add PDF version
-- Add TypeScript version covered in the book (4.8)
+- Add TypeScript version covered in the book (4.9)
