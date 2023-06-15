@@ -4505,7 +4505,7 @@ type Columns = 'name' | 'nickName' | 'attributes'
 
 type User = Record<Columns, string | string[] | undefined>
 
-// Annotation without using the `satisfies` operator
+// Type Annotation using `User`
 const user: User = { 
     name: 'Simone',
     nickName: undefined,
@@ -4516,15 +4516,26 @@ const user: User = {
 user.attributes?.map(console.log) // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
 user.nickName // string | string[] | undefined
 
-// Using `satisfies` operators we can properly infer the types
+// Type assertion using `as`
 const user2 = {
+    name: 'Simon',
+    nickName: undefined,
+    attributes: ['dev', 'admin']
+} as User
+
+// Here too, TypeScript won't be able to infer properly
+user2.attributes?.map(console.log) // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+user2.nickName // string | string[] | undefined
+
+// Using `satisfies` operators we can properly infer the types
+const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin']
 } satisfies User
 
-user2.attributes?.map(console.log) // TypeScript infers correctly: string[]
-user2.nickName // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log) // TypeScript infers correctly: string[]
+user3.nickName // TypeScript infers correctly: undefined
 ```
 
 ## TODO
