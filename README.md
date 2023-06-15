@@ -2824,6 +2824,39 @@ The `protected` modifier allows access to the class member within the containing
 
 The `public` modifier provides unrestricted access to the class member, allowing it to be accessed from anywhere."
 
+### Auto-Accessors in Classes
+
+TypeScript version 4.9 adds support for auto-accessors, a forthcoming ECMAScript feature. They resemble class properties but are declared with the "accessor" keyword.
+
+```typescript
+class Animal {
+    accessor name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+}
+```
+
+Auto-accessors are "de-sugared" into private `get` and `set` accessors, operating on an inaccessible property.
+
+```typescript
+class Animal {
+    #__name: string;
+
+    get name() {
+        return this.#__name;
+    }
+    set name(value: string) {
+        this.#__name = name;
+    }
+
+    constructor(name: string) {
+        this.name = name;
+    }
+}
+```
+
 ### this
 
 In TypeScript, the `this` keyword refers to the current instance of a class within its methods or constructors. It allows you to access and modify the properties and methods of the class from within its own scope.
@@ -4069,11 +4102,14 @@ renderWidget();
 ```
 
 ### “tsc –watch”
+
 This command starts a TypeScript compiler with --watch parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
 
 ```shell
 tsc --watch
 ```
+
+Starting from TypeScript version 4.9, file monitoring primarily relies on file system events, automatically resorting to polling if an event-based watcher cannot be established.
 
 ### Definite Assignment Assertions (!)
 
@@ -4459,8 +4495,51 @@ let obj: Obj = {};
 obj[b] = 123;
 ```
 
+### The satisfies Operator
+
+The `satisfies` operator verifies if a type meets the criteria of a particular interface or condition. It guarantees that the type includes all the necessary properties and methods of the specified interface, thereby ensuring compatibility between variables and type definitions.
+Here is an example:
+
+```typescript
+type Columns = 'name' | 'nickName' | 'attributes'
+
+type User = Record<Columns, string | string[] | undefined>
+
+// Type Annotation using `User`
+const user: User = { 
+    name: 'Simone',
+    nickName: undefined,
+    attributes: ['dev', 'admin']
+}
+
+// In the following lines, TypeScript won't be able to infer properly
+user.attributes?.map(console.log) // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+user.nickName // string | string[] | undefined
+
+// Type assertion using `as`
+const user2 = {
+    name: 'Simon',
+    nickName: undefined,
+    attributes: ['dev', 'admin']
+} as User
+
+// Here too, TypeScript won't be able to infer properly
+user2.attributes?.map(console.log) // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+user2.nickName // string | string[] | undefined
+
+// Using `satisfies` operators we can properly infer the types now
+const user3 = {
+    name: 'Simon',
+    nickName: undefined,
+    attributes: ['dev', 'admin']
+} satisfies User
+
+user3.attributes?.map(console.log) // TypeScript infers correctly: string[]
+user3.nickName // TypeScript infers correctly: undefined
+```
+
 ## TODO
 
 - Create a cover/logo
 - Add PDF version
-- Add TypeScript version covered in the book (4.8)
+- Add TypeScript version covered in the book (4.9)
