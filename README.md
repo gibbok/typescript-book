@@ -2824,6 +2824,39 @@ The `protected` modifier allows access to the class member within the containing
 
 The `public` modifier provides unrestricted access to the class member, allowing it to be accessed from anywhere."
 
+### Auto-Accessors in Classes
+
+TypeScript version 4.9 adds support for auto-accessors, a forthcoming ECMAScript feature. They resemble class properties but are declared with the "accessor" keyword.
+
+```typescript
+class Animal {
+    accessor name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+}
+```
+
+Auto-accessors are "de-sugared" into private `get` and `set` accessors, operating on an inaccessible property.
+
+```typescript
+class Animal {
+    #__name: string;
+
+    get name() {
+        return this.#__name;
+    }
+    set name(value: string) {
+        this.#__name = name;
+    }
+
+    constructor(name: string) {
+        this.name = name;
+    }
+}
+```
+
 ### this
 
 In TypeScript, the `this` keyword refers to the current instance of a class within its methods or constructors. It allows you to access and modify the properties and methods of the class from within its own scope.
