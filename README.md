@@ -4495,6 +4495,37 @@ let obj: Obj = {};
 obj[b] = 123;
 ```
 
+### The satisfies Operator
+
+The `satisfies` operator verifies if a type meets the criteria of a particular interface or condition. It guarantees that the type includes all the necessary properties and methods of the specified interface, thereby ensuring compatibility between variables and type definitions.
+Here is an example:
+
+```typescript
+type Columns = 'name' | 'nickName' | 'attributes'
+
+type User = Record<Columns, string | string[] | undefined>
+
+const user: User = { // Type annotation without using satisfies
+    name: 'Simone',
+    nickName: undefined,
+    attributes: ['dev', 'admin']
+}
+
+// In the following lines, TypeScript won't be able to infer properly
+user.attributes?.map(console.log) // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+user.nickName // string | string[] | undefined
+
+// Using `satisfies` operators we can properly infer the types
+const user2 = {
+    name: 'Simon',
+    nickName: undefined,
+    attributes: ['dev', 'admin']
+} satisfies User
+
+user2.attributes?.map(console.log) // TypeScript infers correctly: string[]
+user2.nickName // TypeScript infers correctly: undefined
+```
+
 ## TODO
 
 - Create a cover/logo
