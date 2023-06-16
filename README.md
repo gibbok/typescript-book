@@ -1833,6 +1833,20 @@ enum Color {
 console.log(Color.Blue);  // random number generated at run time
 ```
 
+Enums are denoted by unions comprising their member types. The values of each member can be determined through constant or non-constant expressions, with members possessing constant values being assigned literal types. To illustrate, consider the declaration of type E and its subtypes E.A, E.B, and E.C. In this case, E represents the union E.A | E.B | E.C.
+
+```typescript
+const identity = (value: number) => value
+
+enum E {
+  A = 2 * 5,       // Numeric literal enum member
+  B = "bar",       // String literal enum member
+  C = identity(42) // Opaque computed enum member
+}
+
+console.log(E.C) //42
+```
+
 ## Narrowing
 
 TypeScript narrowing is the process of refining the type of a variable within a conditional block. This is useful when working with union types, where a variable can have more than one type.
@@ -2954,6 +2968,7 @@ console.log(container2.getItem()); // World
 ```
 
 ### Decorators
+
 Decorators provide a mechanism to add metadata, modify behavior, validation or extend functionality of the target element.
 
 Decorators are functions and execute at runtime. Multiple decorators can be applied to a declaration.
