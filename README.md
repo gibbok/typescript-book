@@ -1,6 +1,6 @@
 # The Concise TypeScript Book
 
-The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects, from its powerful type system to advanced features. Whether you're a beginner or experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.
+The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects found in the latest version of the language, from its powerful type system to advanced features. Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.
 
 This book is completely Free and Open Source.
 
@@ -49,6 +49,7 @@ This book is completely Free and Open Source.
     - [More advanced inferences](#more-advanced-inferences)
     - [Type Widening](#type-widening)
     - [Const](#const)
+    - [const modifier on type parameters](#const-modifier-on-type-parameters)
     - [Explicit Type Annotation](#explicit-type-annotation)
     - [Const assertion](#const-assertion)
     - [Type Narrowing](#type-narrowing)
@@ -210,7 +211,6 @@ This book is completely Free and Open Source.
       - [Optional Variance Annotations for Type Parameters](#optional-variance-annotations-for-type-parameters)
     - [Symbol and Template String Pattern Index Signatures](#symbol-and-template-string-pattern-index-signatures)
     - [The satisfies Operator](#the-satisfies-operator)
-  - [TODO](#todo)
 
 ## Introduction
 
@@ -753,9 +753,9 @@ enum Y {
  B,
  C,
 }
-const xa: number = X.A // valid
-const ya: Y = 0 // valid
-X.A === Y.A // invalid
+const xa: number = X.A // Valid
+const ya: Y = 0 // Valid
+X.A === Y.A // Invalid
 ```
 
 Instances of a class are subject to a compatibility check for their private and protected members:
@@ -775,7 +775,7 @@ class Y {
    }
 }
 
-let x : X = new Y('y') // invalid
+let x : X = new Y('y') // Invalid
 ```
 
 The comparison check does not take into consideration the different inheritance hierarchy, for instance:
@@ -933,8 +933,8 @@ type Y = {
   b: string
  }
 type XY = X & Y
-const r: XY = { a: 'a' } // invalid
-const j: XY = { a: 'a', b:'b' } // valid
+const r: XY = { a: 'a' } // Invalid
+const j: XY = { a: 'a', b:'b' } // Valid
 ```
 
 The `extends` keyword could be considered as a “subset of” in this context. It sets a constraint for a type. The extends used with a generic, take the generic as an infinite set and it will constrain it to a more specific type.
@@ -1091,7 +1091,7 @@ type Options = {
 
 const fn = (options: Options) => undefined
 
-fn({ c: 'c' }) // invalid
+fn({ c: 'c' }) // Invalid
 ```
 
 Although not recommended, if needed, it is possible to bypass this check by using type assertion:
@@ -1188,9 +1188,9 @@ Type widening is the process in which TypeScript assigns a type to a variable in
 In the following example:
 
 ```typescript
-let x = 'x' // ts infers as string, a wide type
+let x = 'x' // TypeScript infers as string, a wide type
 let y: 'y'|'x' = 'y' // y types is a union of literal types
-y = x; // invalid Type 'string' is not assignable to type '"x" | "y"'.
+y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
 ```
 
 TypeScript assigns `string` to `x` based on the single value provided during initialization (`x`), this is an example of widening.
@@ -1211,6 +1211,30 @@ y = x; // Valid: The type of x is inferred as 'x'
 
 By using const to declare the variable x, its type is narrowed to the specific literal value 'x'. Since the type of x is narrowed, it can be assigned to the variable y without any error.
 The reason the type can be inferred is because const variables cannot be reassigned, so their type can be narrowed down to a specific literal type, in this case, the literal type 'x'.
+
+### const modifier on type parameters
+
+From version 5.0 of TypeScript, it is possible to specify the `const` attribute on a generic type parameter. This allows for inferring the most precise type possible. Let's see an example without using `const`:
+
+```typescript
+function identity<T>(value: T) { // No const here
+  return value
+}
+const values = identity({ a: 'a', b: 'b' }) // Type infered is: { a: string; b: string; }
+```
+
+As you can see, the properties `a` and `b` are inferred with a type of `string`   .
+
+Now, let's see the difference with the `const` version:
+
+```typescript
+function identity<const T>(value: T) { // Using const modifier on type parameters
+  return value
+}
+const values = identity({ a: 'a', b: 'b' }) // Type infered is: { a: "a"; b: "b"; }
+```
+
+Now we can see that the properties `a` and `b` are inferred as `const`, so `a` and `b` are treated as string literals rather than just `string` types.
 
 ### Explicit Type Annotation
 
@@ -1415,10 +1439,10 @@ const j: Array<string | number> = ['a', 1, 'b', 2] // Union
 TypeScript supports readonly arrays using the following syntax:
 
 ```typescript
-const x: readonly string[] = ['a', 'b'] // readonly modifier
+const x: readonly string[] = ['a', 'b'] // Readonly modifier
 const y: ReadonlyArray<string> = ['a', 'b']
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2]
-j.push('x') // invalid
+j.push('x') // Invalid
 ```
 
 TypeScript supports tuple and readonly tuple:
@@ -1831,6 +1855,20 @@ enum Color {
  Blue = Math.floor(Math.random() * 3) + 1
 }
 console.log(Color.Blue);  // random number generated at run time
+```
+
+Enums are denoted by unions comprising their member types. The values of each member can be determined through constant or non-constant expressions, with members possessing constant values being assigned literal types. To illustrate, consider the declaration of type E and its subtypes E.A, E.B, and E.C. In this case, E represents the union E.A | E.B | E.C.
+
+```typescript
+const identity = (value: number) => value
+
+enum E {
+  A = 2 * 5,       // Numeric literal
+  B = "bar",       // String literal
+  C = identity(42) // Opaque computed
+}
+
+console.log(E.C) //42
 ```
 
 ## Narrowing
@@ -2301,10 +2339,10 @@ The `unknown` type is only assignable to any type and the unknown type itself, i
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // valid
-let value2: any = value; // valid
-let value3: boolean = value; // invalid
-let value4: number = value; // invalid
+let value1: unknown = value; // Valid
+let value2: any = value; // Valid
+let value3: boolean = value; // Invalid
+let value4: number = value; // Invalid
 ```
 
 ```typescript
@@ -2954,6 +2992,7 @@ console.log(container2.getItem()); // World
 ```
 
 ### Decorators
+
 Decorators provide a mechanism to add metadata, modify behavior, validation or extend functionality of the target element.
 
 Decorators are functions and execute at runtime. Multiple decorators can be applied to a declaration.
@@ -3329,7 +3368,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen("Hello"); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // invalid
+printLen(123); // Invalid
 ```
 
 An interesting feature of generic introduced in version 3.4 RC is Higher order function type inference which introduced  propagated generic type arguments:
@@ -3571,7 +3610,7 @@ type Person = {
 type A = Readonly<Person>
 
 const a:A = {name: 'Simon', age: 17}
-a.name = 'John'  // invalid
+a.name = 'John' // Invalid
 ```
 
 #### Record<K, T>
@@ -3738,8 +3777,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function() {
-        this.log("some error"); // valid as "log" is a part of "this".
-        this.update(); // // invalid
+        this.log("some error"); // Valid as "log" is a part of "this".
+        this.update(); // // Invalid
     }
 }
 ```
@@ -4145,7 +4184,7 @@ Const assertions are a feature that allows you to declare a variable with a more
 
 ```typescript
 let arr = [1, 2, 3] as const; // readonly [1, 2, 3]
-arr.push(4) // invalid
+arr.push(4) // Invalid
 ```
 
 ### Optional Chaining
@@ -4539,9 +4578,3 @@ const user3 = {
 user3.attributes?.map(console.log) // TypeScript infers correctly: string[]
 user3.nickName // TypeScript infers correctly: undefined
 ```
-
-## TODO
-
-- Create a cover/logo
-- Add PDF version
-- Add TypeScript version covered in the book (4.9)
