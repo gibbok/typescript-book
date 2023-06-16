@@ -211,7 +211,6 @@ This book is completely Free and Open Source.
       - [Optional Variance Annotations for Type Parameters](#optional-variance-annotations-for-type-parameters)
     - [Symbol and Template String Pattern Index Signatures](#symbol-and-template-string-pattern-index-signatures)
     - [The satisfies Operator](#the-satisfies-operator)
-  - [TODO](#todo)
 
 ## Introduction
 
@@ -754,9 +753,9 @@ enum Y {
  B,
  C,
 }
-const xa: number = X.A // valid
-const ya: Y = 0 // valid
-X.A === Y.A // invalid
+const xa: number = X.A // Valid
+const ya: Y = 0 // Valid
+X.A === Y.A // Invalid
 ```
 
 Instances of a class are subject to a compatibility check for their private and protected members:
@@ -776,7 +775,7 @@ class Y {
    }
 }
 
-let x : X = new Y('y') // invalid
+let x : X = new Y('y') // Invalid
 ```
 
 The comparison check does not take into consideration the different inheritance hierarchy, for instance:
@@ -934,8 +933,8 @@ type Y = {
   b: string
  }
 type XY = X & Y
-const r: XY = { a: 'a' } // invalid
-const j: XY = { a: 'a', b:'b' } // valid
+const r: XY = { a: 'a' } // Invalid
+const j: XY = { a: 'a', b:'b' } // Valid
 ```
 
 The `extends` keyword could be considered as a “subset of” in this context. It sets a constraint for a type. The extends used with a generic, take the generic as an infinite set and it will constrain it to a more specific type.
@@ -1092,7 +1091,7 @@ type Options = {
 
 const fn = (options: Options) => undefined
 
-fn({ c: 'c' }) // invalid
+fn({ c: 'c' }) // Invalid
 ```
 
 Although not recommended, if needed, it is possible to bypass this check by using type assertion:
@@ -1189,9 +1188,9 @@ Type widening is the process in which TypeScript assigns a type to a variable in
 In the following example:
 
 ```typescript
-let x = 'x' // ts infers as string, a wide type
+let x = 'x' // TypeScript infers as string, a wide type
 let y: 'y'|'x' = 'y' // y types is a union of literal types
-y = x; // invalid Type 'string' is not assignable to type '"x" | "y"'.
+y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
 ```
 
 TypeScript assigns `string` to `x` based on the single value provided during initialization (`x`), this is an example of widening.
@@ -1440,10 +1439,10 @@ const j: Array<string | number> = ['a', 1, 'b', 2] // Union
 TypeScript supports readonly arrays using the following syntax:
 
 ```typescript
-const x: readonly string[] = ['a', 'b'] // readonly modifier
+const x: readonly string[] = ['a', 'b'] // Readonly modifier
 const y: ReadonlyArray<string> = ['a', 'b']
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2]
-j.push('x') // invalid
+j.push('x') // Invalid
 ```
 
 TypeScript supports tuple and readonly tuple:
@@ -2340,10 +2339,10 @@ The `unknown` type is only assignable to any type and the unknown type itself, i
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // valid
-let value2: any = value; // valid
-let value3: boolean = value; // invalid
-let value4: number = value; // invalid
+let value1: unknown = value; // Valid
+let value2: any = value; // Valid
+let value3: boolean = value; // Invalid
+let value4: number = value; // Invalid
 ```
 
 ```typescript
@@ -3369,7 +3368,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen("Hello"); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // invalid
+printLen(123); // Invalid
 ```
 
 An interesting feature of generic introduced in version 3.4 RC is Higher order function type inference which introduced  propagated generic type arguments:
@@ -3611,7 +3610,7 @@ type Person = {
 type A = Readonly<Person>
 
 const a:A = {name: 'Simon', age: 17}
-a.name = 'John'  // invalid
+a.name = 'John' // Invalid
 ```
 
 #### Record<K, T>
@@ -3778,8 +3777,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function() {
-        this.log("some error"); // valid as "log" is a part of "this".
-        this.update(); // // invalid
+        this.log("some error"); // Valid as "log" is a part of "this".
+        this.update(); // // Invalid
     }
 }
 ```
@@ -4185,7 +4184,7 @@ Const assertions are a feature that allows you to declare a variable with a more
 
 ```typescript
 let arr = [1, 2, 3] as const; // readonly [1, 2, 3]
-arr.push(4) // invalid
+arr.push(4) // Invalid
 ```
 
 ### Optional Chaining
@@ -4579,9 +4578,3 @@ const user3 = {
 user3.attributes?.map(console.log) // TypeScript infers correctly: string[]
 user3.nickName // TypeScript infers correctly: undefined
 ```
-
-## TODO
-
-- Create a cover/logo
-- Add PDF version
-- Add TypeScript version covered in the book (4.9)
