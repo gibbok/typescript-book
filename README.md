@@ -4538,7 +4538,7 @@ obj[b] = 123;
 
 ### The satisfies Operator
 
-The `satisfies` operator verifies if a type meets the criteria of a particular interface or condition. It guarantees that the type includes all the necessary properties and methods of the specified interface, thereby ensuring compatibility between variables and type definitions.
+The `satisfies`  allows you to check if a given type satisfies a specific interface or condition. In other words, it ensures that a type has all the required properties and methods of a specific interface. It is a way to ensure a variable fits into a definition of a type
 Here is an example:
 
 ```typescript
