@@ -1863,9 +1863,9 @@ Enums are denoted by unions comprising their member types. The values of each me
 const identity = (value: number) => value
 
 enum E {
-  A = 2 * 5,       // Numeric literal enum member
-  B = "bar",       // String literal enum member
-  C = identity(42) // Opaque computed enum member
+  A = 2 * 5,       // Numeric literal
+  B = "bar",       // String literal
+  C = identity(42) // Opaque computed
 }
 
 console.log(E.C) //42
