@@ -141,6 +141,7 @@ This book is completely Free and Open Source.
       - [Class decorators](#class-decorators)
       - [Property Decorator](#property-decorator)
       - [Method Decorator](#method-decorator)
+      - [Getter and Setter Decorators](#getter-and-setter-decorators)
       - [Parameter Decorator](#parameter-decorator)
     - [Inheritance](#inheritance)
     - [Statics](#statics)
@@ -3113,8 +3114,43 @@ class MyClass {
 console.log(new MyClass().sayHello()); // Logs: Hello!
 ```
 
+#### Getter and Setter Decorators
 
-Accessor decorators share similarities with method decorators, but they differ in the descriptor keys they utilize: `get`, `set`, `enumerable`, and `configurable`.
+Allow to change or enhance the behavior of class accessors, this is useful for instance to validate property assignments, below a simple example:
+
+```typescript
+function maximum100<This, Return extends number>(
+    target: (this: This) => Return,
+    context: ClassGetterDecoratorContext<This, Return>
+) {
+    return function (this: This): Return {
+        const value = target.call(this);
+        if (value > 100) {
+            throw 'Invalid'
+        }
+        Object.defineProperty(this, context.name, { value, enumerable: true });
+        return value;
+    };
+}
+
+class MyClass {
+    private _value = 0;
+
+    constructor(value: number) {
+        this._value = value
+    }
+    @maximum100
+    get getValue(): number {
+        return this._value;
+    }
+}
+
+const obj = new MyClass(10);
+console.log(obj.getValue);
+
+const obj2 = new MyClass(888);
+console.log(obj2.getValue); // Throw: Invalid!
+```
 
 #### Parameter Decorator
 
