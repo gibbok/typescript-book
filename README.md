@@ -49,7 +49,7 @@ This book is completely Free and Open Source.
     - [More advanced inferences](#more-advanced-inferences)
     - [Type Widening](#type-widening)
     - [Const](#const)
-    - [const modifier on type parameters](#const-modifier-on-type-parameters)
+      - [const modifier on type parameters](#const-modifier-on-type-parameters)
     - [Explicit Type Annotation](#explicit-type-annotation)
     - [Const assertion](#const-assertion)
     - [Type Narrowing](#type-narrowing)
@@ -1212,7 +1212,7 @@ y = x; // Valid: The type of x is inferred as 'x'
 By using const to declare the variable x, its type is narrowed to the specific literal value 'x'. Since the type of x is narrowed, it can be assigned to the variable y without any error.
 The reason the type can be inferred is because const variables cannot be reassigned, so their type can be narrowed down to a specific literal type, in this case, the literal type 'x'.
 
-### const modifier on type parameters
+#### const modifier on type parameters
 
 From version 5.0 of TypeScript, it is possible to specify the `const` attribute on a generic type parameter. This allows for inferring the most precise type possible. Let's see an example without using `const`:
 
