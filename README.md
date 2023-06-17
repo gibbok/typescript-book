@@ -2993,9 +2993,7 @@ console.log(container2.getItem()); // World
 
 ### Decorators
 
-Decorators provide a mechanism to add metadata, modify behavior, validate or extend the functionality of the target element.
-
-Decorators are functions and execute at runtime. Multiple decorators can be applied to a declaration.
+Decorators provide a mechanism to add metadata, modify behavior, validate, or extend the functionality of the target element. They are functions that execute at runtime. Multiple decorators can be applied to a declaration.
 
 Decorators are experimental features, and the following examples are only compatible with TypeScript version 5 or above using ES6.
 
@@ -3003,14 +3001,14 @@ For TypeScript versions prior to 5, they should be enabled using the `experiment
 
 Some of the common use cases for decorators include:
 
-- Watching property changes
-- Watching method calls
-- Adding extra properties or methods
-- Runtime validation
-- Automatic serialization and deserialization
-- Logging
-- Authorization and authentication
-- Error guarding
+* Watching property changes
+* Watching method calls
+* Adding extra properties or methods
+* Runtime validation
+* Automatic serialization and deserialization
+* Logging
+* Authorization and authentication
+* Error guarding
 
 Note: Decorators for version 5 do not allow decorating parameters.
 
