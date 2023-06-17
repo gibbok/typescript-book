@@ -3062,36 +3062,21 @@ const person = new Person('Simon');
 Useful to change the behavior of a property. In the following code we have a script to set a property to text to be always uppercase:
 
 ```typescript
-function uppercase() {
- return function (
-   target: any,
-   propertyKey: string,
-   descriptor: PropertyDescriptor
- ) {
-   var originalMethod = descriptor.value;
-   descriptor.value = function (...args: any[]): any {
-     var that = this;
-     const r = originalMethod.apply(that, args);
-     return r.toUpperCase();
-   };
-   return descriptor;
- };
+function upperCase<T>(
+    target: undefined,
+    context: ClassFieldDecoratorContext<T, string>
+) {
+    return function (this: T, value: string) {
+        return value.toUpperCase();
+    };
 }
 
-class User {
- greeting: string;
- constructor(message: string) {
-   this.greeting = message;
- }
-
- @uppercase()
- sayHello() {
-   return 'Hello, ' + this.greeting;
- }
+class MyClass {
+    @upperCase
+    prop1 = 'hello';
 }
 
-const u = new User('MY NAME IS SIMON');
-console.log(u.sayHello());
+console.log(new MyClass().prop1); // Logs: HELLO
 ```
 
 #### Method Decorator and Accessor Decorators
