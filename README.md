@@ -142,7 +142,6 @@ This book is completely Free and Open Source.
       - [Property Decorator](#property-decorator)
       - [Method Decorator](#method-decorator)
       - [Getter and Setter Decorators](#getter-and-setter-decorators)
-      - [Parameter Decorator](#parameter-decorator)
     - [Inheritance](#inheritance)
     - [Statics](#statics)
     - [Property initialization](#property-initialization)
@@ -3013,12 +3012,7 @@ Some of the common use cases for decorators:
 * Authorization and Authentication
 * Error guarding
 
-Evaluation order:
-
-1) Parameter Decorators, Method, Accessor, or Property Decorators are applied for each instance member.
-2) Parameter Decorators, followed by Method, Accessor, or Property Decorators are applied for each static member.
-3) Parameter Decorators are applied for the constructor.
-4) Class Decorators are applied for the class.
+Notes: Decorator for version 5 does not allow decorating parameters. 
 
 Types of decorators:
 
@@ -3155,26 +3149,7 @@ const obj2 = new MyClass(999);
 console.log(obj2.getValue); // Throw: Invalid!
 ```
 
-#### Parameter Decorator
 
-Parameter decorators are used mainly to record information which can be passed to other decorators.
-
-```typescript
-function ParameterDecorator(
- target: Function,
- propertyKey: string | symbol,
- parameterIndex: number
- ) {
- console.log("ParameterDecorator called on: ", target, propertyKey, parameterIndex);
-}
-class Class {
- method(@ParameterDecorator param1: string, @ParameterDecorator param2: number) {
- }
-}
-const x = new Class()
-x.method('x', 1)
-
-```
 
 ### Inheritance
 
