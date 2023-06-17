@@ -3023,25 +3023,38 @@ Types of decorators:
 
 #### Class decorators
 
-Useful to extend an existing class for example with some properties of methods, in the following example we add a `toString` method which will stringify the class.
+Useful to extend an existing class for example with some properties of methods, or collecting instances of a class, in the following example we add a `toString` method which will stringify the class.
 
 ```typescript
-type ClassConstructor = { new (...args: any[]): any };
+type Constructor<T = {}> = new (...args: any[]) => T;
 
-function toString<T extends ClassConstructor>(BaseClass: T) {
-return class extends BaseClass {
-  toString() {
-    return JSON.stringify(this);
-  }
-};
+function toString<Class extends Constructor>(Value: Class, context: ClassDecoratorContext<Class>) {
+    return class extends Value {
+        constructor(...args: any[]) {
+            super(...args);
+            console.log(JSON.stringify(this))
+            console.log(JSON.stringify(context))
+        }
+    }
 }
 
 @toString
-class Class {
-public foo = "foo";
-public bar = 123;
+class Person {
+    name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    greet() {
+        return "Hello, " + this.name;
+    }
 }
-console.log(new Class().toString())
+const person = new Person('Simon');
+/* It logs:
+{"name":"Simon"}
+{"kind":"class","name":"Person"}
+*/
 ```
 
 You can also pass parameters to decorators:
