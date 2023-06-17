@@ -140,7 +140,7 @@ This book is completely Free and Open Source.
     - [Decorators](#decorators)
       - [Class decorators](#class-decorators)
       - [Property Decorator](#property-decorator)
-      - [Method Decorator and Accessor Decorators](#method-decorator-and-accessor-decorators)
+      - [Method Decorator](#method-decorator)
       - [Parameter Decorator](#parameter-decorator)
     - [Inheritance](#inheritance)
     - [Statics](#statics)
@@ -3073,38 +3073,44 @@ function upperCase<T>(
 
 class MyClass {
     @upperCase
-    prop1 = 'hello';
+    prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO
+console.log(new MyClass().prop1); // Logs: HELLO!
 ```
 
-#### Method Decorator and Accessor Decorators
+#### Method Decorator
 
-Allow to change or enhance the behavior of methods and accessors, below an example of a simple logger:
+Allow to change or enhance the behavior of methods, below an example of a simple logger:
 
 ```typescript
-function logger(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
- const original = descriptor.value;
+function log<This, Args extends any[], Return>(
+    target: (this: This, ...args: Args) => Return,
+    context: ClassMethodDecoratorContext<
+        This,
+        (this: This, ...args: Args) => Return
+    >
+) {
+    const methodName = String(context.name);
 
+    function replacementMethod(this: This, ...args: Args): Return {
+        console.log(`LOG: Entering method '${methodName}'.`);
+        const result = target.call(this, ...args);
+        console.log(`LOG: Exiting method '${methodName}'.`);
+        return result;
+    }
 
- descriptor.value = function (...args) {
-   console.log('params: ', ...args);
-   const result = original.call(this, ...args);
-   console.log('result: ', result);
-   return result;
- }
+    return replacementMethod;
 }
 
-class Class {
- @logger
- multiply(x: number, y:number ) {
-   return x * y;
- }
+class MyClass {
+    @log
+    sayHello() {
+        console.log('Hello!')
+    }
 }
 
-const c = new Class();
-c.multiply(4, 2);
+console.log(new MyClass().sayHello()); // Logs: Hello!
 ```
 
 
