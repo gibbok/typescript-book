@@ -49,7 +49,7 @@ This book is completely Free and Open Source.
     - [More advanced inferences](#more-advanced-inferences)
     - [Type Widening](#type-widening)
     - [Const](#const)
-    - [const modifier on type parameters](#const-modifier-on-type-parameters)
+      - [const modifier on type parameters](#const-modifier-on-type-parameters)
     - [Explicit Type Annotation](#explicit-type-annotation)
     - [Const assertion](#const-assertion)
     - [Type Narrowing](#type-narrowing)
@@ -140,8 +140,8 @@ This book is completely Free and Open Source.
     - [Decorators](#decorators)
       - [Class decorators](#class-decorators)
       - [Property Decorator](#property-decorator)
-      - [Method Decorator and Accessor Decorators](#method-decorator-and-accessor-decorators)
-      - [Parameter Decorator](#parameter-decorator)
+      - [Method Decorator](#method-decorator)
+      - [Getter and Setter Decorators](#getter-and-setter-decorators)
     - [Inheritance](#inheritance)
     - [Statics](#statics)
     - [Property initialization](#property-initialization)
@@ -1212,7 +1212,7 @@ y = x; // Valid: The type of x is inferred as 'x'
 By using const to declare the variable x, its type is narrowed to the specific literal value 'x'. Since the type of x is narrowed, it can be assigned to the variable y without any error.
 The reason the type can be inferred is because const variables cannot be reassigned, so their type can be narrowed down to a specific literal type, in this case, the literal type 'x'.
 
-### const modifier on type parameters
+#### const modifier on type parameters
 
 From version 5.0 of TypeScript, it is possible to specify the `const` attribute on a generic type parameter. This allows for inferring the most precise type possible. Let's see an example without using `const`:
 
@@ -2993,161 +2993,158 @@ console.log(container2.getItem()); // World
 
 ### Decorators
 
-Decorators provide a mechanism to add metadata, modify behavior, validation or extend functionality of the target element.
+Decorators provide a mechanism to add metadata, modify behavior, validate, or extend the functionality of the target element. They are functions that execute at runtime. Multiple decorators can be applied to a declaration.
 
-Decorators are functions and execute at runtime. Multiple decorators can be applied to a declaration.
+Decorators are experimental features, and the following examples are only compatible with TypeScript version 5 or above using ES6.
 
-Decorators are experimental features, in TypeScript version < 5 should be enabled using the `experimentalDecorators` property in your tsconfig.json or using `--experimentalDecorators` in your command line.
+For TypeScript versions prior to 5, they should be enabled using the `experimentalDecorators` property in your `tsconfig.json` or by using `--experimentalDecorators` in your command line (but the following example won't work).
 
-The following examples are compatible only for TypeScript version 5 or above using ES6.
+Some of the common use cases for decorators include:
 
-Some of the common use cases for decorators:
-* Watch properties changes
-* Watch methods calls
-* Add extra properties of methods
-* Validation at run time
+* Watching property changes
+* Watching method calls
+* Adding extra properties or methods
+* Runtime validation
 * Automatic serialization and deserialization
 * Logging
-* Validation
-* Authorization and Authentication
+* Authorization and authentication
 * Error guarding
 
-Evaluation order:
-
-1) Parameter Decorators, Method, Accessor, or Property Decorators are applied for each instance member.
-2) Parameter Decorators, followed by Method, Accessor, or Property Decorators are applied for each static member.
-3) Parameter Decorators are applied for the constructor.
-4) Class Decorators are applied for the class.
+Note: Decorators for version 5 do not allow decorating parameters.
 
 Types of decorators:
 
 #### Class decorators
 
-Useful to extend an existing class for example with some properties of methods, in the following example we add a `toString` method which will stringify the class.
+Class decorators are useful for extending an existing class, such as adding properties or methods, or collecting instances of a class. In the following example, we add a `toString` method that converts the class into a string representation.
 
 ```typescript
-type ClassConstructor = { new (...args: any[]): any };
+type Constructor<T = {}> = new (...args: any[]) => T;
 
-function toString<T extends ClassConstructor>(BaseClass: T) {
-return class extends BaseClass {
-  toString() {
-    return JSON.stringify(this);
-  }
-};
+function toString<Class extends Constructor>(Value: Class, context: ClassDecoratorContext<Class>) {
+    return class extends Value {
+        constructor(...args: any[]) {
+            super(...args);
+            console.log(JSON.stringify(this))
+            console.log(JSON.stringify(context))
+        }
+    }
 }
 
 @toString
-class Class {
-public foo = "foo";
-public bar = 123;
-}
-console.log(new Class().toString())
-```
+class Person {
+    name: string;
 
-You can also pass parameters to decorators:
+    constructor(name: string) {
+        this.name = name;
+    }
 
-```typescript
-function ClassDecoratorParams(param1: number, param2: string) {
- return function(
-     target: Function
-     ) {
-     console.log("ClassDecoratorParams(" + param1 + ", '" + param2 + "') called on: ", target);
- }
+    greet() {
+        return "Hello, " + this.name;
+    }
 }
-1
-@ClassDecoratorParams(1, "a")
-@ClassDecoratorParams(2, "b")
-class ClassExample {
-}
+const person = new Person('Simon');
+/* Logs:
+{"name":"Simon"}
+{"kind":"class","name":"Person"}
+*/
 ```
 
 #### Property Decorator
 
-Useful to change the behavior of a property. In the following code we have a script to set a property to text to be always uppercase:
+Property decorators are useful for modifying the behavior of a property, such as changing the initialization values. In the following code, we have a script that sets a property to always be in uppercase:
 
 ```typescript
-function uppercase() {
- return function (
-   target: any,
-   propertyKey: string,
-   descriptor: PropertyDescriptor
- ) {
-   var originalMethod = descriptor.value;
-   descriptor.value = function (...args: any[]): any {
-     var that = this;
-     const r = originalMethod.apply(that, args);
-     return r.toUpperCase();
-   };
-   return descriptor;
- };
+function upperCase<T>(
+    target: undefined,
+    context: ClassFieldDecoratorContext<T, string>
+) {
+    return function (this: T, value: string) {
+        return value.toUpperCase();
+    };
 }
 
-class User {
- greeting: string;
- constructor(message: string) {
-   this.greeting = message;
- }
-
- @uppercase()
- sayHello() {
-   return 'Hello, ' + this.greeting;
- }
+class MyClass {
+    @upperCase
+    prop1 = 'hello!';
 }
 
-const u = new User('MY NAME IS SIMON');
-console.log(u.sayHello());
+console.log(new MyClass().prop1); // Logs: HELLO!
 ```
 
-#### Method Decorator and Accessor Decorators
+#### Method Decorator
 
-Allow to change or enhance the behavior of methods and accessors, below an example of a simple logger:
+Method decorators allow you to change or enhance the behavior of methods. Below is an example of a simple logger:
 
 ```typescript
-function logger(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
- const original = descriptor.value;
+function log<This, Args extends any[], Return>(
+    target: (this: This, ...args: Args) => Return,
+    context: ClassMethodDecoratorContext<
+        This,
+        (this: This, ...args: Args) => Return
+    >
+) {
+    const methodName = String(context.name);
 
+    function replacementMethod(this: This, ...args: Args): Return {
+        console.log(`LOG: Entering method '${methodName}'.`);
+        const result = target.call(this, ...args);
+        console.log(`LOG: Exiting method '${methodName}'.`);
+        return result;
+    }
 
- descriptor.value = function (...args) {
-   console.log('params: ', ...args);
-   const result = original.call(this, ...args);
-   console.log('result: ', result);
-   return result;
- }
+    return replacementMethod;
 }
 
-class Class {
- @logger
- multiply(x: number, y:number ) {
-   return x * y;
- }
+class MyClass {
+    @log
+    sayHello() {
+        console.log('Hello!')
+    }
 }
 
-const c = new Class();
-c.multiply(4, 2);
+console.log(new MyClass().sayHello()); // Logs: Hello!
 ```
 
+#### Getter and Setter Decorators
 
-Accessor decorators share similarities with method decorators, but they differ in the descriptor keys they utilize: `get`, `set`, `enumerable`, and `configurable`.
-
-#### Parameter Decorator
-
-Parameter decorators are used mainly to record information which can be passed to other decorators.
+Getter and setter decorators allow you to change or enhance the behavior of class accessors. They are useful, for instance, for validating property assignments. Here's a simple example for a getter decorator:
 
 ```typescript
-function ParameterDecorator(
- target: Function,
- propertyKey: string | symbol,
- parameterIndex: number
- ) {
- console.log("ParameterDecorator called on: ", target, propertyKey, parameterIndex);
-}
-class Class {
- method(@ParameterDecorator param1: string, @ParameterDecorator param2: number) {
- }
-}
-const x = new Class()
-x.method('x', 1)
+function range<This, Return extends number>(min: number, max: number) {
+    return function (
+        target: (this: This) => Return,
+        context: ClassGetterDecoratorContext<This, Return>
+    ) {
+        return function (this: This): Return {
+            const value = target.call(this);
+            if (value < min || value > max) {
+                throw 'Invalid'
+            }
+            Object.defineProperty(this, context.name, { value, enumerable: true });
+            return value;
+        };
 
+    }
+}
+
+class MyClass {
+    private _value = 0;
+
+    constructor(value: number) {
+        this._value = value
+    }
+    @range(1, 100)
+    get getValue(): number {
+        return this._value;
+    }
+}
+
+const obj = new MyClass(10);
+console.log(obj.getValue); // Valid: 10
+
+const obj2 = new MyClass(999);
+console.log(obj2.getValue); // Throw: Invalid!
 ```
 
 ### Inheritance
