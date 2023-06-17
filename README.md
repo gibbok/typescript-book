@@ -3051,27 +3051,10 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* It logs:
+/* Logs:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
-```
-
-You can also pass parameters to decorators:
-
-```typescript
-function ClassDecoratorParams(param1: number, param2: string) {
- return function(
-     target: Function
-     ) {
-     console.log("ClassDecoratorParams(" + param1 + ", '" + param2 + "') called on: ", target);
- }
-}
-1
-@ClassDecoratorParams(1, "a")
-@ClassDecoratorParams(2, "b")
-class ClassExample {
-}
 ```
 
 #### Property Decorator
