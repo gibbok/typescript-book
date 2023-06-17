@@ -2993,32 +2993,32 @@ console.log(container2.getItem()); // World
 
 ### Decorators
 
-Decorators provide a mechanism to add metadata, modify behavior, validation or extend functionality of the target element.
+Decorators provide a mechanism to add metadata, modify behavior, validate or extend the functionality of the target element.
 
 Decorators are functions and execute at runtime. Multiple decorators can be applied to a declaration.
 
-Decorators are experimental features, in TypeScript version < 5 should be enabled using the `experimentalDecorators` property in your tsconfig.json or using `--experimentalDecorators` in your command line.
+Decorators are experimental features, and the following examples are only compatible with TypeScript version 5 or above using ES6.
 
-The following examples are compatible only for TypeScript version 5 or above using ES6.
+For TypeScript versions prior to 5, they should be enabled using the `experimentalDecorators` property in your `tsconfig.json` or by using `--experimentalDecorators` in your command line (but the following example won't work).
 
-Some of the common use cases for decorators:
-* Watch properties changes
-* Watch methods calls
-* Add extra properties of methods
-* Validation at run time
-* Automatic serialization and deserialization
-* Logging
-* Validation
-* Authorization and Authentication
-* Error guarding
+Some of the common use cases for decorators include:
 
-Notes: Decorator for version 5 does not allow decorating parameters. 
+- Watching property changes
+- Watching method calls
+- Adding extra properties or methods
+- Runtime validation
+- Automatic serialization and deserialization
+- Logging
+- Authorization and authentication
+- Error guarding
+
+Note: Decorators for version 5 do not allow decorating parameters.
 
 Types of decorators:
 
 #### Class decorators
 
-Useful to extend an existing class for example with some properties of methods, or collecting instances of a class, in the following example we add a `toString` method which will stringify the class.
+Class decorators are useful for extending an existing class, such as adding properties or methods, or collecting instances of a class. In the following example, we add a `toString` method that converts the class into a string representation.
 
 ```typescript
 type Constructor<T = {}> = new (...args: any[]) => T;
@@ -3054,7 +3054,7 @@ const person = new Person('Simon');
 
 #### Property Decorator
 
-Useful for changing the behavior of a property, such as modifying the initialization values. In the following code, we have a script that sets a property to always be in uppercase:
+Property decorators are useful for modifying the behavior of a property, such as changing the initialization values. In the following code, we have a script that sets a property to always be in uppercase:
 
 ```typescript
 function upperCase<T>(
@@ -3076,7 +3076,7 @@ console.log(new MyClass().prop1); // Logs: HELLO!
 
 #### Method Decorator
 
-Allow to change or enhance the behavior of methods, below an example of a simple logger:
+Method decorators allow you to change or enhance the behavior of methods. Below is an example of a simple logger:
 
 ```typescript
 function log<This, Args extends any[], Return>(
@@ -3110,7 +3110,7 @@ console.log(new MyClass().sayHello()); // Logs: Hello!
 
 #### Getter and Setter Decorators
 
-Allow to change or enhance the behavior of class accessors, this is useful for instance to validate property assignments, below a simple example for a getter:
+Getter and setter decorators allow you to change or enhance the behavior of class accessors. They are useful, for instance, for validating property assignments. Here's a simple example for a getter decorator:
 
 ```typescript
 function range<This, Return extends number>(min: number, max: number) {
@@ -3148,8 +3148,6 @@ console.log(obj.getValue); // Valid: 10
 const obj2 = new MyClass(999);
 console.log(obj2.getValue); // Throw: Invalid!
 ```
-
-
 
 ### Inheritance
 
