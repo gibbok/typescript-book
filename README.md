@@ -3116,21 +3116,24 @@ console.log(new MyClass().sayHello()); // Logs: Hello!
 
 #### Getter and Setter Decorators
 
-Allow to change or enhance the behavior of class accessors, this is useful for instance to validate property assignments, below a simple example:
+Allow to change or enhance the behavior of class accessors, this is useful for instance to validate property assignments, below a simple example for a getter:
 
 ```typescript
-function maximum100<This, Return extends number>(
-    target: (this: This) => Return,
-    context: ClassGetterDecoratorContext<This, Return>
-) {
-    return function (this: This): Return {
-        const value = target.call(this);
-        if (value > 100) {
-            throw 'Invalid'
-        }
-        Object.defineProperty(this, context.name, { value, enumerable: true });
-        return value;
-    };
+function range<This, Return extends number>(min: number, max: number) {
+    return function (
+        target: (this: This) => Return,
+        context: ClassGetterDecoratorContext<This, Return>
+    ) {
+        return function (this: This): Return {
+            const value = target.call(this);
+            if (value < min || value > max) {
+                throw 'Invalid'
+            }
+            Object.defineProperty(this, context.name, { value, enumerable: true });
+            return value;
+        };
+
+    }
 }
 
 class MyClass {
@@ -3139,16 +3142,16 @@ class MyClass {
     constructor(value: number) {
         this._value = value
     }
-    @maximum100
+    @range(1, 100)
     get getValue(): number {
         return this._value;
     }
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue);
+console.log(obj.getValue); // Valid: 10
 
-const obj2 = new MyClass(888);
+const obj2 = new MyClass(999);
 console.log(obj2.getValue); // Throw: Invalid!
 ```
 
