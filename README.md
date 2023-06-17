@@ -3059,7 +3059,7 @@ const person = new Person('Simon');
 
 #### Property Decorator
 
-Useful to change the behavior of a property. In the following code we have a script to set a property to text to be always uppercase:
+Useful for changing the behavior of a property, such as modifying the initialization values. In the following code, we have a script that sets a property to always be in uppercase:
 
 ```typescript
 function upperCase<T>(
