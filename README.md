@@ -479,7 +479,7 @@ When executing the `tsc` command locally, TypeScript will compile the code using
 
 Here are some examples of CLI commands that run with the default settings:
 
-```typescript
+```shall
 tsc main.ts // Compile a specific file (main.ts) to JavaScript
 tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
 tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
@@ -979,7 +979,7 @@ type X = {
 }
 
 const x: X = {
-  a: 'a'
+  a: 'a',
   b:'b' // Error: Object literal may only specify known properties
 }
 ```
@@ -2222,7 +2222,7 @@ const add = (x: number, y: number) => x + y  // TypeScript can infer that the re
 ## Type from Module
 Type from Module refers to the ability to use a module's exported values to automatically infer their types. When a module exports a value with a specific type, TypeScript can use that information to automatically infer the type of that value when it is imported into another module.
 
-```typescript
+```
 // calc.ts
 export const add = (x: number, y: number)
 // index.ts
@@ -4033,7 +4033,7 @@ https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html
 
 Packages under the @types organization are special package naming conventions used to provide type definitions for existing JavaScript libraries or modules. For instance using:
 
-```typescript
+```shell
 npm install --save-dev @types/lodash
 ```
 
