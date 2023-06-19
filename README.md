@@ -310,7 +310,7 @@ Here is an example of TypeScript code with a type error:
 
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
 
 ```
 
