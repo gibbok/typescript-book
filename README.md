@@ -911,7 +911,7 @@ Here few examples:
 
 An union, (T1 | T2) creates a wider set (both):
 
-```
+```typescript
 type X = {
   a: string
 }
@@ -2684,7 +2684,7 @@ const c: B = {
 };
 ```
 
-Union and intersection types: Types are more flexible when it comes to defining union and intersection types. With the `type` keyword, you can easily create union types using the | operator and intersection types using the `&` operator. While interfaces can also represent union types indirectly, they don't have built-in support for intersection types.
+Union and intersection types: Types are more flexible when it comes to defining union and intersection types. With the `type` keyword, you can easily create union types using the `|` operator and intersection types using the `&` operator. While interfaces can also represent union types indirectly, they don't have built-in support for intersection types.
 
 ```typescript
 type Department = 'dep-x' | 'dep-y' // Union
@@ -2701,7 +2701,10 @@ type Employee = {
 
 type EmployeeInfo = Person & Employee; // Intersection
 ```
-```
+
+Example with interfaces:
+
+```typescript
 interface A {
  x: "x";
 }
@@ -4127,7 +4130,7 @@ It is possible to conditionally load modules or lazy load them on-demand using t
 
 The syntax for dynamic import expressions in TypeScript is as follows:
 
-```
+```typescript
 async function renderWidget() {
   const container = document.getElementById("widget");
   if (container !== null) {
