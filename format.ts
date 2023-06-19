@@ -1,36 +1,22 @@
 import * as prettier from 'prettier';
 import * as fs from 'fs';
-import * as path from 'path';
 
-function extractCodeBlocks(markdown: string): string[] {
-    const codeBlocks: string[] = [];
+async function formatCodeBlocksInMarkdownFile(filePath: string): Promise<void> {
+    const markdown = await fs.promises.readFile(filePath, 'utf-8');
     const codeBlockRegex = /```typescript([\s\S]*?)```/g;
 
+    let formattedMarkdown = markdown;
     let match;
     while ((match = codeBlockRegex.exec(markdown)) !== null) {
+        const codeBlock = match[0];
         const code = match[1].trim();
-        codeBlocks.push(code);
+        const formattedCode = prettier.format(code, { parser: 'typescript' });
+        formattedMarkdown = formattedMarkdown.replace(codeBlock, `\`\`\`typescript\n${formattedCode}\n\`\`\``);
     }
 
-    return codeBlocks;
+    await fs.promises.writeFile(filePath, formattedMarkdown, 'utf-8');
+    console.log(`Formatted code blocks have been updated in the file: ${filePath}`);
 }
 
-function formatCode(code: string): string {
-    const options = prettier.resolveConfig.sync(process.cwd());
-    return prettier.format(code, { ...options, parser: 'typescript' });
-}
-
-function processMarkdownFile(filePath: string): void {
-    const markdown = fs.readFileSync(filePath, 'utf-8');
-    const codeBlocks = extractCodeBlocks(markdown);
-
-    codeBlocks.forEach((code, index) => {
-        const formattedCode = formatCode(code);
-        console.log(`Code block ${index + 1}:`);
-        console.log(formattedCode);
-        console.log('\n');
-    });
-}
-
-const inputFilePath = './README.md';
-processMarkdownFile(inputFilePath)
+const filePath = './README.md';
+formatCodeBlocksInMarkdownFile(filePath);
