@@ -4,7 +4,7 @@ import * as fs from 'fs';
 const INPUT_FILE_PATH = '../README.md';
 const PRETTIER_CONFIG_FILE_PATH = './.prettierrc'
 
-async function formatCodeBlocksInMarkdownFile(filePath: string): Promise<void> {
+const formatCodeBlocksInMarkdownFile = async (filePath: string): Promise<void> => {
     const markdown = await fs.promises.readFile(filePath, 'utf-8');
     const codeBlockRegex = /```typescript([\s\S]*?)```/g;
 
