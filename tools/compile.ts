@@ -2,6 +2,7 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as ts from "typescript";
 
+const INPUT_FILE_PATH = '../test.md';
 const TEMP_DIR = 'temp'
 
 function compileTempFiles(fileNames: ReadonlyArray<string>, options: ts.CompilerOptions): void {
@@ -70,6 +71,4 @@ function processMarkdownFile(inputPath: string): void {
     makeTempFiles(snippets);
 }
 
-const inputPath = '../test.md';
-
-processMarkdownFile(inputPath);
+processMarkdownFile(INPUT_FILE_PATH);

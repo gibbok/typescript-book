@@ -1,6 +1,8 @@
 import * as prettier from 'prettier';
 import * as fs from 'fs';
 
+const INPUT_FILE_PATH = '../README.md';
+
 async function formatCodeBlocksInMarkdownFile(filePath: string): Promise<void> {
     const markdown = await fs.promises.readFile(filePath, 'utf-8');
     const codeBlockRegex = /```typescript([\s\S]*?)```/g;
@@ -21,6 +23,4 @@ async function formatCodeBlocksInMarkdownFile(filePath: string): Promise<void> {
     console.log(`Formatted code blocks have been updated in the file: ${filePath}`);
 }
 
-const filePath = '../README.md';
-
-formatCodeBlocksInMarkdownFile(filePath);
+formatCodeBlocksInMarkdownFile(INPUT_FILE_PATH);
