@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.3.1",
     "@types/prettier": "^2.7.3",
     "prettier": "^2.8.8",
     "ts-node": "^10.9.1",
