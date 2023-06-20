@@ -36,17 +36,19 @@ const compileCode = (snippets: ReadonlyArray<string>): void => {
             execSync(`tsc ${tempFile} --pretty`);
         } catch (error: any) {
             errors.push(`Snippet ${index + 1}:\n${error.stdout}`);
+            console.log(errors.join('\n'));
+            process.exit(1)
         }
     });
 
     fs.removeSync(TEMP_DIR)
 
-    if (errors.length > 0) {
-        console.log(errors.join('\n'));
-        process.exit(1)
-    } else {
-        console.log(`No errors, total snippets processed: ${snippets.length}`)
-    }
+    // if (errors.length > 0) {
+    //     console.log(errors.join('\n'));
+    //     process.exit(1)
+    // } else {
+    console.log(`No errors, total snippets processed: ${snippets.length}`)
+    // }
 }
 
 const processMarkdownFile = (inputPath: string): void => {
