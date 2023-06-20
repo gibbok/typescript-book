@@ -8,8 +8,8 @@ const INPUT_FILE_PATH = '../test.md';
 const TEMP_DIR = 'temp'
 
 function compileTempFiles(fileNames: ReadonlyArray<string>, options: ts.CompilerOptions): void {
-    let program = ts.createProgram(fileNames, options);
-    let emitResult = program.emit();
+    const program = ts.createProgram(fileNames, options);
+    const emitResult = program.emit();
 
     const allDiagnostics = ts
         .getPreEmitDiagnostics(program)
@@ -29,10 +29,6 @@ function compileTempFiles(fileNames: ReadonlyArray<string>, options: ts.Compiler
     fs.removeSync(TEMP_DIR)
     console.log(`Process exiting with code '${exitCode}'.`);
     process.exit(exitCode);
-}
-
-type MyToken = marked.Token & {
-    text: string
 }
 
 const isTypeScriptCode = (token: marked.Token): token is marked.Tokens.Code => token.type === 'code' && token.lang === 'typescript';
