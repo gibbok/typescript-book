@@ -16,11 +16,18 @@ const compileTempFiles = (fileNames: ReadonlyArray<string>, options: ts.Compiler
     const program = ts.createProgram(fileNames, options);
     const emitResult = program.emit();
 
-    const allDiagnostics = ts
+    const diagnostics = ts
         .getPreEmitDiagnostics(program)
         .concat(emitResult.diagnostics);
 
-    allDiagnostics.forEach(diagnostic => {
+    return {
+        diagnostics,
+        emitSkipped: emitResult.emitSkipped
+    }
+}
+
+const clean = (data: X) => {
+    data.diagnostics.forEach(diagnostic => {
         if (diagnostic.file) {
             const { line, character } = ts.getLineAndCharacterOfPosition(diagnostic.file, diagnostic.start!);
             const message = ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n");
@@ -29,19 +36,6 @@ const compileTempFiles = (fileNames: ReadonlyArray<string>, options: ts.Compiler
             console.log(ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n"));
         }
     });
-
-    return {
-        diagnostics: allDiagnostics,
-        emitSkipped: emitResult.emitSkipped
-    }
-
-    // const exitCode = emitResult.emitSkipped ? 1 : 0;
-    // fs.removeSync(TEMP_DIR)
-    // console.log(`Process exiting with code '${exitCode}'.`);
-    // process.exit(exitCode);
-}
-
-const clean = (data: X) => {
     const exitCode = data.emitSkipped ? 1 : 0;
     fs.removeSync(TEMP_DIR)
     console.log(`Process exiting with code '${exitCode}'.`);
