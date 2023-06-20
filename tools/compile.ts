@@ -8,26 +8,33 @@ const INPUT_FILE_PATH = '../test.md';
 const TEMP_DIR = 'temp'
 
 type ResultDiagnostics = Readonly<{
-    diagnostics: ts.Diagnostic[],
+    reports: ts.Diagnostic[],
     emitSkipped: boolean
 }>
 
-const compileTempFilesAndReport = (options: ts.CompilerOptions) => (fileNames: ReadonlyArray<string>): ResultDiagnostics => {
+const exitScript = (emitSkipped: boolean) => {
+    const exitCode = emitSkipped ? 1 : 0;
+    fs.removeSync(TEMP_DIR)
+    console.log(`Process exiting with code '${exitCode}'.`);
+    process.exit(exitCode);
+}
+
+const compileAndReport = (options: ts.CompilerOptions) => (fileNames: ReadonlyArray<string>): ResultDiagnostics => {
     const program = ts.createProgram(fileNames, options);
     const emitResult = program.emit();
 
-    const diagnostics = ts
+    const reports = ts
         .getPreEmitDiagnostics(program)
         .concat(emitResult.diagnostics);
 
     return {
-        diagnostics,
+        reports,
         emitSkipped: emitResult.emitSkipped
     }
 }
 
-const logDiagnostics = (data: ResultDiagnostics) => {
-    data.diagnostics.forEach(diagnostic => {
+const logReports = (data: ResultDiagnostics) => {
+    data.reports.forEach(diagnostic => {
         if (diagnostic.file) {
             const { line, character } = ts.getLineAndCharacterOfPosition(diagnostic.file, diagnostic.start!);
             const message = ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n");
@@ -37,13 +44,6 @@ const logDiagnostics = (data: ResultDiagnostics) => {
         }
     });
     return data.emitSkipped
-}
-
-const exitScript = (emitSkipped: boolean) => {
-    const exitCode = emitSkipped ? 1 : 0;
-    fs.removeSync(TEMP_DIR)
-    console.log(`Process exiting with code '${exitCode}'.`);
-    process.exit(exitCode);
 }
 
 const isTypeScriptCode = (token: marked.Token): token is marked.Tokens.Code => token.type === 'code' && token.lang === 'typescript';
@@ -73,13 +73,13 @@ const processMarkdownFile = (inputPath: string): void =>
         () => fs.readFileSync(inputPath, 'utf-8'),
         extractCodeSnippets,
         makeTempFiles,
-        compileTempFilesAndReport({
+        compileAndReport({
             noEmitOnError: true,
             noImplicitAny: true,
             target: ts.ScriptTarget.ESNext,
             module: ts.ModuleKind.CommonJS
         }),
-        logDiagnostics,
+        logReports,
         exitScript,
     )
 
