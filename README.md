@@ -4841,7 +4841,7 @@ type AnimalCallback<out T> = () => T; // T is Covariant here
 And for Contravariant, use the `in` keyword:
 
 ```typescript
-type AnimalCallback<in T> = () => T; // T is Contravariance here
+type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
 
 ```
 
