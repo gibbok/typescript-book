@@ -12,7 +12,7 @@ type ResultDiagnostics = Readonly<{
     emitSkipped: boolean
 }>
 
-const compileTempFilesAndReport = (fileNames: ReadonlyArray<string>, options: ts.CompilerOptions): ResultDiagnostics => {
+const compileTempFilesAndReport = (options: ts.CompilerOptions) => (fileNames: ReadonlyArray<string>): ResultDiagnostics => {
     const program = ts.createProgram(fileNames, options);
     const emitResult = program.emit();
 
@@ -26,7 +26,7 @@ const compileTempFilesAndReport = (fileNames: ReadonlyArray<string>, options: ts
     }
 }
 
-const clean = (data: ResultDiagnostics) => {
+const logDiagnostics = (data: ResultDiagnostics) => {
     data.diagnostics.forEach(diagnostic => {
         if (diagnostic.file) {
             const { line, character } = ts.getLineAndCharacterOfPosition(diagnostic.file, diagnostic.start!);
@@ -36,7 +36,11 @@ const clean = (data: ResultDiagnostics) => {
             console.log(ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n"));
         }
     });
-    const exitCode = data.emitSkipped ? 1 : 0;
+    return data.emitSkipped
+}
+
+const exitScript = (emitSkipped: boolean) => {
+    const exitCode = emitSkipped ? 1 : 0;
     fs.removeSync(TEMP_DIR)
     console.log(`Process exiting with code '${exitCode}'.`);
     process.exit(exitCode);
@@ -67,14 +71,16 @@ const processMarkdownFile = (inputPath: string): void =>
     pipe(
         fs.ensureDirSync(TEMP_DIR),
         () => fs.readFileSync(inputPath, 'utf-8'),
-        markdown => extractCodeSnippets(markdown),
-        snippets => makeTempFiles(snippets),
-        tempFiles => compileTempFilesAndReport(tempFiles, {
+        extractCodeSnippets,
+        makeTempFiles,
+        compileTempFilesAndReport({
             noEmitOnError: true,
             noImplicitAny: true,
             target: ts.ScriptTarget.ESNext,
             module: ts.ModuleKind.CommonJS
-        }), clean,
+        }),
+        logDiagnostics,
+        exitScript,
     )
 
 processMarkdownFile(INPUT_FILE_PATH);
