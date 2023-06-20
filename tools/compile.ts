@@ -67,7 +67,7 @@ function makeTempFiles(snippets: ReadonlyArray<string>): void {
     });
 }
 
-function processMarkdownFile(inputPath: string): void {
+const processMarkdownFile = (inputPath: string): void => {
     const markdown = fs.readFileSync(inputPath, 'utf-8');
     const snippets = extractCodeSnippets(markdown);
     makeTempFiles(snippets);
