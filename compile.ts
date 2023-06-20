@@ -3,8 +3,12 @@ import * as ts from 'typescript';
 function checkCodeSnippet(code: string): void {
     const compilerOptions: ts.CompilerOptions = {
         target: ts.ScriptTarget.ES2017,
-        module: ts.ModuleKind.CommonJS
+        module: ts.ModuleKind.CommonJS,
+        // lib: ['ES2017', 'DOM']
     };
+
+    console.log('xxx', ts.getDefaultLibFilePath(compilerOptions))
+    console.log(ts.getDefaultLibFileName(compilerOptions))
 
     const host: ts.CompilerHost = {
         fileExists: ts.sys.fileExists,
