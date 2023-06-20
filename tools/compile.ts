@@ -7,12 +7,12 @@ import { pipe } from 'fp-ts/function'
 const INPUT_FILE_PATH = '../test.md';
 const TEMP_DIR = 'temp'
 
-type X = {
+type ResultDiagnostics = Readonly<{
     diagnostics: ts.Diagnostic[],
     emitSkipped: boolean
-}
+}>
 
-const compileTempFiles = (fileNames: ReadonlyArray<string>, options: ts.CompilerOptions): X => {
+const compileTempFiles = (fileNames: ReadonlyArray<string>, options: ts.CompilerOptions): ResultDiagnostics => {
     const program = ts.createProgram(fileNames, options);
     const emitResult = program.emit();
 
@@ -26,7 +26,7 @@ const compileTempFiles = (fileNames: ReadonlyArray<string>, options: ts.Compiler
     }
 }
 
-const clean = (data: X) => {
+const clean = (data: ResultDiagnostics) => {
     data.diagnostics.forEach(diagnostic => {
         if (diagnostic.file) {
             const { line, character } = ts.getLineAndCharacterOfPosition(diagnostic.file, diagnostic.start!);
