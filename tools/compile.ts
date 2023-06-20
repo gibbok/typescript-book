@@ -19,7 +19,6 @@ type CodeSnippets = ReadonlyArray<string>
 
 const exitScript = (emitSkipped: boolean) => {
     const exitCode = emitSkipped ? 1 : 0;
-    fs.removeSync(TEMP_DIR)
     console.log(`Process exiting with code '${exitCode}'.`);
     process.exit(exitCode);
 }
@@ -90,7 +89,8 @@ const makeTempFiles = (snippets: CodeSnippets): TempFilePaths =>
 
 const processMarkdownFile = (inputPath: string): void =>
     pipe(
-        fs.ensureDirSync(TEMP_DIR),
+        () => fs.removeSync(TEMP_DIR),
+        () => fs.ensureDirSync(TEMP_DIR),
         () => fs.readFileSync(inputPath, 'utf-8'),
         extractCodeSnippets,
         makeTempFiles,

@@ -664,6 +664,7 @@ x = y; // Valid
 
 Function return types must be the same:
 
+<!-- skip -->
 ```typescript
 type X = (a: number) => undefined;
 type Y = (a: number) => number;
@@ -676,6 +677,7 @@ x = y; // Invalid
 
 The return type of a source function must be a subtype of the return type of a target function:
 
+<!-- skip -->
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
@@ -736,6 +738,7 @@ let x: X = a => undefined; //valid
 
 Functions with overloads are valid if the overload signature is compatible with its implementation signature:
 
+<!-- skip -->
 ```typescript
 function x(a: string): void;
 function x(a: string, b: number): void;
@@ -782,6 +785,7 @@ console.log(getA(new Z('z'))); // Valid
 
 Enums are comparable and valid with numbers and vice versa, but comparing Enum values from different Enum types is invalid.
 
+<!-- skip -->
 ```typescript
 enum X {
     A,
@@ -800,6 +804,7 @@ X.A === Y.A; // Invalid
 
 Instances of a class are subject to a compatibility check for their private and protected members:
 
+<!-- skip -->
 ```typescript
 class X {
     public a: string;
@@ -850,6 +855,7 @@ x === z; // valid even if z is from a different inheritance hierarchy
 ```
 Generics are compared using their structures based on the resulting type after applying the generic parameter, only the final result is compared as a non-generic type.
 
+<!-- skip -->
 ```typescript
 interface X<T> {
     a: T;
@@ -881,6 +887,7 @@ x = y; // valid
 
 Remember:
 
+<!-- skip -->
 ```typescript
 let a: number = 1;
 let b: number = 2;
@@ -970,6 +977,7 @@ const r: XY = { a: 'a', b: 'x' }; // valid
 
 An intersection, (T1 & T2) create a narrower set (only shared):
 
+<!-- skip -->
 ```typescript
 type X = {
     a: string;
@@ -1038,6 +1046,7 @@ const x: X = {
 
 If the variable is not in the specified format, TypeScript will report an error. For instance:
 
+<!-- skip -->
 ```typescript
 type X = {
     a: string;
@@ -1121,6 +1130,7 @@ npm install --save-dev @types/library-name
 
 For your defined Ambient Declarations, you can import using the “triple-slash” reference:
 
+<!-- skip -->
 ```typescript
 /// <reference path="./library-types.d.ts" />
 
@@ -1133,6 +1143,7 @@ TypeScript is based on a structural type system but excess property checking is 
 
 Excess Property Checking is performed when assigning object literals to variables or when passing them as arguments to the function's excess property, for instance.
 
+<!-- skip -->
 ```typescript
 type X = {
     a: string;
@@ -1157,6 +1168,7 @@ type X = {
 
 TypeScript considers an error to assign anything to a weak type when there is no overlap, for instance, the following throws an error:
 
+<!-- skip -->
 ```typescript
 type Options = {
     a?: string;
@@ -1267,6 +1279,7 @@ window.addEventListener('click', function (e) {}); // e inferred type is MouseEv
 Type widening is the process in which TypeScript assigns a type to a variable initialized when no type annotation was provided. It allows narrow to wider types but not vice versa.
 In the following example:
 
+<!-- skip -->
 ```typescript
 let x = 'x'; // TypeScript infers as string, a wide type
 let y: 'y' | 'x' = 'y'; // y types is a union of literal types
@@ -1536,6 +1549,7 @@ const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
 
 TypeScript supports readonly arrays using the following syntax:
 
+<!-- skip -->
 ```typescript
 const x: readonly string[] = ['a', 'b']; // Readonly modifier
 const y: ReadonlyArray<string> = ['a', 'b'];
@@ -1812,6 +1826,7 @@ let y = 'y'; // string, as we can change this value
 
 In the following example we can see that `o.x` was inferred as a `string` (and not a literal of `a`) as TypeScript considers that the value can be changed any time later.
 
+<!-- skip -->
 ```typescript
 type X = 'a' | 'b';
 
@@ -1829,6 +1844,7 @@ As you can see the code throws an error when passing `o.x` to `fn` as X is a nar
 
 We can solve this issue by using type assertion using `const` or the `X` type:
 
+<!-- skip -->
 ```typescript
 let o = {
     x: 'a' as const,
@@ -1838,6 +1854,7 @@ let o = {
 
 or:
 
+<!-- skip -->
 ```typescript
 let o = {
     x: 'a' as X,
@@ -1953,6 +1970,7 @@ console.log(Language.English);
 
 Compiles to:
 
+<!-- skip -->
 ```typescript
 (function (Language) {
     Language['English'] = 'EN';
@@ -2158,6 +2176,7 @@ const f2 = (
 
 Some examples where narrowing does not occur:
 
+<!-- skip -->
 ```typescript
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
@@ -2172,7 +2191,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // error, no narrowing because obj is assigned in function body
+        obj.foo; // Error, no narrowing because obj is assigned in function body
     }
 };
 
@@ -2314,6 +2333,7 @@ A Fixed length tuple is a specific type of tuple that enforces a fixed number of
 
 Fixed length tuples are useful when you need to represent a collection of values with a specific number of elements and specific types, and you want to ensure that the length and types of the tuple cannot be changed inadvertently.
 
+<!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
 x.push(2); // Error
@@ -2504,6 +2524,7 @@ In TypeScript, the unknown type represents a value that is of an unknown type. U
 
 The `unknown` type is only assignable to any type and the unknown type itself, it is a type-safe alternative to any.
 
+<!-- skip -->
 ```typescript
 let value: unknown;
 
@@ -2938,6 +2959,7 @@ The class has a `public` method named sayHi that logs a greeting message.
 
 To create an instance of a class in TypeScript, you can use the `new` keyword followed by the class name, followed by parentheses (). For instance:
 
+<!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
 myObject.sayHi(); // output: Hello, my name is John Doe and I am 25 years old.
@@ -3083,6 +3105,7 @@ class Animal {
 
 Auto-accessors are "de-sugared" into private `get` and `set` accessors, operating on an inaccessible property.
 
+<!-- skip -->
 ```typescript
 class Animal {
     #__name: string;
@@ -3583,6 +3606,7 @@ Generic parameters can be constrained using the `extends` keyword followed by a 
 
 In the following example T it is must containing a properly `length` in order to be valid:
 
+<!-- skip -->
 ```typescript
 const printLen = <T extends { length: number }>(value: T): void => {
     console.log(value.length);
@@ -3707,6 +3731,7 @@ Triple-slash directives are used to reference external dependencies, specify mod
 
 Referencing a declaration file:
 
+<!-- skip -->
 ```typescript
 /// <reference path="path/to/declaration/file.d.ts" />
 
@@ -3714,6 +3739,7 @@ Referencing a declaration file:
 
 Indicate the module format:
 
+<!-- skip -->
 ```typescript
 /// <amd|commonjs|system|umd|es6|es2015|none>
 
@@ -3721,6 +3747,7 @@ Indicate the module format:
 
 Enable compiler options, in the following example strict mode:
 
+<!-- skip -->
 ```typescript
 /// <strict|noImplicitAny|noUnusedLocals|noUnusedParameters>
 
@@ -3845,6 +3872,7 @@ type A = Required<Person>; // { name: string; age: number; }
 
 Constructs a type with all properties of T set to readonly.
 
+<!-- skip -->
 ```typescript
 type Person = {
     name: string;
@@ -4025,6 +4053,7 @@ type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
 
 Servers as a market for a contextual `this` type.
 
+<!-- skip -->
 ```typescript
 type Logger = {
     log: (error: string) => void;
@@ -4033,7 +4062,7 @@ type Logger = {
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
         this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // // Invalid
+        this.update(); // Invalid
     },
 };
 
@@ -4124,7 +4153,6 @@ class CustomError extends Error {
 throw new CustomError('This is a custom error.');
 
 ```
-
 
 ### Mixin Classes
 Mixin classes allow you to combine and compose behavior from multiple classes into a single class. They provide a way to reuse and extend functionality without the need for deep inheritance chains.
@@ -4456,6 +4484,7 @@ greet('John'); // Hello, John!
 
 Const assertions are a feature that allows you to declare a variable with a more specific literal type based on its initialization value. It is a way to state to the compiler that the value has to be treated as an immutable literal.
 
+<!-- skip -->
 ```typescript
 let arr = [1, 2, 3] as const; // readonly [1, 2, 3]
 arr.push(4); // Invalid
@@ -4751,6 +4780,7 @@ In Covariance, you can put all the dogs in the animals space because dogs are a 
 
 In Contravariance, you cannot put all the animals in the dogs space because the animals space might contain other animals as well. However, you can put all the dogs in the animal space because all dogs are also animals.
 
+<!-- skip -->
 ```typescript
 // Covariance example
 class Animal {
