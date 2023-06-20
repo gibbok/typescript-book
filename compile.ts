@@ -1,11 +1,12 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
-import { ExecException, execSync } from 'child_process';
+import { execSync } from 'child_process';
 
 const TEMP_DIR = 'temp'
 
 const extractCodeSnippets = (markdown: string): ReadonlyArray<string> => {
     const codeRegex = /```typescript([\s\S]*?)```/g;
+
     const snippets: string[] = [];
     let match;
 
