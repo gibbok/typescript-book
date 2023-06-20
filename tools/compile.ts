@@ -12,7 +12,7 @@ type ResultDiagnostics = Readonly<{
     emitSkipped: boolean
 }>
 
-const compileTempFiles = (fileNames: ReadonlyArray<string>, options: ts.CompilerOptions): ResultDiagnostics => {
+const compileTempFilesAndReport = (fileNames: ReadonlyArray<string>, options: ts.CompilerOptions): ResultDiagnostics => {
     const program = ts.createProgram(fileNames, options);
     const emitResult = program.emit();
 
@@ -69,7 +69,7 @@ const processMarkdownFile = (inputPath: string): void =>
         () => fs.readFileSync(inputPath, 'utf-8'),
         markdown => extractCodeSnippets(markdown),
         snippets => makeTempFiles(snippets),
-        tempFiles => compileTempFiles(tempFiles, {
+        tempFiles => compileTempFilesAndReport(tempFiles, {
             noEmitOnError: true,
             noImplicitAny: true,
             target: ts.ScriptTarget.ESNext,
