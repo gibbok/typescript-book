@@ -2,19 +2,22 @@
 
 ```typescript
 type Test = {
-    a: number;
-}
+  a: number;
+};
 
 const test: Test = {
-    a: 'hello'
-}
+  a: "hello",
+};
+
 ```
 
 ```typescript
-const x: number = 1
+const x: number = 1;
+
 ```
 
 ```typescript
-const hello = 'hello'
-console.log(hello)
+const hello = "hello";
+console.log(hello);
+
 ```
