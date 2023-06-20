@@ -4,7 +4,7 @@ import { execSync } from 'child_process';
 
 const TEMP_DIR = 'temp'
 
-const extractCodeSnippets = (markdown: string): string[] => {
+const extractCodeSnippets = (markdown: string): ReadonlyArray<string> => {
     const codeRegex = /```typescript([\s\S]*?)```/g;
     const snippets: string[] = [];
     let match;
@@ -16,7 +16,7 @@ const extractCodeSnippets = (markdown: string): string[] => {
     return snippets;
 }
 
-const compileCode = (snippets: string[], outputPath: string): void => {
+const compileCode = (snippets: ReadonlyArray<string>): void => {
     fs.ensureDirSync(TEMP_DIR);
 
     const errors: string[] = [];
@@ -26,32 +26,33 @@ const compileCode = (snippets: string[], outputPath: string): void => {
         const tempFile = path.join(__dirname, `temp/temp_${index}.ts`);
 
         fs.writeFileSync(tempFile, snippet);
+
         tempFiles.push(tempFile);
 
         try {
-            execSync(`tsc ${tempFile} --pretty`, { encoding: 'utf8' });
+            execSync(`tsc ${tempFile} --pretty`);
         } catch (error: unknown) {
             //@ts-ignore
             errors.push(`Snippet ${index + 1}:\n${error.stdout}`);
         }
-
-        console.log(outputPath, errors.join('\n\n'));
-        if (errors.length > 0) {
-            process.exit(1)
-        }
-
-        fs.removeSync(TEMP_DIR)
-
     });
+
+    fs.removeSync(TEMP_DIR)
+
+    if (errors.length > 0) {
+        console.log(errors.join('\n'));
+        process.exit(1)
+    } else {
+        console.log('ok')
+    }
 }
 
-const processMarkdownFile = (inputPath: string, outputPath: string): void => {
+const processMarkdownFile = (inputPath: string): void => {
     const markdown = fs.readFileSync(inputPath, 'utf-8');
     const snippets = extractCodeSnippets(markdown);
-    compileCode(snippets, outputPath);
+    compileCode(snippets);
 }
 
 const inputPath = 'test.md';
-const outputPath = 'errors.txt';
 
-processMarkdownFile(inputPath, outputPath);
+processMarkdownFile(inputPath);
