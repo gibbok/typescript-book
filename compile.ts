@@ -15,16 +15,16 @@ function checkCodeSnippet(code: string): void {
             }
             return undefined;
         },
-        getDefaultLibFileName: () => 'lib.d.ts',
+        getDefaultLibFileName: () => ts.getDefaultLibFilePath(compilerOptions),
         writeFile: () => { },
         getCurrentDirectory: () => '',
         getCanonicalFileName: (fileName) => fileName,
         getNewLine: () => ts.sys.newLine,
-        useCaseSensitiveFileNames: () => ts.sys.useCaseSensitiveFileNames,
+        useCaseSensitiveFileNames: () => ts.sys.useCaseSensitiveFileNames
     };
 
     const program = ts.createProgram(['snippet.ts'], compilerOptions, host);
-    const diagnostics = ts.getPreEmitDiagnostics(program);
+    const diagnostics = program.getSemanticDiagnostics();
 
     if (diagnostics.length === 0) {
         console.log('Code snippet is valid.');
