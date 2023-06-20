@@ -2,6 +2,7 @@ import * as prettier from 'prettier';
 import * as fs from 'fs';
 
 const INPUT_FILE_PATH = '../README.md';
+const PRETTIER_CONFIG_FILE_PATH = './.prettierrc'
 
 async function formatCodeBlocksInMarkdownFile(filePath: string): Promise<void> {
     const markdown = await fs.promises.readFile(filePath, 'utf-8');
@@ -14,7 +15,7 @@ async function formatCodeBlocksInMarkdownFile(filePath: string): Promise<void> {
         const code = match[1].trim();
         const formattedCode = prettier.format(code, {
             parser: 'typescript',
-            ...(await prettier.resolveConfig('./.prettierrc')),
+            ...(await prettier.resolveConfig(PRETTIER_CONFIG_FILE_PATH)),
         });
         formattedMarkdown = formattedMarkdown.replace(codeBlock, `\`\`\`typescript\n${formattedCode}\n\`\`\``);
     }
