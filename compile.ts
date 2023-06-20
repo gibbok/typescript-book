@@ -37,11 +37,12 @@ const compileCode = (snippets: ReadonlyArray<string>): void => {
         } catch (error: any) {
             errors.push(`Snippet ${index + 1}:\n${error.stdout}`);
             console.log(errors.join('\n'));
+            fs.removeSync(TEMP_DIR)
             process.exit(1)
         }
     });
 
-    fs.removeSync(TEMP_DIR)
+
 
     // if (errors.length > 0) {
     //     console.log(errors.join('\n'));
