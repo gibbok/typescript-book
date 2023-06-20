@@ -14,6 +14,7 @@ const extractCodeSnippets = (markdown: string): ReadonlyArray<string> => {
         snippets.push(match[1].trim());
     }
 
+    console.log(`Number of snippets: ${snippets.length}`)
     return snippets;
 }
 
@@ -31,6 +32,7 @@ const compileCode = (snippets: ReadonlyArray<string>): void => {
         tempFiles.push(tempFile);
 
         try {
+            console.log(`Start processing snippet: ${index + 1}`)
             execSync(`tsc ${tempFile} --pretty`);
         } catch (error: any) {
             errors.push(`Snippet ${index + 1}:\n${error.stdout}`);
@@ -53,6 +55,6 @@ const processMarkdownFile = (inputPath: string): void => {
     compileCode(snippets);
 }
 
-const inputPath = 'test.md';
+const inputPath = 'README.md';
 
 processMarkdownFile(inputPath);
