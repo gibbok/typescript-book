@@ -4,7 +4,7 @@ import * as ts from "typescript";
 
 const TEMP_DIR = 'temp'
 
-function compileTempFiles(fileNames: string[], options: ts.CompilerOptions): void {
+function compileTempFiles(fileNames: ReadonlyArray<string>, options: ts.CompilerOptions): void {
     let program = ts.createProgram(fileNames, options);
     let emitResult = program.emit();
 
