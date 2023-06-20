@@ -7,10 +7,14 @@ import { pipe } from 'fp-ts/function'
 const INPUT_FILE_PATH = '../test.md';
 const TEMP_DIR = 'temp'
 
-type ResultDiagnostics = Readonly<{
+type ReportsInfo = Readonly<{
     reports: ts.Diagnostic[],
     emitSkipped: boolean
 }>
+
+type TempFilePaths = ReadonlyArray<string>
+
+type CodeSnippets = ReadonlyArray<string>
 
 const exitScript = (emitSkipped: boolean) => {
     const exitCode = emitSkipped ? 1 : 0;
@@ -19,7 +23,7 @@ const exitScript = (emitSkipped: boolean) => {
     process.exit(exitCode);
 }
 
-const compileAndReport = (options: ts.CompilerOptions) => (fileNames: ReadonlyArray<string>): ResultDiagnostics => {
+const compileAndReport = (options: ts.CompilerOptions) => (fileNames: TempFilePaths): ReportsInfo => {
     const program = ts.createProgram(fileNames, options);
     const emitResult = program.emit();
 
@@ -33,7 +37,7 @@ const compileAndReport = (options: ts.CompilerOptions) => (fileNames: ReadonlyAr
     }
 }
 
-const logReports = (data: ResultDiagnostics) => {
+const logReports = (data: ReportsInfo) => {
     data.reports.forEach(diagnostic => {
         if (diagnostic.file) {
             const { line, character } = ts.getLineAndCharacterOfPosition(diagnostic.file, diagnostic.start!);
@@ -48,7 +52,7 @@ const logReports = (data: ResultDiagnostics) => {
 
 const isTypeScriptCode = (token: marked.Token): token is marked.Tokens.Code => token.type === 'code' && token.lang === 'typescript';
 
-const extractCodeSnippets = (markdown: string): ReadonlyArray<string> =>
+const extractCodeSnippets = (markdown: string): CodeSnippets =>
     pipe(
         new marked.Lexer(),
         lexer => lexer.lex(markdown),
@@ -56,8 +60,9 @@ const extractCodeSnippets = (markdown: string): ReadonlyArray<string> =>
         codes => codes.map(x => x.text)
     )
 
-const makeTempFiles = (snippets: ReadonlyArray<string>): ReadonlyArray<string> =>
-    snippets.reduce<ReadonlyArray<string>>((acc, snippet, index) => {
+
+const makeTempFiles = (snippets: CodeSnippets): TempFilePaths =>
+    snippets.reduce<TempFilePaths>((acc, snippet, index) => {
         const tempFile = path.join(__dirname, `temp/temp_${index}.ts`);
         fs.writeFileSync(tempFile, snippet);
 
