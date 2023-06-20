@@ -22,4 +22,5 @@ async function formatCodeBlocksInMarkdownFile(filePath: string): Promise<void> {
 }
 
 const filePath = './README.md';
+
 formatCodeBlocksInMarkdownFile(filePath);
