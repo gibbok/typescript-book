@@ -1,54 +1,55 @@
-import * as ts from 'typescript';
+import * as fs from 'fs';
+import * as path from 'path';
+import { execSync } from 'child_process';
 
-function checkCodeSnippet(code: string): void {
-    const compilerOptions: ts.CompilerOptions = {
-        target: ts.ScriptTarget.ES2017,
-        module: ts.ModuleKind.CommonJS,
-        // lib: ['ES2017', 'DOM']
-    };
+function extractCodeSnippets(markdown: string): string[] {
+    const codeRegex = /```typescript([\s\S]*?)```/g;
+    const snippets: string[] = [];
+    let match;
 
-    console.log('xxx', ts.getDefaultLibFilePath(compilerOptions))
-    console.log(ts.getDefaultLibFileName(compilerOptions))
-
-    const host: ts.CompilerHost = {
-        fileExists: ts.sys.fileExists,
-        readFile: ts.sys.readFile,
-        getSourceFile: (fileName) => {
-            if (fileName === 'snippet.ts') {
-                return ts.createSourceFile(fileName, code, ts.ScriptTarget.ES2017, true);
-            }
-            return undefined;
-        },
-        getDefaultLibFileName: () => ts.getDefaultLibFilePath(compilerOptions),
-        writeFile: () => { },
-        getCurrentDirectory: () => '',
-        getCanonicalFileName: (fileName) => fileName,
-        getNewLine: () => ts.sys.newLine,
-        useCaseSensitiveFileNames: () => ts.sys.useCaseSensitiveFileNames
-    };
-
-    const program = ts.createProgram(['snippet.ts'], compilerOptions, host);
-    const diagnostics = program.getSemanticDiagnostics();
-
-    if (diagnostics.length === 0) {
-        console.log('Code snippet is valid.');
-    } else {
-        console.log('Code snippet has errors:');
-        diagnostics.forEach((diagnostic) => {
-            const message = ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n');
-            if (diagnostic.file) {
-                const { line, character } = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start!);
-                console.log(`  Error at ${diagnostic.file.fileName} (${line + 1},${character + 1}): ${message}`);
-            } else {
-                console.log(`  Error: ${message}`);
-            }
-        });
+    while ((match = codeRegex.exec(markdown)) !== null) {
+        snippets.push(match[1].trim());
     }
+
+    return snippets;
 }
 
-const codeSnippet = `
-  const x: string = 'Hello, world!';
-  console.log(x);
-`;
+function compileCode(snippets: string[], outputPath: string): void {
+    const errors: string[] = [];
+    const tempFiles: string[] = [];
 
-checkCodeSnippet(codeSnippet);
+    snippets.forEach((snippet, index) => {
+        const tempFile = path.join(__dirname, `temp/temp_${index}.ts`);
+
+        fs.writeFileSync(tempFile, snippet);
+        tempFiles.push(tempFile);
+
+        try {
+            execSync(`tsc ${tempFile} --pretty`, { encoding: 'utf8' });
+        } catch (error: unknown) {
+            console.log(error)
+            //@ts-ignore
+            errors.push(`Snippet ${index + 1}:\n${error.stdout}`);
+        }
+        console.log(errors)
+
+        fs.writeFileSync(outputPath, errors.join('\n\n'));
+
+        console.log(tempFiles)
+        tempFiles.forEach((tempFile) => {
+            fs.unlinkSync(tempFile);
+        });
+    });
+}
+
+function processMarkdownFile(inputPath: string, outputPath: string): void {
+    const markdown = fs.readFileSync(inputPath, 'utf-8');
+    const snippets = extractCodeSnippets(markdown);
+    compileCode(snippets, outputPath);
+}
+
+// Usage example:
+const inputPath = 'test.md';
+const outputPath = 'errors.txt';
+
+processMarkdownFile(inputPath, outputPath);

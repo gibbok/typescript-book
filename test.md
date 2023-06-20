@@ -2,11 +2,11 @@
 
 ```typescript
 type Test = {
-    a: string;
+    a: number;
 }
 
 const test: Test = {
-    a: 1234
+    a: 'hello'
 }
 ```
 
