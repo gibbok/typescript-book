@@ -47,8 +47,6 @@ const extractCodeSnippets = (markdown: string): ReadonlyArray<string> =>
 
 
 const makeTempFiles = (snippets: ReadonlyArray<string>): ReadonlyArray<string> => {
-    fs.ensureDirSync(TEMP_DIR);
-
     const tempFiles: string[] = [];
 
     snippets.forEach((snippet, index) => {
@@ -62,6 +60,8 @@ const makeTempFiles = (snippets: ReadonlyArray<string>): ReadonlyArray<string> =
 }
 
 const processMarkdownFile = (inputPath: string): void => {
+    fs.ensureDirSync(TEMP_DIR);
+
     pipe(
         fs.readFileSync(inputPath, 'utf-8'),
         markdown => extractCodeSnippets(markdown),
