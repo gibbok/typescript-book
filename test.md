@@ -2,12 +2,16 @@
 
 ```typescript
 type Test = {
-    a: string;
+    a: number;
 }
 
 const test: Test = {
     a: 'hello'
 }
+```
+
+```typescript
+const x: number = 1
 ```
 
 ```typescript
