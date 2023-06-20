@@ -52,10 +52,18 @@ const logReports = (data: ReportsInfo) => {
 
 const isTypeScriptCode = (token: marked.Token): token is marked.Tokens.Code => token.type === 'code' && token.lang === 'typescript';
 
+const isSkipComment = (token: marked.Token): token is marked.Tokens.HTML => token.type === 'html' && token.text === '<!-- skip -->\n';
+
 const extractCodeSnippets = (markdown: string): CodeSnippets =>
     pipe(
         new marked.Lexer(),
         lexer => lexer.lex(markdown),
+        x => {
+            console.log(JSON.stringify(x))
+
+            return x
+        },
+        x => x.reduce<marked.Token[]>((acc, value, index) => [...acc, value], []),
         tokens => tokens.filter(isTypeScriptCode),
         codes => codes.map(x => x.text)
     )

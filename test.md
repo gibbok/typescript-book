@@ -2,7 +2,7 @@
 
 ```typescript
 type Test = {
-  a: number;
+  a: string;
 };
 
 const test: Test = {
@@ -19,5 +19,17 @@ const x: number = 1;
 ```typescript
 const hello = "hello";
 console.log(hello);
+
+```
+
+<!-- skip -->
+```typescript
+type Test = {
+  a: number;
+};
+
+const test: Test = {
+  a: "hello",
+};
 
 ```
