@@ -31,9 +31,13 @@ function compileCode(snippets: string[], outputPath: string): void {
             errors.push(`Snippet ${index + 1}:\n${error.stdout}`);
         }
 
-        fs.writeFileSync(outputPath, errors.join('\n\n'));
+        console.log(outputPath, errors.join('\n\n'));
+        if (errors.length > 0) {
+            process.exit(1)
+        }
 
         fs.emptyDir('temp')
+
     });
 }
 
