@@ -1216,6 +1216,7 @@ When creating an object literal, the TypeScript compiler considers it "fresh." I
 However, strict object literal checking does not apply when the type of an object literal is widened, meaning the object literal is structurally type compatible with a broader type.
 Here are some examples to illustrate:
 
+<!-- skip -->
 ```typescript
 type X = { a: string };
 type Y = { a: string; b: string };
@@ -4429,6 +4430,7 @@ It is possible to conditionally load modules or lazy load them on-demand using t
 
 The syntax for dynamic import expressions in TypeScript is as follows:
 
+<!-- skip -->
 ```typescript
 async function renderWidget() {
     const container = document.getElementById('widget');
@@ -4869,6 +4871,7 @@ obj[b] = 123;
 The `satisfies`  allows you to check if a given type satisfies a specific interface or condition. In other words, it ensures that a type has all the required properties and methods of a specific interface. It is a way to ensure a variable fits into a definition of a type
 Here is an example:
 
+<!-- skip -->
 ```typescript
 type Columns = 'name' | 'nickName' | 'attributes';
 

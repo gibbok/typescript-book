@@ -100,7 +100,8 @@ const processMarkdownFile = (inputPath: string): void =>
             target: ts.ScriptTarget.ESNext,
             module: ts.ModuleKind.CommonJS,
             moduleDetection: ts.ModuleDetectionKind.Force,
-            noUnusedLocals: false
+            noUnusedLocals: false,
+            strict: true
         }),
         logReports,
         exitScript,

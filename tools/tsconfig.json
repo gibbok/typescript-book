@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
+    "noImplicitAny": true,
     "esModuleInterop": true,
     "noEmitOnError": true,
     "moduleDetection": "force",
