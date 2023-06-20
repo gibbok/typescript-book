@@ -34,10 +34,12 @@ type MyToken = marked.Token & {
     text: string
 }
 
+const isTypeScriptCode = (token: marked.Token): token is marked.Tokens.Code => token.type === 'code' && token.lang === 'typescript';
+
 function extractCodeSnippets(markdown: string): ReadonlyArray<string> {
     const lexer = new marked.Lexer();
     const tokens = lexer.lex(markdown);
-    const snippets = tokens.filter(x => x.type === 'code' && x.lang === 'typescript') as marked.Tokens.Code[]
+    const snippets = tokens.filter(isTypeScriptCode)
     const code = snippets.map(x => x.text);
     return code
 }
