@@ -68,9 +68,10 @@ function makeTempFiles(snippets: ReadonlyArray<string>): void {
 }
 
 const processMarkdownFile = (inputPath: string): void => {
-    const markdown = fs.readFileSync(inputPath, 'utf-8');
-    const snippets = extractCodeSnippets(markdown);
-    makeTempFiles(snippets);
+    pipe(
+        fs.readFileSync(inputPath, 'utf-8'),
+        markdown => extractCodeSnippets(markdown),
+        makeTempFiles)
 }
 
 processMarkdownFile(INPUT_FILE_PATH);
