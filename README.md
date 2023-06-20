@@ -259,6 +259,7 @@ TypeScript is a typed superset of JavaScript (ECMAScript 2015) in terms of synta
 
 For instance, consider a function in a JavaScript file with the `.js` extension, such as the following:
 
+<!-- skip -->
 ```typescript
 const sum = (a, b) => a + b;
 
@@ -266,6 +267,7 @@ const sum = (a, b) => a + b;
 
 The function can be converted and used in TypeScript by changing the file extension to `.ts`. However, if the same function is annotated with TypeScript types, it cannot be executed in any JavaScript engine without compilation. The following TypeScript code will produce a syntax error if it is not compiled:
 
+<!-- skip -->
 ```typescript
 const sum = (a: number, b: number): number => a + b;
 
@@ -273,6 +275,7 @@ const sum = (a: number, b: number): number => a + b;
 
 TypeScript was designed to detect possible exceptions that can occur at runtime during compilation time by having the developer define the intent with type annotations. In addition, TypeScript can also catch issues if no type annotation is provided. For instance, the following code snippet does not specify any TypeScript types:
 
+<!-- skip -->
 ```typescript
 const items = [{ x: 1 }, { x: 2 }];
 const result = items.filter(item => item.y);
@@ -292,6 +295,7 @@ const result = '1' + 1; // Result is of type string
 
 The team behind TypeScript has made a deliberate decision to flag unusual usage of JavaScript as errors. For instance, consider the following valid JavaScript code:
 
+<!-- skip -->
 ```typescript
 const result = 1 + true; // In JavaScript, the result is equal 2
 
@@ -308,6 +312,7 @@ This error occurs because TypeScript strictly enforces type compatibility, and i
 The TypeScript compiler has two main responsibilities: checking for type errors and compiling to JavaScript. These two processes are independent of each other. Types do not affect the execution of the code in a JavaScript engine, as they are completely erased during compilation. TypeScript can still output JavaScript even in the presence of type errors.
 Here is an example of TypeScript code with a type error:
 
+<!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
 const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
@@ -316,6 +321,7 @@ const result = add('x', 'y'); // Argument of type 'string' is not assignable to 
 
 However, it can still produce executable JavaScript output:
 
+<!-- skip -->
 ```typescript
 'use strict';
 const add = (a, b) => a + b;
@@ -2575,6 +2581,7 @@ const move = (direction: Direction): void => {
 
 In TypeScript, interfaces define the structure of objects, specifying the names and types of properties or methods that an object must have. The common syntax for defining an interface in TypeScript is as follows:
 
+<!-- skip -->
 ```typescript
 interface InterfaceName {
     property1: Type1;
@@ -2587,6 +2594,7 @@ interface InterfaceName {
 
 Similarly for type definition:
 
+<!-- skip -->
 ```typescript
 type TypeName = {
     property1: Type1;
@@ -4482,7 +4490,7 @@ The nullish coalescing operator `??` returns the right-hand side value if the le
 
 ```typescript
 const foo = null ?? 'foo';
-console.log(foo); // "default string"
+console.log(foo); // foo
 
 const baz = 1 ?? 'baz';
 const baz2 = 0 ?? 'baz';

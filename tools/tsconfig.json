@@ -4,6 +4,8 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "noEmitOnError": true,
+    "moduleDetection": "force",
+    "noUnusedLocals": false,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,

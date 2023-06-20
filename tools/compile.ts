@@ -4,8 +4,9 @@ import * as ts from "typescript";
 import { marked } from 'marked';
 import { pipe } from 'fp-ts/function'
 
-const INPUT_FILE_PATH = '../test.md';
+const INPUT_FILE_PATH = '../README.md';
 const TEMP_DIR = 'temp'
+const SKIP_COMMENT = '<!-- skip -->'
 
 type ReportsInfo = Readonly<{
     reports: ts.Diagnostic[],
@@ -52,7 +53,7 @@ const logReports = (data: ReportsInfo) => {
 
 const isTypeScriptCode = (token: marked.Token): token is marked.Tokens.Code => token.type === 'code' && token.lang === 'typescript';
 
-const isSkipComment = (token: marked.Token): token is marked.Tokens.HTML => token.type === 'html' && token.text === '<!-- skip -->\n';
+const isSkipComment = (token: marked.Token): token is marked.Tokens.HTML => token.type === 'html' && token.text === `${SKIP_COMMENT}\n`;
 
 const extractCodeSnippets = (markdown: string): CodeSnippets =>
     pipe(
@@ -98,7 +99,8 @@ const processMarkdownFile = (inputPath: string): void =>
             noImplicitAny: true,
             target: ts.ScriptTarget.ESNext,
             module: ts.ModuleKind.CommonJS,
-            moduleDetection: ts.ModuleDetectionKind.Force
+            moduleDetection: ts.ModuleDetectionKind.Force,
+            noUnusedLocals: false
         }),
         logReports,
         exitScript,
