@@ -46,18 +46,15 @@ const extractCodeSnippets = (markdown: string): ReadonlyArray<string> =>
     )
 
 
-const makeTempFiles = (snippets: ReadonlyArray<string>): ReadonlyArray<string> => {
-    const tempFiles: string[] = [];
-
-    snippets.forEach((snippet, index) => {
+const makeTempFiles = (snippets: ReadonlyArray<string>): ReadonlyArray<string> =>
+    snippets.reduce<ReadonlyArray<string>>((acc, snippet, index) => {
         const tempFile = path.join(__dirname, `temp/temp_${index}.ts`);
-
         fs.writeFileSync(tempFile, snippet);
-
-        tempFiles.push(tempFile);
-    });
-    return tempFiles
-}
+        return [
+            ...acc,
+            tempFile
+        ]
+    }, [])
 
 const processMarkdownFile = (inputPath: string): void => {
     fs.ensureDirSync(TEMP_DIR);
