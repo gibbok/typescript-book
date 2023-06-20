@@ -12,6 +12,17 @@ const test: Test = {
 ```
 
 ```typescript
+type Test = {
+  b: number;
+};
+
+const test: Test = {
+  b: 123,
+};
+
+```
+
+```typescript
 const x: number = 1;
 
 ```

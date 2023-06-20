@@ -97,7 +97,8 @@ const processMarkdownFile = (inputPath: string): void =>
             noEmitOnError: true,
             noImplicitAny: true,
             target: ts.ScriptTarget.ESNext,
-            module: ts.ModuleKind.CommonJS
+            module: ts.ModuleKind.CommonJS,
+            moduleDetection: ts.ModuleDetectionKind.Force
         }),
         logReports,
         exitScript,
