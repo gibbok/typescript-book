@@ -58,12 +58,20 @@ const extractCodeSnippets = (markdown: string): CodeSnippets =>
     pipe(
         new marked.Lexer(),
         lexer => lexer.lex(markdown),
-        x => {
-            console.log(JSON.stringify(x))
-
-            return x
+        tokens => {
+            let skipIndex = -1
+            return tokens.reduce<marked.Token[]>((tokens, token, index) => {
+                if (index === skipIndex) {
+                    skipIndex = -1
+                    return [...tokens]
+                }
+                if (isSkipComment(token)) {
+                    skipIndex = index + 1
+                    return [...tokens]
+                }
+                return [...tokens, token]
+            }, [])
         },
-        x => x.reduce<marked.Token[]>((acc, value, index) => [...acc, value], []),
         tokens => tokens.filter(isTypeScriptCode),
         codes => codes.map(x => x.text)
     )
