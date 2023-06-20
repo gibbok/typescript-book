@@ -2,6 +2,7 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as ts from "typescript";
 import { marked } from 'marked';
+import { pipe } from 'fp-ts/function'
 
 const INPUT_FILE_PATH = '../test.md';
 const TEMP_DIR = 'temp'
@@ -36,13 +37,14 @@ type MyToken = marked.Token & {
 
 const isTypeScriptCode = (token: marked.Token): token is marked.Tokens.Code => token.type === 'code' && token.lang === 'typescript';
 
-function extractCodeSnippets(markdown: string): ReadonlyArray<string> {
-    const lexer = new marked.Lexer();
-    const tokens = lexer.lex(markdown);
-    const snippets = tokens.filter(isTypeScriptCode)
-    const code = snippets.map(x => x.text);
-    return code
-}
+const extractCodeSnippets = (markdown: string): ReadonlyArray<string> =>
+    pipe(
+        new marked.Lexer(),
+        lexer => lexer.lex(markdown),
+        tokens => tokens.filter(isTypeScriptCode),
+        codes => codes.map(x => x.text)
+    )
+
 
 function makeTempFiles(snippets: ReadonlyArray<string>): void {
     fs.ensureDirSync(TEMP_DIR);
