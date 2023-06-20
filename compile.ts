@@ -4,7 +4,7 @@ import { execSync } from 'child_process';
 
 const TEMP_DIR = 'temp'
 
-function extractCodeSnippets(markdown: string): string[] {
+const extractCodeSnippets = (markdown: string): string[] => {
     const codeRegex = /```typescript([\s\S]*?)```/g;
     const snippets: string[] = [];
     let match;
@@ -16,7 +16,7 @@ function extractCodeSnippets(markdown: string): string[] {
     return snippets;
 }
 
-function compileCode(snippets: string[], outputPath: string): void {
+const compileCode = (snippets: string[], outputPath: string): void => {
     fs.ensureDirSync(TEMP_DIR);
 
     const errors: string[] = [];
@@ -45,13 +45,12 @@ function compileCode(snippets: string[], outputPath: string): void {
     });
 }
 
-function processMarkdownFile(inputPath: string, outputPath: string): void {
+const processMarkdownFile = (inputPath: string, outputPath: string): void => {
     const markdown = fs.readFileSync(inputPath, 'utf-8');
     const snippets = extractCodeSnippets(markdown);
     compileCode(snippets, outputPath);
 }
 
-// Usage example:
 const inputPath = 'test.md';
 const outputPath = 'errors.txt';
 
