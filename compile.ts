@@ -42,14 +42,7 @@ const compileCode = (snippets: ReadonlyArray<string>): void => {
         }
     });
 
-
-
-    // if (errors.length > 0) {
-    //     console.log(errors.join('\n'));
-    //     process.exit(1)
-    // } else {
     console.log(`No errors, total snippets processed: ${snippets.length}`)
-    // }
 }
 
 const processMarkdownFile = (inputPath: string): void => {
