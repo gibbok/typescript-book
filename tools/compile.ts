@@ -1,6 +1,7 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as ts from "typescript";
+import { marked } from 'marked';
 
 const INPUT_FILE_PATH = '../test.md';
 const TEMP_DIR = 'temp'
@@ -29,19 +30,16 @@ function compileTempFiles(fileNames: ReadonlyArray<string>, options: ts.Compiler
     process.exit(exitCode);
 }
 
+type MyToken = marked.Token & {
+    text: string
+}
+
 function extractCodeSnippets(markdown: string): ReadonlyArray<string> {
-    const codeRegex = /```typescript([\s\S]*?)```/g;
-
-    const snippets: string[] = [];
-    let match;
-
-    while ((match = codeRegex.exec(markdown)) !== null) {
-        snippets.push(match[1].trim());
-    }
-
-    console.log(`Number of snippets: ${snippets.length}`)
-
-    return snippets;
+    const lexer = new marked.Lexer();
+    const tokens = lexer.lex(markdown);
+    const snippets = tokens.filter(x => x.type === 'code' && x.lang === 'typescript') as marked.Tokens.Code[]
+    const code = snippets.map(x => x.text);
+    return code
 }
 
 function makeTempFiles(snippets: ReadonlyArray<string>): void {
