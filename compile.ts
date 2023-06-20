@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import * as fs from 'fs-extra';
 import * as path from 'path';
 import { execSync } from 'child_process';
 
@@ -27,18 +27,13 @@ function compileCode(snippets: string[], outputPath: string): void {
         try {
             execSync(`tsc ${tempFile} --pretty`, { encoding: 'utf8' });
         } catch (error: unknown) {
-            console.log(error)
             //@ts-ignore
             errors.push(`Snippet ${index + 1}:\n${error.stdout}`);
         }
-        console.log(errors)
 
         fs.writeFileSync(outputPath, errors.join('\n\n'));
 
-        console.log(tempFiles)
-        tempFiles.forEach((tempFile) => {
-            fs.unlinkSync(tempFile);
-        });
+        fs.emptyDir('temp')
     });
 }
 
