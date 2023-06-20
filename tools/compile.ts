@@ -60,7 +60,6 @@ const extractCodeSnippets = (markdown: string): CodeSnippets =>
         codes => codes.map(x => x.text)
     )
 
-
 const makeTempFiles = (snippets: CodeSnippets): TempFilePaths =>
     snippets.reduce<TempFilePaths>((acc, snippet, index) => {
         const tempFile = path.join(__dirname, `temp/temp_${index}.ts`);
