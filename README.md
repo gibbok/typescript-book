@@ -331,6 +331,7 @@ const result = add('x', 'y'); // xy
 
 It is not possible to check TypeScript types at runtime. For example:
 
+<!-- skip -->
 ```typescript
 interface Animal {
     name: string;
