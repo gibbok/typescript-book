@@ -28,7 +28,7 @@ function compileTempFiles(fileNames: ReadonlyArray<string>, options: ts.Compiler
     process.exit(exitCode);
 }
 
-const extractCodeSnippets = (markdown: string): ReadonlyArray<string> => {
+function extractCodeSnippets(markdown: string): ReadonlyArray<string> {
     const codeRegex = /```typescript([\s\S]*?)```/g;
 
     const snippets: string[] = [];
@@ -43,7 +43,7 @@ const extractCodeSnippets = (markdown: string): ReadonlyArray<string> => {
     return snippets;
 }
 
-const makeTempFiles = (snippets: ReadonlyArray<string>): void => {
+function makeTempFiles(snippets: ReadonlyArray<string>): void {
     fs.ensureDirSync(TEMP_DIR);
 
     const tempFiles: string[] = [];
@@ -64,7 +64,7 @@ const makeTempFiles = (snippets: ReadonlyArray<string>): void => {
     });
 }
 
-const processMarkdownFile = (inputPath: string): void => {
+function processMarkdownFile(inputPath: string): void {
     const markdown = fs.readFileSync(inputPath, 'utf-8');
     const snippets = extractCodeSnippets(markdown);
     makeTempFiles(snippets);
