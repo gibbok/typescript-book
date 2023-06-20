@@ -14,7 +14,7 @@ async function formatCodeBlocksInMarkdownFile(filePath: string): Promise<void> {
         const code = match[1].trim();
         const formattedCode = prettier.format(code, {
             parser: 'typescript',
-            ...(await prettier.resolveConfig(filePath)),
+            ...(await prettier.resolveConfig('./.prettierrc')),
         });
         formattedMarkdown = formattedMarkdown.replace(codeBlock, `\`\`\`typescript\n${formattedCode}\n\`\`\``);
     }
