@@ -7,9 +7,12 @@ import { pipe } from 'fp-ts/function'
 const INPUT_FILE_PATH = '../test.md';
 const TEMP_DIR = 'temp'
 
+type X = {
+    diagnostics: ts.Diagnostic[],
+    emitSkipped: boolean
+}
 
-
-const compileTempFiles = (fileNames: ReadonlyArray<string>, options: ts.CompilerOptions): void => {
+const compileTempFiles = (fileNames: ReadonlyArray<string>, options: ts.CompilerOptions): X => {
     const program = ts.createProgram(fileNames, options);
     const emitResult = program.emit();
 
@@ -27,7 +30,19 @@ const compileTempFiles = (fileNames: ReadonlyArray<string>, options: ts.Compiler
         }
     });
 
-    const exitCode = emitResult.emitSkipped ? 1 : 0;
+    return {
+        diagnostics: allDiagnostics,
+        emitSkipped: emitResult.emitSkipped
+    }
+
+    // const exitCode = emitResult.emitSkipped ? 1 : 0;
+    // fs.removeSync(TEMP_DIR)
+    // console.log(`Process exiting with code '${exitCode}'.`);
+    // process.exit(exitCode);
+}
+
+const clean = (data: X) => {
+    const exitCode = data.emitSkipped ? 1 : 0;
     fs.removeSync(TEMP_DIR)
     console.log(`Process exiting with code '${exitCode}'.`);
     process.exit(exitCode);
@@ -43,11 +58,11 @@ const extractCodeSnippets = (markdown: string): ReadonlyArray<string> =>
         codes => codes.map(x => x.text)
     )
 
-
 const makeTempFiles = (snippets: ReadonlyArray<string>): ReadonlyArray<string> =>
     snippets.reduce<ReadonlyArray<string>>((acc, snippet, index) => {
         const tempFile = path.join(__dirname, `temp/temp_${index}.ts`);
         fs.writeFileSync(tempFile, snippet);
+
         return [
             ...acc,
             tempFile
@@ -65,7 +80,7 @@ const processMarkdownFile = (inputPath: string): void =>
             noImplicitAny: true,
             target: ts.ScriptTarget.ESNext,
             module: ts.ModuleKind.CommonJS
-        }),
+        }), clean,
     )
 
 processMarkdownFile(INPUT_FILE_PATH);
