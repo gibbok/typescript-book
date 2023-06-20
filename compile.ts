@@ -2,6 +2,8 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import { execSync } from 'child_process';
 
+const TEMP_DIR = 'temp'
+
 function extractCodeSnippets(markdown: string): string[] {
     const codeRegex = /```typescript([\s\S]*?)```/g;
     const snippets: string[] = [];
@@ -15,6 +17,8 @@ function extractCodeSnippets(markdown: string): string[] {
 }
 
 function compileCode(snippets: string[], outputPath: string): void {
+    fs.ensureDirSync(TEMP_DIR);
+
     const errors: string[] = [];
     const tempFiles: string[] = [];
 
@@ -36,7 +40,7 @@ function compileCode(snippets: string[], outputPath: string): void {
             process.exit(1)
         }
 
-        fs.emptyDir('temp')
+        fs.removeSync(TEMP_DIR)
 
     });
 }
