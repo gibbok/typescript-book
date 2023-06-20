@@ -7,7 +7,9 @@ import { pipe } from 'fp-ts/function'
 const INPUT_FILE_PATH = '../test.md';
 const TEMP_DIR = 'temp'
 
-function compileTempFiles(fileNames: ReadonlyArray<string>, options: ts.CompilerOptions): void {
+
+
+const compileTempFiles = (fileNames: ReadonlyArray<string>, options: ts.CompilerOptions): void => {
     const program = ts.createProgram(fileNames, options);
     const emitResult = program.emit();
 
