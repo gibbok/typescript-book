@@ -1,6 +1,6 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
-import { execSync } from 'child_process';
+import { ExecException, execSync } from 'child_process';
 
 const TEMP_DIR = 'temp'
 
@@ -31,8 +31,7 @@ const compileCode = (snippets: ReadonlyArray<string>): void => {
 
         try {
             execSync(`tsc ${tempFile} --pretty`);
-        } catch (error: unknown) {
-            //@ts-ignore
+        } catch (error: any) {
             errors.push(`Snippet ${index + 1}:\n${error.stdout}`);
         }
     });
@@ -43,7 +42,7 @@ const compileCode = (snippets: ReadonlyArray<string>): void => {
         console.log(errors.join('\n'));
         process.exit(1)
     } else {
-        console.log('ok')
+        console.log(`No errors, total snippets processed: ${snippets.length}`)
     }
 }
 

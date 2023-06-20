@@ -2,7 +2,7 @@
 
 ```typescript
 type Test = {
-    a: number;
+    a: string;
 }
 
 const test: Test = {
