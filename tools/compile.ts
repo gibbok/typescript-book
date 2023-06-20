@@ -46,7 +46,7 @@ const extractCodeSnippets = (markdown: string): ReadonlyArray<string> =>
     )
 
 
-function makeTempFiles(snippets: ReadonlyArray<string>): void {
+const makeTempFiles = (snippets: ReadonlyArray<string>): void => {
     fs.ensureDirSync(TEMP_DIR);
 
     const tempFiles: string[] = [];
