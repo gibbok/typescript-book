@@ -632,7 +632,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // valid
+const y: Y = x; // Valid
 
 ```
 
@@ -850,8 +850,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // valid
-x === z; // valid even if z is from a different inheritance hierarchy
+x === y; // Valid
+x === z; // Valid even if z is from a different inheritance hierarchy
 
 ```
 Generics are compared using their structures based on the resulting type after applying the generic parameter, only the final result is compared as a non-generic type.
@@ -882,7 +882,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // valid
+x = y; // Valid
 
 ```
 
@@ -972,7 +972,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // valid
+const r: XY = { a: 'a', b: 'x' }; // Valid
 
 ```
 
@@ -1022,7 +1022,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // valid
+const r: Z1 = z; // Valid
 
 ```
 
@@ -1190,7 +1190,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // valid
+fn({ c: 'c' } as Options); // Valid
 
 ```
 
@@ -1204,7 +1204,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // valid
+fn({ c: 'c' }); // Valid
 
 ```
 
@@ -2347,8 +2347,8 @@ A Union Type is a type that represents a value that can be one of several types.
 
 ```typescript
 let x: string | number;
-x = 'hello'; // valid
-x = 123; // valid
+x = 'hello'; // Valid
+x = 123; // Valid
 
 ```
 
@@ -2515,8 +2515,8 @@ By utilizing any type, you are indicating to the TypeScript compiler that values
 
 ```typescript
 let value: any;
-value = true; // valid
-value = 7; // valid
+value = true; // Valid
+value = 7; // Valid
 
 ```
 
@@ -3680,7 +3680,7 @@ const obj = {
     prop1: 'Origin',
 };
 
-log(obj); // valid
+log(obj); // Valid
 
 ```
 
