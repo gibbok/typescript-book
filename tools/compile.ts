@@ -46,7 +46,7 @@ const extractCodeSnippets = (markdown: string): ReadonlyArray<string> =>
     )
 
 
-const makeTempFiles = (snippets: ReadonlyArray<string>): void => {
+const makeTempFiles = (snippets: ReadonlyArray<string>): ReadonlyArray<string> => {
     fs.ensureDirSync(TEMP_DIR);
 
     const tempFiles: string[] = [];
@@ -57,21 +57,22 @@ const makeTempFiles = (snippets: ReadonlyArray<string>): void => {
         fs.writeFileSync(tempFile, snippet);
 
         tempFiles.push(tempFile);
-
-        compileTempFiles(tempFiles, {
-            noEmitOnError: true,
-            noImplicitAny: true,
-            target: ts.ScriptTarget.ES5,
-            module: ts.ModuleKind.CommonJS
-        })
     });
+    return tempFiles
 }
 
 const processMarkdownFile = (inputPath: string): void => {
     pipe(
         fs.readFileSync(inputPath, 'utf-8'),
         markdown => extractCodeSnippets(markdown),
-        makeTempFiles)
+        snippets => makeTempFiles(snippets),
+        tempFiles => compileTempFiles(tempFiles, {
+            noEmitOnError: true,
+            noImplicitAny: true,
+            target: ts.ScriptTarget.ES5,
+            module: ts.ModuleKind.CommonJS
+        }),
+    )
 }
 
 processMarkdownFile(INPUT_FILE_PATH);
