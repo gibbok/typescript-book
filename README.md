@@ -247,7 +247,8 @@ Some of the benefits of TypeScript:
 - Static typing, optionally strongly typed
 - Type Inference
 - Access to ES6 and ES7 features
-- Cross-Platform and Cross-browser Compatibility \* Tooling support with IntelliSense
+- Cross-Platform and Cross-browser Compatibility
+- Tooling support with IntelliSense
 
 ### TypeScript and JavaScript
 
