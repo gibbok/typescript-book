@@ -1120,8 +1120,6 @@ let y = x!; // number
 许多常见的库类型可以在以下位置找到：
 https://github.com/DefinitelyTyped/DefinitelyTyped/
 
-许多常见的库类型可以在以下位置找到：
-
 ```shell
 npm install --save-dev @types/library-name
 ```
@@ -4295,7 +4293,10 @@ for (const num of generator) {
 TypeScript 还支持异步迭代器和异步生成器。
 
 要了解更多信息：
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator
 
 ### TsDocs JSDoc 参考
 使用 JavaScript 代码库时，可以通过使用 JSDoc 注释和附加注释来提供类型信息，帮助 TypeScript 推断正确的类型。
@@ -4729,9 +4730,13 @@ console.log('\u0041'.normalize());
 TypeScript 通过为原语及其相应的对象包装器提供单独的类型来表示这种区别：
 
 string => String
+
 number => Number
+
 boolean => Boolean
+
 symbol => Symbol
+
 bigint => BigInt
 
 通常不需要盒装类型。避免使用装箱类型，而是使用基元类型，例如 `string` 代替 `String`。
