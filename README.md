@@ -421,14 +421,15 @@ TypeScript can compile code to any released version of JavaScript since ECMAScri
 It's important to note that during transpilation to an older version of JavaScript, TypeScript may generate code that could incur a performance overhead compared to native implementations.
 
 Here are some of the modern JavaScript features that can be used in TypeScript:
-_ ECMAScript modules instead of AMD-style "define" callbacks or CommonJS "require" statements.
-_ Classes instead of prototypes.
-_ Variables declaration using "let" or "const" instead of "var".
-_ "for-of" loop or ".forEach" instead of the traditional "for" loop.
-_ Arrow functions instead of function expressions.
-_ Destructuring assignment.
-_ Shorthand property/method names and computed property names.
-_ Default function parameters.
+
+- ECMAScript modules instead of AMD-style "define" callbacks or CommonJS "require" statements.
+- Classes instead of prototypes.
+- Variables declaration using "let" or "const" instead of "var".
+- "for-of" loop or ".forEach" instead of the traditional "for" loop.
+- Arrow functions instead of function expressions.
+- Destructuring assignment.
+- Shorthand property/method names and computed property names.
+- Default function parameters.
 
 By leveraging these modern JavaScript features, developers can write more expressive and concise code in TypeScript.
 
@@ -509,8 +510,9 @@ tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts an
 A tsconfig.json file is used to configure the TypeScript Compiler (tsc). Usually, it is added to the root of the project, together with the `package.json` file.
 
 Notes:
-_ tsconfig.json accepts comments even if it is in json format.
-_ It is advisable to use this configuration file instead of the command-line options.
+
+- tsconfig.json accepts comments even if it is in json format.
+- It is advisable to use this configuration file instead of the command-line options.
 
 At the following link you can find the complete documentation and its schema:
 https://www.typescriptlang.org/tsconfig
@@ -529,10 +531,11 @@ The "lib" property is used to specify which library files to include at compilat
 #### strict
 
 The "strict" property enables stronger guarantees and enhances type safety. It is advisable to always include this property in your project's tsconfig.json file. Enabling the "strict" property allows TypeScript to:
-_ Emit code using "use strict" for each source file.
-_ Consider "null" and "undefined" in the type checking process.
-_ Disable the usage of the "any" type when no type annotations are present.
-_ Raise an error on the usage of the "this" expression, which would otherwise imply the "any" type.
+
+- Emit code using "use strict" for each source file.
+- Consider "null" and "undefined" in the type checking process.
+- Disable the usage of the "any" type when no type annotations are present.
+- Raise an error on the usage of the "this" expression, which would otherwise imply the "any" type.
 
 #### module
 
