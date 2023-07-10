@@ -286,7 +286,9 @@ const result = items.filter(item => item.y);
 
 In this case, TypeScript detects an error and reports:
 
+```
 Property 'y' does not exist on type '{ x: number; }'.
+```
 
 TypeScript's type system is largely influenced by the runtime behavior of JavaScript. For example, the addition operator (+), which in JavaScript can either perform string concatenation or numeric addition, is modeled in the same way in TypeScript:
 
