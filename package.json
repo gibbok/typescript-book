@@ -1,0 +1,22 @@
+{
+  "name": "typescript-book",
+  "version": "1.0.0",
+  "description": "The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects found in the latest version of the language, from its powerful type system to advanced features. Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.",
+  "scripts": {
+    "start": "idoc --watch",
+    "build": "idoc"
+  },
+  "keywords": [],
+  "author": "",
+  "idoc": {
+    "dir": ".",
+    "site": "The Concise TypeScript Book",
+    "menus": {
+      "Chinese Translations": "README-zh_CN.html"
+    }
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "idoc": "^1.26.6"
+  }
+}
