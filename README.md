@@ -2435,7 +2435,7 @@ type Strings = ElementType<string[]>; // string
 
 In TypeScript, predefined conditional types are built-in conditional types provided by the language. They are designed to perform common type transformations based on the characteristics of a given type.
 
-`Exclude<UnionType, ExcludedType>: This type removes all the types from Type that are assignable to ExcludedType.
+`Exclude<UnionType, ExcludedType>`: This type removes all the types from Type that are assignable to ExcludedType.
 
 `NonNullable<Type>`: This type removes null and undefined from Type.
 
