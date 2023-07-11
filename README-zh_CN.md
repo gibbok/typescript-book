@@ -284,7 +284,10 @@ const result = items.filter(item => item.y);
 
 在这种情况下，TypeScript 检测到错误并报告：
 
+```
 类型 '{ x: number; }' 上不存在属性 'y' 。
+
+```
 
 TypeScript 的类型系统很大程度上受到 JavaScript 运行时行为的影响。例如，加法运算符 (+) 在 JavaScript 中可以执行字符串连接或数字加法，在 TypeScript 中以相同的方式建模：
 
