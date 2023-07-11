@@ -1076,7 +1076,7 @@ type X = {
 type Y = J<X>;
 ```
 
-In this example, the type J<Type> uses a mapped type with a template literal to remap the keys of Type. It creates new properties with a prefix_ added to each key, and their corresponding values are functions returning the original property values.
+In this example, the type `J<Type>` uses a mapped type with a template literal to remap the keys of Type. It creates new properties with a prefix_ added to each key, and their corresponding values are functions returning the original property values.
 
 It is worth noting that when using a type assertion, TypeScript will not execute excess property checking. Therefore, it is generally preferable to use a Type Declaration when the structure of the object is known in advance.
 
@@ -2435,21 +2435,19 @@ type Strings = ElementType<string[]>; // string
 
 In TypeScript, predefined conditional types are built-in conditional types provided by the language. They are designed to perform common type transformations based on the characteristics of a given type.
 
-Exclude<UnionType, ExcludedType>: This type removes all the types from Type that are assignable to ExcludedType.
+`Exclude<UnionType, ExcludedType>: This type removes all the types from Type that are assignable to ExcludedType.
 
-Extract<Type, Union>: This type extracts all the types from Union that are assignable to Type.
+`NonNullable<Type>`: This type removes null and undefined from Type.
 
-NonNullable<Type>: This type removes null and undefined from Type.
+`ReturnType<Type>`: This type extracts the return type of a function Type.
 
-ReturnType<Type>: This type extracts the return type of a function Type.
+`Parameters<Type>`: This type extracts the parameter types of a function Type.
 
-Parameters<Type>: This type extracts the parameter types of a function Type.
+`Required<Type>`: This type makes all properties in Type required.
 
-Required<Type>: This type makes all properties in Type required.
+`Partial<Type>`: This type makes all properties in Type optional.
 
-Partial<Type>: This type makes all properties in Type optional.
-
-Readonly<Type>: This type makes all properties in Type readonly.
+`Readonly<Type>`: This type makes all properties in Type readonly.
 
 ## Template Union Types
 Template union types can be used to merge and manipulate text inside the type system for instance:
@@ -3791,7 +3789,7 @@ type MyType = MyTuple[2]; // boolean
 
 Several built-in utility types can be used to manipulate types, below a list of the most common used:
 
-#### Awaited<T>
+#### Awaited\<T\>
 
 Constructs a type recursively unwrap Promises.
 
@@ -3800,7 +3798,7 @@ type A = Awaited<Promise<string>>; // string
 
 ```
 
-#### Partial<T>
+#### Partial\<T\>
 
 Constructs a type with all properties of T set to optional.
 
@@ -3814,7 +3812,7 @@ type A = Partial<Person>; // { name?: string | undefined; age?: number | undefin
 
 ```
 
-#### Required<T>
+#### Required\<T\>
 
 Constructs a type with all properties of T set to required.
 
@@ -3828,7 +3826,7 @@ type A = Required<Person>; // { name: string; age: number; }
 
 ```
 
-#### Readonly<T>
+#### Readonly\<T\>
 
 Constructs a type with all properties of T set to readonly.
 
@@ -3846,7 +3844,7 @@ a.name = 'John'; // Invalid
 
 ```
 
-#### Record<K, T>
+#### Record\<K, T\>
 
 Constructs a type with a set of properties K of type T.
 
@@ -3865,7 +3863,7 @@ console.log(products.apple); // { name: 'Apple', price: 0.5 }
 
 ```
 
-#### Pick<T, K>
+#### Pick\<T, K\>
 
 Constructs a type by picking the specified properties K from T.
 
@@ -3879,7 +3877,7 @@ type Price = Pick<Product, 'price'>; // { price: number; }
 
 ```
 
-#### Omit<T, K>
+#### Omit\<T, K\>
 
 Constructs a type by omitting the specified properties K from T.
 
@@ -3893,7 +3891,7 @@ type Name = Omit<Product, 'price'>; // { name: string; }
 
 ```
 
-#### Exclude<T, U>
+#### Exclude\<T, U\>
 
 Constructs a type by excluding all values of type U from T.
 
@@ -3903,7 +3901,7 @@ type MyType = Exclude<Union, 'a' | 'c'>; // b
 
 ```
 
-#### Extract<T, U>
+#### Extract\<T, U\>
 
 Constructs a type by extracting all values of type U from T.
 
@@ -3913,7 +3911,7 @@ type MyType = Extract<Union, 'a' | 'c'>; // a | c
 
 ```
 
-#### NonNullable<T>
+#### NonNullable\<T\>
 
 Constructs a type by excluding null and undefined from T.
 
@@ -3923,7 +3921,7 @@ type MyType = NonNullable<Union>; // 'a' | 'b'
 
 ```
 
-#### Parameters<T>
+#### Parameters\<T\>
 
 Extracts the parameter types of a function type T.
 
@@ -3933,7 +3931,7 @@ type MyType = Parameters<Func>; // [a: string, b: number]
 
 ```
 
-#### ConstructorParameters<T>
+#### ConstructorParameters\<T\>
 
 Extracts the parameter types of a constructor function type T.
 
@@ -3948,7 +3946,7 @@ console.log(person); // Person { name: 'John', age: 30 }
 
 ```
 
-#### ReturnType<T>
+#### ReturnType\<T\>
 
 Extracts the return type of a function type T.
 
@@ -3958,7 +3956,7 @@ type MyType = ReturnType<Func>; // number
 
 ```
 
-#### InstanceType<T>
+#### InstanceType\<T\>
 
 Extracts the instance type of a class type T.
 
@@ -3983,7 +3981,7 @@ person.sayHello(); // Hello, my name is John!
 
 ```
 
-#### ThisParameterType<T>
+#### ThisParameterType\<T\>
 
 Extracts the type of 'this' parameter from a function type T.
 
@@ -3996,7 +3994,7 @@ type PersonThisType = ThisParameterType<Person['greet']>; // Person
 
 ```
 
-#### OmitThisParameter<T>
+#### OmitThisParameter\<T\>
 
 Removes the 'this' parameter from a function type T.
 
@@ -4009,7 +4007,7 @@ type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
 
 ```
 
-#### ThisType<T>
+#### ThisType\<T\>
 
 Servers as a market for a contextual `this` type.
 
@@ -4028,7 +4026,7 @@ let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
 
 ```
 
-#### Uppercase<T>
+#### Uppercase\<T\>
 
 Make uppercase the name of the input type T.
 
@@ -4037,7 +4035,7 @@ type MyType = Uppercase<'abc'>; // "ABC"
 
 ```
 
-#### Lowercase<T>
+#### Lowercase\<T\>
 
 Make lowercase the name of the input type T.
 
@@ -4046,7 +4044,7 @@ type MyType = Lowercase<'ABC'>; // "abc"
 
 ```
 
-#### Capitalize<T>
+#### Capitalize\<T\>
 
 Capitalize the name of the input type T.
 
@@ -4055,7 +4053,7 @@ type MyType = Capitalize<'abc'>; // "Abc"
 
 ```
 
-#### Uncapitalize<T>
+#### Uncapitalize\<T\>
 
 Uncapitalize the name of the input type T.
 
