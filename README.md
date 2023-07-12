@@ -557,7 +557,7 @@ The "esModuleInterop" property allows import default from CommonJS modules that 
 
 #### jsx
 
-The "jsx" property applies only to .tsx files used in ReactJS and controls how JSX constructs are compiled into JavaScript. A common option is “preserver” which will compile to a .jsx file keeping unchanged the JSX so it can be passed to different tools like Babel for further transformations.
+The "jsx" property applies only to .tsx files used in ReactJS and controls how JSX constructs are compiled into JavaScript. A common option is “preserve” which will compile to a .jsx file keeping unchanged the JSX so it can be passed to different tools like Babel for further transformations.
 
 #### skipLibCheck
 
