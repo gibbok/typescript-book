@@ -880,7 +880,7 @@ let c: any;
 c = 1; // Valid, all types are assignable to any
 
 let d: unknown;
-c = 1; // Valid, all types are assignable to unknown
+d = 1; // Valid, all types are assignable to unknown
 
 let e: unknown;
 let e1: unknown = e; // Valid, unknown is only assignable to itself and any
