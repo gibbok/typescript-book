@@ -17,7 +17,7 @@ const formatCodeBlocksInMarkdownFile = async (filePath: string): Promise<void> =
             parser: 'typescript',
             ...(await prettier.resolveConfig(PRETTIER_CONFIG_FILE_PATH)),
         });
-        formattedMarkdown = formattedMarkdown.replace(codeBlock, `\`\`\`typescript\n${formattedCode}\n\`\`\``);
+        formattedMarkdown = formattedMarkdown.replace(codeBlock, `\`\`\`typescript\n${formattedCode}\`\`\``);
     }
 
     await fs.promises.writeFile(filePath, formattedMarkdown, 'utf-8');
