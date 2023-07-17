@@ -6,7 +6,7 @@
 
 ## 目录表
 
-- [简洁TypeScript之书](#简洁的TypeScript之书)
+- [简洁的TypeScript之书](#简洁的typescript之书)
   - [目录表](#目录表)
   - [介绍](#介绍)
   - [关于作者](#关于作者)
@@ -122,7 +122,7 @@
     - [对象和接口](#对象和接口)
     - [并集和交集类型：](#并集和交集类型)
   - [内置原始数据类型](#内置原始数据类型)
-  - [常见的内置JS对象](#常见的内置JS对象)
+  - [常见的内置JS对象](#常见的内置js对象)
   - [重载](#重载)
   - [Get 与 Set](#get-与-set)
   - [合并与扩展](#合并与扩展)
@@ -159,27 +159,27 @@
     - [从类型创建类型](#从类型创建类型)
     - [索引访问类型](#索引访问类型)
     - [工具类型](#工具类型)
-      - [Awaited](#awaited)
-      - [Partial](#partial)
-      - [Required](#required)
-      - [Readonly](#readonly)
+      - [Awaited\<T\>](#awaitedt)
+      - [Partial\<T\>](#partialt)
+      - [Required\<T\>](#requiredt)
+      - [Readonly\<T\>](#readonlyt)
       - [Record\<K, T\>](#recordk-t)
       - [Pick\<T, K\>](#pickt-k)
       - [Omit\<T, K\>](#omitt-k)
       - [Exclude\<T, U\>](#excludet-u)
       - [Extract\<T, U\>](#extractt-u)
-      - [NonNullable](#nonnullable)
-      - [Parameters](#parameters)
-      - [ConstructorParameters](#constructorparameters)
-      - [ReturnType](#returntype)
-      - [InstanceType](#instancetype)
-      - [ThisParameterType](#thisparametertype)
-      - [OmitThisParameter](#omitthisparameter)
-      - [ThisType](#thistype)
-      - [Uppercase](#uppercase)
-      - [Lowercase](#lowercase)
-      - [Capitalize](#capitalize)
-      - [Uncapitalize](#uncapitalize)
+      - [NonNullable\<T\>](#nonnullablet)
+      - [Parameters\<T\>](#parameterst)
+      - [ConstructorParameters\<T\>](#constructorparameterst)
+      - [ReturnType\<T\>](#returntypet)
+      - [InstanceType\<T\>](#instancetypet)
+      - [ThisParameterType\<T\>](#thisparametertypet)
+      - [OmitThisParameter\<T\>](#omitthisparametert)
+      - [ThisType\<T\>](#thistypet)
+      - [Uppercase\<T\>](#uppercaset)
+      - [Lowercase\<T\>](#lowercaset)
+      - [Capitalize\<T\>](#capitalizet)
+      - [Uncapitalize\<T\>](#uncapitalizet)
   - [其他](#其他)
     - [错误和异常处理](#错误和异常处理)
     - [混合类](#混合类)
@@ -928,41 +928,41 @@ g = g1; // 有效
 TypeScript 支持各种类型的集合：
 
 
-| Set term           | TypeScript                      | Notes                                                                                                              |
-| ------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| 空集         | never                           | “never” 包含除自身之外的任何类型                                                                             |
-| 单元素集 | undefined / null / literal type |                                                                                                                    |
-| 有限集        | boolean / union                 |                                                                                                                    |
-| 无限集       | string / number / object        |                                                                                                                    |
-| 通用集      | any / unknown                   | 每个元素都是“any”的成员，每个集合都是它的子集/“unknown”是“any”的类型安全对应项 |
+| Set term | TypeScript                      | Notes                                                                          |
+| -------- | ------------------------------- | ------------------------------------------------------------------------------ |
+| 空集     | never                           | “never” 包含除自身之外的任何类型                                               |
+| 单元素集 | undefined / null / literal type |                                                                                |
+| 有限集   | boolean / union                 |                                                                                |
+| 无限集   | string / number / object        |                                                                                |
+| 通用集   | any / unknown                   | 每个元素都是“any”的成员，每个集合都是它的子集/“unknown”是“any”的类型安全对应项 |
 
 这里有几个例子：
 
-| TypScript             | Set term               | Example                                                                         |
-| --------------------- | ---------------------- | ------------------------------------------------------------------------------- |
-| never                 | ∅ (空集)          | const x: never = 'x'; // 错误: 'string'类似不能赋值给'never'类型 |
-|                       |                        |
-| Literal type          | 单元素集     | type X = 'X';                                                                   |
-|                       |                        | type Y = 7;                                                                     |
-|                       |                        |
-| Value assignable to T | Value ∈ T (属于)  | type XY = 'X' \| 'Y';                                                           |
-|                       |                        | const x: XY = 'X';                                                              |
-|                       |                        |
-| T1 assignable to T2   | T1 ⊆ T2 (子集)    | type XY = 'X' \| 'Y';                                                           |
-|                       |                        | const x: XY = 'X';                                                              |
-|                       |                        | const j: XY = 'J'; // 类型'"J"' 不能赋值给 'XY' 类型.                |
-|                       |                        |                                                                                 |
-| T1 extends T2         | T1 ⊆ T2 (子集)    | type X = 'X' extends string ? true : false;                                     |
-|                       |                        |
-| T1 \| T2              | T1 ∪ T2 (并集)        | type XY = 'X' \| 'Y';                                                           |
-|                       |                        | type JK = 1 \| 2;                                                               |
-|                       |                        |
-| T1 & T2               | T1 ∩ T2 (交集) | type X = { a: string }                                                          |
-|                       |                        | type Y = { b: string }                                                          |
-|                       |                        | type XY = X & Y                                                                 |
-|                       |                        | const x: XY = { a: 'a', b: 'b' }                                                |
-|                       |                        |
-| unknown               | 通用集          | const x: unknown = 1                                                            |
+| TypScript             | Set term         | Example                                                          |
+| --------------------- | ---------------- | ---------------------------------------------------------------- |
+| never                 | ∅ (空集)         | const x: never = 'x'; // 错误: 'string'类似不能赋值给'never'类型 |
+|                       |                  |
+| Literal type          | 单元素集         | type X = 'X';                                                    |
+|                       |                  | type Y = 7;                                                      |
+|                       |                  |
+| Value assignable to T | Value ∈ T (属于) | type XY = 'X' \| 'Y';                                            |
+|                       |                  | const x: XY = 'X';                                               |
+|                       |                  |
+| T1 assignable to T2   | T1 ⊆ T2 (子集)   | type XY = 'X' \| 'Y';                                            |
+|                       |                  | const x: XY = 'X';                                               |
+|                       |                  | const j: XY = 'J'; // 类型'"J"' 不能赋值给 'XY' 类型.            |
+|                       |                  |                                                                  |
+| T1 extends T2         | T1 ⊆ T2 (子集)   | type X = 'X' extends string ? true : false;                      |
+|                       |                  |
+| T1 \| T2              | T1 ∪ T2 (并集)   | type XY = 'X' \| 'Y';                                            |
+|                       |                  | type JK = 1 \| 2;                                                |
+|                       |                  |
+| T1 & T2               | T1 ∩ T2 (交集)   | type X = { a: string }                                           |
+|                       |                  | type Y = { b: string }                                           |
+|                       |                  | type XY = X & Y                                                  |
+|                       |                  | const x: XY = { a: 'a', b: 'b' }                                 |
+|                       |                  |
+| unknown               | 通用集           | const x: unknown = 1                                             |
 
 
 并集 (T1 | T2) 创建一个更广泛的集合（两者）：
@@ -2476,21 +2476,21 @@ type Strings = ElementType<string[]>; // string
 
 在 TypeScript 中，预定义的条件类型是语言提供的内置条件类型。它们旨在根据给定类型的特征执行常见的类型转换。
 
-Exclude<UnionType, ExcludedType>: 此类型从 Type 中删除可分配给 ExcludedType 的所有类型。
+`Exclude<UnionType, ExcludedType>`: 此类型从 Type 中删除可分配给 ExcludedType 的所有类型。
 
-Extract<Type, Union>: 此类型从 Union 中提取可分配给 Type 的所有类型。
+`Extract<Type, Union>`: 此类型从 Union 中提取可分配给 Type 的所有类型。
 
-NonNullable<Type>: 此类型从 Type 中删除 null 和 undefined。
+`NonNullable<Type>`: 此类型从 Type 中删除 null 和 undefined。
 
-ReturnType<Type>: 此类型提取函数 Type 的返回类型。
+`ReturnType<Type>`: 此类型提取函数 Type 的返回类型。
 
-Parameters<Type>: 该类型提取函数类型的参数类型。
+`Parameters<Type>`: 该类型提取函数类型的参数类型。
 
-Required<Type>: 此类型使 Type 中的所有属性成为必需。
+`Required<Type>`: 此类型使 Type 中的所有属性成为必需。
 
-Partial<Type>: 此类型使 Type 中的所有属性都是可选的。
+`Partial<Type>`: 此类型使 Type 中的所有属性都是可选的。
 
-Readonly<Type>: 此类型使 Type 中的所有属性变为只读。
+`Readonly<Type>`: 此类型使 Type 中的所有属性变为只读。
 
 ## 模板联合类型
 
@@ -3829,7 +3829,7 @@ type MyType = MyTuple[2]; // boolean
 
 可以使用几种内置工具来操作类型，下面列出了最常用的：
 
-#### Awaited<T>
+#### Awaited\<T\>
 
 构造一个递归解包 Promise 的类型。
 
@@ -3838,7 +3838,7 @@ type A = Awaited<Promise<string>>; // string
 
 ```
 
-#### Partial<T>
+#### Partial\<T\>
 
 构造一个类型，并将 T 的所有属性设置为可选。
 
@@ -3852,7 +3852,7 @@ type A = Partial<Person>; // { name?: string | undefined; age?: number | undefin
 
 ```
 
-#### Required<T>
+#### Required\<T\>
 
 构造一个类型，并将 T 的所有属性设置为必需。
 
@@ -3866,7 +3866,7 @@ type A = Required<Person>; // { name: string; age: number; }
 
 ```
 
-#### Readonly<T>
+#### Readonly\<T\>
 
 构造一个类型，并将 T 的所有属性设置为只读。
 
@@ -3884,7 +3884,7 @@ a.name = 'John'; // Invalid
 
 ```
 
-#### Record<K, T>
+#### Record\<K, T\>
 
 构造一个具有类型 T 的一组属性 K 的类型。
 
@@ -3903,7 +3903,7 @@ console.log(products.apple); // { name: 'Apple', price: 0.5 }
 
 ```
 
-#### Pick<T, K>
+#### Pick\<T, K\>
 
 通过从 T 中选取指定属性 K 来构造类型。
 
@@ -3917,7 +3917,7 @@ type Price = Pick<Product, 'price'>; // { price: number; }
 
 ```
 
-#### Omit<T, K>
+#### Omit\<T, K\>
 
 通过从 T 中省略指定属性 K 来构造类型。
 
@@ -3931,7 +3931,7 @@ type Name = Omit<Product, 'price'>; // { name: string; }
 
 ```
 
-#### Exclude<T, U>
+#### Exclude\<T, U\>
 
 通过从 T 中排除类型 U 的所有值来构造类型。
 
@@ -3941,7 +3941,7 @@ type MyType = Exclude<Union, 'a' | 'c'>; // b
 
 ```
 
-#### Extract<T, U>
+#### Extract\<T, U\>
 
 通过从 T 中提取类型 U 的所有值来构造类型。
 
@@ -3951,7 +3951,7 @@ type MyType = Extract<Union, 'a' | 'c'>; // a | c
 
 ```
 
-#### NonNullable<T>
+#### NonNullable\<T\>
 
 通过从 T 中排除 null 和 undefined 来构造类型。
 
@@ -3961,7 +3961,7 @@ type MyType = NonNullable<Union>; // 'a' | 'b'
 
 ```
 
-#### Parameters<T>
+#### Parameters\<T\>
 
 提取函数类型 T 的参数类型。
 
@@ -3971,7 +3971,7 @@ type MyType = Parameters<Func>; // [a: string, b: number]
 
 ```
 
-#### ConstructorParameters<T>
+#### ConstructorParameters\<T\>
 
 提取构造函数类型 T 的参数类型。
 
@@ -3986,7 +3986,7 @@ console.log(person); // Person { name: 'John', age: 30 }
 
 ```
 
-#### ReturnType<T>
+#### ReturnType\<T\>
 
 提取函数类型 T 的返回类型。
 
@@ -3996,7 +3996,7 @@ type MyType = ReturnType<Func>; // number
 
 ```
 
-#### InstanceType<T>
+#### InstanceType\<T\>
 
 提取类类型 T 的实例类型。
 
@@ -4021,7 +4021,7 @@ person.sayHello(); // Hello, my name is John!
 
 ```
 
-#### ThisParameterType<T>
+#### ThisParameterType\<T\>
 
 从函数类型 T 中提取“this”参数的类型。
 
@@ -4034,7 +4034,7 @@ type PersonThisType = ThisParameterType<Person['greet']>; // Person
 
 ```
 
-#### OmitThisParameter<T>
+#### OmitThisParameter\<T\>
 
 从函数类型 T 中删除“this”参数。
 
@@ -4047,7 +4047,7 @@ type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
 
 ```
 
-#### ThisType<T>
+#### ThisType\<T\>
 
 作为上下文类型 `this` 的一部分。
 
@@ -4066,7 +4066,7 @@ let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
 
 ```
 
-#### Uppercase<T>
+#### Uppercase\<T\>
 
 将输入类型 T 的名称设为大写。
 
@@ -4075,7 +4075,7 @@ type MyType = Uppercase<'abc'>; // "ABC"
 
 ```
 
-#### Lowercase<T>
+#### Lowercase\<T\>
 
 将输入类型 T 的名称设为小写。
 
@@ -4084,7 +4084,7 @@ type MyType = Lowercase<'ABC'>; // "abc"
 
 ```
 
-#### Capitalize<T>
+#### Capitalize\<T\>
 
 输入类型 T 的名称大写。
 
@@ -4093,7 +4093,7 @@ type MyType = Capitalize<'abc'>; // "Abc"
 
 ```
 
-#### Uncapitalize<T>
+#### Uncapitalize\<T\>
 
 将输入类型 T 的名称取消大写。
 
