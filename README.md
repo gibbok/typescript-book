@@ -13,8 +13,7 @@ This book has been translated into several language versions, including:
 
 You can also download the Epub version here:
 
-* [English](./downloads/typescript-book.epub)
-* [Chinese](./downloads/typescript-book-zh_CN.epub)
+* [Downloads](./downloads)
 
 ## Table of content
 
