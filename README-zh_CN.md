@@ -561,7 +561,7 @@ TypeScript 可以为各种模块系统生成代码，包括 UMD、System、ESNex
 
 #### jsx
 
-“jsx”属性仅适用于 ReactJS 中使用的 .tsx 文件，并控制 JSX 构造如何编译为 JavaScript。一个常见的选项是“preserver”，它将编译为 .jsx 文件，保持 JSX 不变，以便可以将其传递给 Babel 等不同工具进行进一步转换。
+“jsx”属性仅适用于 ReactJS 中使用的 .tsx 文件，并控制 JSX 构造如何编译为 JavaScript。一个常见的选项是“preserve”，它将编译为 .jsx 文件，保持 JSX 不变，以便可以将其传递给 Babel 等不同工具进行进一步转换。
 
 #### skipLibCheck
 
