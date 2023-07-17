@@ -9,10 +9,18 @@ This book is completely Free and Open Source.
 This book has been translated into several language versions, including:
 * [Chinese](./README-zh_CN.md)
 
+## Downloads
+
+You can also download the Epub version here:
+
+* [English](./downloads/typescript-book.epub)
+* [Chinese](./downloads/typescript-book-zh_CN.epub)
+
 ## Table of content
 
 - [The Concise TypeScript Book](#the-concise-typescript-book)
   - [Translations](#translations)
+  - [Downloads](#downloads)
   - [Table of content](#table-of-content)
   - [Introduction](#introduction)
   - [About the author](#about-the-author)
