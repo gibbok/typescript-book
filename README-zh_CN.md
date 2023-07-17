@@ -903,7 +903,7 @@ let c: any;
 c = 1; // 有效，所有类型都可以赋值给any
 
 let d: unknown;
-c = 1; // 有效，所有类型都可以赋值给unknown
+d = 1; // 有效，所有类型都可以赋值给unknown
 
 let e: unknown;
 let e1: unknown = e; // 有效, unknown只能赋值给自己和any
