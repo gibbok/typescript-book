@@ -5,7 +5,8 @@ The Concise TypeScript Book provides a comprehensive and succinct overview of Ty
 This book is completely Free and Open Source.
 
 ## Translations
-This book has been translated into some of the following language versions:
+
+This book has been translated into several language versions, including:
 * [Chinese](./README-zh_CN.md)
 
 ## Table of content
