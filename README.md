@@ -89,7 +89,6 @@ You can also download the Epub version here:
   - [Intersection Types](#intersection-types)
   - [Literal Types](#literal-types)
   - [Literal Inference](#literal-inference)
-  - [null and undefined](#null-and-undefined-1)
   - [strictNullChecks](#strictnullchecks)
   - [Non-null Assertion Operator (Postfix !)](#non-null-assertion-operator-postfix-)
   - [Enums](#enums)
@@ -142,7 +141,7 @@ You can also download the Epub version here:
   - [Merging and Extension](#merging-and-extension)
   - [Differences between Type and Interface](#differences-between-type-and-interface)
   - [Class](#class)
-    - [Common Syntax](#common-syntax-1)
+    - [Class Common Syntax](#class-common-syntax)
     - [Constructor](#constructor)
     - [Private and Protected Constructors](#private-and-protected-constructors)
     - [Access modifiers](#access-modifiers)
@@ -1794,14 +1793,6 @@ let o = {
 };
 ```
 
-## null and undefined
-
-In TypeScript, `null` and `undefined` are two distinct types that represent different values.
-
-`undefined` is used to indicate that a variable or property has not been initialized or does not have a value, while `null` is used to represent an intentional absence of a value.
-
-When the `strictNullChecks` option is enabled, TypeScript requires that variables and properties be explicitly typed as either nullable or non-nullable.
-
 ## strictNullChecks
 
 `strictNullChecks` is a TypeScript compiler option that enforces strict null checking. When this option is enabled, variables and parameters can only be assigned `null` or `undefined` if they have been explicitly declared to be of that type using the union type `null` | `undefined`. If a variable or parameter is not explicitly declared as nullable, TypeScript will generate an error to prevent potential runtime errors.
@@ -2823,7 +2814,7 @@ type C = A | B; // Union of interfaces
 
 ## Class
 
-### Common Syntax
+### Class Common Syntax
 
 The `class` keyword is used in TypeScript to define a class. Below, you can see an example:
 
