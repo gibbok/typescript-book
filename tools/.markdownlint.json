@@ -39,7 +39,12 @@
             "JavaScript",
             "Markdown",
             "Node.js",
-            "Visual Studio Code"
+            "Visual Studio Code",
+            "Microsoft",
+            "LinkedIn",
+            "GitHub",
+            "Twitter",
+            "Email"
         ]
     },
     "required-headings": false,
