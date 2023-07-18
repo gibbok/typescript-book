@@ -81,12 +81,10 @@ You can also download the Epub version here:
     - [Array](#array)
     - [any](#any)
   - [Type Annotations](#type-annotations)
-  - [Object Types](#object-types)
   - [Optional Properties](#optional-properties)
   - [Readonly Properties](#readonly-properties)
   - [Index Signatures](#index-signatures)
   - [Extending Types](#extending-types)
-  - [Intersection Types](#intersection-types)
   - [Literal Types](#literal-types)
   - [Literal Inference](#literal-inference)
   - [strictNullChecks](#strictnullchecks)
@@ -110,11 +108,11 @@ You can also download the Epub version here:
   - [Discriminated unions](#discriminated-unions)
   - [The never type](#the-never-type)
   - [Exhaustiveness checking](#exhaustiveness-checking)
-  - [Object Types](#object-types-1)
+  - [Object Types](#object-types)
   - [Tuple Type](#tuple-type)
   - [Fixed length tuple](#fixed-length-tuple)
   - [Union Type](#union-type)
-  - [Intersection Types](#intersection-types-1)
+  - [Intersection Types](#intersection-types)
   - [Type Indexing](#type-indexing)
   - [Type from Value](#type-from-value)
   - [Type from Func Return](#type-from-func-return)
@@ -1571,26 +1569,6 @@ This is useful especially for  more complex functions as writing expliciting the
 
 Generally consider annotating type signatures but not the body local variables and add types always to object literals.
 
-## Object Types
-
-Objects can be type annotated in TypeScript using an `interface` or a `type alias`
-
-```typescript
-interface Y {
-    b: number;
-}
-type X = {
-    a: number;
-};
-```
-
-Or anonymously:
-
-```typescript
-const sum = (x: { a: number; b: number }) => x.a + x.b;
-console.log(sum({ a: 5, b: 1 }));
-```
-
 ## Optional Properties
 
 An object can specify Optional Properties by adding a question mark `?` to the end of the property name:
@@ -1698,32 +1676,6 @@ type A = {
 interface B extends A {
     b: string;
 }
-```
-
-## Intersection Types
-
-Intersection Types are defined by the `&` operator, and are the main mechanism to extends types `extends`works only with interfaces:
-
-```typescript
-type A = {
-    a: string;
-};
-type B = {
-    b: string;
-};
-type C = A & B;
-```
-
-Or:
-
-```typescript
-interface X {
-    x: string;
-}
-interface Y {
-    y: string;
-}
-type J = X & Y;
 ```
 
 ## Literal Types
@@ -2225,6 +2177,13 @@ type Point = {
 };
 ```
 
+It also possible to define a type anonymously:
+
+```typescript
+const sum = (x: { a: number; b: number }) => x.a + x.b;
+console.log(sum({ a: 5, b: 1 }));
+```
+
 ## Tuple Type
 
 A Tuple Type is a type that represents an array with a fixed number of elements and their corresponding types. A tuple type enforces a specific number of elements and their respective types in a fixed order. Tuple types are useful when you want to represent a collection of values with specific types, where the position of each element in the array has a specific meaning.
@@ -2257,7 +2216,7 @@ x = 123; // Valid
 
 ## Intersection Types
 
-An Intersection Type is a type that represents a value that has all the properties of two or more types. Intersection Types are denoted using the & symbol between each type.
+An Intersection Type is a type that represents a value that has all the properties of two or more types. Intersection Types are denoted using the `&`` symbol between each type.
 
 ```typescript
 type X = {
