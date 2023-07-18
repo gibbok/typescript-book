@@ -119,9 +119,9 @@
   - [Never类型](#never类型)
   - [接口及类型](#接口及类型)
     - [通用语法](#通用语法)
-    - [基本类型：](#基本类型)
+    - [基本类型](#基本类型)
     - [对象和接口](#对象和接口)
-    - [并集和交集类型：](#并集和交集类型)
+    - [并集和交集类型](#并集和交集类型)
   - [内置原始数据类型](#内置原始数据类型)
   - [常见的内置JS对象](#常见的内置js对象)
   - [重载](#重载)
@@ -224,10 +224,10 @@ Simone Poggiali 是一位经验丰富的高级前端开发人员，自 90 年代
 
 您可以通过以下平台联系 Simone Poggiali：
 
-- 领英: <https://www.linkedin.com/in/simone-poggiali>
-- GitHub: <https://github.com/gibbok>
-- 推特: <https://twitter.com/gibbok_coding>
-- 电子邮箱: gibbok.coding📧gmail.com
+* 领英: <https://www.linkedin.com/in/simone-poggiali>
+* GitHub: <https://github.com/gibbok>
+* 推特: <https://twitter.com/gibbok_coding>
+* 电子邮箱: gibbok.coding📧gmail.com
 
 ## TypeScript简介
 
@@ -247,10 +247,10 @@ TypeScript 是一种强类型语言，有助于防止常见的编程错误，并
 
 TypeScript 的一些好处
 
-- 静态类型，可选强类型
-- 类型推断
-- 能使用ES6和ES7的新功能
-- 跨平台和跨浏览器兼容性 \* IntelliSense 工具支持
+* 静态类型，可选强类型
+* 类型推断
+* 能使用ES6和ES7的新功能
+* 跨平台和跨浏览器兼容性 \* IntelliSense 工具支持
 
 ### TypeScript 和 JavaScript
 
@@ -421,14 +421,14 @@ TypeScript 可以将代码编译为自 ECMAScript 3 (1999) 以来任何已发布
 
 以下是一些可以在 TypeScript 中使用的现代 JavaScript 功能：
 
-- ECMAScript 模块，而不是 AMD 风格的“define”回调或 CommonJS 的“require”语句。
-- 用类代替原型。
-- 变量声明使用“let”或“const”而不是“var”。
-- “for-of”循环或“.forEach”而不是传统的“for”循环。
-- 用箭头函数代替函数表达式。
-- 解构赋值。
-- 简写属性/方法名称和计算属性名称。
-- 默认函数参数。
+* ECMAScript 模块，而不是 AMD 风格的“define”回调或 CommonJS 的“require”语句。
+* 用类代替原型。
+* 变量声明使用“let”或“const”而不是“var”。
+* “for-of”循环或“.forEach”而不是传统的“for”循环。
+* 用箭头函数代替函数表达式。
+* 解构赋值。
+* 简写属性/方法名称和计算属性名称。
+* 默认函数参数。
 
 通过利用这些现代 JavaScript 功能，开发人员可以在 TypeScript 中编写更具表现力和简洁的代码。
 
@@ -510,8 +510,8 @@ tsconfig.json 文件用于配置 TypeScript 编译器 (tsc)。通常，它与文
 
 注意：
 
-- tsconfig.json 即使是 json 格式也接受注释。
-- 建议使用此配置文件而不是命令行选项。
+* tsconfig.json 即使是 json 格式也接受注释。
+* 建议使用此配置文件而不是命令行选项。
 
 在以下链接中，您可以找到完整的文档及其配置示例：
 
@@ -533,10 +533,10 @@ tsconfig.json 文件用于配置 TypeScript 编译器 (tsc)。通常，它与文
 
 "strict"属性可以提供更强有力的保证并增强类型安全性。建议始终将此属性包含在项目的 tsconfig.json 文件中。启用“strict”属性允许 TypeScript ：
 
-- 触发每个源文件的代码使用"use strict"。
-- 在类型检查过程中考虑“null”和“undefined”
-- 当不存在类型注释时禁用“any”类型的使用。
-- 在使用“this”表达式时引发错误，否则“this”会被视为任意类型。
+* 触发每个源文件的代码使用"use strict"。
+* 在类型检查过程中考虑“null”和“undefined”
+* 当不存在类型注释时禁用“any”类型的使用。
+* 在使用“this”表达式时引发错误，否则“this”会被视为任意类型。
 
 #### module
 
@@ -568,8 +568,9 @@ TypeScript 可以为各种模块系统生成代码，包括 UMD、System、ESNex
 
 #### include
 
+<!-- markdownlint-disable MD049 -->
 “include”属性向编译器指示我们想要包含的文件列表。此属性允许类似 glob 的模式，例如 "\*_" 表示任何子目录，"_" 表示任何文件名，"?" 表示可选字符。
-
+<!-- markdownlint-enable MD049 -->
 #### exclude
 
 "exclude"属性向编译器指示不应包含在编译中的文件列表。这可以包括“node_modules”等文件或测试文件
@@ -1430,7 +1431,7 @@ let sentence: string = `xxx,
 TypeScript 中的数据 `boolean` 类型存储二进制值，或者true或false。
 
 ```typescript
-const isReady: boolean = true
+const isReady: boolean = true;
 ```
 
 ### number
@@ -1462,7 +1463,7 @@ const y: bigint = 9007199254740991n;
 JavaScript 有一个原始函数 Symbol()，它创建一个全局唯一的引用。
 
 ```typescript
-let sym = Symbol("x"); // Type symbol
+let sym = Symbol('x'); // Type symbol
 ```
 
 ### null and undefined
@@ -2101,15 +2102,15 @@ const f6 = (
 TypeScript 中的类型谓词是返回布尔值的函数，用于将变量的类型缩小为更具体的类型。
 
 ```typescript
-const isString = (value: unknown): value is string => typeof value === "string";
+const isString = (value: unknown): value is string => typeof value === 'string';
 
 const foo = (bar: unknown) => {
- if (isString(bar)) {
-   console.log(bar.toUpperCase());
- } else {
-   console.log("not a string");
- }
-}
+    if (isString(bar)) {
+        console.log(bar.toUpperCase());
+    } else {
+        console.log('not a string');
+    }
+};
 ```
 
 ## 可区分联合
@@ -2295,9 +2296,9 @@ const add = (x: number, y: number) => x + y; // TypeScript 可以推断函数的
 
 模块的类型是指使用模块的导出值自动推断其类型的能力。当模块导出特定类型的值时，TypeScript 可以使用该信息在将该值导入到另一个模块时自动推断该值的类型。
 
-```
-// calc.ts
-export const add = (x: number, y: number)
+<!-- skip -->
+```typescript
+export const add = (x: number, y: number) => x + y;
 // index.ts
 import { add } from 'calc'
 const r = add(1, 2) // r is number
@@ -2531,7 +2532,7 @@ type TypeName = {
 
 在 TypeScript 中，类型用于定义数据的形状并强制执行类型检查。在 TypeScript 中定义类型有几种常见的语法，具体取决于具体的用例。这里有些例子：
 
-### 基本类型：
+### 基本类型
 
 ```typescript
 let myNumber: number = 123; // 数字类型
@@ -2546,7 +2547,7 @@ let myTuple: [string, number] = ['a', 123]; // 元组
 const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ```
 
-### 并集和交集类型：
+### 并集和交集类型
 
 ```typescript
 type MyType = string | number; // 并集
@@ -4470,8 +4471,8 @@ type B = Bar<['a', 'b'], [boolean]>; // ["a", "b", boolean, boolean]
 
 使用新的可变参数元组，我们可以使用：
 
-*  元组类型语法中的扩展现在可以是通用的，因此即使我们不知道我们正在操作的实际类型，我们也可以表示元组和数组上的高阶操作
-*  其余元素可以出现在元组中的任何位置。
+* 元组类型语法中的扩展现在可以是通用的，因此即使我们不知道我们正在操作的实际类型，我们也可以表示元组和数组上的高阶操作
+* 其余元素可以出现在元组中的任何位置。
 
 例子：
 
