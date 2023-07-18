@@ -1,6 +1,6 @@
 import * as prettier from 'prettier';
 import * as fs from 'fs';
-import { I18n, i18n } from './i18n';
+import { Language, languages } from './i18n';
 import { makeFilePath } from './utils';
 
 const PRETTIER_CONFIG_FILE_PATH = './.prettierrc'
@@ -25,6 +25,6 @@ const formatCodeBlocksInMarkdownFile = async (filePath: string): Promise<void> =
     console.log(`Formatted code blocks have been updated in the file: ${filePath}`);
 }
 
-for (const item of i18n) {
+for (const item of languages) {
     formatCodeBlocksInMarkdownFile(makeFilePath(item));
 }

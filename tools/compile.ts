@@ -4,7 +4,7 @@ import * as ts from "typescript";
 import { marked } from 'marked';
 import { pipe } from 'fp-ts/function'
 import { makeFilePath } from './utils';
-import { i18n } from './i18n';
+import { languages } from './i18n';
 
 const TEMP_DIR = 'temp'
 const SKIP_COMMENT = '<!-- skip -->'
@@ -110,7 +110,7 @@ const processMarkdownFile = (inputPath: string): void =>
         exitScript,
     )
 
-for (const item of i18n) {
+for (const item of languages) {
     console.log("Compiling: ", item)
     processMarkdownFile(makeFilePath(item));
 }
