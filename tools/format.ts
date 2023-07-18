@@ -1,6 +1,7 @@
 import * as prettier from 'prettier';
 import * as fs from 'fs';
 import { I18n, i18n } from './i18n';
+import { makeFilePath } from './utils';
 
 const INPUT_FILE_PATH = '../README.md';
 const PRETTIER_CONFIG_FILE_PATH = './.prettierrc'
@@ -24,9 +25,6 @@ const formatCodeBlocksInMarkdownFile = async (filePath: string): Promise<void> =
     await fs.promises.writeFile(filePath, formattedMarkdown, 'utf-8');
     console.log(`Formatted code blocks have been updated in the file: ${filePath}`);
 }
-
-const makeFilePath = (item: I18n) =>
-    item === I18n.en_EN ? '../README.md' : `../README-${item}.md`
 
 for (const item of i18n) {
     formatCodeBlocksInMarkdownFile(makeFilePath(item));
