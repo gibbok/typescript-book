@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "check": "npm run format && npm run compile",
     "prepare": "cd .. && husky install .husky",
-    "lint:md": "markdownlint \"*.md\""
+    "lint:md": "markdownlint \".\/*.md\" markdownlint \"..\/*.md\""
   },
   "author": "",
   "license": "ISC",
