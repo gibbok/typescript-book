@@ -2,4 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 cd ./tools
+npm run lint:md
 npm run format 
