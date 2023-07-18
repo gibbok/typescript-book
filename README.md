@@ -577,7 +577,9 @@ The "files" property indicates to the compiler a list of files that must always 
 
 #### include
 
+<!-- markdownlint-disable MD049 -->
 The "include" property indicates to the compiler a list of files that we would like to include. This property allows glob-like patterns, such as "\*_" for any subdirectory, "_" for any file name, and "?" for optional characters.
+<!-- markdownlint-enable MD049 -->
 
 #### exclude
 
