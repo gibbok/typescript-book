@@ -34,14 +34,11 @@
     "proper-names": {
         "code_blocks": false,
         "names": [
-            "CommonMark",
+            "TypeScript",
             "Ctrl",
             "JavaScript",
             "Markdown",
-            "markdown-it",
-            "markdownlint",
             "Node.js",
-            "Shift",
             "Visual Studio Code"
         ]
     },

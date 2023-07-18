@@ -559,7 +559,7 @@ TypeScript 可以为各种模块系统生成代码，包括 UMD、System、ESNex
 
 #### skipLibCheck
 
-“skipLibCheck”属性将阻止 TypeScript 对整个导入的第三方包进行类型检查。此属性将减少项目的编译时间。Typescript 仍会根据这些包提供的类型定义检查您的代码。
+“skipLibCheck”属性将阻止 TypeScript 对整个导入的第三方包进行类型检查。此属性将减少项目的编译时间。TypeScript 仍会根据这些包提供的类型定义检查您的代码。
 
 #### files
 
@@ -591,7 +591,7 @@ npm install --save-dev @types/package-name or yarn add --dev @types/package-name
 
 第四步是使用自下而上的方法逐个模块地迁移，遵循从叶开始的依赖关系图。这个想法是开始转换不依赖于其他模块的模块。要可视化依赖关系图，您可以使用该madge工具。
 
-有一些对于转换成 Typescript 比较友好的模块（外部 API 或规范相关的实用函数和代码），比如Swagger、GraphQL 或 JSONSchema 自动生成 TypeScript 类型定义，并使用在您的项目中。
+有一些对于转换成 TypeScript 比较友好的模块（外部 API 或规范相关的实用函数和代码），比如Swagger、GraphQL 或 JSONSchema 自动生成 TypeScript 类型定义，并使用在您的项目中。
 
 当没有可用的规范或官方架构时，您可以从原始数据生成类型，例如服务器返回的 JSON。但是，建议从规范而不是数据生成类型，以避免丢失边缘情况。
 
@@ -611,7 +611,9 @@ TypeScript 的语言服务, 也被称为 tsserver，提供了各种功能，例�
 
 开发人员可以利用专用 API 并创建自己的自定义语言服务插件来增强 TypeScript 编辑体验。这对于实现特殊的 linting 功能或启用自定义模板语言的自动完成特别有用。
 
+<!-- markdownlint-disable MD044 -->
 现实世界中的自定义插件的一个示例是“typescript-styled-plugin”，它为样式组件中的 CSS 属性提供语法错误报告和 IntelliSense 支持。
+<!-- markdownlint-enable MD044 -->
 
 有关更多信息和快速入门指南，您可以参考 GitHub 上的官方 TypeScript Wiki： <https://github.com/microsoft/TypeScript/wiki/>
 
@@ -4590,7 +4592,7 @@ feedAnimal = feedDog; // 无效: Type 'Feed<Dog>' 不能赋值给 'Feed<Animal>'
 
 #### 类型参数的可选方差注释
 
-从 typescript 4.7.0 开始，我们可以使用out和in关键字来具体说明方差注释。
+从 TypeScript 4.7.0 开始，我们可以使用out和in关键字来具体说明方差注释。
 
 对于协变，使用out关键字：
 

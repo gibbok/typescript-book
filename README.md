@@ -569,7 +569,7 @@ The "jsx" property applies only to .tsx files used in ReactJS and controls how J
 
 #### skipLibCheck
 
-The "skipLibCheck'' property will prevent TypeScript from type-checking the entire imported third-party packages. This property will reduce the compile time of a project. Typescript will still check your code against the type definitions provided by these packages.
+The "skipLibCheck'' property will prevent TypeScript from type-checking the entire imported third-party packages. This property will reduce the compile time of a project. TypeScript will still check your code against the type definitions provided by these packages.
 
 #### files
 
@@ -622,7 +622,9 @@ The TypeScript language service, also known as tsserver, offers various features
 
 Developers can leverage a dedicated API and create their own custom language service plugins to enhance the TypeScript editing experience. This can be particularly useful for implementing special linting features or enabling auto-completion for a custom templating language.
 
+<!-- markdownlint-disable MD044 -->
 An example of a real-world custom plugin is "typescript-styled-plugin," which provides syntax error reporting and IntelliSense support for CSS properties in styled components.
+<!-- markdownlint-enable MD044 -->
 
 For more information and quick start guides, you can refer to the official TypeScript Wiki on GitHub: <https://github.com/microsoft/TypeScript/wiki/>
 
@@ -4588,7 +4590,7 @@ In TypeScript, type relationships for arrays are covariant, while type relations
 
 #### Optional Variance Annotations for Type Parameters
 
-As of typescript 4.7.0, we can use the `out` and `in` keywords to be specific about Variance annotation.
+As of TypeScript 4.7.0, we can use the `out` and `in` keywords to be specific about Variance annotation.
 
 For Covariant, use the `out` keyword:
 
