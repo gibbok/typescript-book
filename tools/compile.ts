@@ -6,7 +6,6 @@ import { pipe } from 'fp-ts/function'
 import { makeFilePath } from './utils';
 import { i18n } from './i18n';
 
-const INPUT_FILE_PATH = '../README.md';
 const TEMP_DIR = 'temp'
 const SKIP_COMMENT = '<!-- skip -->'
 
