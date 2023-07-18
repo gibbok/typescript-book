@@ -6,6 +6,7 @@
 
 ## 目录表
 
+<!-- markdownlint-disable MD004 -->
 - [简洁的TypeScript之书](#简洁的typescript之书)
   - [目录表](#目录表)
   - [介绍](#介绍)
@@ -211,6 +212,7 @@
       - [类型参数的可选方差注释](#类型参数的可选方差注释)
     - [Symbol和模板字符串模式索引签名](#symbol和模板字符串模式索引签名)
     - [satisfies操作符](#satisfies操作符)
+<!-- markdownlint-enable MD004 -->
 
 ## 介绍
 
@@ -222,9 +224,9 @@ Simone Poggiali 是一位经验丰富的高级前端开发人员，自 90 年代
 
 您可以通过以下平台联系 Simone Poggiali：
 
-- 领英: https://www.linkedin.com/in/simone-poggiali
-- GitHub: https://github.com/gibbok
-- 推特: https://twitter.com/gibbok_coding
+- 领英: <https://www.linkedin.com/in/simone-poggiali>
+- GitHub: <https://github.com/gibbok>
+- 推特: <https://twitter.com/gibbok_coding>
 - 电子邮箱: gibbok.coding📧gmail.com
 
 ## TypeScript简介
@@ -243,7 +245,8 @@ TypeScript 是一种强类型语言，有助于防止常见的编程错误，并
 
 强类型语言允许开发人员在数据类型定义中指定各种程序约束和行为，从而有助于验证软件的正确性并防止缺陷。这在大规模应用中尤其有价值。
 
-TypeScript 的一些好处：
+TypeScript 的一些好处
+
 - 静态类型，可选强类型
 - 类型推断
 - 能使用ES6和ES7的新功能
@@ -281,9 +284,8 @@ const result = items.filter(item => item.y);
 
 在这种情况下，TypeScript 检测到错误并报告：
 
-```
+```text
 类型 '{ x: number; }' 上不存在属性 'y' 。
-
 ```
 
 TypeScript 的类型系统很大程度上受到 JavaScript 运行时行为的影响。例如，加法运算符 (+) 在 JavaScript 中可以执行字符串连接或数字加法，在 TypeScript 中以相同的方式建模：
@@ -303,7 +305,7 @@ const result = 1 + true; // 在JavaScript中, 结果等于2
 
 运算符“+”不能应用于类型“number”和“boolean”。
 
-出现此错误的原因是 TypeScript 严格强制执行类型兼容性，在这种情况下，它标识了数字和布尔值之间的无效操作。    
+出现此错误的原因是 TypeScript 严格强制执行类型兼容性，在这种情况下，它标识了数字和布尔值之间的无效操作。
 
 ### TypeScript 代码生成
 
@@ -418,6 +420,7 @@ TypeScript 可以将代码编译为自 ECMAScript 3 (1999) 以来任何已发布
 值得注意的是，在转换为旧版本 JavaScript 的过程中，TypeScript 可能会生成与本机实现相比会产生性能开销的代码。
 
 以下是一些可以在 TypeScript 中使用的现代 JavaScript 功能：
+
 - ECMAScript 模块，而不是 AMD 风格的“define”回调或 CommonJS 的“require”语句。
 - 用类代替原型。
 - 变量声明使用“let”或“const”而不是“var”。
@@ -506,14 +509,15 @@ tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts an
 tsconfig.json 文件用于配置 TypeScript 编译器 (tsc)。通常，它与文件一起添加到项目的根目录中package.json。
 
 注意：
+
 - tsconfig.json 即使是 json 格式也接受注释。
 - 建议使用此配置文件而不是命令行选项。
 
 在以下链接中，您可以找到完整的文档及其配置示例：
 
-https://www.typescriptlang.org/tsconfig
+<https://www.typescriptlang.org/tsconfig>
 
-http://json.schemastore.org/tsconfig
+<http://json.schemastore.org/tsconfig>
 
 以下列出了常见且有用的配置：
 
@@ -528,6 +532,7 @@ http://json.schemastore.org/tsconfig
 #### strict
 
 "strict"属性可以提供更强有力的保证并增强类型安全性。建议始终将此属性包含在项目的 tsconfig.json 文件中。启用“strict”属性允许 TypeScript ：
+
 - 触发每个源文件的代码使用"use strict"。
 - 在类型检查过程中考虑“null”和“undefined”
 - 当不存在类型注释时禁用“any”类型的使用。
@@ -578,7 +583,7 @@ TypeScript 可以为各种模块系统生成代码，包括 UMD、System、ESNex
 
 第二步是确保您的 JavaScript 测试与 TypeScript 文件一起工作，以便您可以在转换每个模块时运行测试。如果您正在使用 Jest，请考虑使用ts-jest，它允许您使用 Jest 测试 TypeScript 项目。
 
-第三步是在项目中包含第三方库的类型声明。 这些声明可以第三方库的类型声明文件或专门的声明包中找到，你能通过 https://www.typescriptlang.org/dt/search 搜索并安装它们。
+第三步是在项目中包含第三方库的类型声明。 这些声明可以第三方库的类型声明文件或专门的声明包中找到，你能通过 <https://www.typescriptlang.org/dt/search> 搜索并安装它们。
 
 ```shell
 npm install --save-dev @types/package-name or yarn add --dev @types/package-name.
@@ -608,7 +613,7 @@ TypeScript 的语言服务, 也被称为 tsserver，提供了各种功能，例�
 
 现实世界中的自定义插件的一个示例是“typescript-styled-plugin”，它为样式组件中的 CSS 属性提供语法错误报告和 IntelliSense 支持。
 
-有关更多信息和快速入门指南，您可以参考 GitHub 上的官方 TypeScript Wiki： https://github.com/microsoft/TypeScript/wiki/
+有关更多信息和快速入门指南，您可以参考 GitHub 上的官方 TypeScript Wiki： <https://github.com/microsoft/TypeScript/wiki/>
 
 ### 结构类型
 
@@ -683,7 +688,6 @@ y = x; // 无效，缺少 b 成员
 ```
 
 因此，以下类型声明是完全有效的：
-
 
 ```typescript
 type X = (a: number) => undefined;
@@ -834,6 +838,7 @@ let z: Z = new Z('z');
 x === y; // 有效
 x === z; // 有效即使 z 来自不同的继承层次结构
 ```
+
 泛型根据应用泛型参数后的结果类型使用其结构进行比较，仅将最终结果作为非泛型类型进行比较。
 
 <!-- skip -->
@@ -890,6 +895,7 @@ let g1: any;
 g = 1; // 无效, void不可赋值给除“any”之外的任何内容或从任何内容赋值
 g = g1; // 有效
 ```
+
 请注意，当启用“strictNullChecks”时，“null”和“undefined”的处理方式与“void”类似；否则，它们类似于“never”。
 
 ### 类型作为集合
@@ -897,7 +903,6 @@ g = g1; // 有效
 在 TypeScript 中，类型是一组可能的值。该集合也称为类型的域。类型的每个值都可以被视为集合中的一个元素。类型建立了集合中的每个元素必须满足才能被视为该集合的成员的约束。TypeScript 的主要任务是检查并验证一组是否是另一组的子集。
 
 TypeScript 支持各种类型的集合：
-
 
 | Set term | TypeScript                      | Notes                                                                          |
 | -------- | ------------------------------- | ------------------------------------------------------------------------------ |
@@ -934,7 +939,6 @@ TypeScript 支持各种类型的集合：
 |                       |                  | const x: XY = { a: 'a', b: 'b' }                                 |
 |                       |                  |
 | unknown               | 通用集           | const x: unknown = 1                                             |
-
 
 并集 (T1 | T2) 创建一个更广泛的集合（两者）：
 
@@ -996,6 +1000,7 @@ const r: Z1 = z; // 有效
 ```
 
 ### 赋值类型：类型声明和类型断言
+
 在 TypeScript 中可以通过不同的方式赋值类型：
 
 #### 类型声明
@@ -1083,7 +1088,7 @@ let y = x!; // number
 环境声明是描述 JavaScript 代码类型的文件，它们的文件名格式为.d.ts.. 它们通常被导入并用于注释现有的 JavaScript 库或向项目中的现有 JS 文件添加类型。
 
 许多常见的库类型可以在以下位置找到：
-https://github.com/DefinitelyTyped/DefinitelyTyped/
+<https://github.com/DefinitelyTyped/DefinitelyTyped/>
 
 ```shell
 npm install --save-dev @types/library-name
@@ -1095,6 +1100,7 @@ npm install --save-dev @types/library-name
 ```typescript
 /// <reference path="./library-types.d.ts" />
 ```
+
 即使在 JavaScript 文件中，您也可以通过 `// @ts-check` 使用环境声明。
 
 ### 属性检测和多余属性检测
@@ -1191,6 +1197,7 @@ fn({ a: 'a', bx: 'b' }); // Freshness check: 无效赋值
 ### 类型推断
 
 当在以下期间未提供注释时，TypeScript 可以推断类型：
+
 * 变量初始化
 * 成员初始化。
 * 设置参数的默认值。
@@ -1422,7 +1429,7 @@ let sentence: string = `xxx,
 
 TypeScript 中的数据 `boolean` 类型存储二进制值，或者true或false。
 
-```
+```typescript
 const isReady: boolean = true
 ```
 
@@ -1454,7 +1461,7 @@ const y: bigint = 9007199254740991n;
 
 JavaScript 有一个原始函数 Symbol()，它创建一个全局唯一的引用。
 
-```
+```typescript
 let sym = Symbol("x"); // Type symbol
 ```
 
@@ -1650,6 +1657,7 @@ interface Y extends A, B {
     y: string;
 }
 ```
+
 该 `extends` 关键字仅适用于 `interface`，因为 `type` 使用交集：
 
 ```typescript
@@ -2092,7 +2100,7 @@ const f6 = (
 
 TypeScript 中的类型谓词是返回布尔值的函数，用于将变量的类型缩小为更具体的类型。
 
-```
+```typescript
 const isString = (value: unknown): value is string => typeof value === "string";
 
 const foo = (bar: unknown) => {
@@ -2211,6 +2219,7 @@ type Point = {
 ```typescript
 type Point = [number, number];
 ```
+
 ## 固定长度元组
 
 固定长度元组是一种特定类型的元组，它强制执行特定类型的固定数量的元素，并且一旦定义元组就不允许对其长度进行任何修改。
@@ -2222,6 +2231,7 @@ type Point = [number, number];
 const x = [10, 'hello'] as const;
 x.push(2); // 错误
 ```
+
 ## 联合类型
 
 联合类型是一种表示值的类型，该值可以是多种类型之一。联合类型使用 | 表示 每种可能类型之间的符号。
@@ -2272,6 +2282,7 @@ TypeScript 中的“Type from Value”是指通过类型推断从值或表达式
 ```typescript
 const x = 'x'; // TypeScript 可以自动推断变量的类型是 string
 ```
+
 ## Func 返回值的类型
 
 Func Return 中的类型是指根据函数的实现自动推断函数的返回类型的能力。这允许 TypeScript 无需显式类型注释即可确定函数返回值的类型。
@@ -2382,6 +2393,7 @@ type ProductId = `id-${Products}-${Status}`; // "id-p1-active" | "id-p1-inactive
 `any` 类型是一种特殊类型（通用超类型），可用于表示任何类型的值（基元、对象、数组、函数、错误、符号）。它通常用于编译时未知值类型的情况，或者使用来自没有 TypeScript 类型的外部 API 或库的值时。
 
 通过使用任何类型，您向 TypeScript 编译器指示值应该不受任何限制地表示。为了最大限度地提高代码中的类型安全性，请考虑以下事项：
+
 * 将any的使用限制在类型确实未知的特定情况下。
 * 不要从函数返回 `any` 类型，因为使用该函数会在代码中失去类型安全性，从而削弱类型安全性。
 * 如果您需要使编译器保持沉默，请使用 `@ts-ignore` 而不是 `any`。
@@ -2467,6 +2479,7 @@ const move = (direction: Direction): void => {
 ```
 
 ## 接口及类型
+
 ### 通用语法
 
 在 TypeScript 中，接口定义对象的结构，指定对象必须具有的属性或方法的名称和类型。在 TypeScript 中定义接口的常用语法如下：
@@ -2564,9 +2577,10 @@ TypeScript 有几个内置的原属数据类型，可用于定义变量、函数
 ## 常见的内置JS对象
 
 TypeScript 是 JavaScript 的超集，它包含所有常用的内置 JavaScript 对象。您可以在 Mozilla 开发者网络 (MDN) 文档网站上找到这些对象的详细列表：
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
+<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects>
 
 以下是一些常用的内置 JavaScript 对象的列表：
+
 * Function
 * Object
 * Boolean
@@ -2782,6 +2796,7 @@ type C = A | B; // 接口的并集
 ```
 
 ## Class
+
 ### 通用语法
 
 TypeScript 中使用关键字 `class` 来定义类。下面，您可以看到一个示例：
@@ -3477,8 +3492,6 @@ process('hello'); // 5
 process(3.14159); // 3.14
 ```
 
-
-
 ## 擦除的结构类型
 
 在 TypeScript 中，对象不必匹配特定的、精确的类型。例如，如果我们创建一个满足接口要求的对象，我们就可以在需要该接口的地方使用该对象，即使它们之间没有显式连接。例子：
@@ -3566,6 +3579,7 @@ console.log(obj[key2]); // value 2
 ```
 
 ## 类型操作
+
 ### 从类型创建类型
 
 是否可以通过组合、操作或转换现有类型来创建新类型。
@@ -3574,14 +3588,13 @@ console.log(obj[key2]); // value 2
 
 允许您将多种类型组合成单一类型：
 
-
-
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
 type C = A & B; // A和B的交集
 const obj: C = { foo: 42, bar: 'hello' };
 ```
+
 联合类型 (`|`):
 
 允许您定义可以是以下几种类型之一的类型
@@ -3892,6 +3905,7 @@ type MyType = Uncapitalize<'Abc'>; // "abc"
 ```
 
 ## 其他
+
 ### 错误和异常处理
 
 TypeScript 允许您使用标准 JavaScript 错误处理机制捕获和处理错误：
@@ -3997,28 +4011,28 @@ o.select();
 
 Promises：Promise 是一种处理异步操作及其结果的方法，使用 `.then()`和等方法 `.catch()` 来处理成功和错误条件。
 
-要了解更多信息： https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+要了解更多信息： <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>
 
 Async/await:
 Async/await 关键字是一种为处理 Promise 提供看起来更同步的语法的方法。`async` 关键字用于定义异步函数，并且 `await` 关键字在异步函数中使用以暂停执行，直到 Promise 被解决或拒绝。
 
 要了解更多信息：
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function>
+<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await>
 
 TypeScript 很好地支持以下 API：
 
 Fetch API
-https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+<https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>
 
 Web Workers
-https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API
+<https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API>
 
 Shared Workers
-https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker
+<https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker>
 
 WebSocket
-https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
+<https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>
 
 ### 迭代器和生成器
 
@@ -4080,11 +4094,12 @@ TypeScript 还支持异步迭代器和异步生成器。
 
 要了解更多信息：
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator
+<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator>
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator
+<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator>
 
 ### TsDocs JSDoc 参考
+
 使用 JavaScript 代码库时，可以通过使用 JSDoc 注释和附加注释来提供类型信息，帮助 TypeScript 推断正确的类型。
 
 例子：
@@ -4103,10 +4118,10 @@ power(10, 2); // function power(base: number, exponent: number): number
 ```
 
 此链接提供了完整文档：
-https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
+<https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html>
 
 从版本 3.7 开始，可以从 JavaScript JSDoc 语法生成 .d.ts 类型定义。更多信息可以在这里找到：
-https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html
+<https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html>
 
 ### @types
 
@@ -4118,7 +4133,7 @@ npm install --save-dev @types/lodash
 
 将在您当前的项目中安装 `lodash` 的类型定义。
 
-要为 @types 包的类型定义做出贡献，请向 https://github.com/DefinitelyTyped/DefinitelyTyped 提交pr请求。
+要为 @types 包的类型定义做出贡献，请向 <https://github.com/DefinitelyTyped/DefinitelyTyped> 提交pr请求。
 
 ### JSX
 
@@ -4132,7 +4147,7 @@ TypeScript 通过提供类型检查和静态分析来扩展 JSX 的功能。
 * "react": 启用 TypeScript 的内置 JSX 转换。 将使用 React.createElement 。
 
 所有选项均可在此处使用：
-https://www.typescriptlang.org/tsconfig#jsx
+<https://www.typescriptlang.org/tsconfig#jsx>
 
 ### ES6 模块
 
@@ -4202,7 +4217,6 @@ class Child extends Parent {
 const parentX = new Parent(); // [Function: Parent]
 const child = new Child(); // [Function: Child]
 ```
-
 
 ### 动态导入表达式
 
@@ -4455,6 +4469,7 @@ type B = Bar<['a', 'b'], [boolean]>; // ["a", "b", boolean, boolean]
 ```
 
 使用新的可变参数元组，我们可以使用：
+
 *  元组类型语法中的扩展现在可以是通用的，因此即使我们不知道我们正在操作的实际类型，我们也可以表示元组和数组上的高阶操作
 *  其余元素可以出现在元组中的任何位置。
 
