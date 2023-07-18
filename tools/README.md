@@ -14,12 +14,12 @@ To mark snippets that you do not want to compile, use `<!-- skip -->` just befor
 
 Generate epub file for English version:
 
-```shall
+```shell
 pandoc -o downloads/typescript-book.epub --metadata title="The Concise TypeScript Book" --metadata author="Simone Poggiali"  -s README.md
 ```
 
 Generate epub file for Chinese version:
 
-```shall
+```shell
 pandoc -o downloads/typescript-book-zh_CN.epub --metadata title="The Concise TypeScript Book" --metadata author="Simone Poggiali"  -s README-zh_CN.md
 ```

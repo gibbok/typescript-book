@@ -495,7 +495,7 @@ tsc --init
 
 以下是使用默认设置运行的 CLI 命令的一些示例：
 
-```shall
+```shell
 tsc main.ts // Compile a specific file (main.ts) to JavaScript
 tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
 tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)

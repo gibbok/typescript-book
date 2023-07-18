@@ -10,10 +10,10 @@
     },
     "fenced-code-language": {
         "allowed_languages": [
-            "ini",
+            "shell",
             "json",
-            "jsonc",
-            "markdown"
+            "typeScript",
+            "javaScript"
         ],
         "language_only": true
     },
@@ -44,30 +44,7 @@
             "Visual Studio Code"
         ]
     },
-    "required-headings": {
-        "headings": [
-            "# markdownlint",
-            "## Introduction",
-            "## Install",
-            "## Use",
-            "## Rules",
-            "## Commands",
-            "### Fix",
-            "### Workspace",
-            "### Disable",
-            "## Configure",
-            "### markdownlint.config",
-            "### markdownlint.focusMode",
-            "### markdownlint.run",
-            "### markdownlint.ignore",
-            "### markdownlint.customRules",
-            "### markdownlint.lintWorkspaceGlobs",
-            "## Suppress",
-            "## Snippets",
-            "## Security",
-            "## History"
-        ]
-    },
+    "required-headings": false,
     "strong-style": {
         "style": "asterisk"
     },
