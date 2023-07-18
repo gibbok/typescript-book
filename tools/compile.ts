@@ -3,8 +3,9 @@ import * as path from 'path';
 import * as ts from "typescript";
 import { marked } from 'marked';
 import { pipe } from 'fp-ts/function'
+import { makeFilePath } from './utils';
+import { languages } from './i18n';
 
-const INPUT_FILE_PATH = '../README.md';
 const TEMP_DIR = 'temp'
 const SKIP_COMMENT = '<!-- skip -->'
 
@@ -18,9 +19,11 @@ type TempFilePaths = ReadonlyArray<string>
 type CodeSnippets = ReadonlyArray<string>
 
 const exitScript = (emitSkipped: boolean) => {
-    const exitCode = emitSkipped ? 1 : 0;
+    const ERROR_CODE = 1
+    const SUCCESS_CODE = 0
+    const exitCode = emitSkipped ? ERROR_CODE : SUCCESS_CODE;
     console.log(`Process exiting with code '${exitCode}'.`);
-    process.exit(exitCode);
+    exitCode === ERROR_CODE && process.exit(exitCode);
 }
 
 const compileAndReport = (options: ts.CompilerOptions) => (fileNames: TempFilePaths): ReportsInfo => {
@@ -107,4 +110,7 @@ const processMarkdownFile = (inputPath: string): void =>
         exitScript,
     )
 
-processMarkdownFile(INPUT_FILE_PATH);
+for (const item of languages) {
+    console.log("Compiling: ", item)
+    processMarkdownFile(makeFilePath(item));
+}
