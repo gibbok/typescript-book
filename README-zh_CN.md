@@ -2286,8 +2286,8 @@ const add = (x: number, y: number) => x + y; // TypeScript 可以推断函数的
 ```typescript
 export const add = (x: number, y: number) => x + y;
 // index.ts
-import { add } from 'calc'
-const r = add(1, 2) // r is number
+import { add } from 'calc';
+const r = add(1, 2); // r is number
 ```
 
 ## 映射类型
