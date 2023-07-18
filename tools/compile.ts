@@ -3,6 +3,8 @@ import * as path from 'path';
 import * as ts from "typescript";
 import { marked } from 'marked';
 import { pipe } from 'fp-ts/function'
+import { makeFilePath } from './utils';
+import { i18n } from './i18n';
 
 const INPUT_FILE_PATH = '../README.md';
 const TEMP_DIR = 'temp'
@@ -107,4 +109,6 @@ const processMarkdownFile = (inputPath: string): void =>
         exitScript,
     )
 
-processMarkdownFile(INPUT_FILE_PATH);
+for (const item of i18n) {
+    processMarkdownFile(makeFilePath(item));
+}

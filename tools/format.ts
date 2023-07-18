@@ -3,7 +3,6 @@ import * as fs from 'fs';
 import { I18n, i18n } from './i18n';
 import { makeFilePath } from './utils';
 
-const INPUT_FILE_PATH = '../README.md';
 const PRETTIER_CONFIG_FILE_PATH = './.prettierrc'
 
 const formatCodeBlocksInMarkdownFile = async (filePath: string): Promise<void> => {
