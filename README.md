@@ -18,6 +18,7 @@ You can also download the Epub version here:
 
 ## Table of content
 
+<!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](#the-concise-typescript-book)
   - [Translations](#translations)
   - [Downloads](#downloads)
@@ -221,10 +222,10 @@ You can also download the Epub version here:
       - [Optional Variance Annotations for Type Parameters](#optional-variance-annotations-for-type-parameters)
     - [Symbol and Template String Pattern Index Signatures](#symbol-and-template-string-pattern-index-signatures)
     - [The satisfies Operator](#the-satisfies-operator)
-
+<!-- markdownlint-enable MD004 -->
 ## Introduction
 
-Welcome to The Concise TypeScript Book! This guide equips you with essential knowledge and practical skills for effective TypeScript development. Discover key concepts and techniques to write clean, robust code. Whether you're a beginner or an experienced developer, this book serves as both a comprehensive guide and a handy reference for leveraging TypeScript's power in your projects. 
+Welcome to The Concise TypeScript Book! This guide equips you with essential knowledge and practical skills for effective TypeScript development. Discover key concepts and techniques to write clean, robust code. Whether you're a beginner or an experienced developer, this book serves as both a comprehensive guide and a handy reference for leveraging TypeScript's power in your projects.
 
 ## About the author
 
@@ -232,10 +233,10 @@ Simone Poggiali is an experienced Senior Front-end Developer with a passion for 
 
 You can reach Simone Poggiali on the following platforms:
 
-- LinkedIn: <https://www.linkedin.com/in/simone-poggiali>
-- GitHub: <https://github.com/gibbok>
-- Twitter: <https://twitter.com/gibbok_coding>
-- Email: gibbok.coding📧gmail.com
+* LinkedIn: <https://www.linkedin.com/in/simone-poggiali>
+* GitHub: <https://github.com/gibbok>
+* Twitter: <https://twitter.com/gibbok_coding>
+* Email: gibbok.coding📧gmail.com
 
 ## TypeScript an introduction
 
@@ -254,11 +255,12 @@ TypeScript is a strongly typed language that helps prevent common programming mi
 A strongly typed language allows the developer to specify various program constraints and behaviors in the data type definitions, facilitating the ability to verify the correctness of the software and prevent defects. This is especially valuable in large-scale applications.
 
 Some of the benefits of TypeScript:
-- Static typing, optionally strongly typed
-- Type Inference
-- Access to ES6 and ES7 features
-- Cross-Platform and Cross-browser Compatibility
-- Tooling support with IntelliSense
+
+* Static typing, optionally strongly typed
+* Type Inference
+* Access to ES6 and ES7 features
+* Cross-Platform and Cross-browser Compatibility
+* Tooling support with IntelliSense
 
 ### TypeScript and JavaScript
 
@@ -292,7 +294,7 @@ const result = items.filter(item => item.y);
 
 In this case, TypeScript detects an error and reports:
 
-```
+```text
 Property 'y' does not exist on type '{ x: number; }'.
 ```
 
@@ -430,14 +432,14 @@ It's important to note that during transpilation to an older version of JavaScri
 
 Here are some of the modern JavaScript features that can be used in TypeScript:
 
-- ECMAScript modules instead of AMD-style "define" callbacks or CommonJS "require" statements.
-- Classes instead of prototypes.
-- Variables declaration using "let" or "const" instead of "var".
-- "for-of" loop or ".forEach" instead of the traditional "for" loop.
-- Arrow functions instead of function expressions.
-- Destructuring assignment.
-- Shorthand property/method names and computed property names.
-- Default function parameters.
+* ECMAScript modules instead of AMD-style "define" callbacks or CommonJS "require" statements.
+* Classes instead of prototypes.
+* Variables declaration using "let" or "const" instead of "var".
+* "for-of" loop or ".forEach" instead of the traditional "for" loop.
+* Arrow functions instead of function expressions.
+* Destructuring assignment.
+* Shorthand property/method names and computed property names.
+* Default function parameters.
 
 By leveraging these modern JavaScript features, developers can write more expressive and concise code in TypeScript.
 
@@ -519,8 +521,8 @@ A tsconfig.json file is used to configure the TypeScript Compiler (tsc). Usually
 
 Notes:
 
-- tsconfig.json accepts comments even if it is in json format.
-- It is advisable to use this configuration file instead of the command-line options.
+* tsconfig.json accepts comments even if it is in json format.
+* It is advisable to use this configuration file instead of the command-line options.
 
 At the following link you can find the complete documentation and its schema:
 <https://www.typescriptlang.org/tsconfig>
@@ -540,10 +542,10 @@ The "lib" property is used to specify which library files to include at compilat
 
 The "strict" property enables stronger guarantees and enhances type safety. It is advisable to always include this property in your project's tsconfig.json file. Enabling the "strict" property allows TypeScript to:
 
-- Emit code using "use strict" for each source file.
-- Consider "null" and "undefined" in the type checking process.
-- Disable the usage of the "any" type when no type annotations are present.
-- Raise an error on the usage of the "this" expression, which would otherwise imply the "any" type.
+* Emit code using "use strict" for each source file.
+* Consider "null" and "undefined" in the type checking process.
+* Disable the usage of the "any" type when no type annotations are present.
+* Raise an error on the usage of the "this" expression, which would otherwise imply the "any" type.
 
 #### module
 
