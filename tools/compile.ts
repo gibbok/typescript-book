@@ -19,9 +19,11 @@ type TempFilePaths = ReadonlyArray<string>
 type CodeSnippets = ReadonlyArray<string>
 
 const exitScript = (emitSkipped: boolean) => {
-    const exitCode = emitSkipped ? 1 : 0;
+    const ERROR_CODE = 1
+    const SUCCESS_CODE = 0
+    const exitCode = emitSkipped ? ERROR_CODE : SUCCESS_CODE;
     console.log(`Process exiting with code '${exitCode}'.`);
-    process.exit(exitCode);
+    exitCode === ERROR_CODE && process.exit(exitCode);
 }
 
 const compileAndReport = (options: ts.CompilerOptions) => (fileNames: TempFilePaths): ReportsInfo => {
@@ -109,6 +111,6 @@ const processMarkdownFile = (inputPath: string): void =>
     )
 
 for (const item of i18n) {
-    console.log("xxx", item)
+    console.log("Compiling: ", item)
     processMarkdownFile(makeFilePath(item));
 }
