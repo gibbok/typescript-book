@@ -8,7 +8,8 @@
     "compile": "ts-node compile",
     "test": "echo \"Error: no test specified\" && exit 1",
     "check": "npm run format && npm run compile",
-    "prepare": "cd .. && husky install .husky"
+    "prepare": "cd .. && husky install .husky",
+    "lint:md": "markdownlint \"*.md\""
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "fp-ts": "^2.16.0",
     "fs-extra": "^11.1.1",
     "husky": "^8.0.3",
+    "markdownlint-cli": "^0.35.0",
     "marked": "^5.1.0",
     "prettier": "^2.8.8",
     "ts-node": "^10.9.1",
