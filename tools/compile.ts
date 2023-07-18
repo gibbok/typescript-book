@@ -110,5 +110,6 @@ const processMarkdownFile = (inputPath: string): void =>
     )
 
 for (const item of i18n) {
+    console.log("xxx", item)
     processMarkdownFile(makeFilePath(item));
 }
