@@ -68,7 +68,6 @@
     - [Array](#array)
     - [any](#any)
   - [类型注释](#类型注释)
-  - [对象类型](#对象类型)
   - [可选属性](#可选属性)
   - [只读属性](#只读属性)
   - [索引签名](#索引签名)
@@ -98,7 +97,7 @@
   - [可区分联合](#可区分联合-1)
   - [never 类型](#never-类型)
   - [详尽性检查](#详尽性检查)
-  - [对象类型](#对象类型-1)
+  - [对象类型](#对象类型)
   - [元组类型](#元组类型)
   - [固定长度元组](#固定长度元组)
   - [联合类型](#联合类型)
@@ -1553,26 +1552,6 @@ const sum = (a = 10, b: number): number => a + b;
 
 通常考虑注释类型签名，但不注释主体局部变量，并始终将类型添加到对象字面量中。
 
-## 对象类型
-
-可以使用 TypeScript 中的 `interface` 或 `type alias`，来对对象进行类型注释
-
-```typescript
-interface Y {
-    b: number;
-}
-type X = {
-    a: number;
-};
-```
-
-或者匿名：
-
-```typescript
-const sum = (x: { a: number; b: number }) => x.a + x.b;
-console.log(sum({ a: 5, b: 1 }));
-```
-
 ## 可选属性
 
 对象可以通过在属性名称末尾添加问号 `?` 来指定可选属性：
@@ -2213,6 +2192,13 @@ type Point = {
 };
 ```
 
+也可以匿名定义类型：
+
+```typescript
+const sum = (x: { a: number; b: number }) => x.a + x.b;
+console.log(sum({ a: 5, b: 1 }));
+```
+
 ## 元组类型
 
 元组类型是一种表示具有固定数量的元素及其相应类型的数组的类型。元组类型以固定顺序强制执行特定数量的元素及其各自的类型。当您想要表示具有特定类型的值的集合时，元组类型非常有用，其中数组中每个元素的位置都有特定的含义。
@@ -2300,8 +2286,8 @@ const add = (x: number, y: number) => x + y; // TypeScript 可以推断函数的
 ```typescript
 export const add = (x: number, y: number) => x + y;
 // index.ts
-import { add } from 'calc';
-const r = add(1, 2); // r is number
+import { add } from 'calc'
+const r = add(1, 2) // r is number
 ```
 
 ## 映射类型
