@@ -25,9 +25,8 @@ const formatCodeBlocksInMarkdownFile = async (filePath: string): Promise<void> =
     console.log(`Formatted code blocks have been updated in the file: ${filePath}`);
 }
 
-const makeFilePath = (item: I18n) => {
-    return `../README${item}.md`
-}
+const makeFilePath = (item: I18n) =>
+    item === I18n.en_EN ? '../README.md' : `../README-${item}.md`
 
 for (const item of i18n) {
     formatCodeBlocksInMarkdownFile(makeFilePath(item));
