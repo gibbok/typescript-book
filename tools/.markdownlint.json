@@ -45,7 +45,8 @@
             "GitHub",
             "Twitter",
             "Email",
-            "IntelliSense"
+            "IntelliSense",
+            "ECMAScript"
         ]
     },
     "required-headings": false,
