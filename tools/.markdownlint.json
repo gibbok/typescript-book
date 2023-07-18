@@ -12,7 +12,7 @@
         "allowed_languages": [
             "shell",
             "json",
-            "typeScript",
+            "typescript",
             "javaScript"
         ],
         "language_only": true
