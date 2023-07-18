@@ -1,0 +1,59 @@
+{
+    "code-block-style": {
+        "style": "fenced"
+    },
+    "code-fence-style": {
+        "style": "backtick"
+    },
+    "emphasis-style": {
+        "style": "asterisk"
+    },
+    "fenced-code-language": {
+        "allowed_languages": [
+            "shell",
+            "json",
+            "typescript",
+            "javaScript",
+            "text"
+        ],
+        "language_only": true
+    },
+    "heading-style": {
+        "style": "atx"
+    },
+    "hr-style": {
+        "style": "---"
+    },
+    "line-length": false,
+    "no-duplicate-heading": {
+        "siblings_only": true
+    },
+    "ol-prefix": {
+        "style": "ordered"
+    },
+    "proper-names": {
+        "code_blocks": false,
+        "names": [
+            "TypeScript",
+            "Ctrl",
+            "JavaScript",
+            "Markdown",
+            "Node.js",
+            "Visual Studio Code",
+            "Microsoft",
+            "LinkedIn",
+            "GitHub",
+            "Twitter",
+            "Email",
+            "IntelliSense",
+            "ECMAScript"
+        ]
+    },
+    "required-headings": false,
+    "strong-style": {
+        "style": "asterisk"
+    },
+    "ul-style": {
+        "style": "asterisk"
+    }
+}
