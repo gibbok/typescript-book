@@ -1449,7 +1449,7 @@ let sentence: string = `xxx,
 The `boolean` data type in TypeScript stores a binary value, either `true` or `false`.
 
 ```typescript
-const isReady: boolean = true
+const isReady: boolean = true;
 ```
 
 ### number
@@ -1482,7 +1482,7 @@ Notes: `bigInt` values cannot be mixed with `number` and cannot be used with bui
 JavaScript has a primitive function, Symbol(), that creates a globally unique reference.
 
 ```typescript
-let sym = Symbol("x"); // Type symbol
+let sym = Symbol('x'); // Type symbol
 ```
 
 ### null and undefined
@@ -2123,15 +2123,15 @@ Notes: Up to five levels of indirection are analyzed in conditional expressions.
 Type predicates in TypeScript are functions that return a boolean value and are used to narrow the type of a variable to a more specific type.
 
 ```typescript
-const isString = (value: unknown): value is string => typeof value === "string";
+const isString = (value: unknown): value is string => typeof value === 'string';
 
 const foo = (bar: unknown) => {
- if (isString(bar)) {
-   console.log(bar.toUpperCase());
- } else {
-   console.log("not a string");
- }
-}
+    if (isString(bar)) {
+        console.log(bar.toUpperCase());
+    } else {
+        console.log('not a string');
+    }
+};
 ```
 
 ## Discriminated unions
@@ -2320,10 +2320,10 @@ Type from Module refers to the ability to use a module's exported values to auto
 <!-- skip -->
 ```typescript
 // calc.ts
-export const add = (x: number, y: number)
+export const add = (x: number, y: number) => x + y;
 // index.ts
-// import { add } from 'calc'
-const r = add(1, 2) // r is number
+import { add } from 'calc';
+const r = add(1, 2); // r is number
 ```
 
 ## Mapped types
