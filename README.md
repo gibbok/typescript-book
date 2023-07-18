@@ -7,6 +7,7 @@ This book is completely Free and Open Source.
 ## Translations
 
 This book has been translated into several language versions, including:
+
 * [Chinese](./README-zh_CN.md)
 
 ## Downloads
@@ -131,9 +132,9 @@ You can also download the Epub version here:
   - [Never type](#never-type)
   - [Interface and Type](#interface-and-type)
     - [Common Syntax](#common-syntax)
-    - [Basic types:](#basic-types)
-    - [Objects and interfaces:](#objects-and-interfaces)
-    - [Union and intersection types:](#union-and-intersection-types)
+    - [Basic types](#basic-types)
+    - [Objects and interfaces](#objects-and-interfaces)
+    - [Union and intersection types](#union-and-intersection-types)
   - [Built-in Type Primitives](#built-in-type-primitives)
   - [Common Built-in JS Objects](#common-built-in-js-objects)
   - [Overloads](#overloads)
@@ -195,7 +196,6 @@ You can also download the Epub version here:
       - [Uncapitalize\<T\>](#uncapitalizet)
   - [Others](#others)
     - [Errors and Exception Handling](#errors-and-exception-handling)
-    - [Mixin Classes](#mixin-classes)
     - [Asynchronous Language Features](#asynchronous-language-features)
     - [Iterators and Generators](#iterators-and-generators)
     - [TsDocs JSDoc Reference](#tsdocs-jsdoc-reference)
@@ -848,6 +848,7 @@ let z: Z = new Z('z');
 x === y; // Valid
 x === z; // Valid even if z is from a different inheritance hierarchy
 ```
+
 Generics are compared using their structures based on the resulting type after applying the generic parameter, only the final result is compared as a non-generic type.
 
 <!-- skip -->
@@ -914,7 +915,6 @@ The primary task of TypeScript is to check and verify whether one set is a subse
 
 TypeScript supports various types of sets:
 
-
 | Set term           | TypeScript                      | Notes                                                                                                              |
 | ------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | Empty set          | never                           | “never” contains anything apart itself                                                                             |
@@ -950,7 +950,6 @@ Here few examples:
 |                       |                        | const x: XY = { a: 'a', b: 'b' }                                                |
 |                       |                        |
 | unknown               | Universal set          | const x: unknown = 1                                                            |
-
 
 An union, (T1 | T2) creates a wider set (both):
 
@@ -1014,6 +1013,7 @@ const r: Z1 = z; // Valid
 ```
 
 ### Assign a type: Type Declarations and Type Assertions
+
 A type can be assigned in different ways in TypeScript:
 
 #### Type Declaration
@@ -1116,6 +1116,7 @@ For your defined Ambient Declarations, you can import using the “triple-slash�
 ```typescript
 /// <reference path="./library-types.d.ts" />
 ```
+
 You can use Ambient Declarations even within JavaScript files using `// @ts-check`.
 
 ### Property Checking and Excess Property Checking
@@ -1213,6 +1214,7 @@ fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
 ### Type Inference
 
 TypeScript can infer types when no annotation is provided during:
+
 * Variable initialization.
 * Member initialization.
 * Setting defaults for parameters.
@@ -1359,6 +1361,7 @@ Type Narrowing is the process in TypeScript where a general type is narrowed dow
 Narrowing types can occur in different ways, including:
 
 #### Conditions
+
 By using conditional statements, such as `if` or `switch`, TypeScript can narrow down the type based on the outcome of the condition. For example:
 
 ```typescript
@@ -1370,6 +1373,7 @@ if (x !== undefined) {
 ```
 
 #### Throwing or returning
+
 Throwing an error or returning early from a branch can be used to help TypeScript narrow down a type. For example:
 
 ```typescript
@@ -1383,11 +1387,10 @@ x += 100;
 
 Other ways to narrow down types in TypeScript include:
 
-
-         * `instanceof` operator: Used to check if an object is an instance of a specific class.
-         * `in` operator: Used to check if a property exists in an object.
-         * `typeof` operator: Used to check the type of a value at runtime.
-         * Built-in functions like `Array.isArray()`: Used to check if a value is an array.
+* `instanceof` operator: Used to check if an object is an instance of a specific class.
+* `in` operator: Used to check if a property exists in an object.
+* `typeof` operator: Used to check the type of a value at runtime.
+* Built-in functions like `Array.isArray()`: Used to check if a value is an array.
 
 #### Discriminated union
 
@@ -1445,7 +1448,7 @@ let sentence: string = `xxx,
 
 The `boolean` data type in TypeScript stores a binary value, either `true` or `false`.
 
-```
+```typescript
 const isReady: boolean = true
 ```
 
@@ -1478,7 +1481,7 @@ Notes: `bigInt` values cannot be mixed with `number` and cannot be used with bui
 
 JavaScript has a primitive function, Symbol(), that creates a globally unique reference.
 
-```
+```typescript
 let sym = Symbol("x"); // Type symbol
 ```
 
@@ -1491,7 +1494,6 @@ The `undefined` type means the value is not assigned or initialized or indicates
 The `null` type means that we know that the field does not have a value, so value is unavailable, it indicates an intentional absence of value.
 
 ### Array
-
 
 An `array` is a data type that can store multiple values of the same type or not. It can be defined using the following syntax:
 
@@ -1650,6 +1652,7 @@ console.log(k['1']); // same result as k[1]
 Please note that JavaScript automatically converts an index with `number` to an index with `string` so `k[1]` or k["1"] return the same value.
 
 ## Extending Types
+
 It is possible to extend an `interface` (copy members from another type):
 
 ```typescript
@@ -1822,6 +1825,7 @@ enum Color {
 Enums can be defined in different ways:
 
 ### Numeric enums
+
 In TypeScript, a numeric enum is an enum where each constant is assigned a numeric value, starting from 0 by default.
 
 ```typescript
@@ -1844,6 +1848,7 @@ console.log(Size.Medium); // 11
 ```
 
 ### String enums
+
 In TypeScript, a string enum is an enum where each constant is assigned a string value.
 
 ```typescript
@@ -1902,9 +1907,11 @@ console.log(Language.English);
 ```
 
 ### Ambient enums
+
 An ambient enum in TypeScript is a type of enum that is defined in a declaration file (*.d.ts) without an associated implementation. It allows you to define a set of named constants that can be used in a type-safe way across different files without having to import the implementation details in each file.
 
 ### Computed and constant members
+
 In TypeScript, a computed member is a member of an enum that has a value calculated at runtime, while a constant member is a member whose value is set at compile-time and cannot be changed during runtime. Computed members are allowed in regular enums, while constant members are allowed in both regular and const enums.
 
 ```typescript
@@ -1975,6 +1982,7 @@ const printName = (name: string | null | undefined) => {
 ```
 
 ### Equality narrowing
+
 Equality narrowing in TypeScript works by checking whether a variable is equal to a specific value or not, to narrow its type accordingly.
 
 ```typescript
@@ -2059,6 +2067,7 @@ if (typeof value === 'number') {
 ```
 
 ## Control flow analysis
+
 Control flow analysis in TypeScript is a way to statically analyze the code flow to infer the types of variables, allowing the compiler to narrow the types of those variables as needed, based on the results of the analysis.
 
 Prior to TypeScript 4.4, code flow analysis would only be applied to code within an if statement, but from TypeScript 4.4, it can also be applied to conditional expressions and discriminant property accesses indirectly referenced through const variables.
@@ -2113,7 +2122,7 @@ Notes: Up to five levels of indirection are analyzed in conditional expressions.
 
 Type predicates in TypeScript are functions that return a boolean value and are used to narrow the type of a variable to a more specific type.
 
-```
+```typescript
 const isString = (value: unknown): value is string => typeof value === "string";
 
 const foo = (bar: unknown) => {
@@ -2126,6 +2135,7 @@ const foo = (bar: unknown) => {
 ```
 
 ## Discriminated unions
+
 Discriminated unions in TypeScript are a type of union type that uses a common property, known as the discriminant, to narrow down the set of possible types for the union.
 
 ```typescript
@@ -2231,6 +2241,7 @@ A Tuple Type is a type that represents an array with a fixed number of elements 
 ```typescript
 type Point = [number, number];
 ```
+
 ## Fixed length tuple
 
 A Fixed length tuple is a specific type of tuple that enforces a fixed number of elements of specific types, and disallows any modifications to the length of the tuple once it is defined.
@@ -2242,6 +2253,7 @@ Fixed length tuples are useful when you need to represent a collection of values
 const x = [10, 'hello'] as const;
 x.push(2); // Error
 ```
+
 ## Union Type
 
 A Union Type is a type that represents a value that can be one of several types. Union Types are denoted using the | symbol between each possible type.
@@ -2292,7 +2304,9 @@ console.log(myDict['a']); // return a
 ```typescript
 const x = 'x'; // TypeScript can automatically infer that the type of the message variable is string
 ```
+
 ## Type from Func Return
+
 Type from Func Return refers to the ability to automatically infer the return type of a function based on its implementation. This allows TypeScript to determine the type of the value returned by the function without explicit type annotations.
 
 ```typescript
@@ -2300,17 +2314,20 @@ const add = (x: number, y: number) => x + y; // TypeScript can infer that the re
 ```
 
 ## Type from Module
+
 Type from Module refers to the ability to use a module's exported values to automatically infer their types. When a module exports a value with a specific type, TypeScript can use that information to automatically infer the type of that value when it is imported into another module.
 
-```
+<!-- skip -->
+```typescript
 // calc.ts
 export const add = (x: number, y: number)
 // index.ts
-import { add } from 'calc'
+// import { add } from 'calc'
 const r = add(1, 2) // r is number
 ```
 
 ## Mapped types
+
 Mapped types in TypeScript allow you to create new types based on an existing type by transforming each property using a mapping function. By mapping existing types, you can create new types that represent the same information in a different format. To create a mapped type, you access the properties of an existing type using the `keyof` operator and then alter them to produce a new type.
 In the following example:
 
@@ -2332,6 +2349,7 @@ const x: MyNewType = {
 we define MyMappedType to map over T's properties, creating a new type with each property as an array of its original type. Using this, we create MyNewType to represent the same info as MyType, but with each property as an array.
 
 ## Conditional Types
+
 Conditional types are a way to create a type that depends on a condition, where the type to be created is determined based on the result of the condition. They are defined using the `extends` keyword and a ternary operator to conditionally choose between two types.
 
 ```typescript
@@ -2386,6 +2404,7 @@ In TypeScript, predefined conditional types are built-in conditional types provi
 `Readonly<Type>`: This type makes all properties in Type readonly.
 
 ## Template Union Types
+
 Template union types can be used to merge and manipulate text inside the type system for instance:
 
 ```typescript
@@ -2400,9 +2419,9 @@ The `any` type is a special type (universal supertype) that can be used to repre
 
 By utilizing any type, you are indicating to the TypeScript compiler that values should be represented without any limitations. In order to maximizing type safety in your code consider the following:
 
-         * Limit the usage of any to specific cases where the type is truly unknown.
-         * Do not return `any` types from a function as you will lose type safety in the code using that function weakening your type safety.
-         * Instead of `any` use @ts-ignore` if you need to silence the compiler.
+* Limit the usage of any to specific cases where the type is truly unknown.
+* Do not return `any` types from a function as you will lose type safety in the code using that function weakening your type safety.
+* Instead of `any` use @ts-ignore` if you need to silence the compiler.
 
 ```typescript
 let value: any;
@@ -2434,6 +2453,7 @@ console.log(add('x', 2)); // undefined
 ```
 
 ## Void type
+
 The `void` type is used to indicate that a function does not return a value.
 
 ```typescript
@@ -2484,6 +2504,7 @@ const move = (direction: Direction): void => {
 ```
 
 ## Interface and Type
+
 ### Common Syntax
 
 In TypeScript, interfaces define the structure of objects, specifying the names and types of properties or methods that an object must have. The common syntax for defining an interface in TypeScript is as follows:
@@ -2523,6 +2544,7 @@ interface Person {
     greet(): void;
 }
 ```
+
 Example of type:
 
 ```typescript
@@ -2534,7 +2556,7 @@ type TypeName = {
 
 In TypeScript, types are used to define the shape of data and enforce type checking. There are several common syntaxes for defining types in TypeScript, depending on the specific use case. Here are some examples:
 
-### Basic types:
+### Basic types
 
 ```typescript
 let myNumber: number = 123; // number type
@@ -2543,13 +2565,13 @@ let myArray: string[] = ['a', 'b']; // array of strings
 let myTuple: [string, number] = ['a', 123]; // tuple
 ```
 
-### Objects and interfaces:
+### Objects and interfaces
 
 ```typescript
 const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ```
 
-### Union and intersection types:
+### Union and intersection types
 
 ```typescript
 type MyType = string | number; // union type
@@ -2583,6 +2605,7 @@ TypeScript is a superset of JavaScript, it includes all the commonly used built-
 <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects>
 
 Here is a list of some commonly used built-in JavaScript objects:
+
 * Function
 * Object
 * Boolean
@@ -2650,6 +2673,7 @@ console.log(new Greeter('Hello').sayHi('Simon'));
 ```
 
 ## Get & Set
+
 Getters and setters are special methods that allow you to define custom access and modification behavior for class properties. They enable you to encapsulate the internal state of an object and provide additional logic when getting or setting the values of properties.
 In TypeScript, getters and setters are defined using the `get` and `set` keywords respectively. Here's an example:
 
@@ -2670,6 +2694,7 @@ class MyClass {
 ```
 
 ## Merging and Extension
+
 Merging and extension refer to two different concepts related to working with types and interfaces.
 
 Merging allows you to combine multiple declarations of the same name into a single definition, for example, when you define an interface with the same name multiple times:
@@ -2797,6 +2822,7 @@ type C = A | B; // Union of interfaces
 ```
 
 ## Class
+
 ### Common Syntax
 
 The `class` keyword is used in TypeScript to define a class. Below, you can see an example:
@@ -3498,8 +3524,6 @@ process('hello'); // 5
 process(3.14159); // 3.14
 ```
 
-
-
 ## Erased Structural Types
 
 In TypeScript, objects do not have to match a specific, exact type. For instance, if we create an object that fulfills an interface's requirements, we can utilize that object in places where that interface is required, even if there was no explicit connection between them.
@@ -3589,6 +3613,7 @@ Enable compiler options, in the following example strict mode:
 ```
 
 ## Type Manipulation
+
 ### Creating Types from Types
 
 Is it possible to create new types composing, manipulating or transforming existing types.
@@ -3603,6 +3628,7 @@ type B = { bar: string };
 type C = A & B; // Intersection of A and B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
+
 Union Types (`|`):
 
 Allow you to define a type that can be one of several types:
@@ -3913,7 +3939,9 @@ type MyType = Uncapitalize<'Abc'>; // "abc"
 ```
 
 ## Others
+
 ### Errors and Exception Handling
+
 TypeScript allows you to catch and handle errors using standard JavaScript error handling mechanisms:
 
 Try-Catch-Finally Blocks:
@@ -3959,7 +3987,6 @@ class CustomError extends Error {
 throw new CustomError('This is a custom error.');
 ```
 
-### Mixin Classes
 Mixin classes allow you to combine and compose behavior from multiple classes into a single class. They provide a way to reuse and extend functionality without the need for deep inheritance chains.
 
 ```typescript
@@ -4102,6 +4129,7 @@ To learn more:
 <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator>        <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator>
 
 ### TsDocs JSDoc Reference
+
 When working with a JavaScript code base, it is possible to help TypeScript to infer the right Type by using JSDoc comments with additional annotation to provide type information.
 
 Example:
@@ -4146,8 +4174,8 @@ TypeScript extends the capabilities of JSX by providing type checking and static
 
 To use JSX you need to set the `jsx` compiler option in your `tsconfig.json` file. Two common configuration options:
 
-            * "preserve": emit .jsx files with the JSX unchanged. This option tells TypeScript to keep the JSX syntax as-is and not transform it during the compilation process. You can use this option if you have a separate tool, like Babel, that handles the transformation.
-            * "react": enables TypeScript's built-in JSX transformation. React.createElement will be used.
+* "preserve": emit .jsx files with the JSX unchanged. This option tells TypeScript to keep the JSX syntax as-is and not transform it during the compilation process. You can use this option if you have a separate tool, like Babel, that handles the transformation.
+* "react": enables TypeScript's built-in JSX transformation. React.createElement will be used.
 
 All options are available here:
 <https://www.typescriptlang.org/tsconfig#jsx>
@@ -4221,7 +4249,6 @@ class Child extends Parent {
 const parentX = new Parent(); // [Function: Parent]
 const child = new Child(); // [Function: Child]
 ```
-
 
 ### Dynamic Import Expressions
 
@@ -4477,8 +4504,9 @@ type B = Bar<['a', 'b'], [boolean]>; // ["a", "b", boolean, boolean]
 ```
 
 With the new variadic tuples we can use:
-            * The spreads in tuple type syntax can now be generic, so we can represent higher-order operation on tuples and arrays even when we do not know the actual types we are operating over.
-            * The rest elements can occur anywhere in a tuple.
+
+* The spreads in tuple type syntax can now be generic, so we can represent higher-order operation on tuples and arrays even when we do not know the actual types we are operating over.
+* The rest elements can occur anywhere in a tuple.
 
 Example:
 
