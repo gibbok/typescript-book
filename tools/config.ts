@@ -1,0 +1,1 @@
+export const PRETTIER_CONFIG_FILE_PATH = './.prettierrc'
