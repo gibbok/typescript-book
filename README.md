@@ -274,14 +274,14 @@ For instance, consider a function in a JavaScript file with the `.js` extension,
 
 <!-- skip -->
 ```typescript
-const sum = (a, b) => a + b;
+const sum = (a, b) =>       a + b;
 ```
 
 The function can be converted and used in TypeScript by changing the file extension to `.ts`. However, if the same function is annotated with TypeScript types, it cannot be executed in any JavaScript engine without compilation. The following TypeScript code will produce a syntax error if it is not compiled:
 
 <!-- skip -->
 ```typescript
-const sum = (a: number, b: number): number => a + b;
+const sum = (a: number, b: number): number => a +     b;
 ```
 
 TypeScript was designed to detect possible exceptions that can occur at runtime during compilation time by having the developer define the intent with type annotations. In addition, TypeScript can also catch issues if no type annotation is provided. For instance, the following code snippet does not specify any TypeScript types:

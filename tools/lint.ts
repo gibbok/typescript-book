@@ -10,20 +10,21 @@ const lintCodeBlocksInMarkdownFile = async (filePath: string, options: PrettierO
     let formattedMarkdown = '';
     let match;
     while ((match = CODE_BLOCK_TS_REGEX.exec(markdown)) !== null) {
-        const codeBlock = match[0];
         const code = match[1].trim();
-        const isCodeLinted = prettier.check(code, {
+        const codeForComparison = code + '\n'
+        const isCodeLinted = prettier.check(codeForComparison, {
             parser: 'typescript',
             ...options,
         });
         if (isCodeLinted === false) {
-            formattedMarkdown += codeBlock
+            formattedMarkdown += codeForComparison
+            formattedMarkdown += '\n'
         }
     }
     if (formattedMarkdown.length === 0) {
-        console.log("All snippets are linted")
+        console.log("All snippets are linted!")
     } else {
-        console.error('Not all code is linted!')
+        console.error('Not all snippets are linted! Please use `npm run format`\n')
         console.log(formattedMarkdown)
         process.exit(1)
     }
