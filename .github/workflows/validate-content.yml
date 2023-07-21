@@ -5,12 +5,8 @@ jobs:
   lint-snippets:
     runs-on: ubuntu-latest
     steps:
-        with:
-          node-version: 'v19.7.0'
       - run: ./lint.sh 
   compile-snippets:
     runs-on: ubuntu-latest
     steps:
-        with:
-          node-version: 'v19.7.0'
       - run: ./compule.sh 
