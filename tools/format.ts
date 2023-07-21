@@ -2,14 +2,14 @@ import * as prettier from 'prettier';
 import * as fs from 'fs';
 import { languages } from './i18n';
 import { PrettierOptions, getPrettierOptions, makeFilePath } from './utils';
+import { CODE_BLOCK_TS_REGEX } from './config';
 
 const formatCodeBlocksInMarkdownFile = async (filePath: string, options: PrettierOptions): Promise<void> => {
     const markdown = await fs.promises.readFile(filePath, 'utf-8');
-    const codeBlockRegex = /```typescript([\s\S]*?)```/g;
 
     let formattedMarkdown = markdown;
     let match;
-    while ((match = codeBlockRegex.exec(markdown)) !== null) {
+    while ((match = CODE_BLOCK_TS_REGEX.exec(markdown)) !== null) {
         const codeBlock = match[0];
         const code = match[1].trim();
         const formattedCode = prettier.format(code, {
