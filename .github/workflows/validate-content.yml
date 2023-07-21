@@ -5,13 +5,12 @@ jobs:
   lint-snippets:
     runs-on: ubuntu-latest
     steps:
-      - name: Display the path
-        run: echo $PATH
-        shell: bash
+      - uses: actions/checkout@v3
       - run: bash ${GITHUB_WORKSPACE}/.github/workflows/lint.sh
   compile-snippets:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - run: bash ${GITHUB_WORKSPACE}/.github/workflows/compile.sh
 
       
