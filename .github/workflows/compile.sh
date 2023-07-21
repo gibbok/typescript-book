@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Compile snippets..."
+echo "Compiling snippets ..."
 cd tools
 npm ci
 npm run compile
