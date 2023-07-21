@@ -1,5 +1,5 @@
 #!/bin/bash
 echo "Linting snippets..."
 cd tools
-npm i
+npm ci
 npm run lint
