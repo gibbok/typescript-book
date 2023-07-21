@@ -5,7 +5,7 @@ import { makeFilePath } from './utils';
 
 const PRETTIER_CONFIG_FILE_PATH = './.prettierrc'
 
-const formatCodeBlocksInMarkdownFile = async (filePath: string): Promise<void> => {
+const formatCodeBlocksInMarkdownFile = async (filePath: string, options: prettier.Options): Promise<void> => {
     const markdown = await fs.promises.readFile(filePath, 'utf-8');
     const codeBlockRegex = /```typescript([\s\S]*?)```/g;
 
@@ -16,7 +16,7 @@ const formatCodeBlocksInMarkdownFile = async (filePath: string): Promise<void> =
         const code = match[1].trim();
         const formattedCode = prettier.format(code, {
             parser: 'typescript',
-            ...(await prettier.resolveConfig(PRETTIER_CONFIG_FILE_PATH)),
+            ...options,
         });
         formattedMarkdown = formattedMarkdown.replace(codeBlock, `\`\`\`typescript\n${formattedCode}\`\`\``);
     }
@@ -25,6 +25,16 @@ const formatCodeBlocksInMarkdownFile = async (filePath: string): Promise<void> =
     console.log(`Formatted code blocks have been updated in the file: ${filePath}`);
 }
 
-for (const item of languages) {
-    formatCodeBlocksInMarkdownFile(makeFilePath(item));
+const main = async () => {
+    const options = await prettier.resolveConfig(PRETTIER_CONFIG_FILE_PATH)
+    if (options === null) {
+        throw `No Prettier options are found! Check your Prettier configuration file.`
+    }
+    for (const item of languages) {
+        formatCodeBlocksInMarkdownFile(makeFilePath(item), options);
+    }
 }
+
+main()
+
+
