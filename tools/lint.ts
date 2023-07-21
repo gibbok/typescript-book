@@ -7,25 +7,24 @@ import { CODE_BLOCK_TS_REGEX } from './config';
 const lintCodeBlocksInMarkdownFile = async (filePath: string, options: PrettierOptions): Promise<void> => {
     const markdown = await fs.promises.readFile(filePath, 'utf-8');
 
-    let formattedMarkdown = '';
+    let reportSnippetsNotLinted = '';
     let match;
     while ((match = CODE_BLOCK_TS_REGEX.exec(markdown)) !== null) {
-        const code = match[1].trim();
-        const codeForComparison = code + '\n'
-        const isCodeLinted = prettier.check(codeForComparison, {
+        const code = match[1].trim() + '\n'
+        const isCodeLinted = prettier.check(code, {
             parser: 'typescript',
             ...options,
         });
         if (isCodeLinted === false) {
-            formattedMarkdown += codeForComparison
-            formattedMarkdown += '\n'
+            reportSnippetsNotLinted += code
+            reportSnippetsNotLinted += '\n'
         }
     }
-    if (formattedMarkdown.length === 0) {
+    if (reportSnippetsNotLinted.length === 0) {
         console.log("All snippets are linted!")
     } else {
-        console.error('Not all snippets are linted! Please use `npm run format`\n')
-        console.log(formattedMarkdown)
+        console.error('Not all snippets are linted! Please use this command to automatically format the snippets: npm run format\n')
+        console.error(reportSnippetsNotLinted)
         process.exit(1)
     }
 }
