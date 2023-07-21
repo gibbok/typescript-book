@@ -6,8 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "$PWD"
-      - run: bash ${GITHUB_WORKSPACE}/script.sh 
+      - run: bash ${GITHUB_WORKSPACE}/.github/workflows/lint.sh
   compile-snippets:
     runs-on: ubuntu-latest
     steps:
-      - run: bash ${GITHUB_WORKSPACE}/compile.sh 
+      - run: bash ${GITHUB_WORKSPACE}/.github/workflows/compile.sh
+
+      
