@@ -5,8 +5,9 @@ jobs:
   lint-snippets:
     runs-on: ubuntu-latest
     steps:
-      - run: .github/workflows/lint.sh 
+      - run: echo "$PWD"
+      - run: bash ${GITHUB_WORKSPACE}/script.sh 
   compile-snippets:
     runs-on: ubuntu-latest
     steps:
-      - run: .github/workflows/compule.sh 
+      - run: bash ${GITHUB_WORKSPACE}/compile.sh 
