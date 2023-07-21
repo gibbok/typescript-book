@@ -1,11 +1,9 @@
 import * as prettier from 'prettier';
 import * as fs from 'fs';
-import { Language, languages } from './i18n';
-import { makeFilePath } from './utils';
+import { languages } from './i18n';
+import { PrettierOptions, getPrettierOptions, makeFilePath } from './utils';
 
-const PRETTIER_CONFIG_FILE_PATH = './.prettierrc'
-
-const formatCodeBlocksInMarkdownFile = async (filePath: string, options: prettier.Options): Promise<void> => {
+const formatCodeBlocksInMarkdownFile = async (filePath: string, options: PrettierOptions): Promise<void> => {
     const markdown = await fs.promises.readFile(filePath, 'utf-8');
     const codeBlockRegex = /```typescript([\s\S]*?)```/g;
 
@@ -26,10 +24,7 @@ const formatCodeBlocksInMarkdownFile = async (filePath: string, options: prettie
 }
 
 const main = async () => {
-    const options = await prettier.resolveConfig(PRETTIER_CONFIG_FILE_PATH)
-    if (options === null) {
-        throw `No Prettier options are found! Check your Prettier configuration file.`
-    }
+    const options = await getPrettierOptions()
     for (const item of languages) {
         formatCodeBlocksInMarkdownFile(makeFilePath(item), options);
     }

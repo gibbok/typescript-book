@@ -8,6 +8,7 @@
     "compile": "ts-node compile",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "cd .. && husky install .husky",
+    "lint": "ts-node lint",
     "lint:md": "markdownlint \".\/*.md\" markdownlint \"..\/*.md\"",
     "check": "npm run lint:md && npm run format && npm run compile"
   },
