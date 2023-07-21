@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: bash ${GITHUB_WORKSPACE}/.github/workflows/lint.sh
+      - run: .github/workflows/lint.sh
   compile-snippets:
     runs-on: ubuntu-latest
     steps:
