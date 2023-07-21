@@ -5,7 +5,9 @@ jobs:
   lint-snippets:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "$PWD"
+      - name: Display the path
+        run: echo $PATH
+        shell: bash
       - run: bash ${GITHUB_WORKSPACE}/.github/workflows/lint.sh
   compile-snippets:
     runs-on: ubuntu-latest
