@@ -5,8 +5,8 @@ jobs:
   lint-snippets:
     runs-on: ubuntu-latest
     steps:
-      - run: ./lint.sh 
+      - run: .github/workflows/lint.sh 
   compile-snippets:
     runs-on: ubuntu-latest
     steps:
-      - run: ./compule.sh 
+      - run: .github/workflows/compule.sh 
