@@ -31,6 +31,7 @@ const lintCodeBlocksInMarkdownFile = async (filePath: string, options: PrettierO
 
 const main = async () => {
     const options = await getPrettierOptions()
+
     for (const language of languages) {
         lintCodeBlocksInMarkdownFile(makeFilePath(language), options, language);
     }
