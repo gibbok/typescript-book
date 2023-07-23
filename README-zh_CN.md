@@ -4,10 +4,17 @@
 
 本书完全免费且开源。
 
+## 下载
+
+您还可以在这里下载 Epub 版本：
+
+<https://github.com/gibbok/typescript-book/tree/main/downloads>
+
 ## 目录表
 
 <!-- markdownlint-disable MD004 -->
 - [简洁的TypeScript之书](#简洁的typescript之书)
+  - [下载](#下载)
   - [目录表](#目录表)
   - [介绍](#介绍)
   - [关于作者](#关于作者)
