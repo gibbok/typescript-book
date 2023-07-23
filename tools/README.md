@@ -14,14 +14,4 @@ To lint all Markdown files and apply Prettier formatting to all TypeScript snipp
 
 To mark snippets that you do not want to compile, use `<!-- skip -->` just before the TypeScript demarcation.
 
-Generate epub file for English version:
-
-```shell
-pandoc -o downloads/typescript-book.epub --metadata title="The Concise TypeScript Book" --metadata author="Simone Poggiali"  -s README.md
-```
-
-Generate epub file for Chinese version:
-
-```shell
-pandoc -o downloads/typescript-book-zh_CN.epub --metadata title="# 简洁的TypeScript之书" --metadata author="Simone Poggiali"  -s README-zh_CN.md
-```
+To generate epub files run in `tools` folder `make-books.sh` then test manually and commit.
