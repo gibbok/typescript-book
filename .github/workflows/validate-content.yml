@@ -1,8 +1,8 @@
 name: validate-content 
-run-name: ${{ github.actor }} is validating content
+run-name: ${{ github.actor }} validate content
 on: [pull_request]
 jobs:
-  lint-snippets:
+  lint-content:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
