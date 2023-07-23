@@ -7,6 +7,7 @@ if command -v pandoc &>/dev/null; then
     echo "pandoc is installed"
 else
     echo "You need to install pandoc. Please visit: https://pandoc.org/installing.html"
+    exit 1
 fi
 
 pandoc -o $DIR_DOWNLOADS/typescript-book.epub --metadata title="The Concise TypeScript Book" --metadata author="Simone Poggiali"  -s README.md
