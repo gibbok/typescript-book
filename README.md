@@ -14,7 +14,7 @@ This book has been translated into several language versions, including:
 
 You can also download the Epub version here:
 
-* [Downloads](./downloads)
+<https://github.com/gibbok/typescript-book/tree/main/downloads>
 
 ## Table of content
 
