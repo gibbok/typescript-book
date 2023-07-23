@@ -1,0 +1,14 @@
+name: validate-content 
+run-name: ${{ github.actor }} is creating ebook
+on: [push]
+branches:
+  - build-book
+jobs:
+  lint-snippets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: make ebooks 
+        run: bash ${GITHUB_WORKSPACE}/.github/workflows/make-books.sh
+
+      
