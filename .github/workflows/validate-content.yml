@@ -1,5 +1,5 @@
 name: validate-content 
-run-name: ${{ github.actor }} is validating content
+run-name: ${{ github.actor }} validate content
 on: [pull_request]
 jobs:
   lint-content:
