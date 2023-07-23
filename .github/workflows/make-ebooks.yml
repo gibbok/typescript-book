@@ -1,4 +1,4 @@
-name: validate-content 
+name: make-books
 run-name: ${{ github.actor }} is creating ebook
 on: [push]
 branches:
