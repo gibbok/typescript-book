@@ -3,8 +3,6 @@ echo "Making ebooks ..."
 DIR_DOWNLOADS=downloads
 
 cd ../
-sudo apt-get install pandoc
-
 if command -v pandoc &>/dev/null; then
     echo "pandoc is installed!"
 else
