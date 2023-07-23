@@ -1,6 +1,6 @@
 name: validate-content 
 run-name: ${{ github.actor }} is validating content
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   lint-snippets:
     runs-on: ubuntu-latest
