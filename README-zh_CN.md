@@ -1444,7 +1444,7 @@ const isReady: boolean = true;
 
 ### number
 
-TypeScript 中的数据类型 `boolean` 用 64 位浮点值表示。类型 `boolean` 可以表示整数和分数。TypeScript 还支持十六进制、二进制和八进制，例如：
+TypeScript 中的数据类型 `number` 用 64 位浮点值表示。类型 `number` 可以表示整数和分数。TypeScript 还支持十六进制、二进制和八进制，例如：
 
 ```typescript
 const decimal: number = 10;
