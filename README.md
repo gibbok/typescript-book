@@ -4311,9 +4311,9 @@ console.log(baz2); // 0
 Template Literal Types allow to manipulate string value at type level and generate new string types based on existing ones. They are useful to create more expressive and precise types from string-based operations.
 
 ```typescript
-type Department = 'enginnering' | 'hr';
+type Department = 'engineering' | 'hr';
 type Language = 'english' | 'spanish';
-type Id = `${Department}-${Language}-id`; // "enginnering-english-id" | "enginnering-spanish-id" | "hr-english-id" | "hr-spanish-id"
+type Id = `${Department}-${Language}-id`; // "engineering-english-id" | "engineering-spanish-id" | "hr-english-id" | "hr-spanish-id"
 ```
 
 ### Function overloading
