@@ -4401,7 +4401,7 @@ In TypeScript, assertion functions are functions that indicate the verification 
 ```typescript
 function isNumber(value: unknown): asserts value is number {
     if (typeof value !== 'number') {
-        throw new Error('not a number');
+        throw new Error('Not a number');
     }
 }
 ```
@@ -4409,10 +4409,11 @@ function isNumber(value: unknown): asserts value is number {
 Or can be declared as function expression:
 
 ```typescript
-const isNumber1 = (value: unknown): asserts value is number => {
-    if (typeof value !== 'number') {
-        throw new Error('not a number');
-    }
+type AssertIsNumber = (value: unknown) => asserts value is number;
+const isNumber: AssertIsNumber = (value) => {
+  if (typeof value !== 'number') {
+    throw new Error('Not a number');
+  }
 };
 ```
 
