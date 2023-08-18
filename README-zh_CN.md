@@ -4407,7 +4407,7 @@ Node.js 支持两种模块文件扩展名：`.mjs` 的ES 模块和 `.cjs` 的Com
 ```typescript
 function isNumber(value: unknown): asserts value is number {
     if (typeof value !== 'number') {
-        throw new Error('not a number');
+        throw new Error('Not a number');
     }
 }
 ```
@@ -4415,9 +4415,10 @@ function isNumber(value: unknown): asserts value is number {
 或者可以声明为函数表达式：
 
 ```typescript
-const isNumber1 = (value: unknown): asserts value is number => {
+type AssertIsNumber = (value: unknown) => asserts value is number;
+const isNumber: AssertIsNumber = value => {
     if (typeof value !== 'number') {
-        throw new Error('not a number');
+        throw new Error('Not a number');
     }
 };
 ```
