@@ -4410,10 +4410,10 @@ Or can be declared as function expression:
 
 ```typescript
 type AssertIsNumber = (value: unknown) => asserts value is number;
-const isNumber: AssertIsNumber = (value) => {
-  if (typeof value !== 'number') {
-    throw new Error('Not a number');
-  }
+const isNumber: AssertIsNumber = value => {
+    if (typeof value !== 'number') {
+        throw new Error('Not a number');
+    }
 };
 ```
 
