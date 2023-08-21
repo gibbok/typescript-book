@@ -1838,10 +1838,10 @@ The following enum:
 
 ```typescript
 enum Grade {
-  A = 90,
-  B = 80,
-  C = 70,
-  F = "fail"
+    A = 90,
+    B = 80,
+    C = 70,
+    F = 'fail',
 }
 ```
 
@@ -1849,28 +1849,33 @@ Compiles to:
 
 <!-- skip -->
 ```javascript
-"use strict";
+'use strict';
 var Grade;
 (function (Grade) {
-    Grade[Grade["A"] = 90] = "A";
-    Grade[Grade["B"] = 80] = "B";
-    Grade[Grade["C"] = 70] = "C";
-    Grade["F"] = "fail";
+    Grade[(Grade['A'] = 90)] = 'A';
+    Grade[(Grade['B'] = 80)] = 'B';
+    Grade[(Grade['C'] = 70)] = 'C';
+    Grade['F'] = 'fail';
 })(Grade || (Grade = {}));
 ```
 
 Therefore, mapping values to keys works for numeric enum members, but not for string enum members:
 
+<!-- skip -->
 ```typescript
-// reverse mapping maps an numeric enum value back to its corresponding key
+enum Grade {
+    A = 90,
+    B = 80,
+    C = 70,
+    F = 'fail',
+}
 const myGrade = Grade.A;
-console.log(Grade[myGrade]) // => "A"
-console.log(Grade[90]) // => "A"
+console.log(Grade[myGrade]); // A
+console.log(Grade[90]); // A
 
-// but no reverse mapping generated for string enum members
 const failGrade = Grade.F;
-console.log(failGrade) // => "fail"
-console.log(Grade[failGrade]) // => undefined
+console.log(failGrade); // fail
+console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
 ```
 
 ### Ambient enums
@@ -4406,7 +4411,7 @@ Node.js added support for ECMAScript Modules starting from version 15.3.0, and T
 }
 ```
 
-Node.js supports two file extensions for modules: `.mjs` for ES modules and `.cjs` for CommonJS modules. The equivalent file extensions in TypeScript are `.mjs` for ES modules and `.js` for CommonJS modules. When the TypeScript compiler transpiles these files to JavaScript, it will create `.mjs` and `.js` files, respectively.
+Node.js supports two file extensions for modules: `.mjs` for ES modules and `.cjs` for CommonJS modules. The equivalent file extensions in TypeScript are `.mts` for ES modules and `.cts` for CommonJS modules. When the TypeScript compiler transpiles these files to JavaScript, it will create `.mjs` and `.cjs` files.
 
 If you want to use ES modules in your project, you can set the `type` property to "module" in your package.json file. This instructs Node.js to treat the project as an ES module project.
 

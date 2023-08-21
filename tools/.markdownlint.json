@@ -13,7 +13,7 @@
             "shell",
             "json",
             "typescript",
-            "javaScript",
+            "javascript",
             "text"
         ],
         "language_only": true
