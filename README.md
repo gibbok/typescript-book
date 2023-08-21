@@ -1838,17 +1838,17 @@ The following enum:
 
 ```typescript
 enum Grade {
-  A = 90,
-  B = 80,
-  C = 70,
-  F = "fail"
+    A = 90,
+    B = 80,
+    C = 70,
+    F = 'fail',
 }
 ```
 
 Compiles to:
 
 <!-- skip -->
-```javascript
+```typescript
 "use strict";
 var Grade;
 (function (Grade) {
@@ -1861,16 +1861,21 @@ var Grade;
 
 Therefore, mapping values to keys works for numeric enum members, but not for string enum members:
 
+<!-- skip -->
 ```typescript
-// reverse mapping maps an numeric enum value back to its corresponding key
+enum Grade {
+    A = 90,
+    B = 80,
+    C = 70,
+    F = 'fail',
+}
 const myGrade = Grade.A;
-console.log(Grade[myGrade]) // => "A"
-console.log(Grade[90]) // => "A"
+console.log(Grade[myGrade]); // A
+console.log(Grade[90]); // A
 
-// but no reverse mapping generated for string enum members
 const failGrade = Grade.F;
-console.log(failGrade) // => "fail"
-console.log(Grade[failGrade]) // => undefined
+console.log(failGrade); // fail
+console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
 ```
 
 ### Ambient enums

@@ -1856,10 +1856,10 @@ console.log('EN' /* Language.English */);
 
 ```typescript
 enum Grade {
-  A = 90,
-  B = 80,
-  C = 70,
-  F = "fail"
+    A = 90,
+    B = 80,
+    C = 70,
+    F = 'fail',
 }
 ```
 
@@ -1879,16 +1879,21 @@ var Grade;
 
 由此可见，对数字类型的枚举成员，可以从枚举值映射回枚举名称，但对字符串类型的枚举成员无法这样做。
 
+<!-- skip -->
 ```typescript
-// reverse mapping maps an numeric enum value back to its corresponding key
+enum Grade {
+    A = 90,
+    B = 80,
+    C = 70,
+    F = 'fail',
+}
 const myGrade = Grade.A;
-console.log(Grade[myGrade]) // => "A"
-console.log(Grade[90]) // => "A"
+console.log(Grade[myGrade]); // A
+console.log(Grade[90]); // A
 
-// but no reverse mapping generated for string enum members
 const failGrade = Grade.F;
-console.log(failGrade) // => "fail"
-console.log(Grade[failGrade]) // => undefined
+console.log(failGrade); // fail
+console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
 ```
 
 ### 环境枚举
