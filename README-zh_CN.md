@@ -4417,7 +4417,7 @@ Node.js 从 15.3.0 版本开始添加了对 ECMAScript 模块的支持，而 Typ
 }
 ```
 
-Node.js 支持两种模块文件扩展名：`.mjs` 的ES 模块和 `.cjs` 的CommonJS 模块。TypeScript 中的等效文件扩展名适用 `.mjs` 于 ES 模块和 `.js` 于CommonJS 模块。当 TypeScript 编译器将这些文件转译为 JavaScript 时，它将分别创建 `.mjs` 和 `.js` 文件。
+Node.js 支持两种模块文件扩展名：`.mjs` 的ES 模块和 `.cjs` 的CommonJS 模块。TypeScript 中的等效文件扩展名适用 `.mts` 于 ES 模块和 `.cts` 于CommonJS 模块。当 TypeScript 编译器将这些文件转译为 JavaScript 时，它将分别创建 `.mjs` 和 `.cjs` 文件。
 
 如果您想在项目中使用 ES 模块，可以type在 package.json 文件中将该属性设置为“module”。这指示 Node.js 将项目视为 ES 模块项目。
 
