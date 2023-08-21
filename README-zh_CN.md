@@ -1866,7 +1866,7 @@ enum Grade {
 编译为：
 
 <!-- skip -->
-```typescript
+```javascript
 'use strict';
 var Grade;
 (function (Grade) {

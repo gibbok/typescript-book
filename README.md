@@ -1848,7 +1848,7 @@ enum Grade {
 Compiles to:
 
 <!-- skip -->
-```typescript
+```javascript
 'use strict';
 var Grade;
 (function (Grade) {
