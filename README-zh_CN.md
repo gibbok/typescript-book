@@ -1850,27 +1850,45 @@ console.log('EN' /* Language.English */);
 
 ### 反向映射
 
-在 TypeScript 中，枚举中的反向映射是指从值中检索枚举成员名称的能力。默认情况下，枚举成员具有从名称到值的正向映射，但可以通过为每个成员显式设置值来创建反向映射。当您需要按枚举成员的值查找枚举成员，或者需要迭代所有枚举成员时，反向映射非常有用。
+在 TypeScript 中，枚举中的反向映射是指从值中检索枚举成员名称的能力。默认情况下，枚举成员具有从名称到值的正向映射，但可以通过为每个成员显式设置值来创建反向映射。当您需要按枚举成员的值查找枚举成员，或者需要迭代所有枚举成员时，反向映射非常有用。需要注意的是，只有数字类型的枚举成员会生成反向映射，字符串类型的枚举成员则不会。
 
 以下枚举：
 
 ```typescript
-const enum Language {
-    English = 'EN',
-    Spanish = 'ES',
+enum Grade {
+  A = 90,
+  B = 80,
+  C = 70,
+  F = "fail"
 }
-console.log(Language.English);
 ```
 
 编译为：
 
 <!-- skip -->
+```javascript
+"use strict";
+var Grade;
+(function (Grade) {
+    Grade[Grade["A"] = 90] = "A";
+    Grade[Grade["B"] = 80] = "B";
+    Grade[Grade["C"] = 70] = "C";
+    Grade["F"] = "fail";
+})(Grade || (Grade = {}));
+```
+
+由此可见，对数字类型的枚举成员，可以从枚举值映射回枚举名称，但对字符串类型的枚举成员无法这样做。
+
 ```typescript
-(function (Language) {
-    Language['English'] = 'EN';
-    Language['Spanish'] = 'ES';
-})(Language || (Language = {}));
-console.log(Language.English);
+// reverse mapping maps an numeric enum value back to its corresponding key
+const myGrade = Grade.A;
+console.log(Grade[myGrade]) // => "A"
+console.log(Grade[90]) // => "A"
+
+// but no reverse mapping generated for string enum members
+const failGrade = Grade.F;
+console.log(failGrade) // => "fail"
+console.log(Grade[failGrade]) // => undefined
 ```
 
 ### 环境枚举

@@ -1832,27 +1832,45 @@ Const enums have hardcoded values, erasing the enum, which can be more efficient
 
 ### Reverse mapping
 
-In TypeScript, reverse mappings in enums refer to the ability to retrieve the enum member name from its value. By default, enum members have forward mappings from name to value, but reverse mappings can be created by explicitly setting values for each member. Reverse mappings are useful when you need to look up an enum member by its value, or when you need to iterate over all the enum members.
+In TypeScript, reverse mappings in enums refer to the ability to retrieve the enum member name from its value. By default, enum members have forward mappings from name to value, but reverse mappings can be created by explicitly setting values for each member. Reverse mappings are useful when you need to look up an enum member by its value, or when you need to iterate over all the enum members. Note that only numeric enums members will generate reverse mappings, while string enum members *do not* get a reverse mapping generated at all.
 
 The following enum:
 
 ```typescript
-const enum Language {
-    English = 'EN',
-    Spanish = 'ES',
+enum Grade {
+  A = 90,
+  B = 80,
+  C = 70,
+  F = "fail"
 }
-console.log(Language.English);
 ```
 
 Compiles to:
 
 <!-- skip -->
+```javascript
+"use strict";
+var Grade;
+(function (Grade) {
+    Grade[Grade["A"] = 90] = "A";
+    Grade[Grade["B"] = 80] = "B";
+    Grade[Grade["C"] = 70] = "C";
+    Grade["F"] = "fail";
+})(Grade || (Grade = {}));
+```
+
+Therefore, mapping values to keys works for numeric enum members, but not for string enum members:
+
 ```typescript
-(function (Language) {
-    Language['English'] = 'EN';
-    Language['Spanish'] = 'ES';
-})(Language || (Language = {}));
-console.log(Language.English);
+// reverse mapping maps an numeric enum value back to its corresponding key
+const myGrade = Grade.A;
+console.log(Grade[myGrade]) // => "A"
+console.log(Grade[90]) // => "A"
+
+// but no reverse mapping generated for string enum members
+const failGrade = Grade.F;
+console.log(failGrade) // => "fail"
+console.log(Grade[failGrade]) // => undefined
 ```
 
 ### Ambient enums
