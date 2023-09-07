@@ -119,6 +119,7 @@ You can also download the Epub version here:
   - [Type from Func Return](#type-from-func-return)
   - [Type from Module](#type-from-module)
   - [Mapped types](#mapped-types)
+  - [Mapped Type Modifiers](#mapped-type-modifiers)
   - [Conditional Types](#conditional-types)
   - [Distributive conditional types](#distributive-conditional-types)
   - [“infer” Type inference in conditional types](#infer-type-inference-in-conditional-types)
@@ -2326,6 +2327,25 @@ const x: MyNewType = {
 ```
 
 we define MyMappedType to map over T's properties, creating a new type with each property as an array of its original type. Using this, we create MyNewType to represent the same info as MyType, but with each property as an array.
+
+## Mapped Type Modifiers
+
+Mapped Type Modifiers in TypeScript enable the transformation of properties within an existing type:
+
+* `readonly` or `+readonly`: This renders a property in the mapped type as read-only.
+* `-readonly`: This allows a property in the mapped type to be mutable.
+* `?`: This designates a property in the mapped type as optional.
+
+Examples:
+
+```typescript
+
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // all properties marked as read-only
+
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // all properties marked as mutable
+
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // all properties marked as optional
+```
 
 ## Conditional Types
 
