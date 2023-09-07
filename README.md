@@ -4737,7 +4737,7 @@ For example:
 
 <!-- skip -->
 ```typescript
-import type { House } from "./house.ts";
+import type { House } from './house.ts';
 ```
 
 The following are supported forms:
@@ -4748,5 +4748,5 @@ import type T from './mod';
 import type { A, B } from './mod';
 import type * as Types from './mod';
 export type { T };
-export type { T } from './mod'
+export type { T } from './mod';
 ```
