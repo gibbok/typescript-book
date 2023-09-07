@@ -2339,7 +2339,6 @@ Mapped Type Modifiers in TypeScript enable the transformation of properties with
 Examples:
 
 ```typescript
-
 type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // all properties marked as read-only
 
 type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // all properties marked as mutable
