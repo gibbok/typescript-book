@@ -209,6 +209,7 @@
     - [空合并运算符 (??)](#空合并运算符-)
     - [模板字符串类型](#模板字符串类型)
     - [函数重载](#函数重载)
+    - [递归类型](#递归类型)
     - [递归条件类型](#递归条件类型)
     - [Node.js 中的 ECMAScript 模块支持](#nodejs-中的-ecmascript-模块支持)
     - [断言函数](#断言函数)
@@ -4385,6 +4386,17 @@ function makeGreeting(person: unknown): unknown {
 
 makeGreeting('Simon');
 makeGreeting(['Simone', 'John']);
+```
+
+### 递归类型
+
+递归类型是可以引用自身的类型。 这对于定义具有分层或递归结构（可能无限嵌套）的数据结构非常有用，例如链表、树和图。
+
+```typescript
+type ListNode<T> = {
+    data: T;
+    next: ListNode<T> | undefined;
+};
 ```
 
 ### 递归条件类型
