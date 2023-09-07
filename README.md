@@ -118,7 +118,8 @@ You can also download the Epub version here:
   - [Type from Value](#type-from-value)
   - [Type from Func Return](#type-from-func-return)
   - [Type from Module](#type-from-module)
-  - [Mapped types](#mapped-types)
+  - [Mapped Types](#mapped-types)
+  - [Mapped Type Modifiers](#mapped-type-modifiers)
   - [Conditional Types](#conditional-types)
   - [Distributive conditional types](#distributive-conditional-types)
   - [“infer” Type inference in conditional types](#infer-type-inference-in-conditional-types)
@@ -2305,9 +2306,9 @@ import { add } from 'calc';
 const r = add(1, 2); // r is number
 ```
 
-## Mapped types
+## Mapped Types
 
-Mapped types in TypeScript allow you to create new types based on an existing type by transforming each property using a mapping function. By mapping existing types, you can create new types that represent the same information in a different format. To create a mapped type, you access the properties of an existing type using the `keyof` operator and then alter them to produce a new type.
+Mapped Types in TypeScript allow you to create new types based on an existing type by transforming each property using a mapping function. By mapping existing types, you can create new types that represent the same information in a different format. To create a mapped type, you access the properties of an existing type using the `keyof` operator and then alter them to produce a new type.
 In the following example:
 
 ```typescript
@@ -2326,6 +2327,24 @@ const x: MyNewType = {
 ```
 
 we define MyMappedType to map over T's properties, creating a new type with each property as an array of its original type. Using this, we create MyNewType to represent the same info as MyType, but with each property as an array.
+
+## Mapped Type Modifiers
+
+Mapped Type Modifiers in TypeScript enable the transformation of properties within an existing type:
+
+* `readonly` or `+readonly`: This renders a property in the mapped type as read-only.
+* `-readonly`: This allows a property in the mapped type to be mutable.
+* `?`: This designates a property in the mapped type as optional.
+
+Examples:
+
+```typescript
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // all properties marked as read-only
+
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // all properties marked as mutable
+
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // all properties marked as optional
+```
 
 ## Conditional Types
 
@@ -4532,7 +4551,7 @@ The boxed types are usually not needed. Avoid using boxed types and instead use 
 
 ### Key Remapping in Mapped Types
 
-Mapped types allow you to create new types by transforming the properties of an existing type. Using the `keyof` and `in` keywords, you can iterate over the properties of a type and define modifications, such as making them optional or readonly. Here an example:
+Mapped Types allow you to create new types by transforming the properties of an existing type. Using the `keyof` and `in` keywords, you can iterate over the properties of a type and define modifications, such as making them optional or readonly. Here an example:
 
 ```typescript
 type Person = {
