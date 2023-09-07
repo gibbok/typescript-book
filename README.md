@@ -213,6 +213,7 @@ You can also download the Epub version here:
     - [Nullish coalescing operator (??)](#nullish-coalescing-operator-)
     - [Template Literal Types](#template-literal-types)
     - [Function overloading](#function-overloading)
+    - [Recursive Types](#recursive-types)
     - [Recursive Conditional Types](#recursive-conditional-types)
     - [ECMAScript Module Support in Node.js](#ecmascript-module-support-in-nodejs)
     - [Assertion Functions](#assertion-functions)
@@ -4378,6 +4379,17 @@ function makeGreeting(person: unknown): unknown {
 
 makeGreeting('Simon');
 makeGreeting(['Simone', 'John']);
+```
+
+### Recursive Types
+
+A Recursive Type is a type that can refer to itself. This is useful for defining data structures that have a hierarchical or recursive structure (potentially infinite nesting), such as linked lists, trees, and graphs.
+
+```typescript
+type ListNode<T> = {
+    data: T;
+    next: ListNode<T> | undefined;
+};
 ```
 
 ### Recursive Conditional Types
