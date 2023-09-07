@@ -110,7 +110,8 @@ You can also download the Epub version here:
   - [The never type](#the-never-type)
   - [Exhaustiveness checking](#exhaustiveness-checking)
   - [Object Types](#object-types)
-  - [Tuple Type](#tuple-type)
+  - [Tuple Type (anonymous)](#tuple-type-anonymous)
+  - [Named Tuple Type](#named-tuple-type)
   - [Fixed length tuple](#fixed-length-tuple)
   - [Union Type](#union-type)
   - [Intersection Types](#intersection-types)
@@ -2216,12 +2217,23 @@ const sum = (x: { a: number; b: number }) => x.a + x.b;
 console.log(sum({ a: 5, b: 1 }));
 ```
 
-## Tuple Type
+## Tuple Type (anonymous)
 
 A Tuple Type is a type that represents an array with a fixed number of elements and their corresponding types. A tuple type enforces a specific number of elements and their respective types in a fixed order. Tuple types are useful when you want to represent a collection of values with specific types, where the position of each element in the array has a specific meaning.
 
 ```typescript
 type Point = [number, number];
+```
+
+## Named Tuple Type
+
+Tuple types can include optional labels or names for each element. These labels are for readability and tooling assistance, and do not affect the operations you can perform with them.
+
+```typescript
+type T = string;
+type Tuple1 = [T, T];
+type Tuple2 = [a: T, b: T];
+type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
 ```
 
 ## Fixed length tuple
