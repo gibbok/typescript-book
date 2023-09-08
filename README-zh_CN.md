@@ -3603,6 +3603,8 @@ console.log(obj[key1]); // value 1
 console.log(obj[key2]); // value 2
 ```
 
+在 WeakMap 和 WeakSet 中，现在允许符号作为键。
+
 ## 三斜杠指令
 
 三斜杠指令是特殊注释，为编译器提供有关如何处理文件的说明。这些指令以三个连续斜杠 (///) 开头，通常放置在 TypeScript 文件的顶部，对运行时行为没有影响。

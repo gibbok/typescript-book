@@ -3597,6 +3597,8 @@ console.log(obj[key1]); // value 1
 console.log(obj[key2]); // value 2
 ```
 
+In WeakMaps and WeakSets, symbols are now permissible as keys.
+
 ## Triple-Slash Directives
 
 Triple-slash directives are special comments that provide instructions to the compiler about how to process a file. These directives begin with three consecutive slashes (///) and are typically placed at the top of a TypeScript file and have no effects on the runtime behavior.
