@@ -4768,7 +4768,7 @@ export type { T } from './mod';
 
 ### using declaration and Explicit Resource Management
 
-A "using" declaration introduces a block-scoped variable type for handling disposable resources. Upon initialization with a value, the Symbol.dispose method of that value is noted and subsequently executed when the evaluation exits the enclosing block scope.
+A "using" declaration is a block-scoped declaration with an immutable binding, much like const, for handling disposable resources. Upon initialization with a value, the Symbol.dispose method of that value is noted and subsequently executed when the evaluation exits the enclosing block scope.
 
 This is based on the ECMAScript's Resource Management feature which is useful for perform essential cleanup tasks after object creation, such as closing connections, deleting files, and releasing memory.
 
@@ -4843,7 +4843,9 @@ interface Disposable {
 
 For an asynchronously disposable resource, it must adhere to either the Disposable or AsyncDisposable interface:
 
+```
 // lib.esnext.disposable.d.ts
 interface AsyncDisposable {
     [Symbol.asyncDispose](): Promise<void>;
 }
+```
