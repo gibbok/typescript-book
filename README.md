@@ -226,6 +226,8 @@ You can also download the Epub version here:
     - [Symbol and Template String Pattern Index Signatures](#symbol-and-template-string-pattern-index-signatures)
     - [The satisfies Operator](#the-satisfies-operator)
     - [Type-Only Imports and Export](#type-only-imports-and-export)
+    - [using declaration and Explicit Resource Management](#using-declaration-and-explicit-resource-management)
+      - [await using declaration](#await-using-declaration)
 <!-- markdownlint-enable MD004 -->
 ## Introduction
 
@@ -401,12 +403,18 @@ class Animal {
     constructor(public name: string) {}
 }
 class Dog extends Animal {
-    constructor(public name: string, public bark: () => void) {
+    constructor(
+        public name: string,
+        public bark: () => void
+    ) {
         super(name);
     }
 }
 class Cat extends Animal {
-    constructor(public name: string, public meow: () => void) {
+    constructor(
+        public name: string,
+        public meow: () => void
+    ) {
         super(name);
     }
 }
@@ -2011,7 +2019,10 @@ class Square {
     constructor(public width: number) {}
 }
 class Rectangle {
-    constructor(public width: number, public height: number) {}
+    constructor(
+        public width: number,
+        public height: number
+    ) {}
 }
 function area(shape: Square | Rectangle) {
     if (shape instanceof Square) {
@@ -3049,7 +3060,10 @@ Parameter properties allow you to declare and initialize class properties direct
 
 ```typescript
 class Person {
-    constructor(private name: string, public age: number) {
+    constructor(
+        private name: string,
+        public age: number
+    ) {
         // the "private" and "public" keywords in the constructor
         // automatically declare and initialize the corresponding class properties.
     }
@@ -3454,7 +3468,7 @@ function identity<T>(arg: T): T {
 const a = identity('x');
 const b = identity(123);
 
-const getLen = <T>(data: ReadonlyArray<T>) => data.length;
+const getLen = <T,>(data: ReadonlyArray<T>) => data.length;
 const len = getLen([1, 2, 3]);
 ```
 
@@ -3837,7 +3851,10 @@ Extracts the parameter types of a constructor function type T.
 
 ```typescript
 class Person {
-    constructor(public name: string, public age: number) {}
+    constructor(
+        public name: string,
+        public age: number
+    ) {}
 }
 type PersonConstructorParams = ConstructorParameters<typeof Person>; // [name: string, age: number]
 const params: PersonConstructorParams = ['John', 30];
@@ -4091,7 +4108,10 @@ Iterators are objects that implement the iterator protocol, providing a way to a
 class NumberIterator implements Iterable<number> {
     private current: number;
 
-    constructor(private start: number, private end: number) {
+    constructor(
+        private start: number,
+        private end: number
+    ) {
         this.current = start;
     }
 
@@ -4764,3 +4784,143 @@ import type * as Types from './mod';
 export type { T };
 export type { T } from './mod';
 ```
+
+### using declaration and Explicit Resource Management
+
+A `using` declaration is a block-scoped, immutable binding, similar to `const`, used for managing disposable resources. When initialized with a value, the `Symbol.dispose` method of that value is recorded and subsequently executed upon exiting the enclosing block scope.
+
+This is based on ECMAScript's Resource Management feature, which is useful for performing essential cleanup tasks after object creation, such as closing connections, deleting files, and releasing memory.
+
+Notes:
+
+* Due to its recent introduction in TypeScript version 5.2, most runtimes lack native support. You'll need polyfills for: Symbol.dispose, Symbol.asyncDispose, DisposableStack, AsyncDisposableStack, SuppressedError.
+* Additionally, you will need to configure your tsconfig.json as follows:
+
+```json
+{
+    "compilerOptions": {
+        "target": "es2022",
+        "lib": ["es2022", "esnext.disposable", "dom"]
+    }
+}
+```
+
+Example:
+
+<!-- skip -->
+```typescript
+//@ts-ignore
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polify
+
+const doWork = (): Disposable => {
+    return {
+        [Symbol.dispose]: () => {
+            console.log('disposed');
+        },
+    };
+};
+
+console.log(1);
+
+{
+    using work = doWork(); // Resource is declared
+    console.log(2);
+} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+
+console.log(3);
+```
+
+The code will log:
+
+```shell
+1
+2
+disposed
+3
+```
+
+A resource eligible for disposal must adhere to the Disposable interface:
+
+```typescript
+// lib.esnext.disposable.d.ts
+interface Disposable {
+    [Symbol.dispose](): void;
+}
+```
+
+The `using` declarations record resource disposal operations in a stack, ensuring they are disposed in reverse order of declaration:
+
+<!-- skip -->
+```typescript
+{
+    using j = getA(),
+        y = getB();
+    using k = getC();
+} // disposes `C`, then `B`, then `A`.
+```
+
+Resources are guaranteed to be disposed, even if subsequent code or exceptions occur. This may lead to disposal potentially throwing an exception, possibly suppressing another. To retain information on suppressed errors, a new native exception, `SuppressedError`, is introduced.
+
+#### await using declaration
+
+An `await using` declaration handles an asynchronously disposable resource. The value must have a `Symbol.asyncDispose` method, which will be awaited at the block's end.
+
+<!-- skip -->
+```typescript
+async function doWorkAsync() {
+    await using work = doWorkAsync(); // Resource is declared
+} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+```
+
+For an asynchronously disposable resource, it must adhere to either the `Disposable` or `AsyncDisposable` interface:
+
+```typescript
+// lib.esnext.disposable.d.ts
+interface AsyncDisposable {
+    [Symbol.asyncDispose](): Promise<void>;
+}
+```
+
+<!-- skip -->
+```typescript
+//@ts-ignore
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polify
+
+class DatabaseConnection implements AsyncDisposable {
+    // A method that is called when the object is disposed asynchronously
+    [Symbol.asyncDispose]() {
+        // Close the connection and return a promise
+        return this.close();
+    }
+
+    async close() {
+        console.log('Closing the connection...');
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        console.log('Connection closed.');
+    }
+}
+
+async function doWork() {
+    // Create a new connection and dispose it asynchronously when it goes out of scope
+    await using connection = new DatabaseConnection(); //  Resource is declared
+    console.log('Doing some work...');
+} // 'Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+
+doWork();
+```
+
+The code logs:
+
+```shell
+Doing some work...
+Closing the connection...
+Connection closed.
+```
+
+The `using` and `await using` declarations are allowed in:
+
+* for Statements
+* for-in Statements
+* for-of Statements
+* for-await-of Statements
+* switch Statements

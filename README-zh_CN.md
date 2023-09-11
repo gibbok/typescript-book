@@ -222,6 +222,8 @@
     - [Symbol和模板字符串模式索引签名](#symbol和模板字符串模式索引签名)
     - [satisfies操作符](#satisfies操作符)
     - [仅类型导入和导出](#仅类型导入和导出)
+    - [使用声明和显式资源管理](#使用声明和显式资源管理)
+      - [使用声明等待](#使用声明等待)
 <!-- markdownlint-enable MD004 -->
 
 ## 介绍
@@ -2029,7 +2031,10 @@ class Square {
     constructor(public width: number) {}
 }
 class Rectangle {
-    constructor(public width: number, public height: number) {}
+    constructor(
+        public width: number,
+        public height: number
+    ) {}
 }
 function area(shape: Square | Rectangle) {
     if (shape instanceof Square) {
@@ -3060,7 +3065,10 @@ person1.introduce(); // Hello, my name is Alice.
 
 ```typescript
 class Person {
-    constructor(private name: string, public age: number) {
+    constructor(
+        private name: string,
+        public age: number
+    ) {
         // 构造函数中的“private”和“public”关键字自动声明并初始化相应的类属性。
     }
     public introduce(): void {
@@ -3462,7 +3470,7 @@ function identity<T>(arg: T): T {
 const a = identity('x');
 const b = identity(123);
 
-const getLen = <T>(data: ReadonlyArray<T>) => data.length;
+const getLen = <T,>(data: ReadonlyArray<T>) => data.length;
 const len = getLen([1, 2, 3]);
 ```
 
@@ -4098,7 +4106,10 @@ TypeScript 很好地支持交互器和生成器。
 class NumberIterator implements Iterable<number> {
     private current: number;
 
-    constructor(private start: number, private end: number) {
+    constructor(
+        private start: number,
+        private end: number
+    ) {
         this.current = start;
     }
 
@@ -4774,3 +4785,143 @@ import type * as Types from './mod';
 export type { T };
 export type { T } from './mod';
 ```
+
+### 使用声明和显式资源管理
+
+“using”声明是块范围的、不可变的绑定，类似于“const”，用于管理一次性资源。 当使用值初始化时，该值的“Symbol.dispose”方法将被记录，并随后在退出封闭块作用域时执行。
+
+这是基于 ECMAScript 的资源管理功能，该功能对于在对象创建后执行基本的清理任务非常有用，例如关闭连接、删除文件和释放内存。
+
+笔记：
+
+* 由于最近在 TypeScript 5.2 版中引入，大多数运行时缺乏本机支持。 您将需要以下功能的填充：Symbol.dispose、Symbol.asyncDispose、DisposableStack、AsyncDisposableStack、SuppressedError。
+* 此外，您需要按如下方式配置 tsconfig.json：
+
+```json
+{
+    "compilerOptions": {
+        "target": "es2022",
+        "lib": ["es2022", "esnext.disposable", "dom"]
+    }
+}
+````
+
+例子：
+
+<!-- skip -->
+```typescript
+//@ts-ignore
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polify
+
+const doWork = (): Disposable => {
+    return {
+        [Symbol.dispose]: () => {
+            console.log('disposed');
+        },
+    };
+};
+
+console.log(1);
+
+{
+    using work = doWork(); // Resource is declared
+    console.log(2);
+} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+
+console.log(3);
+```
+
+该代码将记录：
+
+```shell
+1
+2
+disposed
+3
+```
+
+符合处置条件的资源必须遵守 Disposable 接口：
+
+```typescript
+// lib.esnext.disposable.d.ts
+interface Disposable {
+    [Symbol.dispose](): void;
+}
+```
+
+“using”声明在堆栈中记录资源处置操作，确保它们以与声明相反的顺序处置：
+
+<!-- skip -->
+```typescript
+{
+    using j = getA(),
+        y = getB();
+    using k = getC();
+} // disposes `C`, then `B`, then `A`.
+```
+
+即使发生后续代码或异常，也保证会释放资源。 这可能会导致处置可能引发异常，并可能抑制另一个异常。 为了保留有关被抑制错误的信息，引入了一个新的本机异常“SuppressedError”。
+
+#### 使用声明等待
+
+“await using”声明处理异步一次性资源。 该值必须具有“Symbol.asyncDispose”方法，该方法将在块末尾等待。
+
+<!-- skip -->
+```typescript
+async function doWorkAsync() {
+    await using work = doWorkAsync(); // Resource is declared
+} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+```
+
+对于异步可处置资源，它必须遵守“Disposable”或“AsyncDisposable”接口：
+
+```typescript
+// lib.esnext.disposable.d.ts
+interface AsyncDisposable {
+    [Symbol.asyncDispose](): Promise<void>;
+}
+```
+
+<!-- skip -->
+```typescript
+//@ts-ignore
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polify
+
+class DatabaseConnection implements AsyncDisposable {
+    // A method that is called when the object is disposed asynchronously
+    [Symbol.asyncDispose]() {
+        // Close the connection and return a promise
+        return this.close();
+    }
+
+    async close() {
+        console.log('Closing the connection...');
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        console.log('Connection closed.');
+    }
+}
+
+async function doWork() {
+    // Create a new connection and dispose it asynchronously when it goes out of scope
+    await using connection = new DatabaseConnection(); //  Resource is declared
+    console.log('Doing some work...');
+} // 'Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+
+doWork();
+```
+
+代码日志：
+
+```shell
+Doing some work...
+Closing the connection...
+Connection closed.
+```
+
+允许使用“using”和“await using”声明：
+
+* 用于报表
+* for-in 语句
+* for-of 语句
+* for-await-of 语句
+* 切换语句
