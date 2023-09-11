@@ -4893,3 +4893,11 @@ async function doWork() {
 
 doWork();
 ```
+
+It logs:
+
+```
+Doing some work...
+Closing the connection...
+Connection closed.
+```
