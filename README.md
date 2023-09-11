@@ -4805,9 +4805,9 @@ console.clear()
 console.log(1)
 
 {
-    using work = doWork()
+    using work = doWork() // 'resource' is declared
     console.log(2)
-}
+} // 'resource' is disposed (e.g., `resource[Symbol.dispose]()` is evaluated)
 
 console.log(3)
 ```
@@ -4820,3 +4820,30 @@ The code will log:
 disposed
 3
 ```
+
+An "await using" declaration handles an asynchronously disposable resource. The value must have a Symbol.asyncDispose method, which will be awaited at the block's end.
+
+```
+async function doWorkAsync() {
+    // 'resource' is declared
+    await using resource = new MyAsyncResource();
+    ...
+
+} // 'resource' is disposed (e.g., `await resource[Symbol.asyncDispose]()` is evaluated)
+```
+
+A resource eligible for disposal must adhere to the Disposable interface:
+
+```
+// lib.esnext.disposable.d.ts
+interface Disposable {
+    [Symbol.dispose](): void;
+}
+```
+
+For an asynchronously disposable resource, it must adhere to either the Disposable or AsyncDisposable interface:
+
+// lib.esnext.disposable.d.ts
+interface AsyncDisposable {
+    [Symbol.asyncDispose](): Promise<void>;
+}
