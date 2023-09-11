@@ -227,7 +227,8 @@ You can also download the Epub version here:
     - [The satisfies Operator](#the-satisfies-operator)
     - [Type-Only Imports and Export](#type-only-imports-and-export)
     - [using declaration and Explicit Resource Management](#using-declaration-and-explicit-resource-management)
-    - [await using declaration](#await-using-declaration)
+      - [await using declaration](#await-using-declaration)
+    - [await using declaration](#await-using-declaration-1)
 <!-- markdownlint-enable MD004 -->
 ## Introduction
 
@@ -4769,12 +4770,12 @@ export type { T } from './mod';
 
 ### using declaration and Explicit Resource Management
 
-A "using" declaration is a block-scoped declaration with an immutable binding, much like const, for handling disposable resources. Upon initialization with a value, the Symbol.dispose method of that value is noted and subsequently executed when the evaluation exits the enclosing block scope.
+A `using` declaration is a block-scoped, immutable binding, similar to 'const', used for managing disposable resources. When initialized with a value, the Symbol.dispose method of that value is recorded and subsequently executed upon exiting the enclosing block scope.
 
-This is based on the ECMAScript's Resource Management feature which is useful for perform essential cleanup tasks after object creation, such as closing connections, deleting files, and releasing memory.
+This is based on ECMAScript's Resource Management feature, which is useful for performing essential cleanup tasks after object creation, such as closing connections, deleting files, and releasing memory.
 
 Notes:
-Due to its recent introduction in TyperScript version 5.2, most runtimes lack native support. You'll need polyfills for: Symbol.dispose, Symbol.asyncDispose, DisposableStack, AsyncDisposableStack, SuppressedError.
+Due to its recent introduction in TypeScript version 5.2, most runtimes lack native support. You'll need polyfills for: Symbol.dispose, Symbol.asyncDispose, DisposableStack, AsyncDisposableStack, SuppressedError.
 
 Additionally, you will need to configure your tsconfig.json as follows:
 
@@ -4792,7 +4793,7 @@ Example:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol("Symbol.dispose"); // simple polify
+Symbol.dispose ??= Symbol("Symbol.dispose"); // Simple polify
 
 const doWork = (): Disposable => {
     return {
@@ -4806,36 +4807,37 @@ console.clear()
 console.log(1)
 
 {
-    using work = doWork() // 'resource' is declared
+    using work = doWork() // Resource is declared
     console.log(2)
-} // 'resource' is disposed (e.g., `resource[Symbol.dispose]()` is evaluated)
+} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
 
 console.log(3)
 ```
 
 The code will log:
 
-```
+```shell
 1
 2
 disposed
 3
 ```
 
+#### await using declaration
+
 An "await using" declaration handles an asynchronously disposable resource. The value must have a Symbol.asyncDispose method, which will be awaited at the block's end.
 
-```
+```typescript
 async function doWorkAsync() {
-    // 'resource' is declared
-    await using resource = new MyAsyncResource();
+    await using work = new MyAsyncWork(); // Resource is declared
     ...
 
-} // 'resource' is disposed (e.g., `await resource[Symbol.asyncDispose]()` is evaluated)
+} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
 ```
 
 A resource eligible for disposal must adhere to the Disposable interface:
 
-```
+```typescript
 // lib.esnext.disposable.d.ts
 interface Disposable {
     [Symbol.dispose](): void;
@@ -4844,7 +4846,7 @@ interface Disposable {
 
 For an asynchronously disposable resource, it must adhere to either the Disposable or AsyncDisposable interface:
 
-```
+```typescript
 // lib.esnext.disposable.d.ts
 interface AsyncDisposable {
     [Symbol.asyncDispose](): Promise<void>;
@@ -4853,7 +4855,8 @@ interface AsyncDisposable {
 
 The "using" declarations record resource disposal operations in a stack, ensuring they are disposed in reverse order of declaration.
 
-```
+<!-- skip -->
+```typescript
 {
     using j = getA(), y = getB();
     using k = getC();
@@ -4867,9 +4870,9 @@ Resources are guaranteed to be disposed, even if subsequent code or exceptions o
 
 An "await using" is like "using" but for asynchronously disposable resources. These resources may involve asynchronous operations, so their disposal should be awaited.
 
-```typescrpt
+```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol("Symbol.asyncDispose");
+Symbol.asyncDispose ??= Symbol("Symbol.asyncDispose"); // Simple polify
 
 class DatabaseConnection implements AsyncDisposable {
     // A method that is called when the object is disposed asynchronously
@@ -4887,16 +4890,16 @@ class DatabaseConnection implements AsyncDisposable {
 
 async function doWork() {
     // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  'resource' is declared
+    await using connection = new DatabaseConnection(); //  Resource is declared
     console.log("Doing some work...");
-} // 'resource' is disposed (e.g., `await resource[Symbol.asyncDispose]()` is evaluated)
+} // 'Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
 
 doWork();
 ```
 
-It logs:
+The code logs:
 
-```
+```shell
 Doing some work...
 Closing the connection...
 Connection closed.
