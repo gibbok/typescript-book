@@ -4794,7 +4794,7 @@ export type { T } from './mod';
 
 笔记：
 
-* 由于最近在 TypeScript 5.2 版中引入，大多数运行时缺乏本机支持。 您将需要以下功能的填充：Symbol.dispose、Symbol.asyncDispose、DisposableStack、AsyncDisposableStack、SuppressedError。
+* 由于最近在 TypeScript 5.2 版中引入，大多数运行时缺乏本机支持。 您将需要以下功能的填充：`Symbol.dispose`、`Symbol.asyncDispose`、`DisposableStack`、`AsyncDisposableStack`、`SuppressedError`。
 * 此外，您需要按如下方式配置 tsconfig.json：
 
 ```json
