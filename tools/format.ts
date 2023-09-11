@@ -20,7 +20,7 @@ const formatCodeBlocksInMarkdownFile = async (filePath: string, options: Prettie
     }
 
     await fs.promises.writeFile(filePath, formattedMarkdown, 'utf-8');
-    console.log(`${language} Formatted code blocks using Prettier have been updated in the file: ${filePath}`);
+    console.log(`${language} Formatted code blocks have been updated in the file: ${filePath}`);
 }
 
 const main = async () => {
