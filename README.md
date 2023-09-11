@@ -4849,3 +4849,15 @@ interface AsyncDisposable {
     [Symbol.asyncDispose](): Promise<void>;
 }
 ```
+
+The "using" declarations record resource disposal operations in a stack, ensuring they are disposed in reverse order of declaration.
+
+```
+{
+    using j = getA(), y = getB();
+    using k = getC();
+    ...
+} // disposes `C`, then `B`, then `A`.
+```
+
+Resources are guaranteed to be disposed, even if subsequent code or exceptions occur. This may lead to disposal potentially throwing an exception, possibly suppressing another. To retain information on suppressed errors, a new native exception, SuppressedError, is introduced.
