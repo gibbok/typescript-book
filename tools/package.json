@@ -25,7 +25,7 @@
     "husky": "^8.0.3",
     "markdownlint-cli": "^0.35.0",
     "marked": "^5.1.0",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }
