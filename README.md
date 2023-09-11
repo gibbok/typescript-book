@@ -404,12 +404,18 @@ class Animal {
     constructor(public name: string) {}
 }
 class Dog extends Animal {
-    constructor(public name: string, public bark: () => void) {
+    constructor(
+        public name: string,
+        public bark: () => void
+    ) {
         super(name);
     }
 }
 class Cat extends Animal {
-    constructor(public name: string, public meow: () => void) {
+    constructor(
+        public name: string,
+        public meow: () => void
+    ) {
         super(name);
     }
 }
@@ -2014,7 +2020,10 @@ class Square {
     constructor(public width: number) {}
 }
 class Rectangle {
-    constructor(public width: number, public height: number) {}
+    constructor(
+        public width: number,
+        public height: number
+    ) {}
 }
 function area(shape: Square | Rectangle) {
     if (shape instanceof Square) {
@@ -3052,7 +3061,10 @@ Parameter properties allow you to declare and initialize class properties direct
 
 ```typescript
 class Person {
-    constructor(private name: string, public age: number) {
+    constructor(
+        private name: string,
+        public age: number
+    ) {
         // the "private" and "public" keywords in the constructor
         // automatically declare and initialize the corresponding class properties.
     }
@@ -3457,7 +3469,7 @@ function identity<T>(arg: T): T {
 const a = identity('x');
 const b = identity(123);
 
-const getLen = <T>(data: ReadonlyArray<T>) => data.length;
+const getLen = <T,>(data: ReadonlyArray<T>) => data.length;
 const len = getLen([1, 2, 3]);
 ```
 
@@ -3840,7 +3852,10 @@ Extracts the parameter types of a constructor function type T.
 
 ```typescript
 class Person {
-    constructor(public name: string, public age: number) {}
+    constructor(
+        public name: string,
+        public age: number
+    ) {}
 }
 type PersonConstructorParams = ConstructorParameters<typeof Person>; // [name: string, age: number]
 const params: PersonConstructorParams = ['John', 30];
@@ -4094,7 +4109,10 @@ Iterators are objects that implement the iterator protocol, providing a way to a
 class NumberIterator implements Iterable<number> {
     private current: number;
 
-    constructor(private start: number, private end: number) {
+    constructor(
+        private start: number,
+        private end: number
+    ) {
         this.current = start;
     }
 
@@ -4793,25 +4811,25 @@ Example:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol("Symbol.dispose"); // Simple polify
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polify
 
 const doWork = (): Disposable => {
     return {
         [Symbol.dispose]: () => {
-            console.log('disposed')
-        }
-    }
-}
+            console.log('disposed');
+        },
+    };
+};
 
-console.clear()
-console.log(1)
+console.clear();
+console.log(1);
 
 {
-    using work = doWork() // Resource is declared
-    console.log(2)
+    using work = doWork(); // Resource is declared
+    console.log(2);
 } // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
 
-console.log(3)
+console.log(3);
 ```
 
 The code will log:
@@ -4840,8 +4858,6 @@ An `await using` declaration handles an asynchronously disposable resource. The 
 ```typescript
 async function doWorkAsync() {
     await using work = doWorkAsync(); // Resource is declared
-    ...
-
 } // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
 ```
 
@@ -4859,9 +4875,9 @@ The `using` declarations record resource disposal operations in a stack, ensurin
 <!-- skip -->
 ```typescript
 {
-    using j = getA(), y = getB();
+    using j = getA(),
+        y = getB();
     using k = getC();
-    ...
 } // disposes `C`, then `B`, then `A`.
 ```
 
@@ -4874,7 +4890,7 @@ An `await using` declaration is like `using` but for asynchronously disposable r
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol("Symbol.asyncDispose"); // Simple polify
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polify
 
 class DatabaseConnection implements AsyncDisposable {
     // A method that is called when the object is disposed asynchronously
@@ -4884,16 +4900,16 @@ class DatabaseConnection implements AsyncDisposable {
     }
 
     async close() {
-        console.log("Closing the connection...");
+        console.log('Closing the connection...');
         await new Promise(resolve => setTimeout(resolve, 1000));
-        console.log("Connection closed.");
+        console.log('Connection closed.');
     }
 }
 
 async function doWork() {
     // Create a new connection and dispose it asynchronously when it goes out of scope
     await using connection = new DatabaseConnection(); //  Resource is declared
-    console.log("Doing some work...");
+    console.log('Doing some work...');
 } // 'Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
 
 doWork();
