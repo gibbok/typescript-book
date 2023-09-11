@@ -226,6 +226,7 @@ You can also download the Epub version here:
     - [Symbol and Template String Pattern Index Signatures](#symbol-and-template-string-pattern-index-signatures)
     - [The satisfies Operator](#the-satisfies-operator)
     - [Type-Only Imports and Export](#type-only-imports-and-export)
+    - [using declaration and Explicit Resource Management](#using-declaration-and-explicit-resource-management)
 <!-- markdownlint-enable MD004 -->
 ## Introduction
 
@@ -4763,4 +4764,50 @@ import type { A, B } from './mod';
 import type * as Types from './mod';
 export type { T };
 export type { T } from './mod';
+```
+
+### using declaration and Explicit Resource Management
+
+A "using" declaration introduces a block-scoped variable type for handling disposable resources. Upon initialization with a value, the Symbol.dispose method of that value is noted and subsequently executed when the evaluation exits the enclosing block scope.
+
+This is based on the ECMAScript's Resource Management feature which is useful for perform essential cleanup tasks after object creation, such as closing connections, deleting files, and releasing memory.
+
+Notes:
+Due to its recent introduction in TyperScript version 5.2, most runtimes lack native support. You'll need polyfills for: Symbol.dispose, Symbol.asyncDispose, DisposableStack, AsyncDisposableStack, SuppressedError.
+
+Additionally, you will need to configure your tsconfig.json as follows:
+
+```json
+{
+    "compilerOptions": {
+        "target": "es2022",
+        "lib": ["es2022", "esnext.disposable", "dom"]
+    }
+}
+```
+
+Example:
+
+<!-- skip -->
+```typescript
+//@ts-ignore
+Symbol.dispose ??= Symbol("Symbol.dispose"); // simple polify
+
+const doWork = (): Disposable => {
+    return {
+        [Symbol.dispose]: () => {
+            console.log('disposed')
+        }
+    }
+}
+
+console.clear()
+console.log(1)
+
+{
+    using work = doWork()
+    console.log(2)
+}
+
+console.log(3)
 ```

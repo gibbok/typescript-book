@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es2022",
     "module": "commonjs",
     "noImplicitAny": true,
     "esModuleInterop": true,
@@ -11,8 +11,9 @@
     "strict": true,
     "skipLibCheck": true,
     "lib": [
-      "ES2017",
-      "DOM"
+      "es2022",
+      "esnext.disposable",
+      "dom"
     ]
   }
 }
