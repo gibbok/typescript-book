@@ -228,7 +228,6 @@ You can also download the Epub version here:
     - [Type-Only Imports and Export](#type-only-imports-and-export)
     - [using declaration and Explicit Resource Management](#using-declaration-and-explicit-resource-management)
       - [await using declaration](#await-using-declaration)
-    - [await using declaration](#await-using-declaration-1)
 <!-- markdownlint-enable MD004 -->
 ## Introduction
 
@@ -4821,7 +4820,6 @@ const doWork = (): Disposable => {
     };
 };
 
-console.clear();
 console.log(1);
 
 {
@@ -4850,6 +4848,19 @@ interface Disposable {
 }
 ```
 
+The `using` declarations record resource disposal operations in a stack, ensuring they are disposed in reverse order of declaration:
+
+<!-- skip -->
+```typescript
+{
+    using j = getA(),
+        y = getB();
+    using k = getC();
+} // disposes `C`, then `B`, then `A`.
+```
+
+Resources are guaranteed to be disposed, even if subsequent code or exceptions occur. This may lead to disposal potentially throwing an exception, possibly suppressing another. To retain information on suppressed errors, a new native exception, `SuppressedError`, is introduced.
+
 #### await using declaration
 
 An `await using` declaration handles an asynchronously disposable resource. The value must have a `Symbol.asyncDispose` method, which will be awaited at the block's end.
@@ -4869,23 +4880,6 @@ interface AsyncDisposable {
     [Symbol.asyncDispose](): Promise<void>;
 }
 ```
-
-The `using` declarations record resource disposal operations in a stack, ensuring they are disposed in reverse order of declaration:
-
-<!-- skip -->
-```typescript
-{
-    using j = getA(),
-        y = getB();
-    using k = getC();
-} // disposes `C`, then `B`, then `A`.
-```
-
-Resources are guaranteed to be disposed, even if subsequent code or exceptions occur. This may lead to disposal potentially throwing an exception, possibly suppressing another. To retain information on suppressed errors, a new native exception, `SuppressedError`, is introduced.
-
-### await using declaration
-
-An `await using` declaration is like `using` but for asynchronously disposable resources. These resources may involve asynchronous operations, so their disposal should be awaited.
 
 <!-- skip -->
 ```typescript
