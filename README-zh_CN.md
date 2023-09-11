@@ -2031,7 +2031,10 @@ class Square {
     constructor(public width: number) {}
 }
 class Rectangle {
-    constructor(public width: number, public height: number) {}
+    constructor(
+        public width: number,
+        public height: number
+    ) {}
 }
 function area(shape: Square | Rectangle) {
     if (shape instanceof Square) {
@@ -3464,7 +3467,7 @@ function identity<T>(arg: T): T {
 const a = identity('x');
 const b = identity(123);
 
-const getLen = <T>(data: ReadonlyArray<T>) => data.length;
+const getLen = <T,>(data: ReadonlyArray<T>) => data.length;
 const len = getLen([1, 2, 3]);
 ```
 
@@ -4100,7 +4103,10 @@ TypeScript 很好地支持交互器和生成器。
 class NumberIterator implements Iterable<number> {
     private current: number;
 
-    constructor(private start: number, private end: number) {
+    constructor(
+        private start: number,
+        private end: number
+    ) {
         this.current = start;
     }
 
