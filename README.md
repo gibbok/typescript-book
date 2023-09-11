@@ -4887,9 +4887,9 @@ class DatabaseConnection implements AsyncDisposable {
 
 async function doWork() {
     // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection();
+    await using connection = new DatabaseConnection(); //  'resource' is declared
     console.log("Doing some work...");
-}
+} // 'resource' is disposed (e.g., `await resource[Symbol.asyncDispose]()` is evaluated)
 
 doWork();
 ```
