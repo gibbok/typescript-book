@@ -4770,7 +4770,7 @@ export type { T } from './mod';
 
 ### using declaration and Explicit Resource Management
 
-A `using` declaration is a block-scoped, immutable binding, similar to 'const', used for managing disposable resources. When initialized with a value, the Symbol.dispose method of that value is recorded and subsequently executed upon exiting the enclosing block scope.
+A `using` declaration is a block-scoped, immutable binding, similar to `const`, used for managing disposable resources. When initialized with a value, the `Symbol.dispose` method of that value is recorded and subsequently executed upon exiting the enclosing block scope.
 
 This is based on ECMAScript's Resource Management feature, which is useful for performing essential cleanup tasks after object creation, such as closing connections, deleting files, and releasing memory.
 
@@ -4823,19 +4823,6 @@ disposed
 3
 ```
 
-#### await using declaration
-
-An "await using" declaration handles an asynchronously disposable resource. The value must have a Symbol.asyncDispose method, which will be awaited at the block's end.
-
-<!-- skip -->
-```typescript
-async function doWorkAsync() {
-    await using work = new MyAsyncWork(); // Resource is declared
-    ...
-
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
-```
-
 A resource eligible for disposal must adhere to the Disposable interface:
 
 ```typescript
@@ -4845,7 +4832,20 @@ interface Disposable {
 }
 ```
 
-For an asynchronously disposable resource, it must adhere to either the Disposable or AsyncDisposable interface:
+#### await using declaration
+
+An `await using` declaration handles an asynchronously disposable resource. The value must have a `Symbol.asyncDispose` method, which will be awaited at the block's end.
+
+<!-- skip -->
+```typescript
+async function doWorkAsync() {
+    await using work = doWorkAsync(); // Resource is declared
+    ...
+
+} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+```
+
+For an asynchronously disposable resource, it must adhere to either the `Disposable` or `AsyncDisposable` interface:
 
 ```typescript
 // lib.esnext.disposable.d.ts
@@ -4854,7 +4854,7 @@ interface AsyncDisposable {
 }
 ```
 
-The "using" declarations record resource disposal operations in a stack, ensuring they are disposed in reverse order of declaration.
+The `using` declarations record resource disposal operations in a stack, ensuring they are disposed in reverse order of declaration:
 
 <!-- skip -->
 ```typescript
@@ -4865,11 +4865,11 @@ The "using" declarations record resource disposal operations in a stack, ensurin
 } // disposes `C`, then `B`, then `A`.
 ```
 
-Resources are guaranteed to be disposed, even if subsequent code or exceptions occur. This may lead to disposal potentially throwing an exception, possibly suppressing another. To retain information on suppressed errors, a new native exception, SuppressedError, is introduced.
+Resources are guaranteed to be disposed, even if subsequent code or exceptions occur. This may lead to disposal potentially throwing an exception, possibly suppressing another. To retain information on suppressed errors, a new native exception, `SuppressedError`, is introduced.
 
 ### await using declaration
 
-An "await using" is like "using" but for asynchronously disposable resources. These resources may involve asynchronous operations, so their disposal should be awaited.
+An `await using` declaration is like `using` but for asynchronously disposable resources. These resources may involve asynchronous operations, so their disposal should be awaited.
 
 <!-- skip -->
 ```typescript
@@ -4907,7 +4907,7 @@ Closing the connection...
 Connection closed.
 ```
 
-The `using` and `await using`` declarations are allowed in:
+The `using` and `await using` declarations are allowed in:
 
 * for Statements
 * for-in Statements
