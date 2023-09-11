@@ -11,7 +11,7 @@ const lintCodeBlocksInMarkdownFile = async (filePath: string, options: PrettierO
     let match;
     while ((match = CODE_BLOCK_TS_REGEX.exec(markdown)) !== null) {
         const code = match[1].trim() + '\n'
-        const isCodeLinted = prettier.check(code, {
+        const isCodeLinted = await prettier.check(code, {
             parser: 'typescript',
             ...options,
         });
