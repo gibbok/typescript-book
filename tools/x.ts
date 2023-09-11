@@ -1,22 +1,32 @@
 //@ts-ignore
-Symbol.dispose ??= Symbol("Symbol.dispose");
-//@ts-ignore
 Symbol.asyncDispose ??= Symbol("Symbol.asyncDispose");
 
-const doWork = (): Disposable => {
+async function doWork() {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+}
+
+const log = (id: string): AsyncDisposable => {
     return {
-        [Symbol.dispose]: () => {
-            console.log('disposed')
-        }
+        async [Symbol.asyncDispose]() {
+            console.log(`disposing (async) ${id}`);
+            await doWork();
+        },
     }
 }
 
-console.clear()
-console.log(1)
+async function func() {
+    await using a = log("a");
+    await using b = log("b");
+    {
+        await using c = log("c");
+        await using d = log("d");
+    }
+    await using e = log("e");
+    return;
 
-{
-    using work = doWork()
-    console.log(2)
+    // Unreachable.
+    // Never created, never disposed.
+    await using f = log("f");
 }
 
-console.log(3)
+func();
