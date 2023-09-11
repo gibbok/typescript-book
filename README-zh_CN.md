@@ -3065,7 +3065,10 @@ person1.introduce(); // Hello, my name is Alice.
 
 ```typescript
 class Person {
-    constructor(private name: string, public age: number) {
+    constructor(
+        private name: string,
+        public age: number
+    ) {
         // 构造函数中的“private”和“public”关键字自动声明并初始化相应的类属性。
     }
     public introduce(): void {
