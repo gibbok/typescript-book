@@ -4775,9 +4775,9 @@ A `using` declaration is a block-scoped, immutable binding, similar to 'const', 
 This is based on ECMAScript's Resource Management feature, which is useful for performing essential cleanup tasks after object creation, such as closing connections, deleting files, and releasing memory.
 
 Notes:
-Due to its recent introduction in TypeScript version 5.2, most runtimes lack native support. You'll need polyfills for: Symbol.dispose, Symbol.asyncDispose, DisposableStack, AsyncDisposableStack, SuppressedError.
 
-Additionally, you will need to configure your tsconfig.json as follows:
+* Due to its recent introduction in TypeScript version 5.2, most runtimes lack native support. You'll need polyfills for: Symbol.dispose, Symbol.asyncDispose, DisposableStack, AsyncDisposableStack, SuppressedError.
+* Additionally, you will need to configure your tsconfig.json as follows:
 
 ```json
 {
@@ -4827,6 +4827,7 @@ disposed
 
 An "await using" declaration handles an asynchronously disposable resource. The value must have a Symbol.asyncDispose method, which will be awaited at the block's end.
 
+<!-- skip -->
 ```typescript
 async function doWorkAsync() {
     await using work = new MyAsyncWork(); // Resource is declared
@@ -4870,6 +4871,7 @@ Resources are guaranteed to be disposed, even if subsequent code or exceptions o
 
 An "await using" is like "using" but for asynchronously disposable resources. These resources may involve asynchronous operations, so their disposal should be awaited.
 
+<!-- skip -->
 ```typescript
 //@ts-ignore
 Symbol.asyncDispose ??= Symbol("Symbol.asyncDispose"); // Simple polify
