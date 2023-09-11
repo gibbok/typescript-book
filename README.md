@@ -4811,3 +4811,12 @@ console.log(1)
 
 console.log(3)
 ```
+
+The code will log:
+
+```
+1
+2
+disposed
+3
+```
