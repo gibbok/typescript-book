@@ -4793,7 +4793,7 @@ This is based on ECMAScript's Resource Management feature, which is useful for p
 
 Notes:
 
-* Due to its recent introduction in TypeScript version 5.2, most runtimes lack native support. You'll need polyfills for: Symbol.dispose, Symbol.asyncDispose, DisposableStack, AsyncDisposableStack, SuppressedError.
+* Due to its recent introduction in TypeScript version 5.2, most runtimes lack native support. You'll need polyfills for: `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`.
 * Additionally, you will need to configure your tsconfig.json as follows:
 
 ```json
@@ -4917,10 +4917,4 @@ Closing the connection...
 Connection closed.
 ```
 
-The `using` and `await using` declarations are allowed in:
-
-* for Statements
-* for-in Statements
-* for-of Statements
-* for-await-of Statements
-* switch Statements
+The `using` and `await using` declarations are allowed in Statements: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.

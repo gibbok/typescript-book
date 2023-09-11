@@ -4794,7 +4794,7 @@ export type { T } from './mod';
 
 笔记：
 
-* 由于最近在 TypeScript 5.2 版中引入，大多数运行时缺乏本机支持。 您将需要以下功能的填充：Symbol.dispose、Symbol.asyncDispose、DisposableStack、AsyncDisposableStack、SuppressedError。
+* 由于最近在 TypeScript 5.2 版中引入，大多数运行时缺乏本机支持。 您将需要以下功能的填充：`Symbol.dispose`、`Symbol.asyncDispose`、`DisposableStack`、`AsyncDisposableStack`、`SuppressedError`。
 * 此外，您需要按如下方式配置 tsconfig.json：
 
 ```json
@@ -4918,10 +4918,4 @@ Closing the connection...
 Connection closed.
 ```
 
-允许使用“using”和“await using”声明：
-
-* 用于报表
-* for-in 语句
-* for-of 语句
-* for-await-of 语句
-* 切换语句
+语句中允许使用“using”和“await using”声明：“for”、“for-in”、“for-of”、“for-await-of”、“switch”。
