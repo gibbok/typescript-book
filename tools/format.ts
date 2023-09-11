@@ -12,6 +12,7 @@ const formatCodeBlocksInMarkdownFile = async (filePath: string, options: Prettie
     while ((match = CODE_BLOCK_TS_REGEX.exec(markdown)) !== null) {
         const codeBlock = match[0];
         const code = match[1].trim();
+        //@ts-ignore
         const formattedCode = await prettier.format(code, {
             parser: 'typescript',
             ...options,
