@@ -4901,3 +4901,11 @@ Doing some work...
 Closing the connection...
 Connection closed.
 ```
+
+The `using` and `await using`` declarations are allowed in:
+
+* for Statements
+* for-in Statements
+* for-of Statements
+* for-await-of Statements
+* switch Statements
