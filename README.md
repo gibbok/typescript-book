@@ -4917,10 +4917,4 @@ Closing the connection...
 Connection closed.
 ```
 
-The `using` and `await using` declarations are allowed in:
-
-* for Statements
-* for-in Statements
-* for-of Statements
-* for-await-of Statements
-* switch Statements
+The `using` and `await using` declarations are allowed in Statements: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.

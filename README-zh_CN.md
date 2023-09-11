@@ -4918,10 +4918,4 @@ Closing the connection...
 Connection closed.
 ```
 
-允许使用“using”和“await using”声明：
-
-* 用于报表
-* for-in 语句
-* for-of 语句
-* for-await-of 语句
-* 切换语句
+语句中允许使用“using”和“await using”声明：“for”、“for-in”、“for-of”、“for-await-of”、“switch”。
