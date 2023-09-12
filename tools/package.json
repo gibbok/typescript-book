@@ -10,7 +10,7 @@
     "prepare": "cd .. && husky install .husky",
     "lint": "ts-node lint",
     "lint:md": "markdownlint \".\/*.md\" markdownlint \"..\/*.md\"",
-    "check": "npm run lint:md && npm run format && npm run compile",
+    "check": "npm run lint:md && npm run format && npm run compile"
   },
   "author": "",
   "license": "ISC",
