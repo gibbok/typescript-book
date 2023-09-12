@@ -3310,7 +3310,7 @@ Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata;
+    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
     // Set the metadata object with a primitive value
