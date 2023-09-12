@@ -151,6 +151,7 @@
       - [属性装饰器](#属性装饰器)
       - [方法装饰器](#方法装饰器)
       - [Getter 和 Setter 装饰器](#getter-和-setter-装饰器)
+    - [装饰器元数据](#装饰器元数据)
     - [继承](#继承)
     - [静态成员](#静态成员)
     - [属性初始化](#属性初始化)
@@ -229,6 +230,8 @@
 ## 介绍
 
 欢迎来到简洁的TypeScript之书！本指南为您提供有效 TypeScript 开发的基本知识和实践技能。发现编写干净、健壮的代码的关键概念和技术。无论您是初学者还是经验丰富的开发人员，本书都可以作为在项目中利用 TypeScript 强大功能的综合指南和便捷参考。
+
+本书涵盖了 TypeScript 5.2。
 
 ## 关于作者
 
@@ -3294,6 +3297,43 @@ console.log(obj.getValue); // Valid: 10
 
 const obj2 = new MyClass(999);
 console.log(obj2.getValue); // Throw: Invalid!
+```
+
+### 装饰器元数据
+
+装饰器元数据简化了装饰器在任何类中应用和利用元数据的过程。 他们可以访问上下文对象上的新元数据属性，该属性可以充当基元和对象的密钥。
+可以通过“Symbol.metadata”在类上访问元数据信息。
+
+元数据可用于各种目的，例如调试、序列化或使用装饰器的依赖项注入。
+
+```typescript
+//@ts-ignore
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
+
+type Context =
+    | ClassFieldDecoratorContext
+    | ClassAccessorDecoratorContext
+    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+
+function setMetadata(_target: any, context: Context) {
+    // Set the metadata object with a primitive value
+    context.metadata[context.name] = true;
+}
+
+class MyClass {
+    @setMetadata
+    a = 123;
+
+    @setMetadata
+    accessor b = 'b';
+
+    @setMetadata
+    fn() {}
+}
+
+const metadata = MyClass[Symbol.metadata]; // Get metadata information
+
+console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
 
 ### 继承

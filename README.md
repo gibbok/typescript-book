@@ -156,6 +156,7 @@ You can also download the Epub version here:
       - [Property Decorator](#property-decorator)
       - [Method Decorator](#method-decorator)
       - [Getter and Setter Decorators](#getter-and-setter-decorators)
+      - [Decorator Metadata](#decorator-metadata)
     - [Inheritance](#inheritance)
     - [Statics](#statics)
     - [Property initialization](#property-initialization)
@@ -232,6 +233,8 @@ You can also download the Epub version here:
 ## Introduction
 
 Welcome to The Concise TypeScript Book! This guide equips you with essential knowledge and practical skills for effective TypeScript development. Discover key concepts and techniques to write clean, robust code. Whether you're a beginner or an experienced developer, this book serves as both a comprehensive guide and a handy reference for leveraging TypeScript's power in your projects.
+
+This book covers TypeScript 5.2.
 
 ## About the author
 
@@ -3291,6 +3294,43 @@ console.log(obj.getValue); // Valid: 10
 
 const obj2 = new MyClass(999);
 console.log(obj2.getValue); // Throw: Invalid!
+```
+
+#### Decorator Metadata
+
+Decorator Metadata simplifies the process for decorators to apply and utilize metadata in any class. They can access a new metadata property on the context object, which can serve as a key for both primitives and objects.
+Metadata information can be accessed on the class via `Symbol.metadata`.
+
+Metadata can be used for various purposes, such as debugging, serialization, or dependency injection with decorators.
+
+```typescript
+//@ts-ignore
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
+
+type Context =
+    | ClassFieldDecoratorContext
+    | ClassAccessorDecoratorContext
+    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+
+function setMetadata(_target: any, context: Context) {
+    // Set the metadata object with a primitive value
+    context.metadata[context.name] = true;
+}
+
+class MyClass {
+    @setMetadata
+    a = 123;
+
+    @setMetadata
+    accessor b = 'b';
+
+    @setMetadata
+    fn() {}
+}
+
+const metadata = MyClass[Symbol.metadata]; // Get metadata information
+
+console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
 
 ### Inheritance
