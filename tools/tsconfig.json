@@ -13,6 +13,7 @@
     "lib": [
       "es2022",
       "esnext.disposable",
+      "esnext.decorators",
       "dom"
     ]
   }
