@@ -151,6 +151,7 @@
       - [属性装饰器](#属性装饰器)
       - [方法装饰器](#方法装饰器)
       - [Getter 和 Setter 装饰器](#getter-和-setter-装饰器)
+    - [装饰器元数据](#装饰器元数据)
     - [继承](#继承)
     - [静态成员](#静态成员)
     - [属性初始化](#属性初始化)
@@ -224,7 +225,6 @@
     - [仅类型导入和导出](#仅类型导入和导出)
     - [使用声明和显式资源管理](#使用声明和显式资源管理)
       - [使用声明等待](#使用声明等待)
-    - [装饰器元数据](#装饰器元数据)
 <!-- markdownlint-enable MD004 -->
 
 ## 介绍
@@ -3297,6 +3297,43 @@ const obj2 = new MyClass(999);
 console.log(obj2.getValue); // Throw: Invalid!
 ```
 
+### 装饰器元数据
+
+装饰器元数据简化了装饰器在任何类中应用和利用元数据的过程。 他们可以访问上下文对象上的新元数据属性，该属性可以充当基元和对象的密钥。
+可以通过“Symbol.metadata”在类上访问元数据信息。
+
+元数据可用于各种目的，例如调试、序列化或使用装饰器的依赖项注入。
+
+```typescript
+//@ts-ignore
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
+
+type Context =
+    | ClassFieldDecoratorContext
+    | ClassAccessorDecoratorContext
+    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata;
+
+function setMetadata(_target: any, context: Context) {
+    // Set the metadata object with a primitive value
+    context.metadata[context.name] = true;
+}
+
+class MyClass {
+    @setMetadata
+    a = 123;
+
+    @setMetadata
+    accessor b = 'b';
+
+    @setMetadata
+    fn() {}
+}
+
+const metadata = MyClass[Symbol.metadata]; // Get metadata information
+
+console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
+```
+
 ### 继承
 
 继承是指一个类可以从另一个类（称为基类或超类）继承属性和方法的机制。派生类也称为子类或子类，可以通过添加新的属性和方法或重写现有的属性和方法来扩展和专门化基类的功能。
@@ -4920,40 +4957,3 @@ Connection closed.
 ```
 
 语句中允许使用“using”和“await using”声明：“for”、“for-in”、“for-of”、“for-await-of”、“switch”。
-
-### 装饰器元数据
-
-装饰器元数据简化了装饰器在任何类中应用和利用元数据的过程。 他们可以访问上下文对象上的新元数据属性，该属性可以充当基元和对象的密钥。
-可以通过“Symbol.metadata”在类上访问元数据信息。
-
-元数据可用于各种目的，例如调试、序列化或使用装饰器的依赖项注入。
-
-```typescript
-//@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
-
-type Context =
-    | ClassFieldDecoratorContext
-    | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata;
-
-function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
-    context.metadata[context.name] = true;
-}
-
-class MyClass {
-    @setMetadata
-    a = 123;
-
-    @setMetadata
-    accessor b = 'b';
-
-    @setMetadata
-    fn() {}
-}
-
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
-
-console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
-```
