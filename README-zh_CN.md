@@ -4930,10 +4930,12 @@ Connection closed.
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol("Symbol.metadata"); // Simple polify
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
 
 type Context =
-    | ClassFieldDecoratorContext | ClassAccessorDecoratorContext | ClassMethodDecoratorContext // Context contains property metadata: DecoratorMetadata;
+    | ClassFieldDecoratorContext
+    | ClassAccessorDecoratorContext
+    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata;
 
 function setMetadata(_target: any, context: Context) {
     // Set the metadata object with a primitive value
@@ -4945,10 +4947,10 @@ class MyClass {
     a = 123;
 
     @setMetadata
-    accessor b = "b";
+    accessor b = 'b';
 
     @setMetadata
-    fn() { }
+    fn() {}
 }
 
 const metadata = MyClass[Symbol.metadata]; // Get metadata information
