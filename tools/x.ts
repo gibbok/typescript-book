@@ -1,30 +1,30 @@
 
 //@ts-ignore
-Symbol.metadata ??= Symbol("Symbol.metadata");
+Symbol.metadata ??= Symbol("Symbol.metadata"); // Simple polify
 
 type Context =
-    | ClassFieldDecoratorContext | ClassAccessorDecoratorContext | ClassMethodDecoratorContext
+    | ClassFieldDecoratorContext | ClassAccessorDecoratorContext | ClassMethodDecoratorContext // Context contains property metadata: DecoratorMetadata;
 
 function setMetadata(_target: any, context: Context) {
-    console.log(_target)
+    // Set the metadata object with a custom value
     context.metadata[context.name] = true;
 }
 
-class SomeClass {
+class MyClass {
     @setMetadata
-    foo = 123;
+    a = 123;
 
     @setMetadata
-    accessor bar = "hello!";
+    accessor b = "b";
 
     @setMetadata
-    baz() { }
+    fn() { }
 }
 
-const ourMetadata = SomeClass[Symbol.metadata];
+// Get metadata information
+const metadata = MyClass[Symbol.metadata];
 
-console.log(JSON.stringify(ourMetadata));
-// { "bar": true, "baz": true, "foo": true }
+console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 
 
 // const serializables = Symbol();
