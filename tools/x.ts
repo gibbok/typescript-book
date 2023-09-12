@@ -2,94 +2,91 @@
 //@ts-ignore
 Symbol.metadata ??= Symbol("Symbol.metadata");
 
-// interface Context {
-//     name: string;
-//     metadata: DecoratorMetadataObject;
-// }
-
-// // ClassAccessorDecoratorTarget
-
-// function setMetadata(_target: any, context: Context) {
-//     context.metadata[context.name] = true;
-// }
-
-// class SomeClass {
-//     @setMetadata
-//     foo = 123;
-
-//     @setMetadata
-//     accessor bar = "hello!";
-
-//     @setMetadata
-//     baz() { }
-// }
-
-// const ourMetadata = SomeClass[Symbol.metadata];
-
-// console.log(JSON.stringify(ourMetadata));
-// // { "bar": true, "baz": true, "foo": true }
-
-
-const serializables = Symbol();
-
 type Context =
-    | ClassAccessorDecoratorContext
-    | ClassGetterDecoratorContext
-    | ClassFieldDecoratorContext
-    ;
+    | ClassFieldDecoratorContext | ClassAccessorDecoratorContext | ClassMethodDecoratorContext
 
-export function serialize(_target: any, context: Context): void {
+function setMetadata(_target: any, context: Context) {
     console.log(_target)
-    if (context.static || context.private) {
-        throw new Error("Can only serialize public instance members.")
-    }
-    if (typeof context.name === "symbol") {
-        throw new Error("Cannot serialize symbol-named properties.");
-    }
-
-    const propNames =
-        (context.metadata[serializables] as string[] | undefined) ??= [];
-    propNames.push(context.name);
+    context.metadata[context.name] = true;
 }
 
-export function jsonify(instance: object): string {
-    const metadata = instance.constructor[Symbol.metadata];
-    const propNames = metadata?.[serializables] as string[] | undefined;
-    if (!propNames) {
-        throw new Error("No members marked with @serialize.");
-    }
+class SomeClass {
+    @setMetadata
+    foo = 123;
 
-    const pairStrings = propNames.map(key => {
-        const strKey = JSON.stringify(key);
-        const strValue = JSON.stringify((instance as any)[key]);
-        return `${strKey}: ${strValue}`;
-    });
+    @setMetadata
+    accessor bar = "hello!";
 
-    return `{ ${pairStrings.join(", ")} }`;
+    @setMetadata
+    baz() { }
 }
 
-class Person {
-    firstName: string;
-    lastName: string;
+const ourMetadata = SomeClass[Symbol.metadata];
 
-    @serialize
-    age: number
+console.log(JSON.stringify(ourMetadata));
+// { "bar": true, "baz": true, "foo": true }
 
-    @serialize
-    get fullName() {
-        return `${this.firstName} ${this.lastName}`;
-    }
 
-    toJSON() {
-        return jsonify(this)
-    }
+// const serializables = Symbol();
 
-    constructor(firstName: string, lastName: string, age: number) {
-        this.firstName = firstName
-        this.lastName = lastName
-        this.age = age
-    }
-}
+// type Context =
+//     | ClassAccessorDecoratorContext
+//     | ClassGetterDecoratorContext
+//     | ClassFieldDecoratorContext
+//     ;
 
-const p = new Person('John', 'Smith', 20)
-console.log(p.toJSON())
+// export function serialize(_target: any, context: Context): void {
+//     console.log(_target)
+//     if (context.static || context.private) {
+//         throw new Error("Can only serialize public instance members.")
+//     }
+//     if (typeof context.name === "symbol") {
+//         throw new Error("Cannot serialize symbol-named properties.");
+//     }
+
+//     const propNames =
+//         (context.metadata[serializables] as string[] | undefined) ??= [];
+//     propNames.push(context.name);
+// }
+
+// export function jsonify(instance: object): string {
+//     const metadata = instance.constructor[Symbol.metadata];
+//     const propNames = metadata?.[serializables] as string[] | undefined;
+//     if (!propNames) {
+//         throw new Error("No members marked with @serialize.");
+//     }
+
+//     const pairStrings = propNames.map(key => {
+//         const strKey = JSON.stringify(key);
+//         const strValue = JSON.stringify((instance as any)[key]);
+//         return `${strKey}: ${strValue}`;
+//     });
+
+//     return `{ ${pairStrings.join(", ")} }`;
+// }
+
+// class Person {
+//     firstName: string;
+//     lastName: string;
+
+//     @serialize
+//     age: number
+
+//     @serialize
+//     get fullName() {
+//         return `${this.firstName} ${this.lastName}`;
+//     }
+
+//     toJSON() {
+//         return jsonify(this)
+//     }
+
+//     constructor(firstName: string, lastName: string, age: number) {
+//         this.firstName = firstName
+//         this.lastName = lastName
+//         this.age = age
+//     }
+// }
+
+// const p = new Person('John', 'Smith', 20)
+// console.log(p.toJSON())
