@@ -4920,7 +4920,6 @@ Connection closed.
 
 The `using` and `await using` declarations are allowed in Statements: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.
 
-
 ### Decorator Metadata
 
 Decorator Metadata simplifies the process for decorators to apply and utilize metadata in any class. They can access a new metadata property on the context object, which can serve as a key for both primitives and objects.

@@ -224,6 +224,7 @@
     - [仅类型导入和导出](#仅类型导入和导出)
     - [使用声明和显式资源管理](#使用声明和显式资源管理)
       - [使用声明等待](#使用声明等待)
+    - [装饰器元数据](#装饰器元数据)
 <!-- markdownlint-enable MD004 -->
 
 ## 介绍
@@ -4919,3 +4920,38 @@ Connection closed.
 ```
 
 语句中允许使用“using”和“await using”声明：“for”、“for-in”、“for-of”、“for-await-of”、“switch”。
+
+### 装饰器元数据
+
+装饰器元数据简化了装饰器在任何类中应用和利用元数据的过程。 他们可以访问上下文对象上的新元数据属性，该属性可以充当基元和对象的密钥。
+可以通过“Symbol.metadata”在类上访问元数据信息。
+
+元数据可用于各种目的，例如调试、序列化或使用装饰器的依赖项注入。
+
+```typescript
+//@ts-ignore
+Symbol.metadata ??= Symbol("Symbol.metadata"); // Simple polify
+
+type Context =
+    | ClassFieldDecoratorContext | ClassAccessorDecoratorContext | ClassMethodDecoratorContext // Context contains property metadata: DecoratorMetadata;
+
+function setMetadata(_target: any, context: Context) {
+    // Set the metadata object with a primitive value
+    context.metadata[context.name] = true;
+}
+
+class MyClass {
+    @setMetadata
+    a = 123;
+
+    @setMetadata
+    accessor b = "b";
+
+    @setMetadata
+    fn() { }
+}
+
+const metadata = MyClass[Symbol.metadata]; // Get metadata information
+
+console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
+```
