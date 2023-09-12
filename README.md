@@ -156,6 +156,7 @@ You can also download the Epub version here:
       - [Property Decorator](#property-decorator)
       - [Method Decorator](#method-decorator)
       - [Getter and Setter Decorators](#getter-and-setter-decorators)
+      - [Decorator Metadata](#decorator-metadata)
     - [Inheritance](#inheritance)
     - [Statics](#statics)
     - [Property initialization](#property-initialization)
@@ -228,7 +229,6 @@ You can also download the Epub version here:
     - [Type-Only Imports and Export](#type-only-imports-and-export)
     - [using declaration and Explicit Resource Management](#using-declaration-and-explicit-resource-management)
       - [await using declaration](#await-using-declaration)
-    - [Decorator Metadata](#decorator-metadata)
 <!-- markdownlint-enable MD004 -->
 ## Introduction
 
@@ -3294,6 +3294,43 @@ const obj2 = new MyClass(999);
 console.log(obj2.getValue); // Throw: Invalid!
 ```
 
+#### Decorator Metadata
+
+Decorator Metadata simplifies the process for decorators to apply and utilize metadata in any class. They can access a new metadata property on the context object, which can serve as a key for both primitives and objects.
+Metadata information can be accessed on the class via `Symbol.metadata`.
+
+Metadata can be used for various purposes, such as debugging, serialization, or dependency injection with decorators.
+
+```typescript
+//@ts-ignore
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
+
+type Context =
+    | ClassFieldDecoratorContext
+    | ClassAccessorDecoratorContext
+    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata;
+
+function setMetadata(_target: any, context: Context) {
+    // Set the metadata object with a primitive value
+    context.metadata[context.name] = true;
+}
+
+class MyClass {
+    @setMetadata
+    a = 123;
+
+    @setMetadata
+    accessor b = 'b';
+
+    @setMetadata
+    fn() {}
+}
+
+const metadata = MyClass[Symbol.metadata]; // Get metadata information
+
+console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
+```
+
 ### Inheritance
 
 Inheritance refers to the mechanism by which a class can inherit properties and methods from another class, known as the base class or superclass. The derived class, also called the child class or subclass, can extend and specialize the functionality of the base class by adding new properties and methods or overriding existing ones.
@@ -4919,40 +4956,3 @@ Connection closed.
 ```
 
 The `using` and `await using` declarations are allowed in Statements: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.
-
-### Decorator Metadata
-
-Decorator Metadata simplifies the process for decorators to apply and utilize metadata in any class. They can access a new metadata property on the context object, which can serve as a key for both primitives and objects.
-Metadata information can be accessed on the class via `Symbol.metadata`.
-
-Metadata can be used for various purposes, such as debugging, serialization, or dependency injection with decorators.
-
-```typescript
-//@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
-
-type Context =
-    | ClassFieldDecoratorContext
-    | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata;
-
-function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
-    context.metadata[context.name] = true;
-}
-
-class MyClass {
-    @setMetadata
-    a = 123;
-
-    @setMetadata
-    accessor b = 'b';
-
-    @setMetadata
-    fn() {}
-}
-
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
-
-console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
-```
