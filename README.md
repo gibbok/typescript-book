@@ -64,9 +64,9 @@ You can also download the Epub version here:
     - [More advanced inferences](#more-advanced-inferences)
     - [Type Widening](#type-widening)
     - [Const](#const)
-      - [const modifier on type parameters](#const-modifier-on-type-parameters)
+      - [Const modifier on type parameters](#const-modifier-on-type-parameters)
+      - [Const assertion](#const-assertion)
     - [Explicit Type Annotation](#explicit-type-annotation)
-    - [Const assertion](#const-assertion)
     - [Type Narrowing](#type-narrowing)
       - [Conditions](#conditions)
       - [Throwing or returning](#throwing-or-returning)
@@ -1297,7 +1297,7 @@ y = x; // Valid: The type of x is inferred as 'x'
 By using `const` to declare the variable x, its type is narrowed to the specific literal value 'x'. Since the type of x is narrowed, it can be assigned to the variable y without any error.
 The reason the type can be inferred is because `const` variables cannot be reassigned, so their type can be narrowed down to a specific literal type, in this case, the literal type 'x'.
 
-#### const modifier on type parameters
+#### Const modifier on type parameters
 
 From version 5.0 of TypeScript, it is possible to specify the `const` attribute on a generic type parameter. This allows for inferring the most precise type possible. Let's see an example without using `const`:
 
@@ -1323,27 +1323,7 @@ const values = identity({ a: 'a', b: 'b' }); // Type infered is: { a: "a"; b: "b
 
 Now we can see that the properties `a` and `b` are inferred as `const`, so `a` and `b` are treated as string literals rather than just `string` types.
 
-### Explicit Type Annotation
-
-We can be specific and pass a type, in the following example property `x` is of type `number`:
-
-```typescript
-const v = {
-    x: 1, // Inferred type: number (widening)
-};
-v.x = 3; // Valid
-```
-
-We can make the type annotation more specific by using a union of literal types:
-
-```typescript
-const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
-};
-v.x = 3; // Valid
-```
-
-### Const assertion
+#### Const assertion
 
 Const assertion allows us to be more specific by asserting a `const` type. It can be used on individual properties or on an entire object. Here are a few examples:
 
@@ -1370,6 +1350,26 @@ This can be particularly useful when defining the type for a tuple:
 ```typescript
 const x = [1, 2, 3]; // number[]
 const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+```
+
+### Explicit Type Annotation
+
+We can be specific and pass a type, in the following example property `x` is of type `number`:
+
+```typescript
+const v = {
+    x: 1, // Inferred type: number (widening)
+};
+v.x = 3; // Valid
+```
+
+We can make the type annotation more specific by using a union of literal types:
+
+```typescript
+const v: { x: 1 | 2 | 3 } = {
+    x: 1, // x is now a union of literal types: 1 | 2 | 3
+};
+v.x = 3; // Valid
 ```
 
 ### Type Narrowing
