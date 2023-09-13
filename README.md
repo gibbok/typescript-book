@@ -111,7 +111,7 @@ You can also download the Epub version here:
   - [Exhaustiveness checking](#exhaustiveness-checking)
   - [Object Types](#object-types)
   - [Tuple Type (anonymous)](#tuple-type-anonymous)
-  - [Named Tuple Type](#named-tuple-type)
+  - [Named Tuple Type (labeled)](#named-tuple-type-labeled)
   - [Fixed length tuple](#fixed-length-tuple)
   - [Union Type](#union-type)
   - [Intersection Types](#intersection-types)
@@ -2238,7 +2238,7 @@ A Tuple Type is a type that represents an array with a fixed number of elements 
 type Point = [number, number];
 ```
 
-## Named Tuple Type
+## Named Tuple Type (labeled)
 
 Tuple types can include optional labels or names for each element. These labels are for readability and tooling assistance, and do not affect the operations you can perform with them.
 
