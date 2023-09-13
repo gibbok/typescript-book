@@ -210,7 +210,6 @@ You can also download the Epub version here:
     - [“tsc –watch”](#tsc-watch)
     - [Definite Assignment Assertions (!)](#definite-assignment-assertions-)
     - [Defaulted declarations](#defaulted-declarations)
-    - [“const“ assertions](#const-assertions)
     - [Optional Chaining](#optional-chaining)
     - [Nullish coalescing operator (??)](#nullish-coalescing-operator-)
     - [Template Literal Types](#template-literal-types)
@@ -1325,7 +1324,7 @@ Now we can see that the properties `a` and `b` are inferred as `const`, so `a` a
 
 #### Const assertion
 
-Const assertion allows us to be more specific by asserting a `const` type. It can be used on individual properties or on an entire object. Here are a few examples:
+This feature allows you to declare a variable with a more precise literal type based on its initialization value, signifying to the compiler that the value should be treated as an immutable literal. Here are a few examples:
 
 On a single property:
 
@@ -4377,16 +4376,6 @@ function greet(name: string = 'Anonymous'): void {
 }
 greet(); // Hello, Anonymous!
 greet('John'); // Hello, John!
-```
-
-### “const“ assertions
-
-Const assertions are a feature that allows you to declare a variable with a more specific literal type based on its initialization value. It is a way to state to the compiler that the value has to be treated as an immutable literal.
-
-<!-- skip -->
-```typescript
-let arr = [1, 2, 3] as const; // readonly [1, 2, 3]
-arr.push(4); // Invalid
 ```
 
 ### Optional Chaining
