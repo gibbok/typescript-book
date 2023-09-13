@@ -16,25 +16,25 @@ You can also download the Epub version here:
 
 <https://github.com/gibbok/typescript-book/tree/main/downloads>
 
-## Table of content
+## Table of Content
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](#the-concise-typescript-book)
   - [Translations](#translations)
   - [Downloads](#downloads)
-  - [Table of content](#table-of-content)
+  - [Table of Content](#table-of-content)
   - [Introduction](#introduction)
-  - [About the author](#about-the-author)
-  - [TypeScript an introduction](#typescript-an-introduction)
+  - [About the Author](#about-the-author)
+  - [TypeScript Introduction](#typescript-introduction)
     - [What is TypeScript?](#what-is-typescript)
     - [Why TypeScript?](#why-typescript)
     - [TypeScript and JavaScript](#typescript-and-javascript)
-    - [TypeScript code generation](#typescript-code-generation)
+    - [TypeScript Code Generation](#typescript-code-generation)
     - [Modern JavaScript Now (Downleveling)](#modern-javascript-now-downleveling)
   - [Getting Started With TypeScript](#getting-started-with-typescript)
     - [Installation](#installation)
     - [Configuration](#configuration)
-    - [TypeScript configuration file ​​tsconfig.json](#typescript-configuration-file-tsconfigjson)
+    - [TypeScript Configuration File ​​tsconfig.json](#typescript-configuration-file-tsconfigjson)
       - [target](#target)
       - [lib](#lib)
       - [strict](#strict)
@@ -61,17 +61,17 @@ You can also download the Epub version here:
     - [Weak Types](#weak-types)
     - [Strict Object Literal Checking (Freshness)](#strict-object-literal-checking-freshness)
     - [Type Inference](#type-inference)
-    - [More advanced inferences](#more-advanced-inferences)
+    - [More Advanced Inferences](#more-advanced-inferences)
     - [Type Widening](#type-widening)
     - [Const](#const)
-      - [Const modifier on type parameters](#const-modifier-on-type-parameters)
+      - [Const Modifier on Type Parameters](#const-modifier-on-type-parameters)
       - [Const assertion](#const-assertion)
     - [Explicit Type Annotation](#explicit-type-annotation)
     - [Type Narrowing](#type-narrowing)
       - [Conditions](#conditions)
       - [Throwing or returning](#throwing-or-returning)
-      - [Discriminated union](#discriminated-union)
-      - [User-defined type guards](#user-defined-type-guards)
+      - [Discriminated Union](#discriminated-union)
+      - [User-Defined Type Guards](#user-defined-type-guards)
   - [Primitive Types](#primitive-types)
     - [string](#string)
     - [boolean](#boolean)
@@ -101,18 +101,18 @@ You can also download the Epub version here:
     - [typeof type guards](#typeof-type-guards)
     - [Truthiness narrowing](#truthiness-narrowing)
     - [Equality narrowing](#equality-narrowing)
-    - [In operator narrowing](#in-operator-narrowing)
+    - [In Operator narrowing](#in-operator-narrowing)
     - [instanceof narrowing](#instanceof-narrowing)
   - [Assignments](#assignments)
-  - [Control flow analysis](#control-flow-analysis)
-  - [type predicates](#type-predicates)
-  - [Discriminated unions](#discriminated-unions)
-  - [The never type](#the-never-type)
+  - [Control Flow Analysis](#control-flow-analysis)
+  - [type Predicates](#type-predicates)
+  - [Discriminated Unions](#discriminated-unions)
+  - [The never Type](#the-never-type)
   - [Exhaustiveness checking](#exhaustiveness-checking)
   - [Object Types](#object-types)
-  - [Tuple Type (anonymous)](#tuple-type-anonymous)
-  - [Named Tuple Type (labeled)](#named-tuple-type-labeled)
-  - [Fixed length tuple](#fixed-length-tuple)
+  - [Tuple Type (Anonymous)](#tuple-type-anonymous)
+  - [Named Tuple Type (Labeled)](#named-tuple-type-labeled)
+  - [Fixed Length Tuple](#fixed-length-tuple)
   - [Union Type](#union-type)
   - [Intersection Types](#intersection-types)
   - [Type Indexing](#type-indexing)
@@ -122,9 +122,9 @@ You can also download the Epub version here:
   - [Mapped Types](#mapped-types)
   - [Mapped Type Modifiers](#mapped-type-modifiers)
   - [Conditional Types](#conditional-types)
-  - [Distributive conditional types](#distributive-conditional-types)
-  - [infer Type inference in conditional types](#infer-type-inference-in-conditional-types)
-  - [Predefined conditional types](#predefined-conditional-types)
+  - [Distributive Conditional Types](#distributive-conditional-types)
+  - [infer Type Inference in Conditional Types](#infer-type-inference-in-conditional-types)
+  - [Predefined Conditional Types](#predefined-conditional-types)
   - [Template Union Types](#template-union-types)
   - [Any type](#any-type)
   - [Unknown type](#unknown-type)
@@ -132,9 +132,9 @@ You can also download the Epub version here:
   - [Never type](#never-type)
   - [Interface and Type](#interface-and-type)
     - [Common Syntax](#common-syntax)
-    - [Basic types](#basic-types)
-    - [Objects and interfaces](#objects-and-interfaces)
-    - [Union and intersection types](#union-and-intersection-types)
+    - [Basic Types](#basic-types)
+    - [Objects and Interfaces](#objects-and-interfaces)
+    - [Union and Intersection Types](#union-and-intersection-types)
   - [Built-in Type Primitives](#built-in-type-primitives)
   - [Common Built-in JS Objects](#common-built-in-js-objects)
   - [Overloads](#overloads)
@@ -152,7 +152,7 @@ You can also download the Epub version here:
     - [Abstract Classes](#abstract-classes)
     - [With Generics](#with-generics)
     - [Decorators](#decorators)
-      - [Class decorators](#class-decorators)
+      - [Class Decorators](#class-decorators)
       - [Property Decorator](#property-decorator)
       - [Method Decorator](#method-decorator)
       - [Getter and Setter Decorators](#getter-and-setter-decorators)
@@ -203,7 +203,7 @@ You can also download the Epub version here:
     - [@types](#types)
     - [JSX](#jsx-1)
     - [ES6 Modules](#es6-modules)
-    - [ES7 exponentiation operator](#es7-exponentiation-operator)
+    - [ES7 Exponentiation Operator](#es7-exponentiation-operator)
     - [The for-await-of Statement](#the-for-await-of-statement)
     - [New.target](#newtarget)
     - [Dynamic Import Expressions](#dynamic-import-expressions)
@@ -235,7 +235,7 @@ Welcome to The Concise TypeScript Book! This guide equips you with essential kno
 
 This book covers TypeScript 5.2.
 
-## About the author
+## About the Author
 
 Simone Poggiali is an experienced Senior Front-end Developer with a passion for writing professional-grade code since the 90s. Throughout his international career, he has contributed to numerous projects for a wide range of clients, from startups to large organizations. Notable companies such as HelloFresh, Siemens, O2, and Leroy Merlin have benefited from his expertise and dedication.
 
@@ -246,7 +246,7 @@ You can reach Simone Poggiali on the following platforms:
 * Twitter: <https://twitter.com/gibbok_coding>
 * Email: gibbok.coding📧gmail.com
 
-## TypeScript an introduction
+## TypeScript Introduction
 
 ### What is TypeScript?
 
@@ -325,7 +325,7 @@ Operator '+' cannot be applied to types 'number' and 'boolean'.
 
 This error occurs because TypeScript strictly enforces type compatibility, and in this case, it identifies an invalid operation between a number and a boolean.
 
-### TypeScript code generation
+### TypeScript Code Generation
 
 The TypeScript compiler has two main responsibilities: checking for type errors and compiling to JavaScript. These two processes are independent of each other. Types do not affect the execution of the code in a JavaScript engine, as they are completely erased during compilation. TypeScript can still output JavaScript even in the presence of type errors.
 Here is an example of TypeScript code with a type error:
@@ -529,7 +529,7 @@ tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
 tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
 ```
 
-### TypeScript configuration file ​​tsconfig.json
+### TypeScript Configuration File ​​tsconfig.json
 
 A tsconfig.json file is used to configure the TypeScript Compiler (tsc). Usually, it is added to the root of the project, together with the `package.json` file.
 
@@ -1245,7 +1245,7 @@ let x = 'x'; // The type inferred is string
 
 The TypeScript compiler analyzes the value or expression and determines its type based on the available information.
 
-### More advanced inferences
+### More Advanced Inferences
 
 When multiple expressions are used in type inference, TypeScript looks for the "best common types." For instance:
 
@@ -1296,7 +1296,7 @@ y = x; // Valid: The type of x is inferred as 'x'
 By using `const` to declare the variable x, its type is narrowed to the specific literal value 'x'. Since the type of x is narrowed, it can be assigned to the variable y without any error.
 The reason the type can be inferred is because `const` variables cannot be reassigned, so their type can be narrowed down to a specific literal type, in this case, the literal type 'x'.
 
-#### Const modifier on type parameters
+#### Const Modifier on Type Parameters
 
 From version 5.0 of TypeScript, it is possible to specify the `const` attribute on a generic type parameter. This allows for inferring the most precise type possible. Let's see an example without using `const`:
 
@@ -1409,9 +1409,9 @@ Other ways to narrow down types in TypeScript include:
 * `typeof` operator: Used to check the type of a value at runtime.
 * Built-in functions like `Array.isArray()`: Used to check if a value is an array.
 
-#### Discriminated union
+#### Discriminated Union
 
-Using a "discriminated union" is a pattern in TypeScript where an explicit "tag" is added to objects to distinguish between different types within a union. This pattern is also referred to as a "tagged union." In the following example, the "tag" is represented by the property "type":
+Using a "Discriminated Union" is a pattern in TypeScript where an explicit "tag" is added to objects to distinguish between different types within a union. This pattern is also referred to as a "tagged union." In the following example, the "tag" is represented by the property "type":
 
 ```typescript
 type A = { type: 'type_a'; value: number };
@@ -1427,7 +1427,7 @@ const x = (input: A | B): string | number => {
 };
 ```
 
-#### User-defined type guards
+#### User-Defined Type Guards
 
 In cases where TypeScript is unable to determine a type, it is possible to write a helper function known as a "user-defined type guard." In the following example, we will utilize a Type Predicate to narrow down the type after applying certain filtering:
 
@@ -1995,9 +1995,9 @@ const logMessage = (status: 'success' | 'error') => {
 };
 ```
 
-### In operator narrowing
+### In Operator narrowing
 
-The in operator narrowing in TypeScript is a way to narrow the type of a variable based on whether a property exists within the variable's type.
+The "in" Operator narrowing in TypeScript is a way to narrow the type of a variable based on whether a property exists within the variable's type.
 
 ```typescript
 type Dog = {
@@ -2066,9 +2066,9 @@ if (typeof value === 'number') {
 }
 ```
 
-## Control flow analysis
+## Control Flow Analysis
 
-Control flow analysis in TypeScript is a way to statically analyze the code flow to infer the types of variables, allowing the compiler to narrow the types of those variables as needed, based on the results of the analysis.
+Control Flow Analysis in TypeScript is a way to statically analyze the code flow to infer the types of variables, allowing the compiler to narrow the types of those variables as needed, based on the results of the analysis.
 
 Prior to TypeScript 4.4, code flow analysis would only be applied to code within an if statement, but from TypeScript 4.4, it can also be applied to conditional expressions and discriminant property accesses indirectly referenced through const variables.
 
@@ -2118,7 +2118,7 @@ const f6 = (
 
 Notes: Up to five levels of indirection are analyzed in conditional expressions.
 
-## type predicates
+## type Predicates
 
 Type predicates in TypeScript are functions that return a boolean value and are used to narrow the type of a variable to a more specific type.
 
@@ -2134,9 +2134,9 @@ const foo = (bar: unknown) => {
 };
 ```
 
-## Discriminated unions
+## Discriminated Unions
 
-Discriminated unions in TypeScript are a type of union type that uses a common property, known as the discriminant, to narrow down the set of possible types for the union.
+Discriminated Unions in TypeScript are a type of union type that uses a common property, known as the discriminant, to narrow down the set of possible types for the union.
 
 ```typescript
 type Square = {
@@ -2167,9 +2167,9 @@ console.log(area(square)); // 25
 console.log(area(circle)); // 12.566370614359172
 ```
 
-## The never type
+## The never Type
 
-When a variable is narrowed to a type that cannot contain any values, the TypeScript compiler will infer that the variable must be of the `never` type. This is because the never type represents a value that can never be produced.
+When a variable is narrowed to a type that cannot contain any values, the TypeScript compiler will infer that the variable must be of the `never` type. This is because The never Type represents a value that can never be produced.
 
 ```typescript
 const printValue = (val: string | number) => {
@@ -2241,7 +2241,7 @@ const sum = (x: { a: number; b: number }) => x.a + x.b;
 console.log(sum({ a: 5, b: 1 }));
 ```
 
-## Tuple Type (anonymous)
+## Tuple Type (Anonymous)
 
 A Tuple Type is a type that represents an array with a fixed number of elements and their corresponding types. A tuple type enforces a specific number of elements and their respective types in a fixed order. Tuple types are useful when you want to represent a collection of values with specific types, where the position of each element in the array has a specific meaning.
 
@@ -2249,7 +2249,7 @@ A Tuple Type is a type that represents an array with a fixed number of elements 
 type Point = [number, number];
 ```
 
-## Named Tuple Type (labeled)
+## Named Tuple Type (Labeled)
 
 Tuple types can include optional labels or names for each element. These labels are for readability and tooling assistance, and do not affect the operations you can perform with them.
 
@@ -2260,11 +2260,11 @@ type Tuple2 = [a: T, b: T];
 type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
 ```
 
-## Fixed length tuple
+## Fixed Length Tuple
 
-A Fixed length tuple is a specific type of tuple that enforces a fixed number of elements of specific types, and disallows any modifications to the length of the tuple once it is defined.
+A Fixed Length Tuple is a specific type of tuple that enforces a fixed number of elements of specific types, and disallows any modifications to the length of the tuple once it is defined.
 
-Fixed length tuples are useful when you need to represent a collection of values with a specific number of elements and specific types, and you want to ensure that the length and types of the tuple cannot be changed inadvertently.
+Fixed Length Tuples are useful when you need to represent a collection of values with a specific number of elements and specific types, and you want to ensure that the length and types of the tuple cannot be changed inadvertently.
 
 <!-- skip -->
 ```typescript
@@ -2398,9 +2398,9 @@ type IsMyArrayAnArray = IsArray<typeof myArray>; // Type true
 type IsMyNumberAnArray = IsArray<typeof myNumber>; // Type false
 ```
 
-## Distributive conditional types
+## Distributive Conditional Types
 
-Distributive conditional types are a feature that allow a type to be distributed over a union of types, by applying a transformation to each member of the union individually.
+Distributive Conditional Types are a feature that allow a type to be distributed over a union of types, by applying a transformation to each member of the union individually.
 This can be especially useful when working with mapped types or higher-order types.
 
 ```typescript
@@ -2409,7 +2409,7 @@ type NumberOrBool = number | boolean;
 type NullableNumberOrBool = Nullable<NumberOrBool>; // number | boolean | null
 ```
 
-## infer Type inference in conditional types
+## infer Type Inference in Conditional Types
 
 The `infer`keyword is used in conditional types to infer (extract) the type of a generic parameter from a type that depends on it. This allows you to write more flexible and reusable type definitions.
 
@@ -2419,9 +2419,9 @@ type Numbers = ElementType<number[]>; // number
 type Strings = ElementType<string[]>; // string
 ```
 
-## Predefined conditional types
+## Predefined Conditional Types
 
-In TypeScript, predefined conditional types are built-in conditional types provided by the language. They are designed to perform common type transformations based on the characteristics of a given type.
+In TypeScript, Predefined Conditional Types are built-in conditional types provided by the language. They are designed to perform common type transformations based on the characteristics of a given type.
 
 `Exclude<UnionType, ExcludedType>`: This type removes all the types from Type that are assignable to ExcludedType.
 
@@ -2592,7 +2592,7 @@ type TypeName = {
 
 In TypeScript, types are used to define the shape of data and enforce type checking. There are several common syntaxes for defining types in TypeScript, depending on the specific use case. Here are some examples:
 
-### Basic types
+### Basic Types
 
 ```typescript
 let myNumber: number = 123; // number type
@@ -2601,13 +2601,13 @@ let myArray: string[] = ['a', 'b']; // array of strings
 let myTuple: [string, number] = ['a', 123]; // tuple
 ```
 
-### Objects and interfaces
+### Objects and Interfaces
 
 ```typescript
 const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ```
 
-### Union and intersection types
+### Union and Intersection Types
 
 ```typescript
 type MyType = string | number; // union type
@@ -2805,7 +2805,7 @@ const c: B = {
 };
 ```
 
-Union and intersection types: Types are more flexible when it comes to defining union and intersection types. With the `type` keyword, you can easily create union types using the `|` operator and intersection types using the `&` operator. While interfaces can also represent union types indirectly, they don't have built-in support for intersection types.
+Union and Intersection Types: Types are more flexible when it comes to defining Union and Intersection Types. With the `type` keyword, you can easily create union types using the `|` operator and intersection types using the `&` operator. While interfaces can also represent union types indirectly, they don't have built-in support for intersection types.
 
 ```typescript
 type Department = 'dep-x' | 'dep-y'; // Union
@@ -3168,9 +3168,9 @@ Note: Decorators for version 5 do not allow decorating parameters.
 
 Types of decorators:
 
-#### Class decorators
+#### Class Decorators
 
-Class decorators are useful for extending an existing class, such as adding properties or methods, or collecting instances of a class. In the following example, we add a `toString` method that converts the class into a string representation.
+Class Decorators are useful for extending an existing class, such as adding properties or methods, or collecting instances of a class. In the following example, we add a `toString` method that converts the class into a string representation.
 
 ```typescript
 type Constructor<T = {}> = new (...args: any[]) => T;
@@ -4285,7 +4285,7 @@ A configuration example:
 }
 ```
 
-### ES7 exponentiation operator
+### ES7 Exponentiation Operator
 
 The exponentiation (**) operator computes the value obtained by raising the first operand to the power of the second operand. It functions similarly to Math.pow(), but with the added capability of accepting BigInts as operands.
 TypeScript fully supports this operator using as `target` in your tsconfig.json file `es2016` or larger version.
