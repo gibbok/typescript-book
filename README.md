@@ -51,7 +51,7 @@ You can also download the Epub version here:
     - [The TypeScript Language Service](#the-typescript-language-service)
     - [Structural Typing](#structural-typing)
     - [TypeScript Fundamental Comparison Rules](#typescript-fundamental-comparison-rules)
-    - [Types as sets](#types-as-sets)
+    - [Types as Sets](#types-as-sets)
     - [Assign a type: Type Declarations and Type Assertions](#assign-a-type-type-declarations-and-type-assertions)
       - [Type Declaration](#type-declaration)
       - [Type Assertion](#type-assertion)
@@ -925,7 +925,7 @@ g = g1; // Valid
 
 Please note that when "strictNullChecks" is enabled, "null" and "undefined" are treated similarly to "void"; otherwise, they are similar to "never".
 
-### Types as sets
+### Types as Sets
 
 In TypeScript, a type is a set of possible values. This set is also referred to as the domain of the type. Each value of a type can be viewed as an element in a set. A type establishes the constraints that every element in the set must satisfy to be considered a member of that set.
 The primary task of TypeScript is to check and verify whether one set is a subset of another.
