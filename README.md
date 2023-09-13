@@ -144,7 +144,7 @@ You can also download the Epub version here:
     - [Class Common Syntax](#class-common-syntax)
     - [Constructor](#constructor)
     - [Private and Protected Constructors](#private-and-protected-constructors)
-    - [Access modifiers](#access-modifiers)
+    - [Access Modifiers](#access-modifiers)
     - [Get \& Set](#get--set)
     - [Auto-Accessors in Classes](#auto-accessors-in-classes)
     - [this](#this)
@@ -2982,9 +2982,9 @@ class DerivedClass extends BaseClass {
 const derivedObj = new DerivedClass(10);
 ```
 
-### Access modifiers
+### Access Modifiers
 
-Access modifiers `private`, `protected`, and `public` are used to control the visibility and accessibility of class members, such as properties and methods, in TypeScript classes. These modifiers are essential for enforcing encapsulation and establishing boundaries for accessing and modifying the internal state of a class.
+Access Modifiers `private`, `protected`, and `public` are used to control the visibility and accessibility of class members, such as properties and methods, in TypeScript classes. These modifiers are essential for enforcing encapsulation and establishing boundaries for accessing and modifying the internal state of a class.
 
 The `private` modifier restricts access to the class member only within the containing class.
 
