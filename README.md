@@ -138,7 +138,6 @@ You can also download the Epub version here:
   - [Built-in Type Primitives](#built-in-type-primitives)
   - [Common Built-in JS Objects](#common-built-in-js-objects)
   - [Overloads](#overloads)
-  - [Get \& Set](#get--set)
   - [Merging and Extension](#merging-and-extension)
   - [Differences between Type and Interface](#differences-between-type-and-interface)
   - [Class](#class)
@@ -146,6 +145,7 @@ You can also download the Epub version here:
     - [Constructor](#constructor)
     - [Private and Protected Constructors](#private-and-protected-constructors)
     - [Access modifiers](#access-modifiers)
+    - [Get \& Set](#get--set)
     - [Auto-Accessors in Classes](#auto-accessors-in-classes)
     - [this](#this)
     - [Parameter Properties](#parameter-properties)
@@ -2708,27 +2708,6 @@ class Greeter {
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
 
-## Get & Set
-
-Getters and setters are special methods that allow you to define custom access and modification behavior for class properties. They enable you to encapsulate the internal state of an object and provide additional logic when getting or setting the values of properties.
-In TypeScript, getters and setters are defined using the `get` and `set` keywords respectively. Here's an example:
-
-```typescript
-class MyClass {
-    private _myProperty: string;
-
-    constructor(value: string) {
-        this._myProperty = value;
-    }
-    get myProperty(): string {
-        return this._myProperty;
-    }
-    set myProperty(value: string) {
-        this._myProperty = value;
-    }
-}
-```
-
 ## Merging and Extension
 
 Merging and extension refer to two different concepts related to working with types and interfaces.
@@ -3012,6 +2991,27 @@ The `private` modifier restricts access to the class member only within the cont
 The `protected` modifier allows access to the class member within the containing class and its derived classes.
 
 The `public` modifier provides unrestricted access to the class member, allowing it to be accessed from anywhere."
+
+### Get & Set
+
+Getters and setters are special methods that allow you to define custom access and modification behavior for class properties. They enable you to encapsulate the internal state of an object and provide additional logic when getting or setting the values of properties.
+In TypeScript, getters and setters are defined using the `get` and `set` keywords respectively. Here's an example:
+
+```typescript
+class MyClass {
+    private _myProperty: string;
+
+    constructor(value: string) {
+        this._myProperty = value;
+    }
+    get myProperty(): string {
+        return this._myProperty;
+    }
+    set myProperty(value: string) {
+        this._myProperty = value;
+    }
+}
+```
 
 ### Auto-Accessors in Classes
 

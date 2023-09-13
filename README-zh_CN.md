@@ -133,7 +133,6 @@
   - [内置原始数据类型](#内置原始数据类型)
   - [常见的内置JS对象](#常见的内置js对象)
   - [重载](#重载)
-  - [Get 与 Set](#get-与-set)
   - [合并与扩展](#合并与扩展)
   - [类型和接口之间的差异](#类型和接口之间的差异)
   - [Class](#class)
@@ -141,6 +140,7 @@
     - [构造函数](#构造函数)
     - [私有和受保护的构造函数](#私有和受保护的构造函数)
     - [访问修饰符](#访问修饰符)
+    - [Get 与 Set](#get-与-set)
     - [类中的自动访问器](#类中的自动访问器)
     - [this](#this)
     - [参数属性](#参数属性)
@@ -2706,26 +2706,6 @@ class Greeter {
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
 
-## Get 与 Set
-
-Getter 和 Setter 是特殊方法，允许您定义类属性的自定义访问和修改行为。它们使您能够封装对象的内部状态，并在获取或设置属性值时提供附加逻辑。在 TypeScript 中，getter 和 setter 分别使用 `get` 和 `set` 关键字定义。这是一个例子：
-
-```typescript
-class MyClass {
-    private _myProperty: string;
-
-    constructor(value: string) {
-        this._myProperty = value;
-    }
-    get myProperty(): string {
-        return this._myProperty;
-    }
-    set myProperty(value: string) {
-        this._myProperty = value;
-    }
-}
-```
-
 ## 合并与扩展
 
 合并和扩展是指与使用类型和接口相关的两个不同概念。
@@ -3007,6 +2987,26 @@ const derivedObj = new DerivedClass(10);
 修饰符 `protected` 允许访问包含类及其派生类中的类成员。
 
 修饰符 `public` 提供对类成员的不受限制的访问，允许从任何地方访问它。
+
+### Get 与 Set
+
+Getter 和 Setter 是特殊方法，允许您定义类属性的自定义访问和修改行为。它们使您能够封装对象的内部状态，并在获取或设置属性值时提供附加逻辑。在 TypeScript 中，getter 和 setter 分别使用 `get` 和 `set` 关键字定义。这是一个例子：
+
+```typescript
+class MyClass {
+    private _myProperty: string;
+
+    constructor(value: string) {
+        this._myProperty = value;
+    }
+    get myProperty(): string {
+        return this._myProperty;
+    }
+    set myProperty(value: string) {
+        this._myProperty = value;
+    }
+}
+```
 
 ### 类中的自动访问器
 
