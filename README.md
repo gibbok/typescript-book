@@ -77,7 +77,7 @@ You can also download the Epub version here:
     - [boolean](#boolean)
     - [number](#number)
     - [bigInt](#bigint)
-    - [symbol](#symbol)
+    - [Symbol](#symbol)
     - [null and undefined](#null-and-undefined)
     - [Array](#array)
     - [any](#any)
@@ -123,7 +123,7 @@ You can also download the Epub version here:
   - [Mapped Type Modifiers](#mapped-type-modifiers)
   - [Conditional Types](#conditional-types)
   - [Distributive conditional types](#distributive-conditional-types)
-  - [“infer” Type inference in conditional types](#infer-type-inference-in-conditional-types)
+  - [infer Type inference in conditional types](#infer-type-inference-in-conditional-types)
   - [Predefined conditional types](#predefined-conditional-types)
   - [Template Union Types](#template-union-types)
   - [Any type](#any-type)
@@ -223,7 +223,7 @@ You can also download the Epub version here:
     - [Key Remapping in Mapped Types](#key-remapping-in-mapped-types)
     - [Covariance and Contravariance in TypeScript](#covariance-and-contravariance-in-typescript)
       - [Optional Variance Annotations for Type Parameters](#optional-variance-annotations-for-type-parameters)
-    - [Symbol and Template String Pattern Index Signatures](#symbol-and-template-string-pattern-index-signatures)
+    - [Template String Pattern Index Signatures](#template-string-pattern-index-signatures)
     - [The satisfies Operator](#the-satisfies-operator)
     - [Type-Only Imports and Export](#type-only-imports-and-export)
     - [using declaration and Explicit Resource Management](#using-declaration-and-explicit-resource-management)
@@ -1494,12 +1494,23 @@ const y: bigint = 9007199254740991n;
 
 Notes: `bigInt` values cannot be mixed with `number` and cannot be used with built-in `Math`, they must be coerced to the same type.
 
-### symbol
+### Symbol
 
-JavaScript has a primitive function, Symbol(), that creates a globally unique reference.
+Symbols are unique identifiers that can be used as property keys in objects to prevent naming conflicts.
 
 ```typescript
-let sym = Symbol('x'); // Type symbol
+type Obj = {
+    [sym: symbol]: number;
+};
+
+const a = Symbol('a');
+const b = Symbol('b');
+let obj: Obj = {};
+obj[a] = 123;
+obj[b] = 456;
+
+console.log(obj[a]) // 123
+console.log(obj[b]) // 456
 ```
 
 ### null and undefined
@@ -2398,7 +2409,7 @@ type NumberOrBool = number | boolean;
 type NullableNumberOrBool = Nullable<NumberOrBool>; // number | boolean | null
 ```
 
-## “infer” Type inference in conditional types
+## infer Type inference in conditional types
 
 The `infer`keyword is used in conditional types to infer (extract) the type of a generic parameter from a type that depends on it. This allows you to write more flexible and reusable type definitions.
 
@@ -4723,25 +4734,31 @@ And for Contravariant, use the `in` keyword:
 type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
 ```
 
-### Symbol and Template String Pattern Index Signatures
-
-Symbols are unique identifiers that can be used as property keys in objects to prevent naming conflicts.
+### Template String Pattern Index Signatures
 
 Template string pattern index signatures allow us to define flexible index signatures using template string patterns. This feature enables us to create objects that can be indexed with specific patterns of string keys, providing more control and specificity when accessing and manipulating properties.
 
 TypeScript from version 4.4 allows index signatures for symbols and template string patterns.
 
 ```typescript
-type Obj = {
-    [sym: symbol]: number;
+const uniqueSymbol = Symbol('description');
+
+type MyKeys = `key-${string}`;
+
+type MyObject = {
+  [uniqueSymbol]: string;
+  [key: MyKeys]: number;
+}
+
+const obj: MyObject = {
+  [uniqueSymbol]: 'Unique symbol key',
+  'key-a': 123,
+  'key-b': 456,
 };
 
-const a = Symbol('a');
-const b = Symbol('b');
-
-let obj: Obj = {};
-
-obj[b] = 123;
+console.log(obj[uniqueSymbol]); // Unique symbol key
+console.log(obj['key-a']); // 123
+console.log(obj['key-b']); // 456
 ```
 
 ### The satisfies Operator

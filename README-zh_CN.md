@@ -118,7 +118,7 @@
   - [映射类型修饰符](#映射类型修饰符)
   - [条件类型](#条件类型)
   - [分配条件类型](#分配条件类型)
-  - [“infer” 条件类型中的类型推断](#infer-条件类型中的类型推断)
+  - [infer 条件类型中的类型推断](#infer-条件类型中的类型推断)
   - [预定义条件类型](#预定义条件类型)
   - [模板联合类型](#模板联合类型)
   - [任意类型](#任意类型)
@@ -219,7 +219,7 @@
     - [映射类型中的键重新映射](#映射类型中的键重新映射)
     - [TypeScript 中的协变和逆变](#typescript-中的协变和逆变)
       - [类型参数的可选方差注释](#类型参数的可选方差注释)
-    - [Symbol和模板字符串模式索引签名](#symbol和模板字符串模式索引签名)
+    - [模板字符串模式索引签名](#模板字符串模式索引签名)
     - [satisfies操作符](#satisfies操作符)
     - [仅类型导入和导出](#仅类型导入和导出)
     - [使用声明和显式资源管理](#使用声明和显式资源管理)
@@ -2407,7 +2407,7 @@ type NumberOrBool = number | boolean;
 type NullableNumberOrBool = Nullable<NumberOrBool>; // number | boolean | null
 ```
 
-## “infer” 条件类型中的类型推断
+## infer 条件类型中的类型推断
 
 `infer` 关键字在条件类型中使用，用于从依赖于泛型参数的类型中推断（提取）泛型参数的类型。这允许您编写更灵活且可重用的类型定义。
 
@@ -4723,25 +4723,31 @@ type AnimalCallback<out T> = () => T; // T is Covariant here
 type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
 ```
 
-### Symbol和模板字符串模式索引签名
+### 模板字符串模式索引签名
 
-Symbol是唯一标识符，可用作对象中的属性键以防止命名冲突。
+模板字符串模式索引签名允许我们使用模板字符串模式定义灵活的索引签名。 此功能使我们能够创建可以使用特定字符串键模式进行索引的对象，从而在访问和操作属性时提供更多控制和特异性。
 
-模板字符串模式索引签名允许我们使用模板字符串模式定义灵活的索引签名。此功能使我们能够创建可以使用特定模式的字符串键进行索引的对象，从而在访问和操作属性时提供更多的控制和特异性。
-
-TypeScript 4.4 版开始允许Symbol和模板字符串模式的索引签名。
+TypeScript 4.4 版开始允许符号和模板字符串模式的索引签名。
 
 ```typescript
-type Obj = {
-    [sym: symbol]: number;
+const uniqueSymbol = Symbol('description');
+
+type MyKeys = `key-${string}`;
+
+type MyObject = {
+  [uniqueSymbol]: string;
+  [key: MyKeys]: number;
+}
+
+const obj: MyObject = {
+  [uniqueSymbol]: 'Unique symbol key',
+  'key-a': 123,
+  'key-b': 456,
 };
 
-const a = Symbol('a');
-const b = Symbol('b');
-
-let obj: Obj = {};
-
-obj[b] = 123;
+console.log(obj[uniqueSymbol]); // Unique symbol key
+console.log(obj['key-a']); // 123
+console.log(obj['key-b']); // 456
 ```
 
 ### satisfies操作符
