@@ -1509,8 +1509,8 @@ let obj: Obj = {};
 obj[a] = 123;
 obj[b] = 456;
 
-console.log(obj[a]) // 123
-console.log(obj[b]) // 456
+console.log(obj[a]); // 123
+console.log(obj[b]); // 456
 ```
 
 ### null and undefined
@@ -4746,14 +4746,14 @@ const uniqueSymbol = Symbol('description');
 type MyKeys = `key-${string}`;
 
 type MyObject = {
-  [uniqueSymbol]: string;
-  [key: MyKeys]: number;
-}
+    [uniqueSymbol]: string;
+    [key: MyKeys]: number;
+};
 
 const obj: MyObject = {
-  [uniqueSymbol]: 'Unique symbol key',
-  'key-a': 123,
-  'key-b': 456,
+    [uniqueSymbol]: 'Unique symbol key',
+    'key-a': 123,
+    'key-b': 456,
 };
 
 console.log(obj[uniqueSymbol]); // Unique symbol key
