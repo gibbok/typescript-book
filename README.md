@@ -48,7 +48,7 @@ You can also download the Epub version here:
       - [exclude](#exclude)
     - [Migration to TypeScript Advice](#migration-to-typescript-advice)
   - [Exploring the Type System](#exploring-the-type-system)
-    - [The TypeScript language service](#the-typescript-language-service)
+    - [The TypeScript Language Service](#the-typescript-language-service)
     - [Structural Typing](#structural-typing)
     - [TypeScript Fundamental Comparison Rules](#typescript-fundamental-comparison-rules)
     - [Types as sets](#types-as-sets)
@@ -630,9 +630,9 @@ Consider keeping the default value of `noEmitOnError` in your tsconfig.json as f
 
 ## Exploring the Type System
 
-### The TypeScript language service
+### The TypeScript Language Service
 
-The TypeScript language service, also known as tsserver, offers various features such as error reporting, diagnostics, compile-on-save, renaming, go to definition, completion lists, signature help, and more. It is primarily used by integrated development environments (IDEs) to provide IntelliSense support. It seamlessly integrates with Visual Studio Code and is utilized by tools like Conquer of Completion (Coc).
+The TypeScript Language Service, also known as tsserver, offers various features such as error reporting, diagnostics, compile-on-save, renaming, go to definition, completion lists, signature help, and more. It is primarily used by integrated development environments (IDEs) to provide IntelliSense support. It seamlessly integrates with Visual Studio Code and is utilized by tools like Conquer of Completion (Coc).
 
 Developers can leverage a dedicated API and create their own custom language service plugins to enhance the TypeScript editing experience. This can be particularly useful for implementing special linting features or enabling auto-completion for a custom templating language.
 
