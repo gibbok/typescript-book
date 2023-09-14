@@ -1630,10 +1630,10 @@ type K = {
 const k: K = { x: 'x', 1: 'b' };
 console.log(k['x']);
 console.log(k[1]);
-console.log(k['1']); // same result as k[1]
+console.log(k['1']); // Same result as k[1]
 ```
 
-请注意，JavaScript 会自动将 `number` 的索引转换相同值的 'string'索引, 比如 `k[1]` 和 k["1"] 返回相同值。
+请注意，JavaScript 会自动将 `number` 的索引转换相同值的 'string'索引, 比如 `k[1]` 和 `k["1"]` 返回相同值。
 
 ## 扩展类型
 
