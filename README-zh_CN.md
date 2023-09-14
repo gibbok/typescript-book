@@ -1972,11 +1972,11 @@ const fn = (x: number | string): number => {
 TypeScript 中的真实性缩小是通过检查变量是真还是假来相应地缩小其类型来实现的。
 
 ```typescript
-const printName = (name: string | null | undefined) => {
+const toUpperCase = (name: string | null) => {
     if (name) {
-        console.log(name.toUpperCase());
+        return name.toUpperCase()
     } else {
-        console.log('No name specified');
+        return null
     }
 };
 ```

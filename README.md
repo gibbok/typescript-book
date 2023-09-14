@@ -1971,11 +1971,11 @@ const fn = (x: number | string): number => {
 Truthiness narrowing in TypeScript works by checking whether a variable is truthy or falsy to narrow its type accordingly.
 
 ```typescript
-const printName = (name: string | null | undefined) => {
+const toUpperCase = (name: string | null) => {
     if (name) {
-        console.log(name.toUpperCase());
+        return name.toUpperCase()
     } else {
-        console.log('No name specified');
+        return null
     }
 };
 ```
