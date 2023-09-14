@@ -667,7 +667,7 @@ const y: Y = x; // Valid
 
 The TypeScript comparison process is recursive and executed on types nested at any level.
 
-A type 'X' is compatible with 'Y' if 'Y' has at least the same members as 'X'.
+A type "X" is compatible with "Y" if "Y" has at least the same members as "X".
 
 ```typescript
 type X = {
