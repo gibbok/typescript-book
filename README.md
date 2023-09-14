@@ -321,7 +321,9 @@ const result = 1 + true; // In JavaScript, the result is equal 2
 
 However, TypeScript throws an error:
 
+```text
 Operator '+' cannot be applied to types 'number' and 'boolean'.
+```
 
 This error occurs because TypeScript strictly enforces type compatibility, and in this case, it identifies an invalid operation between a number and a boolean.
 

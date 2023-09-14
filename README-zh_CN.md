@@ -317,7 +317,9 @@ const result = 1 + true; // 在JavaScript中, 结果等于2
 
 但是，TypeScript 会抛出错误：
 
+```text
 运算符“+”不能应用于类型“number”和“boolean”。
+``````
 
 出现此错误的原因是 TypeScript 严格强制执行类型兼容性，在这种情况下，它标识了数字和布尔值之间的无效操作。
 
