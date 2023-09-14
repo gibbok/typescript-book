@@ -1281,7 +1281,7 @@ y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
 
 TypeScript assigns `string` to `x` based on the single value provided during initialization (`x`), this is an example of widening.
 
-TypeScript provides ways to have control of the widening process, for instance using:
+TypeScript provides ways to have control of the widening process, for instance using "const".
 
 ### Const
 
