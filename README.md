@@ -1482,7 +1482,7 @@ TypeScript also supports hexadecimal, binary, and octal, for instance:
 const decimal: number = 10;
 const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
 const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0c
+const octal: number = 0o633; // Octal starts with 0o
 ```
 
 ### bigInt
@@ -1496,7 +1496,10 @@ const x: bigint = BigInt(9007199254740991);
 const y: bigint = 9007199254740991n;
 ```
 
-Notes: `bigInt` values cannot be mixed with `number` and cannot be used with built-in `Math`, they must be coerced to the same type.
+Notes:
+
+* `bigInt` values cannot be mixed with `number` and cannot be used with built-in `Math`, they must be coerced to the same type.
+* `bigInt` values are available only if target configuration is ES2020 or higher.
 
 ### Symbol
 

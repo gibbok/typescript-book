@@ -1462,7 +1462,7 @@ TypeScript 中的数据类型 `number` 用 64 位浮点值表示。类型 `numbe
 const decimal: number = 10;
 const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
 const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0c
+const octal: number = 0o633; // Octal starts with 0o
 ```
 
 ### bigInt
@@ -1476,7 +1476,10 @@ const x: bigint = BigInt(9007199254740991);
 const y: bigint = 9007199254740991n;
 ```
 
-注意：`bigInt` 值不能与 `number`和内部的 `Math` 混用，它们必须强制为相同的类型。
+笔记：
+
+* `bigInt` 值不能与 `number` 混合，也不能与内置的 `Math` 一起使用，它们必须强制为相同的类型。
+* 仅当目标配置为 ES2020 或更高版本时，“bigInt”值才可用。
 
 ### symbol
 
