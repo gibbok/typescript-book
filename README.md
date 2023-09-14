@@ -89,7 +89,6 @@ You can also download the Epub version here:
   - [Literal Types](#literal-types)
   - [Literal Inference](#literal-inference)
   - [strictNullChecks](#strictnullchecks)
-  - [Non-null Assertion Operator (Postfix !)](#non-null-assertion-operator-postfix-)
   - [Enums](#enums)
     - [Numeric enums](#numeric-enums)
     - [String enums](#string-enums)
@@ -208,7 +207,7 @@ You can also download the Epub version here:
     - [New.target](#newtarget)
     - [Dynamic Import Expressions](#dynamic-import-expressions)
     - ["tsc –watch"](#tsc-watch)
-    - [Definite Assignment Assertions (!)](#definite-assignment-assertions-)
+    - [Non-null Assertion Operator (Postfix !)](#non-null-assertion-operator-postfix-)
     - [Defaulted declarations](#defaulted-declarations)
     - [Optional Chaining](#optional-chaining)
     - [Nullish coalescing operator (??)](#nullish-coalescing-operator-)
@@ -1661,10 +1660,10 @@ type K = {
 const k: K = { x: 'x', 1: 'b' };
 console.log(k['x']);
 console.log(k[1]);
-console.log(k['1']); // same result as k[1]
+console.log(k['1']); // Same result as k[1]
 ```
 
-Please note that JavaScript automatically converts an index with `number` to an index with `string` so `k[1]` or k["1"] return the same value.
+Please note that JavaScript automatically converts an index with `number` to an index with `string` so `k[1]` or `k["1"]` return the same value.
 
 ## Extending Types
 
@@ -1725,9 +1724,9 @@ Literal Types in TypeScript are numbers, strings, and booleans.
 Example of literals:
 
 ```typescript
-const a = 'a'; // string literal type
-const b = 1; // numeric literal type
-const c = true; // boolean literal type
+const a = 'a'; // String literal type
+const b = 1; // Numeric literal type
+const c = true; // Boolean literal type
 ```
 
 String, Numeric, and Boolean Literal Types are used in the union, type guard, and type aliases.
@@ -1744,8 +1743,8 @@ Literal Inference is a feature in TypeScript that allows the type of a variable 
 In the following example we can see that TypeScript considers `x` a literal type as the value cannot be changed any time later, when instead `y` is inferred as string as it can be modified any time later.
 
 ```typescript
-const x = 'x'; // literal type of x, because this value cannot be changed
-let y = 'y'; // string, as we can change this value
+const x = 'x'; // Literal type of 'x', because this value cannot be changed
+let y = 'y'; // Type string, as we can change this value
 ```
 
 In the following example we can see that `o.x` was inferred as a `string` (and not a literal of `a`) as TypeScript considers that the value can be changed any time later.
@@ -1755,7 +1754,7 @@ In the following example we can see that `o.x` was inferred as a `string` (and n
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // this is a wider string
+    x: 'a', // This is a wider string
 };
 
 const fn = (x: X) => `${x}-foo`;
@@ -1786,10 +1785,6 @@ let o = {
 ## strictNullChecks
 
 `strictNullChecks` is a TypeScript compiler option that enforces strict null checking. When this option is enabled, variables and parameters can only be assigned `null` or `undefined` if they have been explicitly declared to be of that type using the union type `null` | `undefined`. If a variable or parameter is not explicitly declared as nullable, TypeScript will generate an error to prevent potential runtime errors.
-
-## Non-null Assertion Operator (Postfix !)
-
-The Non-null Assertion Operator (Postfix !) is a TypeScript feature that allows you to assert that a variable or property is not `null` or `undefined`, even if TypeScript's static type analysis suggests that it might be. With this feature it is possible to remove any explicit checking.
 
 ## Enums
 
@@ -4370,9 +4365,9 @@ tsc --watch
 
 Starting from TypeScript version 4.9, file monitoring primarily relies on file system events, automatically resorting to polling if an event-based watcher cannot be established.
 
-### Definite Assignment Assertions (!)
+### Non-null Assertion Operator (Postfix !)
 
-The Definite Assignment Assertions or also called non-null assertion operator tells the TypeScript compiler that a value typed cannot be null or undefined which is a way to override the compiler's analysis and inform it that a variable will be assigned a value before it is used.
+The Non-null Assertion Operator (Postfix !) also called Definite Assignment Assertions is a TypeScript feature that allows you to assert that a variable or property is not null or undefined, even if TypeScript's static type analysis suggests that it might be. With this feature it is possible to remove any explicit checking.
 
 ```typescript
 type Person = {
@@ -4398,7 +4393,7 @@ greet('John'); // Hello, John!
 
 ### Optional Chaining
 
-The optional chaining operator ?. works like the regular dot operator (.) for accessing properties or methods. However, it gracefully handles null or undefined values by terminating the expression and returning undefined, instead of throwing an error.
+The optional chaining operator `?.` works like the regular dot operator (.) for accessing properties or methods. However, it gracefully handles null or undefined values by terminating the expression and returning `undefined``, instead of throwing an error.
 
 ```typescript
 type Person = {

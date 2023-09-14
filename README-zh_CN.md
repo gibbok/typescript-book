@@ -84,7 +84,6 @@
   - [字面量推断](#字面量推断)
   - [空和未定义](#空和未定义)
   - [严格空检查](#严格空检查)
-  - [非空断言运算符 (后缀 !)](#非空断言运算符-后缀-)
   - [枚举](#枚举)
     - [数字枚举](#数字枚举)
     - [字符串枚举](#字符串枚举)
@@ -204,7 +203,7 @@
     - [New.target](#newtarget)
     - [动态导入表达式](#动态导入表达式)
     - ["tsc –watch"](#tsc-watch)
-    - [明确的赋值断言 (!)](#明确的赋值断言-)
+    - [非空断言运算符（后缀！）](#非空断言运算符后缀)
     - [默认声明](#默认声明)
     - [可选链](#可选链)
     - [空合并运算符 (??)](#空合并运算符-)
@@ -1630,10 +1629,10 @@ type K = {
 const k: K = { x: 'x', 1: 'b' };
 console.log(k['x']);
 console.log(k[1]);
-console.log(k['1']); // same result as k[1]
+console.log(k['1']); // Same result as k[1]
 ```
 
-请注意，JavaScript 会自动将 `number` 的索引转换相同值的 'string'索引, 比如 `k[1]` 和 k["1"] 返回相同值。
+请注意，JavaScript 会自动将 `number` 的索引转换相同值的 'string'索引, 比如 `k[1]` 和 `k["1"]` 返回相同值。
 
 ## 扩展类型
 
@@ -1788,10 +1787,6 @@ let o = {
 ## 严格空检查
 
 `strictNullChecks` 是一个 TypeScript 编译器选项，强制执行严格的 null 检查。启用此选项后，只有在变量和参数已使用联合类型 `null` | `undefined` 显式声明为该类型时，才可以对其进行赋值`null` 或者 `undefined`。如果变量或参数未显式声明为可为空，TypeScript 将生成错误以防止潜在的运行时错误。
-
-## 非空断言运算符 (后缀 !)
-
-非空断言运算符（后缀 !）是一项 TypeScript 功能，允许您断言变量或属性不是null或undefined，即使 TypeScript 的静态类型分析表明它可能是。使用此功能可以删除任何显式检查。
 
 ## 枚举
 
@@ -4358,9 +4353,9 @@ tsc --watch
 
 从 TypeScript 4.9 版本开始，文件监控主要依赖于文件系统事件，如果无法建立基于事件的观察程序，则会自动诉诸轮询。
 
-### 明确的赋值断言 (!)
+### 非空断言运算符（后缀！）
 
-明确赋值断言或也称为非空断言运算符告诉 TypeScript 编译器键入的值不能为 null 或未定义，这是一种覆盖编译器分析并通知它在使用变量之前将被赋值的方法。
+非空断言运算符（Postfix！）也称为明确赋值断言，是一种 TypeScript 功能，允许您断言变量或属性不为空或未定义，即使 TypeScript 的静态类型分析表明它可能是空或未定义。 使用此功能可以删除任何显式检查。
 
 ```typescript
 type Person = {
@@ -4386,7 +4381,7 @@ greet('John'); // Hello, John!
 
 ### 可选链
 
-可选的链接运算符 ?. 与常规点运算符 (.) 一样用于访问属性或方法。但是，它通过优雅处理 `undefined` 和 `null` 来终止表达式并返回 `undefined`，而不是抛出错误。
+可选的链接运算符 `?.` 与常规点运算符 (.) 一样用于访问属性或方法。但是，它通过优雅处理 `undefined` 和 `null` 来终止表达式并返回 `undefined`，而不是抛出错误。
 
 ```typescript
 type Person = {
@@ -4742,14 +4737,14 @@ const uniqueSymbol = Symbol('description');
 type MyKeys = `key-${string}`;
 
 type MyObject = {
-  [uniqueSymbol]: string;
-  [key: MyKeys]: number;
-}
+    [uniqueSymbol]: string;
+    [key: MyKeys]: number;
+};
 
 const obj: MyObject = {
-  [uniqueSymbol]: 'Unique symbol key',
-  'key-a': 123,
-  'key-b': 456,
+    [uniqueSymbol]: 'Unique symbol key',
+    'key-a': 123,
+    'key-b': 456,
 };
 
 console.log(obj[uniqueSymbol]); // Unique symbol key
