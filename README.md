@@ -1907,14 +1907,14 @@ console.log(Grade[failGrade]); // Element implicitly has an 'any' type because i
 
 ### Ambient enums
 
-An ambient enum in TypeScript is a type of enum that is defined in a declaration file (*.d.ts) without an associated implementation. It allows you to define a set of named constants that can be used in a type-safe way across different files without having to import the implementation details in each file.
+An ambient enum in TypeScript is a type of Enum that is defined in a declaration file (*.d.ts) without an associated implementation. It allows you to define a set of named constants that can be used in a type-safe way across different files without having to import the implementation details in each file.
 
 ### Computed and constant members
 
-In TypeScript, a computed member is a member of an enum that has a value calculated at runtime, while a constant member is a member whose value is set at compile-time and cannot be changed during runtime. Computed members are allowed in regular enums, while constant members are allowed in both regular and const enums.
+In TypeScript, a computed member is a member of an Enum that has a value calculated at runtime, while a constant member is a member whose value is set at compile-time and cannot be changed during runtime. Computed members are allowed in regular Enums, while constant members are allowed in both regular and const enums.
 
 ```typescript
-// constant members
+// Constant members
 enum Color {
     Red = 1,
     Green = 5,
@@ -1924,7 +1924,7 @@ console.log(Color.Blue); // 6 generation at compilation time
 ```
 
 ```typescript
-// computed members
+// Computed members
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
