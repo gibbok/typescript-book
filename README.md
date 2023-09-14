@@ -2272,7 +2272,7 @@ x.push(2); // Error
 
 ## Union Type
 
-A Union Type is a type that represents a value that can be one of several types. Union Types are denoted using the | symbol between each possible type.
+A Union Type is a type that represents a value that can be one of several types. Union Types are denoted using the `|` symbol between each possible type.
 
 ```typescript
 let x: string | number;
@@ -2282,7 +2282,7 @@ x = 123; // Valid
 
 ## Intersection Types
 
-An Intersection Type is a type that represents a value that has all the properties of two or more types. Intersection Types are denoted using the `&`` symbol between each type.
+An Intersection Type is a type that represents a value that has all the properties of two or more types. Intersection Types are denoted using the `&` symbol between each type.
 
 ```typescript
 type X = {
