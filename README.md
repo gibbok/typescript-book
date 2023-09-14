@@ -1755,7 +1755,7 @@ In the following example we can see that `o.x` was inferred as a `string` (and n
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // this is a wider string
+    x: 'a', // This is a wider string
 };
 
 const fn = (x: X) => `${x}-foo`;
