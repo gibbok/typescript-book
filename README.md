@@ -577,7 +577,7 @@ The "moduleResolution" property specifies the module resolution strategy. Use "n
 
 #### esModuleInterop
 
-The "esModuleInterop" property allows import default from CommonJS modules that did not export using the "default" property, this property provides a shim to ensure compatibility in the emitted JavaScript. After enabling this option we can use "import MyLibrary from ‘my-library’" instead of "import \* as MyLibrary from ‘my-library’".
+The "esModuleInterop" property allows import default from CommonJS modules that did not export using the "default" property, this property provides a shim to ensure compatibility in the emitted JavaScript. After enabling this option we can use `import MyLibrary from "my-library"` instead of `import * as MyLibrary from "my-library"`.
 
 #### jsx
 

@@ -568,7 +568,7 @@ TypeScript 可以为各种模块系统生成代码，包括 UMD、System、ESNex
 
 #### esModuleInterop
 
-"esModuleInterop"属性允许从未使用"default"属性导出的 CommonJS 模块导入默认值，此属性提供了一个兼容以确保生成的 JavaScript 的兼容性。启用此选项后，我们可以使用"import MyLibrary from 'my-library'"而不是"import * as MyLibrary from 'my-library'"。
+"esModuleInterop"属性允许从未使用"default"属性导出的 CommonJS 模块导入默认值，此属性提供了一个兼容以确保生成的 JavaScript 的兼容性。启用此选项后，我们可以使用 `import MyLibrary from "my-library"` 而不是 `import * as MyLibrary from "my-library"`。
 
 #### jsx
 
