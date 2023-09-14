@@ -207,7 +207,7 @@ You can also download the Epub version here:
     - [The for-await-of Statement](#the-for-await-of-statement)
     - [New.target](#newtarget)
     - [Dynamic Import Expressions](#dynamic-import-expressions)
-    - [“tsc –watch”](#tsc-watch)
+    - ["tsc –watch"](#tsc-watch)
     - [Definite Assignment Assertions (!)](#definite-assignment-assertions-)
     - [Defaulted declarations](#defaulted-declarations)
     - [Optional Chaining](#optional-chaining)
@@ -573,15 +573,15 @@ Note: The module system should be chosen based on the target environment and the
 
 #### moduleResolution
 
-The "moduleResolution" property specifies the module resolution strategy. Use “node” for modern TypeScript code, the “classic” strategy is used only for old versions of TypeScript (before 1.6).
+The "moduleResolution" property specifies the module resolution strategy. Use "node" for modern TypeScript code, the "classic" strategy is used only for old versions of TypeScript (before 1.6).
 
 #### esModuleInterop
 
-The "esModuleInterop" property allows import default from CommonJS modules that did not export using the “default” property, this property provides a shim to ensure compatibility in the emitted JavaScript. After enabling this option we can use “import MyLibrary from ‘my-library’” instead of “import \* as MyLibrary from ‘my-library’”.
+The "esModuleInterop" property allows import default from CommonJS modules that did not export using the "default" property, this property provides a shim to ensure compatibility in the emitted JavaScript. After enabling this option we can use "import MyLibrary from ‘my-library’" instead of "import \* as MyLibrary from ‘my-library’".
 
 #### jsx
 
-The "jsx" property applies only to .tsx files used in ReactJS and controls how JSX constructs are compiled into JavaScript. A common option is “preserve” which will compile to a .jsx file keeping unchanged the JSX so it can be passed to different tools like Babel for further transformations.
+The "jsx" property applies only to .tsx files used in ReactJS and controls how JSX constructs are compiled into JavaScript. A common option is "preserve" which will compile to a .jsx file keeping unchanged the JSX so it can be passed to different tools like Babel for further transformations.
 
 #### skipLibCheck
 
@@ -936,11 +936,11 @@ TypeScript supports various types of sets:
 
 | Set term           | TypeScript                      | Notes                                                                                                              |
 | ------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Empty set          | never                           | “never” contains anything apart itself                                                                             |
+| Empty set          | never                           | "never" contains anything apart itself                                                                             |
 | Single element set | undefined / null / literal type |                                                                                                                    |
 | Finite set         | boolean / union                 |                                                                                                                    |
 | Infinite set       | string / number / object        |                                                                                                                    |
-| Universal set      | any / unknown                   | Every element is a member of “any” and every set is a subset of it / “unknown” is a type-safe counterpart of “any” |
+| Universal set      | any / unknown                   | Every element is a member of "any" and every set is a subset of it / "unknown" is a type-safe counterpart of "any" |
 
 Here few examples:
 
@@ -999,7 +999,7 @@ const r: XY = { a: 'a' }; // Invalid
 const j: XY = { a: 'a', b: 'b' }; // Valid
 ```
 
-The `extends` keyword could be considered as a “subset of” in this context. It sets a constraint for a type. The extends used with a generic, take the generic as an infinite set and it will constrain it to a more specific type.
+The `extends` keyword could be considered as a "subset of" in this context. It sets a constraint for a type. The extends used with a generic, take the generic as an infinite set and it will constrain it to a more specific type.
 Please note that `extends` has nothing to do with hierarchy in a OOP sense (there is no this concept in TypeScript).
 TypeScript works with sets and does not have a strict hierarchy, infact, as in the example below, two types could overlap without either being a subtype of the other type (TypeScript considers the structure, shape of the objects).
 
@@ -1129,7 +1129,7 @@ and can be installed using:
 npm install --save-dev @types/library-name
 ```
 
-For your defined Ambient Declarations, you can import using the “triple-slash” reference:
+For your defined Ambient Declarations, you can import using the "triple-slash" reference:
 
 <!-- skip -->
 ```typescript
@@ -1552,7 +1552,7 @@ const y: readonly [string, number] = ['a', 1];
 
 ### any
 
-The `any` data type represents literally “any” value, it is the default value when TypeScript cannot infer the type or is not specified.
+The `any` data type represents literally "any" value, it is the default value when TypeScript cannot infer the type or is not specified.
 
 When using `any` TypeScript compiler skips the type checking so there is no type safety when `any` is being used. Generally do not use `any` to silence the compiler when an error occurs, instead focus on fixing the error as with using `any`  it is possible to break contracts and we lose the benefits of TypeScript autocomplete.
 
@@ -1613,7 +1613,7 @@ type X = {
 };
 ```
 
-It is possible to specify a default value when a property is optional”
+It is possible to specify a default value when a property is optional"
 
 ```typescript
 type X = {
@@ -3627,7 +3627,7 @@ log(obj); // Valid
 ## Namespacing
 
 In TypeScript, namespaces are used to organize code into logical containers, preventing naming collisions and providing a way to group related code together.
-The usage of the `export` keywords allows access to the namespace in “outside” modules.
+The usage of the `export` keywords allows access to the namespace in "outside" modules.
 
 ```typescript
 export namespace MyNamespace {
@@ -4355,7 +4355,7 @@ async function renderWidget() {
 renderWidget();
 ```
 
-### “tsc –watch”
+### "tsc –watch"
 
 This command starts a TypeScript compiler with --watch parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
 
@@ -4568,7 +4568,7 @@ type Student = [string, number];
 const [name, age]: Student = ['Simone', 20];
 ```
 
-The term “variadic” means indefinite arity (accept a variable number of arguments).
+The term "variadic" means indefinite arity (accept a variable number of arguments).
 
 A variadic tuple is a tuple type which has all the property as before but the exact shape is not defined yet:
 
