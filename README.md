@@ -1264,7 +1264,7 @@ let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
 TypeScript utilizes "contextual typing" based on the variable's location to infer types. In the following example, the compiler knows that `e` is of type `MouseEvent` because of the `click` event type defined in the lib.d.ts file, which contains ambient declarations for various common JavaScript constructs and the DOM:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // e inferred type is MouseEvent
+window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
 ```
 
 ### Type Widening
