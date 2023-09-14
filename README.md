@@ -104,7 +104,7 @@ You can also download the Epub version here:
     - [instanceof narrowing](#instanceof-narrowing)
   - [Assignments](#assignments)
   - [Control Flow Analysis](#control-flow-analysis)
-  - [type Predicates](#type-predicates)
+  - [Type Predicates](#type-predicates)
   - [Discriminated Unions](#discriminated-unions)
   - [The never Type](#the-never-type)
   - [Exhaustiveness checking](#exhaustiveness-checking)
@@ -2116,9 +2116,9 @@ const f6 = (
 
 Notes: Up to five levels of indirection are analyzed in conditional expressions.
 
-## type Predicates
+## Type Predicates
 
-Type predicates in TypeScript are functions that return a boolean value and are used to narrow the type of a variable to a more specific type.
+Type Predicates in TypeScript are functions that return a boolean value and are used to narrow the type of a variable to a more specific type.
 
 ```typescript
 const isString = (value: unknown): value is string => typeof value === 'string';
