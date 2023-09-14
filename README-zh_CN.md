@@ -4381,7 +4381,7 @@ greet('John'); // Hello, John!
 
 ### 可选链
 
-可选的链接运算符 ?. 与常规点运算符 (.) 一样用于访问属性或方法。但是，它通过优雅处理 `undefined` 和 `null` 来终止表达式并返回 `undefined`，而不是抛出错误。
+可选的链接运算符 `?.` 与常规点运算符 (.) 一样用于访问属性或方法。但是，它通过优雅处理 `undefined` 和 `null` 来终止表达式并返回 `undefined`，而不是抛出错误。
 
 ```typescript
 type Person = {
@@ -4737,14 +4737,14 @@ const uniqueSymbol = Symbol('description');
 type MyKeys = `key-${string}`;
 
 type MyObject = {
-  [uniqueSymbol]: string;
-  [key: MyKeys]: number;
-}
+    [uniqueSymbol]: string;
+    [key: MyKeys]: number;
+};
 
 const obj: MyObject = {
-  [uniqueSymbol]: 'Unique symbol key',
-  'key-a': 123,
-  'key-b': 456,
+    [uniqueSymbol]: 'Unique symbol key',
+    'key-a': 123,
+    'key-b': 456,
 };
 
 console.log(obj[uniqueSymbol]); // Unique symbol key

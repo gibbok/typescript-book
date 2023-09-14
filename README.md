@@ -4393,7 +4393,7 @@ greet('John'); // Hello, John!
 
 ### Optional Chaining
 
-The optional chaining operator ?. works like the regular dot operator (.) for accessing properties or methods. However, it gracefully handles null or undefined values by terminating the expression and returning undefined, instead of throwing an error.
+The optional chaining operator `?.` works like the regular dot operator (.) for accessing properties or methods. However, it gracefully handles null or undefined values by terminating the expression and returning `undefined``, instead of throwing an error.
 
 ```typescript
 type Person = {
