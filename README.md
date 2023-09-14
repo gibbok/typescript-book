@@ -1366,11 +1366,13 @@ v.x = 3; // Valid
 
 We can make the type annotation more specific by using a union of literal types:
 
+<!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
     x: 1, // x is now a union of literal types: 1 | 2 | 3
 };
 v.x = 3; // Valid
+v.x = 100; // Invalid
 ```
 
 ### Type Narrowing
