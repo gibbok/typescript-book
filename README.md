@@ -89,7 +89,6 @@ You can also download the Epub version here:
   - [Literal Types](#literal-types)
   - [Literal Inference](#literal-inference)
   - [strictNullChecks](#strictnullchecks)
-  - [Non-null Assertion Operator (Postfix !)](#non-null-assertion-operator-postfix-)
   - [Enums](#enums)
     - [Numeric enums](#numeric-enums)
     - [String enums](#string-enums)
@@ -208,7 +207,7 @@ You can also download the Epub version here:
     - [New.target](#newtarget)
     - [Dynamic Import Expressions](#dynamic-import-expressions)
     - ["tsc –watch"](#tsc-watch)
-    - [Definite Assignment Assertions (!)](#definite-assignment-assertions-)
+    - [Non-null Assertion Operator (Postfix !)](#non-null-assertion-operator-postfix-)
     - [Defaulted declarations](#defaulted-declarations)
     - [Optional Chaining](#optional-chaining)
     - [Nullish coalescing operator (??)](#nullish-coalescing-operator-)
@@ -1786,10 +1785,6 @@ let o = {
 ## strictNullChecks
 
 `strictNullChecks` is a TypeScript compiler option that enforces strict null checking. When this option is enabled, variables and parameters can only be assigned `null` or `undefined` if they have been explicitly declared to be of that type using the union type `null` | `undefined`. If a variable or parameter is not explicitly declared as nullable, TypeScript will generate an error to prevent potential runtime errors.
-
-## Non-null Assertion Operator (Postfix !)
-
-The Non-null Assertion Operator (Postfix !) is a TypeScript feature that allows you to assert that a variable or property is not `null` or `undefined`, even if TypeScript's static type analysis suggests that it might be. With this feature it is possible to remove any explicit checking.
 
 ## Enums
 
@@ -4370,9 +4365,9 @@ tsc --watch
 
 Starting from TypeScript version 4.9, file monitoring primarily relies on file system events, automatically resorting to polling if an event-based watcher cannot be established.
 
-### Definite Assignment Assertions (!)
+### Non-null Assertion Operator (Postfix !)
 
-The Definite Assignment Assertions or also called non-null assertion operator tells the TypeScript compiler that a value typed cannot be null or undefined which is a way to override the compiler's analysis and inform it that a variable will be assigned a value before it is used.
+The Non-null Assertion Operator (Postfix !) also called Definite Assignment Assertions is a TypeScript feature that allows you to assert that a variable or property is not null or undefined, even if TypeScript's static type analysis suggests that it might be. With this feature it is possible to remove any explicit checking.
 
 ```typescript
 type Person = {
