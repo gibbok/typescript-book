@@ -2099,7 +2099,7 @@ Some examples where narrowing does not occur:
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // error, no narrowing because isString it is not const
+        x.length; // Error, no narrowing because isString it is not const
     }
 };
 
