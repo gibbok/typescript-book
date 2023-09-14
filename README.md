@@ -207,7 +207,7 @@ You can also download the Epub version here:
     - [The for-await-of Statement](#the-for-await-of-statement)
     - [New.target](#newtarget)
     - [Dynamic Import Expressions](#dynamic-import-expressions)
-    - [“tsc –watch”](#tsc-watch)
+    - ["tsc –watch"](#tsc-watch)
     - [Definite Assignment Assertions (!)](#definite-assignment-assertions-)
     - [Defaulted declarations](#defaulted-declarations)
     - [Optional Chaining](#optional-chaining)
@@ -573,15 +573,15 @@ Note: The module system should be chosen based on the target environment and the
 
 #### moduleResolution
 
-The "moduleResolution" property specifies the module resolution strategy. Use “node” for modern TypeScript code, the “classic” strategy is used only for old versions of TypeScript (before 1.6).
+The "moduleResolution" property specifies the module resolution strategy. Use "node" for modern TypeScript code, the "classic" strategy is used only for old versions of TypeScript (before 1.6).
 
 #### esModuleInterop
 
-The "esModuleInterop" property allows import default from CommonJS modules that did not export using the “default” property, this property provides a shim to ensure compatibility in the emitted JavaScript. After enabling this option we can use “import MyLibrary from ‘my-library’” instead of “import \* as MyLibrary from ‘my-library’”.
+The "esModuleInterop" property allows import default from CommonJS modules that did not export using the "default" property, this property provides a shim to ensure compatibility in the emitted JavaScript. After enabling this option we can use `import MyLibrary from "my-library"` instead of `import * as MyLibrary from "my-library"`.
 
 #### jsx
 
-The "jsx" property applies only to .tsx files used in ReactJS and controls how JSX constructs are compiled into JavaScript. A common option is “preserve” which will compile to a .jsx file keeping unchanged the JSX so it can be passed to different tools like Babel for further transformations.
+The "jsx" property applies only to .tsx files used in ReactJS and controls how JSX constructs are compiled into JavaScript. A common option is "preserve" which will compile to a .jsx file keeping unchanged the JSX so it can be passed to different tools like Babel for further transformations.
 
 #### skipLibCheck
 
@@ -610,13 +610,13 @@ The first step of this transition is to introduce TypeScript into the build chai
 
 The second step is to ensure that your JavaScript tests work alongside TypeScript files so that you can run tests as you convert each module. If you are using Jest, consider using `ts-jest`, which allows you to test TypeScript projects with Jest.
 
-The third step is to include type declarations for third-party libraries in your project. These declarations can be found either bundled or on DefinitelyTyped. You can search for them using <https://www.typescriptlang.org/dt/search> and install them using
+The third step is to include type declarations for third-party libraries in your project. These declarations can be found either bundled or on DefinitelyTyped. You can search for them using <https://www.typescriptlang.org/dt/search> and install them using:
 
 ```shell
 npm install --save-dev @types/package-name or yarn add --dev @types/package-name.
 ```
 
-The fourth step is to migrate module by module with a bottom-up approach, following your Dependency Graph starting with the leaves. The idea is to start converting Modules that do not depend on other Modules. To visualize the dependency graphs, you can use the `madge` tool.
+The fourth step is to migrate module by module with a bottom-up approach, following your Dependency Graph starting with the leaves. The idea is to start converting Modules that do not depend on other Modules. To visualize the dependency graphs, you can use the "madge" tool.
 
 Good candidate modules for these initial conversions are utility functions and code related to external APIs or specifications. It is possible to automatically generate TypeScript type definitions from Swagger contracts, GraphQL or JSON schemas to be included in your project.
 
@@ -639,7 +639,7 @@ The TypeScript Language Service, also known as tsserver, offers various features
 Developers can leverage a dedicated API and create their own custom language service plugins to enhance the TypeScript editing experience. This can be particularly useful for implementing special linting features or enabling auto-completion for a custom templating language.
 
 <!-- markdownlint-disable MD044 -->
-An example of a real-world custom plugin is "typescript-styled-plugin," which provides syntax error reporting and IntelliSense support for CSS properties in styled components.
+An example of a real-world custom plugin is "typescript-styled-plugin", which provides syntax error reporting and IntelliSense support for CSS properties in styled components.
 <!-- markdownlint-enable MD044 -->
 
 For more information and quick start guides, you can refer to the official TypeScript Wiki on GitHub: <https://github.com/microsoft/TypeScript/wiki/>
@@ -667,7 +667,7 @@ const y: Y = x; // Valid
 
 The TypeScript comparison process is recursive and executed on types nested at any level.
 
-A type 'X' is compatible with 'Y' if 'Y' has at least the same members as 'X'.
+A type "X" is compatible with "Y" if "Y" has at least the same members as "X".
 
 ```typescript
 type X = {
@@ -710,7 +710,7 @@ x = y; // Valid
 y = x; // Invalid member b is missing
 ```
 
-Discarding function parameters is allowed, as it is a common practice in JavaScript, for instance using Array.prototype.map():
+Discarding function parameters is allowed, as it is a common practice in JavaScript, for instance using "Array.prototype.map()":
 
 ```typescript
 [1, 2, 3].map((element, _index, _array) => element + 'x');
@@ -936,11 +936,11 @@ TypeScript supports various types of sets:
 
 | Set term           | TypeScript                      | Notes                                                                                                              |
 | ------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Empty set          | never                           | “never” contains anything apart itself                                                                             |
+| Empty set          | never                           | "never" contains anything apart itself                                                                             |
 | Single element set | undefined / null / literal type |                                                                                                                    |
 | Finite set         | boolean / union                 |                                                                                                                    |
 | Infinite set       | string / number / object        |                                                                                                                    |
-| Universal set      | any / unknown                   | Every element is a member of “any” and every set is a subset of it / “unknown” is a type-safe counterpart of “any” |
+| Universal set      | any / unknown                   | Every element is a member of "any" and every set is a subset of it / "unknown" is a type-safe counterpart of "any" |
 
 Here few examples:
 
@@ -999,7 +999,7 @@ const r: XY = { a: 'a' }; // Invalid
 const j: XY = { a: 'a', b: 'b' }; // Valid
 ```
 
-The `extends` keyword could be considered as a “subset of” in this context. It sets a constraint for a type. The extends used with a generic, take the generic as an infinite set and it will constrain it to a more specific type.
+The `extends` keyword could be considered as a "subset of" in this context. It sets a constraint for a type. The extends used with a generic, take the generic as an infinite set and it will constrain it to a more specific type.
 Please note that `extends` has nothing to do with hierarchy in a OOP sense (there is no this concept in TypeScript).
 TypeScript works with sets and does not have a strict hierarchy, infact, as in the example below, two types could overlap without either being a subtype of the other type (TypeScript considers the structure, shape of the objects).
 
@@ -1044,8 +1044,8 @@ type X = {
     a: string;
 };
 
+// Type declaration
 const x: X = {
-    // Type declaration
     a: 'a',
 };
 ```
@@ -1103,7 +1103,7 @@ type X = {
 type Y = J<X>;
 ```
 
-In this example, the type `J<Type>` uses a mapped type with a template literal to remap the keys of Type. It creates new properties with a prefix_ added to each key, and their corresponding values are functions returning the original property values.
+In this example, the type `J<Type>` uses a mapped type with a template literal to remap the keys of Type. It creates new properties with a "prefix_" added to each key, and their corresponding values are functions returning the original property values.
 
 It is worth noting that when using a type assertion, TypeScript will not execute excess property checking. Therefore, it is generally preferable to use a Type Declaration when the structure of the object is known in advance.
 
@@ -1129,7 +1129,7 @@ and can be installed using:
 npm install --save-dev @types/library-name
 ```
 
-For your defined Ambient Declarations, you can import using the “triple-slash” reference:
+For your defined Ambient Declarations, you can import using the "triple-slash" reference:
 
 <!-- skip -->
 ```typescript
@@ -1205,7 +1205,7 @@ fn({ c: 'c' }); // Valid
 
 ### Strict Object Literal Checking (Freshness)
 
-Strict object literal checking, sometimes referred to as freshness, is a feature in TypeScript that helps catch excess or misspelled properties that would otherwise go unnoticed in normal structural type checks.
+Strict object literal checking, sometimes referred to as "freshness", is a feature in TypeScript that helps catch excess or misspelled properties that would otherwise go unnoticed in normal structural type checks.
 
 When creating an object literal, the TypeScript compiler considers it "fresh." If the object literal is assigned to a variable or passed as a parameter, TypeScript will throw an error if the object literal specifies properties that do not exist in the target type.
 
@@ -1264,7 +1264,7 @@ let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
 TypeScript utilizes "contextual typing" based on the variable's location to infer types. In the following example, the compiler knows that `e` is of type `MouseEvent` because of the `click` event type defined in the lib.d.ts file, which contains ambient declarations for various common JavaScript constructs and the DOM:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // e inferred type is MouseEvent
+window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
 ```
 
 ### Type Widening
@@ -1281,7 +1281,7 @@ y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
 
 TypeScript assigns `string` to `x` based on the single value provided during initialization (`x`), this is an example of widening.
 
-TypeScript provides ways to have control of the widening process, for instance using:
+TypeScript provides ways to have control of the widening process, for instance using "const".
 
 ### Const
 
@@ -1366,11 +1366,13 @@ v.x = 3; // Valid
 
 We can make the type annotation more specific by using a union of literal types:
 
+<!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
     x: 1, // x is now a union of literal types: 1 | 2 | 3
 };
 v.x = 3; // Valid
+v.x = 100; // Invalid
 ```
 
 ### Type Narrowing
@@ -1480,7 +1482,7 @@ TypeScript also supports hexadecimal, binary, and octal, for instance:
 const decimal: number = 10;
 const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
 const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0c
+const octal: number = 0o633; // Octal starts with 0o
 ```
 
 ### bigInt
@@ -1494,7 +1496,10 @@ const x: bigint = BigInt(9007199254740991);
 const y: bigint = 9007199254740991n;
 ```
 
-Notes: `bigInt` values cannot be mixed with `number` and cannot be used with built-in `Math`, they must be coerced to the same type.
+Notes:
+
+* `bigInt` values cannot be mixed with `number` and cannot be used with built-in `Math`, they must be coerced to the same type.
+* `bigInt` values are available only if target configuration is ES2020 or higher.
 
 ### Symbol
 
@@ -1552,7 +1557,7 @@ const y: readonly [string, number] = ['a', 1];
 
 ### any
 
-The `any` data type represents literally “any” value, it is the default value when TypeScript cannot infer the type or is not specified.
+The `any` data type represents literally "any" value, it is the default value when TypeScript cannot infer the type or is not specified.
 
 When using `any` TypeScript compiler skips the type checking so there is no type safety when `any` is being used. Generally do not use `any` to silence the compiler when an error occurs, instead focus on fixing the error as with using `any`  it is possible to break contracts and we lose the benefits of TypeScript autocomplete.
 
@@ -1613,7 +1618,7 @@ type X = {
 };
 ```
 
-It is possible to specify a default value when a property is optional”
+It is possible to specify a default value when a property is optional"
 
 ```typescript
 type X = {
@@ -3627,7 +3632,7 @@ log(obj); // Valid
 ## Namespacing
 
 In TypeScript, namespaces are used to organize code into logical containers, preventing naming collisions and providing a way to group related code together.
-The usage of the `export` keywords allows access to the namespace in “outside” modules.
+The usage of the `export` keywords allows access to the namespace in "outside" modules.
 
 ```typescript
 export namespace MyNamespace {
@@ -4355,7 +4360,7 @@ async function renderWidget() {
 renderWidget();
 ```
 
-### “tsc –watch”
+### "tsc –watch"
 
 This command starts a TypeScript compiler with --watch parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
 
@@ -4568,7 +4573,7 @@ type Student = [string, number];
 const [name, age]: Student = ['Simone', 20];
 ```
 
-The term “variadic” means indefinite arity (accept a variable number of arguments).
+The term "variadic" means indefinite arity (accept a variable number of arguments).
 
 A variadic tuple is a tuple type which has all the property as before but the exact shape is not defined yet:
 
