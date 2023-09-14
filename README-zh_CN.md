@@ -1986,14 +1986,12 @@ const toUpperCase = (name: string | null) => {
 TypeScript 中的相等缩小通过检查变量是否等于特定值来相应缩小其类型。
 
 ```typescript
-const logMessage = (status: 'success' | 'error') => {
+const checkStatus = (status: 'success' | 'error') => {
     switch (status) {
         case 'success':
-            console.log('Operation was successful!');
-            break;
+            return true
         case 'error':
-            console.log('An error occurred.');
-            break;
+            return null
     }
 };
 ```
