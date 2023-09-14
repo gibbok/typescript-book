@@ -442,7 +442,7 @@ TypeScript has no effect on runtime performance, as all types will be erased. Ho
 
 ### Modern JavaScript Now (Downleveling)
 
-TypeScript can compile code to any released version of JavaScript since ECMAScript 3 (1999). This means that TypeScript can transpile code from the latest JavaScript features to older versions, a process known as downleveling. This allows the usage of modern JavaScript while maintaining maximum compatibility with older runtime environments.
+TypeScript can compile code to any released version of JavaScript since ECMAScript 3 (1999). This means that TypeScript can transpile code from the latest JavaScript features to older versions, a process known as Downleveling. This allows the usage of modern JavaScript while maintaining maximum compatibility with older runtime environments.
 
 It's important to note that during transpilation to an older version of JavaScript, TypeScript may generate code that could incur a performance overhead compared to native implementations.
 
