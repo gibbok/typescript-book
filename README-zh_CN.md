@@ -2000,7 +2000,7 @@ const checkStatus = (status: 'success' | 'error') => {
 
 ### In运算符缩小
 
-TypeScript 中的 in 运算符缩小范围是一种根据变量类型中是否存在属性来缩小变量类型的方法。
+TypeScript 中的 `in` 运算符缩小范围是一种根据变量类型中是否存在属性来缩小变量类型的方法。
 
 ```typescript
 type Dog = {
@@ -2013,15 +2013,11 @@ type Cat = {
     likesCream: boolean;
 };
 
-const printPet = (pet: Dog | Cat) => {
+const getAnimalType = (pet: Dog | Cat) => {
     if ('breed' in pet) {
-        console.log(`This is a ${pet.breed} dog named ${pet.name}.`);
+        return 'dog'
     } else {
-        console.log(
-            `This is a cat named ${pet.name} that ${
-                pet.likesCream ? 'likes' : "doesn't like"
-            } cream.`
-        );
+        return 'cat'
     }
 };
 ```

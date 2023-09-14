@@ -1990,16 +1990,16 @@ It is used in conjunction with `switch` statements and equality operators such a
 const checkStatus = (status: 'success' | 'error') => {
     switch (status) {
         case 'success':
-            return true
+            return true;
         case 'error':
-            return null
+            return null;
     }
 };
 ```
 
 ### In Operator narrowing
 
-The "in" Operator narrowing in TypeScript is a way to narrow the type of a variable based on whether a property exists within the variable's type.
+The `in` Operator narrowing in TypeScript is a way to narrow the type of a variable based on whether a property exists within the variable's type.
 
 ```typescript
 type Dog = {
@@ -2012,15 +2012,11 @@ type Cat = {
     likesCream: boolean;
 };
 
-const printPet = (pet: Dog | Cat) => {
+const getAnimalType = (pet: Dog | Cat) => {
     if ('breed' in pet) {
-        console.log(`This is a ${pet.breed} dog named ${pet.name}.`);
+        return 'dog'
     } else {
-        console.log(
-            `This is a cat named ${pet.name} that ${
-                pet.likesCream ? 'likes' : "doesn't like"
-            } cream.`
-        );
+        return 'cat'
     }
 };
 ```
