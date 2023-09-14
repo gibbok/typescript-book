@@ -1984,15 +1984,15 @@ const toUpperCase = (name: string | null) => {
 
 Equality narrowing in TypeScript works by checking whether a variable is equal to a specific value or not, to narrow its type accordingly.
 
+It is used in conjunction with `switch` statements and equality operators such as `===`, `!==`, `==`, and `!=` to narrow down types.
+
 ```typescript
-const logMessage = (status: 'success' | 'error') => {
+const checkStatus = (status: 'success' | 'error') => {
     switch (status) {
         case 'success':
-            console.log('Operation was successful!');
-            break;
+            return true
         case 'error':
-            console.log('An error occurred.');
-            break;
+            return null
     }
 };
 ```

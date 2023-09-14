@@ -1985,6 +1985,8 @@ const toUpperCase = (name: string | null) => {
 
 TypeScript 中的相等缩小通过检查变量是否等于特定值来相应缩小其类型。
 
+它与`switch`语句和等号运算符（例如`===`、`!==`、`==`和`!=`）结合使用来缩小类型范围。
+
 ```typescript
 const checkStatus = (status: 'success' | 'error') => {
     switch (status) {
