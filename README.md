@@ -104,7 +104,7 @@ You can also download the Epub version here:
     - [instanceof narrowing](#instanceof-narrowing)
   - [Assignments](#assignments)
   - [Control Flow Analysis](#control-flow-analysis)
-  - [type Predicates](#type-predicates)
+  - [Type Predicates](#type-predicates)
   - [Discriminated Unions](#discriminated-unions)
   - [The never Type](#the-never-type)
   - [Exhaustiveness checking](#exhaustiveness-checking)
@@ -1788,7 +1788,7 @@ let o = {
 
 ## Enums
 
-In TypeScript, an enum is a set of named constant values.
+In TypeScript, an `enum` is a set of named constant values.
 
 ```typescript
 enum Color {
@@ -1802,7 +1802,7 @@ Enums can be defined in different ways:
 
 ### Numeric enums
 
-In TypeScript, a numeric enum is an enum where each constant is assigned a numeric value, starting from 0 by default.
+In TypeScript, a Numeric Enum is an Enum where each constant is assigned a numeric value, starting from 0 by default.
 
 ```typescript
 enum Size {
@@ -1825,7 +1825,7 @@ console.log(Size.Medium); // 11
 
 ### String enums
 
-In TypeScript, a string enum is an enum where each constant is assigned a string value.
+In TypeScript, a String enum is an Enum where each constant is assigned a string value.
 
 ```typescript
 enum Language {
@@ -1834,11 +1834,11 @@ enum Language {
 }
 ```
 
-Note: TypeScript allows the usage of heterogeneous enums where string and numeric members can coexist.
+Note: TypeScript allows the usage of heterogeneous Enums where string and numeric members can coexist.
 
 ### Constant enums
 
-A constant enum in TypeScript is a special type of enum where all the values are known at compile time and are inlined wherever the enum is used, resulting in more efficient code.
+A constant enum in TypeScript is a special type of Enum where all the values are known at compile time and are inlined wherever the enum is used, resulting in more efficient code.
 
 ```typescript
 const enum Language {
@@ -1855,11 +1855,11 @@ console.log('EN' /* Language.English */);
 ```
 
 Notes:
-Const enums have hardcoded values, erasing the enum, which can be more efficient in self-contained libraries but is generally not desirable. Also, const enums cannot have computed members.
+Const Enums have hardcoded values, erasing the Enum, which can be more efficient in self-contained libraries but is generally not desirable. Also, Const enums cannot have computed members.
 
 ### Reverse mapping
 
-In TypeScript, reverse mappings in enums refer to the ability to retrieve the enum member name from its value. By default, enum members have forward mappings from name to value, but reverse mappings can be created by explicitly setting values for each member. Reverse mappings are useful when you need to look up an enum member by its value, or when you need to iterate over all the enum members. Note that only numeric enums members will generate reverse mappings, while string enum members *do not* get a reverse mapping generated at all.
+In TypeScript, reverse mappings in Enums refer to the ability to retrieve the Enum member name from its value. By default, Enum members have forward mappings from name to value, but reverse mappings can be created by explicitly setting values for each member. Reverse mappings are useful when you need to look up an Enum member by its value, or when you need to iterate over all the Enum members. Note that only numeric enums members will generate reverse mappings, while String Enum members do not get a reverse mapping generated at all.
 
 The following enum:
 
@@ -1907,14 +1907,14 @@ console.log(Grade[failGrade]); // Element implicitly has an 'any' type because i
 
 ### Ambient enums
 
-An ambient enum in TypeScript is a type of enum that is defined in a declaration file (*.d.ts) without an associated implementation. It allows you to define a set of named constants that can be used in a type-safe way across different files without having to import the implementation details in each file.
+An ambient enum in TypeScript is a type of Enum that is defined in a declaration file (*.d.ts) without an associated implementation. It allows you to define a set of named constants that can be used in a type-safe way across different files without having to import the implementation details in each file.
 
 ### Computed and constant members
 
-In TypeScript, a computed member is a member of an enum that has a value calculated at runtime, while a constant member is a member whose value is set at compile-time and cannot be changed during runtime. Computed members are allowed in regular enums, while constant members are allowed in both regular and const enums.
+In TypeScript, a computed member is a member of an Enum that has a value calculated at runtime, while a constant member is a member whose value is set at compile-time and cannot be changed during runtime. Computed members are allowed in regular Enums, while constant members are allowed in both regular and const enums.
 
 ```typescript
-// constant members
+// Constant members
 enum Color {
     Red = 1,
     Green = 5,
@@ -1924,7 +1924,7 @@ console.log(Color.Blue); // 6 generation at compilation time
 ```
 
 ```typescript
-// computed members
+// Computed members
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
@@ -1971,11 +1971,11 @@ const fn = (x: number | string): number => {
 Truthiness narrowing in TypeScript works by checking whether a variable is truthy or falsy to narrow its type accordingly.
 
 ```typescript
-const printName = (name: string | null | undefined) => {
+const toUpperCase = (name: string | null) => {
     if (name) {
-        console.log(name.toUpperCase());
+        return name.toUpperCase();
     } else {
-        console.log('No name specified');
+        return name;
     }
 };
 ```
@@ -1984,22 +1984,22 @@ const printName = (name: string | null | undefined) => {
 
 Equality narrowing in TypeScript works by checking whether a variable is equal to a specific value or not, to narrow its type accordingly.
 
+It is used in conjunction with `switch` statements and equality operators such as `===`, `!==`, `==`, and `!=` to narrow down types.
+
 ```typescript
-const logMessage = (status: 'success' | 'error') => {
+const checkStatus = (status: 'success' | 'error') => {
     switch (status) {
         case 'success':
-            console.log('Operation was successful!');
-            break;
+            return true;
         case 'error':
-            console.log('An error occurred.');
-            break;
+            return null;
     }
 };
 ```
 
 ### In Operator narrowing
 
-The "in" Operator narrowing in TypeScript is a way to narrow the type of a variable based on whether a property exists within the variable's type.
+The `in` Operator narrowing in TypeScript is a way to narrow the type of a variable based on whether a property exists within the variable's type.
 
 ```typescript
 type Dog = {
@@ -2012,22 +2012,18 @@ type Cat = {
     likesCream: boolean;
 };
 
-const printPet = (pet: Dog | Cat) => {
+const getAnimalType = (pet: Dog | Cat) => {
     if ('breed' in pet) {
-        console.log(`This is a ${pet.breed} dog named ${pet.name}.`);
+        return 'dog';
     } else {
-        console.log(
-            `This is a cat named ${pet.name} that ${
-                pet.likesCream ? 'likes' : "doesn't like"
-            } cream.`
-        );
+        return 'cat';
     }
 };
 ```
 
 ### instanceof narrowing
 
-The instanceof operator narrowing in TypeScript is a way to narrow the type of a variable based on its constructor function, by checking if an object is an instance of a certain class or interface.
+The `instanceof` operator narrowing in TypeScript is a way to narrow the type of a variable based on its constructor function, by checking if an object is an instance of a certain class or interface.
 
 ```typescript
 class Square {
@@ -2103,7 +2099,7 @@ Some examples where narrowing does not occur:
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // error, no narrowing because isString it is not const
+        x.length; // Error, no narrowing because isString it is not const
     }
 };
 
@@ -2120,9 +2116,9 @@ const f6 = (
 
 Notes: Up to five levels of indirection are analyzed in conditional expressions.
 
-## type Predicates
+## Type Predicates
 
-Type predicates in TypeScript are functions that return a boolean value and are used to narrow the type of a variable to a more specific type.
+Type Predicates in TypeScript are functions that return a boolean value and are used to narrow the type of a variable to a more specific type.
 
 ```typescript
 const isString = (value: unknown): value is string => typeof value === 'string';
@@ -2189,7 +2185,7 @@ const printValue = (val: string | number) => {
 
 ## Exhaustiveness checking
 
-Exhaustiveness checking is a feature in TypeScript that ensures all possible cases of a discriminated union are handled in a switch statement or an if statement.
+Exhaustiveness checking is a feature in TypeScript that ensures all possible cases of a discriminated union are handled in a `switch` statement or an `if` statement.
 
 ```typescript
 type Direction = 'up' | 'down';
@@ -2204,7 +2200,7 @@ const move = (direction: Direction) => {
             break;
         default:
             const exhaustiveCheck: never = direction;
-            console.log(exhaustiveCheck); // this line will never be executed
+            console.log(exhaustiveCheck); // This line will never be executed
     }
 };
 ```
@@ -2276,7 +2272,7 @@ x.push(2); // Error
 
 ## Union Type
 
-A Union Type is a type that represents a value that can be one of several types. Union Types are denoted using the | symbol between each possible type.
+A Union Type is a type that represents a value that can be one of several types. Union Types are denoted using the `|` symbol between each possible type.
 
 ```typescript
 let x: string | number;
@@ -2286,7 +2282,7 @@ x = 123; // Valid
 
 ## Intersection Types
 
-An Intersection Type is a type that represents a value that has all the properties of two or more types. Intersection Types are denoted using the `&`` symbol between each type.
+An Intersection Type is a type that represents a value that has all the properties of two or more types. Intersection Types are denoted using the `&` symbol between each type.
 
 ```typescript
 type X = {

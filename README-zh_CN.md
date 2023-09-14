@@ -1808,7 +1808,7 @@ enum Color {
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // Value starts from 0
     Medium,
     Large,
 }
@@ -1972,11 +1972,11 @@ const fn = (x: number | string): number => {
 TypeScript 中的真实性缩小是通过检查变量是真还是假来相应地缩小其类型来实现的。
 
 ```typescript
-const printName = (name: string | null | undefined) => {
+const toUpperCase = (name: string | null) => {
     if (name) {
-        console.log(name.toUpperCase());
+        return name.toUpperCase();
     } else {
-        console.log('No name specified');
+        return name;
     }
 };
 ```
@@ -1985,22 +1985,22 @@ const printName = (name: string | null | undefined) => {
 
 TypeScript 中的相等缩小通过检查变量是否等于特定值来相应缩小其类型。
 
+它与`switch`语句和等号运算符（例如`===`、`!==`、`==`和`!=`）结合使用来缩小类型范围。
+
 ```typescript
-const logMessage = (status: 'success' | 'error') => {
+const checkStatus = (status: 'success' | 'error') => {
     switch (status) {
         case 'success':
-            console.log('Operation was successful!');
-            break;
+            return true
         case 'error':
-            console.log('An error occurred.');
-            break;
+            return null
     }
 };
 ```
 
 ### In运算符缩小
 
-TypeScript 中的 in 运算符缩小范围是一种根据变量类型中是否存在属性来缩小变量类型的方法。
+TypeScript 中的 `in` 运算符缩小范围是一种根据变量类型中是否存在属性来缩小变量类型的方法。
 
 ```typescript
 type Dog = {
@@ -2013,15 +2013,11 @@ type Cat = {
     likesCream: boolean;
 };
 
-const printPet = (pet: Dog | Cat) => {
+const getAnimalType = (pet: Dog | Cat) => {
     if ('breed' in pet) {
-        console.log(`This is a ${pet.breed} dog named ${pet.name}.`);
+        return 'dog'
     } else {
-        console.log(
-            `This is a cat named ${pet.name} that ${
-                pet.likesCream ? 'likes' : "doesn't like"
-            } cream.`
-        );
+        return 'cat'
     }
 };
 ```
@@ -2190,7 +2186,7 @@ const printValue = (val: string | number) => {
 
 ## 详尽性检查
 
-详尽性检查是 TypeScript 中的一项功能，可确保在 switch 语句或 if 语句中处理可区分联合的所有可能情况。
+详尽性检查是 TypeScript 中的一项功能，可确保在 `switch` 语句或 `if` 语句中处理可区分联合的所有可能情况。
 
 ```typescript
 type Direction = 'up' | 'down';
@@ -2277,7 +2273,7 @@ x.push(2); // 错误
 
 ## 联合类型
 
-联合类型是一种表示值的类型，该值可以是多种类型之一。联合类型使用 | 表示 每种可能类型之间的符号。
+联合类型是一种表示值的类型，该值可以是多种类型之一。联合类型使用 `|` 表示 每种可能类型之间的符号。
 
 ```typescript
 let x: string | number;
