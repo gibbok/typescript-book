@@ -1788,7 +1788,7 @@ let o = {
 
 ## Enums
 
-In TypeScript, an enum is a set of named constant values.
+In TypeScript, an `enum` is a set of named constant values.
 
 ```typescript
 enum Color {
@@ -1802,7 +1802,7 @@ Enums can be defined in different ways:
 
 ### Numeric enums
 
-In TypeScript, a numeric enum is an enum where each constant is assigned a numeric value, starting from 0 by default.
+In TypeScript, a Numeric Enum is an Enum where each constant is assigned a numeric value, starting from 0 by default.
 
 ```typescript
 enum Size {
@@ -1825,7 +1825,7 @@ console.log(Size.Medium); // 11
 
 ### String enums
 
-In TypeScript, a string enum is an enum where each constant is assigned a string value.
+In TypeScript, a String enum is an Enum where each constant is assigned a string value.
 
 ```typescript
 enum Language {
@@ -1834,11 +1834,11 @@ enum Language {
 }
 ```
 
-Note: TypeScript allows the usage of heterogeneous enums where string and numeric members can coexist.
+Note: TypeScript allows the usage of heterogeneous Enums where string and numeric members can coexist.
 
 ### Constant enums
 
-A constant enum in TypeScript is a special type of enum where all the values are known at compile time and are inlined wherever the enum is used, resulting in more efficient code.
+A constant enum in TypeScript is a special type of Enum where all the values are known at compile time and are inlined wherever the enum is used, resulting in more efficient code.
 
 ```typescript
 const enum Language {
@@ -1855,11 +1855,11 @@ console.log('EN' /* Language.English */);
 ```
 
 Notes:
-Const enums have hardcoded values, erasing the enum, which can be more efficient in self-contained libraries but is generally not desirable. Also, const enums cannot have computed members.
+Const Enums have hardcoded values, erasing the Enum, which can be more efficient in self-contained libraries but is generally not desirable. Also, Const enums cannot have computed members.
 
 ### Reverse mapping
 
-In TypeScript, reverse mappings in enums refer to the ability to retrieve the enum member name from its value. By default, enum members have forward mappings from name to value, but reverse mappings can be created by explicitly setting values for each member. Reverse mappings are useful when you need to look up an enum member by its value, or when you need to iterate over all the enum members. Note that only numeric enums members will generate reverse mappings, while string enum members *do not* get a reverse mapping generated at all.
+In TypeScript, reverse mappings in Enums refer to the ability to retrieve the Enum member name from its value. By default, Enum members have forward mappings from name to value, but reverse mappings can be created by explicitly setting values for each member. Reverse mappings are useful when you need to look up an Enum member by its value, or when you need to iterate over all the Enum members. Note that only numeric enums members will generate reverse mappings, while String Enum members do not get a reverse mapping generated at all.
 
 The following enum:
 

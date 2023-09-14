@@ -1808,7 +1808,7 @@ enum Color {
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // Value starts from 0
     Medium,
     Large,
 }
