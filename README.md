@@ -2185,7 +2185,7 @@ const printValue = (val: string | number) => {
 
 ## Exhaustiveness checking
 
-Exhaustiveness checking is a feature in TypeScript that ensures all possible cases of a discriminated union are handled in a switch statement or an if statement.
+Exhaustiveness checking is a feature in TypeScript that ensures all possible cases of a discriminated union are handled in a `switch` statement or an `if` statement.
 
 ```typescript
 type Direction = 'up' | 'down';
@@ -2200,7 +2200,7 @@ const move = (direction: Direction) => {
             break;
         default:
             const exhaustiveCheck: never = direction;
-            console.log(exhaustiveCheck); // this line will never be executed
+            console.log(exhaustiveCheck); // This line will never be executed
     }
 };
 ```

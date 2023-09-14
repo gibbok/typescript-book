@@ -2186,7 +2186,7 @@ const printValue = (val: string | number) => {
 
 ## 详尽性检查
 
-详尽性检查是 TypeScript 中的一项功能，可确保在 switch 语句或 if 语句中处理可区分联合的所有可能情况。
+详尽性检查是 TypeScript 中的一项功能，可确保在 `switch` 语句或 `if` 语句中处理可区分联合的所有可能情况。
 
 ```typescript
 type Direction = 'up' | 'down';
