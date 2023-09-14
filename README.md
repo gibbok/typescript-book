@@ -1044,8 +1044,8 @@ type X = {
     a: string;
 };
 
+// Type declaration
 const x: X = {
-    // Type declaration
     a: 'a',
 };
 ```
