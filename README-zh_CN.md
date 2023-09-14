@@ -600,7 +600,7 @@ TypeScript 可以为各种模块系统生成代码，包括 UMD、System、ESNex
 
 第二步是确保您的 JavaScript 测试与 TypeScript 文件一起工作，以便您可以在转换每个模块时运行测试。如果您正在使用 Jest，请考虑使用ts-jest，它允许您使用 Jest 测试 TypeScript 项目。
 
-第三步是在项目中包含第三方库的类型声明。 这些声明可以第三方库的类型声明文件或专门的声明包中找到，你能通过 <https://www.typescriptlang.org/dt/search> 搜索并安装它们。
+第三步是在项目中包含第三方库的类型声明。 这些声明可以第三方库的类型声明文件或专门的声明包中找到，你能通过 <https://www.typescriptlang.org/dt/search> 搜索并安装它们。:
 
 ```shell
 npm install --save-dev @types/package-name or yarn add --dev @types/package-name.
