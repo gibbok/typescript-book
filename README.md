@@ -2014,16 +2014,16 @@ type Cat = {
 
 const getAnimalType = (pet: Dog | Cat) => {
     if ('breed' in pet) {
-        return 'dog'
+        return 'dog';
     } else {
-        return 'cat'
+        return 'cat';
     }
 };
 ```
 
 ### instanceof narrowing
 
-The instanceof operator narrowing in TypeScript is a way to narrow the type of a variable based on its constructor function, by checking if an object is an instance of a certain class or interface.
+The `instanceof` operator narrowing in TypeScript is a way to narrow the type of a variable based on its constructor function, by checking if an object is an instance of a certain class or interface.
 
 ```typescript
 class Square {
