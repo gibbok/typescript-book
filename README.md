@@ -1725,9 +1725,9 @@ Literal Types in TypeScript are numbers, strings, and booleans.
 Example of literals:
 
 ```typescript
-const a = 'a'; // string literal type
-const b = 1; // numeric literal type
-const c = true; // boolean literal type
+const a = 'a'; // String literal type
+const b = 1; // Numeric literal type
+const c = true; // Boolean literal type
 ```
 
 String, Numeric, and Boolean Literal Types are used in the union, type guard, and type aliases.
