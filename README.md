@@ -639,7 +639,7 @@ The TypeScript Language Service, also known as tsserver, offers various features
 Developers can leverage a dedicated API and create their own custom language service plugins to enhance the TypeScript editing experience. This can be particularly useful for implementing special linting features or enabling auto-completion for a custom templating language.
 
 <!-- markdownlint-disable MD044 -->
-An example of a real-world custom plugin is "typescript-styled-plugin," which provides syntax error reporting and IntelliSense support for CSS properties in styled components.
+An example of a real-world custom plugin is "typescript-styled-plugin", which provides syntax error reporting and IntelliSense support for CSS properties in styled components.
 <!-- markdownlint-enable MD044 -->
 
 For more information and quick start guides, you can refer to the official TypeScript Wiki on GitHub: <https://github.com/microsoft/TypeScript/wiki/>
