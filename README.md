@@ -1973,9 +1973,9 @@ Truthiness narrowing in TypeScript works by checking whether a variable is truth
 ```typescript
 const toUpperCase = (name: string | null) => {
     if (name) {
-        return name.toUpperCase()
+        return name.toUpperCase();
     } else {
-        return null
+        return null;
     }
 };
 ```
