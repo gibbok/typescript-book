@@ -58,8 +58,8 @@
     - [类型加宽](#类型加宽)
     - [常量](#常量)
       - [类型参数的 const 修饰符](#类型参数的-const-修饰符)
-    - [显式类型注释](#显式类型注释)
     - [常量断言](#常量断言)
+    - [显式类型注释](#显式类型注释)
     - [类型缩小](#类型缩小)
       - [条件](#条件)
       - [抛错或者返回](#抛错或者返回)
@@ -106,7 +106,7 @@
   - [详尽性检查](#详尽性检查)
   - [对象类型](#对象类型)
   - [元组类型（匿名）](#元组类型匿名)
-  - [命名元组类型](#命名元组类型)
+  - [命名元组类型（已标记）](#命名元组类型已标记)
   - [固定长度元组](#固定长度元组)
   - [联合类型](#联合类型)
   - [交集类型](#交集类型)
@@ -118,7 +118,7 @@
   - [映射类型修饰符](#映射类型修饰符)
   - [条件类型](#条件类型)
   - [分配条件类型](#分配条件类型)
-  - [“infer” 条件类型中的类型推断](#infer-条件类型中的类型推断)
+  - [infer 条件类型中的类型推断](#infer-条件类型中的类型推断)
   - [预定义条件类型](#预定义条件类型)
   - [模板联合类型](#模板联合类型)
   - [任意类型](#任意类型)
@@ -133,7 +133,6 @@
   - [内置原始数据类型](#内置原始数据类型)
   - [常见的内置JS对象](#常见的内置js对象)
   - [重载](#重载)
-  - [Get 与 Set](#get-与-set)
   - [合并与扩展](#合并与扩展)
   - [类型和接口之间的差异](#类型和接口之间的差异)
   - [Class](#class)
@@ -141,6 +140,7 @@
     - [构造函数](#构造函数)
     - [私有和受保护的构造函数](#私有和受保护的构造函数)
     - [访问修饰符](#访问修饰符)
+    - [Get 与 Set](#get-与-set)
     - [类中的自动访问器](#类中的自动访问器)
     - [this](#this)
     - [参数属性](#参数属性)
@@ -206,7 +206,6 @@
     - [“tsc –watch”](#tsc-watch)
     - [明确的赋值断言 (!)](#明确的赋值断言-)
     - [默认声明](#默认声明)
-    - [“const“ 断言](#const-断言)
     - [可选链](#可选链)
     - [空合并运算符 (??)](#空合并运算符-)
     - [模板字符串类型](#模板字符串类型)
@@ -220,7 +219,7 @@
     - [映射类型中的键重新映射](#映射类型中的键重新映射)
     - [TypeScript 中的协变和逆变](#typescript-中的协变和逆变)
       - [类型参数的可选方差注释](#类型参数的可选方差注释)
-    - [Symbol和模板字符串模式索引签名](#symbol和模板字符串模式索引签名)
+    - [模板字符串模式索引签名](#模板字符串模式索引签名)
     - [satisfies操作符](#satisfies操作符)
     - [仅类型导入和导出](#仅类型导入和导出)
     - [使用声明和显式资源管理](#使用声明和显式资源管理)
@@ -318,7 +317,9 @@ const result = 1 + true; // 在JavaScript中, 结果等于2
 
 但是，TypeScript 会抛出错误：
 
+```text
 运算符“+”不能应用于类型“number”和“boolean”。
+``````
 
 出现此错误的原因是 TypeScript 严格强制执行类型兼容性，在这种情况下，它标识了数字和布尔值之间的无效操作。
 
@@ -1304,29 +1305,9 @@ const values = identity({ a: 'a', b: 'b' }); // 类型推断为: { a: "a"; b: "b
 
 现在我们可以看到属性 `a` 和 `b` 被推断为const，因此 `a` 和 `b`被视为字符串文字而不仅仅是 `string` 类型。
 
-### 显式类型注释
-
-我们可以具体地传递一个类型，在下面的示例中，属性x的类型是number：
-
-```typescript
-const v = {
-    x: 1, // 推断类型: number (加宽了)
-};
-v.x = 3; // 有效
-```
-
-我们可以通过使用字面量类型的联合使类型注释更加具体：
-
-```typescript
-const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x 现在是字面量的联合类型： 1 | 2 | 3
-};
-v.x = 3; // 有效
-```
-
 ### 常量断言
 
-常量断言允许我们通过断言类型来更加具体 `const` 。它可以用于单个属性或整个对象。这里有一些例子：
+此功能允许您根据变量的初始化值声明具有更精确的文字类型的变量，这向编译器表明该值应被视为不可变文字。 这里有一些例子：
 
 在单个属性上：
 
@@ -1351,6 +1332,26 @@ const v = {
 ```typescript
 const x = [1, 2, 3]; // number[]
 const y = [1, 2, 3] as const; // 只读数组 [1, 2, 3]
+```
+
+### 显式类型注释
+
+我们可以具体地传递一个类型，在下面的示例中，属性x的类型是number：
+
+```typescript
+const v = {
+    x: 1, // 推断类型: number (加宽了)
+};
+v.x = 3; // 有效
+```
+
+我们可以通过使用字面量类型的联合使类型注释更加具体：
+
+```typescript
+const v: { x: 1 | 2 | 3 } = {
+    x: 1, // x 现在是字面量的联合类型： 1 | 2 | 3
+};
+v.x = 3; // 有效
 ```
 
 ### 类型缩小
@@ -2251,7 +2252,7 @@ console.log(sum({ a: 5, b: 1 }));
 type Point = [number, number];
 ```
 
-## 命名元组类型
+## 命名元组类型（已标记）
 
 元组类型可以包含每个元素的可选标签或名称。 这些标签用于提高可读性和工具帮助，不会影响您可以使用它们执行的操作。
 
@@ -2408,7 +2409,7 @@ type NumberOrBool = number | boolean;
 type NullableNumberOrBool = Nullable<NumberOrBool>; // number | boolean | null
 ```
 
-## “infer” 条件类型中的类型推断
+## infer 条件类型中的类型推断
 
 `infer` 关键字在条件类型中使用，用于从依赖于泛型参数的类型中推断（提取）泛型参数的类型。这允许您编写更灵活且可重用的类型定义。
 
@@ -2707,26 +2708,6 @@ class Greeter {
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
 
-## Get 与 Set
-
-Getter 和 Setter 是特殊方法，允许您定义类属性的自定义访问和修改行为。它们使您能够封装对象的内部状态，并在获取或设置属性值时提供附加逻辑。在 TypeScript 中，getter 和 setter 分别使用 `get` 和 `set` 关键字定义。这是一个例子：
-
-```typescript
-class MyClass {
-    private _myProperty: string;
-
-    constructor(value: string) {
-        this._myProperty = value;
-    }
-    get myProperty(): string {
-        return this._myProperty;
-    }
-    set myProperty(value: string) {
-        this._myProperty = value;
-    }
-}
-```
-
 ## 合并与扩展
 
 合并和扩展是指与使用类型和接口相关的两个不同概念。
@@ -3008,6 +2989,26 @@ const derivedObj = new DerivedClass(10);
 修饰符 `protected` 允许访问包含类及其派生类中的类成员。
 
 修饰符 `public` 提供对类成员的不受限制的访问，允许从任何地方访问它。
+
+### Get 与 Set
+
+Getter 和 Setter 是特殊方法，允许您定义类属性的自定义访问和修改行为。它们使您能够封装对象的内部状态，并在获取或设置属性值时提供附加逻辑。在 TypeScript 中，getter 和 setter 分别使用 `get` 和 `set` 关键字定义。这是一个例子：
+
+```typescript
+class MyClass {
+    private _myProperty: string;
+
+    constructor(value: string) {
+        this._myProperty = value;
+    }
+    get myProperty(): string {
+        return this._myProperty;
+    }
+    set myProperty(value: string) {
+        this._myProperty = value;
+    }
+}
+```
 
 ### 类中的自动访问器
 
@@ -4378,16 +4379,6 @@ greet(); // Hello, Anonymous!
 greet('John'); // Hello, John!
 ```
 
-### “const“ 断言
-
-Const 断言是一项功能，允许您根据变量的初始化值声明具有更具体字面量类型的变量。这是一种向编译器声明该值必须被视为不可变字面量的方法。
-
-<!-- skip -->
-```typescript
-let arr = [1, 2, 3] as const; // readonly [1, 2, 3]
-arr.push(4); // Invalid
-```
-
 ### 可选链
 
 可选的链接运算符 ?. 与常规点运算符 (.) 一样用于访问属性或方法。但是，它通过优雅处理 `undefined` 和 `null` 来终止表达式并返回 `undefined`，而不是抛出错误。
@@ -4734,25 +4725,31 @@ type AnimalCallback<out T> = () => T; // T is Covariant here
 type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
 ```
 
-### Symbol和模板字符串模式索引签名
+### 模板字符串模式索引签名
 
-Symbol是唯一标识符，可用作对象中的属性键以防止命名冲突。
+模板字符串模式索引签名允许我们使用模板字符串模式定义灵活的索引签名。 此功能使我们能够创建可以使用特定字符串键模式进行索引的对象，从而在访问和操作属性时提供更多控制和特异性。
 
-模板字符串模式索引签名允许我们使用模板字符串模式定义灵活的索引签名。此功能使我们能够创建可以使用特定模式的字符串键进行索引的对象，从而在访问和操作属性时提供更多的控制和特异性。
-
-TypeScript 4.4 版开始允许Symbol和模板字符串模式的索引签名。
+TypeScript 4.4 版开始允许符号和模板字符串模式的索引签名。
 
 ```typescript
-type Obj = {
-    [sym: symbol]: number;
+const uniqueSymbol = Symbol('description');
+
+type MyKeys = `key-${string}`;
+
+type MyObject = {
+  [uniqueSymbol]: string;
+  [key: MyKeys]: number;
+}
+
+const obj: MyObject = {
+  [uniqueSymbol]: 'Unique symbol key',
+  'key-a': 123,
+  'key-b': 456,
 };
 
-const a = Symbol('a');
-const b = Symbol('b');
-
-let obj: Obj = {};
-
-obj[b] = 123;
+console.log(obj[uniqueSymbol]); // Unique symbol key
+console.log(obj['key-a']); // 123
+console.log(obj['key-b']); // 456
 ```
 
 ### satisfies操作符
