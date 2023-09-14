@@ -710,7 +710,7 @@ x = y; // Valid
 y = x; // Invalid member b is missing
 ```
 
-Discarding function parameters is allowed, as it is a common practice in JavaScript, for instance using Array.prototype.map():
+Discarding function parameters is allowed, as it is a common practice in JavaScript, for instance using "Array.prototype.map()":
 
 ```typescript
 [1, 2, 3].map((element, _index, _array) => element + 'x');

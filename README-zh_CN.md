@@ -700,7 +700,7 @@ x = y; // 有效
 y = x; // 无效，缺少 b 成员
 ```
 
-允许丢弃函数参数，因为这是 JavaScript 中的常见做法，例如使用 Array.prototype.map()：
+允许丢弃函数参数，因为这是 JavaScript 中的常见做法，例如使用 "Array.prototype.map()"：
 
 ```typescript
 [1, 2, 3].map((element, _index, _array) => element + 'x');
