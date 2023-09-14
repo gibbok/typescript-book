@@ -1974,9 +1974,9 @@ TypeScript 中的真实性缩小是通过检查变量是真还是假来相应地
 ```typescript
 const toUpperCase = (name: string | null) => {
     if (name) {
-        return name.toUpperCase()
+        return name.toUpperCase();
     } else {
-        return null
+        return name;
     }
 };
 ```

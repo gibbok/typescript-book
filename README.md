@@ -1975,7 +1975,7 @@ const toUpperCase = (name: string | null) => {
     if (name) {
         return name.toUpperCase();
     } else {
-        return null;
+        return name;
     }
 };
 ```
