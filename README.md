@@ -3433,7 +3433,7 @@ class OfficeWorker {
 const w1 = new OfficeWorker('James');
 const w2 = new OfficeWorker('Simon');
 const total = OfficeWorker.memberCount;
-console.log(total);
+console.log(total); // 2
 ```
 
 ### Property initialization
@@ -3473,7 +3473,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // there is no need to assign the values to the properties explicitly.
+        // There is no need to assign the values to the properties explicitly.
     }
     log() {
         console.log(this.property2);
