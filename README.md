@@ -3258,7 +3258,15 @@ class MyClass {
     }
 }
 
-console.log(new MyClass().sayHello()); // Logs: Hello!
+new MyClass().sayHello()
+```
+
+It logs:
+
+```shell
+LOG: Entering method 'sayHello'.
+Hello!
+LOG: Exiting method 'sayHello'.
 ```
 
 #### Getter and Setter Decorators

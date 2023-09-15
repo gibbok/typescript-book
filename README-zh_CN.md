@@ -3250,7 +3250,15 @@ class MyClass {
     }
 }
 
-console.log(new MyClass().sayHello()); // Logs: Hello!
+new MyClass().sayHello()
+```
+
+它记录：
+
+```shell
+LOG: Entering method 'sayHello'.
+Hello!
+LOG: Exiting method 'sayHello'.
 ```
 
 #### Getter 和 Setter 装饰器
