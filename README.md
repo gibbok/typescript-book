@@ -4895,7 +4895,7 @@ disposed
 3
 ```
 
-A resource eligible for disposal must adhere to the Disposable interface:
+A resource eligible for disposal must adhere to the `Disposable` interface:
 
 ```typescript
 // lib.esnext.disposable.d.ts

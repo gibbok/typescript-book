@@ -4879,7 +4879,7 @@ disposed
 3
 ```
 
-符合处置条件的资源必须遵守 Disposable 接口：
+符合处置条件的资源必须遵守 `Disposable` 接口：
 
 ```typescript
 // lib.esnext.disposable.d.ts
