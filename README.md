@@ -196,6 +196,7 @@ You can also download the Epub version here:
       - [Uncapitalize\<T\>](#uncapitalizet)
   - [Others](#others)
     - [Errors and Exception Handling](#errors-and-exception-handling)
+    - [Mixin classes](#mixin-classes)
     - [Asynchronous Language Features](#asynchronous-language-features)
     - [Iterators and Generators](#iterators-and-generators)
     - [TsDocs JSDoc Reference](#tsdocs-jsdoc-reference)
@@ -4073,6 +4074,8 @@ class CustomError extends Error {
 
 throw new CustomError('This is a custom error.');
 ```
+
+### Mixin classes
 
 Mixin classes allow you to combine and compose behavior from multiple classes into a single class. They provide a way to reuse and extend functionality without the need for deep inheritance chains.
 
