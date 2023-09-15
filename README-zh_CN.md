@@ -3248,7 +3248,7 @@ class MyClass {
     }
 }
 
-new MyClass().sayHello()
+new MyClass().sayHello();
 ```
 
 它记录：
@@ -3894,7 +3894,10 @@ type MyType = Parameters<Func>; // [a: string, b: number]
 
 ```typescript
 class Person {
-    constructor(public name: string, public age: number) {}
+    constructor(
+        public name: string,
+        public age: number
+    ) {}
 }
 type PersonConstructorParams = ConstructorParameters<typeof Person>; // [name: string, age: number]
 const params: PersonConstructorParams = ['John', 30];
