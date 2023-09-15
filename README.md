@@ -4330,7 +4330,7 @@ You can use in TypeScript the `new.target` meta-property which enables you to de
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // logs the constructor function used to create an instance
+        console.log(new.target); // Logs the constructor function used to create an instance
     }
 }
 
@@ -4355,7 +4355,7 @@ The syntax for dynamic import expressions in TypeScript is as follows:
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // dynamic import
+        const widget = await import('./widget'); // Dynamic import
         widget.render(container);
     }
 }
