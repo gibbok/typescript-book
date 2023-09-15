@@ -4638,11 +4638,11 @@ console.log('\u0041'.normalize());
 
 TypeScript represents this differentiation by providing separate types for the primitives and their corresponding object wrappers:
 
-string => String
-number => Number
-boolean => Boolean
-symbol => Symbol
-bigint => BigInt
+* string => String
+* number => Number
+* boolean => Boolean
+* symbol => Symbol
+* bigint => BigInt
 
 The boxed types are usually not needed. Avoid using boxed types and instead use type for the primitives,  for instance `string` instead of `String`.
 

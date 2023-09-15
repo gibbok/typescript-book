@@ -4621,15 +4621,11 @@ console.log('\u0041'.normalize());
 
 TypeScript 通过为原语及其相应的对象包装器提供单独的类型来表示这种区别：
 
-string => String
-
-number => Number
-
-boolean => Boolean
-
-symbol => Symbol
-
-bigint => BigInt
+* string => String
+* number => Number
+* boolean => Boolean
+* symbol => Symbol
+* bigint => BigInt
 
 通常不需要盒装类型。避免使用装箱类型，而是使用基元类型，例如 `string` 代替 `String`。
 
