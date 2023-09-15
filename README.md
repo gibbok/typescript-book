@@ -2973,10 +2973,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// attempting to instantiate the base class directly will result in an error
+// Attempting to instantiate the base class directly will result in an error
 // const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
 
-// create an instance of the derived class
+// Create an instance of the derived class
 const derivedObj = new DerivedClass(10);
 ```
 
