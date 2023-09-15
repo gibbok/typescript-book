@@ -2608,14 +2608,14 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Union and Intersection Types
 
 ```typescript
-type MyType = string | number; // union type
-let myUnion: MyType = 'hello'; // can be a string
-myUnion = 123; // or a number
+type MyType = string | number; // Union type
+let myUnion: MyType = 'hello'; // Can be a string
+myUnion = 123; // Or a number
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // object with both name and age properties
+type CombinedType = TypeA & TypeB; // Intersection type
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
 ```
 
 ## Built-in Type Primitives
@@ -2864,7 +2864,7 @@ The constructor is defined using the `constructor` keyword. It takes name and ag
 
 The class has a `public` method named sayHi that logs a greeting message.
 
-To create an instance of a class in TypeScript, you can use the `new` keyword followed by the class name, followed by parentheses (). For instance:
+To create an instance of a class in TypeScript, you can use the `new` keyword followed by the class name, followed by parentheses `()``. For instance:
 
 <!-- skip -->
 ```typescript

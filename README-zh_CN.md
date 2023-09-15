@@ -2862,7 +2862,7 @@ class Person {
 
 该类有一个 `public` 名为 `sayHi` 的方法，用于记录问候消息。
 
-要在 TypeScript 中创建类的实例，可以使用 `new` 关键字，后跟类名，然后使用括号 ()。例如：
+要在 TypeScript 中创建类的实例，可以使用 `new` 关键字，后跟类名，然后使用括号 `()`。例如：
 
 <!-- skip -->
 ```typescript
