@@ -2311,7 +2311,7 @@ type Dictionary<T> = {
     [key: string]: T;
 };
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-console.log(myDict['a']); // return a
+console.log(myDict['a']); // Returns a
 ```
 
 ## 值的类型
