@@ -4351,7 +4351,7 @@ renderWidget();
 
 ### "tsc –watch"
 
-此命令使用 --watch 参数启动 TypeScript 编译器，能够在修改 TypeScript 文件时自动重新编译它们。
+此命令使用 `--watch` 参数启动 TypeScript 编译器，能够在修改 TypeScript 文件时自动重新编译它们。
 
 ```shell
 tsc --watch
