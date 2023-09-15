@@ -3424,7 +3424,7 @@ class OfficeWorker {
 const w1 = new OfficeWorker('James');
 const w2 = new OfficeWorker('Simon');
 const total = OfficeWorker.memberCount;
-console.log(total);
+console.log(total); // 2
 ```
 
 ### 属性初始化
