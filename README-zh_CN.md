@@ -3506,7 +3506,7 @@ console.log(r.add(10, 5)); // Logs 15
 
 ### 泛型类型
 
-要定义泛型类型，可以使用尖括号 (<>) 来指定类型参数，例如：
+要定义泛型类型，可以使用尖括号 (`<>`) 来指定类型参数，例如：
 
 ```typescript
 function identity<T>(arg: T): T {
