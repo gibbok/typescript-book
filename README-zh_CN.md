@@ -4285,7 +4285,7 @@ TypeScript 确实支持 ES6 (ECMAScript 2015) 和许多后续版本。这意味�
 
 ### ES7 求幂运算符
 
-求幂 (**) 运算符计算通过将第一个操作数进行第二个操作数的幂获得的值。它的功能与 Math.pow() 类似，但增加了接受 BigInts 作为操作数的功能。TypeScript 完全支持在 `tsconfig.json` 文件中设置 `target` 为 `es2016`或更大版本来使用此运算符。
+求幂 (`**`) 运算符计算通过将第一个操作数进行第二个操作数的幂获得的值。它的功能与 Math.pow() 类似，但增加了接受 BigInts 作为操作数的功能。TypeScript 完全支持在 `tsconfig.json` 文件中设置 `target` 为 `es2016`或更大版本来使用此运算符。
 
 ```typescript
 console.log(2 ** (2 ** 2)); // 16
