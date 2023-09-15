@@ -3371,11 +3371,11 @@ class Dog extends Animal {
     }
 }
 
-// create an instance of the base class
+// Create an instance of the base class
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// create an instance of the derived class
+// Create an instance of the derived class
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
