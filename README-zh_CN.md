@@ -4944,7 +4944,7 @@ async function doWork() {
     // Create a new connection and dispose it asynchronously when it goes out of scope
     await using connection = new DatabaseConnection(); //  Resource is declared
     console.log('Doing some work...');
-} // 'Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
 
 doWork();
 ```
