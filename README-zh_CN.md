@@ -203,7 +203,6 @@
     - [New.target](#newtarget)
     - [动态导入表达式](#动态导入表达式)
     - ["tsc –watch"](#tsc-watch)
-    - [非空断言运算符（后缀！）](#非空断言运算符后缀)
     - [默认声明](#默认声明)
     - [可选链](#可选链)
     - [空合并运算符 (??)](#空合并运算符-)
@@ -215,7 +214,6 @@
     - [断言函数](#断言函数)
     - [可变参数元组类型](#可变参数元组类型)
     - [装箱类型](#装箱类型)
-    - [映射类型中的键重新映射](#映射类型中的键重新映射)
     - [TypeScript 中的协变和逆变](#typescript-中的协变和逆变)
       - [类型参数的可选方差注释](#类型参数的可选方差注释)
     - [模板字符串模式索引签名](#模板字符串模式索引签名)
@@ -1959,7 +1957,7 @@ TypeScript 可识别多种缩小类型范围的方法：
 typeof 类型保护是 TypeScript 中的一种特定类型保护，它根据变量的内置 JavaScript 类型检查变量的类型。
 
 ```typescript
-const fn = (x: number | string): number => {
+const fn = (x: number | string) => {
     if (typeof x === 'number') {
         return x + 1; // x 是数字
     }
@@ -1976,7 +1974,7 @@ const toUpperCase = (name: string | null) => {
     if (name) {
         return name.toUpperCase();
     } else {
-        return name;
+        return null;
     }
 };
 ```
@@ -2311,7 +2309,7 @@ type Dictionary<T> = {
     [key: string]: T;
 };
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-console.log(myDict['a']); // return a
+console.log(myDict['a']); // Returns a
 ```
 
 ## 值的类型
@@ -2565,7 +2563,7 @@ type TypeName = {
 
 `interface InterfaceName` 或者 `type TypeName`: 定义接口的名称。
 `property1`: `Type1`: 指定接口的属性及其相应的类型。可以定义多个属性，每个属性用分号分隔。
-`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;` method2(): void;: 指定接口的方法。方法用其名称进行定义，后跟括号中的参数列表和返回类型。可以定义多个方法，每个方法用分号分隔。
+`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;`: 指定接口的方法。方法用其名称进行定义，后跟括号中的参数列表和返回类型。可以定义多个方法，每个方法用分号分隔。
 
 接口示例:
 
@@ -2750,7 +2748,9 @@ const dog: Bird = {
 
 ## 类型和接口之间的差异
 
-声明合并（增强）：接口支持声明合并，这意味着您可以定义多个具有相同名称的接口，TypeScript 会将它们合并为具有组合属性和方法的单个接口。另一方面，类型不支持声明合并。当您想要添加额外的功能或自定义现有类型而不修改原始定义或修补丢失或不正确的类型时，这可能会很有帮助。
+声明合并（增强）：
+
+接口支持声明合并，这意味着您可以定义多个具有相同名称的接口，TypeScript 会将它们合并为具有组合属性和方法的单个接口。 另一方面，类型不支持声明合并。 当您想要添加额外的功能或自定义现有类型而不修改原始定义或修补丢失或不正确的类型时，这可能会很有帮助。
 
 ```typescript
 interface A {
@@ -2765,7 +2765,9 @@ const j: A = {
 };
 ```
 
-扩展其他类型/接口：类型和接口都可以扩展其他类型/接口，但语法不同。对于接口，您可以使用 `extends` 关键字从其他接口继承属性和方法。但是，接口无法扩展像联合类型这样的复杂类型。
+扩展其他类型/接口：
+
+类型和接口都可以扩展其他类型/接口，但语法不同。 对于接口，您可以使用“extends”关键字从其他接口继承属性和方法。 但是，接口无法扩展像联合类型这样的复杂类型。
 
 ```typescript
 interface A {
@@ -2801,7 +2803,9 @@ const c: B = {
 };
 ```
 
-并集和交集类型：在定义并集和交集类型时，类型更加灵活。通过 `type` 关键字，您可以轻松创建使用 `|` 运算符的联合类型和使用 `&` 运算符的交集类型。虽然接口也可以间接表示联合类型，但它们没有对交集类型的内置支持。
+并集和交集类型：
+
+在定义并集和交集类型时，类型更加灵活。 通过“type”关键字，您可以使用“|”运算符轻松创建联合类型，并使用“&”运算符创建交集类型。 虽然接口也可以间接表示联合类型，但它们没有对交集类型的内置支持。
 
 ```typescript
 type Department = 'dep-x' | 'dep-y'; // 并集
@@ -2862,12 +2866,12 @@ class Person {
 
 该类有一个 `public` 名为 `sayHi` 的方法，用于记录问候消息。
 
-要在 TypeScript 中创建类的实例，可以使用 `new` 关键字，后跟类名，然后使用括号 ()。例如：
+要在 TypeScript 中创建类的实例，可以使用 `new` 关键字，后跟类名，然后使用括号 `()`。例如：
 
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### 构造函数
@@ -3145,14 +3149,14 @@ console.log(container2.getItem()); // World
 
 装饰器的一些常见用例包括：
 
-* 观察属性变化
-* 观察方法调用
-* 添加额外的属性或方法
-* 运行时验证
-* 自动序列化和反序列化
-* 记录
-* 授权与认证
-* 错误防护
+* 观察属性变化。
+* 观察方法调用。
+* 添加额外的属性或方法。
+* 运行时验证。
+* 自动序列化和反序列化。
+* 日志记录。
+* 授权和认证。
+* 错误防护。
 
 注意：版本 5 的装饰器不允许装饰参数。
 
@@ -3250,7 +3254,15 @@ class MyClass {
     }
 }
 
-console.log(new MyClass().sayHello()); // Logs: Hello!
+new MyClass().sayHello();
+```
+
+它记录：
+
+```shell
+LOG: Entering method 'sayHello'.
+Hello!
+LOG: Exiting method 'sayHello'.
 ```
 
 #### Getter 和 Setter 装饰器
@@ -3363,11 +3375,11 @@ class Dog extends Animal {
     }
 }
 
-// create an instance of the base class
+// Create an instance of the base class
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// create an instance of the derived class
+// Create an instance of the derived class
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -3416,7 +3428,7 @@ class OfficeWorker {
 const w1 = new OfficeWorker('James');
 const w2 = new OfficeWorker('Simon');
 const total = OfficeWorker.memberCount;
-console.log(total);
+console.log(total); // 2
 ```
 
 ### 属性初始化
@@ -3487,7 +3499,7 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5));
+console.log(r.add(10, 5)); // Logs 15
 ```
 
 ## 泛型
@@ -3498,7 +3510,7 @@ console.log(r.add(10, 5));
 
 ### 泛型类型
 
-要定义泛型类型，可以使用尖括号 (<>) 来指定类型参数，例如：
+要定义泛型类型，可以使用尖括号 (`<>`) 来指定类型参数，例如：
 
 ```typescript
 function identity<T>(arg: T): T {
@@ -3652,7 +3664,7 @@ console.log(obj[key2]); // value 2
 
 ## 三斜杠指令
 
-三斜杠指令是特殊注释，为编译器提供有关如何处理文件的说明。这些指令以三个连续斜杠 (///) 开头，通常放置在 TypeScript 文件的顶部，对运行时行为没有影响。
+三斜杠指令是特殊注释，为编译器提供有关如何处理文件的说明。这些指令以三个连续斜杠 (`///`) 开头，通常放置在 TypeScript 文件的顶部，对运行时行为没有影响。
 
 三斜杠指令用于引用外部依赖项、指定模块加载行为、启用/禁用某些编译器功能等等。几个例子：
 
@@ -3888,7 +3900,10 @@ type MyType = Parameters<Func>; // [a: string, b: number]
 
 ```typescript
 class Person {
-    constructor(public name: string, public age: number) {}
+    constructor(
+        public name: string,
+        public age: number
+    ) {}
 }
 type PersonConstructorParams = ConstructorParameters<typeof Person>; // [name: string, age: number]
 const params: PersonConstructorParams = ['John', 30];
@@ -4108,11 +4123,14 @@ o.select();
 
 由于 TypeScript 是 JavaScript 的超集，因此它内置了 JavaScript 的异步语言功能，例如：
 
-Promises：Promise 是一种处理异步操作及其结果的方法，使用 `.then()`和等方法 `.catch()` 来处理成功和错误条件。
+Promises：
+
+Promise 是一种处理异步操作及其结果的方法，使用 `.then()`和等方法 `.catch()` 来处理成功和错误条件。
 
 要了解更多信息： <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>
 
 Async/await:
+
 Async/await 关键字是一种为处理 Promise 提供看起来更同步的语法的方法。`async` 关键字用于定义异步函数，并且 `await` 关键字在异步函数中使用以暂停执行，直到 Promise 被解决或拒绝。
 
 要了解更多信息：
@@ -4121,16 +4139,16 @@ Async/await 关键字是一种为处理 Promise 提供看起来更同步的语�
 
 TypeScript 很好地支持以下 API：
 
-Fetch API
+Fetch API:
 <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>
 
-Web Workers
+Web Workers:
 <https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API>
 
-Shared Workers
+Shared Workers:
 <https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker>
 
-WebSocket
+WebSocket:
 <https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>
 
 ### 迭代器和生成器
@@ -4274,7 +4292,7 @@ TypeScript 确实支持 ES6 (ECMAScript 2015) 和许多后续版本。这意味�
 
 ### ES7 求幂运算符
 
-求幂 (**) 运算符计算通过将第一个操作数进行第二个操作数的幂获得的值。它的功能与 Math.pow() 类似，但增加了接受 BigInts 作为操作数的功能。TypeScript 完全支持在 `tsconfig.json` 文件中设置 `target` 为 `es2016`或更大版本来使用此运算符。
+求幂 (`**`) 运算符计算通过将第一个操作数进行第二个操作数的幂获得的值。它的功能与 `Math.pow()` 类似，但增加了接受 BigInts 作为操作数的功能。TypeScript 完全支持在 `tsconfig.json` 文件中设置 `target` 为 `es2016`或更大版本来使用此运算符。
 
 ```typescript
 console.log(2 ** (2 ** 2)); // 16
@@ -4305,7 +4323,6 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 ```typescript
 class Parent {
     constructor() {
-        debugger;
         console.log(new.target); // 记录用于创建实例的构造函数
     }
 }
@@ -4341,27 +4358,13 @@ renderWidget();
 
 ### "tsc –watch"
 
-此命令使用 --watch 参数启动 TypeScript 编译器，能够在修改 TypeScript 文件时自动重新编译它们。
+此命令使用 `--watch` 参数启动 TypeScript 编译器，能够在修改 TypeScript 文件时自动重新编译它们。
 
 ```shell
 tsc --watch
 ```
 
 从 TypeScript 4.9 版本开始，文件监控主要依赖于文件系统事件，如果无法建立基于事件的观察程序，则会自动诉诸轮询。
-
-### 非空断言运算符（后缀！）
-
-非空断言运算符（Postfix！）也称为明确赋值断言，是一种 TypeScript 功能，允许您断言变量或属性不为空或未定义，即使 TypeScript 的静态类型分析表明它可能是空或未定义。 使用此功能可以删除任何显式检查。
-
-```typescript
-type Person = {
-    name: string;
-};
-
-const printName = (person?: Person) => {
-    console.log(`Name is ${person!.name}`);
-};
-```
 
 ### 默认声明
 
@@ -4377,7 +4380,7 @@ greet('John'); // Hello, John!
 
 ### 可选链
 
-可选的链接运算符 `?.` 与常规点运算符 (.) 一样用于访问属性或方法。但是，它通过优雅处理 `undefined` 和 `null` 来终止表达式并返回 `undefined`，而不是抛出错误。
+可选的链接运算符 `?.` 与常规点运算符 (`.`) 一样用于访问属性或方法。但是，它通过优雅处理 `undefined` 和 `null` 来终止表达式并返回 `undefined`，而不是抛出错误。
 
 ```typescript
 type Person = {
@@ -4611,40 +4614,13 @@ console.log('\u0041'.normalize());
 
 TypeScript 通过为原语及其相应的对象包装器提供单独的类型来表示这种区别：
 
-string => String
-
-number => Number
-
-boolean => Boolean
-
-symbol => Symbol
-
-bigint => BigInt
+* string => String
+* number => Number
+* boolean => Boolean
+* symbol => Symbol
+* bigint => BigInt
 
 通常不需要盒装类型。避免使用装箱类型，而是使用基元类型，例如 `string` 代替 `String`。
-
-### 映射类型中的键重新映射
-
-映射类型允许您通过转换现有类型的属性来创建新类型。使用 `keyof` 和 `in` 关键字，您可以迭代类型的属性并定义修改，例如使它们可选或只读。这里有一个例子：
-
-```typescript
-type Person = {
-    name: string;
-    age: number;
-    email: string;
-};
-
-type PartialPerson = {
-    [K in keyof Person]?: Person[K]; // 这将使得所有属性变成可选
-};
-
-const partialPerson: PartialPerson = {
-    name: 'John',
-    age: 30,
-};
-
-partialPerson.email = 'john@example.com';
-```
 
 ### TypeScript 中的协变和逆变
 
@@ -4797,9 +4773,9 @@ user3.nickName; // TypeScript 推断正确: undefined
 
 仅类型导入和导出允许您导入或导出类型，而无需导入或导出与这些类型关联的值或函数。 这对于减小捆绑包的大小很有用。
 
-要使用仅类型导入，您可以使用"导入类型关键字"。
+要使用仅类型导入，您可以使用`import type`关键字。
 
-TypeScript 允许在仅类型导入中使用声明和实现文件扩展名（.ts、.mts、.cts 和 .tsx），无论"allowImportingTsExtensions"设置如何。
+TypeScript 允许在仅类型导入中使用声明和实现文件扩展名（.ts、.mts、.cts 和 .tsx），无论`allowImportingTsExtensions`设置如何。
 
 例如：
 
@@ -4873,7 +4849,7 @@ disposed
 3
 ```
 
-符合处置条件的资源必须遵守 Disposable 接口：
+符合处置条件的资源必须遵守 `Disposable` 接口：
 
 ```typescript
 // lib.esnext.disposable.d.ts
@@ -4938,7 +4914,7 @@ async function doWork() {
     // Create a new connection and dispose it asynchronously when it goes out of scope
     await using connection = new DatabaseConnection(); //  Resource is declared
     console.log('Doing some work...');
-} // 'Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
 
 doWork();
 ```

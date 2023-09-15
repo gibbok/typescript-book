@@ -55,7 +55,6 @@ You can also download the Epub version here:
     - [Assign a type: Type Declarations and Type Assertions](#assign-a-type-type-declarations-and-type-assertions)
       - [Type Declaration](#type-declaration)
       - [Type Assertion](#type-assertion)
-      - [Non-null assertion](#non-null-assertion)
       - [Ambient Declarations](#ambient-declarations)
     - [Property Checking and Excess Property Checking](#property-checking-and-excess-property-checking)
     - [Weak Types](#weak-types)
@@ -196,6 +195,7 @@ You can also download the Epub version here:
       - [Uncapitalize\<T\>](#uncapitalizet)
   - [Others](#others)
     - [Errors and Exception Handling](#errors-and-exception-handling)
+    - [Mixin classes](#mixin-classes)
     - [Asynchronous Language Features](#asynchronous-language-features)
     - [Iterators and Generators](#iterators-and-generators)
     - [TsDocs JSDoc Reference](#tsdocs-jsdoc-reference)
@@ -219,7 +219,6 @@ You can also download the Epub version here:
     - [Assertion Functions](#assertion-functions)
     - [Variadic Tuple Types](#variadic-tuple-types)
     - [Boxed types](#boxed-types)
-    - [Key Remapping in Mapped Types](#key-remapping-in-mapped-types)
     - [Covariance and Contravariance in TypeScript](#covariance-and-contravariance-in-typescript)
       - [Optional Variance Annotations for Type Parameters](#optional-variance-annotations-for-type-parameters)
     - [Template String Pattern Index Signatures](#template-string-pattern-index-signatures)
@@ -1106,15 +1105,6 @@ In this example, the type `J<Type>` uses a mapped type with a template literal t
 
 It is worth noting that when using a type assertion, TypeScript will not execute excess property checking. Therefore, it is generally preferable to use a Type Declaration when the structure of the object is known in advance.
 
-#### Non-null assertion
-
-This assertion is applied using a post-fix `!` expression operator, which tells TypeScript that a value cannot be null or undefined.
-
-```typescript
-let x: null | number;
-let y = x!; // number
-```
-
 #### Ambient Declarations
 
 Ambient declarations are files that describe types for JavaScript code, they have a file name format as `.d.ts.`. They are usually imported and used to annotate existing JavaScript libraries or to add types to existing JS files in your project.
@@ -1958,7 +1948,7 @@ TypeScript recognizes several ways to narrow the type:
 The typeof type guard is one specific type guard in TypeScript that checks the type of a variable based on its built-in JavaScript type.
 
 ```typescript
-const fn = (x: number | string): number => {
+const fn = (x: number | string) => {
     if (typeof x === 'number') {
         return x + 1; // x is number
     }
@@ -1975,7 +1965,7 @@ const toUpperCase = (name: string | null) => {
     if (name) {
         return name.toUpperCase();
     } else {
-        return name;
+        return null;
     }
 };
 ```
@@ -2310,12 +2300,12 @@ type Dictionary<T> = {
     [key: string]: T;
 };
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-console.log(myDict['a']); // return a
+console.log(myDict['a']); // Returns a
 ```
 
 ## Type from Value
 
-"Type from Value" in TypeScript refers to the automatic inference of a type from a value or expression through type inference.
+Type from Value in TypeScript refers to the automatic inference of a type from a value or expression through type inference.
 
 ```typescript
 const x = 'x'; // TypeScript can automatically infer that the type of the message variable is string
@@ -2375,16 +2365,16 @@ Mapped Type Modifiers in TypeScript enable the transformation of properties with
 Examples:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // all properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // all properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // all properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
 ```
 
 ## Conditional Types
 
-Conditional types are a way to create a type that depends on a condition, where the type to be created is determined based on the result of the condition. They are defined using the `extends` keyword and a ternary operator to conditionally choose between two types.
+Conditional Types are a way to create a type that depends on a condition, where the type to be created is determined based on the result of the condition. They are defined using the `extends` keyword and a ternary operator to conditionally choose between two types.
 
 ```typescript
 type IsArray<T> = T extends any[] ? true : false;
@@ -2451,11 +2441,11 @@ type ProductId = `id-${Products}-${Status}`; // "id-p1-active" | "id-p1-inactive
 
 The `any` type is a special type (universal supertype) that can be used to represent any type of value (primitives, objects, arrays, functions, errors, symbols). It is often used in situations where the type of a value is not known at compile time, or when working with values from external APIs or libraries that do not have TypeScript typings.
 
-By utilizing any type, you are indicating to the TypeScript compiler that values should be represented without any limitations. In order to maximizing type safety in your code consider the following:
+By utilizing `any` type, you are indicating to the TypeScript compiler that values should be represented without any limitations. In order to maximizing type safety in your code consider the following:
 
-* Limit the usage of any to specific cases where the type is truly unknown.
+* Limit the usage of `any`` to specific cases where the type is truly unknown.
 * Do not return `any` types from a function as you will lose type safety in the code using that function weakening your type safety.
-* Instead of `any` use @ts-ignore` if you need to silence the compiler.
+* Instead of `any` use `@ts-ignore` if you need to silence the compiler.
 
 ```typescript
 let value: any;
@@ -2465,9 +2455,9 @@ value = 7; // Valid
 
 ## Unknown type
 
-In TypeScript, the unknown type represents a value that is of an unknown type. Unlike `any` type, which allows for any type of value, unknown requires a type check or assertion before it can be used in a specific way so no operations are permitted on an `unknown` without first asserting or narrowing to a more specific type.
+In TypeScript, the `unknown` type represents a value that is of an unknown type. Unlike `any` type, which allows for any type of value, `unknown` requires a type check or assertion before it can be used in a specific way so no operations are permitted on an `unknown` without first asserting or narrowing to a more specific type.
 
-The `unknown` type is only assignable to any type and the unknown type itself, it is a type-safe alternative to any.
+The `unknown` type is only assignable to any type and the `unknown` type itself, it is a type-safe alternative to `any`.
 
 <!-- skip -->
 ```typescript
@@ -2567,7 +2557,7 @@ type TypeName = {
 
 `interface InterfaceName` or `type TypeName`: Defines the name of the interface.
 `property1`: `Type1`: Specifies the properties of the interface along with their corresponding types. Multiple properties can be defined, each separated by a semicolon.
-`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;` method2(): void;: Specifies the methods of the interface. Methods are defined with their names, followed by a parameter list in parentheses and the return type. Multiple methods can be defined, each separated by a semicolon.
+`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;`: Specifies the methods of the interface. Methods are defined with their names, followed by a parameter list in parentheses and the return type. Multiple methods can be defined, each separated by a semicolon.
 
 Example interface:
 
@@ -2608,14 +2598,14 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Union and Intersection Types
 
 ```typescript
-type MyType = string | number; // union type
-let myUnion: MyType = 'hello'; // can be a string
-myUnion = 123; // or a number
+type MyType = string | number; // Union type
+let myUnion: MyType = 'hello'; // Can be a string
+myUnion = 123; // Or a number
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // object with both name and age properties
+type CombinedType = TypeA & TypeB; // Intersection type
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
 ```
 
 ## Built-in Type Primitives
@@ -2752,7 +2742,9 @@ const dog: Bird = {
 
 ## Differences between Type and Interface
 
-Declaration merging (augmentation): Interfaces support declaration merging, which means that you can define multiple interfaces with the same name, and TypeScript will merge them into a single interface with the combined properties and methods. On the other hand, types do not support declaration merging. This can be helpful when you want to add extra functionality or customize existing types without modifying the original definitions or patching missing or incorrect types.
+Declaration merging (augmentation):
+
+Interfaces support declaration merging, which means that you can define multiple interfaces with the same name, and TypeScript will merge them into a single interface with the combined properties and methods. On the other hand, types do not support declaration merging. This can be helpful when you want to add extra functionality or customize existing types without modifying the original definitions or patching missing or incorrect types.
 
 ```typescript
 interface A {
@@ -2767,7 +2759,9 @@ const j: A = {
 };
 ```
 
-Extending other types/interfaces: Both types and interfaces can extend other types/interfaces, but the syntax is different. With interfaces, you use the `extends` keyword to inherit properties and methods from other interfaces. However, an interface cannot extend a complex type like a union type.
+Extending other types/interfaces:
+
+Both types and interfaces can extend other types/interfaces, but the syntax is different. With interfaces, you use the `extends` keyword to inherit properties and methods from other interfaces. However, an interface cannot extend a complex type like a union type.
 
 ```typescript
 interface A {
@@ -2803,7 +2797,9 @@ const c: B = {
 };
 ```
 
-Union and Intersection Types: Types are more flexible when it comes to defining Union and Intersection Types. With the `type` keyword, you can easily create union types using the `|` operator and intersection types using the `&` operator. While interfaces can also represent union types indirectly, they don't have built-in support for intersection types.
+Union and Intersection Types:
+
+Types are more flexible when it comes to defining Union and Intersection Types. With the `type` keyword, you can easily create union types using the `|` operator and intersection types using the `&` operator. While interfaces can also represent union types indirectly, they don't have built-in support for intersection types.
 
 ```typescript
 type Department = 'dep-x' | 'dep-y'; // Union
@@ -2864,12 +2860,12 @@ The constructor is defined using the `constructor` keyword. It takes name and ag
 
 The class has a `public` method named sayHi that logs a greeting message.
 
-To create an instance of a class in TypeScript, you can use the `new` keyword followed by the class name, followed by parentheses (). For instance:
+To create an instance of a class in TypeScript, you can use the `new` keyword followed by the class name, followed by parentheses `()``. For instance:
 
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Constructor
@@ -2973,10 +2969,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// attempting to instantiate the base class directly will result in an error
+// Attempting to instantiate the base class directly will result in an error
 // const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
 
-// create an instance of the derived class
+// Create an instance of the derived class
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -3075,7 +3071,7 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // the "private" and "public" keywords in the constructor
+        // The "private" and "public" keywords in the constructor
         // automatically declare and initialize the corresponding class properties.
     }
     public introduce(): void {
@@ -3153,14 +3149,14 @@ For TypeScript versions prior to 5, they should be enabled using the `experiment
 
 Some of the common use cases for decorators include:
 
-* Watching property changes
-* Watching method calls
-* Adding extra properties or methods
-* Runtime validation
-* Automatic serialization and deserialization
-* Logging
-* Authorization and authentication
-* Error guarding
+* Watching property changes.
+* Watching method calls.
+* Adding extra properties or methods.
+* Runtime validation.
+* Automatic serialization and deserialization.
+* Logging.
+* Authorization and authentication.
+* Error guarding.
 
 Note: Decorators for version 5 do not allow decorating parameters.
 
@@ -3258,7 +3254,15 @@ class MyClass {
     }
 }
 
-console.log(new MyClass().sayHello()); // Logs: Hello!
+new MyClass().sayHello();
+```
+
+It logs:
+
+```shell
+LOG: Entering method 'sayHello'.
+Hello!
+LOG: Exiting method 'sayHello'.
 ```
 
 #### Getter and Setter Decorators
@@ -3371,11 +3375,11 @@ class Dog extends Animal {
     }
 }
 
-// create an instance of the base class
+// Create an instance of the base class
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// create an instance of the derived class
+// Create an instance of the derived class
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -3425,7 +3429,7 @@ class OfficeWorker {
 const w1 = new OfficeWorker('James');
 const w2 = new OfficeWorker('Simon');
 const total = OfficeWorker.memberCount;
-console.log(total);
+console.log(total); // 2
 ```
 
 ### Property initialization
@@ -3465,7 +3469,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // there is no need to assign the values to the properties explicitly.
+        // There is no need to assign the values to the properties explicitly.
     }
     log() {
         console.log(this.property2);
@@ -3496,7 +3500,7 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5));
+console.log(r.add(10, 5)); // Logs 15
 ```
 
 ## Generics
@@ -3507,7 +3511,7 @@ Generics allow you to make code more flexible and reusable.
 
 ### Generic Type
 
-To define a generic type, you use angle brackets (<>) to specify the type parameters, for instance:
+To define a generic type, you use angle brackets (`<>`) to specify the type parameters, for instance:
 
 ```typescript
 function identity<T>(arg: T): T {
@@ -3663,7 +3667,7 @@ In WeakMaps and WeakSets, symbols are now permissible as keys.
 
 ## Triple-Slash Directives
 
-Triple-slash directives are special comments that provide instructions to the compiler about how to process a file. These directives begin with three consecutive slashes (///) and are typically placed at the top of a TypeScript file and have no effects on the runtime behavior.
+Triple-slash directives are special comments that provide instructions to the compiler about how to process a file. These directives begin with three consecutive slashes (`///`) and are typically placed at the top of a TypeScript file and have no effects on the runtime behavior.
 
 Triple-slash directives are used to reference external dependencies, specify module loading behavior, enable/disable certain compiler features, and more. Few examples:
 
@@ -3727,7 +3731,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // properties become read-only
+type ImmutablePerson = Mutable<Person>; // Properties become read-only
 ```
 
 Conditional types:
@@ -4027,11 +4031,11 @@ Try-Catch-Finally Blocks:
 
 ```typescript
 try {
-    // code that might throw an error
+    // Code that might throw an error
 } catch (error) {
-    // handle the error
+    // Handle the error
 } finally {
-    // code that always executes, finally is optional
+    // Code that always executes, finally is optional
 }
 ```
 
@@ -4039,14 +4043,14 @@ You can also handle different types of error:
 
 ```typescript
 try {
-    // code that might throw different types of errors
+    // Code that might throw different types of errors
 } catch (error) {
     if (error instanceof TypeError) {
-        // handle TypeError
+        // Handle TypeError
     } else if (error instanceof RangeError) {
-        // handle RangeError
+        // Handle RangeError
     } else {
-        // handle other errors
+        // Handle other errors
     }
 }
 ```
@@ -4065,6 +4069,8 @@ class CustomError extends Error {
 
 throw new CustomError('This is a custom error.');
 ```
+
+### Mixin classes
 
 Mixin classes allow you to combine and compose behavior from multiple classes into a single class. They provide a way to reuse and extend functionality without the need for deep inheritance chains.
 
@@ -4090,10 +4096,10 @@ class MyClass {
     constructor() {}
 }
 
-// extend MyClass to include the behavior of Identifiable and Selectable
+// Extend MyClass to include the behavior of Identifiable and Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// function to apply mixins to a class
+// Function to apply mixins to a class
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -4108,7 +4114,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// apply the mixins to MyClass
+// Apply the mixins to MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -4121,11 +4127,13 @@ o.select();
 As TypeScript is a superset of JavaScript, it has built-in asynchronous language features of JavaScript as:
 
 Promises:
+
 Promises are a way to handle asynchronous operations and their results using methods like `.then()` and `.catch()` to handle success and error conditions.
 
 To learn more: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>
 
 Async/await:
+
 Async/await keywords are a way to provide a more synchronous-looking syntax for working with Promises. The `async` keyword is used to define an asynchronous function, and the `await` keyword is used within an async function to pause execution until a Promise is resolved or rejected.
 
 To learn more:
@@ -4134,16 +4142,16 @@ To learn more:
 
 The following API are well supported in TypeScript:
 
-Fetch API
+Fetch API:
 <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>
 
-Web Workers
+Web Workers:
 <https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API>
 
-Shared Workers
+Shared Workers:
 <https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker>
 
-WebSocket
+WebSocket:
 <https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>
 
 ### Iterators and Generators
@@ -4285,7 +4293,7 @@ A configuration example:
 
 ### ES7 Exponentiation Operator
 
-The exponentiation (**) operator computes the value obtained by raising the first operand to the power of the second operand. It functions similarly to Math.pow(), but with the added capability of accepting BigInts as operands.
+The exponentiation (`**`) operator computes the value obtained by raising the first operand to the power of the second operand. It functions similarly to `Math.pow()`, but with the added capability of accepting BigInts as operands.
 TypeScript fully supports this operator using as `target` in your tsconfig.json file `es2016` or larger version.
 
 ```typescript
@@ -4317,8 +4325,7 @@ You can use in TypeScript the `new.target` meta-property which enables you to de
 ```typescript
 class Parent {
     constructor() {
-        debugger;
-        console.log(new.target); // logs the constructor function used to create an instance
+        console.log(new.target); // Logs the constructor function used to create an instance
     }
 }
 
@@ -4343,7 +4350,7 @@ The syntax for dynamic import expressions in TypeScript is as follows:
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // dynamic import
+        const widget = await import('./widget'); // Dynamic import
         widget.render(container);
     }
 }
@@ -4353,7 +4360,7 @@ renderWidget();
 
 ### "tsc –watch"
 
-This command starts a TypeScript compiler with --watch parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
+This command starts a TypeScript compiler with `--watch` parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
 
 ```shell
 tsc --watch
@@ -4389,7 +4396,7 @@ greet('John'); // Hello, John!
 
 ### Optional Chaining
 
-The optional chaining operator `?.` works like the regular dot operator (.) for accessing properties or methods. However, it gracefully handles null or undefined values by terminating the expression and returning `undefined``, instead of throwing an error.
+The optional chaining operator `?.` works like the regular dot operator (`.`) for accessing properties or methods. However, it gracefully handles null or undefined values by terminating the expression and returning `undefined`, instead of throwing an error.
 
 ```typescript
 type Person = {
@@ -4626,36 +4633,13 @@ console.log('\u0041'.normalize());
 
 TypeScript represents this differentiation by providing separate types for the primitives and their corresponding object wrappers:
 
-string => String
-number => Number
-boolean => Boolean
-symbol => Symbol
-bigint => BigInt
+* string => String
+* number => Number
+* boolean => Boolean
+* symbol => Symbol
+* bigint => BigInt
 
 The boxed types are usually not needed. Avoid using boxed types and instead use type for the primitives,  for instance `string` instead of `String`.
-
-### Key Remapping in Mapped Types
-
-Mapped Types allow you to create new types by transforming the properties of an existing type. Using the `keyof` and `in` keywords, you can iterate over the properties of a type and define modifications, such as making them optional or readonly. Here an example:
-
-```typescript
-type Person = {
-    name: string;
-    age: number;
-    email: string;
-};
-
-type PartialPerson = {
-    [K in keyof Person]?: Person[K]; // This will make all properties are optional
-};
-
-const partialPerson: PartialPerson = {
-    name: 'John',
-    age: 30,
-};
-
-partialPerson.email = 'john@example.com';
-```
 
 ### Covariance and Contravariance in TypeScript
 
@@ -4807,7 +4791,7 @@ user3.nickName; // TypeScript infers correctly: undefined
 
 Type-Only Imports and Export allows you to import or export types without importing or exporting the values or functions associated with those types. This can be useful for reducing the size of your bundle.
 
-To use type-only imports, you can use the `import type keyword`.
+To use type-only imports, you can use the `import type` keyword.
 
 TypeScript permits using both declaration and implementation file extensions (.ts, .mts, .cts, and .tsx) in type-only imports, regardless of `allowImportingTsExtensions` settings.
 
@@ -4883,7 +4867,7 @@ disposed
 3
 ```
 
-A resource eligible for disposal must adhere to the Disposable interface:
+A resource eligible for disposal must adhere to the `Disposable` interface:
 
 ```typescript
 // lib.esnext.disposable.d.ts
@@ -4948,7 +4932,7 @@ async function doWork() {
     // Create a new connection and dispose it asynchronously when it goes out of scope
     await using connection = new DatabaseConnection(); //  Resource is declared
     console.log('Doing some work...');
-} // 'Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
 
 doWork();
 ```
