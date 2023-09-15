@@ -2869,7 +2869,7 @@ To create an instance of a class in TypeScript, you can use the `new` keyword fo
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Constructor

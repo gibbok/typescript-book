@@ -2867,7 +2867,7 @@ class Person {
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### 构造函数
