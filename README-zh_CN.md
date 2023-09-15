@@ -4803,9 +4803,9 @@ user3.nickName; // TypeScript 推断正确: undefined
 
 仅类型导入和导出允许您导入或导出类型，而无需导入或导出与这些类型关联的值或函数。 这对于减小捆绑包的大小很有用。
 
-要使用仅类型导入，您可以使用"导入类型关键字"。
+要使用仅类型导入，您可以使用`import type`关键字。
 
-TypeScript 允许在仅类型导入中使用声明和实现文件扩展名（.ts、.mts、.cts 和 .tsx），无论"allowImportingTsExtensions"设置如何。
+TypeScript 允许在仅类型导入中使用声明和实现文件扩展名（.ts、.mts、.cts 和 .tsx），无论`allowImportingTsExtensions`设置如何。
 
 例如：
 
