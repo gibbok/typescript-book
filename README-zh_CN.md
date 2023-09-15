@@ -3495,7 +3495,7 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5));
+console.log(r.add(10, 5)); // Logs 15
 ```
 
 ## 泛型
