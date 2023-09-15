@@ -4316,7 +4316,6 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 ```typescript
 class Parent {
     constructor() {
-        debugger;
         console.log(new.target); // 记录用于创建实例的构造函数
     }
 }

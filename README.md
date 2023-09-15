@@ -4330,7 +4330,6 @@ You can use in TypeScript the `new.target` meta-property which enables you to de
 ```typescript
 class Parent {
     constructor() {
-        debugger;
         console.log(new.target); // logs the constructor function used to create an instance
     }
 }
