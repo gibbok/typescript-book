@@ -1959,7 +1959,7 @@ TypeScript 可识别多种缩小类型范围的方法：
 typeof 类型保护是 TypeScript 中的一种特定类型保护，它根据变量的内置 JavaScript 类型检查变量的类型。
 
 ```typescript
-const fn = (x: number | string): number => {
+const fn = (x: number | string) => {
     if (typeof x === 'number') {
         return x + 1; // x 是数字
     }
@@ -1976,7 +1976,7 @@ const toUpperCase = (name: string | null) => {
     if (name) {
         return name.toUpperCase();
     } else {
-        return name;
+        return null;
     }
 };
 ```

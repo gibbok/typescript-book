@@ -1959,7 +1959,7 @@ TypeScript recognizes several ways to narrow the type:
 The typeof type guard is one specific type guard in TypeScript that checks the type of a variable based on its built-in JavaScript type.
 
 ```typescript
-const fn = (x: number | string): number => {
+const fn = (x: number | string) => {
     if (typeof x === 'number') {
         return x + 1; // x is number
     }
@@ -1976,7 +1976,7 @@ const toUpperCase = (name: string | null) => {
     if (name) {
         return name.toUpperCase();
     } else {
-        return name;
+        return null;
     }
 };
 ```
