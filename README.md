@@ -4101,10 +4101,10 @@ class MyClass {
     constructor() {}
 }
 
-// extend MyClass to include the behavior of Identifiable and Selectable
+// Extend MyClass to include the behavior of Identifiable and Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// function to apply mixins to a class
+// Function to apply mixins to a class
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -4119,7 +4119,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// apply the mixins to MyClass
+// Apply the mixins to MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
