@@ -4132,11 +4132,13 @@ o.select();
 As TypeScript is a superset of JavaScript, it has built-in asynchronous language features of JavaScript as:
 
 Promises:
+
 Promises are a way to handle asynchronous operations and their results using methods like `.then()` and `.catch()` to handle success and error conditions.
 
 To learn more: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>
 
 Async/await:
+
 Async/await keywords are a way to provide a more synchronous-looking syntax for working with Promises. The `async` keyword is used to define an asynchronous function, and the `await` keyword is used within an async function to pause execution until a Promise is resolved or rejected.
 
 To learn more:
@@ -4145,16 +4147,16 @@ To learn more:
 
 The following API are well supported in TypeScript:
 
-Fetch API
+Fetch API:
 <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>
 
-Web Workers
+Web Workers:
 <https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API>
 
-Shared Workers
+Shared Workers:
 <https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker>
 
-WebSocket
+WebSocket:
 <https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>
 
 ### Iterators and Generators

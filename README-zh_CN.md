@@ -4132,16 +4132,16 @@ Async/await 关键字是一种为处理 Promise 提供看起来更同步的语�
 
 TypeScript 很好地支持以下 API：
 
-Fetch API
+Fetch API:
 <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>
 
-Web Workers
+Web Workers:
 <https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API>
 
-Shared Workers
+Shared Workers:
 <https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker>
 
-WebSocket
+WebSocket:
 <https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>
 
 ### 迭代器和生成器
