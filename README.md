@@ -3153,14 +3153,14 @@ For TypeScript versions prior to 5, they should be enabled using the `experiment
 
 Some of the common use cases for decorators include:
 
-* Watching property changes
-* Watching method calls
-* Adding extra properties or methods
-* Runtime validation
-* Automatic serialization and deserialization
-* Logging
-* Authorization and authentication
-* Error guarding
+* Watching property changes.
+* Watching method calls.
+* Adding extra properties or methods.
+* Runtime validation.
+* Automatic serialization and deserialization.
+* Logging.
+* Authorization and authentication.
+* Error guarding.
 
 Note: Decorators for version 5 do not allow decorating parameters.
 
