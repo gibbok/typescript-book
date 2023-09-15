@@ -2384,7 +2384,7 @@ type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optio
 
 ## Conditional Types
 
-Conditional types are a way to create a type that depends on a condition, where the type to be created is determined based on the result of the condition. They are defined using the `extends` keyword and a ternary operator to conditionally choose between two types.
+Conditional Types are a way to create a type that depends on a condition, where the type to be created is determined based on the result of the condition. They are defined using the `extends` keyword and a ternary operator to conditionally choose between two types.
 
 ```typescript
 type IsArray<T> = T extends any[] ? true : false;
