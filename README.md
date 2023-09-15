@@ -3515,7 +3515,7 @@ Generics allow you to make code more flexible and reusable.
 
 ### Generic Type
 
-To define a generic type, you use angle brackets (<>) to specify the type parameters, for instance:
+To define a generic type, you use angle brackets (`<>`) to specify the type parameters, for instance:
 
 ```typescript
 function identity<T>(arg: T): T {
@@ -3671,7 +3671,7 @@ In WeakMaps and WeakSets, symbols are now permissible as keys.
 
 ## Triple-Slash Directives
 
-Triple-slash directives are special comments that provide instructions to the compiler about how to process a file. These directives begin with three consecutive slashes (///) and are typically placed at the top of a TypeScript file and have no effects on the runtime behavior.
+Triple-slash directives are special comments that provide instructions to the compiler about how to process a file. These directives begin with three consecutive slashes (`///`) and are typically placed at the top of a TypeScript file and have no effects on the runtime behavior.
 
 Triple-slash directives are used to reference external dependencies, specify module loading behavior, enable/disable certain compiler features, and more. Few examples:
 
@@ -3735,7 +3735,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // properties become read-only
+type ImmutablePerson = Mutable<Person>; // Properties become read-only
 ```
 
 Conditional types:
@@ -4035,11 +4035,11 @@ Try-Catch-Finally Blocks:
 
 ```typescript
 try {
-    // code that might throw an error
+    // Code that might throw an error
 } catch (error) {
-    // handle the error
+    // Handle the error
 } finally {
-    // code that always executes, finally is optional
+    // Code that always executes, finally is optional
 }
 ```
 
@@ -4047,14 +4047,14 @@ You can also handle different types of error:
 
 ```typescript
 try {
-    // code that might throw different types of errors
+    // Code that might throw different types of errors
 } catch (error) {
     if (error instanceof TypeError) {
-        // handle TypeError
+        // Handle TypeError
     } else if (error instanceof RangeError) {
-        // handle RangeError
+        // Handle RangeError
     } else {
-        // handle other errors
+        // Handle other errors
     }
 }
 ```
