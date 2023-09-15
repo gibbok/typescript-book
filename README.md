@@ -4365,7 +4365,7 @@ renderWidget();
 
 ### "tsc –watch"
 
-This command starts a TypeScript compiler with --watch parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
+This command starts a TypeScript compiler with `--watch` parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
 
 ```shell
 tsc --watch
@@ -4401,7 +4401,7 @@ greet('John'); // Hello, John!
 
 ### Optional Chaining
 
-The optional chaining operator `?.` works like the regular dot operator (.) for accessing properties or methods. However, it gracefully handles null or undefined values by terminating the expression and returning `undefined``, instead of throwing an error.
+The optional chaining operator `?.` works like the regular dot operator (`.`) for accessing properties or methods. However, it gracefully handles null or undefined values by terminating the expression and returning `undefined`, instead of throwing an error.
 
 ```typescript
 type Person = {
