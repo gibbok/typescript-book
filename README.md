@@ -3075,7 +3075,7 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // the "private" and "public" keywords in the constructor
+        // The "private" and "public" keywords in the constructor
         // automatically declare and initialize the corresponding class properties.
     }
     public introduce(): void {
