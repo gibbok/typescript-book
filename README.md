@@ -2310,12 +2310,12 @@ type Dictionary<T> = {
     [key: string]: T;
 };
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-console.log(myDict['a']); // return a
+console.log(myDict['a']); // Returns a
 ```
 
 ## Type from Value
 
-"Type from Value" in TypeScript refers to the automatic inference of a type from a value or expression through type inference.
+Type from Value in TypeScript refers to the automatic inference of a type from a value or expression through type inference.
 
 ```typescript
 const x = 'x'; // TypeScript can automatically infer that the type of the message variable is string
@@ -2375,11 +2375,11 @@ Mapped Type Modifiers in TypeScript enable the transformation of properties with
 Examples:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // all properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // all properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // all properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
 ```
 
 ## Conditional Types
