@@ -203,7 +203,6 @@
     - [New.target](#newtarget)
     - [动态导入表达式](#动态导入表达式)
     - ["tsc –watch"](#tsc-watch)
-    - [非空断言运算符（后缀！）](#非空断言运算符后缀)
     - [默认声明](#默认声明)
     - [可选链](#可选链)
     - [空合并运算符 (??)](#空合并运算符-)
@@ -4357,20 +4356,6 @@ tsc --watch
 ```
 
 从 TypeScript 4.9 版本开始，文件监控主要依赖于文件系统事件，如果无法建立基于事件的观察程序，则会自动诉诸轮询。
-
-### 非空断言运算符（后缀！）
-
-非空断言运算符（Postfix！）也称为明确赋值断言，是一种 TypeScript 功能，允许您断言变量或属性不为空或未定义，即使 TypeScript 的静态类型分析表明它可能是空或未定义。 使用此功能可以删除任何显式检查。
-
-```typescript
-type Person = {
-    name: string;
-};
-
-const printName = (person?: Person) => {
-    console.log(`Name is ${person!.name}`);
-};
-```
 
 ### 默认声明
 

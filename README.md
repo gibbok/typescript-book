@@ -55,7 +55,6 @@ You can also download the Epub version here:
     - [Assign a type: Type Declarations and Type Assertions](#assign-a-type-type-declarations-and-type-assertions)
       - [Type Declaration](#type-declaration)
       - [Type Assertion](#type-assertion)
-      - [Non-null assertion](#non-null-assertion)
       - [Ambient Declarations](#ambient-declarations)
     - [Property Checking and Excess Property Checking](#property-checking-and-excess-property-checking)
     - [Weak Types](#weak-types)
@@ -1105,15 +1104,6 @@ type Y = J<X>;
 In this example, the type `J<Type>` uses a mapped type with a template literal to remap the keys of Type. It creates new properties with a "prefix_" added to each key, and their corresponding values are functions returning the original property values.
 
 It is worth noting that when using a type assertion, TypeScript will not execute excess property checking. Therefore, it is generally preferable to use a Type Declaration when the structure of the object is known in advance.
-
-#### Non-null assertion
-
-This assertion is applied using a post-fix `!` expression operator, which tells TypeScript that a value cannot be null or undefined.
-
-```typescript
-let x: null | number;
-let y = x!; // number
-```
 
 #### Ambient Declarations
 
