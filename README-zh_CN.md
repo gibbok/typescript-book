@@ -2565,7 +2565,7 @@ type TypeName = {
 
 `interface InterfaceName` 或者 `type TypeName`: 定义接口的名称。
 `property1`: `Type1`: 指定接口的属性及其相应的类型。可以定义多个属性，每个属性用分号分隔。
-`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;` method2(): void;: 指定接口的方法。方法用其名称进行定义，后跟括号中的参数列表和返回类型。可以定义多个方法，每个方法用分号分隔。
+`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;`: 指定接口的方法。方法用其名称进行定义，后跟括号中的参数列表和返回类型。可以定义多个方法，每个方法用分号分隔。
 
 接口示例:
 

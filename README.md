@@ -2567,7 +2567,7 @@ type TypeName = {
 
 `interface InterfaceName` or `type TypeName`: Defines the name of the interface.
 `property1`: `Type1`: Specifies the properties of the interface along with their corresponding types. Multiple properties can be defined, each separated by a semicolon.
-`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;` method2(): void;: Specifies the methods of the interface. Methods are defined with their names, followed by a parameter list in parentheses and the return type. Multiple methods can be defined, each separated by a semicolon.
+`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;`: Specifies the methods of the interface. Methods are defined with their names, followed by a parameter list in parentheses and the return type. Multiple methods can be defined, each separated by a semicolon.
 
 Example interface:
 
