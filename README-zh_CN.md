@@ -215,7 +215,6 @@
     - [断言函数](#断言函数)
     - [可变参数元组类型](#可变参数元组类型)
     - [装箱类型](#装箱类型)
-    - [映射类型中的键重新映射](#映射类型中的键重新映射)
     - [TypeScript 中的协变和逆变](#typescript-中的协变和逆变)
       - [类型参数的可选方差注释](#类型参数的可选方差注释)
     - [模板字符串模式索引签名](#模板字符串模式索引签名)
@@ -4628,29 +4627,6 @@ TypeScript 通过为原语及其相应的对象包装器提供单独的类型来
 * bigint => BigInt
 
 通常不需要盒装类型。避免使用装箱类型，而是使用基元类型，例如 `string` 代替 `String`。
-
-### 映射类型中的键重新映射
-
-映射类型允许您通过转换现有类型的属性来创建新类型。使用 `keyof` 和 `in` 关键字，您可以迭代类型的属性并定义修改，例如使它们可选或只读。这里有一个例子：
-
-```typescript
-type Person = {
-    name: string;
-    age: number;
-    email: string;
-};
-
-type PartialPerson = {
-    [K in keyof Person]?: Person[K]; // 这将使得所有属性变成可选
-};
-
-const partialPerson: PartialPerson = {
-    name: 'John',
-    age: 30,
-};
-
-partialPerson.email = 'john@example.com';
-```
 
 ### TypeScript 中的协变和逆变
 

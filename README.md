@@ -220,7 +220,6 @@ You can also download the Epub version here:
     - [Assertion Functions](#assertion-functions)
     - [Variadic Tuple Types](#variadic-tuple-types)
     - [Boxed types](#boxed-types)
-    - [Key Remapping in Mapped Types](#key-remapping-in-mapped-types)
     - [Covariance and Contravariance in TypeScript](#covariance-and-contravariance-in-typescript)
       - [Optional Variance Annotations for Type Parameters](#optional-variance-annotations-for-type-parameters)
     - [Template String Pattern Index Signatures](#template-string-pattern-index-signatures)
@@ -4645,29 +4644,6 @@ TypeScript represents this differentiation by providing separate types for the p
 * bigint => BigInt
 
 The boxed types are usually not needed. Avoid using boxed types and instead use type for the primitives,  for instance `string` instead of `String`.
-
-### Key Remapping in Mapped Types
-
-Mapped Types allow you to create new types by transforming the properties of an existing type. Using the `keyof` and `in` keywords, you can iterate over the properties of a type and define modifications, such as making them optional or readonly. Here an example:
-
-```typescript
-type Person = {
-    name: string;
-    age: number;
-    email: string;
-};
-
-type PartialPerson = {
-    [K in keyof Person]?: Person[K]; // This will make all properties are optional
-};
-
-const partialPerson: PartialPerson = {
-    name: 'John',
-    age: 30,
-};
-
-partialPerson.email = 'john@example.com';
-```
 
 ### Covariance and Contravariance in TypeScript
 
