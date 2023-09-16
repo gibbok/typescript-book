@@ -1186,11 +1186,13 @@ fn({ c: 'c' }); // Valid
 
 ### 严格的对象字面量检测 (Freshness)
 
-严格的对象字面量检查（有时称为新鲜度）是 TypeScript 中的一项功能，有助于捕获多余或拼写错误的属性，否则这些属性在正常结构类型检查中会被忽视。
+严格的对象字面量检查（有时称为“新鲜度”）是 TypeScript 中的一项功能，有助于捕获多余或拼写错误的属性，否则这些属性在正常结构类型检查中会被忽视。
 
-创建对象字面量时，TypeScript 编译器认为它是"新鲜的"。如果将对象字面量赋值给变量或作为参数传递，并且对象字面量指定目标类型中不存在的属性，则 TypeScript 将引发错误。
+创建对象字面量时，TypeScript 编译器认为它是“新鲜的”。 如果将对象字面量分配给变量或作为参数传递，并且对象字面量指定目标类型中不存在的属性，则 TypeScript 将引发错误。
 
-但是，当对象字面量的类型被加宽时，严格的对象字面量检查不适用，这意味着对象字面量在结构上与更广泛的类型兼容。下面举一些例子来说明：
+然而，当扩展对象文字或使用类型断言时，“新鲜感”就会消失。
+
+下面举一些例子来说明：
 
 <!-- skip -->
 ```typescript
@@ -1198,16 +1200,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: 无效赋值
+x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: 无效赋值
+y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // 无错误，结构类型兼容
+fn(y); // Widening: No errors, structurally type compatible
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: 无效赋值
+fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+
+let x: { a: string } = { a: 'a' }
+let y: { a: string, b: string } = { a: 'a', b: '' }
+x = y // Widening: No Freshness check
 ```
 
 ### 类型推断
@@ -2013,9 +2019,9 @@ type Cat = {
 
 const getAnimalType = (pet: Dog | Cat) => {
     if ('breed' in pet) {
-        return 'dog'
+        return 'dog';
     } else {
-        return 'cat'
+        return 'cat';
     }
 };
 ```

@@ -1198,7 +1198,8 @@ Strict object literal checking, sometimes referred to as "freshness", is a featu
 
 When creating an object literal, the TypeScript compiler considers it "fresh." If the object literal is assigned to a variable or passed as a parameter, TypeScript will throw an error if the object literal specifies properties that do not exist in the target type.
 
-However, strict object literal checking does not apply when the type of an object literal is widened, meaning the object literal is structurally type compatible with a broader type.
+However, "freshness" disappears when an object literal is widened or a type assertion is used.
+
 Here are some examples to illustrate:
 
 <!-- skip -->
@@ -1214,9 +1215,13 @@ y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // No errors, structurally type compatible
+fn(y); // Widening: No errors, structurally type compatible
 
 fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+
+let x: { a: string } = { a: 'a' };
+let y: { a: string; b: string } = { a: 'a', b: '' };
+x = y; // Widening: No Freshness check
 ```
 
 ### Type Inference
