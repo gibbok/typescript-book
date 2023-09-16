@@ -1200,16 +1200,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: 无效赋值
+x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: 无效赋值
+y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // 无错误，结构类型兼容
+fn(y); // Widening: No errors, structurally type compatible
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: 无效赋值
+fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+
+let x: { a: string } = { a: 'a' }
+let y: { a: string, b: string } = { a: 'a', b: '' }
+x = y // Widening: No Freshness check
 ```
 
 ### 类型推断
