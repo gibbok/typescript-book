@@ -1198,7 +1198,7 @@ Strict object literal checking, sometimes referred to as "freshness", is a featu
 
 When creating an object literal, the TypeScript compiler considers it "fresh." If the object literal is assigned to a variable or passed as a parameter, TypeScript will throw an error if the object literal specifies properties that do not exist in the target type.
 
-However, "freshness" disappears in a type assertion or when the type of an object literal is widened.
+However, "freshness" disappears when an object literal is widened or a type assertion is used.
 
 Here are some examples to illustrate:
 
