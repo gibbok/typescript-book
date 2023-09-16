@@ -2019,9 +2019,9 @@ type Cat = {
 
 const getAnimalType = (pet: Dog | Cat) => {
     if ('breed' in pet) {
-        return 'dog'
+        return 'dog';
     } else {
-        return 'cat'
+        return 'cat';
     }
 };
 ```
