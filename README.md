@@ -16,13 +16,13 @@ You can also download the Epub version here:
 
 <https://github.com/gibbok/typescript-book/tree/main/downloads>
 
-## Table of Content
+## Table of Contents
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](#the-concise-typescript-book)
   - [Translations](#translations)
   - [Downloads](#downloads)
-  - [Table of Content](#table-of-content)
+  - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [About the Author](#about-the-author)
   - [TypeScript Introduction](#typescript-introduction)
