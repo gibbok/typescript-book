@@ -39,6 +39,7 @@
       - [files](#files)
       - [include](#include)
       - [exclude](#exclude)
+    - [importHelpers](#importhelpers)
     - [迁移到 TypeScript 的建议](#迁移到-typescript-的建议)
   - [探索类型系统](#探索类型系统)
     - [TypeScript 的语言服务](#typescript-的语言服务)
@@ -588,6 +589,10 @@ TypeScript 可以为各种模块系统生成代码，包括 UMD、System、ESNex
 
 "exclude"属性向编译器指示不应包含在编译中的文件列表。这可以包括"node_modules"等文件或测试文件
 注意：tsconfig.json 允许注释。
+
+### importHelpers
+
+TypeScript 在为某些高级或低级 JavaScript 功能生成代码时使用帮助程序代码。 默认情况下，这些助手会在使用它们的文件中复制。 `importHelpers` 选项从 `tslib` 模块导入这些帮助器，从而使 JavaScript 输出更加高效。
 
 ### 迁移到 TypeScript 的建议
 

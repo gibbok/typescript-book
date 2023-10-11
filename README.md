@@ -46,6 +46,7 @@ You can also download the Epub version here:
       - [files](#files)
       - [include](#include)
       - [exclude](#exclude)
+    - [importHelpers](#importhelpers)
     - [Migration to TypeScript Advice](#migration-to-typescript-advice)
   - [Exploring the Type System](#exploring-the-type-system)
     - [The TypeScript Language Service](#the-typescript-language-service)
@@ -539,7 +540,9 @@ Notes:
 * It is advisable to use this configuration file instead of the command-line options.
 
 At the following link you can find the complete documentation and its schema:
+
 <https://www.typescriptlang.org/tsconfig>
+
 <http://json.schemastore.org/tsconfig>
 
 The following represents a list of the common and useful configurations:
@@ -599,6 +602,10 @@ The "include" property indicates to the compiler a list of files that we would l
 
 The "exclude" property indicates to the compiler a list of files that should not be included in the compilation. This can include files such as "node_modules" or test files.
 Note: tsconfig.json allows comments.
+
+### importHelpers
+
+TypeScript uses helper code when generating code for certain advanced or down-leveled JavaScript features. By default, these helpers are duplicated in files using them. The `importHelpers` option imports these helpers from the `tslib` module instead, making the JavaScript output more efficient.
 
 ### Migration to TypeScript Advice
 
