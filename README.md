@@ -2455,7 +2455,7 @@ The `any` type is a special type (universal supertype) that can be used to repre
 
 By utilizing `any` type, you are indicating to the TypeScript compiler that values should be represented without any limitations. In order to maximizing type safety in your code consider the following:
 
-* Limit the usage of `any`` to specific cases where the type is truly unknown.
+* Limit the usage of `any` to specific cases where the type is truly unknown.
 * Do not return `any` types from a function as you will lose type safety in the code using that function weakening your type safety.
 * Instead of `any` use `@ts-ignore` if you need to silence the compiler.
 
