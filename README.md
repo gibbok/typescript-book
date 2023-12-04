@@ -2872,7 +2872,7 @@ The constructor is defined using the `constructor` keyword. It takes name and ag
 
 The class has a `public` method named sayHi that logs a greeting message.
 
-To create an instance of a class in TypeScript, you can use the `new` keyword followed by the class name, followed by parentheses `()``. For instance:
+To create an instance of a class in TypeScript, you can use the `new` keyword followed by the class name, followed by parentheses `()`. For instance:
 
 <!-- skip -->
 ```typescript
