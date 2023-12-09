@@ -2561,7 +2561,7 @@ Similarly for type definition:
 ```typescript
 type TypeName = {
     property1: Type1;
-    // …
+    // ...
     method1(arg1: ArgType1, arg2: ArgType2): ReturnType;
     // ...
 };

@@ -361,15 +361,15 @@ const makeNoise = (animal: Animal) => {
 };
 ```
 
-由于编译后类型被删除，因此无法在 JavaScript 中运行此代码。为了在运行时识别类型，我们需要使用另一种机制。TypeScript 提供了多种选项，其中常见的一个是"tagged union"。例如：
+由于编译后类型被删除，因此无法在 JavaScript 中运行此代码。为了在运行时识别类型，我们需要使用另一种机制。TypeScript 提供了多种选项，其中常见的一个是 "标签联合（tagged union）"。例如：
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // 标签联合
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // 标签联合
     meow: () => void;
 }
 type Animal = Dog | Cat;
@@ -971,7 +971,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // 有效
 ```
 
 交集（T1 & T2）创建一个更窄的集合（仅共享）：
@@ -986,8 +986,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // 无效
+const j: XY = { a: 'a', b: 'b' }; // 有效
 ```
 
 在这种情况下，关键字extends可以被视为"的子集"。它为类型设置约束。与泛型一起使用的扩展将泛型视为无限集，并将其限制为更具体的类型。请注意，这extends与 OOP 意义上的层次结构无关（TypScript 中没有这个概念）。TypeScript 使用集合并且没有严格的层次结构，事实上，如下面的示例所示，两种类型可以重叠，而不会成为另一种类型的子类型（TypScript 考虑对象的结构和形状）。
@@ -1136,8 +1136,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // 有效，因为结构类型
+const w: X = { a: 'a', b: 'b' }; // 无效，因为多余属性检测
 ```
 
 ### 弱类型
@@ -1186,7 +1186,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // 有效
 ```
 
 ### 严格的对象字面量检测 (Freshness)
@@ -1205,20 +1205,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // 严格的对象字面量检查：无效的赋值
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // 严格的对象字面量检查：无效的赋值
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // 类型加宽：没有错误, 结构类型兼容
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // 严格的对象字面量检查：无效的参数
 
 let x: { a: string } = { a: 'a' }
 let y: { a: string, b: string } = { a: 'a', b: '' }
-x = y // Widening: No Freshness check
+x = y // 类型加宽：没有严格的对象字面量检查
 ```
 
 ### 类型推断
@@ -1255,7 +1255,7 @@ let x = [new RegExp('x'), new Date()]; // 类型推断为: (RegExp | Date)[]
 TypeScript 利用基于变量位置的"上下文类型"来推断类型。在下面的示例中，编译器知道它的e类型是MouseEvent，因为在lib.d.ts 文件中定义了click事件类型，该文件包含各种常见 JavaScript 构造和 DOM 的环境声明：
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // e 的类型被推断为 MouseEvent
 ```
 
 ### 类型加宽
@@ -1378,7 +1378,7 @@ v.x = 100; // 无效的
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // 由于条件判断，类型被缩小为 number
 }
 ```
 
@@ -1468,9 +1468,9 @@ TypeScript 中的数据类型 `number` 用 64 位浮点值表示。类型 `numbe
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // 十六进制数以 0x 开始
+const binary: number = 0b1010; // 二进制数以 0b 开始
+const octal: number = 0o633; // 八进制数以 0o 开始
 ```
 
 ### bigInt
@@ -1494,7 +1494,7 @@ const y: bigint = 9007199254740991n;
 JavaScript 有一个原始函数 Symbol()，它创建一个全局唯一的引用。
 
 ```typescript
-let sym = Symbol('x'); // Type symbol
+let sym = Symbol('x'); // symbol 类型
 ```
 
 ### null and undefined
@@ -1591,7 +1591,7 @@ const sum = (a = 10, b: number): number => a + b;
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // 可选的
 };
 ```
 
@@ -1638,7 +1638,7 @@ type K = {
 const k: K = { x: 'x', 1: 'b' };
 console.log(k['x']);
 console.log(k[1]);
-console.log(k['1']); // Same result as k[1]
+console.log(k['1']); // 同 k[1] 的结果相同
 ```
 
 请注意，JavaScript 会自动将 `number` 的索引转换相同值的 'string'索引, 比如 `k[1]` 和 `k["1"]` 返回相同值。
@@ -1817,7 +1817,7 @@ enum Color {
 
 ```typescript
 enum Size {
-    Small, // Value starts from 0
+    Small, // 值从 0 开始
     Medium,
     Large,
 }
@@ -1912,7 +1912,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // 因为索引表达式的类型不是 'number'，所以元素是隐式的 'any' 类型。
 ```
 
 ### 环境枚举
@@ -2148,12 +2148,12 @@ TypeScript 中的可区分联合是一种联合类型，它使用称为判别式
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // 判别式
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // 判别式
     radius: number;
 };
 
@@ -2286,8 +2286,8 @@ x.push(2); // 错误
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // 有效
+x = 123; // 有效
 ```
 
 ## 交集类型
@@ -2303,7 +2303,7 @@ type Y = {
     b: string;
 };
 
-type J = X & Y; // Intersection
+type J = X & Y; // 交集
 
 const j: J = {
     a: 'a',
@@ -2320,7 +2320,7 @@ type Dictionary<T> = {
     [key: string]: T;
 };
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-console.log(myDict['a']); // Returns a
+console.log(myDict['a']); // 返回 a
 ```
 
 ## 值的类型
@@ -2348,7 +2348,7 @@ const add = (x: number, y: number) => x + y; // TypeScript 可以推断函数的
 export const add = (x: number, y: number) => x + y;
 // index.ts
 import { add } from 'calc';
-const r = add(1, 2); // r is number
+const r = add(1, 2); // r 是 number 类型
 ```
 
 ## 映射类型
@@ -2400,8 +2400,8 @@ type IsArray<T> = T extends any[] ? true : false;
 const myArray = [1, 2, 3];
 const myNumber = 42;
 
-type IsMyArrayAnArray = IsArray<typeof myArray>; // Type true
-type IsMyNumberAnArray = IsArray<typeof myNumber>; // Type false
+type IsMyArrayAnArray = IsArray<typeof myArray>; // true 类型
+type IsMyNumberAnArray = IsArray<typeof myNumber>; // false 类型
 ```
 
 ## 分配条件类型
@@ -2512,7 +2512,7 @@ const sayHello = (): void => {
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // 做点什么
     }
 };
 ```
@@ -2532,10 +2532,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // 向上移动
             break;
         case 'down':
-            // move down
+            // 向下移动
             break;
         default:
             const exhaustiveCheck: never = direction;
@@ -2566,7 +2566,7 @@ interface InterfaceName {
 ```typescript
 type TypeName = {
     property1: Type1;
-    // …
+    // ...
     method1(arg1: ArgType1, arg2: ArgType2): ReturnType;
     // ...
 };
@@ -2882,7 +2882,7 @@ class Person {
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // 输出：Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### 构造函数
@@ -3118,7 +3118,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // 输出：Whiskers meows.
 ```
 
 ### 使用泛型
@@ -3231,7 +3231,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // 日志：HELLO!
 ```
 
 #### 方法装饰器
@@ -3313,10 +3313,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // 有效: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // 抛出异常: Invalid!
 ```
 
 ### 装饰器元数据
@@ -3333,10 +3333,10 @@ Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // 上下文对象包含属性元数据: 装饰器元数据
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // 使用基本类型值设置元数据对象
     context.metadata[context.name] = true;
 }
 
@@ -3351,7 +3351,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // 获取元数据对象信息
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -3386,11 +3386,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// 创建基类的一个实例
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// 创建派生类的一个实例
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -3495,8 +3495,8 @@ x.log();
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // 重载签名 1
+    add(a: string, b: string): string; // 重载签名 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -3510,7 +3510,7 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // 日志：15
 ```
 
 ## 泛型
@@ -3573,7 +3573,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // 无效
 ```
 
 3.4 RC 版中引入的泛型的一个有趣功能是高阶函数类型推断，它引入了传播泛型类型参数：
@@ -3600,10 +3600,10 @@ const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // Value 的类型被缩小到 'string' 类型
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // Value 的类型被缩小到 'number' 类型
         console.log(value.toFixed(2));
     }
 }
@@ -3630,7 +3630,7 @@ const obj = {
     prop1: 'Origin',
 };
 
-log(obj); // Valid
+log(obj); // 有效
 ```
 
 ## 命名空间
@@ -3822,7 +3822,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // 无效
 ```
 
 #### Record\<K, T\>
@@ -4039,11 +4039,11 @@ Try-Catch-Finally 块：
 
 ```typescript
 try {
-    // code that might throw an error
+    // 可能会抛出异常的代码
 } catch (error) {
-    // handle the error
+    // 处理错误
 } finally {
-    // code that always executes, finally is optional
+    // 总是会执行的代码, finally 是可选的
 }
 ```
 
@@ -4051,14 +4051,14 @@ try {
 
 ```typescript
 try {
-    // code that might throw different types of errors
+    // 可能会抛出不同类型错误的代码
 } catch (error) {
     if (error instanceof TypeError) {
-        // handle TypeError
+        // 处理 TypeError
     } else if (error instanceof RangeError) {
-        // handle RangeError
+        // 处理 RangeError
     } else {
-        // handle other errors
+        // 处理其他的错误
     }
 }
 ```
@@ -4699,13 +4699,13 @@ feedAnimal = feedDog; // 无效: Type 'Feed<Dog>' 不能赋值给 'Feed<Animal>'
 对于协变，使用out关键字：
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T is Covariant here
+type AnimalCallback<out T> = () => T; // 此处 T 是协变的
 ```
 
 对于逆变，使用in关键字：
 
 ```typescript
-type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
+type AnimalCallback<in T> = (value: T) => void; // 此处 T 是逆变的
 ```
 
 ### 模板字符串模式索引签名
@@ -4844,9 +4844,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // 资源被声明
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // 资源被释放 (例如, `work[Symbol.dispose]()` 被执行)
 
 console.log(3);
 ```
@@ -4877,7 +4877,7 @@ interface Disposable {
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // 先释放 `C`, 然后 `B`, 然后 `A`.
 ```
 
 即使发生后续代码或异常，也保证会释放资源。 这可能会导致处置可能引发异常，并可能抑制另一个异常。 为了保留有关被抑制错误的信息，引入了一个新的本机异常"SuppressedError"。
@@ -4889,8 +4889,8 @@ interface Disposable {
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // 资源被声明
+} // // 资源被释放 (例如, `await work[Symbol.asyncDispose]()` 被执行)
 ```
 
 对于异步可处置资源，它必须遵守"Disposable"或"AsyncDisposable"接口：
@@ -4908,7 +4908,7 @@ interface AsyncDisposable {
 Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polify
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // 当对象被异步释放时会被调用的方法
     [Symbol.asyncDispose]() {
         // Close the connection and return a promise
         return this.close();
@@ -4922,10 +4922,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // 创建一个新的连接，并在其超出作用域时进行异步释放
+    await using connection = new DatabaseConnection(); // 资源被声明
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // 资源被释放 (例如, `await connection[Symbol.asyncDispose]()` 被执行)
 
 doWork();
 ```
