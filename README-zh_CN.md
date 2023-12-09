@@ -513,9 +513,9 @@ tsc --init
 以下是使用默认设置运行的 CLI 命令的一些示例：
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // 将一个特定的文件 (main.ts) 编译成 JavaScript
+tsc src/*.ts // 将 'src' 文件夹下任意的 .ts 文件编译成 JavaScript
+tsc app.ts util.ts --outfile index.js // 将 2 个 TypeScript 文件 (app.ts 和 util.ts) 编译成 1 个 JavaScript 文件 (index.js)
 ```
 
 ### TypeScript 的配置文件 tsconfig.json
