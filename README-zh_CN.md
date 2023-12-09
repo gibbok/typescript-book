@@ -3328,7 +3328,7 @@ console.log(obj2.getValue); // 抛出异常: Invalid!
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
+Symbol.metadata ??= Symbol('Symbol.metadata'); // 简单的兼容性填充
 
 type Context =
     | ClassFieldDecoratorContext
@@ -4831,7 +4831,7 @@ export type { T } from './mod';
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polify
+Symbol.dispose ??= Symbol('Symbol.dispose'); // 简单的兼容性填充
 
 const doWork = (): Disposable => {
     return {
