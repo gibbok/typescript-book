@@ -4,6 +4,10 @@ The Concise TypeScript Book provides a comprehensive and succinct overview of Ty
 
 This book is completely Free and Open Source.
 
+If you found this TypeScript book valuable and wish to contribute, consider supporting my efforts via PayPal. Thanks!
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?business=QW82ZS956XLFY&no_recurring=0&currency_code=EUR)
+
 ## Translations
 
 This book has been translated into several language versions, including:
