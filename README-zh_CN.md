@@ -80,10 +80,8 @@
   - [只读属性](#只读属性)
   - [索引签名](#索引签名)
   - [扩展类型](#扩展类型)
-  - [类型交集](#类型交集)
   - [字面量类型](#字面量类型)
   - [字面量推断](#字面量推断)
-  - [空和未定义](#空和未定义)
   - [严格空检查](#严格空检查)
   - [枚举](#枚举)
     - [数字枚举](#数字枚举)
@@ -1693,31 +1691,6 @@ interface B extends A {
 }
 ```
 
-## 类型交集
-
-交集类型由 `&` 运算符定义，是扩展类型的主要机制，`extends` 仅适用于 `interface` ：
-
-```typescript
-type A = {
-    a: string;
-};
-type B = {
-    b: string;
-};
-type C = A & B;
-```
-
-或者：
-
-```typescript
-interface X {
-    x: string;
-}
-interface Y {
-    y: string;
-}
-type J = X & Y;
-```
 
 ## 字面量类型
 
@@ -1785,13 +1758,6 @@ let o = {
 };
 ```
 
-## 空和未定义
-
-在 TypeScript 中，`null` 和 `undefined` 是代表不同值的两种不同类型。
-
-`undefined` 用于表示变量或属性尚未初始化或没有值，而 `null` 用于表示故意不存在值。
-
-启用该 `strictNullChecks` 选项后，TypeScript 要求将变量和属性显式键入为可为空或不可为空。
 
 ## 严格空检查
 
