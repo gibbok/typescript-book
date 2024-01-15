@@ -80,7 +80,6 @@
   - [只读属性](#只读属性)
   - [索引签名](#索引签名)
   - [扩展类型](#扩展类型)
-  - [类型交集](#类型交集)
   - [字面量类型](#字面量类型)
   - [字面量推断](#字面量推断)
   - [空和未定义](#空和未定义)
@@ -1693,31 +1692,6 @@ interface B extends A {
 }
 ```
 
-## 类型交集
-
-交集类型由 `&` 运算符定义，是扩展类型的主要机制，`extends` 仅适用于 `interface` ：
-
-```typescript
-type A = {
-    a: string;
-};
-type B = {
-    b: string;
-};
-type C = A & B;
-```
-
-或者：
-
-```typescript
-interface X {
-    x: string;
-}
-interface Y {
-    y: string;
-}
-type J = X & Y;
-```
 
 ## 字面量类型
 
