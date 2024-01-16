@@ -8,11 +8,11 @@ import re
 import shutil
 
 # Test
-# INPUT_FILE_PATH = "./test-doc.md"
-# OUTPUT_DIR_PATH = "./output"
+INPUT_FILE_PATH = "./test-md/README.md"
+OUTPUT_DIR_PATH = "./output"
 
-INPUT_FILE_PATH = "../README.md"
-OUTPUT_DIR_PATH = "../website/src/content/docs/en"
+# INPUT_FILE_PATH = "../README.md"
+# OUTPUT_DIR_PATH = "../website/src/content/docs/en"
 
 
 def manage_output_folder(path):
