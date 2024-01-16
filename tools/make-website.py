@@ -1,6 +1,7 @@
 """
-Generate multiple Markdown documents from a single Markdown file, splitting by headings.
-This script is used to generate pages on the website.
+Generate multiple Markdown documents from a single Markdown file by splitting it based on headings. 
+This script is designed for creating pages on a website and provides results for multiple languages.
+Note: the number of headings per language must be the same.
 """
 
 import os
@@ -9,10 +10,12 @@ import shutil
 
 # Test
 
-INPUT_FILE_PATH = "./test-md/README.md"
+# INPUT_FILE_PATH = "./test-md/README.md"
+INPUT_FILE_PATH = "../README.md"
 OUTPUT_DIR_PATH = "./test-md/en"
 
-INPUT_FILE_PATH_CN = "./test-md/README-zh_CN.md"
+# INPUT_FILE_PATH_CN = "./test-md/README-zh_CN.md"
+INPUT_FILE_PATH_CN = "../README-zh_CN.md"
 OUTPUT_DIR_PATH_CN = "./test-md/zh-cn"
 
 
@@ -122,4 +125,5 @@ def process(base_input, base_output):
 
 
 process(INPUT_FILE_PATH, OUTPUT_DIR_PATH)
+
 process(INPUT_FILE_PATH_CN, OUTPUT_DIR_PATH_CN)
