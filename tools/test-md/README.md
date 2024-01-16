@@ -1,5 +1,5 @@
-# Welcome to StackEdit!
-Hi! I'm your first Markdown file in **StackEdit**. 
+# The Concise TypeScript Book
+A Concise Guide to Effective Development in TypeScript. **Free and Open Source**.
 ## Create files and folders
 The file explorer is accessible using the button.
 ## Switch to another file

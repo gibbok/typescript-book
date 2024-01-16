@@ -1,5 +1,5 @@
-# 欢迎来到 StackEdit！
-你好！ 我是您在 **StackEdit** 中的第一个 Markdown 文件。
+# 简洁 TypeScript 书
+TypeScript 有效开发简明指南。 **免费和开源**。
 ## 创建文件和文件夹
 可使用 按钮访问文件资源管理器。
 ## 切换到另一个文件
