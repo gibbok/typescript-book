@@ -8,11 +8,12 @@ import re
 import shutil
 
 # Test
-INPUT_FILE_PATH = "./test-md/README.md"
-OUTPUT_DIR_PATH = "./output"
 
-# INPUT_FILE_PATH = "../README.md"
-# OUTPUT_DIR_PATH = "../website/src/content/docs/en"
+INPUT_FILE_PATH = "./test-md/README.md"
+OUTPUT_DIR_PATH = "./test-md/en"
+
+INPUT_FILE_PATH_CN = "./test-md/README-zh_CN.md"
+OUTPUT_DIR_PATH_CN = "./test-md/zh-cn"
 
 
 def manage_output_folder(path):
@@ -58,18 +59,24 @@ def make_markdown_page_metadata(order, header):
     ]
 
 
-def save_content_to_file(path, content):
+def save_content_to_file(path, lines):
     with open(path, "w") as output_file:
-        output_file.writelines(content)
+        output_file.writelines(lines)
 
 
-def save_pages_to_files(data_pages):
-    for data_page in data_pages:
-        save_content_to_file(data_page[0], data_page[1])
+def save_pages_to_files(data_pages, master_headers, output_dir):
+    for index, header in enumerate(master_headers):
+        file = make_file_output_path(output_dir, header)
+        save_content_to_file(file, data_pages[index])
 
 
-def split_content_by_headings(lines, output_dir):
-    prev_header_line = ""
+def find_master_headers(lines):
+    headers = [x for x in lines if is_line_header_1_to_2(x)]
+    headers_clean = list(map(lambda x: make_file_name(x), headers))
+    return headers_clean
+
+
+def split_content_by_headings(lines):
     current_content = []
     in_page = False
     header_index = -1
@@ -85,29 +92,34 @@ def split_content_by_headings(lines, output_dir):
                 current_content.extend(
                     make_markdown_page_metadata(header_index + 1, header_text)
                 )
-                prev_header_line = header_text
             else:
-                output_file_path = make_file_output_path(output_dir, prev_header_line)
-                content_result.extend([(output_file_path, current_content)])
+                content_result.extend([current_content])
                 current_content = []
                 in_page = True
                 current_content.extend(
                     make_markdown_page_metadata(header_index + 1, header_text)
                 )
-                prev_header_line = header_text
         else:
             current_content.append(line)
 
     header_index += 1
-    content_result.extend([(output_file_path, current_content)])
+    content_result.extend([current_content])
 
     return content_result
 
 
-manage_output_folder(OUTPUT_DIR_PATH)
+content_lines_master = read_content_file(INPUT_FILE_PATH)
+master_headers = find_master_headers(content_lines_master)
 
-content_lines = read_content_file(INPUT_FILE_PATH)
 
-data_pages = split_content_by_headings(content_lines, OUTPUT_DIR_PATH)
+def process(base_input, base_output):
+    manage_output_folder(base_output)
+    content_lines = read_content_file(base_input)
+    data_pages = split_content_by_headings(
+        content_lines,
+    )
+    save_pages_to_files(data_pages, master_headers, base_output)
 
-save_pages_to_files(data_pages)
+
+process(INPUT_FILE_PATH, OUTPUT_DIR_PATH)
+process(INPUT_FILE_PATH_CN, OUTPUT_DIR_PATH_CN)
