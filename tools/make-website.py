@@ -14,10 +14,10 @@ import shutil
 # OUTPUT_DIR_PATH_CN = "./test-md/zh-cn"
 
 INPUT_FILE_PATH = "../README.md"
-OUTPUT_DIR_PATH = "../website/src/content/docs/en"
+OUTPUT_DIR_PATH = "../website/src/content/docs/book"
 
 INPUT_FILE_PATH_CN = "../README-zh_CN.md"
-OUTPUT_DIR_PATH_CN = "../website/src/content/docs/zh-cn"
+OUTPUT_DIR_PATH_CN = "../website/src/content/docs/zh-cn/book"
 
 
 def manage_output_folder(path):
