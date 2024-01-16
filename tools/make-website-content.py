@@ -20,7 +20,7 @@ INPUT_FILE_PATH_CN = "../README-zh_CN.md"
 OUTPUT_DIR_PATH_CN = "../website/src/content/docs/zh-cn/book"
 
 
-def manage_output_folder(path):
+def manage_output_dir(path):
     if os.path.exists(path):
         shutil.rmtree(path)
     os.makedirs(path)
@@ -37,17 +37,17 @@ def make_file_name(name):
     return f"{content_sanitized}"
 
 
-def make_output_path(output_folder, file_name):
-    return f"{output_folder}/{file_name}.md"
+def make_output_path(output_dir, file_name):
+    return f"{output_dir}/{file_name}.md"
 
 
 def is_line_header_1_to_2(line):
     return re.match(r"^(#{1,2})\s+(.+)", line)
 
 
-def make_file_output_path(output_folder, name):
+def make_file_output_path(output_dir, name):
     file_name = make_file_name(name)
-    output_file_path = make_output_path(output_folder, file_name)
+    output_file_path = make_output_path(output_dir, file_name)
     return output_file_path
 
 
@@ -117,12 +117,13 @@ master_headers = find_master_headers(content_lines_master)
 
 
 def process(base_input, base_output):
-    manage_output_folder(base_output)
+    manage_output_dir(base_output)
     content_lines = read_content_file(base_input)
     data_pages = split_content_by_headings(
         content_lines,
     )
     save_pages_to_files(data_pages, master_headers, base_output)
+    print(f"A total of: {len(master_headers)} files were at: {base_output}")
 
 
 process(INPUT_FILE_PATH, OUTPUT_DIR_PATH)

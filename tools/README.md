@@ -11,7 +11,16 @@ nvm use
 npm install
 ```
 
-## Formatting
+## Commands
+
+Use `make` to run the main commands:
+
+- `make format`: Format Markdown files for books.
+- `make check`: Run several checks to ensure the Markdown files are valid.
+- `make website`: Create different Markdown pages for the website.
+- `make books`: Create .epub books.
+
+### Formatting
 
 Consistent code formatting is crucial. To format all TypeScript snippets, we use Prettier. Execute the following command for formatting:
 
@@ -19,7 +28,7 @@ Consistent code formatting is crucial. To format all TypeScript snippets, we use
 npm run format
 ```
 
-## Compilation
+### Compilation
 
 To compile TypeScript snippets within the Markdown files, utilize the following command:
 
@@ -27,7 +36,7 @@ To compile TypeScript snippets within the Markdown files, utilize the following 
 npm run compile
 ```
 
-## Linting
+### Linting
 
 To ensure that your Markdown files adhere to proper formatting rules, use the linting command:
 
@@ -35,7 +44,7 @@ To ensure that your Markdown files adhere to proper formatting rules, use the li
 npm run lint:md
 ```
 
-## Linting and Formatting
+### Linting and Formatting
 
 For a comprehensive process that includes linting all Markdown files, applying Prettier formatting to all TypeScript snippets, and compiling them using TypeScript, use the following command:
 
@@ -43,13 +52,13 @@ For a comprehensive process that includes linting all Markdown files, applying P
 npm run check
 ```
 
-## Skipping Compilation
+### Skipping Compilation
 
 If you have specific snippets in the Markdown files that you don't want to compile, simply add `<!-- skip -->` just before the TypeScript demarcation for those snippets.
 
-## Epub Generation
+### Epub Generation
 
-To generate Epub files from your Markdown books, navigate to the `tools`` folder and run the following command:
+To generate Epub files from your Markdown books, navigate to the `tools` folder and run the following command:
 
 ```shell
 make-books.sh
