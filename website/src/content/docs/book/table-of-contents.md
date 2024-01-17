@@ -7,212 +7,212 @@ sidebar:
 
 
 <!-- markdownlint-disable MD004 -->
-- [The Concise TypeScript Book](#the-concise-typescript-book)
-  - [Translations](#translations)
-  - [Downloads](#downloads)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [About the Author](#about-the-author)
-  - [TypeScript Introduction](#typescript-introduction)
-    - [What is TypeScript?](#what-is-typescript)
-    - [Why TypeScript?](#why-typescript)
-    - [TypeScript and JavaScript](#typescript-and-javascript)
-    - [TypeScript Code Generation](#typescript-code-generation)
-    - [Modern JavaScript Now (Downleveling)](#modern-javascript-now-downleveling)
-  - [Getting Started With TypeScript](#getting-started-with-typescript)
-    - [Installation](#installation)
-    - [Configuration](#configuration)
-    - [TypeScript Configuration File ​​tsconfig.json](#typescript-configuration-file-tsconfigjson)
-      - [target](#target)
-      - [lib](#lib)
-      - [strict](#strict)
-      - [module](#module)
-      - [moduleResolution](#moduleresolution)
-      - [esModuleInterop](#esmoduleinterop)
-      - [jsx](#jsx)
-      - [skipLibCheck](#skiplibcheck)
-      - [files](#files)
-      - [include](#include)
-      - [exclude](#exclude)
-    - [importHelpers](#importhelpers)
-    - [Migration to TypeScript Advice](#migration-to-typescript-advice)
-  - [Exploring the Type System](#exploring-the-type-system)
-    - [The TypeScript Language Service](#the-typescript-language-service)
-    - [Structural Typing](#structural-typing)
-    - [TypeScript Fundamental Comparison Rules](#typescript-fundamental-comparison-rules)
-    - [Types as Sets](#types-as-sets)
-    - [Assign a type: Type Declarations and Type Assertions](#assign-a-type-type-declarations-and-type-assertions)
-      - [Type Declaration](#type-declaration)
-      - [Type Assertion](#type-assertion)
-      - [Ambient Declarations](#ambient-declarations)
-    - [Property Checking and Excess Property Checking](#property-checking-and-excess-property-checking)
-    - [Weak Types](#weak-types)
-    - [Strict Object Literal Checking (Freshness)](#strict-object-literal-checking-freshness)
-    - [Type Inference](#type-inference)
-    - [More Advanced Inferences](#more-advanced-inferences)
-    - [Type Widening](#type-widening)
-    - [Const](#const)
-      - [Const Modifier on Type Parameters](#const-modifier-on-type-parameters)
-      - [Const assertion](#const-assertion)
-    - [Explicit Type Annotation](#explicit-type-annotation)
-    - [Type Narrowing](#type-narrowing)
-      - [Conditions](#conditions)
-      - [Throwing or returning](#throwing-or-returning)
-      - [Discriminated Union](#discriminated-union)
-      - [User-Defined Type Guards](#user-defined-type-guards)
-  - [Primitive Types](#primitive-types)
-    - [string](#string)
-    - [boolean](#boolean)
-    - [number](#number)
-    - [bigInt](#bigint)
-    - [Symbol](#symbol)
-    - [null and undefined](#null-and-undefined)
-    - [Array](#array)
-    - [any](#any)
-  - [Type Annotations](#type-annotations)
-  - [Optional Properties](#optional-properties)
-  - [Readonly Properties](#readonly-properties)
-  - [Index Signatures](#index-signatures)
-  - [Extending Types](#extending-types)
-  - [Literal Types](#literal-types)
-  - [Literal Inference](#literal-inference)
-  - [strictNullChecks](#strictnullchecks)
-  - [Enums](#enums)
-    - [Numeric enums](#numeric-enums)
-    - [String enums](#string-enums)
-    - [Constant enums](#constant-enums)
-    - [Reverse mapping](#reverse-mapping)
-    - [Ambient enums](#ambient-enums)
-    - [Computed and constant members](#computed-and-constant-members)
-  - [Narrowing](#narrowing)
-    - [typeof type guards](#typeof-type-guards)
-    - [Truthiness narrowing](#truthiness-narrowing)
-    - [Equality narrowing](#equality-narrowing)
-    - [In Operator narrowing](#in-operator-narrowing)
-    - [instanceof narrowing](#instanceof-narrowing)
-  - [Assignments](#assignments)
-  - [Control Flow Analysis](#control-flow-analysis)
-  - [Type Predicates](#type-predicates)
-  - [Discriminated Unions](#discriminated-unions)
-  - [The never Type](#the-never-type)
-  - [Exhaustiveness checking](#exhaustiveness-checking)
-  - [Object Types](#object-types)
-  - [Tuple Type (Anonymous)](#tuple-type-anonymous)
-  - [Named Tuple Type (Labeled)](#named-tuple-type-labeled)
-  - [Fixed Length Tuple](#fixed-length-tuple)
-  - [Union Type](#union-type)
-  - [Intersection Types](#intersection-types)
-  - [Type Indexing](#type-indexing)
-  - [Type from Value](#type-from-value)
-  - [Type from Func Return](#type-from-func-return)
-  - [Type from Module](#type-from-module)
-  - [Mapped Types](#mapped-types)
-  - [Mapped Type Modifiers](#mapped-type-modifiers)
-  - [Conditional Types](#conditional-types)
-  - [Distributive Conditional Types](#distributive-conditional-types)
-  - [infer Type Inference in Conditional Types](#infer-type-inference-in-conditional-types)
-  - [Predefined Conditional Types](#predefined-conditional-types)
-  - [Template Union Types](#template-union-types)
-  - [Any type](#any-type)
-  - [Unknown type](#unknown-type)
-  - [Void type](#void-type)
-  - [Never type](#never-type)
-  - [Interface and Type](#interface-and-type)
-    - [Common Syntax](#common-syntax)
-    - [Basic Types](#basic-types)
-    - [Objects and Interfaces](#objects-and-interfaces)
-    - [Union and Intersection Types](#union-and-intersection-types)
-  - [Built-in Type Primitives](#built-in-type-primitives)
-  - [Common Built-in JS Objects](#common-built-in-js-objects)
-  - [Overloads](#overloads)
-  - [Merging and Extension](#merging-and-extension)
-  - [Differences between Type and Interface](#differences-between-type-and-interface)
-  - [Class](#class)
-    - [Class Common Syntax](#class-common-syntax)
-    - [Constructor](#constructor)
-    - [Private and Protected Constructors](#private-and-protected-constructors)
-    - [Access Modifiers](#access-modifiers)
-    - [Get \& Set](#get--set)
-    - [Auto-Accessors in Classes](#auto-accessors-in-classes)
-    - [this](#this)
-    - [Parameter Properties](#parameter-properties)
-    - [Abstract Classes](#abstract-classes)
-    - [With Generics](#with-generics)
-    - [Decorators](#decorators)
-      - [Class Decorators](#class-decorators)
-      - [Property Decorator](#property-decorator)
-      - [Method Decorator](#method-decorator)
-      - [Getter and Setter Decorators](#getter-and-setter-decorators)
-      - [Decorator Metadata](#decorator-metadata)
-    - [Inheritance](#inheritance)
-    - [Statics](#statics)
-    - [Property initialization](#property-initialization)
-    - [Method overloading](#method-overloading)
-  - [Generics](#generics)
-    - [Generic Type](#generic-type)
-    - [Generic Classes](#generic-classes)
-    - [Generic Constraints](#generic-constraints)
-    - [Generic contextual narrowing](#generic-contextual-narrowing)
-  - [Erased Structural Types](#erased-structural-types)
-  - [Namespacing](#namespacing)
-  - [Symbols](#symbols)
-  - [Triple-Slash Directives](#triple-slash-directives)
-  - [Type Manipulation](#type-manipulation)
-    - [Creating Types from Types](#creating-types-from-types)
-    - [Indexed Access Types](#indexed-access-types)
-    - [Utility Types](#utility-types)
-      - [Awaited\<T\>](#awaitedt)
-      - [Partial\<T\>](#partialt)
-      - [Required\<T\>](#requiredt)
-      - [Readonly\<T\>](#readonlyt)
-      - [Record\<K, T\>](#recordk-t)
-      - [Pick\<T, K\>](#pickt-k)
-      - [Omit\<T, K\>](#omitt-k)
-      - [Exclude\<T, U\>](#excludet-u)
-      - [Extract\<T, U\>](#extractt-u)
-      - [NonNullable\<T\>](#nonnullablet)
-      - [Parameters\<T\>](#parameterst)
-      - [ConstructorParameters\<T\>](#constructorparameterst)
-      - [ReturnType\<T\>](#returntypet)
-      - [InstanceType\<T\>](#instancetypet)
-      - [ThisParameterType\<T\>](#thisparametertypet)
-      - [OmitThisParameter\<T\>](#omitthisparametert)
-      - [ThisType\<T\>](#thistypet)
-      - [Uppercase\<T\>](#uppercaset)
-      - [Lowercase\<T\>](#lowercaset)
-      - [Capitalize\<T\>](#capitalizet)
-      - [Uncapitalize\<T\>](#uncapitalizet)
-  - [Others](#others)
-    - [Errors and Exception Handling](#errors-and-exception-handling)
-    - [Mixin classes](#mixin-classes)
-    - [Asynchronous Language Features](#asynchronous-language-features)
-    - [Iterators and Generators](#iterators-and-generators)
-    - [TsDocs JSDoc Reference](#tsdocs-jsdoc-reference)
-    - [@types](#types)
-    - [JSX](#jsx-1)
-    - [ES6 Modules](#es6-modules)
-    - [ES7 Exponentiation Operator](#es7-exponentiation-operator)
-    - [The for-await-of Statement](#the-for-await-of-statement)
-    - [New.target](#newtarget)
-    - [Dynamic Import Expressions](#dynamic-import-expressions)
-    - ["tsc –watch"](#tsc-watch)
-    - [Non-null Assertion Operator (Postfix !)](#non-null-assertion-operator-postfix-)
-    - [Defaulted declarations](#defaulted-declarations)
-    - [Optional Chaining](#optional-chaining)
-    - [Nullish coalescing operator (??)](#nullish-coalescing-operator-)
-    - [Template Literal Types](#template-literal-types)
-    - [Function overloading](#function-overloading)
-    - [Recursive Types](#recursive-types)
-    - [Recursive Conditional Types](#recursive-conditional-types)
-    - [ECMAScript Module Support in Node.js](#ecmascript-module-support-in-nodejs)
-    - [Assertion Functions](#assertion-functions)
-    - [Variadic Tuple Types](#variadic-tuple-types)
-    - [Boxed types](#boxed-types)
-    - [Covariance and Contravariance in TypeScript](#covariance-and-contravariance-in-typescript)
-      - [Optional Variance Annotations for Type Parameters](#optional-variance-annotations-for-type-parameters)
-    - [Template String Pattern Index Signatures](#template-string-pattern-index-signatures)
-    - [The satisfies Operator](#the-satisfies-operator)
-    - [Type-Only Imports and Export](#type-only-imports-and-export)
-    - [using declaration and Explicit Resource Management](#using-declaration-and-explicit-resource-management)
-      - [await using declaration](#await-using-declaration)
+- The Concise TypeScript Book
+  - Translations
+  - Downloads
+  - Table of Contents
+  - Introduction
+  - About the Author
+  - TypeScript Introduction
+    - What is TypeScript?
+    - Why TypeScript?
+    - TypeScript and JavaScript
+    - TypeScript Code Generation
+    - Modern JavaScript Now (Downleveling)
+  - Getting Started With TypeScript
+    - Installation
+    - Configuration
+    - TypeScript Configuration File ​​tsconfig.json
+      - target
+      - lib
+      - strict
+      - module
+      - moduleResolution
+      - esModuleInterop
+      - jsx
+      - skipLibCheck
+      - files
+      - include
+      - exclude
+    - importHelpers
+    - Migration to TypeScript Advice
+  - Exploring the Type System
+    - The TypeScript Language Service
+    - Structural Typing
+    - TypeScript Fundamental Comparison Rules
+    - Types as Sets
+    - Assign a type: Type Declarations and Type Assertions
+      - Type Declaration
+      - Type Assertion
+      - Ambient Declarations
+    - Property Checking and Excess Property Checking
+    - Weak Types
+    - Strict Object Literal Checking (Freshness)
+    - Type Inference
+    - More Advanced Inferences
+    - Type Widening
+    - Const
+      - Const Modifier on Type Parameters
+      - Const assertion
+    - Explicit Type Annotation
+    - Type Narrowing
+      - Conditions
+      - Throwing or returning
+      - Discriminated Union
+      - User-Defined Type Guards
+  - Primitive Types
+    - string
+    - boolean
+    - number
+    - bigInt
+    - Symbol
+    - null and undefined
+    - Array
+    - any
+  - Type Annotations
+  - Optional Properties
+  - Readonly Properties
+  - Index Signatures
+  - Extending Types
+  - Literal Types
+  - Literal Inference
+  - strictNullChecks
+  - Enums
+    - Numeric enums
+    - String enums
+    - Constant enums
+    - Reverse mapping
+    - Ambient enums
+    - Computed and constant members
+  - Narrowing
+    - typeof type guards
+    - Truthiness narrowing
+    - Equality narrowing
+    - In Operator narrowing
+    - instanceof narrowing
+  - Assignments
+  - Control Flow Analysis
+  - Type Predicates
+  - Discriminated Unions
+  - The never Type
+  - Exhaustiveness checking
+  - Object Types
+  - Tuple Type (Anonymous)
+  - Named Tuple Type (Labeled)
+  - Fixed Length Tuple
+  - Union Type
+  - Intersection Types
+  - Type Indexing
+  - Type from Value
+  - Type from Func Return
+  - Type from Module
+  - Mapped Types
+  - Mapped Type Modifiers
+  - Conditional Types
+  - Distributive Conditional Types
+  - infer Type Inference in Conditional Types
+  - Predefined Conditional Types
+  - Template Union Types
+  - Any type
+  - Unknown type
+  - Void type
+  - Never type
+  - Interface and Type
+    - Common Syntax
+    - Basic Types
+    - Objects and Interfaces
+    - Union and Intersection Types
+  - Built-in Type Primitives
+  - Common Built-in JS Objects
+  - Overloads
+  - Merging and Extension
+  - Differences between Type and Interface
+  - Class
+    - Class Common Syntax
+    - Constructor
+    - Private and Protected Constructors
+    - Access Modifiers
+    - Get \& Set
+    - Auto-Accessors in Classes
+    - this
+    - Parameter Properties
+    - Abstract Classes
+    - With Generics
+    - Decorators
+      - Class Decorators
+      - Property Decorator
+      - Method Decorator
+      - Getter and Setter Decorators
+      - Decorator Metadata
+    - Inheritance
+    - Statics
+    - Property initialization
+    - Method overloading
+  - Generics
+    - Generic Type
+    - Generic Classes
+    - Generic Constraints
+    - Generic contextual narrowing
+  - Erased Structural Types
+  - Namespacing
+  - Symbols
+  - Triple-Slash Directives
+  - Type Manipulation
+    - Creating Types from Types
+    - Indexed Access Types
+    - Utility Types
+      - Awaited\<T\>
+      - Partial\<T\>
+      - Required\<T\>
+      - Readonly\<T\>
+      - Record\<K, T\>
+      - Pick\<T, K\>
+      - Omit\<T, K\>
+      - Exclude\<T, U\>
+      - Extract\<T, U\>
+      - NonNullable\<T\>
+      - Parameters\<T\>
+      - ConstructorParameters\<T\>
+      - ReturnType\<T\>
+      - InstanceType\<T\>
+      - ThisParameterType\<T\>
+      - OmitThisParameter\<T\>
+      - ThisType\<T\>
+      - Uppercase\<T\>
+      - Lowercase\<T\>
+      - Capitalize\<T\>
+      - Uncapitalize\<T\>
+  - Others
+    - Errors and Exception Handling
+    - Mixin classes
+    - Asynchronous Language Features
+    - Iterators and Generators
+    - TsDocs JSDoc Reference
+    - @types
+    - JSX
+    - ES6 Modules
+    - ES7 Exponentiation Operator
+    - The for-await-of Statement
+    - New.target
+    - Dynamic Import Expressions
+    - "tsc –watch"
+    - Non-null Assertion Operator (Postfix !)
+    - Defaulted declarations
+    - Optional Chaining
+    - Nullish coalescing operator (??)
+    - Template Literal Types
+    - Function overloading
+    - Recursive Types
+    - Recursive Conditional Types
+    - ECMAScript Module Support in Node.js
+    - Assertion Functions
+    - Variadic Tuple Types
+    - Boxed types
+    - Covariance and Contravariance in TypeScript
+      - Optional Variance Annotations for Type Parameters
+    - Template String Pattern Index Signatures
+    - The satisfies Operator
+    - Type-Only Imports and Export
+    - using declaration and Explicit Resource Management
+      - await using declaration
 <!-- markdownlint-enable MD004 -->

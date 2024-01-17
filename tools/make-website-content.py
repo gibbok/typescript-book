@@ -80,6 +80,13 @@ def find_master_headers(lines):
     return headers_clean
 
 
+def remove_markdown_anchors(markdown_text):
+    pattern = r"\[(.*?)\]\(#[^\)]*\)"
+    replacement = r"\1"
+    transformed_text = re.sub(pattern, replacement, markdown_text)
+    return transformed_text
+
+
 def split_content_by_headings(lines):
     current_content = []
     in_page = False
@@ -104,7 +111,8 @@ def split_content_by_headings(lines):
                     make_markdown_page_metadata(header_index + 1, header_text)
                 )
         else:
-            current_content.append(line)
+            line_new = remove_markdown_anchors(line)
+            current_content.append(line_new)
 
     header_index += 1
     content_result.extend([current_content])
