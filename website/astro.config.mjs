@@ -3,6 +3,7 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+    site: 'https://gibbok.github.io/typescript-book',
     integrations: [
         starlight({
             title: 'TypeScript Book',
