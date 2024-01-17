@@ -959,10 +959,10 @@ TypeScript 支持各种类型的集合：
 | T1 \| T2              | T1 ∪ T2 (并集)   | type XY = 'X' \| 'Y';                                            |
 |                       |                  | type JK = 1 \| 2;                                                |
 |                       |                  |
-| T1 & T2               | T1 ∩ T2 (交集)   | type X = { a: string }                                           |
-|                       |                  | type Y = { b: string }                                           |
+| T1 & T2               | T1 ∩ T2 (交集)   | type X = \{ a: string \}                                           |
+|                       |                  | type Y = \{ b: string \}                                           |
 |                       |                  | type XY = X & Y                                                  |
-|                       |                  | const x: XY = { a: 'a', b: 'b' }                                 |
+|                       |                  | const x: XY = \{ a: 'a', b: 'b' \}                                 |
 |                       |                  |
 | unknown               | 通用集           | const x: unknown = 1                                             |
 

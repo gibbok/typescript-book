@@ -972,10 +972,10 @@ Here few examples:
 | T1 \| T2              | T1 ∪ T2 (union)        | type XY = 'X' \| 'Y';                                                           |
 |                       |                        | type JK = 1 \| 2;                                                               |
 |                       |                        |
-| T1 & T2               | T1 ∩ T2 (intersection) | type X = { a: string }                                                          |
-|                       |                        | type Y = { b: string }                                                          |
+| T1 & T2               | T1 ∩ T2 (intersection) | type X = \{ a: string \}                                                          |
+|                       |                        | type Y = \{ b: string \}                                                          |
 |                       |                        | type XY = X & Y                                                                 |
-|                       |                        | const x: XY = { a: 'a', b: 'b' }                                                |
+|                       |                        | const x: XY = \{ a: 'a', b: 'b' \}                                                |
 |                       |                        |
 | unknown               | Universal set          | const x: unknown = 1                                                            |
 
