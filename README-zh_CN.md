@@ -8,13 +8,13 @@
 
 本书已被翻译成多种语言版本，包括：
 
-* [中文](./README-zh_CN.md)
+* [中文](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
 ## 下载
 
 您还可以在这里下载 Epub 版本：
 
-<https://github.com/gibbok/typescript-book/tree/main/downloads>
+[https://github.com/gibbok/typescript-book/tree/main/downloads](https://github.com/gibbok/typescript-book/tree/main/downloads)
 
 ## 目录表
 
@@ -241,9 +241,9 @@ Simone Poggiali 是一位经验丰富的高级前端开发人员，自 90 年代
 
 您可以通过以下平台联系 Simone Poggiali：
 
-* 领英: <https://www.linkedin.com/in/simone-poggiali>
-* GitHub: <https://github.com/gibbok>
-* 推特: <https://twitter.com/gibbok_coding>
+* 领英: [https://www.linkedin.com/in/simone-poggiali](https://www.linkedin.com/in/simone-poggiali)
+* GitHub: [https://github.com/gibbok](https://github.com/gibbok)
+* 推特: [https://twitter.com/gibbok_coding](https://twitter.com/gibbok_coding)
 * 电子邮箱: gibbok.coding📧gmail.com
 
 ## TypeScript简介
@@ -534,9 +534,9 @@ tsconfig.json 文件用于配置 TypeScript 编译器 (tsc)。通常，它与文
 
 在以下链接中，您可以找到完整的文档及其配置示例：
 
-<https://www.typescriptlang.org/tsconfig>
+[https://www.typescriptlang.org/tsconfig](https://www.typescriptlang.org/tsconfig)
 
-<http://json.schemastore.org/tsconfig>
+[http://json.schemastore.org/tsconfig](http://json.schemastore.org/tsconfig)
 
 以下列出了常见且有用的配置：
 
@@ -607,7 +607,7 @@ TypeScript 在为某些高级或低级 JavaScript 功能生成代码时使用帮
 
 第二步是确保您的 JavaScript 测试与 TypeScript 文件一起工作，以便您可以在转换每个模块时运行测试。如果您正在使用 Jest，请考虑使用ts-jest，它允许您使用 Jest 测试 TypeScript 项目。
 
-第三步是在项目中包含第三方库的类型声明。 这些声明可以第三方库的类型声明文件或专门的声明包中找到，你能通过 <https://www.typescriptlang.org/dt/search> 搜索并安装它们。:
+第三步是在项目中包含第三方库的类型声明。 这些声明可以第三方库的类型声明文件或专门的声明包中找到，你能通过 [https://www.typescriptlang.org/dt/search](https://www.typescriptlang.org/dt/search) 搜索并安装它们。:
 
 ```shell
 npm install --save-dev @types/package-name or yarn add --dev @types/package-name.
@@ -639,7 +639,7 @@ TypeScript 的语言服务, 也被称为 tsserver，提供了各种功能，例�
 现实世界中的自定义插件的一个示例是"typescript-styled-plugin"，它为样式组件中的 CSS 属性提供语法错误报告和 IntelliSense 支持。
 <!-- markdownlint-enable MD044 -->
 
-有关更多信息和快速入门指南，您可以参考 GitHub 上的官方 TypeScript Wiki： <https://github.com/microsoft/TypeScript/wiki/>
+有关更多信息和快速入门指南，您可以参考 GitHub 上的官方 TypeScript Wiki： [https://github.com/microsoft/TypeScript/wiki/](https://github.com/microsoft/TypeScript/wiki/)
 
 ### 结构类型
 
@@ -959,10 +959,10 @@ TypeScript 支持各种类型的集合：
 | T1 \| T2              | T1 ∪ T2 (并集)   | type XY = 'X' \| 'Y';                                            |
 |                       |                  | type JK = 1 \| 2;                                                |
 |                       |                  |
-| T1 & T2               | T1 ∩ T2 (交集)   | type X = { a: string }                                           |
-|                       |                  | type Y = { b: string }                                           |
+| T1 & T2               | T1 ∩ T2 (交集)   | type X = \{ a: string \}                                           |
+|                       |                  | type Y = \{ b: string \}                                           |
 |                       |                  | type XY = X & Y                                                  |
-|                       |                  | const x: XY = { a: 'a', b: 'b' }                                 |
+|                       |                  | const x: XY = \{ a: 'a', b: 'b' \}                                 |
 |                       |                  |
 | unknown               | 通用集           | const x: unknown = 1                                             |
 
@@ -1114,7 +1114,7 @@ let y = x!; // number
 环境声明是描述 JavaScript 代码类型的文件，它们的文件名格式为.d.ts.. 它们通常被导入并用于注释现有的 JavaScript 库或向项目中的现有 JS 文件添加类型。
 
 许多常见的库类型可以在以下位置找到：
-<https://github.com/DefinitelyTyped/DefinitelyTyped/>
+[https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
 
 ```shell
 npm install --save-dev @types/library-name
@@ -2616,7 +2616,7 @@ TypeScript 有几个内置的原属数据类型，可用于定义变量、函数
 ## 常见的内置JS对象
 
 TypeScript 是 JavaScript 的超集，它包含所有常用的内置 JavaScript 对象。您可以在 Mozilla 开发者网络 (MDN) 文档网站上找到这些对象的详细列表：
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects>
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 
 以下是一些常用的内置 JavaScript 对象的列表：
 
@@ -4111,29 +4111,29 @@ Promises：
 
 Promise 是一种处理异步操作及其结果的方法，使用 `.then()`和等方法 `.catch()` 来处理成功和错误条件。
 
-要了解更多信息： <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>
+要了解更多信息： [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 Async/await:
 
 Async/await 关键字是一种为处理 Promise 提供看起来更同步的语法的方法。`async` 关键字用于定义异步函数，并且 `await` 关键字在异步函数中使用以暂停执行，直到 Promise 被解决或拒绝。
 
 要了解更多信息：
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function>
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await>
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 
 TypeScript 很好地支持以下 API：
 
 Fetch API:
-<https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>
+[https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 Web Workers:
-<https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API>
+[https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
 
 Shared Workers:
-<https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker>
+[https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker](https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker)
 
 WebSocket:
-<https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>
+[https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
 ### 迭代器和生成器
 
@@ -4198,9 +4198,9 @@ TypeScript 还支持异步迭代器和异步生成器。
 
 要了解更多信息：
 
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator>
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
 
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator>
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator)
 
 ### TsDocs JSDoc 参考
 
@@ -4222,10 +4222,10 @@ power(10, 2); // function power(base: number, exponent: number): number
 ```
 
 此链接提供了完整文档：
-<https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html>
+[https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
 
 从版本 3.7 开始，可以从 JavaScript JSDoc 语法生成 .d.ts 类型定义。更多信息可以在这里找到：
-<https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html>
+[https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html](https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html)
 
 ### @types
 
@@ -4237,7 +4237,7 @@ npm install --save-dev @types/lodash
 
 将在您当前的项目中安装 `lodash` 的类型定义。
 
-要为 @types 包的类型定义做出贡献，请向 <https://github.com/DefinitelyTyped/DefinitelyTyped> 提交pr请求。
+要为 @types 包的类型定义做出贡献，请向 [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) 提交pr请求。
 
 ### JSX
 
@@ -4251,7 +4251,7 @@ TypeScript 通过提供类型检查和静态分析来扩展 JSX 的功能。
 * "react": 启用 TypeScript 的内置 JSX 转换。 将使用 React.createElement 。
 
 所有选项均可在此处使用：
-<https://www.typescriptlang.org/tsconfig#jsx>
+[https://www.typescriptlang.org/tsconfig#jsx](https://www.typescriptlang.org/tsconfig#jsx)
 
 ### ES6 模块
 

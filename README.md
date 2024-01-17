@@ -12,13 +12,13 @@ If you found this TypeScript book valuable and wish to contribute, consider supp
 
 This book has been translated into several language versions, including:
 
-* [Chinese](./README-zh_CN.md)
+* [Chinese](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
 ## Downloads
 
 You can also download the Epub version here:
 
-<https://github.com/gibbok/typescript-book/tree/main/downloads>
+[https://github.com/gibbok/typescript-book/tree/main/downloads](https://github.com/gibbok/typescript-book/tree/main/downloads)
 
 ## Table of Contents
 
@@ -244,9 +244,9 @@ Simone Poggiali is an experienced Senior Front-end Developer with a passion for 
 
 You can reach Simone Poggiali on the following platforms:
 
-* LinkedIn: <https://www.linkedin.com/in/simone-poggiali>
-* GitHub: <https://github.com/gibbok>
-* Twitter: <https://twitter.com/gibbok_coding>
+* LinkedIn: [https://www.linkedin.com/in/simone-poggiali](https://www.linkedin.com/in/simone-poggiali)
+* GitHub: [https://github.com/gibbok](https://github.com/gibbok)
+* Twitter: [https://twitter.com/gibbok_coding](https://twitter.com/gibbok_coding)
 * Email: gibbok.coding📧gmail.com
 
 ## TypeScript Introduction
@@ -545,9 +545,9 @@ Notes:
 
 At the following link you can find the complete documentation and its schema:
 
-<https://www.typescriptlang.org/tsconfig>
+[https://www.typescriptlang.org/tsconfig](https://www.typescriptlang.org/tsconfig)
 
-<http://json.schemastore.org/tsconfig>
+[http://json.schemastore.org/tsconfig](http://json.schemastore.org/tsconfig)
 
 The following represents a list of the common and useful configurations:
 
@@ -619,7 +619,7 @@ The first step of this transition is to introduce TypeScript into the build chai
 
 The second step is to ensure that your JavaScript tests work alongside TypeScript files so that you can run tests as you convert each module. If you are using Jest, consider using `ts-jest`, which allows you to test TypeScript projects with Jest.
 
-The third step is to include type declarations for third-party libraries in your project. These declarations can be found either bundled or on DefinitelyTyped. You can search for them using <https://www.typescriptlang.org/dt/search> and install them using:
+The third step is to include type declarations for third-party libraries in your project. These declarations can be found either bundled or on DefinitelyTyped. You can search for them using [https://www.typescriptlang.org/dt/search](https://www.typescriptlang.org/dt/search) and install them using:
 
 ```shell
 npm install --save-dev @types/package-name or yarn add --dev @types/package-name.
@@ -651,7 +651,7 @@ Developers can leverage a dedicated API and create their own custom language ser
 An example of a real-world custom plugin is "typescript-styled-plugin", which provides syntax error reporting and IntelliSense support for CSS properties in styled components.
 <!-- markdownlint-enable MD044 -->
 
-For more information and quick start guides, you can refer to the official TypeScript Wiki on GitHub: <https://github.com/microsoft/TypeScript/wiki/>
+For more information and quick start guides, you can refer to the official TypeScript Wiki on GitHub: [https://github.com/microsoft/TypeScript/wiki/](https://github.com/microsoft/TypeScript/wiki/)
 
 ### Structural Typing
 
@@ -972,10 +972,10 @@ Here few examples:
 | T1 \| T2              | T1 ∪ T2 (union)        | type XY = 'X' \| 'Y';                                                           |
 |                       |                        | type JK = 1 \| 2;                                                               |
 |                       |                        |
-| T1 & T2               | T1 ∩ T2 (intersection) | type X = { a: string }                                                          |
-|                       |                        | type Y = { b: string }                                                          |
+| T1 & T2               | T1 ∩ T2 (intersection) | type X = \{ a: string \}                                                          |
+|                       |                        | type Y = \{ b: string \}                                                          |
 |                       |                        | type XY = X & Y                                                                 |
-|                       |                        | const x: XY = { a: 'a', b: 'b' }                                                |
+|                       |                        | const x: XY = \{ a: 'a', b: 'b' \}                                                |
 |                       |                        |
 | unknown               | Universal set          | const x: unknown = 1                                                            |
 
@@ -1121,7 +1121,7 @@ It is worth noting that when using a type assertion, TypeScript will not execute
 Ambient declarations are files that describe types for JavaScript code, they have a file name format as `.d.ts.`. They are usually imported and used to annotate existing JavaScript libraries or to add types to existing JS files in your project.
 
 Many common libraries types can be found at:
-<https://github.com/DefinitelyTyped/DefinitelyTyped/>
+[https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
 
 and can be installed using:
 
@@ -2642,7 +2642,7 @@ TypeScript has several built-in type primitives that can be used to define varia
 ## Common Built-in JS Objects
 
 TypeScript is a superset of JavaScript, it includes all the commonly used built-in JavaScript objects. You can find an extensive list of these objects on the Mozilla Developer Network (MDN) documentation website:
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects>
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 
 Here is a list of some commonly used built-in JavaScript objects:
 
@@ -4146,29 +4146,29 @@ Promises:
 
 Promises are a way to handle asynchronous operations and their results using methods like `.then()` and `.catch()` to handle success and error conditions.
 
-To learn more: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>
+To learn more: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 Async/await:
 
 Async/await keywords are a way to provide a more synchronous-looking syntax for working with Promises. The `async` keyword is used to define an asynchronous function, and the `await` keyword is used within an async function to pause execution until a Promise is resolved or rejected.
 
 To learn more:
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function>
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await>
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 
 The following API are well supported in TypeScript:
 
 Fetch API:
-<https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>
+[https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 Web Workers:
-<https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API>
+[https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
 
 Shared Workers:
-<https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker>
+[https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker](https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker)
 
 WebSocket:
-<https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>
+[https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
 ### Iterators and Generators
 
@@ -4232,7 +4232,10 @@ for (const num of generator) {
 TypeScript also supports async iterators and async Generators.
 
 To learn more:
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator>        <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator>
+
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
+
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator)
 
 ### TsDocs JSDoc Reference
 
@@ -4254,11 +4257,11 @@ power(10, 2); // function power(base: number, exponent: number): number
 ```
 
 Full documentation is provided to this link:
-<https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html>
+[https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
 
 From version 3.7 it is possible to generate .d.ts type definitions from JavaScript JSDoc syntax.
 More information can be found here:
-<https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html>
+[https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html](https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html)
 
 ### @types
 
@@ -4270,7 +4273,7 @@ npm install --save-dev @types/lodash
 
 Will install the type definitions of `lodash` in your current project.
 
-To contribute to the type definitions of @types package, please submit a pull request to <https://github.com/DefinitelyTyped/DefinitelyTyped>.
+To contribute to the type definitions of @types package, please submit a pull request to [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
 
 ### JSX
 
@@ -4284,7 +4287,7 @@ To use JSX you need to set the `jsx` compiler option in your `tsconfig.json` fil
 * "react": enables TypeScript's built-in JSX transformation. React.createElement will be used.
 
 All options are available here:
-<https://www.typescriptlang.org/tsconfig#jsx>
+[https://www.typescriptlang.org/tsconfig#jsx](https://www.typescriptlang.org/tsconfig#jsx)
 
 ### ES6 Modules
 
