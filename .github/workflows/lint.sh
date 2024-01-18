@@ -5,4 +5,3 @@ cd tools
 npm ci
 npm run lint
 npm run lint:md
-npm run format
