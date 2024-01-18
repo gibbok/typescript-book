@@ -7,9 +7,8 @@ Note: the number of headings per language must be the same.
 import os
 import re
 import shutil
-from typing import NewType, List
+from typing import List
 
-ContentType = NewType("ContentType", List[str])
 
 # INPUT_FILE_PATH = "./test-md/README.md"
 # OUTPUT_DIR_PATH = "./test-md/en"
@@ -29,7 +28,7 @@ def manage_output_dir(path: str) -> None:
     os.makedirs(path)
 
 
-def read_content_file(path: str) -> ContentType:
+def read_content_file(path: str) -> List[str]:
     with open(path, "r") as file:
         lines = file.readlines()
     return lines
@@ -54,7 +53,7 @@ def make_file_output_path(output_dir: str, name: str) -> str:
     return output_file_path
 
 
-def make_markdown_page_metadata(order: int, header: str) -> ContentType:
+def make_markdown_page_metadata(order: int, header: str) -> List[str]:
     return [
         "---\n",
         f"title: {header}\n",
@@ -66,20 +65,20 @@ def make_markdown_page_metadata(order: int, header: str) -> ContentType:
     ]
 
 
-def save_content_to_file(path: str, lines: ContentType):
+def save_content_to_file(path: str, lines: List[str]):
     with open(path, "w") as output_file:
         output_file.writelines(lines)
 
 
 def save_pages_to_files(
-    data_pages: List[ContentType], master_headers: ContentType, output_dir: str
+    data_pages: List[List[str]], master_headers: List[str], output_dir: str
 ) -> None:
     for index, header in enumerate(master_headers):
         file = make_file_output_path(output_dir, header)
         save_content_to_file(file, data_pages[index])
 
 
-def find_master_headers(lines: ContentType) -> ContentType:
+def find_master_headers(lines: List[str]) -> List[str]:
     headers = [x for x in lines if is_line_header_1_to_2(x)]
     headers_clean = list(map(lambda x: make_file_name(x), headers))
     return headers_clean
@@ -92,7 +91,7 @@ def remove_markdown_anchors(markdown_text: str):
     return transformed_text
 
 
-def split_content_by_headings(lines: ContentType):
+def split_content_by_headings(lines: List[str]):
     current_content = []
     in_page = False
     header_index = -1
