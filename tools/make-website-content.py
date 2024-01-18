@@ -124,11 +124,9 @@ def split_content_by_headings(lines: List[str]):
     return content_result
 
 
-content_lines_master = read_content_file(INPUT_FILE_PATH)
-master_headers = find_master_headers(content_lines_master)
-
-
 def process(base_input: str, base_output: str) -> None:
+    content_lines_master = read_content_file(INPUT_FILE_PATH)
+    master_headers = find_master_headers(content_lines_master)
     manage_output_dir(base_output)
     content_lines = read_content_file(base_input)
     data_pages = split_content_by_headings(
