@@ -15,11 +15,11 @@ npm install
 
 Use `make` to run the main commands:
 
-- `make format`: Format Markdown files for books.
-- `make check`: Run several checks to ensure the Markdown files are valid.
-- `make website`: Create different Markdown pages for the website.
-- `make website-deploy`: Build and deploy website to GitHub Pages.
-- `make books`: Create .epub books.
+* `make format`: Format Markdown files for books.
+* `make check`: Run several checks to ensure the Markdown files are valid.
+* `make website`: Create different Markdown pages for the website.
+* `make website-deploy`: Build and deploy website to GitHub Pages.
+* `make books`: Create .epub books.
 
 ### Formatting
 
