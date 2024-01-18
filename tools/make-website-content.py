@@ -7,6 +7,8 @@ Note: the number of headings per language must be the same.
 import os
 import re
 import shutil
+from typing import List
+
 
 # INPUT_FILE_PATH = "./test-md/README.md"
 # OUTPUT_DIR_PATH = "./test-md/en"
@@ -20,38 +22,38 @@ INPUT_FILE_PATH_CN = "../README-zh_CN.md"
 OUTPUT_DIR_PATH_CN = "../website/src/content/docs/zh-cn/book"
 
 
-def manage_output_dir(path):
+def manage_output_dir(path: str) -> None:
     if os.path.exists(path):
         shutil.rmtree(path)
     os.makedirs(path)
 
 
-def read_content_file(path):
+def read_content_file(path: str) -> List[str]:
     with open(path, "r") as file:
         lines = file.readlines()
     return lines
 
 
-def make_file_name(name):
+def make_file_name(name: str) -> str:
     content_sanitized = re.sub(r"[^a-zA-Z0-9]+", "-", name.lower()).strip("-")
     return f"{content_sanitized}"
 
 
-def make_output_path(output_dir, file_name):
+def make_output_path(output_dir: str, file_name: str):
     return f"{output_dir}/{file_name}.md"
 
 
-def is_line_header_1_to_2(line):
+def is_line_header_1_to_2(line: str) -> bool:
     return re.match(r"^(#{1,2})\s+(.+)", line)
 
 
-def make_file_output_path(output_dir, name):
+def make_file_output_path(output_dir: str, name: str) -> str:
     file_name = make_file_name(name)
     output_file_path = make_output_path(output_dir, file_name)
     return output_file_path
 
 
-def make_markdown_page_metadata(order, header):
+def make_markdown_page_metadata(order: int, header: str) -> List[str]:
     return [
         "---\n",
         f"title: {header}\n",
@@ -63,31 +65,33 @@ def make_markdown_page_metadata(order, header):
     ]
 
 
-def save_content_to_file(path, lines):
+def save_content_to_file(path: str, lines: List[str]):
     with open(path, "w") as output_file:
         output_file.writelines(lines)
 
 
-def save_pages_to_files(data_pages, master_headers, output_dir):
+def save_pages_to_files(
+    data_pages: List[List[str]], master_headers: List[str], output_dir: str
+) -> None:
     for index, header in enumerate(master_headers):
         file = make_file_output_path(output_dir, header)
         save_content_to_file(file, data_pages[index])
 
 
-def find_master_headers(lines):
+def find_master_headers(lines: List[str]) -> List[str]:
     headers = [x for x in lines if is_line_header_1_to_2(x)]
     headers_clean = list(map(lambda x: make_file_name(x), headers))
     return headers_clean
 
 
-def remove_markdown_anchors(markdown_text):
+def remove_markdown_anchors(markdown_text: str):
     pattern = r"\[(.*?)\]\(#[^\)]*\)"
     replacement = r"\1"
     transformed_text = re.sub(pattern, replacement, markdown_text)
     return transformed_text
 
 
-def split_content_by_headings(lines):
+def split_content_by_headings(lines: List[str]):
     current_content = []
     in_page = False
     header_index = -1
@@ -120,20 +124,20 @@ def split_content_by_headings(lines):
     return content_result
 
 
-content_lines_master = read_content_file(INPUT_FILE_PATH)
-master_headers = find_master_headers(content_lines_master)
+def process(base_input_path, input_lang_path: str, base_output_path: str) -> None:
+    manage_output_dir(base_output_path)
 
+    content_lines_master = read_content_file(base_input_path)
+    master_headers = find_master_headers(content_lines_master)
 
-def process(base_input, base_output):
-    manage_output_dir(base_output)
-    content_lines = read_content_file(base_input)
+    content_lines = read_content_file(input_lang_path)
     data_pages = split_content_by_headings(
         content_lines,
     )
-    save_pages_to_files(data_pages, master_headers, base_output)
-    print(f"A total of: {len(master_headers)} files were at: {base_output}")
+    save_pages_to_files(data_pages, master_headers, base_output_path)
+    print(f"A total of: {len(master_headers)} files were at: {base_output_path}")
 
 
-process(INPUT_FILE_PATH, OUTPUT_DIR_PATH)
+process(INPUT_FILE_PATH, INPUT_FILE_PATH, OUTPUT_DIR_PATH)
 
-process(INPUT_FILE_PATH_CN, OUTPUT_DIR_PATH_CN)
+process(INPUT_FILE_PATH, INPUT_FILE_PATH_CN, OUTPUT_DIR_PATH_CN)
