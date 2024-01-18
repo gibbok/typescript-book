@@ -1,6 +1,4 @@
-#### The Concise TypeScript Book
-
-# test
+# The Concise TypeScript Book
 
 The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects found in the latest version of the language, from its powerful type system to advanced features. Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.
 
@@ -29,7 +27,7 @@ An online version is available at:
 ## Table of Contents
 
 <!-- markdownlint-disable MD004 -->
-- [test](#test)
+- [The Concise TypeScript Book](#the-concise-typescript-book)
   - [Downloads and website](#downloads-and-website)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
