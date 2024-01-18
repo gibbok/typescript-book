@@ -8,7 +8,7 @@
 
 本书已被翻译成多种语言版本，包括：
 
-* [中文](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
+[中文](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
 ## 下载
 
@@ -1698,7 +1698,6 @@ interface B extends A {
 }
 ```
 
-
 ## 字面量类型
 
 文字类型是来自集体类型的单个元素集，它定义了一个非常精确的值，即 JavaScript 原始数据。
@@ -1764,7 +1763,6 @@ let o = {
     x: 'a' as X,
 };
 ```
-
 
 ## 严格空检查
 
