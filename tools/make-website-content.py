@@ -124,18 +124,20 @@ def split_content_by_headings(lines: List[str]):
     return content_result
 
 
-def process(base_input: str, base_output: str) -> None:
-    content_lines_master = read_content_file(INPUT_FILE_PATH)
+def process(base_input_path, input_lang_path: str, base_output_path: str) -> None:
+    manage_output_dir(base_output_path)
+
+    content_lines_master = read_content_file(base_input_path)
     master_headers = find_master_headers(content_lines_master)
-    manage_output_dir(base_output)
-    content_lines = read_content_file(base_input)
+
+    content_lines = read_content_file(input_lang_path)
     data_pages = split_content_by_headings(
         content_lines,
     )
-    save_pages_to_files(data_pages, master_headers, base_output)
-    print(f"A total of: {len(master_headers)} files were at: {base_output}")
+    save_pages_to_files(data_pages, master_headers, base_output_path)
+    print(f"A total of: {len(master_headers)} files were at: {base_output_path}")
 
 
-process(INPUT_FILE_PATH, OUTPUT_DIR_PATH)
+process(INPUT_FILE_PATH, INPUT_FILE_PATH, OUTPUT_DIR_PATH)
 
-process(INPUT_FILE_PATH_CN, OUTPUT_DIR_PATH_CN)
+process(INPUT_FILE_PATH, INPUT_FILE_PATH_CN, OUTPUT_DIR_PATH_CN)
