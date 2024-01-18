@@ -5,6 +5,9 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
     site: 'https://gibbok.github.io',
     base: '/typescript-book',
+    build: {
+        assets: 'app_assets',
+    },
     integrations: [
         starlight({
             title: 'TypeScript Book',
