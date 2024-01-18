@@ -14,18 +14,22 @@ This book has been translated into several language versions, including:
 
 [Chinese](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
-## Downloads
+## Downloads and website
 
-You can also download the Epub version here:
+You can also download the Epub version:
 
 [https://github.com/gibbok/typescript-book/tree/main/downloads](https://github.com/gibbok/typescript-book/tree/main/downloads)
+
+An online version is available at:
+
+[https://gibbok.github.io/typescript-book](https://gibbok.github.io/typescript-book)
 
 ## Table of Contents
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](#the-concise-typescript-book)
   - [Translations](#translations)
-  - [Downloads](#downloads)
+  - [Downloads and website](#downloads-and-website)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [About the Author](#about-the-author)
