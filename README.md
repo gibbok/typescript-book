@@ -8,7 +8,7 @@ If you found this TypeScript book valuable and wish to contribute, consider supp
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?business=QW82ZS956XLFY&no_recurring=0&currency_code=EUR)
 
-## Translations
+######################### Translations
 
 This book has been translated into several language versions, including:
 
@@ -28,7 +28,6 @@ An online version is available at:
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](#the-concise-typescript-book)
-  - [Translations](#translations)
   - [Downloads and website](#downloads-and-website)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
