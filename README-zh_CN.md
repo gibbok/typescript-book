@@ -10,18 +10,22 @@
 
 [中文](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
-## 下载
+## 下载和网站
 
-您还可以在这里下载 Epub 版本：
+您还可以下载 Epub 版本：
 
 [https://github.com/gibbok/typescript-book/tree/main/downloads](https://github.com/gibbok/typescript-book/tree/main/downloads)
+
+在线版本可在以下位置获得：
+
+[https://gibbok.github.io/typescript-book](https://gibbok.github.io/typescript-book)
 
 ## 目录表
 
 <!-- markdownlint-disable MD004 -->
 - [简洁的TypeScript之书](#简洁的typescript之书)
   - [翻译](#翻译)
-  - [下载](#下载)
+  - [下载和网站](#下载和网站)
   - [目录表](#目录表)
   - [介绍](#介绍)
   - [关于作者](#关于作者)
