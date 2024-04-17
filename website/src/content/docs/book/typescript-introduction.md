@@ -10,7 +10,7 @@ sidebar:
 
 TypeScript is a strongly typed programming language that builds on JavaScript. It was originally designed by Anders Hejlsberg in 2012 and is currently developed and maintained by Microsoft as an open source project.
 
-TypeScript compiles to JavaScript and can be executed in any JavaScript engine (e.g., a browser or server Node.js).
+TypeScript compiles to JavaScript and can be executed in any JavaScript runtime (e.g., a browser or server Node.js).
 
 TypeScript supports multiple programming paradigms such as functional, generic, imperative, and object-oriented. TypeScript is neither an interpreted nor a compiled language.
 
