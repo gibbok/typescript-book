@@ -8,5 +8,5 @@ sidebar:
 
 本书已被翻译成多种语言版本，包括：
 
-* [中文](./README-zh_CN.md)
+[中文](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 

@@ -9,7 +9,7 @@ sidebar:
 <!-- markdownlint-disable MD004 -->
 - 简洁的TypeScript之书
   - 翻译
-  - 下载
+  - 下载和网站
   - 目录表
   - 介绍
   - 关于作者

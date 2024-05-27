@@ -10,7 +10,7 @@ sidebar:
 
 TypeScript 是一种基于 JavaScript 构建的强类型编程语言。它最初由 Anders Hejlsberg 于 2012 年设计，目前由 Microsoft 作为开源项目开发和维护。
 
-TypeScript 编译为 JavaScript，并且可以在任何 JavaScript 引擎（例如浏览器或服务器 Node.js）中执行。
+TypeScript 编译为 JavaScript，并且可以在任何 JavaScript 运行时（例如浏览器或服务器 Node.js）中执行。
 
 TypeScript 支持多种编程范式，例如函数式、泛型、命令式和面向对象。TypeScript 既不是解释型语言，也不是编译型语言。
 
@@ -42,7 +42,7 @@ TypeScript是用`.ts`或`.tsx`文件编写的, 而JavaScript是用`.js`或`.jsx`
 const sum = (a, b) => a + b;
 ```
 
-该函数可以通过将文件扩展名更改为 .TypeScript 来转换和使用.ts。但是，如果同一个函数使用 TypeScript 类型进行注释，则未经编译就无法在任何 JavaScript 引擎中执行。如果未编译以下 TypeScript 代码，将会产生语法错误
+该函数可以通过将文件扩展名更改为 .TypeScript 来转换和使用.ts。但是，如果同一个函数使用 TypeScript 类型进行注释，则未经编译就无法在任何 JavaScript 运行时中执行。如果未编译以下 TypeScript 代码，将会产生语法错误
 
 <!-- skip -->
 ```typescript
@@ -86,7 +86,7 @@ const result = 1 + true; // 在JavaScript中, 结果等于2
 
 ### TypeScript 代码生成
 
-TypeScript 编译器有两个主要职责：检查类型错误和编译为 JavaScript。这两个过程是相互独立的。类型不会影响 JavaScript 引擎中代码的执行，因为它们在编译过程中会被完全擦除。即使存在类型错误，TypeScript 仍然可以输出 JavaScript。以下是存在类型错误的 TypeScript 代码示例：
+TypeScript 编译器有两个主要职责：检查类型错误和编译为 JavaScript。这两个过程是相互独立的。类型不会影响 JavaScript 运行时中代码的执行，因为它们在编译过程中会被完全擦除。即使存在类型错误，TypeScript 仍然可以输出 JavaScript。以下是存在类型错误的 TypeScript 代码示例：
 
 <!-- skip -->
 ```typescript

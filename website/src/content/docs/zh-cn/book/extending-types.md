@@ -54,4 +54,3 @@ interface B extends A {
 }
 ```
 
-

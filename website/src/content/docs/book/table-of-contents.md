@@ -9,7 +9,7 @@ sidebar:
 <!-- markdownlint-disable MD004 -->
 - The Concise TypeScript Book
   - Translations
-  - Downloads
+  - Downloads and website
   - Table of Contents
   - Introduction
   - About the Author
