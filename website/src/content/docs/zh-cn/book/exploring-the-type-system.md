@@ -16,7 +16,7 @@ TypeScript 的语言服务, 也被称为 tsserver，提供了各种功能，例�
 现实世界中的自定义插件的一个示例是"typescript-styled-plugin"，它为样式组件中的 CSS 属性提供语法错误报告和 IntelliSense 支持。
 <!-- markdownlint-enable MD044 -->
 
-有关更多信息和快速入门指南，您可以参考 GitHub 上的官方 TypeScript Wiki： <https://github.com/microsoft/TypeScript/wiki/>
+有关更多信息和快速入门指南，您可以参考 GitHub 上的官方 TypeScript Wiki： [https://github.com/microsoft/TypeScript/wiki/](https://github.com/microsoft/TypeScript/wiki/)
 
 ### 结构类型
 
@@ -336,10 +336,10 @@ TypeScript 支持各种类型的集合：
 | T1 \| T2              | T1 ∪ T2 (并集)   | type XY = 'X' \| 'Y';                                            |
 |                       |                  | type JK = 1 \| 2;                                                |
 |                       |                  |
-| T1 & T2               | T1 ∩ T2 (交集)   | type X = { a: string }                                           |
-|                       |                  | type Y = { b: string }                                           |
+| T1 & T2               | T1 ∩ T2 (交集)   | type X = \{ a: string \}                                           |
+|                       |                  | type Y = \{ b: string \}                                           |
 |                       |                  | type XY = X & Y                                                  |
-|                       |                  | const x: XY = { a: 'a', b: 'b' }                                 |
+|                       |                  | const x: XY = \{ a: 'a', b: 'b' \}                                 |
 |                       |                  |
 | unknown               | 通用集           | const x: unknown = 1                                             |
 
@@ -491,7 +491,7 @@ let y = x!; // number
 环境声明是描述 JavaScript 代码类型的文件，它们的文件名格式为.d.ts.. 它们通常被导入并用于注释现有的 JavaScript 库或向项目中的现有 JS 文件添加类型。
 
 许多常见的库类型可以在以下位置找到：
-<https://github.com/DefinitelyTyped/DefinitelyTyped/>
+[https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
 
 ```shell
 npm install --save-dev @types/library-name

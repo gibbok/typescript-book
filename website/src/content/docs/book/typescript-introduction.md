@@ -10,7 +10,7 @@ sidebar:
 
 TypeScript is a strongly typed programming language that builds on JavaScript. It was originally designed by Anders Hejlsberg in 2012 and is currently developed and maintained by Microsoft as an open source project.
 
-TypeScript compiles to JavaScript and can be executed in any JavaScript engine (e.g., a browser or server Node.js).
+TypeScript compiles to JavaScript and can be executed in any JavaScript runtime (e.g., a browser or server Node.js).
 
 TypeScript supports multiple programming paradigms such as functional, generic, imperative, and object-oriented. TypeScript is neither an interpreted nor a compiled language.
 
@@ -43,7 +43,7 @@ For instance, consider a function in a JavaScript file with the `.js` extension,
 const sum = (a, b) => a + b;
 ```
 
-The function can be converted and used in TypeScript by changing the file extension to `.ts`. However, if the same function is annotated with TypeScript types, it cannot be executed in any JavaScript engine without compilation. The following TypeScript code will produce a syntax error if it is not compiled:
+The function can be converted and used in TypeScript by changing the file extension to `.ts`. However, if the same function is annotated with TypeScript types, it cannot be executed in any JavaScript runtime without compilation. The following TypeScript code will produce a syntax error if it is not compiled:
 
 <!-- skip -->
 ```typescript
@@ -87,7 +87,7 @@ This error occurs because TypeScript strictly enforces type compatibility, and i
 
 ### TypeScript Code Generation
 
-The TypeScript compiler has two main responsibilities: checking for type errors and compiling to JavaScript. These two processes are independent of each other. Types do not affect the execution of the code in a JavaScript engine, as they are completely erased during compilation. TypeScript can still output JavaScript even in the presence of type errors.
+The TypeScript compiler has two main responsibilities: checking for type errors and compiling to JavaScript. These two processes are independent of each other. Types do not affect the execution of the code in a JavaScript runtime, as they are completely erased during compilation. TypeScript can still output JavaScript even in the presence of type errors.
 Here is an example of TypeScript code with a type error:
 
 <!-- skip -->

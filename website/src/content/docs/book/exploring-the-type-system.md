@@ -16,7 +16,7 @@ Developers can leverage a dedicated API and create their own custom language ser
 An example of a real-world custom plugin is "typescript-styled-plugin", which provides syntax error reporting and IntelliSense support for CSS properties in styled components.
 <!-- markdownlint-enable MD044 -->
 
-For more information and quick start guides, you can refer to the official TypeScript Wiki on GitHub: <https://github.com/microsoft/TypeScript/wiki/>
+For more information and quick start guides, you can refer to the official TypeScript Wiki on GitHub: [https://github.com/microsoft/TypeScript/wiki/](https://github.com/microsoft/TypeScript/wiki/)
 
 ### Structural Typing
 
@@ -337,10 +337,10 @@ Here few examples:
 | T1 \| T2              | T1 ∪ T2 (union)        | type XY = 'X' \| 'Y';                                                           |
 |                       |                        | type JK = 1 \| 2;                                                               |
 |                       |                        |
-| T1 & T2               | T1 ∩ T2 (intersection) | type X = { a: string }                                                          |
-|                       |                        | type Y = { b: string }                                                          |
+| T1 & T2               | T1 ∩ T2 (intersection) | type X = \{ a: string \}                                                          |
+|                       |                        | type Y = \{ b: string \}                                                          |
 |                       |                        | type XY = X & Y                                                                 |
-|                       |                        | const x: XY = { a: 'a', b: 'b' }                                                |
+|                       |                        | const x: XY = \{ a: 'a', b: 'b' \}                                                |
 |                       |                        |
 | unknown               | Universal set          | const x: unknown = 1                                                            |
 
@@ -486,7 +486,7 @@ It is worth noting that when using a type assertion, TypeScript will not execute
 Ambient declarations are files that describe types for JavaScript code, they have a file name format as `.d.ts.`. They are usually imported and used to annotate existing JavaScript libraries or to add types to existing JS files in your project.
 
 Many common libraries types can be found at:
-<https://github.com/DefinitelyTyped/DefinitelyTyped/>
+[https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
 
 and can be installed using:
 

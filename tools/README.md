@@ -6,6 +6,8 @@ If you're working with Markdown books, here are some essential tools and command
 
 Before you begin, ensure you have Node.js installed. To set up the required dependencies, use the following commands:
 
+In folder `tools` and `website`:
+
 ```shell
 nvm use
 npm install
@@ -18,6 +20,7 @@ Use `make` to run the main commands:
 * `make format`: Format Markdown files for books.
 * `make check`: Run several checks to ensure the Markdown files are valid.
 * `make website`: Create different Markdown pages for the website.
+* `make website-preview`: Build and preview website.
 * `make website-deploy`: Build and deploy website to GitHub Pages.
 * `make books`: Create .epub books.
 

@@ -113,29 +113,29 @@ Promises:
 
 Promises are a way to handle asynchronous operations and their results using methods like `.then()` and `.catch()` to handle success and error conditions.
 
-To learn more: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>
+To learn more: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 Async/await:
 
 Async/await keywords are a way to provide a more synchronous-looking syntax for working with Promises. The `async` keyword is used to define an asynchronous function, and the `await` keyword is used within an async function to pause execution until a Promise is resolved or rejected.
 
 To learn more:
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function>
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await>
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 
 The following API are well supported in TypeScript:
 
 Fetch API:
-<https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>
+[https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 Web Workers:
-<https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API>
+[https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
 
 Shared Workers:
-<https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker>
+[https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker](https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker)
 
 WebSocket:
-<https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>
+[https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
 ### Iterators and Generators
 
@@ -199,7 +199,10 @@ for (const num of generator) {
 TypeScript also supports async iterators and async Generators.
 
 To learn more:
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator>        <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator>
+
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
+
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator)
 
 ### TsDocs JSDoc Reference
 
@@ -221,11 +224,11 @@ power(10, 2); // function power(base: number, exponent: number): number
 ```
 
 Full documentation is provided to this link:
-<https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html>
+[https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
 
 From version 3.7 it is possible to generate .d.ts type definitions from JavaScript JSDoc syntax.
 More information can be found here:
-<https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html>
+[https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html](https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html)
 
 ### @types
 
@@ -237,7 +240,7 @@ npm install --save-dev @types/lodash
 
 Will install the type definitions of `lodash` in your current project.
 
-To contribute to the type definitions of @types package, please submit a pull request to <https://github.com/DefinitelyTyped/DefinitelyTyped>.
+To contribute to the type definitions of @types package, please submit a pull request to [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
 
 ### JSX
 
@@ -251,7 +254,7 @@ To use JSX you need to set the `jsx` compiler option in your `tsconfig.json` fil
 * "react": enables TypeScript's built-in JSX transformation. React.createElement will be used.
 
 All options are available here:
-<https://www.typescriptlang.org/tsconfig#jsx>
+[https://www.typescriptlang.org/tsconfig#jsx](https://www.typescriptlang.org/tsconfig#jsx)
 
 ### ES6 Modules
 

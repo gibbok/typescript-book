@@ -7,7 +7,7 @@ sidebar:
 
 
 TypeScript 是 JavaScript 的超集，它包含所有常用的内置 JavaScript 对象。您可以在 Mozilla 开发者网络 (MDN) 文档网站上找到这些对象的详细列表：
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects>
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 
 以下是一些常用的内置 JavaScript 对象的列表：
 

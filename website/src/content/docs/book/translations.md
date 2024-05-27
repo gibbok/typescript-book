@@ -8,5 +8,5 @@ sidebar:
 
 This book has been translated into several language versions, including:
 
-* [Chinese](./README-zh_CN.md)
+[Chinese](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 

@@ -113,29 +113,29 @@ Promises：
 
 Promise 是一种处理异步操作及其结果的方法，使用 `.then()`和等方法 `.catch()` 来处理成功和错误条件。
 
-要了解更多信息： <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>
+要了解更多信息： [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 Async/await:
 
 Async/await 关键字是一种为处理 Promise 提供看起来更同步的语法的方法。`async` 关键字用于定义异步函数，并且 `await` 关键字在异步函数中使用以暂停执行，直到 Promise 被解决或拒绝。
 
 要了解更多信息：
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function>
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await>
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 
 TypeScript 很好地支持以下 API：
 
 Fetch API:
-<https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>
+[https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 Web Workers:
-<https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API>
+[https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
 
 Shared Workers:
-<https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker>
+[https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker](https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker)
 
 WebSocket:
-<https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>
+[https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
 ### 迭代器和生成器
 
@@ -200,9 +200,9 @@ TypeScript 还支持异步迭代器和异步生成器。
 
 要了解更多信息：
 
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator>
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
 
-<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator>
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator)
 
 ### TsDocs JSDoc 参考
 
@@ -224,10 +224,10 @@ power(10, 2); // function power(base: number, exponent: number): number
 ```
 
 此链接提供了完整文档：
-<https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html>
+[https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
 
 从版本 3.7 开始，可以从 JavaScript JSDoc 语法生成 .d.ts 类型定义。更多信息可以在这里找到：
-<https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html>
+[https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html](https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html)
 
 ### @types
 
@@ -239,7 +239,7 @@ npm install --save-dev @types/lodash
 
 将在您当前的项目中安装 `lodash` 的类型定义。
 
-要为 @types 包的类型定义做出贡献，请向 <https://github.com/DefinitelyTyped/DefinitelyTyped> 提交pr请求。
+要为 @types 包的类型定义做出贡献，请向 [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) 提交pr请求。
 
 ### JSX
 
@@ -253,7 +253,7 @@ TypeScript 通过提供类型检查和静态分析来扩展 JSX 的功能。
 * "react": 启用 TypeScript 的内置 JSX 转换。 将使用 React.createElement 。
 
 所有选项均可在此处使用：
-<https://www.typescriptlang.org/tsconfig#jsx>
+[https://www.typescriptlang.org/tsconfig#jsx](https://www.typescriptlang.org/tsconfig#jsx)
 
 ### ES6 模块
 
