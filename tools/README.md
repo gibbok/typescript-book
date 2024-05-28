@@ -84,5 +84,5 @@ brew install --cask sigil
 For instance, run the EPUB check using:
 
 ```shell
-epubcheck ../downloads/test-typescript-book.epub
+epubcheck ../downloads/typescript-book.epub
 ```
