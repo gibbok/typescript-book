@@ -71,3 +71,12 @@ make-books.sh
 After generating the Epub files, thoroughly test them, and once you're satisfied with the results, commit the changes.
 
 These tools will assist you in efficiently working with Markdown books and ensure a smooth and organized process. Happy writing!
+
+## Debug Epub issues
+
+You can download and use the following tools to validate and debug the created EPUB files.
+
+```shell
+brew install epubcheck
+brew install --cask sigil
+```
