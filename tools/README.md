@@ -56,6 +56,14 @@ For a comprehensive process that includes linting all Markdown files, applying P
 npm run check
 ```
 
+The project uses the [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)Visual Studio Code extension to automatically update the table of contents.
+
+Use the following command to install it:
+
+```shell
+code --install-extension yzhang.markdown-all-in-one
+```
+
 ### Skipping Compilation
 
 If you have specific snippets in the Markdown files that you don't want to compile, simply add `<!-- skip -->` just before the TypeScript demarcation for those snippets.
@@ -71,3 +79,18 @@ make-books.sh
 After generating the Epub files, thoroughly test them, and once you're satisfied with the results, commit the changes.
 
 These tools will assist you in efficiently working with Markdown books and ensure a smooth and organized process. Happy writing!
+
+## Debug Epub issues
+
+You can download and use the following tools to validate and debug the created EPUB files.
+
+```shell
+brew install epubcheck
+brew install --cask sigil
+```
+
+For instance, run the EPUB check using:
+
+```shell
+epubcheck ../downloads/typescript-book.epub
+```

@@ -76,7 +76,7 @@ tsc src/*.ts // 将 'src' 文件夹下任意的 .ts 文件编译成 JavaScript
 tsc app.ts util.ts --outfile index.js // 将 2 个 TypeScript 文件 (app.ts 和 util.ts) 编译成 1 个 JavaScript 文件 (index.js)
 ```
 
-### TypeScript 的配置文件 tsconfig.json
+### TypeScript 的配置文件
 
 tsconfig.json 文件用于配置 TypeScript 编译器 (tsc)。通常，它与文件一起添加到项目的根目录中package.json。
 
@@ -143,6 +143,7 @@ TypeScript 可以为各种模块系统生成代码，包括 UMD、System、ESNex
 <!-- markdownlint-disable MD049 -->
 "include"属性向编译器指示我们想要包含的文件列表。此属性允许类似 glob 的模式，例如 "\*_" 表示任何子目录，"_" 表示任何文件名，"?" 表示可选字符。
 <!-- markdownlint-enable MD049 -->
+
 #### exclude
 
 "exclude"属性向编译器指示不应包含在编译中的文件列表。这可以包括"node_modules"等文件或测试文件

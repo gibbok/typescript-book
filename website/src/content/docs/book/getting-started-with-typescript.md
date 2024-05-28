@@ -76,7 +76,7 @@ tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
 tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
 ```
 
-### TypeScript Configuration File ​​tsconfig.json
+### TypeScript Configuration File
 
 A tsconfig.json file is used to configure the TypeScript Compiler (tsc). Usually, it is added to the root of the project, together with the `package.json` file.
 

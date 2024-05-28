@@ -38,7 +38,7 @@
   - [TypeScript 入门](#typescript-入门)
     - [安装](#安装)
     - [配置](#配置)
-    - [TypeScript 的配置文件 tsconfig.json](#typescript-的配置文件-tsconfigjson)
+    - [TypeScript 的配置文件](#typescript-的配置文件)
       - [target](#target)
       - [lib](#lib)
       - [strict](#strict)
@@ -210,17 +210,17 @@
     - [ES6 模块](#es6-模块)
     - [ES7 求幂运算符](#es7-求幂运算符)
     - [for-await-of 语句](#for-await-of-语句)
-    - [New.target](#newtarget)
+    - [New target 元属性](#new-target-元属性)
     - [动态导入表达式](#动态导入表达式)
     - ["tsc –watch"](#tsc-watch)
     - [默认声明](#默认声明)
     - [可选链](#可选链)
-    - [空合并运算符 (??)](#空合并运算符-)
+    - [空合并运算符](#空合并运算符)
     - [模板字符串类型](#模板字符串类型)
     - [函数重载](#函数重载)
     - [递归类型](#递归类型)
     - [递归条件类型](#递归条件类型)
-    - [Node.js 中的 ECMAScript 模块支持](#nodejs-中的-ecmascript-模块支持)
+    - [Node 中的 ECMAScript 模块支持](#node-中的-ecmascript-模块支持)
     - [断言函数](#断言函数)
     - [可变参数元组类型](#可变参数元组类型)
     - [装箱类型](#装箱类型)
@@ -527,7 +527,7 @@ tsc src/*.ts // 将 'src' 文件夹下任意的 .ts 文件编译成 JavaScript
 tsc app.ts util.ts --outfile index.js // 将 2 个 TypeScript 文件 (app.ts 和 util.ts) 编译成 1 个 JavaScript 文件 (index.js)
 ```
 
-### TypeScript 的配置文件 tsconfig.json
+### TypeScript 的配置文件
 
 tsconfig.json 文件用于配置 TypeScript 编译器 (tsc)。通常，它与文件一起添加到项目的根目录中package.json。
 
@@ -594,6 +594,7 @@ TypeScript 可以为各种模块系统生成代码，包括 UMD、System、ESNex
 <!-- markdownlint-disable MD049 -->
 "include"属性向编译器指示我们想要包含的文件列表。此属性允许类似 glob 的模式，例如 "\*_" 表示任何子目录，"_" 表示任何文件名，"?" 表示可选字符。
 <!-- markdownlint-enable MD049 -->
+
 #### exclude
 
 "exclude"属性向编译器指示不应包含在编译中的文件列表。这可以包括"node_modules"等文件或测试文件
@@ -4302,7 +4303,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 })();
 ```
 
-### New.target
+### New target 元属性
 
 您可以在 TypeScript 中使用 `new.target` 元属性，该属性使您能够确定是否使用 new 运算符调用函数或构造函数。它允许您检测对象是否是由于构造函数调用而创建的。
 
@@ -4385,7 +4386,7 @@ const person: Person = {
 console.log(person.address?.city); // undefined
 ```
 
-### 空合并运算符 (??)
+### 空合并运算符
 
 如果 `??` 左侧是 `null` 或者 `undefined` ，则空合并运算符返回右侧值，否则，它返回左侧值。
 
@@ -4476,7 +4477,7 @@ type NestedArray = [1, [2, [3, 4], 5], 6];
 type FlattenedArray = Flatten<NestedArray>; // 2 | 3 | 4 | 5 | 1 | 6
 ```
 
-### Node.js 中的 ECMAScript 模块支持
+### Node 中的 ECMAScript 模块支持
 
 Node.js 从 15.3.0 版本开始添加了对 ECMAScript 模块的支持，而 TypeScript 从 4.7 版本开始增加了对 Node.js 的 ECMAScript 模块支持。可以通过将 `tsconfig.json` 文件中的`module`属性的值设置为 `nodenext` 来启用此支持。这是一个例子：
 
