@@ -42,7 +42,7 @@ An online version is available at:
   - [Getting Started With TypeScript](#getting-started-with-typescript)
     - [Installation](#installation)
     - [Configuration](#configuration)
-    - [TypeScript Configuration File ​​tsconfig.json](#typescript-configuration-file-tsconfigjson)
+    - [TypeScript Configuration File](#typescript-configuration-file)
       - [target](#target)
       - [lib](#lib)
       - [strict](#strict)
@@ -152,7 +152,7 @@ An online version is available at:
     - [Constructor](#constructor)
     - [Private and Protected Constructors](#private-and-protected-constructors)
     - [Access Modifiers](#access-modifiers)
-    - [Get \& Set](#get--set)
+    - [Get and Set](#get-and-set)
     - [Auto-Accessors in Classes](#auto-accessors-in-classes)
     - [this](#this)
     - [Parameter Properties](#parameter-properties)
@@ -213,18 +213,18 @@ An online version is available at:
     - [ES6 Modules](#es6-modules)
     - [ES7 Exponentiation Operator](#es7-exponentiation-operator)
     - [The for-await-of Statement](#the-for-await-of-statement)
-    - [New.target](#newtarget)
+    - [New target meta-property](#new-target-meta-property)
     - [Dynamic Import Expressions](#dynamic-import-expressions)
     - ["tsc –watch"](#tsc-watch)
-    - [Non-null Assertion Operator (Postfix !)](#non-null-assertion-operator-postfix-)
+    - [Non-null Assertion Operator](#non-null-assertion-operator)
     - [Defaulted declarations](#defaulted-declarations)
     - [Optional Chaining](#optional-chaining)
-    - [Nullish coalescing operator (??)](#nullish-coalescing-operator-)
+    - [Nullish coalescing operator](#nullish-coalescing-operator)
     - [Template Literal Types](#template-literal-types)
     - [Function overloading](#function-overloading)
     - [Recursive Types](#recursive-types)
     - [Recursive Conditional Types](#recursive-conditional-types)
-    - [ECMAScript Module Support in Node.js](#ecmascript-module-support-in-nodejs)
+    - [ECMAScript Module Support in Node](#ecmascript-module-support-in-node)
     - [Assertion Functions](#assertion-functions)
     - [Variadic Tuple Types](#variadic-tuple-types)
     - [Boxed types](#boxed-types)
@@ -236,6 +236,7 @@ An online version is available at:
     - [using declaration and Explicit Resource Management](#using-declaration-and-explicit-resource-management)
       - [await using declaration](#await-using-declaration)
 <!-- markdownlint-enable MD004 -->
+
 ## Introduction
 
 Welcome to The Concise TypeScript Book! This guide equips you with essential knowledge and practical skills for effective TypeScript development. Discover key concepts and techniques to write clean, robust code. Whether you're a beginner or an experienced developer, this book serves as both a comprehensive guide and a handy reference for leveraging TypeScript's power in your projects.
@@ -538,7 +539,7 @@ tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
 tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
 ```
 
-### TypeScript Configuration File ​​tsconfig.json
+### TypeScript Configuration File
 
 A tsconfig.json file is used to configure the TypeScript Compiler (tsc). Usually, it is added to the root of the project, together with the `package.json` file.
 
@@ -3006,7 +3007,7 @@ The `protected` modifier allows access to the class member within the containing
 
 The `public` modifier provides unrestricted access to the class member, allowing it to be accessed from anywhere."
 
-### Get & Set
+### Get and Set
 
 Getters and setters are special methods that allow you to define custom access and modification behavior for class properties. They enable you to encapsulate the internal state of an object and provide additional logic when getting or setting the values of properties.
 In TypeScript, getters and setters are defined using the `get` and `set` keywords respectively. Here's an example:
@@ -4341,7 +4342,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 })();
 ```
 
-### New.target
+### New target meta-property
 
 You can use in TypeScript the `new.target` meta-property which enables you to determine if a function or constructor was invoked using the new operator. It allows you to detect whether an object was created as a result of a constructor call.
 
@@ -4391,7 +4392,7 @@ tsc --watch
 
 Starting from TypeScript version 4.9, file monitoring primarily relies on file system events, automatically resorting to polling if an event-based watcher cannot be established.
 
-### Non-null Assertion Operator (Postfix !)
+### Non-null Assertion Operator
 
 The Non-null Assertion Operator (Postfix !) also called Definite Assignment Assertions is a TypeScript feature that allows you to assert that a variable or property is not null or undefined, even if TypeScript's static type analysis suggests that it might be. With this feature it is possible to remove any explicit checking.
 
@@ -4438,7 +4439,7 @@ const person: Person = {
 console.log(person.address?.city); // undefined
 ```
 
-### Nullish coalescing operator (??)
+### Nullish coalescing operator
 
 The nullish coalescing operator `??` returns the right-hand side value if the left-hand side is `null` or `undefined`; otherwise, it returns the left-hand side value.
 
@@ -4531,7 +4532,7 @@ type NestedArray = [1, [2, [3, 4], 5], 6];
 type FlattenedArray = Flatten<NestedArray>; // 2 | 3 | 4 | 5 | 1 | 6
 ```
 
-### ECMAScript Module Support in Node.js
+### ECMAScript Module Support in Node
 
 Node.js added support for ECMAScript Modules starting from version 15.3.0, and TypeScript has had ECMAScript Module Support for Node.js since version 4.7. This support can be enabled by using the `module` property with the value `nodenext` in the tsconfig.json file. Here's an example:
 
