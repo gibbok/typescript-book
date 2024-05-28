@@ -56,6 +56,14 @@ For a comprehensive process that includes linting all Markdown files, applying P
 npm run check
 ```
 
+The project uses the [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)Visual Studio Code extension to automatically update the table of contents.
+
+Use the following command to install it:
+
+```shell
+code --install-extension yzhang.markdown-all-in-one
+```
+
 ### Skipping Compilation
 
 If you have specific snippets in the Markdown files that you don't want to compile, simply add `<!-- skip -->` just before the TypeScript demarcation for those snippets.
