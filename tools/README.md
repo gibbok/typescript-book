@@ -80,3 +80,9 @@ You can download and use the following tools to validate and debug the created E
 brew install epubcheck
 brew install --cask sigil
 ```
+
+For instance, run the EPUB check using:
+
+```shell
+epubcheck ../downloads/test-typescript-book.epub
+```
