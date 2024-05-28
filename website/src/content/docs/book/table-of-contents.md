@@ -22,7 +22,7 @@ sidebar:
   - Getting Started With TypeScript
     - Installation
     - Configuration
-    - TypeScript Configuration File ​​tsconfig.json
+    - TypeScript Configuration File
       - target
       - lib
       - strict
@@ -132,7 +132,7 @@ sidebar:
     - Constructor
     - Private and Protected Constructors
     - Access Modifiers
-    - Get \& Set
+    - Get and Set
     - Auto-Accessors in Classes
     - this
     - Parameter Properties
@@ -193,18 +193,18 @@ sidebar:
     - ES6 Modules
     - ES7 Exponentiation Operator
     - The for-await-of Statement
-    - New.target
+    - New target meta-property
     - Dynamic Import Expressions
     - "tsc –watch"
-    - Non-null Assertion Operator (Postfix !)
+    - Non-null Assertion Operator
     - Defaulted declarations
     - Optional Chaining
-    - Nullish coalescing operator (??)
+    - Nullish coalescing operator
     - Template Literal Types
     - Function overloading
     - Recursive Types
     - Recursive Conditional Types
-    - ECMAScript Module Support in Node.js
+    - ECMAScript Module Support in Node
     - Assertion Functions
     - Variadic Tuple Types
     - Boxed types
@@ -216,3 +216,4 @@ sidebar:
     - using declaration and Explicit Resource Management
       - await using declaration
 <!-- markdownlint-enable MD004 -->
+

@@ -302,7 +302,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 })();
 ```
 
-### New.target
+### New target 元属性
 
 您可以在 TypeScript 中使用 `new.target` 元属性，该属性使您能够确定是否使用 new 运算符调用函数或构造函数。它允许您检测对象是否是由于构造函数调用而创建的。
 
@@ -385,7 +385,7 @@ const person: Person = {
 console.log(person.address?.city); // undefined
 ```
 
-### 空合并运算符 (??)
+### 空合并运算符
 
 如果 `??` 左侧是 `null` 或者 `undefined` ，则空合并运算符返回右侧值，否则，它返回左侧值。
 
@@ -476,7 +476,7 @@ type NestedArray = [1, [2, [3, 4], 5], 6];
 type FlattenedArray = Flatten<NestedArray>; // 2 | 3 | 4 | 5 | 1 | 6
 ```
 
-### Node.js 中的 ECMAScript 模块支持
+### Node 中的 ECMAScript 模块支持
 
 Node.js 从 15.3.0 版本开始添加了对 ECMAScript 模块的支持，而 TypeScript 从 4.7 版本开始增加了对 Node.js 的 ECMAScript 模块支持。可以通过将 `tsconfig.json` 文件中的`module`属性的值设置为 `nodenext` 来启用此支持。这是一个例子：
 

@@ -22,7 +22,7 @@ sidebar:
   - TypeScript 入门
     - 安装
     - 配置
-    - TypeScript 的配置文件 tsconfig.json
+    - TypeScript 的配置文件
       - target
       - lib
       - strict
@@ -194,17 +194,17 @@ sidebar:
     - ES6 模块
     - ES7 求幂运算符
     - for-await-of 语句
-    - New.target
+    - New target 元属性
     - 动态导入表达式
     - "tsc –watch"
     - 默认声明
     - 可选链
-    - 空合并运算符 (??)
+    - 空合并运算符
     - 模板字符串类型
     - 函数重载
     - 递归类型
     - 递归条件类型
-    - Node.js 中的 ECMAScript 模块支持
+    - Node 中的 ECMAScript 模块支持
     - 断言函数
     - 可变参数元组类型
     - 装箱类型

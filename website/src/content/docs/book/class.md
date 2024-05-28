@@ -160,7 +160,7 @@ The `protected` modifier allows access to the class member within the containing
 
 The `public` modifier provides unrestricted access to the class member, allowing it to be accessed from anywhere."
 
-### Get & Set
+### Get and Set
 
 Getters and setters are special methods that allow you to define custom access and modification behavior for class properties. They enable you to encapsulate the internal state of an object and provide additional logic when getting or setting the values of properties.
 In TypeScript, getters and setters are defined using the `get` and `set` keywords respectively. Here's an example:

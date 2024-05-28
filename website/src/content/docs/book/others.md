@@ -304,7 +304,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 })();
 ```
 
-### New.target
+### New target meta-property
 
 You can use in TypeScript the `new.target` meta-property which enables you to determine if a function or constructor was invoked using the new operator. It allows you to detect whether an object was created as a result of a constructor call.
 
@@ -354,7 +354,7 @@ tsc --watch
 
 Starting from TypeScript version 4.9, file monitoring primarily relies on file system events, automatically resorting to polling if an event-based watcher cannot be established.
 
-### Non-null Assertion Operator (Postfix !)
+### Non-null Assertion Operator
 
 The Non-null Assertion Operator (Postfix !) also called Definite Assignment Assertions is a TypeScript feature that allows you to assert that a variable or property is not null or undefined, even if TypeScript's static type analysis suggests that it might be. With this feature it is possible to remove any explicit checking.
 
@@ -401,7 +401,7 @@ const person: Person = {
 console.log(person.address?.city); // undefined
 ```
 
-### Nullish coalescing operator (??)
+### Nullish coalescing operator
 
 The nullish coalescing operator `??` returns the right-hand side value if the left-hand side is `null` or `undefined`; otherwise, it returns the left-hand side value.
 
@@ -494,7 +494,7 @@ type NestedArray = [1, [2, [3, 4], 5], 6];
 type FlattenedArray = Flatten<NestedArray>; // 2 | 3 | 4 | 5 | 1 | 6
 ```
 
-### ECMAScript Module Support in Node.js
+### ECMAScript Module Support in Node
 
 Node.js added support for ECMAScript Modules starting from version 15.3.0, and TypeScript has had ECMAScript Module Support for Node.js since version 4.7. This support can be enabled by using the `module` property with the value `nodenext` in the tsconfig.json file. Here's an example:
 
