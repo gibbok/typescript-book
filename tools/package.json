@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "ts-node lint",
     "lint:md": "markdownlint \"./*.md\" markdownlint \"../*.md\"",
-    "check": "npm run lint:md && npm run format && npm run compile"
+    "check": "npm run lint:md && npm run format && npm run compile",
+    "make-pdf": "cat ../${npm_config_source}.md | md-to-pdf > ../downloads/${npm_config_destination}.pdf"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,7 @@
     "fs-extra": "^11.1.1",
     "markdownlint-cli": "^0.35.0",
     "marked": "^5.1.0",
+    "md-to-pdf": "^5.2.4",
     "prettier": "^3.0.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"

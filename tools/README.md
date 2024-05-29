@@ -20,7 +20,7 @@ Use `make` to run the main commands:
 * `make format`: Format Markdown files for books.
 * `make check`: Run several checks to ensure the Markdown files are valid.
 * `make website`: Create different Markdown pages for the website.
-* `make website-preview`: Build and preview website.
+* `make website-preview`: Build and preview website locally.
 * `make website-deploy`: Build and deploy website to GitHub Pages.
 * `make books`: Create .epub books.
 
@@ -94,3 +94,13 @@ For instance, run the EPUB check using:
 ```shell
 epubcheck ../downloads/typescript-book.epub
 ```
+
+## How to Contribute to This E-Book
+
+To contribute to this e-book, follow these steps:
+
+* Update the main Markdown file with your changes.
+* Run `make check` to ensure the linter and other checks pass.
+* Preview the website locally with `make website-preview` to make sure it works as expected.
+* Generate the e-books by running `make books`.
+* Submit your PR and share your awesome contributions!
