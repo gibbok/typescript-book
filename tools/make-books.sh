@@ -7,8 +7,6 @@ INPUT_CN="README-zh_CN"
 OUTPUT_EN="typescript-book"
 OUTPUT_CN="typescript-book-zh_CN"
 
-PDF_ENGINE="tectonic"
-
 AUTHOR="Simone Poggiali"
 TITLE_EN="The Concise TypeScript Book"
 TITLE_CN="# 简洁的TypeScript之书"
