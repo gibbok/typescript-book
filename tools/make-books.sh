@@ -8,9 +8,12 @@ INPUT_CN="README-zh_CN"
 OUTPUT_EN="typescript-book"
 OUTPUT_CN="typescript-book-zh_CN"
 
+PDF_ENGINE="tectonic"
+
 AUTHOR="Simone Poggiali"
 TITLE_EN="The Concise TypeScript Book"
 TITLE_CN="# 简洁的TypeScript之书"
+
 
 cd ../
 
@@ -35,5 +38,9 @@ pandoc -o $DIR_DOWNLOADS/$OUTPUT_CN.epub --metadata title="$TITLE_CN" --metadata
 # Validate eBooks
 epubcheck $DIR_DOWNLOADS/$OUTPUT_CN.epub
 epubcheck $DIR_DOWNLOADS/$OUTPUT_CN.epub
+
+# Generate pdfs
+pandoc -o $DIR_DOWNLOADS/$OUTPUT_EN.pdf --metadata title="$TITLE_EN" --metadata author="$AUTHOR" -s $INPUT_EN.md --pdf-engine="$PDF_ENGINE"
+pandoc -o $DIR_DOWNLOADS/$OUTPUT_CN.pdf --metadata title="$TITLE_CN" --metadata author="$AUTHOR" -s $INPUT_CN.md --pdf-engine="$PDF_ENGINE"
 
 echo "Books were created. Please commit!"
