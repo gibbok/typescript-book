@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "Making ebooks ..."
 DIR_DOWNLOADS="downloads"
 
 INPUT_EN="README"
@@ -14,8 +13,9 @@ AUTHOR="Simone Poggiali"
 TITLE_EN="The Concise TypeScript Book"
 TITLE_CN="# 简洁的TypeScript之书"
 
-
 cd ../
+
+echo "Making ebooks ..."
 
 # Check dependencies
 if command -v pandoc &>/dev/null; then
@@ -39,8 +39,10 @@ pandoc -o $DIR_DOWNLOADS/$OUTPUT_CN.epub --metadata title="$TITLE_CN" --metadata
 epubcheck $DIR_DOWNLOADS/$OUTPUT_CN.epub
 epubcheck $DIR_DOWNLOADS/$OUTPUT_CN.epub
 
-# Generate pdfs
-pandoc -o $DIR_DOWNLOADS/$OUTPUT_EN.pdf --metadata title="$TITLE_EN" --metadata author="$AUTHOR" -s $INPUT_EN.md --pdf-engine="$PDF_ENGINE"
-pandoc -o $DIR_DOWNLOADS/$OUTPUT_CN.pdf --metadata title="$TITLE_CN" --metadata author="$AUTHOR" -s $INPUT_CN.md --pdf-engine="$PDF_ENGINE"
+cd ./tools
+
+# Generate PDFs 
+npm run make-pdf --source=$INPUT_EN --destination=$OUTPUT_EN
+npm run make-pdf --source=$INPUT_CN --destination=$OUTPUT_CN
 
 echo "Books were created. Please commit!"
