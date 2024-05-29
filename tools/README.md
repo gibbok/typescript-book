@@ -99,9 +99,8 @@ epubcheck ../downloads/typescript-book.epub
 
 To contribute to this e-book, follow these steps:
 
-* Update the main markdown file with your changes.
+* Update the main Markdown file with your changes.
 * Run `make check` to ensure the linter and other checks pass.
 * Preview the website locally with `make website-preview` to make sure it works as expected.
 * Generate the e-books by running `make books`.
 * Submit your PR and share your awesome contributions!
-
