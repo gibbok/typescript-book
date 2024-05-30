@@ -4,6 +4,10 @@
 
 本书完全免费且开源。
 
+如果您发现这本 TypeScript 书籍很有价值并希望做出贡献，请考虑通过 PayPal 支持我的努力。谢谢！
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?business=QW82ZS956XLFY&no_recurring=0&currency_code=EUR)
+
 ## 翻译
 
 本书已被翻译成多种语言版本，包括：
