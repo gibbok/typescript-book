@@ -37,10 +37,8 @@ pandoc -o $DIR_DOWNLOADS/$OUTPUT_CN.epub --metadata title="$TITLE_CN" --metadata
 epubcheck $DIR_DOWNLOADS/$OUTPUT_CN.epub
 epubcheck $DIR_DOWNLOADS/$OUTPUT_CN.epub
 
-cd ./tools || exit
-
-# Generate PDFs 
-npm run make-pdf --source=$INPUT_EN --destination=$OUTPUT_EN
-npm run make-pdf --source=$INPUT_CN --destination=$OUTPUT_CN
+# Generate PDFs
+ebook-convert $DIR_DOWNLOADS/$OUTPUT_EN.epub $DIR_DOWNLOADS/$OUTPUT_EN.pdf
+ebook-convert $DIR_DOWNLOADS/$OUTPUT_CN.epub $DIR_DOWNLOADS/$OUTPUT_CN.pdf
 
 echo "Books were created. Please commit!"
