@@ -28,6 +28,12 @@ else
     echo "You need to install epubcheck. Please visit: https://www.w3.org/publishing/epubcheck/docs/installation/"
     exit 1
 fi
+if command -v ebook-convert &>/dev/null; then
+    echo "calibre is installed"
+else
+    echo "You need to install calibre. Please visit: https://calibre-ebook.com/download"
+    exit 1
+fi
 
 # Generate eBooks
 pandoc -o $DIR_DOWNLOADS/$OUTPUT_EN.epub --metadata title="$TITLE_EN" --metadata author="$AUTHOR" -s $INPUT_EN.md
@@ -37,10 +43,8 @@ pandoc -o $DIR_DOWNLOADS/$OUTPUT_CN.epub --metadata title="$TITLE_CN" --metadata
 epubcheck $DIR_DOWNLOADS/$OUTPUT_CN.epub
 epubcheck $DIR_DOWNLOADS/$OUTPUT_CN.epub
 
-cd ./tools || exit
-
-# Generate PDFs 
-npm run make-pdf --source=$INPUT_EN --destination=$OUTPUT_EN
-npm run make-pdf --source=$INPUT_CN --destination=$OUTPUT_CN
+# Generate PDFs
+ebook-convert $DIR_DOWNLOADS/$OUTPUT_EN.epub $DIR_DOWNLOADS/$OUTPUT_EN.pdf --pdf-page-numbers
+ebook-convert $DIR_DOWNLOADS/$OUTPUT_CN.epub $DIR_DOWNLOADS/$OUTPUT_CN.pdf --pdf-page-numbers
 
 echo "Books were created. Please commit!"

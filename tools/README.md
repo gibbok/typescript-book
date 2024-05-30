@@ -13,6 +13,12 @@ nvm use
 npm install
 ```
 
+```shell
+brew install pandoc
+brew install epubcheck
+brew install --cask calibre
+```
+
 ## Commands
 
 Use `make` to run the main commands:
@@ -80,20 +86,23 @@ After generating the Epub files, thoroughly test them, and once you're satisfied
 
 These tools will assist you in efficiently working with Markdown books and ensure a smooth and organized process. Happy writing!
 
-## Debug Epub issues
+## Debug EPUB Issues
 
-You can download and use the following tools to validate and debug the created EPUB files.
+To debug the EPUB files you create, follow these steps:
+
+First, download and install Sigil. You can use the following command to install Sigil:
 
 ```shell
-brew install epubcheck
 brew install --cask sigil
 ```
 
-For instance, run the EPUB check using:
+Next, run an EPUB check to validate your EPUB file. For example:
 
 ```shell
 epubcheck ../downloads/typescript-book.epub
 ```
+
+Finally, open the EPUB file using Sigil for detailed inspection.
 
 ## How to Contribute to This E-Book
 
