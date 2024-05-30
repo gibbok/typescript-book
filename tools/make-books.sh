@@ -28,6 +28,12 @@ else
     echo "You need to install epubcheck. Please visit: https://www.w3.org/publishing/epubcheck/docs/installation/"
     exit 1
 fi
+if command -v ebook-convert &>/dev/null; then
+    echo "calibre is installed"
+else
+    echo "You need to install calibre. Please visit: https://calibre-ebook.com/download"
+    exit 1
+fi
 
 # Generate eBooks
 pandoc -o $DIR_DOWNLOADS/$OUTPUT_EN.epub --metadata title="$TITLE_EN" --metadata author="$AUTHOR" -s $INPUT_EN.md
