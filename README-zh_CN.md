@@ -4959,7 +4959,7 @@ TypeScript 5.3 的导入属性（导入标签）告诉运行时如何处理模�
 import config from './config.json' with { type: 'json' };
 ```
 
-with dynamic import:
+使用动态导入：
 
 <!-- skip -->
 ```typescript
