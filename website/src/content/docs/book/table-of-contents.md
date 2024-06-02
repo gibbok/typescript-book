@@ -182,6 +182,7 @@ sidebar:
       - Lowercase\<T\>
       - Capitalize\<T\>
       - Uncapitalize\<T\>
+      - NoInfer\<T\>
   - Others
     - Errors and Exception Handling
     - Mixin classes
@@ -215,5 +216,6 @@ sidebar:
     - Type-Only Imports and Export
     - using declaration and Explicit Resource Management
       - await using declaration
+    - Import Attributes
 <!-- markdownlint-enable MD004 -->
 

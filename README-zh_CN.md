@@ -203,6 +203,7 @@
       - [Lowercase\<T\>](#lowercaset)
       - [Capitalize\<T\>](#capitalizet)
       - [Uncapitalize\<T\>](#uncapitalizet)
+      - [NoInfer\<T\>](#noinfert)
   - [其他](#其他)
     - [错误和异常处理](#错误和异常处理)
     - [混合类](#混合类)
@@ -235,6 +236,7 @@
     - [仅类型导入和导出](#仅类型导入和导出)
     - [使用声明和显式资源管理](#使用声明和显式资源管理)
       - [使用声明等待](#使用声明等待)
+    - [导入属性](#导入属性)
 <!-- markdownlint-enable MD004 -->
 
 ## 介绍
@@ -4009,6 +4011,32 @@ type MyType = Capitalize<'abc'>; // "Abc"
 type MyType = Uncapitalize<'Abc'>; // "abc"
 ```
 
+#### NoInfer\<T\>
+
+NoInfer 是一种实用类型，旨在阻止泛型函数范围内类型的自动推断。
+
+示例：
+
+```typescript
+// 泛型函数范围内类型的自动推断。
+function fn<T extends string>(x: T[], y: T) {
+    return x.concat(y);
+}
+const r = fn(['a', 'b'], 'c'); // 此处的类型为 ("a" | "b" | "c")[]
+```
+
+使用 NoInfer：
+
+<!-- skip -->
+```typescript
+// 使用 NoInfer 阻止类型推断的示例函数
+function fn2<T extends string>(x: T[], y: NoInfer<T>) {
+  return x.concat(y);
+}
+
+const r2 = fn2(["a", "b"], "c"); // 错误：类型为“c”的类型参数不能分配给类型为“a”|“b”的参数。
+```
+
 ## 其他
 
 ### 错误和异常处理
@@ -4919,3 +4947,21 @@ Connection closed.
 ```
 
 语句中允许使用"using"和"await using"声明："for"、"for-in"、"for-of"、"for-await-of"、"switch"。
+
+### 导入属性
+
+TypeScript 5.3 的导入属性（导入标签）告诉运行时如何处理模块（JSON 等）。这通过确保干净的导入来提高安全性，并与内容安全策略 (CSP) 保持一致，以实现更安全的资源加载。TypeScript 确保它们有效，但让运行时处理它们的解释以进行特定的模块处理。
+
+示例：
+
+<!-- skip -->
+```typescript
+import config from './config.json' with { type: 'json' };
+```
+
+使用动态导入：
+
+<!-- skip -->
+```typescript
+const config = import("./config.json", { with: { type: "json" } })
+```
