@@ -5001,7 +5001,7 @@ The `using` and `await using` declarations are allowed in Statements: `for`, `fo
 
 ### Import Attributes
 
-TypeScript 5.3's Import Attributes (labels for imports) tell the runtime how to handle modules (JSON, etc.). This improves security by ensuring clear imports and aligns with Content Security Policy (CSP) for safer resource loading. TypeScript ensures they're valid but lets the runtime handle their interpretation for specific module handling.
+TypeScript 5.3's Import Attributes (labels for imports) tell the runtime how to handle modules (JSON, etc.). This improves security by ensuring clear imports and aligns with Content Security Policy (CSP) for safer resource loading. TypeScript ensures they are valid but lets the runtime handle their interpretation for specific module handling.
 
 Example:
 
