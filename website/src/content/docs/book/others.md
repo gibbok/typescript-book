@@ -932,3 +932,21 @@ Connection closed.
 ```
 
 The `using` and `await using` declarations are allowed in Statements: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.
+
+### Import Attributes
+
+TypeScript 5.3's Import Attributes (labels for imports) tell the runtime how to handle modules (JSON, etc.). This improves security by ensuring clear imports and aligns with Content Security Policy (CSP) for safer resource loading. TypeScript ensures they're valid but lets the runtime handle their interpretation for specific module handling.
+
+Example:
+
+<!-- skip -->
+```typescript
+import config from './config.json' with { type: 'json' };
+```
+
+with dynamic import:
+
+<!-- skip -->
+```typescript
+const config = import('./config.json', { with: { type: 'json' } });
+```

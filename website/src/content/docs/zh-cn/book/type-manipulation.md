@@ -333,3 +333,29 @@ type MyType = Capitalize<'abc'>; // "Abc"
 type MyType = Uncapitalize<'Abc'>; // "abc"
 ```
 
+#### NoInfer\<T\>
+
+NoInfer 是一种实用类型，旨在阻止泛型函数范围内类型的自动推断。
+
+示例：
+
+```typescript
+// 泛型函数范围内类型的自动推断。
+function fn<T extends string>(x: T[], y: T) {
+    return x.concat(y);
+}
+const r = fn(['a', 'b'], 'c'); // 此处的类型为 ("a" | "b" | "c")[]
+```
+
+使用 NoInfer：
+
+<!-- skip -->
+```typescript
+// 使用 NoInfer 阻止类型推断的示例函数
+function fn2<T extends string>(x: T[], y: NoInfer<T>) {
+  return x.concat(y);
+}
+
+const r2 = fn2(["a", "b"], "c"); // 错误：类型为“c”的类型参数不能分配给类型为“a”|“b”的参数。
+```
+

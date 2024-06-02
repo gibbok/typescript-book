@@ -183,6 +183,7 @@ sidebar:
       - Lowercase\<T\>
       - Capitalize\<T\>
       - Uncapitalize\<T\>
+      - NoInfer\<T\>
   - 其他
     - 错误和异常处理
     - 混合类
@@ -215,5 +216,6 @@ sidebar:
     - 仅类型导入和导出
     - 使用声明和显式资源管理
       - 使用声明等待
+    - 导入属性
 <!-- markdownlint-enable MD004 -->
 
