@@ -235,6 +235,7 @@
     - [仅类型导入和导出](#仅类型导入和导出)
     - [使用声明和显式资源管理](#使用声明和显式资源管理)
       - [使用声明等待](#使用声明等待)
+    - [导入属性](#导入属性)
 <!-- markdownlint-enable MD004 -->
 
 ## 介绍
@@ -4919,3 +4920,21 @@ Connection closed.
 ```
 
 语句中允许使用"using"和"await using"声明："for"、"for-in"、"for-of"、"for-await-of"、"switch"。
+
+### 导入属性
+
+TypeScript 5.3 的导入属性（导入标签）告诉运行时如何处理模块（JSON 等）。这通过确保干净的导入来提高安全性，并与内容安全策略 (CSP) 保持一致，以实现更安全的资源加载。TypeScript 确保它们有效，但让运行时处理它们的解释以进行特定的模块处理。
+
+示例：
+
+<!-- skip -->
+```typescript
+import config from './config.json' with { type: 'json' };
+```
+
+with dynamic import:
+
+<!-- skip -->
+```typescript
+const config = import("./config.json", { with: { type: "json" } })
+```
