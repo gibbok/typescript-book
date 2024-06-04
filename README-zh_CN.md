@@ -1140,6 +1140,8 @@ npm install --save-dev @types/library-name
 
 即使在 JavaScript 文件中，您也可以通过 `// @ts-check` 使用环境声明。
 
+`declare` 关键字可以为现有的 JavaScript 代码启用类型定义，而无需导入它，作为来自另一个文件或全局的类型的占位符。
+
 ### 属性检测和多余属性检测
 
 TypeScript 基于结构类型系统，但过多的属性检查是 TypeScript 的一个属性，它允许它检查对象是否具有类型中指定的确切属性。
