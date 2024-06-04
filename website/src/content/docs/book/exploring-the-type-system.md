@@ -503,6 +503,8 @@ For your defined Ambient Declarations, you can import using the "triple-slash" r
 
 You can use Ambient Declarations even within JavaScript files using `// @ts-check`.
 
+The `declare` keyword enables type definitions for existing JavaScript code without importing it, serving as a placeholder for types from another file or globally.
+
 ### Property Checking and Excess Property Checking
 
 TypeScript is based on a structural type system but excess property checking is a property of TypeScript which allows it to check whether an object has the exact properties specified in the type.
