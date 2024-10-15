@@ -253,7 +253,7 @@ You can reach Simone Poggiali on the following platforms:
 
 * LinkedIn: [https://www.linkedin.com/in/simone-poggiali](https://www.linkedin.com/in/simone-poggiali)
 * GitHub: [https://github.com/gibbok](https://github.com/gibbok)
-* Twitter: [https://twitter.com/gibbok_coding](https://twitter.com/gibbok_coding)
+* X.com: [https://x.com/gibbok_coding](https://x.com/gibbok_coding)
 * Email: gibbok.coding📧gmail.com
 
 ## TypeScript Introduction
