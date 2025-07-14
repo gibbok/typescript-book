@@ -731,7 +731,7 @@ console.log(obj['key-b']); // 456
 
 ### The satisfies Operator
 
-The `satisfies`  allows you to check if a given type satisfies a specific interface or condition. In other words, it ensures that a type has all the required properties and methods of a specific interface. It is a way to ensure a variable fits into a definition of a type
+The `satisfies`  allows you to check if a given type satisfies a specific interface or condition. In other words, it ensures that a type has all the required properties and methods of a specific interface. It is a way to ensure a variable fits into a definition of a type.
 Here is an example:
 
 <!-- skip -->
