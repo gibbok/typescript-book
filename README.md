@@ -2333,7 +2333,17 @@ console.log(myDict['a']); // Returns a
 Type from Value in TypeScript refers to the automatic inference of a type from a value or expression through type inference.
 
 ```typescript
-const x = 'x'; // TypeScript can automatically infer that the type of the message variable is string
+let message = 'foo';
+
+// TypeScript infers the type of 'message' as string' because the variable was declared with 'let', which allows reassignment. When a variable can be reassigned, the compiler widens literal types (like 'foo') to their broader primitive type (string in this case).
+
+// In contrast, const declarations are not reassignable. Because the value is immutable, TypeScript can safely infer the *literal* type instead of widening it:
+
+const message = 'foo'; // inferred type: 'foo'
+
+// Note that we didn't explicitly annotate a type in either case, e.g.:
+let messageExplicit: string = 'foo';
+const messageLiteral: 'foo' = 'foo';
 ```
 
 ## Type from Func Return
