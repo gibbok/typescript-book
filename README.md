@@ -2335,9 +2335,12 @@ Type from Value in TypeScript refers to the automatic inference of a type from a
 ```typescript
 let message = 'foo';
 
-// TypeScript infers the type of 'message' as string' because the variable was declared with 'let', which allows reassignment. When a variable can be reassigned, the compiler widens literal types (like 'foo') to their broader primitive type (string in this case).
+// TypeScript infers the type of 'message' as string' because the variable was declared with 'let'. 
+// This allows reassignment. When a variable can be reassigned, the compiler widens literal types (like 'foo') 
+// to their broader primitive type (string in this case).
 
-// In contrast, const declarations are not reassignable. Because the value is immutable, TypeScript can safely infer the *literal* type instead of widening it:
+// In contrast, const declarations are not reassignable.
+// Since the value is immutable, TypeScript can safely infer the *literal* type instead of widening it:
 
 const message = 'foo'; // inferred type: 'foo'
 
