@@ -3793,7 +3793,7 @@ Several built-in utility types can be used to manipulate types, below a list of 
 
 #### Awaited\<T\>
 
-Constructs a type recursively unwrap Promises.
+Constructs a type that recursively unwraps Promise types.
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
