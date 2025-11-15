@@ -80,7 +80,7 @@ type MyType = MyTuple[2]; // boolean
 
 #### Awaited\<T\>
 
-构造一个递归解包 Promise 的类型。
+构造一个递归解包 Promise 类型的类型。
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
