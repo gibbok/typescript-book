@@ -139,7 +139,7 @@ WebSocket:
 
 ### Iterators and Generators
 
-Both Interators and Generators are well supported in TypeScript.
+Both Iterators and Generators are well supported in TypeScript.
 
 Iterators are objects that implement the iterator protocol, providing a way to access elements of a collection or sequence one by one. It is a structure that contains a pointer to the next element in the iteration. They have a `next()` method that returns the next value in the sequence along with a boolean indicating if the sequence is `done`.
 

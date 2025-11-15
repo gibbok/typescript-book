@@ -1298,7 +1298,7 @@ TypeScript 提供了控制加宽过程的方法，例如使用"const"。
 For example:
 
 ```typescript
-const x = 'x'; // TypeScript 将 x 的类型推断为 'x'，一种较窄的类型
+const x = 'x'; // TypeScript 将 'x' 推断为带有 'const'（不可变）的字符串字面量，但将其扩展为带有 'let'（可重新赋值）的 'string'。
 let y: 'y' | 'x' = 'y';
 y = x; // 有效: x的类型推断为 'x'
 ```
@@ -3760,7 +3760,7 @@ type MyType = MyTuple[2]; // boolean
 
 #### Awaited\<T\>
 
-构造一个递归解包 Promise 的类型。
+构造一个递归解包 Promise 类型的类型。
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
@@ -4174,7 +4174,7 @@ WebSocket:
 
 ### 迭代器和生成器
 
-TypeScript 很好地支持交互器和生成器。
+TypeScript 对迭代器和生成器都提供了很好的支持。
 
 迭代器是实现迭代器协议的对象，提供了一种逐个访问集合或序列元素的方法。它是一个包含指向迭代中下一个元素的指针的结构。他们有一个 `next()` 方法返回序列中的下一个值以及指示序列是否为 的布尔值 `done` 。
 
