@@ -1298,7 +1298,7 @@ TypeScript 提供了控制加宽过程的方法，例如使用"const"。
 For example:
 
 ```typescript
-const x = 'x'; // TypeScript 将 x 的类型推断为 'x'，一种较窄的类型
+const x = 'x'; // TypeScript 将 'x' 推断为带有 'const'（不可变）的字符串字面量，但将其扩展为带有 'let'（可重新赋值）的 'string'。
 let y: 'y' | 'x' = 'y';
 y = x; // 有效: x的类型推断为 'x'
 ```
