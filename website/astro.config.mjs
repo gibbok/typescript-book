@@ -8,7 +8,6 @@ export default defineConfig({
     build: {
         assets: 'app_assets',
     },
-
     integrations: [
         starlight({
             head: [
