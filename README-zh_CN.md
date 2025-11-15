@@ -3760,7 +3760,7 @@ type MyType = MyTuple[2]; // boolean
 
 #### Awaited\<T\>
 
-构造一个递归解包 Promise 的类型。
+构造一个递归解包 Promise 类型的类型。
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
@@ -4174,7 +4174,7 @@ WebSocket:
 
 ### 迭代器和生成器
 
-TypeScript 很好地支持交互器和生成器。
+TypeScript 对迭代器和生成器都提供了很好的支持。
 
 迭代器是实现迭代器协议的对象，提供了一种逐个访问集合或序列元素的方法。它是一个包含指向迭代中下一个元素的指针的结构。他们有一个 `next()` 方法返回序列中的下一个值以及指示序列是否为 的布尔值 `done` 。
 
