@@ -10,6 +10,17 @@ export default defineConfig({
     },
     integrations: [
         starlight({
+            head: [
+                {
+                    tag: 'script',
+                    attrs: {
+                        defer: true,
+                        src: 'https://static.cloudflareinsights.com/beacon.min.js',
+                        'data-cf-beacon':
+                            '{"token": "949aed66281e40378ac479993d699897"}',
+                    },
+                },
+            ],
             title: 'TypeScript Book',
             customCss: ['./src/styles/custom.css'],
             social: {
