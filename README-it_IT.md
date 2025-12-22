@@ -1,6 +1,6 @@
 # The Concise TypeScript Book
 
-The Concise TypeScript Book offre una panoramica completa e concisa delle funzionalità di TypeScript. Offre spiegazioni chiare che coprono tutti gli aspetti dell'ultima versione del linguaggio, dal suo potente sistema di tipi alle funzionalità avanzate. Che siate principianti o sviluppatori esperti, questo libro è una risorsa preziosa per migliorare la vostra comprensione e competenza in TypeScript.
+The Concise TypeScript Book offre una panoramica completa e concisa delle funzionalità di TypeScript. Questo libro offre spiegazioni chiare che coprono tutti gli aspetti dell'ultima versione del linguaggio, dal suo potente sistema di tipi alle funzionalità avanzate. Che siate principianti o sviluppatori esperti, questo libro è una risorsa preziosa per migliorare la vostra comprensione e competenza in TypeScript.
 
 Questo libro è completamente gratuito e open source.
 
@@ -13,6 +13,7 @@ Se avete trovato utile questo libro su TypeScript e desiderate contribuire, cons
 Questo libro è stato tradotto in diverse lingue, tra cui:
 
 [Cinese](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
+
 [Italiano](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
 
 ## Download e sito web
@@ -48,7 +49,7 @@ Puoi anche scaricare la versione Epub:
     - [target](#target)
     - [lib](#lib)
     - [strict](#strict)
-    - [modulo](#modulo)
+    - [module](#module)
     - [moduleResolution](#moduleresolution)
     - [esModuleInterop](#esmoduleinterop)
     - [jsx](#jsx)
@@ -88,8 +89,8 @@ Puoi anche scaricare la versione Epub:
   - [protezioni di tipo typeof](#protezioni-di-tipo-typeof)
   - [Restringimento di veridicità](#restringimento-di-veridicità)
   - [Restringimento di uguaglianza](#restringimento-di-uguaglianza)
-  - [Restringimento dell'operatore `in`](#restringimento-delloperatore-in)
-  - [narrowing instanceof](#narrowing-instanceof)
+  - [Restringimento dell'operatore "in"](#restringimento-delloperatore-in)
+  - [Restringimento instanceof](#restringimento-instanceof)
 - [Assegnazioni](#assegnazioni)
 - [Analisi del flusso di controllo](#analisi-del-flusso-di-controllo)
 - [Tipo da Valore](#tipo-da-valore)
@@ -203,14 +204,14 @@ Questo libro tratta TypeScript 5.2.
 
 ## Informazioni sull'autore
 
-Simone Poggiali è un Senior Front-end Developer esperto con una passione per la scrittura di codice di livello professionale fin dagli anni '90. Nel corso della sua carriera internazionale, ha contribuito a numerosi progetti per un'ampia gamma di clienti, dalle startup alle grandi organizzazioni. Aziende di spicco come HelloFresh, Siemens, O2 e Leroy Merlin hanno beneficiato della sua competenza e dedizione.
+Simone Poggiali è uno Staff Engineer esperto, con una passione per la scrittura di codice di livello professionale fin dagli anni '90. Nel corso della sua carriera internazionale, ha contribuito a numerosi progetti per un'ampia gamma di clienti, dalle startup alle grandi organizzazioni. Aziende di spicco come HelloFresh, Siemens, O2, Leroy Merlin e Snowplow hanno beneficiato della sua competenza e dedizione.
 
 È possibile contattare Simone Poggiali sulle seguenti piattaforme:
 
-- LinkedIn: [https://www.linkedin.com/in/simone-poggiali](https://www.linkedin.com/in/simone-poggiali)
-- GitHub: [https://github.com/gibbok](https://github.com/gibbok)
-- X.com: [https://x.com/gibbok_coding](https://x.com/gibbok_coding)
-- Email: gibbok.coding📧gmail.com
+* LinkedIn: [https://www.linkedin.com/in/simone-poggiali](https://www.linkedin.com/in/simone-poggiali)
+* GitHub: [https://github.com/gibbok](https://github.com/gibbok)
+* X.com: [https://x.com/gibbok_coding](https://x.com/gibbok_coding)
+* Email: gibbok.coding📧gmail.com
 
 ## Introduzione a TypeScript
 
@@ -230,11 +231,11 @@ Un linguaggio fortemente tipizzato consente allo sviluppatore di specificare var
 
 Alcuni dei vantaggi di TypeScript:
 
-- Tipizzazione statica, facoltativamente fortemente tipizzata
-- Inferenza di tipo
-- Accesso alle funzionalità di ES6 ed ES7
-- Compatibilità multipiattaforma e multibrowser
-- Supporto degli strumenti con IntelliSense
+* Tipizzazione statica, facoltativamente fortemente tipizzata
+* Inferenza di tipo
+* Accesso alle funzionalità di ES6 ed ES7
+* Compatibilità multipiattaforma e multibrowser
+* Supporto degli strumenti con IntelliSense
 
 ### TypeScript e JavaScript
 
@@ -328,7 +329,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Cane' si riferisce solo a un tipo, ma qui viene utilizzato come valore.
+        // 'Dog' si riferisce solo a un tipo, ma qui viene utilizzato come valore.
         // ...
     }
 };
@@ -414,13 +415,13 @@ TypeScript può compilare codice per qualsiasi versione rilasciata di JavaScript
 
 Ecco alcune delle funzionalità di JavaScript moderno che possono essere utilizzate in TypeScript:
 
-- Moduli ECMAScript al posto delle callback "define" in stile AMD o delle istruzioni "require" di CommonJS.
-- Classi al posto dei prototipi.
-- Dichiarazione di variabili utilizzando "let" o "const" al posto di "var".
-- Ciclo "for-of" o ".forEach" al posto del tradizionale ciclo "for".
-- Funzioni freccia al posto delle espressioni di funzione.
-- Assegnazione destrutturata. \* Nomi abbreviati di proprietà/metodi e nomi di proprietà calcolate.
-- Parametri di funzione predefiniti.
+* Moduli ECMAScript al posto delle callback "define" in stile AMD o delle istruzioni "require" di CommonJS.
+* Classi al posto dei prototipi.
+* Dichiarazione di variabili utilizzando "let" o "const" al posto di "var".
+* Ciclo "for-of" o ".forEach" al posto del tradizionale ciclo "for".
+* Funzioni freccia al posto delle espressioni di funzione.
+* Assegnazione destrutturata. \* Nomi abbreviati di proprietà/metodi e nomi di proprietà calcolate.
+* Parametri di funzione predefiniti.
 
 Sfruttando queste moderne funzionalità di JavaScript, gli sviluppatori possono scrivere codice più espressivo e conciso in TypeScript.
 
@@ -502,14 +503,14 @@ Un file tsconfig.json viene utilizzato per configurare il compilatore TypeScript
 
 Note:
 
-- tsconfig.json accetta commenti anche se è in formato json.
-- Si consiglia di utilizzare questo file di configurazione al posto delle opzioni della riga di comando.
+* tsconfig.json accetta commenti anche se è in formato json.
+* Si consiglia di utilizzare questo file di configurazione al posto delle opzioni della riga di comando.
 
 Al seguente link potete trovare la documentazione completa e il relativo schema:
 
 [https://www.typescriptlang.org/tsconfig](https://www.typescriptlang.org/tsconfig)
 
-[http://json.schemastore.org/tsconfig](http://json.schemastore.org/tsconfig)
+[https://www.typescriptlang.org/tsconfig/](https://www.typescriptlang.org/tsconfig/)
 
 Di seguito è riportato un elenco delle configurazioni più comuni e utili:
 
@@ -525,14 +526,14 @@ La proprietà "lib" viene utilizzata per specificare quali file di libreria incl
 
 La proprietà "strict" offre garanzie più solide e migliora la sicurezza dei tipi. Si consiglia di includere sempre questa proprietà nel file tsconfig.json del progetto. Abilitando la proprietà "strict", TypeScript può:
 
-- Emettere codice utilizzando "use strict" per ogni file sorgente.
-- Considerare "null" e "undefined" nel processo di controllo dei tipi.
-- Disabilitare l'utilizzo del tipo "any" quando non sono presenti annotazioni di tipo.
-- Generare un errore sull'utilizzo dell'espressione "this", che altrimenti implicherebbe il tipo "any".
+* Emettere codice utilizzando "use strict" per ogni file sorgente.
+* Considerare "null" e "undefined" nel processo di controllo dei tipi.
+* Disabilitare l'utilizzo del tipo "any" quando non sono presenti annotazioni di tipo.
+* Generare un errore sull'utilizzo dell'espressione "this", che altrimenti implicherebbe il tipo "any".
 
-#### modulo
+#### module
 
-La proprietà "modulo" imposta il sistema di moduli supportato dal programma compilato. Durante l'esecuzione, un caricatore di moduli viene utilizzato per individuare ed eseguire le dipendenze in base al sistema di moduli specificato.
+La proprietà "module" imposta il sistema di moduli supportato dal programma compilato. Durante l'esecuzione, un caricatore di moduli viene utilizzato per individuare ed eseguire le dipendenze in base al sistema di moduli specificato.
 
 I caricatori di moduli più comuni utilizzati in JavaScript sono Node.js CommonJS per le applicazioni lato server e RequireJS per i moduli AMD nelle applicazioni web basate su browser. TypeScript può generare codice per vari sistemi di moduli, tra cui UMD, System, ESNext, ES2015/ES6 ed ES2020.
 
@@ -586,7 +587,13 @@ Il secondo passaggio consiste nell'assicurarsi che i test JavaScript funzionino 
 Il terzo passaggio consiste nell'includere le dichiarazioni di tipo per le librerie di terze parti nel progetto. Queste dichiarazioni sono disponibili in bundle o su DefinitelyTyped. È possibile cercarle utilizzando [https://www.typescriptlang.org/dt/search](https://www.typescriptlang.org/dt/search) e installarle tramite:
 
 ```shell
-npm install --save-dev @types/package-name o yarn add --dev @types/package-name.
+npm install --save-dev @types/package-name
+```
+
+or
+
+```shell
+yarn add --dev @types/package-name
 ```
 
 Il quarto passaggio consiste nel migrare modulo per modulo con un approccio bottom-up, seguendo il grafo delle dipendenze partendo dalle foglie. L'idea è di iniziare a convertire i moduli che non dipendono da altri moduli. Per visualizzare i grafici delle dipendenze, è possibile utilizzare lo strumento "madge".
@@ -613,7 +620,7 @@ Gli sviluppatori possono sfruttare un'API dedicata e creare plugin di servizi li
 
 <!-- markdownlint-disable MD044 -->
 
-Un esempio di plugin personalizzato reale è "typescript-styled-plugin", che fornisce la segnalazione degli errori di sintassi e il supporto IntelliSense per le proprietà CSS nei componenti con stile. <!-- markdownlint-enable MD044 -->
+Un esempio di plugin personalizzato reale è "TypeScript-styled-plugin", che fornisce la segnalazione degli errori di sintassi e il supporto IntelliSense per le proprietà CSS nei componenti con stile. <!-- markdownlint-enable MD044 -->
 
 Per ulteriori informazioni e guide rapide, è possibile consultare il Wiki ufficiale di TypeScript su GitHub: [https://github.com/microsoft/TypeScript/wiki/](https://github.com/microsoft/TypeScript/wiki/)
 
@@ -695,12 +702,10 @@ Pertanto, le seguenti dichiarazioni di tipo sono completamente valide:
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-```
 
-let y: Y = (a:number) => undefined; // Parametro b mancante
+let y: Y = (a: number) => undefined; // Parametro b mancante
 y = x; // Valido
-
-````
+```
 
 Tutti i parametri opzionali aggiuntivi del tipo sorgente sono validi:
 
@@ -711,7 +716,7 @@ let x: X = a => undefined;
 let y: Y = a => undefined;
 y = x; // Valido
 x = y; //Valido
-````
+```
 
 Tutti i parametri opzionali del tipo destinazione senza parametri corrispondenti nel tipo sorgente sono validi e non costituiscono un errore:
 
@@ -853,18 +858,15 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-```
-
 x === y; // Non valido poiché l'argomento tipo è utilizzato nella struttura finale
-
-````
+```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
 x === y; // Valido poiché l'argomento tipo non è utilizzato nella struttura finale
-````
+```
 
 Quando i generici non hanno il loro argomento tipo specificato, tutti gli argomenti non specificati vengono trattati come tipi con "any":
 
@@ -996,22 +998,20 @@ const z: Z = { a: 'a', b: 'b', c: 'c' };
 interface X1 {
     a: string;
 }
-```
 
 interface Y1 {
-a: string;
-b: string;
+    a: string;
+    b: string;
 }
 interface Z1 {
-a: string;
-b: string;
-c: string;
+    a: string;
+    b: string;
+    c: string;
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
 const r: Z1 = z; // Valido
-
-````
+```
 
 ### Assegnare un tipo: Dichiarazioni di tipo e asserzioni di tipo
 
@@ -1030,7 +1030,7 @@ type X = {
 const x: X = {
     a: 'a',
 };
-````
+```
 
 Se la variabile non è nel formato specificato, TypeScript segnalerà un errore. Ad esempio:
 
@@ -1214,10 +1214,10 @@ c = d; // Allargamento: nessun controllo di aggiornamento
 
 TypeScript può inferire i tipi quando non viene fornita alcuna annotazione durante:
 
-- Inizializzazione delle variabili.
-- Inizializzazione dei membri.
-- Impostazione dei valori predefiniti per i parametri.
-- Tipo di ritorno della funzione.
+* Inizializzazione delle variabili.
+* Inizializzazione dei membri.
+* Impostazione dei valori predefiniti per i parametri.
+* Tipo di ritorno della funzione.
 
 Ad esempio:
 
@@ -1238,17 +1238,14 @@ let x = [1, 'x', 1, null]; // Il tipo dedotto è: (string | number | null)[]
 Se il compilatore non riesce a trovare i tipi comuni migliori, restituisce un tipo unione. Ad esempio:
 
 ```typescript
-```
-
 let x = [new RegExp('x'), new Date()]; // Il tipo inferito è: (RegExp | Date)[]
-
-````
+```
 
 TypeScript utilizza la "tipizzazione contestuale" basata sulla posizione della variabile per inferire i tipi. Nell'esempio seguente, il compilatore sa che `e` è di tipo `MouseEvent` grazie al tipo di evento `click` definito nel file lib.d.ts, che contiene dichiarazioni ambientali per vari costrutti JavaScript comuni e il DOM:
 
 ```typescript
 window.addEventListener('click', function (e) {}); // Il tipo inferito di e è MouseEvent
-````
+```
 
 ### Allargamento di tipo
 
@@ -1390,10 +1387,10 @@ x += 100;
 
 Altri modi per restringere i tipi in TypeScript includono:
 
-- Operatore `instanceof`: utilizzato per verificare se un oggetto è un'istanza di una classe specifica.
-- Operatore `in`: utilizzato per verificare se una proprietà esiste in un oggetto.
-- Operatore `typeof`: utilizzato per verificare il tipo di un valore in fase di esecuzione.
-- Funzioni integrate come `Array.isArray()`: utilizzate per verificare se un valore è un array.
+* Operatore `instanceof`: utilizzato per verificare se un oggetto è un'istanza di una classe specifica.
+* Operatore `in`: utilizzato per verificare se una proprietà esiste in un oggetto.
+* Operatore `typeof`: utilizzato per verificare il tipo di un valore in fase di esecuzione.
+* Funzioni integrate come `Array.isArray()`: utilizzate per verificare se un valore è un array.
 
 #### Unione Discriminata
 
@@ -1437,18 +1434,15 @@ Il tipo primitivo `string` memorizza dati testuali e il valore è sempre racchiu
 
 ```typescript
 const x: string = 'x';
-```
-
 const y: string = 'y';
-
-````
+```
 
 Le stringhe possono estendersi su più righe se racchiuse dal carattere di apice inverso (`):
 
 ```typescript
 let sentence: string = `xxx,
 yyy`;
-````
+```
 
 ### boolean
 
@@ -1483,8 +1477,8 @@ const y: bigint = 9007199254740991n;
 
 Note:
 
-- I valori `bigInt` non possono essere combinati con `number` e non possono essere utilizzati con `Math` integrato, devono essere forzati allo stesso tipo.
-- I valori `bigInt` sono disponibili solo se la configurazione di destinazione è ES2020 o superiore.
+* I valori `bigInt` non possono essere combinati con `number` e non possono essere utilizzati con `Math` integrato, devono essere forzati allo stesso tipo.
+* I valori `bigInt` sono disponibili solo se la configurazione di destinazione è ES2020 o superiore.
 
 ### Simbolo
 
@@ -1711,19 +1705,17 @@ Esempio di letterali:
 
 ```typescript
 const a = 'a'; // Stringa tipo letterale
-```
 
 const b = 1; // Numeric literal type
 const c = true; // Boolean literal type
-
-````
+```
 
 I tipi letterali stringa, numerico e booleano vengono utilizzati nell'unione, nella protezione dei tipi e negli alias di tipo.
 Nell'esempio seguente è possibile vedere un'unione di alias di tipo, `O` può essere l'unico valore specificato e nessun'altra stringa:
 
 ```typescript
 type O = 'a' | 'b' | 'c';
-````
+```
 
 ## Inferenza letterale
 
@@ -2011,9 +2003,9 @@ const getAnimalType = (pet: Dog | Cat) => {
 };
 ```
 
-### narrowing instanceof
+### Restringimento instanceof
 
-L'operatore di narrowing `instanceof` in TypeScript è un modo per restringere il tipo di una variabile in base alla sua funzione costruttore, verificando se un oggetto è un'istanza di una determinata classe o interfaccia.
+L'operatore di restringimento `instanceof` in TypeScript è un modo per restringere il tipo di una variabile in base alla sua funzione costruttore, verificando se un oggetto è un'istanza di una determinata classe o interfaccia.
 
 ```typescript
 class Square {
@@ -2084,7 +2076,8 @@ const f2 = (
 
 Alcuni esempi in cui il restringimento non avviene:
 
-<!-- skip -->```typescript
+<!-- skip -->
+```typescript
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
@@ -2101,7 +2094,7 @@ const f6 = (
         obj.foo; // Errore, nessun restringimento perché obj è assegnato nel corpo della funzione
     }
 };
-````
+```
 
 Note: Nelle espressioni condizionali vengono analizzati fino a cinque livelli di indirezione.
 
@@ -2299,11 +2292,9 @@ type Dictionary<T> = {
     [key: string]: T;
 };
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-```
 
 console.log(myDict['a']); // Restituisce un
-
-````
+```
 
 ## Tipo da Valore
 
@@ -2360,9 +2351,9 @@ Definiamo MyMappedType per mappare le proprietà di T, creando un nuovo tipo con
 
 I modificatori di tipo mappati in TypeScript consentono la trasformazione delle proprietà all'interno di un tipo esistente:
 
-- `readonly` o `+readonly`: questo rende una proprietà nel tipo mappato di sola lettura.
-- `-readonly`: questo consente a una proprietà nel tipo mappato di essere modificabile.
-- `?`: questo designa una proprietà nel tipo mappato come facoltativa.
+* `readonly` o `+readonly`: questo rende una proprietà nel tipo mappato di sola lettura.
+* `-readonly`: questo consente a una proprietà nel tipo mappato di essere modificabile.
+* `?`: questo designa una proprietà nel tipo mappato come facoltativa.
 
 Esempi:
 
@@ -2445,9 +2436,9 @@ Il tipo `any` è un tipo speciale (supertipo universale) che può essere utilizz
 
 Utilizzando il tipo `any`, si indica al compilatore TypeScript che i valori devono essere rappresentati senza alcuna limitazione. Per massimizzare la sicurezza dei tipi nel codice, considerare quanto segue:
 
-- Limitare l'utilizzo di `any` a casi specifici in cui il tipo è realmente sconosciuto.
-- Non restituire tipi `any` da una funzione, poiché si perderebbe la sicurezza dei tipi nel codice che utilizza quella funzione, indebolendo la sicurezza dei tipi.
-- Invece di `any`, utilizzare `@ts-ignore` se è necessario silenziare il compilatore.
+* Limitare l'utilizzo di `any` a casi specifici in cui il tipo è realmente sconosciuto.
+* Non restituire tipi `any` da una funzione, poiché si perderebbe la sicurezza dei tipi nel codice che utilizza quella funzione, indebolendo la sicurezza dei tipi.
+* Invece di `any`, utilizzare `@ts-ignore` se è necessario silenziare il compilatore.
 
 ```typescript
 let value: any;
@@ -2594,11 +2585,8 @@ let myTuple: [string, number] = ['a', 123]; // tupla
 ### Oggetti e interfacce
 
 ```typescript
-```
-
 const x: { name: string; age: number } = { name: 'Simon', age: 7 };
-
-````
+```
 
 ### Tipi di unione e intersezione
 
@@ -2611,21 +2599,21 @@ type TypeA = { name: string };
 type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // Intersection type
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with name and age properties
-````
+```
 
 ## Primitive di tipo predefinite
 
 TypeScript dispone di diverse primitive di tipo predefinite che possono essere utilizzate per definire variabili, parametri di funzione e tipi restituiti:
 
-- `number`: rappresenta valori numerici, inclusi numeri interi e numeri in virgola mobile.
-- `string`: rappresenta dati testuali.
-- `boolean`: rappresenta valori logici, che possono essere true o false.
-- `null`: rappresenta l'assenza di un valore.
-- `undefined`: rappresenta un valore che non è stato assegnato o non è stato definito.
-- `symbol`: rappresenta un identificatore univoco. I simboli vengono in genere utilizzati come chiavi per le proprietà degli oggetti.
-- `bigint`: rappresenta numeri interi con precisione arbitraria.
-- `any`: rappresenta un tipo dinamico o sconosciuto. Le variabili di tipo any possono contenere valori di qualsiasi tipo e ignorano il controllo del tipo. \* `void`: rappresenta l'assenza di qualsiasi tipo. È comunemente usato come tipo di ritorno di funzioni che non restituiscono alcun valore.
-- `never`: rappresenta un tipo per valori che non si verificano mai. È tipicamente usato come tipo di ritorno di funzioni che generano un errore o entrano in un ciclo infinito.
+* `number`: rappresenta valori numerici, inclusi numeri interi e numeri in virgola mobile.
+* `string`: rappresenta dati testuali.
+* `boolean`: rappresenta valori logici, che possono essere true o false.
+* `null`: rappresenta l'assenza di un valore.
+* `undefined`: rappresenta un valore che non è stato assegnato o non è stato definito.
+* `symbol`: rappresenta un identificatore univoco. I simboli vengono in genere utilizzati come chiavi per le proprietà degli oggetti.
+* `bigint`: rappresenta numeri interi con precisione arbitraria.
+* `any`: rappresenta un tipo dinamico o sconosciuto. Le variabili di tipo any possono contenere valori di qualsiasi tipo e ignorano il controllo del tipo. \* `void`: rappresenta l'assenza di qualsiasi tipo. È comunemente usato come tipo di ritorno di funzioni che non restituiscono alcun valore.
+* `never`: rappresenta un tipo per valori che non si verificano mai. È tipicamente usato come tipo di ritorno di funzioni che generano un errore o entrano in un ciclo infinito.
 
 ## Oggetti JavaScript predefiniti comuni
 
@@ -2634,21 +2622,21 @@ TypeScript è un superset di JavaScript e include tutti gli oggetti JavaScript p
 
 Ecco un elenco di alcuni oggetti JavaScript predefiniti comunemente utilizzati:
 
-- Function
-- Object
-- Boolean
-- Error
-- Number
-- BigInt
-- Math
-- Date
-- String
-- RegExp
-- Array
-- Map
-- Set
-- Promise
-- Intl
+* Function
+* Object
+* Boolean
+* Error
+* Number
+* BigInt
+* Math
+* Date
+* String
+* RegExp
+* Array
+* Map
+* Set
+* Promise
+* Intl
 
 ## Sovraccarichi
 
@@ -2683,11 +2671,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // Sovraccarichi
     sayHi(name: string): string;
     sayHi(name: string[]): ReadonlyArray<string>;
 
-    // implementazione
+    // Implementazione
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;
@@ -2865,7 +2853,7 @@ La classe ha un metodo `public` denominato sayHi che registra un messaggio di sa
 Per creare un'istanza di una classe in TypeScript, è possibile utilizzare la parola chiave `new` seguita dal nome della classe, seguito da parentesi `()`. Ad esempio:
 
 <!-- skip -->
-````typescript
+```typescript
 const myObject = new Person('John Doe', 25);
 myObject.sayHi(); // Output: Ciao, mi chiamo John Doe e ho 25 anni.
 ```
@@ -2891,7 +2879,7 @@ class Person {
 
 const john = new Person('Simon', 17);
 john.sayHello();
-````
+```
 
 È possibile sovraccaricare un costruttore utilizzando la seguente sintassi:
 
@@ -2971,12 +2959,10 @@ class DerivedClass extends BaseClass {
 
 // Il tentativo di istanziare direttamente la classe base genererà un errore.
 // const baseObj = new BaseClass(); // Errore: il costruttore della classe 'BaseClass' è protetto.
-```
 
 // Crea un'istanza della classe derivata
 const derivedObj = new DerivedClass(10);
-
-````
+```
 
 ### Modificatori di accesso
 
@@ -3007,7 +2993,7 @@ class MyClass {
         this._myProperty = value;
     }
 }
-````
+```
 
 ### Accessori automatici nelle classi
 
@@ -3149,14 +3135,14 @@ Per le versioni di TypeScript precedenti alla 5, dovrebbero essere abilitati uti
 
 Alcuni dei casi d'uso comuni per i decoratori includono:
 
-- Monitoraggio delle modifiche delle proprietà.
-- Monitoraggio delle chiamate ai metodi.
-- Aggiunta di proprietà o metodi aggiuntivi.
-- Validazione in fase di esecuzione.
-- Serializzazione e deserializzazione automatica.
-- Registrazione.
-- Autorizzazione e autenticazione.
-- Protezione dagli errori.
+* Monitoraggio delle modifiche delle proprietà.
+* Monitoraggio delle chiamate ai metodi.
+* Aggiunta di proprietà o metodi aggiuntivi.
+* Validazione in fase di esecuzione.
+* Serializzazione e deserializzazione automatica.
+* Registrazione.
+* Autorizzazione e autenticazione.
+* Protezione dagli errori.
 
 Nota: i decoratori per la versione 5 non consentono parametri di decorazione.
 
@@ -3206,25 +3192,22 @@ const person = new Person('Simon');
 I decoratori di proprietà sono utili per modificare il comportamento di una proprietà, ad esempio cambiando i valori di inizializzazione. Nel codice seguente, abbiamo uno script che imposta una proprietà in modo che sia sempre in maiuscolo:
 
 ```typescript
-```
-
 function upperCase<T>(
-target: undefined,
-context: ClassFieldDecoratorContext<T, string>
+    target: undefined,
+    context: ClassFieldDecoratorContext<T, string>
 ) {
-return function (this: T, value: string) {
-return value.toUpperCase();
-};
+    return function (this: T, value: string) {
+        return value.toUpperCase();
+    };
 }
 
 class MyClass {
-@upperCase
-prop1 = 'hello!';
+    @upperCase
+    prop1 = 'hello!';
 }
 
 console.log(new MyClass().prop1); // Log: HELLO!
-
-````
+```
 
 #### Decoratore di metodo
 
@@ -3258,7 +3241,7 @@ class MyClass {
 }
 
 new MyClass().sayHello();
-````
+```
 
 Registra:
 
@@ -3344,11 +3327,9 @@ class MyClass {
 }
 
 const metadata = MyClass[Symbol.metadata]; // Ottieni informazioni sui metadati
-```
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
-
-````
+```
 
 ### Ereditarietà
 
@@ -3387,7 +3368,7 @@ animal.speak(); // L'animale emette un suono
 // Crea un'istanza della classe derivata
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Bau!"
-````
+```
 
 TypeScript non supporta l'ereditarietà multipla nel senso tradizionale, ma consente invece l'ereditarietà da una singola classe base.
 TypeScript supporta più interfacce. Un'interfaccia può definire un contratto per la struttura di un oggetto e una classe può implementare più interfacce. Questo consente a una classe di ereditare comportamento e struttura da più fonti.
@@ -4306,8 +4287,8 @@ TypeScript extends le funzionalità di JSX fornendo il controllo dei tipi e l'an
 
 Per utilizzare JSX è necessario impostare l'opzione del compilatore `jsx` nel file `tsconfig.json`. Due opzioni di configurazione comuni:
 
-- "preserve": emette file .jsx con il JSX invariato. Questa opzione indica a TypeScript di mantenere la sintassi JSX così com'è e di non trasformarla durante il processo di compilazione. È possibile utilizzare questa opzione se si dispone di uno strumento separato, come Babel, che gestisce la trasformazione.
-- "react": abilita la trasformazione JSX integrata di TypeScript. Verrà utilizzato React.createElement.
+* "preserve": emette file .jsx con il JSX invariato. Questa opzione indica a TypeScript di mantenere la sintassi JSX così com'è e di non trasformarla durante il processo di compilazione. È possibile utilizzare questa opzione se si dispone di uno strumento separato, come Babel, che gestisce la trasformazione.
+* "react": abilita la trasformazione JSX integrata di TypeScript. Verrà utilizzato React.createElement.
 
 Tutte le opzioni sono disponibili qui:
 [https://www.typescriptlang.org/tsconfig#jsx](https://www.typescriptlang.org/tsconfig#jsx)
@@ -4638,8 +4619,8 @@ type B = Bar<['a', 'b'], [boolean]>; // ["a", "b", boolean, boolean]
 
 Con le nuove tuple variadiche possiamo usare:
 
-- Gli spread nella sintassi dei tipi di tupla ora possono essere generici, quindi possiamo rappresentare operazioni di ordine superiore su tuple e array anche quando non conosciamo i tipi effettivi su cui stiamo operando.
-- Gli elementi rimanenti possono trovarsi ovunque in una tupla.
+* Gli spread nella sintassi dei tipi di tupla ora possono essere generici, quindi possiamo rappresentare operazioni di ordine superiore su tuple e array anche quando non conosciamo i tipi effettivi su cui stiamo operando.
+* Gli elementi rimanenti possono trovarsi ovunque in una tupla.
 
 Esempio:
 
@@ -4675,11 +4656,11 @@ console.log('\u0041'.normalize());
 
 TypeScript rappresenta questa differenziazione fornendo tipi separati per le primitive e i corrispondenti wrapper di oggetti:
 
-- string => String
-- number => Number
-- boolean => Boolean
-- symbol => Symbol
-- bigint => BigInt
+* string => String
+* number => Number
+* boolean => Boolean
+* symbol => Symbol
+* bigint => BigInt
 
 I tipi boxed di solito non sono necessari. Evitare di utilizzare tipi boxed e utilizzare invece type per le primitive, ad esempio `string` invece di `String`.
 
@@ -4720,9 +4701,9 @@ class Dog extends Animal {
 let animals: Animal[] = [];
 let dogs: Dog[] = [];
 
-// La covarianza consente di assegnare l'array del sottotipo (Cane) all'array del supertipo (Animale)
+// La covarianza consente di assegnare l'array del sottotipo (Dog) all'array del supertipo (Animal)
 animals = dogs;
-dogs = animals; // Non valido: il tipo 'Animale[]' non è assegnabile al tipo 'Cane[]'
+dogs = animals; // Non valido: il tipo 'Animal[]' non è assegnabile al tipo 'Dog[]'
 
 // Esempio di controvarianza
 type Feed<in T> = (animal: T) => void;
@@ -4735,9 +4716,9 @@ let feedDog: Feed<Dog> = (dog: Dog) => {
     console.log(`Nome del cane: ${dog.name}, Razza: ${dog.breed}`);
 };
 
-// La controvarianza consente di assegnare la callback del supertipo (Animale) alla callback del sottotipo (Cane)
+// La controvarianza consente di assegnare la callback del supertipo (Animal) alla callback del sottotipo (Dog)
 feedDog = feedAnimal;
-feedAnimal = feedDog; // Non valido: il tipo 'Feed<Cane>' non è assegnabile al tipo 'Feed<Animal>'.
+feedAnimal = feedDog; // Non valido: il tipo 'Feed<Dog>' non è assegnabile al tipo 'Feed<Animal>'.
 ```
 
 In TypeScript, le relazioni di tipo per gli array sono covarianti, mentre le relazioni di tipo per i parametri di funzione sono controvarianti. Ciò significa che TypeScript presenta sia covarianza che controvarianza, a seconda del contesto.
@@ -4863,7 +4844,7 @@ Questo si basa sulla funzionalità di Gestione Risorse di ECMAScript, utile per 
 
 Note:
 
-- A causa della sua recente introduzione nella versione 5.2 di TypeScript, la maggior parte dei runtime non dispone di supporto nativo. Sono necessari polyfill per: `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`. \* Inoltre, dovrai configurare il tuo file tsconfig.json come segue:
+* A causa della sua recente introduzione nella versione 5.2 di TypeScript, la maggior parte dei runtime non dispone di supporto nativo. Sono necessari polyfill per: `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`. \* Inoltre, dovrai configurare il tuo file tsconfig.json come segue:
 
 ```json
 {
@@ -4995,7 +4976,7 @@ Gli attributi di importazione di TypeScript 5.3 (etichette per le importazioni) 
 Esempio:
 
 <!-- skip -->
-````typescript
+```typescript
 import config from './config.json' with { type: 'json' };
 ```
 
@@ -5004,4 +4985,4 @@ con importazione dinamica:
 <!-- skip -->
 ```typescript
 const config = import('./config.json', { with: { type: 'json' } });
-````
+```

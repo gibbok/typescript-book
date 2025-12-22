@@ -14,6 +14,8 @@ This book has been translated into several language versions, including:
 
 [Chinese](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
+[Italian](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
+
 ## Downloads and website
 
 You can also download the Epub version:
@@ -247,7 +249,7 @@ This book covers TypeScript 5.2.
 
 ## About the Author
 
-Simone Poggiali is an experienced Senior Front-end Developer with a passion for writing professional-grade code since the 90s. Throughout his international career, he has contributed to numerous projects for a wide range of clients, from startups to large organizations. Notable companies such as HelloFresh, Siemens, O2, and Leroy Merlin have benefited from his expertise and dedication.
+Simone Poggiali is an experienced Staff Engineer with a passion for writing professional-grade code since the 90s. Throughout his international career, he has contributed to numerous projects for a wide range of clients, from startups to large organizations. Notable companies such as HelloFresh, Siemens, O2, Leroy Merlin and Snowplow have benefited from his expertise and dedication.
 
 You can reach Simone Poggiali on the following platforms:
 
@@ -554,7 +556,7 @@ At the following link you can find the complete documentation and its schema:
 
 [https://www.typescriptlang.org/tsconfig](https://www.typescriptlang.org/tsconfig)
 
-[http://json.schemastore.org/tsconfig](http://json.schemastore.org/tsconfig)
+[https://www.typescriptlang.org/tsconfig/](https://www.typescriptlang.org/tsconfig/)
 
 The following represents a list of the common and useful configurations:
 
@@ -629,7 +631,13 @@ The second step is to ensure that your JavaScript tests work alongside TypeScrip
 The third step is to include type declarations for third-party libraries in your project. These declarations can be found either bundled or on DefinitelyTyped. You can search for them using [https://www.typescriptlang.org/dt/search](https://www.typescriptlang.org/dt/search) and install them using:
 
 ```shell
-npm install --save-dev @types/package-name or yarn add --dev @types/package-name.
+npm install --save-dev @types/package-name
+```
+
+or
+
+```shell
+yarn add --dev @types/package-name.
 ```
 
 The fourth step is to migrate module by module with a bottom-up approach, following your Dependency Graph starting with the leaves. The idea is to start converting Modules that do not depend on other Modules. To visualize the dependency graphs, you can use the "madge" tool.

@@ -16,6 +16,8 @@ const lintCodeBlocksInMarkdownFile = async (filePath: string, options: PrettierO
             ...options,
         });
         if (isCodeLinted === false) {
+            const lineNumber = markdown.substring(0, match.index).split('\n').length;
+            reportSnippetsNotLinted += `Line ${lineNumber}:\n`
             reportSnippetsNotLinted += code
             reportSnippetsNotLinted += '\n'
         }
