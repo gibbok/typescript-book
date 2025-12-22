@@ -12,6 +12,7 @@ OUTPUT_IT="typescript-book-it_IT"
 AUTHOR="Simone Poggiali"
 TITLE_EN="The Concise TypeScript Book"
 TITLE_CN="# 简洁的TypeScript之书"
+TITLE_IT="The Concise TypeScript Book"
 
 cd ../
 
