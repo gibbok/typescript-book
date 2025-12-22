@@ -14,6 +14,8 @@
 
 [中文](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
+[意大利](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
+
 ## 下载和网站
 
 您还可以下载 Epub 版本：
@@ -247,7 +249,7 @@
 
 ## 关于作者
 
-Simone Poggiali 是一位经验丰富的高级前端开发人员，自 90 年代以来就热衷于编写专业级代码。在他的国际职业生涯中，他为从初创公司到大型组织的广泛客户提供了众多项目。HelloFresh、Siemens、O2 和 Leroy Merlin 等著名公司都受益于他的专业知识和奉献精神。
+Simone Poggiali 是一位经验丰富的资深工程师，自 90 年代以来便对编写专业级代码充满热情。在他的国际职业生涯中，他曾为众多客户（从初创公司到大型企业）参与过各种项目。HelloFresh、西门子、O2、Leroy Merlin 和 Snowplow 等知名公司都曾受益于他的专业知识和敬业精神。
 
 您可以通过以下平台联系 Simone Poggiali：
 
@@ -546,7 +548,7 @@ tsconfig.json 文件用于配置 TypeScript 编译器 (tsc)。通常，它与文
 
 [https://www.typescriptlang.org/tsconfig](https://www.typescriptlang.org/tsconfig)
 
-[http://json.schemastore.org/tsconfig](http://json.schemastore.org/tsconfig)
+[https://www.typescriptlang.org/tsconfig/](https://www.typescriptlang.org/tsconfig/)
 
 以下列出了常见且有用的配置：
 
@@ -621,7 +623,13 @@ TypeScript 在为某些高级或低级 JavaScript 功能生成代码时使用帮
 第三步是在项目中包含第三方库的类型声明。 这些声明可以第三方库的类型声明文件或专门的声明包中找到，你能通过 [https://www.typescriptlang.org/dt/search](https://www.typescriptlang.org/dt/search) 搜索并安装它们。:
 
 ```shell
-npm install --save-dev @types/package-name or yarn add --dev @types/package-name.
+npm install --save-dev @types/package-name
+```
+
+或者
+
+```shell
+yarn add --dev @types/package-name
 ```
 
 第四步是使用自下而上的方法逐个模块地迁移，遵循从叶开始的依赖关系图。这个想法是开始转换不依赖于其他模块的模块。要可视化依赖关系图，您可以使用该madge工具。
@@ -4033,10 +4041,10 @@ const r = fn(['a', 'b'], 'c'); // 此处的类型为 ("a" | "b" | "c")[]
 ```typescript
 // 使用 NoInfer 阻止类型推断的示例函数
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
-  return x.concat(y);
+    return x.concat(y);
 }
 
-const r2 = fn2(["a", "b"], "c"); // 错误：类型为“c”的类型参数不能分配给类型为“a”|“b”的参数。
+const r2 = fn2(['a', 'b'], 'c'); // 错误：类型为“c”的类型参数不能分配给类型为“a”|“b”的参数。
 ```
 
 ## 其他
@@ -4965,5 +4973,5 @@ import config from './config.json' with { type: 'json' };
 
 <!-- skip -->
 ```typescript
-const config = import("./config.json", { with: { type: "json" } })
+const config = import('./config.json', { with: { type: 'json' } });
 ```

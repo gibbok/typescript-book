@@ -21,6 +21,9 @@ OUTPUT_DIR_PATH = "../website/src/content/docs/book"
 INPUT_FILE_PATH_CN = "../README-zh_CN.md"
 OUTPUT_DIR_PATH_CN = "../website/src/content/docs/zh-cn/book"
 
+INPUT_FILE_PATH_IT = "../README-it_IT.md"
+OUTPUT_DIR_PATH_IT = "../website/src/content/docs/it-it/book"
+
 
 def manage_output_dir(path: str) -> None:
     if os.path.exists(path):
@@ -141,3 +144,5 @@ def process(base_input_path, input_lang_path: str, base_output_path: str) -> Non
 process(INPUT_FILE_PATH, INPUT_FILE_PATH, OUTPUT_DIR_PATH)
 
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_CN, OUTPUT_DIR_PATH_CN)
+
+process(INPUT_FILE_PATH, INPUT_FILE_PATH_IT, OUTPUT_DIR_PATH_IT)
