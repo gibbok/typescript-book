@@ -2147,7 +2147,7 @@ console.log(area(square)); // 25
 console.log(area(circle)); // 12.566370614359172
 ```
 
-## Il tipo `never`
+## Il tipo never
 
 Quando una variabile viene ristretta a un tipo che non può contenere alcun valore, il compilatore TypeScript dedurrà che la variabile deve essere del tipo `never`. Questo perché il tipo `never` rappresenta un valore che non può mai essere prodotto.
 

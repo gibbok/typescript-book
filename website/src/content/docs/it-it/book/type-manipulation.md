@@ -1,29 +1,29 @@
 ---
-title: 类型操作
+title: Manipolazione dei tipi
 sidebar:
   order: 60
-  label: 60. 类型操作
+  label: 60. Manipolazione dei tipi
 ---
 
 
-### 从类型创建类型
+### Creazione di tipi da tipi
 
-是否可以通过组合、操作或转换现有类型来创建新类型。
+È possibile creare nuovi tipi componendo, manipolando o trasformando tipi esistenti.
 
-交集类型 ( &):
+Tipi di intersezione (`&`):
 
-允许您将多种类型组合成单一类型：
+Consentono di combinare più tipi in un unico tipo:
 
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // A和B的交集
+type C = A & B; // Intersezione di A e B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
-联合类型 (`|`):
+Tipi di unione (`|`):
 
-允许您定义可以是以下几种类型之一的类型
+Consente di definire un tipo che può essere di diversi tipi:
 
 ```typescript
 type Result = string | number;
@@ -31,9 +31,9 @@ const value1: Result = 'hello';
 const value2: Result = 42;
 ```
 
-映射类型：
+Tipi mappati:
 
-允许您转换现有类型的属性以创建新类型：
+Consentono di trasformare le proprietà di un tipo esistente per crearne uno nuovo:
 
 ```typescript
 type Mutable<T> = {
@@ -43,12 +43,12 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // 属性变为只读
+type ImmutablePerson = Mutable<Person>; // Le proprietà diventano di sola lettura
 ```
 
-条件类型：
+Tipi condizionali:
 
-允许您根据某些条件创建类型：
+Consentono di creare tipi in base ad alcune condizioni:
 
 ```typescript
 type ExtractParam<T> = T extends (param: infer P) => any ? P : never;
@@ -56,9 +56,9 @@ type MyFunction = (name: string) => number;
 type ParamType = ExtractParam<MyFunction>; // string
 ```
 
-### 索引访问类型
+### Tipi di accesso indicizzati
 
-在 TypeScript 中，可以使用索引访问和操作另一个类型中的属性类型 `Type[Key]`。
+In TypeScript è possibile accedere e manipolare i tipi di proprietà all'interno di un altro tipo utilizzando un indice, `Type[Key]`.
 
 ```typescript
 type Person = {
@@ -74,13 +74,13 @@ type MyTuple = [string, number, boolean];
 type MyType = MyTuple[2]; // boolean
 ```
 
-### 工具类型
+### Tipi di utilità
 
-可以使用几种内置工具来操作类型，下面列出了最常用的：
+Diversi tipi di utilità predefiniti possono essere utilizzati per manipolare i tipi; di seguito è riportato un elenco dei più comuni:
 
 #### Awaited\<T\>
 
-构造一个递归解包 Promise 类型的类型。
+Costruisce un tipo che esegue ricorsivamente l'unwrapping dei tipi Promise.
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
@@ -88,7 +88,7 @@ type A = Awaited<Promise<string>>; // string
 
 #### Partial\<T\>
 
-构造一个类型，并将 T 的所有属性设置为可选。
+Costruisce un tipo con tutte le proprietà di T impostate su optional.
 
 ```typescript
 type Person = {
@@ -96,12 +96,12 @@ type Person = {
     age: number;
 };
 
-type A = Partial<Person>; // { name?: string | undefined; age?: number | undefined; }
+type A = Partial<Person>; // { name?: string | undefined; age?:number | undefined; }
 ```
 
 #### Required\<T\>
 
-构造一个类型，并将 T 的所有属性设置为必需。
+Costruisce un tipo con tutte le proprietà di T impostate su required.
 
 ```typescript
 type Person = {
@@ -109,12 +109,12 @@ type Person = {
     age?: number;
 };
 
-type A = Required<Person>; // { name: string; age: number; }
+type A = Required<Person>; // { name: string; age:number; }
 ```
 
 #### Readonly\<T\>
 
-构造一个类型，并将 T 的所有属性设置为只读。
+Costruisce un tipo con tutte le proprietà di T impostate su readonly.
 
 <!-- skip -->
 ```typescript
@@ -126,12 +126,12 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // 无效
+a.name = 'John'; // Non valido
 ```
 
 #### Record\<K, T\>
 
-构造一个具有类型 T 的一组属性 K 的类型。
+Costruisce un tipo con un insieme di proprietà K di tipo T.
 
 ```typescript
 type Product = {
@@ -149,7 +149,7 @@ console.log(products.apple); // { name: 'Apple', price: 0.5 }
 
 #### Pick\<T, K\>
 
-通过从 T 中选取指定属性 K 来构造类型。
+Costruisce un tipo selezionando le proprietà specificate K da T.
 
 ```typescript
 type Product = {
@@ -162,7 +162,7 @@ type Price = Pick<Product, 'price'>; // { price: number; }
 
 #### Omit\<T, K\>
 
-通过从 T 中省略指定属性 K 来构造类型。
+Costruisce un tipo omettendo le proprietà specificate K da T.
 
 ```typescript
 type Product = {
@@ -175,7 +175,7 @@ type Name = Omit<Product, 'price'>; // { name: string; }
 
 #### Exclude\<T, U\>
 
-通过从 T 中排除类型 U 的所有值来构造类型。
+Costruisce un tipo escludendo tutti i valori di tipo U da T.
 
 ```typescript
 type Union = 'a' | 'b' | 'c';
@@ -184,7 +184,7 @@ type MyType = Exclude<Union, 'a' | 'c'>; // b
 
 #### Extract\<T, U\>
 
-通过从 T 中提取类型 U 的所有值来构造类型。
+Costruisce un tipo estraendo tutti i valori di tipo U da T.
 
 ```typescript
 type Union = 'a' | 'b' | 'c';
@@ -193,7 +193,7 @@ type MyType = Extract<Union, 'a' | 'c'>; // a | c
 
 #### NonNullable\<T\>
 
-通过从 T 中排除 null 和 undefined 来构造类型。
+Costruisce un tipo escludendo null e undefined da T.
 
 ```typescript
 type Union = 'a' | null | undefined | 'b';
@@ -202,7 +202,7 @@ type MyType = NonNullable<Union>; // 'a' | 'b'
 
 #### Parameters\<T\>
 
-提取函数类型 T 的参数类型。
+Estrae i tipi di parametro di una funzione di tipo T.
 
 ```typescript
 type Func = (a: string, b: number) => void;
@@ -211,7 +211,7 @@ type MyType = Parameters<Func>; // [a: string, b: number]
 
 #### ConstructorParameters\<T\>
 
-提取构造函数类型 T 的参数类型。
+Estrae i tipi di parametro di una funzione costruttore di tipo T.
 
 ```typescript
 class Person {
@@ -228,7 +228,7 @@ console.log(person); // Person { name: 'John', age: 30 }
 
 #### ReturnType\<T\>
 
-提取函数类型 T 的返回类型。
+Estrae il tipo di ritorno di una funzione di tipo T.
 
 ```typescript
 type Func = (name: string) => number;
@@ -237,7 +237,7 @@ type MyType = ReturnType<Func>; // number
 
 #### InstanceType\<T\>
 
-提取类类型 T 的实例类型。
+Estrae il tipo di istanza di una classe di tipo T.
 
 ```typescript
 class Person {
@@ -248,7 +248,7 @@ class Person {
     }
 
     sayHello() {
-        console.log(`Hello, my name is ${this.name}!`);
+        console.log(`Ciao, mi chiamo ${this.name}!`);
     }
 }
 
@@ -256,12 +256,12 @@ type PersonInstance = InstanceType<typeof Person>;
 
 const person: PersonInstance = new Person('John');
 
-person.sayHello(); // Hello, my name is John!
+person.sayHello(); // Ciao, mi chiamo John!
 ```
 
 #### ThisParameterType\<T\>
 
-从函数类型 T 中提取"this"参数的类型。
+Estrae il tipo del parametro 'this' da una funzione di tipo T.
 
 ```typescript
 interface Person {
@@ -273,7 +273,7 @@ type PersonThisType = ThisParameterType<Person['greet']>; // Person
 
 #### OmitThisParameter\<T\>
 
-从函数类型 T 中删除"this"参数。
+Rimuove il parametro 'this' da una funzione di tipo T.
 
 ```typescript
 function capitalize(this: String) {
@@ -285,7 +285,7 @@ type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
 
 #### ThisType\<T\>
 
-作为上下文类型 `this` 的一部分。
+Funge da marcatore per un tipo `this` contestuale.
 
 <!-- skip -->
 ```typescript
@@ -295,15 +295,15 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // 有效，因为"log"是"this"的一部分
-        this.update(); // 无效
+        this.log('some error'); // Valido poiché "log" è parte di "this".
+        this.update(); // Non valido
     },
 };
 ```
 
 #### Uppercase\<T\>
 
-将输入类型 T 的名称设为大写。
+Rendi maiuscolo il nome del tipo di input T.
 
 ```typescript
 type MyType = Uppercase<'abc'>; // "ABC"
@@ -311,7 +311,7 @@ type MyType = Uppercase<'abc'>; // "ABC"
 
 #### Lowercase\<T\>
 
-将输入类型 T 的名称设为小写。
+Rendi minuscolo il nome del tipo di input T.
 
 ```typescript
 type MyType = Lowercase<'ABC'>; // "abc"
@@ -319,7 +319,7 @@ type MyType = Lowercase<'ABC'>; // "abc"
 
 #### Capitalize\<T\>
 
-输入类型 T 的名称大写。
+Inserisci in maiuscolo il nome del tipo di input T.
 
 ```typescript
 type MyType = Capitalize<'abc'>; // "Abc"
@@ -327,7 +327,7 @@ type MyType = Capitalize<'abc'>; // "Abc"
 
 #### Uncapitalize\<T\>
 
-将输入类型 T 的名称取消大写。
+Inserisci in maiuscolo il nome del tipo di input T.
 
 ```typescript
 type MyType = Uncapitalize<'Abc'>; // "abc"
@@ -335,27 +335,27 @@ type MyType = Uncapitalize<'Abc'>; // "abc"
 
 #### NoInfer\<T\>
 
-NoInfer 是一种实用类型，旨在阻止泛型函数范围内类型的自动推断。
+NoInfer è un tipo di utilità progettato per bloccare l'inferenza automatica dei tipi nell'ambito di una funzione generica.
 
-示例：
+Esempio:
 
 ```typescript
-// 泛型函数范围内类型的自动推断。
+// Inferenza automatica dei tipi nell'ambito di una funzione generica.
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // 此处的类型为 ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // Il tipo qui è ("a" | "b" | "c")[]
 ```
 
-使用 NoInfer：
+Con NoInfer:
 
 <!-- skip -->
 ```typescript
-// 使用 NoInfer 阻止类型推断的示例函数
+// Funzione di esempio che utilizza NoInfer per impedire l'inferenza di tipo
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // 错误：类型为“c”的类型参数不能分配给类型为“a”|“b”的参数。
+const r2 = fn2(['a', 'b'], 'c'); // Errore: l'argomento di tipo '"c"' non è assegnabile al parametro di tipo '"a" | "b"'.
 ```
 

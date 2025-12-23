@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Simone Poggiali is an experienced Senior Front-end Developer with a passion for writing professional-grade code since the 90s. Throughout his international career, he has contributed to numerous projects for a wide range of clients, from startups to large organizations. Notable companies such as HelloFresh, Siemens, O2, and Leroy Merlin have benefited from his expertise and dedication.
+Simone Poggiali is an experienced Staff Engineer with a passion for writing professional-grade code since the 90s. Throughout his international career, he has contributed to numerous projects for a wide range of clients, from startups to large organizations. Notable companies such as HelloFresh, Siemens, O2, Leroy Merlin and Snowplow have benefited from his expertise and dedication.
 
 You can reach Simone Poggiali on the following platforms:
 

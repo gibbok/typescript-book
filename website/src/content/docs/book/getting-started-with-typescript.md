@@ -89,7 +89,7 @@ At the following link you can find the complete documentation and its schema:
 
 [https://www.typescriptlang.org/tsconfig](https://www.typescriptlang.org/tsconfig)
 
-[http://json.schemastore.org/tsconfig](http://json.schemastore.org/tsconfig)
+[https://www.typescriptlang.org/tsconfig/](https://www.typescriptlang.org/tsconfig/)
 
 The following represents a list of the common and useful configurations:
 
@@ -164,7 +164,13 @@ The second step is to ensure that your JavaScript tests work alongside TypeScrip
 The third step is to include type declarations for third-party libraries in your project. These declarations can be found either bundled or on DefinitelyTyped. You can search for them using [https://www.typescriptlang.org/dt/search](https://www.typescriptlang.org/dt/search) and install them using:
 
 ```shell
-npm install --save-dev @types/package-name or yarn add --dev @types/package-name.
+npm install --save-dev @types/package-name
+```
+
+or
+
+```shell
+yarn add --dev @types/package-name.
 ```
 
 The fourth step is to migrate module by module with a bottom-up approach, following your Dependency Graph starting with the leaves. The idea is to start converting Modules that do not depend on other Modules. To visualize the dependency graphs, you can use the "madge" tool.

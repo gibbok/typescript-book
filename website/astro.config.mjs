@@ -37,6 +37,10 @@ export default defineConfig({
                     label: '简体中文',
                     lang: 'zh-CN',
                 },
+                'it-it': {
+                    label: 'Italiano',
+                    lang: 'it-IT',
+                },
             },
             sidebar: [
                 {
