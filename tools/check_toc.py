@@ -8,6 +8,9 @@ def slugify(text):
     return text
 
 def check_toc(filepath):
+    """
+    Checks if all links in the TOC section of a markdown file point to existing headers.
+    """
     with open(filepath, 'r', encoding='utf-8') as f:
         lines = f.readlines()
 
