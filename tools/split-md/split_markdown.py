@@ -6,12 +6,6 @@ from pathlib import Path
 def split_markdown(file_path, output_dir=None, max_chars=3500):
     """
     Splits a markdown file into smaller parts based on a maximum character count.
-    
-    Args:
-        file_path (str): The path to the input markdown file.
-        output_dir (str, optional): The directory where the split parts should be saved. 
-                                    If None, parts are saved in the same directory as the input file.
-        max_chars (int, optional): The maximum number of characters per part. Defaults to 3500.
     """
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
