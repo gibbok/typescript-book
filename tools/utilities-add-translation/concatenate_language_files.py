@@ -31,20 +31,8 @@ def concatenate_language_files(directory, language_ext):
     for file in lang_files:
         print(f"  {file.name}")
     
-    # Map language extensions to ISO codes
-    lang_map = {
-        'ITA': 'it_IT',
-        'ES': 'es_ES', 
-        'FR': 'fr_FR',
-        'DE': 'de_DE',
-        'PT': 'pt_PT',
-        'RU': 'ru_RU',
-        'JA': 'ja_JP',
-        'KO': 'ko_KR',
-        'ZH': 'zh_CN'
-    }
-    
-    iso_code = lang_map.get(language_ext, language_ext.lower())
+    # Use the provided language extension as the ISO code
+    iso_code = language_ext
     output_file = dir_path / f'README-{iso_code}.md'
     
     # Concatenate all files
@@ -69,14 +57,14 @@ def concatenate_language_files(directory, language_ext):
         return False
 
 def main():
-    # Check for language extension argument
+    # Check for ISO code argument
     if len(sys.argv) < 2:
-        print("Usage: python concatenate_language_files.py <language_ext> [directory]")
-        print("Example: python concatenate_language_files.py ITA")
-        print("Example: python concatenate_language_files.py ES ../../spa")
+        print("Usage: python concatenate_language_files.py <iso_code> [directory]")
+        print("Example: python concatenate_language_files.py it_IT")
+        print("Example: python concatenate_language_files.py es_ES ../../spa")
         sys.exit(1)
     
-    language_ext = sys.argv[1]
+    iso_code = sys.argv[1]
     
     # Default to ita folder if no directory argument provided
     if len(sys.argv) > 2:
@@ -85,7 +73,7 @@ def main():
         # From tools/split-md, go up two levels and into ita folder
         directory = "../../ita"
     
-    concatenate_language_files(directory, language_ext)
+    concatenate_language_files(directory, iso_code)
 
 if __name__ == "__main__":
     main()

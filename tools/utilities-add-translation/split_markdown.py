@@ -4,6 +4,9 @@ import os
 from pathlib import Path
 
 def split_markdown(file_path, output_dir=None, max_chars=3500):
+    """
+    Splits a markdown file into smaller parts based on a maximum character count.
+    """
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
     
