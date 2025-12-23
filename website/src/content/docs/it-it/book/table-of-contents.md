@@ -1,0 +1,176 @@
+---
+title: Indice
+sidebar:
+  order: 4
+  label: 4. Indice
+---
+
+
+<!-- markdownlint-disable MD004 -->
+
+- The Concise TypeScript Book
+- Traduzioni
+- Download e sito web
+- Indice
+- Introduzione
+- Informazioni sull'autore
+- Introduzione a TypeScript
+  - Cos'è TypeScript?
+  - Perché TypeScript?
+  - TypeScript e JavaScript
+  - Generazione di codice TypeScript
+  - JavaScript moderno ora (Downleveling)
+- Per iniziare con TypeScript
+  - Installazione
+  - Configurazione
+  - File di configurazione TypeScript
+    - target
+    - lib
+    - strict
+    - module
+    - moduleResolution
+    - esModuleInterop
+    - jsx
+    - skipLibCheck
+    - files
+    - include
+    - exclude
+  - importHelpers
+  - Consigli per la migrazione a TypeScript
+- Esplorazione del sistema di tipi
+  - Il servizio di linguaggio TypeScript
+  - Tipizzazione Strutturale
+  - Regole fondamentali di confronto di TypeScript
+  - Tipi come insiemi
+  - Allargamento di tipo
+  - Const
+    - Modificatore Const sui parametri di tipo
+    - Asserzione Const
+  - Annotazione di tipo esplicita
+  - Restringimento dei tipi
+    - Condizioni
+    - Generazione o restituzione
+    - Unione Discriminata
+    - Protezioni di tipo definite dall'utente
+- Tipi primitivi
+  - string
+- Inferenza letterale
+- strictNullChecks
+- Enumerazioni
+  - Enumerazioni numeriche
+  - Enum String
+  - Enum Constant
+  - Mapping inverso
+  - Enum ambientali
+  - Membri calcolati e costanti
+- Restringimento
+  - protezioni di tipo typeof
+  - Restringimento di veridicità
+  - Restringimento di uguaglianza
+  - Restringimento dell'operatore "in"
+  - Restringimento instanceof
+- Assegnazioni
+- Analisi del flusso di controllo
+- Tipo da Valore
+- Tipo da Ritorno Funzione
+- Tipo da modulo
+- Tipi mappati
+- Modificatori di tipo mappati
+- Tipi condizionali
+- Tipi condizionali distributivi
+- infer Inferenza di tipo nei tipi condizionali
+- Tipi Condizionali Predefiniti
+- Tipi di unione di template
+- Tipo Any
+- Tipo Unknown
+- Tipo Void
+- Tipo Never
+- Interfaccia e tipo
+  - Sintassi comune
+  - Tipi di base
+  - Oggetti e interfacce
+  - Modificatori di accesso
+  - Get e Set
+  - Accessori automatici nelle classi
+  - this
+  - Proprietà dei parametri
+  - Classi astratte
+  - Con i generici
+  - Decoratori
+    - Decoratori di classe
+    - Decoratore di proprietà
+  - Ereditarietà
+  - Statiche
+  - Inizializzazione delle proprietà
+  - Sovraccarico dei metodi
+- Generici
+  - Tipo generico
+  - Classi generiche
+  - Vincoli generici
+  - Restringimento contestuale generico
+- Tipi strutturali cancellati
+- Namespace
+- Simboli
+- Direttive con tripla barra
+- Manipolazione dei tipi
+  - Creazione di tipi da tipi
+  - Tipi di accesso indicizzati
+  - Tipi di utilità
+    - Awaited\<T\>
+    - Partial\<T\>
+    - Required\<T\>
+    - Readonly\<T\>
+    - Record\<K, T\>
+    - Pick\<T, K\>
+    - Omit\<T, K\>
+    - Exclude\<T, U\>
+    - Extract\<T, U\>
+    - NonNullable\<T\>
+    - Parameters\<T\>
+    - ConstructorParameters\<T\>
+    - ReturnType\<T\>
+    - InstanceType\<T\>
+    - ThisParameterType\<T\>
+    - OmitThisParameter\<T\>
+    - ThisType\<T\>
+    - Uppercase\<T\>
+    - Lowercase\<T\>
+    - Capitalize\<T\>
+    - Uncapitalize\<T\>
+    - NoInfer\<T\>
+- Altri
+  - Gestione degli errori e delle eccezioni
+  - Classi Mixin
+  - Funzionalità del linguaggio asincrono
+  - Iteratori e Generatori
+  - Riferimento JSDoc di TsDocs
+  - @types
+  - JSX
+  - Moduli ES6
+  - Operatore di elevamento a potenza ES7
+  - L'istruzione for-await-of
+  - Nuova meta-proprietà target
+  - Espressioni di importazione dinamica
+  - "tsc –watch"
+  - Operatore di asserzione non nullo
+  - Dichiarazioni predefinite
+  - Concatenamento opzionale
+  - Operatore di coalescenza nullo
+  - Tipi letterali di template
+  - Sovraccarico di funzioni
+  - Tipi ricorsivi
+  - Tipi condizionali ricorsivi
+  - Supporto per i moduli ECMAScript in Node
+  - Funzioni di asserzione
+  - Tipi di tupla variadici
+  - Tipi boxed
+  - Covarianza e Controvarianza in TypeScript
+    - Annotazioni di varianza opzionali per i parametri di tipo
+  - Firme di indice con pattern di stringhe modello
+  - Operatore `satisfies`
+  - Importazioni ed esportazioni solo per tipo
+  - Dichiarazione using e Gestione Risorse Esplicita
+    - dichiarazione await using
+  - Attributi di importazione
+<!-- markdownlint-enable MD004 -->
+

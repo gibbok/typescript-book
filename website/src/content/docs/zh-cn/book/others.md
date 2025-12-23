@@ -930,5 +930,5 @@ import config from './config.json' with { type: 'json' };
 
 <!-- skip -->
 ```typescript
-const config = import("./config.json", { with: { type: "json" } })
+const config = import('./config.json', { with: { type: 'json' } });
 ```

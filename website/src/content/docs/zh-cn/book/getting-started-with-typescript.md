@@ -89,7 +89,7 @@ tsconfig.json 文件用于配置 TypeScript 编译器 (tsc)。通常，它与文
 
 [https://www.typescriptlang.org/tsconfig](https://www.typescriptlang.org/tsconfig)
 
-[http://json.schemastore.org/tsconfig](http://json.schemastore.org/tsconfig)
+[https://www.typescriptlang.org/tsconfig/](https://www.typescriptlang.org/tsconfig/)
 
 以下列出了常见且有用的配置：
 
@@ -164,7 +164,13 @@ TypeScript 在为某些高级或低级 JavaScript 功能生成代码时使用帮
 第三步是在项目中包含第三方库的类型声明。 这些声明可以第三方库的类型声明文件或专门的声明包中找到，你能通过 [https://www.typescriptlang.org/dt/search](https://www.typescriptlang.org/dt/search) 搜索并安装它们。:
 
 ```shell
-npm install --save-dev @types/package-name or yarn add --dev @types/package-name.
+npm install --save-dev @types/package-name
+```
+
+或者
+
+```shell
+yarn add --dev @types/package-name
 ```
 
 第四步是使用自下而上的方法逐个模块地迁移，遵循从叶开始的依赖关系图。这个想法是开始转换不依赖于其他模块的模块。要可视化依赖关系图，您可以使用该madge工具。

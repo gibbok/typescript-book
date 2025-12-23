@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Simone Poggiali 是一位经验丰富的高级前端开发人员，自 90 年代以来就热衷于编写专业级代码。在他的国际职业生涯中，他为从初创公司到大型组织的广泛客户提供了众多项目。HelloFresh、Siemens、O2 和 Leroy Merlin 等著名公司都受益于他的专业知识和奉献精神。
+Simone Poggiali 是一位经验丰富的资深工程师，自 90 年代以来便对编写专业级代码充满热情。在他的国际职业生涯中，他曾为众多客户（从初创公司到大型企业）参与过各种项目。HelloFresh、西门子、O2、Leroy Merlin 和 Snowplow 等知名公司都曾受益于他的专业知识和敬业精神。
 
 您可以通过以下平台联系 Simone Poggiali：
 
