@@ -38,7 +38,7 @@ export default defineConfig({
                     lang: 'zh-CN',
                 },
                 'it-it': {
-                    label: 'Italian',
+                    label: 'Italiano',
                     lang: 'it-IT',
                 },
             },
