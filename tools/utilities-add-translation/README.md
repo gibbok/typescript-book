@@ -85,10 +85,10 @@ Enhanced verification that accounts for newlines added between files.
 **Usage:**
 ```bash
 # Verify Italian files in ../../ita (default)
-python3 verify_concatenation_detailed.py ITA
+python3 verify_concatenation_detailed.py it_IT
 
 # Verify Spanish files in specific directory
-python3 verify_concatenation_detailed.py ES ../../spa
+python3 verify_concatenation_detailed.py es_ES ../../spa
 ```
 
 **Output:** Detailed analysis including expected newlines and precise character counts.
