@@ -1,8 +1,8 @@
 ---
-title: Il tipo `never`
+title: Il tipo never
 sidebar:
   order: 25
-  label: 25. Il tipo `never`
+  label: 25. Il tipo never
 ---
 
 
