@@ -50,13 +50,13 @@ Concatenates all translated part files into a single file.
 **Usage:**
 ```bash
 # Concatenate Italian files in ../../ita (default)
-python3 concatenate_language_files.py ITA
+python3 concatenate_language_files.py it_IT
 
 # Concatenate Spanish files in specific directory
-python3 concatenate_language_files.py ES ../../spa
+python3 concatenate_language_files.py es_ES ../../spa
 
 # Concatenate French files
-python3 concatenate_language_files.py FR ../../fra
+python3 concatenate_language_files.py fr_FR ../../fra
 ```
 
 **Output:** Creates `README-it_IT.md`, `README-es_ES.md`, etc. containing all parts concatenated.
@@ -103,15 +103,15 @@ python3 verify_concatenation_detailed.py ES ../../spa
 cd tools/split-md
 
 # Step 1: Create Italian folder, split README.md, and create translation files
-python3 create_language_files.py ITA
+python3 create_language_files.py it_IT
 
-# Step 2: Translate each README-part-XX-ITA.md file manually
+# Step 2: Translate each README-part-XX-it_IT.md file manually
 
 # Step 3: Concatenate all translated parts
-python3 concatenate_language_files.py ITA
+python3 concatenate_language_files.py it_IT
 
 # Step 4: Verify the concatenation
-python3 verify_concatenation_detailed.py ITA
+python3 verify_concatenation_detailed.py it_IT
 ```
 
 ### For Spanish Translation:
@@ -120,15 +120,15 @@ python3 verify_concatenation_detailed.py ITA
 cd tools/split-md
 
 # Step 1: Create Spanish folder, split README.md, and create translation files
-python3 create_language_files.py ES ../../spa
+python3 create_language_files.py es_ES ../../spa
 
-# Step 2: Translate each README-part-XX-ES.md file manually
+# Step 2: Translate each README-part-XX-es_ES.md file manually
 
 # Step 3: Concatenate all translated parts
-python3 concatenate_language_files.py ES ../../spa
+python3 concatenate_language_files.py es_ES ../../spa
 
 # Step 4: Verify the concatenation
-python3 verify_concatenation_detailed.py ES ../../spa
+python3 verify_concatenation_detailed.py es_ES ../../spa
 ```
 
 ---
@@ -177,9 +177,9 @@ Please execute this workflow and provide a summary report of the results.
 ```
 
 **Example usage:**
-- For German: Replace [LANGUAGE_CODE] with `DE` and [LANGUAGE_FOLDER] with `deu`
-- For Portuguese: Replace [LANGUAGE_CODE] with `PT` and [LANGUAGE_FOLDER] with `por`
-- For Russian: Replace [LANGUAGE_CODE] with `RU` and [LANGUAGE_FOLDER] with `rus`
+- For German: Replace [LANGUAGE_CODE] with `de_DE` and [LANGUAGE_FOLDER] with `deu`
+- For Portuguese: Replace [LANGUAGE_CODE] with `pt_PT` and [LANGUAGE_FOLDER] with `por`
+- For Russian: Replace [LANGUAGE_CODE] with `ru_RU` and [LANGUAGE_FOLDER] with `rus`
 
 ---
 
