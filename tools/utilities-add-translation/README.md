@@ -1,6 +1,6 @@
 # Markdown Split and Translation Tools
 
-This directory contains Python scripts for splitting, translating, and managing markdown documentation files.
+This directory contains Python scripts for splitting, translating, and managing markdown documentation files. This is useful when you want to add a new language to the book.
 
 ## Scripts Overview
 
