@@ -1,4 +1,7 @@
 #!/bin/bash
+"""
+This script creates eBooks from the TypeScript Book.
+"""
 DIR_DOWNLOADS="downloads"
 
 INPUT_EN="README"

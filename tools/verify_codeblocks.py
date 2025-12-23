@@ -2,6 +2,9 @@ import re
 import sys
 
 def verify_codeblocks(filename):
+    """
+    Verifies that all code blocks in a markdown file have matching opening and closing fences.
+    """
     print(f"Verifying {filename}...")
     try:
         with open(filename, 'r', encoding='utf-8') as f:
