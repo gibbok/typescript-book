@@ -12,7 +12,7 @@ This book is completely Free and Open Source.
 
 I believe that high-quality technical education should be accessible to everyone, which is why I keep this book free and open.
 
-If the book helped you squash a bug, understand a tricky concept, or move forward in your career, please consider supporting my work by paying what you want (suggested price: $15) or by sponsoring a coffee. Your support helps me keep the content up to date and the digital lights on.
+If the book helped you squash a bug, understand a tricky concept, or move forward in your career, please consider supporting my work by paying what you want (suggested price: 15 USD) or by sponsoring a coffee. Your support helps me keep the content up to date and the digital lights on.
 
 [![Buy Me a Coffee](https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/simonepoggiali)
 
