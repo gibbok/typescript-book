@@ -6,7 +6,7 @@
 
 我相信高质量的技术教育应该惠及所有人，因此我坚持本书免费开源。
 
-如果本书帮助您解决了 bug、理解了棘手的概念，或者在职业发展中取得了进步，请考虑以您认为合适的金额（建议价格：15 美元）或请我喝杯咖啡的方式来支持我的工作。您的支持将帮助我保持内容更新，并维持网站的正常运行。
+如果本书帮助您解决了 bug、理解了棘手的概念或提升了您的职业发展，请考虑以您认为合适的金额（建议价格：15 美元）或请我喝杯咖啡来支持我的工作。您的支持将帮助我保持内容更新，并添加新的示例和更深入的解释。
 
 [![Buy Me a Coffee](https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/simonepoggiali)
 
