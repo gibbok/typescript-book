@@ -4,17 +4,15 @@ The Concise TypeScript Book provides a comprehensive and succinct overview of Ty
 
 This book is completely Free and Open Source.
 
-If you found this TypeScript book valuable and wish to contribute, consider supporting my efforts via PayPal. Thanks!
-
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?business=QW82ZS956XLFY&no_recurring=0&currency_code=EUR)
-
-I believe that high-quality technical education should be accessible to everyone, which is why I keep my work free and open-source.
+I believe that high-quality technical education should be accessible to everyone, which is why I keep my work completelly Free.
 
 If my book helped you squash a bug, understand generics, or land a job, consider buying me a coffee! Your support helps me keep the content updated and the "digital lights" on.
 
-<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="simonepoggiali" data-color="#FFDD00" data-emoji="☕"  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+[![Buy Me a Coffee](https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/simonepoggiali)
 
+or Donate using PayPal:
 
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?business=QW82ZS956XLFY&no_recurring=0&currency_code=EUR)
 
 ## Translations
 
