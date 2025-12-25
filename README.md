@@ -8,6 +8,14 @@ If you found this TypeScript book valuable and wish to contribute, consider supp
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?business=QW82ZS956XLFY&no_recurring=0&currency_code=EUR)
 
+I believe that high-quality technical education should be accessible to everyone, which is why I keep my work free and open-source.
+
+If my book helped you squash a bug, understand generics, or land a job, consider buying me a coffee! Your support helps me keep the content updated and the "digital lights" on.
+
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="simonepoggiali" data-color="#FFDD00" data-emoji="☕"  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+
+
+
 ## Translations
 
 This book has been translated into several language versions, including:
