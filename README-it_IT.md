@@ -4,7 +4,11 @@ The Concise TypeScript Book offre una panoramica completa e concisa delle funzio
 
 Questo libro è completamente gratuito e open source.
 
-Se avete trovato utile questo libro su TypeScript e desiderate contribuire, considerate di supportare i miei sforzi tramite PayPal. Grazie!
+Credo che un'istruzione tecnica di alta qualità debba essere accessibile a tutti, ed è per questo che mantengo questo libro gratuito e aperto.
+
+Se il libro ti ha aiutato a risolvere un bug, a comprendere un concetto ostico o a progredire nella tua carriera, ti prego di considerare di sostenere il mio lavoro pagando quanto vuoi (prezzo suggerito: 15 euro) o sponsorizzando un caffè. Il tuo supporto mi aiuta a mantenere i contenuti aggiornati e ad ampliarli con nuovi esempi e spiegazioni più approfondite.
+
+[![Buy Me a Coffee](https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/simonepoggiali)
 
 [![Dona](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?business=QW82ZS956XLFY&no_recurring=0&currency_code=EUR)
 
