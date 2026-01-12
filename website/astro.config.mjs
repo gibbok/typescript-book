@@ -41,6 +41,10 @@ export default defineConfig({
                     label: 'Italiano',
                     lang: 'it-IT',
                 },
+                'be-by': {
+                    label: 'Беларуская',
+                    lang: 'be-BY',
+                },
             },
             sidebar: [
                 {
