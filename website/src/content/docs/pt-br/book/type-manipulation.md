@@ -277,7 +277,7 @@ Remove o parâmetro 'this' de um tipo de função T.
 
 ```typescript
 function capitalize(this: String) {
-    return this[0].toUpperCase + this.substring(1).toLowerCase();
+    return this[0].toUpperCase() + this.substring(1).toLowerCase();
 }
 
 type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
