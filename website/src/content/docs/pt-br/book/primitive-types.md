@@ -17,7 +17,7 @@ const x: string = 'x';
 const y: string = 'y';
 ```
 
-Strings podem abranger múltiplas linhas se cercadas pelo caractere de crase (`):
+Strings podem abranger múltiplas linhas se cercadas pelo caractere de crase (\`):
 
 ```typescript
 let sentence: string = `xxx,
@@ -46,7 +46,7 @@ const octal: number = 0o633; // Octal começa com 0o
 
 ### bigInt
 
-Um `bigInt` representa valores numéricos que são muito grandes (2^53 – 1) e não podem ser representados com um `number`.
+Um `bigInt` representa valores numéricos que são muito grandes (2^53 - 1) e não podem ser representados com um `number`.
 
 Um `bigInt` pode ser criado chamando a função integrada `BigInt()` ou adicionando `n` ao final de qualquer literal numérico inteiro:
 
