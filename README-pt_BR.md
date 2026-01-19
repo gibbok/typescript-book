@@ -659,6 +659,7 @@ O quinto passo é habilitar "noImplicitAny", que forçará que todos os tipos se
 Durante a migração, você pode usar a diretiva `@ts-check`, que habilita a verificação de tipo TypeScript em um arquivo JavaScript. Esta diretiva fornece uma versão flexível de verificação de tipo e pode ser usada inicialmente para identificar problemas em arquivos JavaScript. Quando `@ts-check` é incluído em um arquivo, o TypeScript tentará deduzir definições usando comentários no estilo JSDoc. No entanto, considere usar anotações JSDoc apenas em um estágio muito inicial da migração.
 
 Considere manter o valor padrão de `noEmitOnError` em seu tsconfig.json como false. Isso permitirá que você gere código-fonte JavaScript mesmo se erros forem relatados.
+
 ## Explorando o Sistema de Tipos
 
 ### O Serviço de Linguagem TypeScript
@@ -1422,7 +1423,6 @@ if (x !== undefined) {
 
 #### Lançar ou retornar
 
-
 Lançar um erro ou retornar cedo de um branch pode ser usado para ajudar o TypeScript a estreitar um tipo. Por exemplo:
 
 ```typescript
@@ -1771,9 +1771,9 @@ Por padrão, os enums são baseados em números, começando de zero e a cada mem
 
 ```typescript
 enum Direction {
-    Up,    // 0
-    Down,  // 1
-    Left,  // 2
+    Up, // 0
+    Down, // 1
+    Left, // 2
     Right, // 3
 }
 ```
@@ -2029,7 +2029,6 @@ const strings = arr.filter(isString); // ['a', 'b']
 ## Uniões Discriminadas
 
 Uniões discriminadas em TypeScript são um tipo de tipo union onde cada tipo tem uma propriedade comum, chamada "discriminant", que o TypeScript pode usar para estreitar o tipo da união.
-
 
 Exemplo:
 
@@ -2713,7 +2712,7 @@ class Example {
 ```typescript
 function log(target: any, key: string, descriptor: PropertyDescriptor) {
     const original = descriptor.value;
-    descriptor.value = function(...args: any[]) {
+    descriptor.value = function (...args: any[]) {
         console.log(`Calling ${key}`);
         return original.apply(this, args);
     };
@@ -2832,7 +2831,6 @@ class Calculator {
     }
 }
 ```
-
 
 ## Generics
 
@@ -3707,7 +3705,7 @@ animals = dogs; // Válido: Dog[] é atribuível a Animal[]
 // Contravariância (funções)
 type Logger<T> = (value: T) => void;
 
-let logAnimal: Logger<Animal> = (animal) => console.log(animal.name);
+let logAnimal: Logger<Animal> = animal => console.log(animal.name);
 let logDog: Logger<Dog> = logAnimal; // Válido
 ```
 
@@ -3800,7 +3798,6 @@ Permite passar metadados adicionais para imports:
 ```typescript
 import data from './data.json' with { type: 'json' };
 ```
-
 
 Atributos de Import do TypeScript 5.3 (rótulos para imports) dizem ao runtime como lidar com módulos (JSON, etc.). Isso melhora a segurança garantindo imports claros e alinha com a Content Security Policy (CSP) para carregamento de recursos mais seguro. O TypeScript garante que eles são válidos, mas deixa o runtime lidar com sua interpretação para tratamento específico de módulos.
 
