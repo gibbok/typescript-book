@@ -51,7 +51,7 @@ pandoc -o $DIR_DOWNLOADS/$OUTPUT_IT.epub --metadata title="$TITLE_IT" --metadata
 pandoc -o $DIR_DOWNLOADS/$OUTPUT_PT.epub --metadata title="$TITLE_PT" --metadata author="$AUTHOR" -s $INPUT_PT.md
 
 # Validate eBooks
-epubcheck $DIR_DOWNLOADS/$OUTPUT_CN.epub
+epubcheck $DIR_DOWNLOADS/$OUTPUT_EN.epub
 epubcheck $DIR_DOWNLOADS/$OUTPUT_CN.epub
 epubcheck $DIR_DOWNLOADS/$OUTPUT_IT.epub
 epubcheck $DIR_DOWNLOADS/$OUTPUT_PT.epub
