@@ -1624,6 +1624,7 @@ type X = {
 
 É possível marcar uma propriedade como readonly para o TypeScript, isso não altera nenhum comportamento em tempo de execução, mas uma propriedade marcada como readonly não pode ser escrita durante a verificação de tipo.
 
+<!-- skip -->
 ```typescript
 type X = {
     readonly a: string;
@@ -1649,6 +1650,7 @@ const x: X = { a: 1, b: 2 };
 
 É possível tornar uma assinatura de índice readonly adicionando a palavra-chave readonly:
 
+<!-- skip -->
 ```typescript
 type X = {
     readonly [key: string]: number;
@@ -1802,12 +1804,14 @@ enum Direction {
 
 Para acessar um enum, apenas acesse o membro como uma propriedade fora do enum:
 
+<!-- skip -->
 ```typescript
 const up = Direction.Up;
 ```
 
 Também é possível acessar pelo valor:
 
+<!-- skip -->
 ```typescript
 const upName = Direction[1]; // Up
 ```
@@ -1851,6 +1855,7 @@ enum Direction {
 
 Nós podemos fazer:
 
+<!-- skip -->
 ```typescript
 const a = Direction.Up; // 0
 const b = Direction[0]; // Up
@@ -1858,6 +1863,7 @@ const b = Direction[0]; // Up
 
 O TypeScript compila isso em:
 
+<!-- skip -->
 ```typescript
 'use strict';
 var Direction;
@@ -2065,6 +2071,7 @@ Verificação de exaustividade é uma técnica no TypeScript para garantir que t
 
 Exemplo:
 
+<!-- skip -->
 ```typescript
 type Shape = Circle | Square | Triangle;
 
@@ -2179,6 +2186,7 @@ type Value = ReturnType<typeof getValue>; // { value: number }
 
 Em TypeScript, `import type` permite importar um tipo de um módulo:
 
+<!-- skip -->
 ```typescript
 // person.ts
 export type Person = {
@@ -2342,6 +2350,7 @@ No TypeScript, tanto `interface` quanto `type` podem ser usados para definir a f
 
 ### Sintaxe Comum
 
+<!-- skip -->
 ```typescript
 // Interface
 interface Person {
@@ -2360,6 +2369,7 @@ type Person = {
 
 Ambos podem descrever tipos básicos:
 
+<!-- skip -->
 ```typescript
 interface Point {
     x: number;
@@ -2376,6 +2386,7 @@ type Point = {
 
 Para objetos, tanto interfaces quanto types podem ser usados de forma intercambiável na maioria dos casos.
 
+<!-- skip -->
 ```typescript
 interface User {
     name: string;
@@ -2392,6 +2403,7 @@ type User = {
 
 Types suportam uniões e intersecções, enquanto interfaces não:
 
+<!-- skip -->
 ```typescript
 type Status = 'success' | 'error';
 type Response = SuccessResponse | ErrorResponse;
@@ -2526,9 +2538,9 @@ Construtores podem ser marcados como private ou protected para controlar como cl
 ```typescript
 class Singleton {
     private static instance: Singleton;
-    
+
     private constructor() {}
-    
+
     static getInstance() {
         if (!Singleton.instance) {
             Singleton.instance = new Singleton();
@@ -2613,6 +2625,7 @@ class Counter {
 
 TypeScript permite declarar e inicializar propriedades de classe diretamente nos parâmetros do construtor:
 
+<!-- skip -->
 ```typescript
 class Person {
     constructor(
@@ -2680,6 +2693,7 @@ Decorators fornecem uma maneira de adicionar anotações e metaprogramação à 
 
 #### Class Decorators
 
+<!-- skip -->
 ```typescript
 function sealed(constructor: Function) {
     Object.seal(constructor);
@@ -2694,10 +2708,11 @@ class Example {
 
 #### Property Decorator
 
+<!-- skip -->
 ```typescript
 function readonly(target: any, key: string) {
     Object.defineProperty(target, key, {
-        writable: false
+        writable: false,
     });
 }
 
@@ -2709,6 +2724,7 @@ class Example {
 
 #### Method Decorator
 
+<!-- skip -->
 ```typescript
 function log(target: any, key: string, descriptor: PropertyDescriptor) {
     const original = descriptor.value;
@@ -2728,6 +2744,7 @@ class Example {
 
 #### Decorators de Getter e Setter
 
+<!-- skip -->
 ```typescript
 function configurable(value: boolean) {
     return function (target: any, key: string, descriptor: PropertyDescriptor) {
@@ -2749,6 +2766,7 @@ class Example {
 
 Usando a biblioteca `reflect-metadata`, você pode adicionar e ler metadados:
 
+<!-- skip -->
 ```typescript
 import 'reflect-metadata';
 
@@ -2939,6 +2957,7 @@ const validator = new Validation.LettersValidator();
 
 Symbols são um tipo de dado primitivo que representa valores imutáveis que são garantidos como globalmente únicos durante o tempo de vida do programa.
 
+<!-- skip -->
 ```typescript
 const sym1 = Symbol('key');
 const sym2 = Symbol('key');
@@ -2947,7 +2966,7 @@ console.log(sym1 === sym2); // false
 
 const obj = {
     [sym1]: 'value1',
-    [sym2]: 'value2'
+    [sym2]: 'value2',
 };
 ```
 
@@ -2955,6 +2974,7 @@ const obj = {
 
 Diretivas triple-slash são comentários especiais que fornecem instruções ao compilador sobre como processar um arquivo. Elas começam com três barras consecutivas (`///`) e são tipicamente colocadas no topo de um arquivo TypeScript.
 
+<!-- skip -->
 ```typescript
 /// <reference path="./types.d.ts" />
 /// <reference types="node" />
@@ -2977,6 +2997,7 @@ type C = A & B; // { a: string; b: number; }
 
 #### Tipos Union
 
+<!-- skip -->
 ```typescript
 type Status = 'success' | 'error';
 type Response = SuccessResponse | ErrorResponse;
@@ -2996,8 +3017,8 @@ type Readonly<T> = {
 type TypeName<T> = T extends string
     ? 'string'
     : T extends number
-    ? 'number'
-    : 'other';
+      ? 'number'
+      : 'other';
 ```
 
 ### Tipos de Acesso Indexado
@@ -3152,7 +3173,10 @@ Extrai os tipos de parâmetro de um construtor:
 
 ```typescript
 class Person {
-    constructor(public name: string, public age: number) {}
+    constructor(
+        public name: string,
+        public age: number
+    ) {}
 }
 
 type PersonParams = ConstructorParameters<typeof Person>;
@@ -3347,6 +3371,7 @@ const fetchData = (): Promise<string> => {
 
 #### Async/Await
 
+<!-- skip -->
 ```typescript
 async function getData(): Promise<string> {
     const data = await fetchData();
@@ -3362,7 +3387,10 @@ async function getData(): Promise<string> {
 class NumberIterator implements Iterator<number> {
     private current: number;
 
-    constructor(private start: number, private end: number) {
+    constructor(
+        private start: number,
+        private end: number
+    ) {
         this.current = start;
     }
 
@@ -3393,6 +3421,7 @@ for (const num of numberGenerator(1, 5)) {
 
 TypeScript suporta anotações JSDoc para fornecer informações de tipo em código JavaScript:
 
+<!-- skip -->
 ```typescript
 /**
  * Adiciona dois números
@@ -3418,6 +3447,7 @@ npm install --save-dev @types/react
 
 JSX é uma extensão de sintaxe para JavaScript que permite escrever código semelhante a HTML em seus arquivos TypeScript:
 
+<!-- skip -->
 ```typescript
 const element = <h1>Hello, world!</h1>;
 
@@ -3432,6 +3462,7 @@ const Greeting = ({ name }: Props) => <h1>Hello, {name}!</h1>;
 
 TypeScript suporta módulos ES6:
 
+<!-- skip -->
 ```typescript
 // export
 export const PI = 3.14;
@@ -3498,6 +3529,7 @@ const child = new Child(); // [Function: Child]
 
 Permite carregar módulos condicionalmente ou sob demanda:
 
+<!-- skip -->
 ```typescript
 async function loadModule() {
     if (condition) {
@@ -3613,8 +3645,8 @@ const data: JSONValue = {
     hobbies: ['reading', 'coding'],
     address: {
         city: 'New York',
-        country: 'USA'
-    }
+        country: 'USA',
+    },
 };
 ```
 
@@ -3633,6 +3665,7 @@ type Flat = Flatten<Nested>; // string
 
 TypeScript suporta módulos ECMAScript no Node.js usando a extensão `.mts` ou configurando `"type": "module"` no package.json:
 
+<!-- skip -->
 ```typescript
 // math.mts
 export const add = (a: number, b: number) => a + b;
@@ -3645,6 +3678,7 @@ import { add } from './math.mjs';
 
 Funções de asserção permitem expressar verificações invariantes que lançam um erro se a condição não for satisfeita:
 
+<!-- skip -->
 ```typescript
 function assert(condition: any, msg?: string): asserts condition {
     if (!condition) {
@@ -3739,6 +3773,7 @@ const props: DataProps = {
 
 O operador `satisfies` permite verificar se um tipo satisfaz uma interface enquanto preserva o tipo mais específico:
 
+<!-- skip -->
 ```typescript
 type Color = 'red' | 'green' | 'blue';
 type RGB = [number, number, number];
@@ -3756,6 +3791,7 @@ const redNormalized = color.red[0]; // OK: [255, 0, 0] é inferido como tuple
 
 Permite importar e exportar apenas os tipos, não os valores:
 
+<!-- skip -->
 ```typescript
 // types.ts
 export type User = {
@@ -3773,6 +3809,7 @@ export type { User };
 
 A declaração `using` permite gerenciar recursos que precisam ser descartados:
 
+<!-- skip -->
 ```typescript
 {
     using resource = getResource();
@@ -3784,6 +3821,7 @@ A declaração `using` permite gerenciar recursos que precisam ser descartados:
 
 Para recursos assíncronos:
 
+<!-- skip -->
 ```typescript
 {
     await using connection = await getConnection();
@@ -3795,6 +3833,7 @@ Para recursos assíncronos:
 
 Permite passar metadados adicionais para imports:
 
+<!-- skip -->
 ```typescript
 import data from './data.json' with { type: 'json' };
 ```
