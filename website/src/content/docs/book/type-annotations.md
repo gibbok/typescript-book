@@ -12,9 +12,9 @@ On variables declared using `var`, `let` and `const`, it is possible to optional
 const x: number = 1;
 ```
 
-TypeScript does a good job of inferring types, especially simple ones, so in most cases these declarations are not necessary.
+TypeScript does a good job of inferring types, especially when simple one, so these declarations in most cases are not necessary.
 
-In functions, it is possible to add type annotations to parameters:
+On functions is possible to add type annotations to parameters:
 
 ```typescript
 function sum(a: number, b: number) {
