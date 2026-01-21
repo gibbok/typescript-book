@@ -1757,7 +1757,7 @@ const c = true; // Boolean literal type
 ```
 
 String, Numeric, and Boolean Literal Types are used in unions, type guards, and type aliases.
-In the following example, you can see a union type alias. `O` can be the only allowed value, and no other string is permitted:
+In the following example, you can see a union type alias. `O` consists of only the specified values, no other string is valid:
 
 ```typescript
 type O = 'a' | 'b' | 'c';
