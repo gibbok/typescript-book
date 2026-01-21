@@ -15,7 +15,7 @@ type X = {
 };
 ```
 
-It is possible to specify a default value when a property is optional"
+It is possible to specify a default value when a property is optional:
 
 ```typescript
 type X = {

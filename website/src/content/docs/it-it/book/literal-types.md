@@ -20,7 +20,7 @@ const c = true; // Boolean literal type
 ```
 
 I tipi letterali stringa, numerico e booleano vengono utilizzati nell'unione, nella protezione dei tipi e negli alias di tipo.
-Nell'esempio seguente è possibile vedere un'unione di alias di tipo, `O` può essere l'unico valore specificato e nessun'altra stringa:
+Nell'esempio seguente, è possibile vedere un alias di tipo unione. `O` è costituito solo dai valori specificati, nessun'altra stringa è valida:
 
 ```typescript
 type O = 'a' | 'b' | 'c';
