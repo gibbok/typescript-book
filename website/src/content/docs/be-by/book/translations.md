@@ -12,5 +12,3 @@ This book has been translated into several language versions, including:
 
 [Italian](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
 
-[Belarusian](https://github.com/gibbok/typescript-book/blob/main/README-be_BY.md)
-

@@ -20,8 +20,6 @@ This book has been translated into several language versions, including:
 
 [Italian](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
 
-[Belarusian](https://github.com/gibbok/typescript-book/blob/main/README-be_BY.md)
-
 ## Downloads and website
 
 You can also download the Epub version:
@@ -1646,7 +1644,7 @@ type X = {
 };
 ```
 
-It is possible to specify a default value when a property is optional:
+It is possible to specify a default value when a property is optional"
 
 ```typescript
 type X = {
@@ -1758,8 +1756,8 @@ const b = 1; // Numeric literal type
 const c = true; // Boolean literal type
 ```
 
-String, Numeric, and Boolean Literal Types are used in unions, type guards, and type aliases.
-In the following example, you can see a union type alias. `O` consists of only the specified values, no other string is valid:
+String, Numeric, and Boolean Literal Types are used in the union, type guard, and type aliases.
+In the following example you can see a type alias union, `O` can be the only value specified and not any other string:
 
 ```typescript
 type O = 'a' | 'b' | 'c';
@@ -2480,10 +2478,10 @@ type ProductId = `id-${Products}-${Status}`; // "id-p1-active" | "id-p1-inactive
 
 The `any` type is a special type (universal supertype) that can be used to represent any type of value (primitives, objects, arrays, functions, errors, symbols). It is often used in situations where the type of a value is not known at compile time, or when working with values from external APIs or libraries that do not have TypeScript typings.
 
-By utilizing `any` type, you are indicating to the TypeScript compiler that values should be represented without any limitations. To maximize type safety in your code, consider the following:
+By utilizing `any` type, you are indicating to the TypeScript compiler that values should be represented without any limitations. In order to maximizing type safety in your code consider the following:
 
 * Limit the usage of `any` to specific cases where the type is truly unknown.
-* Do not return `any` types from a function, as this weakens type safety in code that uses it.
+* Do not return `any` types from a function as you will lose type safety in the code using that function weakening your type safety.
 * Instead of `any` use `@ts-ignore` if you need to silence the compiler.
 
 ```typescript
