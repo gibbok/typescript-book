@@ -41,6 +41,10 @@ export default defineConfig({
                     label: 'Italiano',
                     lang: 'it-IT',
                 },
+                "pt-br": {
+                    label: "Português (Brasil)",
+                    lang: "pt-BR"
+                }
             },
             sidebar: [
                 {
