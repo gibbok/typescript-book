@@ -223,9 +223,9 @@ Simone Poggiali è uno Staff Engineer esperto, con una passione per la scrittura
 
 TypeScript è un linguaggio di programmazione fortemente tipizzato basato su JavaScript. È stato originariamente progettato da Anders Hejlsberg nel 2012 ed è attualmente sviluppato e gestito da Microsoft come progetto open source.
 
-TypeScript compila in JavaScript e può essere eseguito in qualsiasi runtime JavaScript (ad esempio, un browser o un server Node.js).
+TypeScript si compila in JavaScript e può essere eseguito in qualsiasi runtime JavaScript (ad esempio, un browser o Node.js su un server).
 
-TypeScript supporta diversi paradigmi di programmazione, come funzionale, generico, imperativo e orientato agli oggetti. TypeScript non è un linguaggio interpretato né compilato.
+Supporta diversi paradigmi di programmazione, come la programmazione funzionale, generica, imperativa e orientata agli oggetti, ed è un linguaggio compilato (transpilato) che viene convertito in JavaScript prima dell'esecuzione.
 
 ### Perché TypeScript?
 
