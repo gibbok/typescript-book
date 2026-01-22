@@ -266,11 +266,11 @@ Simone Poggiali 是一位经验丰富的资深工程师，自 90 年代以来便
 
 ### 什么是TypeScript？
 
-TypeScript 是一种基于 JavaScript 构建的强类型编程语言。它最初由 Anders Hejlsberg 于 2012 年设计，目前由 Microsoft 作为开源项目开发和维护。
+TypeScript 是一种基于 JavaScript 的强类型编程语言。它最初由 Anders Hejlsberg 于 2012 年设计，目前由微软开发和维护，是一个开源项目。
 
-TypeScript 编译为 JavaScript，并且可以在任何 JavaScript 运行时（例如浏览器或服务器 Node.js）中执行。
+TypeScript 会被编译成 JavaScript，并可在任何 JavaScript 运行时环境（例如浏览器或服务器上的 Node.js）中执行。
 
-TypeScript 支持多种编程范式，例如函数式、泛型、命令式和面向对象。TypeScript 既不是解释型语言，也不是编译型语言。
+它支持多种编程范式，例如函数式编程、泛型编程、命令式编程和面向对象编程。TypeScript 是一种编译型（转译型）语言，在执行前会被转换为 JavaScript。
 
 ### 为什么选择 TypeScript？
 
