@@ -12,4 +12,3 @@ sidebar:
 
 [意大利](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
 
-[葡萄牙語（巴西](https://github.com/gibbok/typescript-book/blob/main/README-pt_BR.md)
