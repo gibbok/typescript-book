@@ -20,6 +20,8 @@
 
 [意大利](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
 
+[葡萄牙语（巴西）](https://github.com/gibbok/typescript-book/blob/main/README-pt_BR.md)
+
 ## 下载和网站
 
 您还可以下载 Epub 版本：
