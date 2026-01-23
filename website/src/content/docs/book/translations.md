@@ -12,5 +12,5 @@ This book has been translated into several language versions, including:
 
 [Italian](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
 
-[Portoghese (Brasile)](https://github.com/gibbok/typescript-book/blob/main/README-pt_BR.md)
+[Portuguese (Brazil)](https://github.com/gibbok/typescript-book/blob/main/README-pt_BR.md)
 
