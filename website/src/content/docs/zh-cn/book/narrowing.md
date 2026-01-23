@@ -47,9 +47,9 @@ TypeScript 中的相等缩小通过检查变量是否等于特定值来相应缩
 const checkStatus = (status: 'success' | 'error') => {
     switch (status) {
         case 'success':
-            return true
+            return true;
         case 'error':
-            return null
+            return null;
     }
 };
 ```
