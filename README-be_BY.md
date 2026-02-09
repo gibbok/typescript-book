@@ -1,36 +1,38 @@
-# The Concise TypeScript Book
+# Лаканічная кніга па TypeScript
 
-The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects found in the latest version of the language, from its powerful type system to advanced features. Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.
+«Лаканічная кніга па TypeScript» прапануе поўны і змястоўны агляд магчымасцей TypeScript. У ёй прапануюцца зразумелыя тлумачэнні ўсіх аспектаў апошняй версіі мовы, ад магутнай сістэмы тыпаў да пашыраных функцый. Незалежна ад таго, пачатковец вы ці дасведчаны распрацоўшчык, гэтая кніга — неацэнны рэсурс для паляпшэння вашага разумення і валодання TypeScript.
 
-This book is completely Free and Open Source.
+Гэтая кніга цалкам бясплатная і з адкрытым зыходным кодам.
 
-I believe that high-quality technical education should be accessible to everyone, which is why I keep this book free and open.
+Я лічу, што якасная тэхнічная адукацыя павінна быць даступная ўсім, таму я раблю гэту кнігу бясплатнай і адкрытай.
 
-If the book helped you squash a bug, understand a tricky concept, or advance in your career, please consider supporting my work by paying what you want (suggested price: 15 USD) or sponsoring a coffee. Your support helps me keep the content up to date and expand it with new examples and deeper explanations.
+Калі кніга дапамагла вам разабрацца з памылкай, зразумець складаную канцэпцыю або прасунуцца па кар'ернай лесвіцы, калі ласка, падумайце аб падтрымцы маёй працы, заплаціўшы патрэбную суму (рэкамендаваная цана: 15 долараў ЗША) або спансуючы каву. Ваша падтрымка дапамагае мне абнаўляць змест і папаўняць яго новымі прыкладамі і больш глыбокімі тлумачэннямі.
 
 [![Buy Me a Coffee](https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/simonepoggiali)
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?business=QW82ZS956XLFY&no_recurring=0&currency_code=EUR)
 
-## Translations
+## Пераклады
 
-This book has been translated into several language versions, including:
+Гэтая кніга перакладзена на некалькі моў, у тым ліку:
 
-[Chinese](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
+[Кітайская](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
-[Italian](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
+[Італьянская](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
 
-## Downloads and website
+[Беларуская](https://github.com/gibbok/typescript-book/blob/main/README-be_BY.md)
 
-You can also download the Epub version:
+## Спампоўкі і сайт
+
+Вы таксама можаце спампаваць версію ў фармаце Epub:
 
 [https://github.com/gibbok/typescript-book/tree/main/downloads](https://github.com/gibbok/typescript-book/tree/main/downloads)
 
-An online version is available at:
+Інтэрнэт-версія даступная па адрасе:
 
 [https://gibbok.github.io/typescript-book](https://gibbok.github.io/typescript-book)
 
-## Table of Contents
+## Змест
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](#the-concise-typescript-book)
@@ -245,13 +247,13 @@ An online version is available at:
     - [Import Attributes](#import-attributes)
 <!-- markdownlint-enable MD004 -->
 
-## Introduction
+## Уводзіны
 
 Welcome to The Concise TypeScript Book! This guide equips you with essential knowledge and practical skills for effective TypeScript development. Discover key concepts and techniques to write clean, robust code. Whether you're a beginner or an experienced developer, this book serves as both a comprehensive guide and a handy reference for leveraging TypeScript's power in your projects.
 
 This book covers TypeScript 5.2.
 
-## About the Author
+## Пра аўтара
 
 Simone Poggiali is an experienced Staff Engineer with a passion for writing professional-grade code since the 90s. Throughout his international career, he has contributed to numerous projects for a wide range of clients, from startups to large organizations. Notable companies such as HelloFresh, Siemens, O2, Leroy Merlin and Snowplow have benefited from his expertise and dedication.
 
@@ -264,7 +266,7 @@ You can reach Simone Poggiali on the following platforms:
 
 ## TypeScript Introduction
 
-### What is TypeScript?
+### Што такое TypeScript?
 
 TypeScript is a strongly typed programming language that builds on JavaScript. It was originally designed by Anders Hejlsberg in 2012 and is currently developed and maintained by Microsoft as an open source project.
 
@@ -272,7 +274,7 @@ TypeScript compiles to JavaScript and can be executed in any JavaScript runtime 
 
 TypeScript supports multiple programming paradigms such as functional, generic, imperative, and object-oriented. TypeScript is neither an interpreted nor a compiled language.
 
-### Why TypeScript?
+### Чаму TypeScript?
 
 TypeScript is a strongly typed language that helps prevent common programming mistakes and avoid certain kinds of run-time errors before the program is executed.
 
@@ -286,7 +288,7 @@ Some of the benefits of TypeScript:
 * Cross-Platform and Cross-browser Compatibility
 * Tooling support with IntelliSense
 
-### TypeScript and JavaScript
+### TypeScript і JavaScript
 
 TypeScript is written in `.ts` or `.tsx` files, while JavaScript files are written in `.js` or `.jsx`.
 
@@ -475,9 +477,9 @@ Here are some of the modern JavaScript features that can be used in TypeScript:
 
 By leveraging these modern JavaScript features, developers can write more expressive and concise code in TypeScript.
 
-## Getting Started With TypeScript
+## Пачатак працы з TypeScript
 
-### Installation
+### Усталёўка
 
 Visual Studio Code provides excellent support for the TypeScript language but does not include the TypeScript compiler. To install the TypeScript compiler, you can use a package manager like npm or yarn:
 
