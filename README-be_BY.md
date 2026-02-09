@@ -35,22 +35,22 @@
 ## Змест
 
 <!-- markdownlint-disable MD004 -->
-- [The Concise TypeScript Book](#the-concise-typescript-book)
-  - [Translations](#translations)
-  - [Downloads and website](#downloads-and-website)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [About the Author](#about-the-author)
-  - [TypeScript Introduction](#typescript-introduction)
-    - [What is TypeScript?](#what-is-typescript)
-    - [Why TypeScript?](#why-typescript)
-    - [TypeScript and JavaScript](#typescript-and-javascript)
-    - [TypeScript Code Generation](#typescript-code-generation)
-    - [Modern JavaScript Now (Downleveling)](#modern-javascript-now-downleveling)
-  - [Getting Started With TypeScript](#getting-started-with-typescript)
-    - [Installation](#installation)
-    - [Configuration](#configuration)
-    - [TypeScript Configuration File](#typescript-configuration-file)
+- [Лаканічная кніга па TypeScript](#the-concise-typescript-book)
+  - [Пераклады](#translations)
+  - [Спампоўкі і сайт](#downloads-and-website)
+  - [Змест](#table-of-contents)
+  - [Уводзіны](#introduction)
+  - [Пра аўтара](#about-the-author)
+  - [Уводзіны ў TypeScript](#typescript-introduction)
+    - [Што такое TypeScript?](#what-is-typescript)
+    - [Чаму TypeScript?](#why-typescript)
+    - [TypeScript і JavaScript](#typescript-and-javascript)
+    - [Генерацыя кода TypeScript](#typescript-code-generation)
+    - [Сучасны JavaScript цяпер (Downleveling)](#modern-javascript-now-downleveling)
+  - [Пачатак працы з TypeScript](#getting-started-with-typescript)
+    - [Усталёўка](#installation)
+    - [Канфігурацыя](#configuration)
+    - [Файл канфігурацыі TypeScript](#typescript-configuration-file)
       - [target](#target)
       - [lib](#lib)
       - [strict](#strict)
@@ -63,132 +63,132 @@
       - [include](#include)
       - [exclude](#exclude)
     - [importHelpers](#importhelpers)
-    - [Migration to TypeScript Advice](#migration-to-typescript-advice)
-  - [Exploring the Type System](#exploring-the-type-system)
-    - [The TypeScript Language Service](#the-typescript-language-service)
-    - [Structural Typing](#structural-typing)
-    - [TypeScript Fundamental Comparison Rules](#typescript-fundamental-comparison-rules)
-    - [Types as Sets](#types-as-sets)
-    - [Assign a type: Type Declarations and Type Assertions](#assign-a-type-type-declarations-and-type-assertions)
-      - [Type Declaration](#type-declaration)
-      - [Type Assertion](#type-assertion)
-      - [Ambient Declarations](#ambient-declarations)
-    - [Property Checking and Excess Property Checking](#property-checking-and-excess-property-checking)
-    - [Weak Types](#weak-types)
-    - [Strict Object Literal Checking (Freshness)](#strict-object-literal-checking-freshness)
-    - [Type Inference](#type-inference)
-    - [More Advanced Inferences](#more-advanced-inferences)
-    - [Type Widening](#type-widening)
+    - [Парады па міграцыі на TypeScript](#migration-to-typescript-advice)
+  - [Даследаванне сістэмы тыпаў](#exploring-the-type-system)
+    - [Моўны сэрвіс TypeScript](#the-typescript-language-service)
+    - [Структурная тыпізацыя](#structural-typing)
+    - [Фундаментальныя правілы параўнання TypeScript](#typescript-fundamental-comparison-rules)
+    - [Тыпы як мноствы](#types-as-sets)
+    - [Прысваенне тыпу: Дэкларацыі тыпаў і Сцвярджэнні тыпаў](#assign-a-type-type-declarations-and-type-assertions)
+      - [Дэкларацыя тыпу](#type-declaration)
+      - [Сцвярджэнне тыпу](#type-assertion)
+      - [Дэкларацыі асяроддзя (Ambient Declarations)](#ambient-declarations)
+    - [Праверка ўласцівасцей і Праверка лішніх уласцівасцей](#property-checking-and-excess-property-checking)
+    - [Слабыя тыпы](#weak-types)
+    - [Строгая праверка літэралаў аб'екта (Свежасць/Freshness)](#strict-object-literal-checking-freshness)
+    - [Вывад тыпаў](#type-inference)
+    - [Больш прасунуты вывад тыпаў](#more-advanced-inferences)
+    - [Пашырэнне тыпаў (Type Widening)](#type-widening)
     - [Const](#const)
-      - [Const Modifier on Type Parameters](#const-modifier-on-type-parameters)
-      - [Const assertion](#const-assertion)
-    - [Explicit Type Annotation](#explicit-type-annotation)
-    - [Type Narrowing](#type-narrowing)
-      - [Conditions](#conditions)
-      - [Throwing or returning](#throwing-or-returning)
-      - [Discriminated Union](#discriminated-union)
-      - [User-Defined Type Guards](#user-defined-type-guards)
-  - [Primitive Types](#primitive-types)
+      - [Мадыфікатар Const для параметраў тыпу](#const-modifier-on-type-parameters)
+      - [Сцвярджэнне Const (Const assertion)](#const-assertion)
+    - [Яўная анатацыя тыпу](#explicit-type-annotation)
+    - [Звужэнне тыпаў (Type Narrowing)](#type-narrowing)
+      - [Умовы](#conditions)
+      - [Выкід (Throwing) або вяртанне (returning)](#throwing-or-returning)
+      - [Дыскрымінаванае аб'яднанне (Discriminated Union)](#discriminated-union)
+      - [Карыстальніцкія вартаўнікі тыпу (User-Defined Type Guards)](#user-defined-type-guards)
+  - [Прымітыўныя тыпы](#primitive-types)
     - [string](#string)
     - [boolean](#boolean)
     - [number](#number)
     - [bigInt](#bigint)
     - [Symbol](#symbol)
-    - [null and undefined](#null-and-undefined)
+    - [null і undefined](#null-and-undefined)
     - [Array](#array)
     - [any](#any)
-  - [Type Annotations](#type-annotations)
-  - [Optional Properties](#optional-properties)
-  - [Readonly Properties](#readonly-properties)
-  - [Index Signatures](#index-signatures)
-  - [Extending Types](#extending-types)
-  - [Literal Types](#literal-types)
-  - [Literal Inference](#literal-inference)
+  - [Анатацыі тыпаў](#type-annotations)
+  - [Неабавязковыя ўласцівасці](#optional-properties)
+  - [Уласцівасці толькі для чытання](#readonly-properties)
+  - [Індэксныя сігнатуры](#index-signatures)
+  - [Пашырэнне тыпаў](#extending-types)
+  - [Літэральныя тыпы](#literal-types)
+  - [Літэральны вывад](#literal-inference)
   - [strictNullChecks](#strictnullchecks)
-  - [Enums](#enums)
-    - [Numeric enums](#numeric-enums)
-    - [String enums](#string-enums)
-    - [Constant enums](#constant-enums)
-    - [Reverse mapping](#reverse-mapping)
-    - [Ambient enums](#ambient-enums)
-    - [Computed and constant members](#computed-and-constant-members)
-  - [Narrowing](#narrowing)
-    - [typeof type guards](#typeof-type-guards)
-    - [Truthiness narrowing](#truthiness-narrowing)
-    - [Equality narrowing](#equality-narrowing)
-    - [In Operator narrowing](#in-operator-narrowing)
-    - [instanceof narrowing](#instanceof-narrowing)
-  - [Assignments](#assignments)
-  - [Control Flow Analysis](#control-flow-analysis)
-  - [Type Predicates](#type-predicates)
-  - [Discriminated Unions](#discriminated-unions)
-  - [The never Type](#the-never-type)
-  - [Exhaustiveness checking](#exhaustiveness-checking)
-  - [Object Types](#object-types)
-  - [Tuple Type (Anonymous)](#tuple-type-anonymous)
-  - [Named Tuple Type (Labeled)](#named-tuple-type-labeled)
-  - [Fixed Length Tuple](#fixed-length-tuple)
-  - [Union Type](#union-type)
-  - [Intersection Types](#intersection-types)
-  - [Type Indexing](#type-indexing)
-  - [Type from Value](#type-from-value)
-  - [Type from Func Return](#type-from-func-return)
-  - [Type from Module](#type-from-module)
-  - [Mapped Types](#mapped-types)
-  - [Mapped Type Modifiers](#mapped-type-modifiers)
-  - [Conditional Types](#conditional-types)
-  - [Distributive Conditional Types](#distributive-conditional-types)
-  - [infer Type Inference in Conditional Types](#infer-type-inference-in-conditional-types)
-  - [Predefined Conditional Types](#predefined-conditional-types)
-  - [Template Union Types](#template-union-types)
-  - [Any type](#any-type)
-  - [Unknown type](#unknown-type)
-  - [Void type](#void-type)
-  - [Never type](#never-type)
-  - [Interface and Type](#interface-and-type)
-    - [Common Syntax](#common-syntax)
-    - [Basic Types](#basic-types)
-    - [Objects and Interfaces](#objects-and-interfaces)
-    - [Union and Intersection Types](#union-and-intersection-types)
-  - [Built-in Type Primitives](#built-in-type-primitives)
-  - [Common Built-in JS Objects](#common-built-in-js-objects)
-  - [Overloads](#overloads)
-  - [Merging and Extension](#merging-and-extension)
-  - [Differences between Type and Interface](#differences-between-type-and-interface)
-  - [Class](#class)
-    - [Class Common Syntax](#class-common-syntax)
-    - [Constructor](#constructor)
-    - [Private and Protected Constructors](#private-and-protected-constructors)
-    - [Access Modifiers](#access-modifiers)
-    - [Get and Set](#get-and-set)
-    - [Auto-Accessors in Classes](#auto-accessors-in-classes)
+  - [Пералічэнні (Enums)](#enums)
+    - [Лікавыя пералічэнні](#numeric-enums)
+    - [Радковыя пералічэнні](#string-enums)
+    - [Канстантныя пералічэнні](#constant-enums)
+    - [Адваротнае адлюстраванне](#reverse-mapping)
+    - [Пералічэнні асяроддзя](#ambient-enums)
+    - [Вылічаныя і канстантныя члены](#computed-and-constant-members)
+  - [Звужэнне (Narrowing)](#narrowing)
+    - [Вартаўнікі тыпу typeof](#typeof-type-guards)
+    - [Звужэнне па праўдзівасці (Truthiness narrowing)](#truthiness-narrowing)
+    - [Звужэнне па роўнасці (Equality narrowing)](#equality-narrowing)
+    - [Звужэнне аператарам In](#in-operator-narrowing)
+    - [Звужэнне аператарам instanceof](#instanceof-narrowing)
+  - [Прысваенні](#assignments)
+  - [Аналіз патоку кіравання](#control-flow-analysis)
+  - [Прэдыкаты тыпаў](#type-predicates)
+  - [Дыскрымінаваныя аб'яднанні](#discriminated-unions)
+  - [Тып never](#the-never-type)
+  - [Праверка на вычарпальнасць](#exhaustiveness-checking)
+  - [Тыпы аб'ектаў](#object-types)
+  - [Тып картэжа (Ананімны)](#tuple-type-anonymous)
+  - [Іменаваны тып картэжа (Пазначаны)](#named-tuple-type-labeled)
+  - [Картэж фіксаванай даўжыні](#fixed-length-tuple)
+  - [Тып аб'яднання (Union Type)](#union-type)
+  - [Тыпы перасячэння (Intersection Types)](#intersection-types)
+  - [Індэксацыя тыпаў](#type-indexing)
+  - [Тып са значэння](#type-from-value)
+  - [Тып з вяртання функцыі](#type-from-func-return)
+  - [Тып з модуля](#type-from-module)
+  - [Супастаўленыя тыпы (Mapped Types)](#mapped-types)
+  - [Мадыфікатары супастаўленых тыпаў](#mapped-type-modifiers)
+  - [Умоўныя тыпы](#conditional-types)
+  - [Размеркавальныя ўмоўныя тыпы](#distributive-conditional-types)
+  - [Вывад тыпу infer ва ўмоўных тыпах](#infer-type-inference-in-conditional-types)
+  - [Наканаваныя ўмоўныя тыпы](#predefined-conditional-types)
+  - [Тыпы шаблонных аб'яднанняў](#template-union-types)
+  - [Тып Any](#any-type)
+  - [Тып Unknown](#unknown-type)
+  - [Тып Void](#void-type)
+  - [Тып Never](#never-type)
+  - [Інтэрфейс і тып](#interface-and-type)
+    - [Агульны сінтаксіс](#common-syntax)
+    - [Базавыя тыпы](#basic-types)
+    - [Аб'екты і інтэрфейсы](#objects-and-interfaces)
+    - [Тыпы аб'яднання і перасячэння](#union-and-intersection-types)
+  - [Убудаваныя прымітывы тыпаў](#built-in-type-primitives)
+  - [Агульныя ўбудаваныя аб'екты JS](#common-built-in-js-objects)
+  - [Перагрузкі](#overloads)
+  - [Аб'яднанне і пашырэнне](#merging-and-extension)
+  - [Адрозненні паміж тыпам і інтэрфейсам](#differences-between-type-and-interface)
+  - [Клас (Class)](#class)
+    - [Агульны сінтаксіс класа](#class-common-syntax)
+    - [Канструктар (Constructor)](#constructor)
+    - [Прыватныя і абароненыя канструктары](#private-and-protected-constructors)
+    - [Мадыфікатары доступу](#access-modifiers)
+    - [Get і Set (Гетэры і Сэтэры)](#get-and-set)
+    - [Аўтаматычныя аксэсары ў класах](#auto-accessors-in-classes)
     - [this](#this)
-    - [Parameter Properties](#parameter-properties)
-    - [Abstract Classes](#abstract-classes)
-    - [With Generics](#with-generics)
-    - [Decorators](#decorators)
-      - [Class Decorators](#class-decorators)
-      - [Property Decorator](#property-decorator)
-      - [Method Decorator](#method-decorator)
-      - [Getter and Setter Decorators](#getter-and-setter-decorators)
-      - [Decorator Metadata](#decorator-metadata)
-    - [Inheritance](#inheritance)
-    - [Statics](#statics)
-    - [Property initialization](#property-initialization)
-    - [Method overloading](#method-overloading)
-  - [Generics](#generics)
-    - [Generic Type](#generic-type)
-    - [Generic Classes](#generic-classes)
-    - [Generic Constraints](#generic-constraints)
-    - [Generic contextual narrowing](#generic-contextual-narrowing)
-  - [Erased Structural Types](#erased-structural-types)
-  - [Namespacing](#namespacing)
-  - [Symbols](#symbols)
-  - [Triple-Slash Directives](#triple-slash-directives)
-  - [Type Manipulation](#type-manipulation)
-    - [Creating Types from Types](#creating-types-from-types)
-    - [Indexed Access Types](#indexed-access-types)
-    - [Utility Types](#utility-types)
+    - [Уласцівасці параметраў](#parameter-properties)
+    - [Абстрактныя класы](#abstract-classes)
+    - [З абагульненымі тыпамі (Generics)](#with-generics)
+    - [Дэкаратары](#decorators)
+      - [Дэкаратары класа](#class-decorators)
+      - [Дэкаратар уласцівасці](#property-decorator)
+      - [Дэкаратар метаду](#method-decorator)
+      - [Дэкаратары гетэра і сэтэра](#getter-and-setter-decorators)
+      - [Метаданыя дэкаратара](#decorator-metadata)
+    - [Успадкоўванне (Inheritance)](#inheritance)
+    - [Статычныя члены (Statics)](#statics)
+    - [Ініцыялізацыя ўласцівасцей](#property-initialization)
+    - [Перагрузка метадаў](#method-overloading)
+  - [Абагульненыя тыпы (Generics)](#generics)
+    - [Абагульнены тып](#generic-type)
+    - [Абагульненыя класы](#generic-classes)
+    - [Абмежаванні абагульненых тыпаў (Generic Constraints)](#generic-constraints)
+    - [Абагульненае кантэкстнае звужэнне](#generic-contextual-narrowing)
+  - [Сцёртыя структурныя тыпы](#erased-structural-types)
+  - [Прасторы імёнаў (Namespacing)](#namespacing)
+  - [Сімвалы (Symbols)](#symbols)
+  - [Дырэктывы Triple-Slash (Triple-Slash Directives)](#triple-slash-directives)
+  - [Маніпуляцыя тыпамі](#type-manipulation)
+    - [Стварэнне тыпаў з тыпаў](#creating-types-from-types)
+    - [Тыпы індэксаванага доступу](#indexed-access-types)
+    - [Утылітныя тыпы (Utility Types)](#utility-types)
       - [Awaited\<T\>](#awaitedt)
       - [Partial\<T\>](#partialt)
       - [Required\<T\>](#requiredt)
@@ -211,40 +211,40 @@
       - [Capitalize\<T\>](#capitalizet)
       - [Uncapitalize\<T\>](#uncapitalizet)
       - [NoInfer\<T\>](#noinfert)
-  - [Others](#others)
-    - [Errors and Exception Handling](#errors-and-exception-handling)
-    - [Mixin classes](#mixin-classes)
-    - [Asynchronous Language Features](#asynchronous-language-features)
-    - [Iterators and Generators](#iterators-and-generators)
-    - [TsDocs JSDoc Reference](#tsdocs-jsdoc-reference)
+  - [Іншае](#others)
+    - [Памылкі і апрацоўка выключэнняў](#errors-and-exception-handling)
+    - [Класы Mixin](#mixin-classes)
+    - [Асінхронныя магчымасці мовы](#asynchronous-language-features)
+    - [Ітэратары і генератары](#iterators-and-generators)
+    - [Даведнік па TsDocs JSDoc](#tsdocs-jsdoc-reference)
     - [@types](#types)
     - [JSX](#jsx-1)
-    - [ES6 Modules](#es6-modules)
-    - [ES7 Exponentiation Operator](#es7-exponentiation-operator)
-    - [The for-await-of Statement](#the-for-await-of-statement)
-    - [New target meta-property](#new-target-meta-property)
-    - [Dynamic Import Expressions](#dynamic-import-expressions)
+    - [Модулі ES6](#es6-modules)
+    - [Аператар узвядзення ў ступень ES7](#es7-exponentiation-operator)
+    - [Аператар for-await-of](#the-for-await-of-statement)
+    - [Метаўласцівасць new.target](#new-target-meta-property)
+    - [Выразы дынамічнага імпарту](#dynamic-import-expressions)
     - ["tsc –watch"](#tsc-watch)
-    - [Non-null Assertion Operator](#non-null-assertion-operator)
-    - [Defaulted declarations](#defaulted-declarations)
-    - [Optional Chaining](#optional-chaining)
-    - [Nullish coalescing operator](#nullish-coalescing-operator)
-    - [Template Literal Types](#template-literal-types)
-    - [Function overloading](#function-overloading)
-    - [Recursive Types](#recursive-types)
-    - [Recursive Conditional Types](#recursive-conditional-types)
-    - [ECMAScript Module Support in Node](#ecmascript-module-support-in-node)
-    - [Assertion Functions](#assertion-functions)
-    - [Variadic Tuple Types](#variadic-tuple-types)
-    - [Boxed types](#boxed-types)
-    - [Covariance and Contravariance in TypeScript](#covariance-and-contravariance-in-typescript)
-      - [Optional Variance Annotations for Type Parameters](#optional-variance-annotations-for-type-parameters)
-    - [Template String Pattern Index Signatures](#template-string-pattern-index-signatures)
-    - [The satisfies Operator](#the-satisfies-operator)
-    - [Type-Only Imports and Export](#type-only-imports-and-export)
-    - [using declaration and Explicit Resource Management](#using-declaration-and-explicit-resource-management)
-      - [await using declaration](#await-using-declaration)
-    - [Import Attributes](#import-attributes)
+    - [Аператар сцвярджэння non-null](#non-null-assertion-operator)
+    - [Дэкларацыі па змаўчанні](#defaulted-declarations)
+    - [Апцыянальны ланцужок (Optional Chaining)](#optional-chaining)
+    - [Аператар нулявога аб'яднання (Nullish coalescing)](#nullish-coalescing-operator)
+    - [Тыпы шаблонных літэралаў](#template-literal-types)
+    - [Перагрузка функцый](#function-overloading)
+    - [Рэкурсіўныя тыпы](#recursive-types)
+    - [Рэкурсіўныя ўмоўныя тыпы](#recursive-conditional-types)
+    - [Падтрымка модуляў ECMAScript у Node](#ecmascript-module-support-in-node)
+    - [Функцыі сцвярджэння (Assertion Functions)](#assertion-functions)
+    - [Варыятыўныя тыпы картэжаў (Variadic Tuple Types)](#variadic-tuple-types)
+    - [Упакаваныя тыпы (Boxed types)](#boxed-types)
+    - [Каварыянтнасць і контраварыянтнасць у TypeScript](#covariance-and-contravariance-in-typescript)
+      - [Неабавязковыя анатацыі варыянтнасці для параметраў тыпу](#optional-variance-annotations-for-type-parameters)
+    - [Шаблонныя радковыя індэксныя сігнатуры](#template-string-pattern-index-signatures)
+    - [Аператар satisfies](#the-satisfies-operator)
+    - [Імпарт і экспарт толькі тыпаў](#type-only-imports-and-export)
+    - [Дэкларацыя using і відавочнае кіраванне рэсурсамі](#using-declaration-and-explicit-resource-management)
+      - [Дэкларацыя await using](#await-using-declaration)
+    - [Атрыбуты імпарту (Import Attributes)](#import-attributes)
 <!-- markdownlint-enable MD004 -->
 
 ## Уводзіны
@@ -255,62 +255,62 @@ This book covers TypeScript 5.2.
 
 ## Пра аўтара
 
-Simone Poggiali is an experienced Staff Engineer with a passion for writing professional-grade code since the 90s. Throughout his international career, he has contributed to numerous projects for a wide range of clients, from startups to large organizations. Notable companies such as HelloFresh, Siemens, O2, Leroy Merlin and Snowplow have benefited from his expertise and dedication.
+Сімонэ Паджалі — дасведчаны Staff Engineer, які захапляецца напісаннем прафесійнага кода з 90-х гадоў. На працягу сваёй міжнароднай кар'еры ён зрабіў унёсак у шматлікія праекты для шырокага кола кліентаў, ад стартапаў да буйных арганізацый. Такія вядомыя кампаніі, як HelloFresh, Siemens, O2, Leroy Merlin і Snowplow, скарысталіся яго вопытам і адданасцю справе.
 
-You can reach Simone Poggiali on the following platforms:
+Звязацца з Сімонэ Паджалі можна на наступных платформах:
 
 * LinkedIn: [https://www.linkedin.com/in/simone-poggiali](https://www.linkedin.com/in/simone-poggiali)
 * GitHub: [https://github.com/gibbok](https://github.com/gibbok)
 * X.com: [https://x.com/gibbok_coding](https://x.com/gibbok_coding)
 * Email: gibbok.coding📧gmail.com
 
-## TypeScript Introduction
+## Уводзіны ў TypeScript
 
 ### Што такое TypeScript?
 
-TypeScript is a strongly typed programming language that builds on JavaScript. It was originally designed by Anders Hejlsberg in 2012 and is currently developed and maintained by Microsoft as an open source project.
+TypeScript — гэта строга тыпізаваная мова праграмавання, заснаваная на JavaScript. Яна была першапачаткова распрацавана Андэрсам Хейлсбергам у 2012 годзе і ў цяперашні час распрацоўваецца і падтрымліваецца Microsoft як праект з адкрытым зыходным кодам.
 
-TypeScript compiles to JavaScript and can be executed in any JavaScript runtime (e.g., a browser or server Node.js).
+TypeScript кампілюецца ў JavaScript і можа выконвацца ў любым асяроддзі выканання JavaScript (напрыклад, у браўзеры або на серверы Node.js).
 
-TypeScript supports multiple programming paradigms such as functional, generic, imperative, and object-oriented. TypeScript is neither an interpreted nor a compiled language.
+TypeScript падтрымлівае некалькі парадыгмаў праграмавання, такія як функцыянальнае, абагульненае (generic), імператыўнае і аб'ектна-арыентаванае. TypeScript не з'яўляецца ні інтэрпрэтаванай, ні кампіляванай (у традыцыйным сэнсе) мовай.
 
 ### Чаму TypeScript?
 
-TypeScript is a strongly typed language that helps prevent common programming mistakes and avoid certain kinds of run-time errors before the program is executed.
+TypeScript — гэта строга тыпізаваная мова, якая дапамагае прадухіліць распаўсюджаныя памылкі праграмавання і пазбегнуць пэўных відаў памылак часу выканання да запуску праграмы.
 
-A strongly typed language allows the developer to specify various program constraints and behaviors in the data type definitions, facilitating the ability to verify the correctness of the software and prevent defects. This is especially valuable in large-scale applications.
+Строга тыпізаваная мова дазваляе распрацоўшчыку вызначаць розныя абмежаванні і паводзіны праграмы ў вызначэннях тыпаў даных, што палягчае праверку карэктнасці праграмнага забеспячэння і прадухіленне дэфектаў. Гэта асабліва каштоўна ў маштабных праграмах.
 
-Some of the benefits of TypeScript:
+Некаторыя перавагі TypeScript:
 
-* Static typing, optionally strongly typed
-* Type Inference
-* Access to ES6 and ES7 features
-* Cross-Platform and Cross-browser Compatibility
-* Tooling support with IntelliSense
+* Статычная тыпізацыя, апцыянальна строгая
+* Вывад тыпаў
+* Доступ да функцый ES6 і ES7
+* Кросплатформенная і кросбраўзерная сумяшчальнасць
+* Падтрымка інструментаў з дапамогай IntelliSense
 
 ### TypeScript і JavaScript
 
-TypeScript is written in `.ts` or `.tsx` files, while JavaScript files are written in `.js` or `.jsx`.
+TypeScript пішацца ў файлах `.ts` ці `.tsx`, у той час як файлы JavaScript пішуцца ў `.js` ці `.jsx`.
 
-Files with the extension `.tsx` or `.jsx` can contain JavaScript Syntax Extension JSX, which is used in React for UI development.
+Файлы з пашырэннем `.tsx` ці `.jsx` могуць утрымліваць сінтаксічнае пашырэнне JavaScript JSX, якое выкарыстоўваецца ў React для распрацоўкі карыстальніцкага інтэрфейсу.
 
-TypeScript is a typed superset of JavaScript (ECMAScript 2015) in terms of syntax. All JavaScript code is valid TypeScript code, but the reverse is not always true.
+TypeScript з'яўляецца тыпізаваным надмноствам JavaScript (ECMAScript 2015) з пункту гледжання сінтаксісу. Увесь код JavaScript з'яўляецца сапраўдным кодам TypeScript, але адваротнае не заўсёды верна.
 
-For instance, consider a function in a JavaScript file with the `.js` extension, such as the following:
+Напрыклад, разгледзім функцыю ў файле JavaScript з пашырэннем `.js`, такую як наступная:
 
 <!-- skip -->
 ```typescript
 const sum = (a, b) => a + b;
 ```
 
-The function can be converted and used in TypeScript by changing the file extension to `.ts`. However, if the same function is annotated with TypeScript types, it cannot be executed in any JavaScript runtime without compilation. The following TypeScript code will produce a syntax error if it is not compiled:
+Функцыю можна пераўтварыць і выкарыстоўваць у TypeScript, змяніўшы пашырэнне файла на `.ts`. Аднак, калі тая ж функцыя анатавана тыпамі TypeScript, яна не можа быць выканана ў любым асяроддзі выканання JavaScript без кампіляцыі. Наступны код TypeScript выкліча сінтаксічную памылку, калі ён не будзе скампіляваны:
 
 <!-- skip -->
 ```typescript
 const sum = (a: number, b: number): number => a + b;
 ```
 
-TypeScript was designed to detect possible exceptions that can occur at runtime during compilation time by having the developer define the intent with type annotations. In addition, TypeScript can also catch issues if no type annotation is provided. For instance, the following code snippet does not specify any TypeScript types:
+TypeScript быў распрацаваны для выяўлення магчымых выключэнняў, якія могуць узнікнуць падчас выканання, на этапе кампіляцыі, дазваляючы распрацоўшчыку вызначыць намер з дапамогай анатацый тыпаў. Акрамя таго, TypeScript таксама можа выяўляць праблемы, калі анатацыя тыпу не прадастаўлена. Напрыклад, наступны фрагмент кода не вызначае ніякіх тыпаў TypeScript:
 
 <!-- skip -->
 ```typescript
@@ -318,37 +318,37 @@ const items = [{ x: 1 }, { x: 2 }];
 const result = items.filter(item => item.y);
 ```
 
-In this case, TypeScript detects an error and reports:
+У гэтым выпадку TypeScript выяўляе памылку і паведамляе:
 
 ```text
 Property 'y' does not exist on type '{ x: number; }'.
 ```
 
-TypeScript's type system is largely influenced by the runtime behavior of JavaScript. For example, the addition operator (+), which in JavaScript can either perform string concatenation or numeric addition, is modeled in the same way in TypeScript:
+Сістэма тыпаў TypeScript у значнай ступені залежыць ад паводзін JavaScript падчас выканання. Напрыклад, аператар складання (+), які ў JavaScript можа выконваць альбо канкатэнацыю радкоў, альбо складанне лікаў, мадэлюецца ў TypeScript такім жа чынам:
 
 ```typescript
 const result = '1' + 1; // Result is of type string
 ```
 
-The team behind TypeScript has made a deliberate decision to flag unusual usage of JavaScript as errors. For instance, consider the following valid JavaScript code:
+Каманда TypeScript прыняла свядомае рашэнне пазначаць незвычайнае выкарыстанне JavaScript як памылкі. Напрыклад, разгледзім наступны сапраўдны код JavaScript:
 
 <!-- skip -->
 ```typescript
 const result = 1 + true; // In JavaScript, the result is equal 2
 ```
 
-However, TypeScript throws an error:
+Аднак TypeScript выдае памылку:
 
 ```text
 Operator '+' cannot be applied to types 'number' and 'boolean'.
 ```
 
-This error occurs because TypeScript strictly enforces type compatibility, and in this case, it identifies an invalid operation between a number and a boolean.
+Гэтая памылка ўзнікае, таму што TypeScript строга забяспечвае сумяшчальнасць тыпаў, і ў гэтым выпадку ён вызначае недапушчальную аперацыю паміж лікам і лагічным значэннем.
 
-### TypeScript Code Generation
+### Генерацыя кода TypeScript
 
-The TypeScript compiler has two main responsibilities: checking for type errors and compiling to JavaScript. These two processes are independent of each other. Types do not affect the execution of the code in a JavaScript runtime, as they are completely erased during compilation. TypeScript can still output JavaScript even in the presence of type errors.
-Here is an example of TypeScript code with a type error:
+Кампілятар TypeScript мае два асноўныя абавязкі: праверка на памылкі тыпаў і кампіляцыя ў JavaScript. Гэтыя два працэсы незалежныя адзін ад аднаго. Тыпы не ўплываюць на выкананне кода ў асяроддзі выканання JavaScript, бо яны цалкам сціраюцца падчас кампіляцыі. TypeScript усё яшчэ можа выводзіць JavaScript нават пры наяўнасці памылак тыпаў.
+Вось прыклад кода TypeScript з памылкай тыпу:
 
 <!-- skip -->
 ```typescript
@@ -356,7 +356,7 @@ const add = (a: number, b: number): number => a + b;
 const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
 ```
 
-However, it can still produce executable JavaScript output:
+Аднак ён усё яшчэ можа ствараць выканальны вывад JavaScript:
 
 <!-- skip -->
 ```typescript
@@ -365,7 +365,7 @@ const add = (a, b) => a + b;
 const result = add('x', 'y'); // xy
 ```
 
-It is not possible to check TypeScript types at runtime. For example:
+Немагчыма праверыць тыпы TypeScript падчас выканання. Напрыклад:
 
 <!-- skip -->
 ```typescript
@@ -386,7 +386,7 @@ const makeNoise = (animal: Animal) => {
 };
 ```
 
-As the types are erased after compilation, there is no way to run this code in JavaScript. To recognize types at runtime, we need to use another mechanism. TypeScript provides several options, with a common one being "tagged union". For example:
+Паколькі тыпы сціраюцца пасля кампіляцыі, няма магчымасці запусціць гэты код у JavaScript. Каб распазнаць тыпы падчас выканання, нам трэба выкарыстаць іншы механізм. TypeScript прадастаўляе некалькі варыянтаў, адным з распаўсюджаных з'яўляецца «пазначанае аб'яднанне» (tagged union). Напрыклад:
 
 ```typescript
 interface Dog {
@@ -414,11 +414,11 @@ const dog: Dog = {
 makeNoise(dog);
 ```
 
-The property "kind" is a value that can be used at runtime to distinguish between objects in JavaScript.
+Уласцівасць «kind» — гэта значэнне, якое можна выкарыстоўваць падчас выканання для адрознення аб'ектаў у JavaScript.
 
-It is also possible for a value at runtime to have a type different from the one declared in the type declaration. For instance, if the developer has misinterpreted an API type and annotated it incorrectly.
+Таксама магчыма, што значэнне падчас выканання будзе мець тып, адрозны ад заяўленага ў дэкларацыі тыпу. Напрыклад, калі распрацоўшчык няправільна інтэрпрэтаваў тып API і анатаваў яго няправільна.
 
-TypeScript is a superset of JavaScript, so the "class" keyword can be used as a type and value at runtime.
+TypeScript з'яўляецца надмноствам JavaScript, таму ключавое слова `class` можа выкарыстоўвацца як тып і як значэнне падчас выканання.
 
 ```typescript
 class Animal {
@@ -454,94 +454,94 @@ const dog = new Dog('Fido', () => console.log('bark'));
 makeNoise(dog);
 ```
 
-In JavaScript, a "class" has a "prototype" property, and the "instanceof" operator can be used to test if the prototype property of a constructor appears anywhere in the prototype chain of an object.
+У JavaScript `class` мае ўласцівасць `prototype`, і аператар `instanceof` можа быць выкарыстаны для праверкі таго, ці з'яўляецца ўласцівасць прататыпа канструктара дзе-небудзь у ланцужку прататыпаў аб'екта.
 
-TypeScript has no effect on runtime performance, as all types will be erased. However, TypeScript does introduce some build time overhead.
+TypeScript не ўплывае на прадукцыйнасць выканання, паколькі ўсе тыпы будуць сцёртыя. Аднак TypeScript стварае некаторыя накладныя выдаткі падчас зборкі.
 
-### Modern JavaScript Now (Downleveling)
+### Сучасны JavaScript цяпер (Downleveling)
 
-TypeScript can compile code to any released version of JavaScript since ECMAScript 3 (1999). This means that TypeScript can transpile code from the latest JavaScript features to older versions, a process known as Downleveling. This allows the usage of modern JavaScript while maintaining maximum compatibility with older runtime environments.
+TypeScript можа кампіляваць код у любую выпушчаную версію JavaScript, пачынаючы з ECMAScript 3 (1999). Гэта азначае, што TypeScript можа транспаляваць код з найноўшымі функцыямі JavaScript у больш старыя версіі, працэс, вядомы як Downleveling (паніжэнне ўзроўню). Гэта дазваляе выкарыстоўваць сучасны JavaScript, захоўваючы максімальную сумяшчальнасць са старымі асяроддзямі выканання.
 
-It's important to note that during transpilation to an older version of JavaScript, TypeScript may generate code that could incur a performance overhead compared to native implementations.
+Важна адзначыць, што падчас транспаляцыі ў больш старую версію JavaScript, TypeScript можа генераваць код, які можа мець накладныя выдаткі на прадукцыйнасць у параўнанні з натыўнымі рэалізацыямі.
 
-Here are some of the modern JavaScript features that can be used in TypeScript:
+Вось некаторыя з сучасных функцый JavaScript, якія можна выкарыстоўваць у TypeScript:
 
-* ECMAScript modules instead of AMD-style "define" callbacks or CommonJS "require" statements.
-* Classes instead of prototypes.
-* Variables declaration using "let" or "const" instead of "var".
-* "for-of" loop or ".forEach" instead of the traditional "for" loop.
-* Arrow functions instead of function expressions.
-* Destructuring assignment.
-* Shorthand property/method names and computed property names.
-* Default function parameters.
+* Модулі ECMAScript замест зваротных выклікаў у стылі AMD "define" або аператараў CommonJS "require".
+* Класы замест прататыпаў.
+* Аб'яўленне зменных з дапамогай "let" або "const" замест "var".
+* Цыкл "for-of" або ".forEach" замест традыцыйнага цыкла "for".
+* Стрэлачныя функцыі замест функцыянальных выразаў.
+* Дэструктурызуючае прысвойванне.
+* Скарочаныя назвы ўласцівасцей/метадаў і вылічаныя назвы ўласцівасцей.
+* Параметры функцыі па змаўчанні.
 
-By leveraging these modern JavaScript features, developers can write more expressive and concise code in TypeScript.
+Выкарыстоўваючы гэтыя сучасныя функцыі JavaScript, распрацоўшчыкі могуць пісаць больш выразны і лаканічны код на TypeScript.
 
 ## Пачатак працы з TypeScript
 
 ### Усталёўка
 
-Visual Studio Code provides excellent support for the TypeScript language but does not include the TypeScript compiler. To install the TypeScript compiler, you can use a package manager like npm or yarn:
+Visual Studio Code забяспечвае выдатную падтрымку мовы TypeScript, але не ўключае кампілятар TypeScript. Каб усталяваць кампілятар TypeScript, вы можаце выкарыстаць менеджэр пакетаў, напрыклад npm або yarn:
 
 ```shell
 npm install typescript --save-dev
 ```
 
-or
+або
 
 ```shell
 yarn add typescript --dev
 ```
 
-Make sure to commit the generated lockfile to ensure that every team member uses the same version of TypeScript.
+Не забудзьцеся зафіксаваць (commit) згенераваны lock-файл, каб пераканацца, што кожны член каманды выкарыстоўвае адну і тую ж версію TypeScript.
 
-To run the TypeScript compiler, you can use the following commands
+Каб запусціць кампілятар TypeScript, вы можаце выкарыстаць наступныя каманды:
 
 ```shell
 npx tsc
 ```
 
-or
+або
 
 ```shell
 yarn tsc
 ```
 
-It is recommended to install TypeScript project-wise rather than globally, as it provides a more predictable build process. However, for one-off occasions, you can use the following command:
+Рэкамендуецца ўсталёўваць TypeScript лакальна ў праект, а не глабальна, паколькі гэта забяспечвае больш прадказальны працэс зборкі. Аднак для аднаразовых выпадкаў можна выкарыстаць наступную каманду:
 
 ```shell
 npx tsc
 ```
 
-or installing it globally:
+або ўсталяваць яго глабальна:
 
 ```shell
 npm install -g typescript
 ```
 
-If you are using Microsoft Visual Studio, you can obtain TypeScript as a package in NuGet for your MSBuild projects. In the NuGet Package Manager Console, run the following command:
+Калі вы выкарыстоўваеце Microsoft Visual Studio, вы можаце атрымаць TypeScript як пакет у NuGet для вашых праектаў MSBuild. У кансолі дыспетчара пакетаў NuGet выканайце наступную каманду:
 
 ```shell
 Install-Package Microsoft.TypeScript.MSBuild
 ```
 
-During the TypeScript installation, two executables are installed: "tsc" as the TypeScript compiler and "tsserver" as the TypeScript standalone server. The standalone server contains the compiler and language services that can be utilized by editors and IDEs to provide intelligent code completion.
+Падчас усталёўкі TypeScript усталёўваюцца два выканальныя файлы: «tsc» як кампілятар TypeScript і «tsserver» як аўтаномны сервер TypeScript. Аўтаномны сервер змяшчае кампілятар і моўныя сэрвісы, якія могуць выкарыстоўвацца рэдактарамі і IDE для забеспячэння інтэлектуальнага аўтазапаўнення кода.
 
-Additionally, there are several TypeScript-compatible transpilers available, such as Babel (via a plugin) or swc. These transpilers can be used to convert TypeScript code into other target languages or versions.
+Акрамя таго, даступна некалькі TypeScript-сумяшчальных транспайлераў, такіх як Babel (праз плагін) або swc. Гэтыя транспайлеры могуць выкарыстоўвацца для пераўтварэння кода TypeScript у іншыя мэтавыя мовы або версіі.
 
-### Configuration
+### Канфігурацыя
 
-TypeScript can be configured using the tsc CLI options or by utilizing a dedicated configuration file called tsconfig.json placed in the root of the project.
+TypeScript можна наладзіць з дапамогай параметраў каманднага радка tsc (CLI) або з выкарыстаннем спецыяльнага файла канфігурацыі пад назвай tsconfig.json, размешчанага ў корані праекта.
 
-To generate a tsconfig.json file prepopulated with recommended settings, you can use the following command:
+Каб згенераваць файл tsconfig.json, папярэдне запоўнены рэкамендаванымі наладамі, вы можаце выкарыстаць наступную каманду:
 
 ```shell
 tsc --init
 ```
 
-When executing the `tsc` command locally, TypeScript will compile the code using the configuration specified in the nearest tsconfig.json file.
+Пры выкананні каманды `tsc` лакальна, TypeScript скампілюе код, выкарыстоўваючы канфігурацыю, названую ў бліжэйшым файле tsconfig.json.
 
-Here are some examples of CLI commands that run with the default settings:
+Вось некалькі прыкладаў каманд CLI, якія запускаюцца з наладамі па змаўчанні:
 
 ```shell
 tsc main.ts // Compile a specific file (main.ts) to JavaScript
@@ -549,138 +549,138 @@ tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
 tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
 ```
 
-### TypeScript Configuration File
+### Файл канфігурацыі TypeScript
 
-A tsconfig.json file is used to configure the TypeScript Compiler (tsc). Usually, it is added to the root of the project, together with the `package.json` file.
+Файл tsconfig.json выкарыстоўваецца для канфігурацыі кампілятара TypeScript (tsc). Звычайна ён дадаецца ў корань праекта разам з файлам `package.json`.
 
-Notes:
+Заўвагі:
 
-* tsconfig.json accepts comments even if it is in json format.
-* It is advisable to use this configuration file instead of the command-line options.
+* tsconfig.json прымае каментарыі, нават калі ён у фармаце json.
+* Пажадана выкарыстоўваць гэты файл канфігурацыі замест параметраў каманднага радка.
 
-At the following link you can find the complete documentation and its schema:
+Па наступнай спасылцы вы можаце знайсці поўную дакументацыю і схему:
 
 [https://www.typescriptlang.org/tsconfig](https://www.typescriptlang.org/tsconfig)
 
 [https://www.typescriptlang.org/tsconfig/](https://www.typescriptlang.org/tsconfig/)
 
-The following represents a list of the common and useful configurations:
+Ніжэй прыведзены спіс распаўсюджаных і карысных канфігурацый:
 
 #### target
 
-The "target" property is used to specify which version of JavaScript ECMAScript version your TypeScript should emit/compile into. For modern browsers ES6 is a good option, for older browsers, ES5 is recommended.
+Уласцівасць «target» выкарыстоўваецца для ўказання версіі JavaScript (версіі ECMAScript), у якую ваш TypeScript павінен быць згенераваны/скампіляваны. Для сучасных браўзераў добрым варыянтам з'яўляецца ES6, для старых браўзераў рэкамендуецца ES5.
 
 #### lib
 
-The "lib" property is used to specify which library files to include at compilation time. TypeScript automatically includes APIs for features specified in the "target" property, but it is possible to omit or pick specific libraries for particular needs. For instance, if you are working on a server project, you could exclude the "DOM" library, which is useful only in a browser environment.
+Уласцівасць «lib» выкарыстоўваецца для ўказання таго, якія файлы бібліятэк ўключаць падчас кампіляцыі. TypeScript аўтаматычна ўключае API для функцый, указаных ва ўласцівасці «target», але пры неабходнасці можна прапусціць або выбраць пэўныя бібліятэкі. Напрыклад, калі вы працуеце над серверным праектам, вы можаце выключыць бібліятэку «DOM», якая карысная толькі ў асяроддзі браўзера.
 
 #### strict
 
-The "strict" property enables stronger guarantees and enhances type safety. It is advisable to always include this property in your project's tsconfig.json file. Enabling the "strict" property allows TypeScript to:
+Уласцівасць «strict» забяспечвае больш моцныя гарантыі і паляпшае бяспеку тыпаў. Пажадана заўсёды ўключаць гэтую ўласцівасць у файл tsconfig.json вашага праекта. Уключэнне ўласцівасці «strict» дазваляе TypeScript:
 
-* Emit code using "use strict" for each source file.
-* Consider "null" and "undefined" in the type checking process.
-* Disable the usage of the "any" type when no type annotations are present.
-* Raise an error on the usage of the "this" expression, which would otherwise imply the "any" type.
+* Генерыраваць код з выкарыстаннем "use strict" для кожнага зыходнага файла.
+* Улічваць "null" і "undefined" у працэсе праверкі тыпаў.
+* Адключаць выкарыстанне тыпу "any", калі адсутнічаюць анатацыі тыпаў.
+* Выклікаць памылку пры выкарыстанні выразу "this", які ў іншым выпадку меў бы на ўвазе тып "any".
 
 #### module
 
-The "module" property sets the module system supported for the compiled program. During runtime, a module loader is used to locate and execute dependencies based on the specified module system.
+Уласцівасць «module» задае сістэму модуляў, якая падтрымліваецца для скампіляванай праграмы. Падчас выканання загрузчык модуляў выкарыстоўваецца для пошуку і выканання залежнасцей на аснове вызначанай сістэмы модуляў.
 
-The most common module loaders used in JavaScript are Node.js CommonJS for server-side applications and RequireJS for AMD modules in browser-based web applications. TypeScript can emit code for various module systems, including UMD, System, ESNext, ES2015/ES6, and ES2020.
+Найбольш распаўсюджанымі загрузчыкамі модуляў, якія выкарыстоўваюцца ў JavaScript, з'яўляюцца Node.js CommonJS для серверных праграм і RequireJS для модуляў AMD у вэб-праграмах на аснове браўзера. TypeScript можа генераваць код для розных сістэм модуляў, у тым ліку UMD, System, ESNext, ES2015/ES6 і ES2020.
 
-Note: The module system should be chosen based on the target environment and the module loading mechanism available in that environment.
+Заўвага: Сістэму модуляў варта выбіраць зыходзячы з мэтавага асяроддзя і механізму загрузкі модуляў, даступнага ў гэтым асяроддзі.
 
 #### moduleResolution
 
-The "moduleResolution" property specifies the module resolution strategy. Use "node" for modern TypeScript code, the "classic" strategy is used only for old versions of TypeScript (before 1.6).
+Уласцівасць «moduleResolution» вызначае стратэгію дазволу (resolution) модуляў. Выкарыстоўвайце «node» для сучаснага кода TypeScript, стратэгія «classic» выкарыстоўваецца толькі для старых версій TypeScript (да 1.6).
 
 #### esModuleInterop
 
-The "esModuleInterop" property allows import default from CommonJS modules that did not export using the "default" property, this property provides a shim to ensure compatibility in the emitted JavaScript. After enabling this option we can use `import MyLibrary from "my-library"` instead of `import * as MyLibrary from "my-library"`.
+Уласцівасць «esModuleInterop» дазваляе імпартаваць па змаўчанні (default import) з модуляў CommonJS, якія не экспартаваліся з выкарыстаннем уласцівасці «default»; гэтая ўласцівасць забяспечвае праслойку (shim) для забеспячэння сумяшчальнасці ў згенераваным JavaScript. Пасля ўключэння гэтай опцыі мы можам выкарыстоўваць `import MyLibrary from "my-library"` замест `import * as MyLibrary from "my-library"`.
 
 #### jsx
 
-The "jsx" property applies only to .tsx files used in ReactJS and controls how JSX constructs are compiled into JavaScript. A common option is "preserve" which will compile to a .jsx file keeping unchanged the JSX so it can be passed to different tools like Babel for further transformations.
+Уласцівасць «jsx» прымяняецца толькі да файлаў .tsx, якія выкарыстоўваюцца ў ReactJS, і кантралюе, як канструкцыі JSX кампілююцца ў JavaScript. Распаўсюджаным варыянтам з'яўляецца «preserve», які скампілюе ў файл .jsx, пакідаючы JSX нязменным, каб яго можна было перадаць іншым інструментам, такім як Babel, для далейшых пераўтварэнняў.
 
 #### skipLibCheck
 
-The "skipLibCheck'' property will prevent TypeScript from type-checking the entire imported third-party packages. This property will reduce the compile time of a project. TypeScript will still check your code against the type definitions provided by these packages.
+Уласцівасць «skipLibCheck» прадухіліць поўную праверку тыпаў імпартаваных старонніх пакетаў у TypeScript. Гэтая ўласцівасць скароціць час кампіляцыі праекта. TypeScript па-ранейшаму будзе правяраць ваш код на адпаведнасць азначэнням тыпаў, прадастаўленым гэтымі пакетамі.
 
 #### files
 
-The "files" property indicates to the compiler a list of files that must always be included in the program.
+Уласцівасць «files» паказвае кампілятару спіс файлаў, якія заўсёды павінны быць уключаны ў праграму.
 
 #### include
 
 <!-- markdownlint-disable MD049 -->
-The "include" property indicates to the compiler a list of files that we would like to include. This property allows glob-like patterns, such as "\*_" for any subdirectory, "_" for any file name, and "?" for optional characters.
+Уласцівасць «include» паказвае кампілятару спіс файлаў, якія мы хацелі б уключыць. Гэтая ўласцівасць дазваляе выкарыстоўваць glob-шаблоны, такія як «\*_» для любога падкаталога, «_» для любога імя файла і «?» для неабавязковых сімвалаў.
 <!-- markdownlint-enable MD049 -->
 
 #### exclude
 
-The "exclude" property indicates to the compiler a list of files that should not be included in the compilation. This can include files such as "node_modules" or test files.
-Note: tsconfig.json allows comments.
+Уласцівасць «exclude» паказвае кампілятару спіс файлаў, якія не павінны быць уключаны ў кампіляцыю. Сюды могуць уваходзіць такія файлы, як «node_modules» або тэставыя файлы.
+Заўвага: tsconfig.json дазваляе каментарыі.
 
 ### importHelpers
 
-TypeScript uses helper code when generating code for certain advanced or down-leveled JavaScript features. By default, these helpers are duplicated in files using them. The `importHelpers` option imports these helpers from the `tslib` module instead, making the JavaScript output more efficient.
+TypeScript выкарыстоўвае дапаможны код пры генерацыі кода для пэўных пашыраных функцый або функцый JavaScript з паніжаным узроўнем (down-leveled). Па змаўчанні гэтыя памочнікі дублююцца ў файлах, якія іх выкарыстоўваюць. Опцыя `importHelpers` замест гэтага імпартуе гэтыя памочнікі з модуля `tslib`, што робіць вывад JavaScript больш эфектыўным.
 
-### Migration to TypeScript Advice
+### Парады па міграцыі на TypeScript
 
-For large projects, it is recommended to adopt a gradual transition where TypeScript and JavaScript code will initially coexist. Only small projects can be migrated to TypeScript in one go.
+Для вялікіх праектаў рэкамендуецца прыняць паступовы пераход, калі код TypeScript і JavaScript першапачаткова будуць суіснаваць. Толькі невялікія праекты могуць быць перанесены на TypeScript за адзін раз.
 
-The first step of this transition is to introduce TypeScript into the build chain process. This can be done by using the "allowJs" compiler option, which permits .ts and .tsx files to coexist with existing JavaScript files. As TypeScript will fall back to a type of "any" for a variable when it cannot infer the type from JavaScript files, it is recommended to disable "noImplicitAny" in your compiler options at the beginning of the migration.
+Першым крокам гэтага пераходу з'яўляецца ўкараненне TypeScript у працэс зборкі. Гэта можна зрабіць з дапамогай опцыі кампілятара «allowJs», якая дазваляе файлам .ts і .tsx суіснаваць з існуючымі файламі JavaScript. Паколькі TypeScript будзе вяртацца да тыпу «any» для зменнай, калі ён не можа вывесці тып з файлаў JavaScript, рэкамендуецца адключыць «noImplicitAny» у наладах кампілятара ў пачатку міграцыі.
 
-The second step is to ensure that your JavaScript tests work alongside TypeScript files so that you can run tests as you convert each module. If you are using Jest, consider using `ts-jest`, which allows you to test TypeScript projects with Jest.
+Другі крок — пераканацца, што вашы тэсты JavaScript працуюць разам з файламі TypeScript, каб вы маглі запускаць тэсты па меры пераўтварэння кожнага модуля. Калі вы выкарыстоўваеце Jest, падумайце аб выкарыстанні `ts-jest`, які дазваляе тэставаць праекты TypeScript з дапамогай Jest.
 
-The third step is to include type declarations for third-party libraries in your project. These declarations can be found either bundled or on DefinitelyTyped. You can search for them using [https://www.typescriptlang.org/dt/search](https://www.typescriptlang.org/dt/search) and install them using:
+Трэці крок — уключыць дэкларацыі тыпаў для старонніх бібліятэк у ваш праект. Гэтыя дэкларацыі можна знайсці ў камплекце з бібліятэкай альбо на DefinitelyTyped. Вы можаце шукаць іх з дапамогай [https://www.typescriptlang.org/dt/search](https://www.typescriptlang.org/dt/search) і ўсталёўваць з дапамогай:
 
 ```shell
 npm install --save-dev @types/package-name
 ```
 
-or
+або
 
 ```shell
 yarn add --dev @types/package-name.
 ```
 
-The fourth step is to migrate module by module with a bottom-up approach, following your Dependency Graph starting with the leaves. The idea is to start converting Modules that do not depend on other Modules. To visualize the dependency graphs, you can use the "madge" tool.
+Чацвёрты крок — міграваць модуль за модулем з падыходам «знізу ўверх», прытрымліваючыся графа залежнасцей, пачынаючы з лістоў. Ідэя складаецца ў тым, каб пачаць пераўтварэнне модуляў, якія не залежаць ад іншых модуляў. Для візуалізацыі графаў залежнасцей вы можаце выкарыстоўваць інструмент «madge».
 
-Good candidate modules for these initial conversions are utility functions and code related to external APIs or specifications. It is possible to automatically generate TypeScript type definitions from Swagger contracts, GraphQL or JSON schemas to be included in your project.
+Добрымі кандыдатамі для гэтых першапачатковых пераўтварэнняў з'яўляюцца дапаможныя функцыі і код, звязаны са знешнімі API або спецыфікацыямі. Можна аўтаматычна генераваць азначэнні тыпаў TypeScript з кантрактаў Swagger, GraphQL або схем JSON для ўключэння ў ваш праект.
 
-When there are no specifications or official schemas available, you can generate types from raw data, such as JSON returned by a server. However, it is recommended to generate types from specifications instead of data to avoid missing edge cases.
+Калі спецыфікацыі або афіцыйныя схемы недаступныя, вы можаце генераваць тыпы з неапрацаваных даных, такіх як JSON, вернуты серверам. Аднак рэкамендуецца генераваць тыпы са спецыфікацый, а не з даных, каб пазбегнуць пропуску пагранічных выпадкаў.
 
-During the migration, refrain from code refactoring and focus only on adding types to your modules.
+Падчас міграцыі ўстрымлівайцеся ад рэфактарынгу кода і засяродзьцеся толькі на даданні тыпаў у свае модулі.
 
-The fifth step is to enable "noImplicitAny," which will enforce that all types are known and defined, providing a better TypeScript experience for your project.
+Пяты крок — уключыць «noImplicitAny», што прымусіць усе тыпы быць вядомымі і вызначанымі, забяспечваючы лепшы вопыт TypeScript для вашага праекта.
 
-During the migration, you can use the `@ts-check` directive, which enables TypeScript type checking in a JavaScript file. This directive provides a loose version of type checking and can be initially used to identify issues in JavaScript files. When `@ts-check` is included in a file, TypeScript will try to deduce definitions using JSDoc-style comments. However, consider using JSDoc annotations only at a very early stage of the migration.
+Падчас міграцыі вы можаце выкарыстоўваць дырэктыву `@ts-check`, якая ўключае праверку тыпаў TypeScript у файле JavaScript. Гэтая дырэктыва забяспечвае менш строгую версію праверкі тыпаў і можа быць выкарыстана першапачаткова для выяўлення праблем у файлах JavaScript. Калі `@ts-check` уключана ў файл, TypeScript паспрабуе вывесці азначэнні, выкарыстоўваючы каментарыі ў стылі JSDoc. Аднак разглядайце выкарыстанне анатацый JSDoc толькі на самым раннім этапе міграцыі.
 
-Consider keeping the default value of `noEmitOnError` in your tsconfig.json as false. This will allow you to output JavaScript source code even if errors are reported.
+Падумайце аб тым, каб пакінуць значэнне па змаўчанні `noEmitOnError` у вашым tsconfig.json як false. Гэта дазволіць вам выводзіць зыходны код JavaScript, нават калі паведамляецца пра памылкі.
 
-## Exploring the Type System
+## Даследаванне сістэмы тыпаў
 
-### The TypeScript Language Service
+### Моўны сэрвіс TypeScript
 
-The TypeScript Language Service, also known as tsserver, offers various features such as error reporting, diagnostics, compile-on-save, renaming, go to definition, completion lists, signature help, and more. It is primarily used by integrated development environments (IDEs) to provide IntelliSense support. It seamlessly integrates with Visual Studio Code and is utilized by tools like Conquer of Completion (Coc).
+Моўны сэрвіс TypeScript, таксама вядомы як tsserver, прапануе розныя функцыі, такія як справаздача аб памылках, дыягностыка, кампіляцыя пры захаванні (compile-on-save), перайменаванне, пераход да азначэння (go to definition), спісы аўтазапаўнення, даведка па сігнатуры і многае іншае. Ён у асноўным выкарыстоўваецца інтэграванымі асяроддзямі распрацоўкі (IDE) для забеспячэння падтрымкі IntelliSense. Ён лёгка інтэгруецца з Visual Studio Code і выкарыстоўваецца такімі інструментамі, як Conquer of Completion (Coc).
 
-Developers can leverage a dedicated API and create their own custom language service plugins to enhance the TypeScript editing experience. This can be particularly useful for implementing special linting features or enabling auto-completion for a custom templating language.
+Распрацоўшчыкі могуць выкарыстоўваць спецыяльны API і ствараць свае ўласныя ўбудовы моўнага сэрвісу для паляпшэння вопыту рэдагавання TypeScript. Гэта можа быць асабліва карысна для рэалізацыі спецыяльных функцый лінтынгу (linting) або ўключэння аўтазапаўнення для карыстальніцкай мовы шаблонаў.
 
 <!-- markdownlint-disable MD044 -->
-An example of a real-world custom plugin is "typescript-styled-plugin", which provides syntax error reporting and IntelliSense support for CSS properties in styled components.
+Прыкладам рэальнага карыстальніцкага плагіна з'яўляецца "typescript-styled-plugin", які забяспечвае паведамленне пра сінтаксічныя памылкі і падтрымку IntelliSense для ўласцівасцей CSS у кампанентах стылю (styled components).
 <!-- markdownlint-enable MD044 -->
 
-For more information and quick start guides, you can refer to the official TypeScript Wiki on GitHub: [https://github.com/microsoft/TypeScript/wiki/](https://github.com/microsoft/TypeScript/wiki/)
+Для атрымання дадатковай інфармацыі і кіраўніцтва па хуткім старце вы можаце звярнуцца да афіцыйнай вікі TypeScript на GitHub: [https://github.com/microsoft/TypeScript/wiki/](https://github.com/microsoft/TypeScript/wiki/)
 
-### Structural Typing
+### Структурная тыпізацыя
 
-TypeScript is based on a structural type system. This means that the compatibility and equivalence of types are determined by the type's actual structure or definition, rather than its name or place of declaration, as in nominative type systems like C# or C.
+TypeScript заснаваны на структурнай сістэме тыпаў. Гэта азначае, што сумяшчальнасць і эквівалентнасць тыпаў вызначаюцца фактычнай структурай або азначэннем тыпу, а не яго назвай або месцам аб'яўлення, як у намінатыўных сістэмах тыпаў, такіх як C# або C.
 
-TypeScript's structural type system was designed based on how JavaScript's dynamic duck typing system works during runtime.
+Структурная сістэма тыпаў TypeScript была распрацавана на аснове таго, як дынамічная сістэма качынай тыпізацыі (duck typing) JavaScript працуе падчас выканання.
 
-The following example is valid TypeScript code. As you can observe, "X" and "Y" have the same member "a," even though they have different declaration names. The types are determined by their structures, and in this case, since the structures are the same, they are compatible and valid.
+Наступны прыклад з'яўляецца сапраўдным кодам TypeScript. Як вы можаце заўважыць, «X» і «Y» маюць адзін і той жа член «a», хоць яны маюць розныя назвы дэкларацый. Тыпы вызначаюцца іх структурамі, і ў гэтым выпадку, паколькі структуры аднолькавыя, яны сумяшчальныя і сапраўдныя.
 
 ```typescript
 type X = {
@@ -693,11 +693,11 @@ const x: X = { a: 'a' };
 const y: Y = x; // Valid
 ```
 
-### TypeScript Fundamental Comparison Rules
+### Фундаментальныя правілы параўнання TypeScript
 
-The TypeScript comparison process is recursive and executed on types nested at any level.
+Працэс параўнання ў TypeScript з'яўляецца рэкурсіўным і выконваецца для тыпаў, укладзеных на любым узроўні.
 
-A type "X" is compatible with "Y" if "Y" has at least the same members as "X".
+Тып «X» сумяшчальны з «Y», калі «Y» мае па меншай меры тыя ж члены, што і «X».
 
 ```typescript
 type X = {
@@ -707,7 +707,7 @@ const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
 const r: X = y;
 ```
 
-Function parameters are compared by types, not by their names:
+Параметры функцыі параўноўваюцца па тыпах, а не па іх назвах:
 
 ```typescript
 type X = (a: number) => void;
@@ -718,7 +718,7 @@ y = x; // Valid
 x = y; // Valid
 ```
 
-Function return types must be the same:
+Тыпы вяртання функцый павінны быць аднолькавымі:
 
 <!-- skip -->
 ```typescript
@@ -730,7 +730,7 @@ y = x; // Invalid
 x = y; // Invalid
 ```
 
-The return type of a source function must be a subtype of the return type of a target function:
+Тып вяртання зыходнай функцыі павінен быць падтыпам тыпу вяртання мэтавай функцыі:
 
 <!-- skip -->
 ```typescript
@@ -740,13 +740,13 @@ x = y; // Valid
 y = x; // Invalid member b is missing
 ```
 
-Discarding function parameters is allowed, as it is a common practice in JavaScript, for instance using "Array.prototype.map()":
+Адкідванне параметраў функцыі дапускаецца, бо гэта распаўсюджаная практыка ў JavaScript, напрыклад, пры выкарыстанні "Array.prototype.map()":
 
 ```typescript
 [1, 2, 3].map((element, _index, _array) => element + 'x');
 ```
 
-Therefore, the following type declarations are completely valid:
+Такім чынам, наступныя дэкларацыі тыпаў цалкам сапраўдныя:
 
 ```typescript
 type X = (a: number) => undefined;
@@ -756,7 +756,7 @@ let y: Y = (a: number) => undefined; // Missing b parameter
 y = x; // Valid
 ```
 
-Any additional optional parameters of the source type are valid:
+Любыя дадатковыя неабавязковыя параметры зыходнага тыпу з'яўляюцца дапушчальнымі:
 
 ```typescript
 type X = (a: number, b?: number, c?: number) => undefined;
@@ -767,7 +767,7 @@ y = x; // Valid
 x = y; //Valid
 ```
 
-Any optional parameters of the target type without corresponding parameters in the source type are valid and not an error:
+Любыя неабавязковыя параметры мэтавага тыпу без адпаведных параметраў у зыходным тыпе з'яўляюцца дапушчальнымі і не лічацца памылкай:
 
 ```typescript
 type X = (a: number) => undefined;
@@ -778,14 +778,14 @@ y = x; // Valid
 x = y; // Valid
 ```
 
-The rest parameter is treated as an infinite series of optional parameters:
+Параметр rest (астатнія параметры) разглядаецца як бясконцая серыя неабавязковых параметраў:
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
 let x: X = a => undefined; //valid
 ```
 
-Functions with overloads are valid if the overload signature is compatible with its implementation signature:
+Функцыі з перагрузкамі (overloads) з'яўляюцца сапраўднымі, калі сігнатура перагрузкі сумяшчальная з сігнатурай яе рэалізацыі:
 
 <!-- skip -->
 ```typescript
@@ -806,7 +806,7 @@ y('a');
 y('a', 1);
 ```
 
-Function parameter comparison succeeds if the source and target parameters are assignable to supertypes or subtypes (bivariance).
+Параўнанне параметраў функцыі праходзіць паспяхова, калі зыходныя і мэтавыя параметры могуць быць прысвоены супертыпам або падтыпам (біварыянтнасць).
 
 ```typescript
 // Supertype
@@ -830,7 +830,7 @@ console.log(getA(new Y('Y'))); // Valid
 console.log(getA(new Z('z'))); // Valid
 ```
 
-Enums are comparable and valid with numbers and vice versa, but comparing Enum values from different Enum types is invalid.
+Пералічэнні (Enums) параўнальныя і дапушчальныя з лікамі і наадварот, але параўнанне значэнняў Enum з розных тыпаў Enum недапушчальнае.
 
 <!-- skip -->
 ```typescript
@@ -848,7 +848,7 @@ const ya: Y = 0; // Valid
 X.A === Y.A; // Invalid
 ```
 
-Instances of a class are subject to a compatibility check for their private and protected members:
+Экзэмпляры класа падлягаюць праверцы на сумяшчальнасць іх прыватных (private) і абароненых (protected) членаў:
 
 <!-- skip -->
 ```typescript
@@ -869,7 +869,7 @@ class Y {
 let x: X = new Y('y'); // Invalid
 ```
 
-The comparison check does not take into consideration the different inheritance hierarchy, for instance:
+Праверка параўнання не ўлічвае розную іерархію атрымання ў спадчыну (inheritance hierarchy), напрыклад:
 
 ```typescript
 class X {
@@ -898,7 +898,7 @@ x === y; // Valid
 x === z; // Valid even if z is from a different inheritance hierarchy
 ```
 
-Generics are compared using their structures based on the resulting type after applying the generic parameter, only the final result is compared as a non-generic type.
+Абагульненыя тыпы (Generics) параўноўваюцца з выкарыстаннем іх структур на аснове выніковага тыпу пасля прымянення абагульненага параметра; параўноўваецца толькі канчатковы вынік як неабагульнены тып.
 
 <!-- skip -->
 ```typescript
@@ -917,7 +917,7 @@ const y: X<string> = 'a';
 x === y; // Valid as the type argument is not used in the final structure
 ```
 
-When generics do not have their type argument specified, all the unspecified arguments are treated as types with "any":
+Калі абагульненыя тыпы не маюць указанага аргумента тыпу, усе нявызначаныя аргументы разглядаюцца як тыпы з "any":
 
 ```typescript
 type X = <T>(x: T) => T;
@@ -927,7 +927,7 @@ let y: Y = y => y;
 x = y; // Valid
 ```
 
-Remember:
+Памятайце:
 
 <!-- skip -->
 ```typescript
@@ -955,52 +955,52 @@ g = 1; // Invalid, void is not assignable to or from anything expect any
 g = g1; // Valid
 ```
 
-Please note that when "strictNullChecks" is enabled, "null" and "undefined" are treated similarly to "void"; otherwise, they are similar to "never".
+Звярніце ўвагу, што калі ўключана "strictNullChecks", "null" і "undefined" разглядаюцца падобна да "void"; у адваротным выпадку яны падобныя на "never".
 
-### Types as Sets
+### Тыпы як мноствы
 
-In TypeScript, a type is a set of possible values. This set is also referred to as the domain of the type. Each value of a type can be viewed as an element in a set. A type establishes the constraints that every element in the set must satisfy to be considered a member of that set.
-The primary task of TypeScript is to check and verify whether one set is a subset of another.
+У TypeScript тып - гэта мноства магчымых значэнняў. Гэта мноства таксама называюць даменам (domain) тыпу. Кожнае значэнне тыпу можна разглядаць як элемент мноства. Тып усталёўвае абмежаванні, якім павінен задавальняць кожны элемент мноства, каб лічыцца членам гэтага мноства.
+Асноўная задача TypeScript — праверыць, ці з'яўляецца адно мноства падмноствам іншага.
 
-TypeScript supports various types of sets:
+TypeScript падтрымлівае розныя тыпы мностваў:
 
-| Set term           | TypeScript                      | Notes                                                                                                              |
+| Тэрмін мноства           | TypeScript                      | Заўвагі                                                                                                              |
 | ------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Empty set          | never                           | "never" contains anything apart itself                                                                             |
-| Single element set | undefined / null / literal type |                                                                                                                    |
-| Finite set         | boolean / union                 |                                                                                                                    |
-| Infinite set       | string / number / object        |                                                                                                                    |
-| Universal set      | any / unknown                   | Every element is a member of "any" and every set is a subset of it / "unknown" is a type-safe counterpart of "any" |
+| Пустое мноства (Empty set)          | never                           | "never" не змяшчае нічога, акрамя сябе                                                                             |
+| Аднаэлементнае мноства (Single element set) | undefined / null / literal type |                                                                                                                    |
+| Канечнае мноства (Finite set)         | boolean / union                 |                                                                                                                    |
+| Бясконцае мноства (Infinite set)       | string / number / object        |                                                                                                                    |
+| Універсальнае мноства (Universal set)      | any / unknown                   | Кожны элемент з'яўляецца членам "any", і кожнае мноства з'яўляецца яго падмноствам / "unknown" з'яўляецца тыпабяспечным аналагам "any" |
 
-Here few examples:
+Вось некалькі прыкладаў:
 
-| TypeScript            | Set term               | Example                                                                         |
+| TypeScript            | Тэрмін мноства               | Прыклад                                                                         |
 | --------------------- | ---------------------- | ------------------------------------------------------------------------------- |
-| never                 | ∅ (empty set)          | const x: never = 'x'; // Error: Type 'string' is not assignable to type 'never' |
+| never                 | ∅ (пустое мноства)          | const x: never = 'x'; // Error: Type 'string' is not assignable to type 'never' |
 |                       |                        |
-| Literal type          | Single element set     | type X = 'X';                                                                   |
+| Literal type          | Аднаэлементнае мноства     | type X = 'X';                                                                   |
 |                       |                        | type Y = 7;                                                                     |
 |                       |                        |
-| Value assignable to T | Value ∈ T (member of)  | type XY = 'X' \| 'Y';                                                           |
+| Value assignable to T | Value ∈ T (член мноства)  | type XY = 'X' \| 'Y';                                                           |
 |                       |                        | const x: XY = 'X';                                                              |
 |                       |                        |
-| T1 assignable to T2   | T1 ⊆ T2 (subset of)    | type XY = 'X' \| 'Y';                                                           |
+| T1 assignable to T2   | T1 ⊆ T2 (падмноства)    | type XY = 'X' \| 'Y';                                                           |
 |                       |                        | const x: XY = 'X';                                                              |
 |                       |                        | const j: XY = 'J'; // Type '"J"' is not assignable to type 'XY'.                |
 |                       |                        |                                                                                 |
-| T1 extends T2         | T1 ⊆ T2 (subset of)    | type X = 'X' extends string ? true : false;                                     |
+| T1 extends T2         | T1 ⊆ T2 (падмноства)    | type X = 'X' extends string ? true : false;                                     |
 |                       |                        |
-| T1 \| T2              | T1 ∪ T2 (union)        | type XY = 'X' \| 'Y';                                                           |
+| T1 \| T2              | T1 ∪ T2 (аб'яднанне)        | type XY = 'X' \| 'Y';                                                           |
 |                       |                        | type JK = 1 \| 2;                                                               |
 |                       |                        |
-| T1 & T2               | T1 ∩ T2 (intersection) | type X = \{ a: string \}                                                          |
+| T1 & T2               | T1 ∩ T2 (перасячэнне) | type X = \{ a: string \}                                                          |
 |                       |                        | type Y = \{ b: string \}                                                          |
 |                       |                        | type XY = X & Y                                                                 |
 |                       |                        | const x: XY = \{ a: 'a', b: 'b' \}                                                |
 |                       |                        |
-| unknown               | Universal set          | const x: unknown = 1                                                            |
+| unknown               | Універсальнае мноства          | const x: unknown = 1                                                            |
 
-An union, (T1 | T2) creates a wider set (both):
+Аб'яднанне (union), (T1 | T2) стварае больш шырокае мноства (абодва):
 
 ```typescript
 type X = {
@@ -1013,7 +1013,7 @@ type XY = X | Y;
 const r: XY = { a: 'a', b: 'x' }; // Valid
 ```
 
-An intersection, (T1 & T2) create a narrower set (only shared):
+Перасячэнне (intersection), (T1 & T2) стварае больш вузкае мноства (толькі агульныя):
 
 <!-- skip -->
 ```typescript
@@ -1029,9 +1029,9 @@ const r: XY = { a: 'a' }; // Invalid
 const j: XY = { a: 'a', b: 'b' }; // Valid
 ```
 
-The `extends` keyword could be considered as a "subset of" in this context. It sets a constraint for a type. The extends used with a generic, take the generic as an infinite set and it will constrain it to a more specific type.
-Please note that `extends` has nothing to do with hierarchy in a OOP sense (there is no this concept in TypeScript).
-TypeScript works with sets and does not have a strict hierarchy, infact, as in the example below, two types could overlap without either being a subtype of the other type (TypeScript considers the structure, shape of the objects).
+Ключавое слова `extends` у гэтым кантэксце можна разглядаць як «падмноства». Яно ўсталёўвае абмежаванне для тыпу. `extends`, які выкарыстоўваецца з абагульненым тыпам (generic), бярэ абагульнены тып як бясконцае мноства і абмяжоўвае яго больш канкрэтным тыпам.
+Звярніце ўвагу, што `extends` не мае нічога агульнага з іерархіяй у сэнсе ААП (у TypeScript няма такой канцэпцыі).
+TypeScript працуе з мноствамі і не мае строгай іерархіі, на самай справе, як у прыкладзе ніжэй, два тыпы могуць перакрывацца, не з'яўляючыся пры гэтым падтыпам іншага тыпу (TypeScript улічвае структуру, форму аб'ектаў).
 
 ```typescript
 interface X {
@@ -1061,13 +1061,13 @@ const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 const r: Z1 = z; // Valid
 ```
 
-### Assign a type: Type Declarations and Type Assertions
+### Прысваенне тыпу: Дэкларацыі тыпаў і Сцвярджэнні тыпаў
 
-A type can be assigned in different ways in TypeScript:
+Тып можна прысвоіць рознымі спосабамі ў TypeScript:
 
-#### Type Declaration
+#### Дэкларацыя тыпу
 
-In the following example, we use x: X (": Type") to declare a type for the variable x.
+У наступным прыкладзе мы выкарыстоўваем x: X (": Type"), каб аб'явіць тып для зменнай x.
 
 ```typescript
 type X = {
@@ -1080,7 +1080,7 @@ const x: X = {
 };
 ```
 
-If the variable is not in the specified format, TypeScript will report an error. For instance:
+Калі зменная не ў паказаным фармаце, TypeScript паведаміць пра памылку. Напрыклад:
 
 <!-- skip -->
 ```typescript
@@ -1094,11 +1094,11 @@ const x: X = {
 };
 ```
 
-#### Type Assertion
+#### Сцвярджэнне тыпу
 
-It is possible to add an assertion by using the `as` keyword. This tells the compiler that the developer has more information about a type and silences any errors that may occur.
+Можна дадаць сцвярджэнне (assertion), выкарыстоўваючы ключавое слова `as`. Гэта паведамляе кампілятару, што распрацоўшчык мае больш інфармацыі пра тып, і заглушае любыя памылкі, якія могуць узнікнуць.
 
-For example:
+Напрыклад:
 
 ```typescript
 type X = {
@@ -1110,16 +1110,16 @@ const x = {
 } as X;
 ```
 
-In the above example, the object x is asserted to have the type X using the as keyword. This informs the TypeScript compiler that the object conforms to the specified type, even though it has an additional property b not present in the type definition.
+У прыведзеным вышэй прыкладзе сцвярджаецца, што аб'ект x мае тып X з выкарыстаннем ключавога слова as. Гэта паведамляе кампілятару TypeScript, што аб'ект адпавядае вызначанаму тыпу, нават калі ён мае дадатковую ўласцівасць b, якая адсутнічае ў азначэнні тыпу.
 
-Type assertions are useful in situations where a more specific type needs to be specified, especially when working with the DOM. For instance:
+Сцвярджэнні тыпу карысныя ў сітуацыях, калі неабходна ўказаць больш канкрэтны тып, асабліва пры працы з DOM. Напрыклад:
 
 ```typescript
 const myInput = document.getElementById('my_input') as HTMLInputElement;
 ```
 
-Here, the type assertion as HTMLInputElement is used to tell TypeScript that the result of getElementById should be treated as an HTMLInputElement.
-Type assertions can also be used to remap keys, as shown in the example below with template literals:
+Тут сцвярджэнне тыпу як HTMLInputElement выкарыстоўваецца, каб паведаміць TypeScript, што вынік getElementById павінен разглядацца як HTMLInputElement.
+Сцвярджэнні тыпу таксама можна выкарыстоўваць для пераназвання ключоў, як паказана ў прыкладзе ніжэй з шаблоннымі літэраламі:
 
 ```typescript
 type J<Type> = {
@@ -1133,39 +1133,39 @@ type X = {
 type Y = J<X>;
 ```
 
-In this example, the type `J<Type>` uses a mapped type with a template literal to remap the keys of Type. It creates new properties with a "prefix_" added to each key, and their corresponding values are functions returning the original property values.
+У гэтым прыкладзе тып `J<Type>` выкарыстоўвае супастаўлены (mapped) тып з шаблонным літэралам для пераназвання ключоў Type. Ён стварае новыя ўласцівасці з прэфіксам "prefix_", дададзеным да кожнага ключа, і іх адпаведныя значэнні з'яўляюцца функцыямі, якія вяртаюць зыходныя значэнні ўласцівасцей.
 
-It is worth noting that when using a type assertion, TypeScript will not execute excess property checking. Therefore, it is generally preferable to use a Type Declaration when the structure of the object is known in advance.
+Варта адзначыць, што пры выкарыстанні сцвярджэння тыпу TypeScript не будзе выконваць праверку лішніх уласцівасцей (excess property checking). Таму, як правіла, пераважней выкарыстоўваць дэкларацыю тыпу, калі структура аб'екта вядома загадзя.
 
-#### Ambient Declarations
+#### Дэкларацыі асяроддзя (Ambient Declarations)
 
-Ambient declarations are files that describe types for JavaScript code, they have a file name format as `.d.ts.`. They are usually imported and used to annotate existing JavaScript libraries or to add types to existing JS files in your project.
+Дэкларацыі асяроддзя — гэта файлы, якія апісваюць тыпы для кода JavaScript, яны маюць фармат імя файла як `.d.ts.`. Звычайна яны імпартуюцца і выкарыстоўваюцца для анатавання існуючых бібліятэк JavaScript або для дадання тыпаў у існуючыя файлы JS у вашым праекце.
 
-Many common libraries types can be found at:
+Многія распаўсюджаныя тыпы бібліятэк можна знайсці па адрасе:
 [https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
 
-and can be installed using:
+і могуць быць усталяваны з дапамогай:
 
 ```shell
 npm install --save-dev @types/library-name
 ```
 
-For your defined Ambient Declarations, you can import using the "triple-slash" reference:
+Для вашых уласных дэкларацый асяроддзя вы можаце выкарыстоўваць імпарт з дапамогай спасылкі "triple-slash" (патройная касая рыса):
 
 <!-- skip -->
 ```typescript
 /// <reference path="./library-types.d.ts" />
 ```
 
-You can use Ambient Declarations even within JavaScript files using `// @ts-check`.
+Вы можаце выкарыстоўваць дэкларацыі асяроддзя нават у файлах JavaScript, выкарыстоўваючы `// @ts-check`.
 
-The `declare` keyword enables type definitions for existing JavaScript code without importing it, serving as a placeholder for types from another file or globally.
+Ключавое слова `declare` дазваляе вызначаць тыпы для існуючага кода JavaScript без яго імпарту, служачы запаўняльнікам для тыпаў з іншага файла або глабальна.
 
-### Property Checking and Excess Property Checking
+### Праверка ўласцівасцей і Праверка лішніх уласцівасцей
 
-TypeScript is based on a structural type system but excess property checking is a property of TypeScript which allows it to check whether an object has the exact properties specified in the type.
+TypeScript заснаваны на структурнай сістэме тыпаў, але праверка лішніх уласцівасцей (Excess Property Checking) — гэта ўласцівасць TypeScript, якая дазваляе яму правяраць, ці мае аб'ект дакладныя ўласцівасці, указаныя ў тыпе.
 
-Excess Property Checking is performed when assigning object literals to variables or when passing them as arguments to the function's excess property, for instance.
+Праверка лішніх уласцівасцей выконваецца, напрыклад, пры прысваенні літэралаў аб'екта зменным або пры перадачы іх у якасці аргументаў функцыі.
 
 <!-- skip -->
 ```typescript
@@ -1177,9 +1177,9 @@ const x: X = y; // Valid because structural typing
 const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
 ```
 
-### Weak Types
+### Слабыя тыпы
 
-A type is considered weak when it contains nothing but a set of all-optional properties:
+Тып лічыцца слабым, калі ён утрымлівае толькі набор цалкам неабавязковых уласцівасцей:
 
 ```typescript
 type X = {
@@ -1188,7 +1188,7 @@ type X = {
 };
 ```
 
-TypeScript considers an error to assign anything to a weak type when there is no overlap, for instance, the following throws an error:
+TypeScript лічыць памылкай прысваенне чаго-небудзь слабаму тыпу, калі няма перакрыцця. Напрыклад, наступнае выклікае памылку:
 
 <!-- skip -->
 ```typescript
@@ -1202,7 +1202,7 @@ const fn = (options: Options) => undefined;
 fn({ c: 'c' }); // Invalid
 ```
 
-Although not recommended, if needed, it is possible to bypass this check by using type assertion:
+Хоць і не рэкамендуецца, пры неабходнасці можна абыйсці гэтую праверку з дапамогай сцвярджэння тыпу:
 
 ```typescript
 type Options = {
@@ -1213,7 +1213,7 @@ const fn = (options: Options) => undefined;
 fn({ c: 'c' } as Options); // Valid
 ```
 
-Or by adding `unknown` to the index signature to the weak type:
+Або дадаўшы `unknown` да індэкснай сігнатуры ў слабым тыпе:
 
 ```typescript
 type Options = {
@@ -1226,15 +1226,15 @@ const fn = (options: Options) => undefined;
 fn({ c: 'c' }); // Valid
 ```
 
-### Strict Object Literal Checking (Freshness)
+### Строгая праверка літэралаў аб'екта (Свежасць/Freshness)
 
-Strict object literal checking, sometimes referred to as "freshness", is a feature in TypeScript that helps catch excess or misspelled properties that would otherwise go unnoticed in normal structural type checks.
+Строгая праверка літэралаў аб'екта, якую часам называюць «свежасць» (freshness), — гэта функцыя ў TypeScript, якая дапамагае выявіць лішнія або напісаныя з памылкамі ўласцівасці, якія ў іншым выпадку засталіся б незаўважанымі пры звычайных структурных праверках тыпаў.
 
-When creating an object literal, the TypeScript compiler considers it "fresh." If the object literal is assigned to a variable or passed as a parameter, TypeScript will throw an error if the object literal specifies properties that do not exist in the target type.
+Пры стварэнні літэрала аб'екта кампілятар TypeScript лічыць яго «свежым». Калі літэрал аб'екта прысвойваецца зменнай або перадаецца ў якасці параметра, TypeScript выдасць памылку, калі літэрал аб'екта вызначае ўласцівасці, якія не існуюць у мэтавым тыпе.
 
-However, "freshness" disappears when an object literal is widened or a type assertion is used.
+Аднак «свежасць» знікае, калі літэрал аб'екта пашыраецца (widened) або выкарыстоўваецца сцвярджэнне тыпу.
 
-Here are some examples to illustrate:
+Вось некалькі прыкладаў для ілюстрацыі:
 
 <!-- skip -->
 ```typescript
@@ -1258,47 +1258,47 @@ let d: Y = { a: 'a', b: '' };
 c = d; // Widening: No Freshness check
 ```
 
-### Type Inference
+### Вывад тыпаў
 
-TypeScript can infer types when no annotation is provided during:
+TypeScript можа выводзіць тыпы, калі анатацыя не прадастаўлена, падчас:
 
-* Variable initialization.
-* Member initialization.
-* Setting defaults for parameters.
-* Function return type.
+* Ініцыялізацыі зменнай.
+* Ініцыялізацыі члена.
+* Усталявання параметраў па змаўчанні.
+* Вызначэння тыпу вяртання функцыі.
 
-For example:
+Напрыклад:
 
 ```typescript
 let x = 'x'; // The type inferred is string
 ```
 
-The TypeScript compiler analyzes the value or expression and determines its type based on the available information.
+Кампілятар TypeScript аналізуе значэнне або выраз і вызначае яго тып на аснове даступнай інфармацыі.
 
-### More Advanced Inferences
+### Больш прасунуты вывад тыпаў
 
-When multiple expressions are used in type inference, TypeScript looks for the "best common types." For instance:
+Калі пры вывадзе тыпаў выкарыстоўваецца некалькі выразаў, TypeScript шукае «найлепшыя агульныя тыпы» (best common types). Напрыклад:
 
 ```typescript
 let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
 ```
 
-If the compiler cannot find the best common types, it returns a union type. For example:
+Калі кампілятар не можа знайсці найлепшыя агульныя тыпы, ён вяртае тып аб'яднання (union type). Напрыклад:
 
 ```typescript
 let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
 ```
 
-TypeScript utilizes "contextual typing" based on the variable's location to infer types. In the following example, the compiler knows that `e` is of type `MouseEvent` because of the `click` event type defined in the lib.d.ts file, which contains ambient declarations for various common JavaScript constructs and the DOM:
+TypeScript выкарыстоўвае «кантэкстную тыпізацыю» на аснове месцазнаходжання зменнай для вываду тыпаў. У наступным прыкладзе кампілятар ведае, што `e` мае тып `MouseEvent` з-за тыпу падзеі `click`, вызначанага ў файле lib.d.ts, які змяшчае дэкларацыі асяроддзя для розных распаўсюджаных канструкцый JavaScript і DOM:
 
 ```typescript
 window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
 ```
 
-### Type Widening
+### Пашырэнне тыпаў (Type Widening)
 
-Type widening is the process in which TypeScript assigns a type to a variable initialized when no type annotation was provided. It allows narrow to wider types but not vice versa.
-In the following example:
+Пашырэнне тыпаў (Type widening) — гэта працэс, у якім TypeScript прысвойвае тып зменнай, якая ініцыялізуецца, калі анатацыя тыпу не была прадастаўлена. Ён дазваляе пераходзіць ад вузкіх тыпаў да больш шырокіх, але не наадварот.
+У наступным прыкладзе:
 
 <!-- skip -->
 ```typescript
@@ -1307,15 +1307,15 @@ let y: 'y' | 'x' = 'y'; // y types is a union of literal types
 y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
 ```
 
-TypeScript assigns `string` to `x` based on the single value provided during initialization (`x`), this is an example of widening.
+TypeScript прысвойвае `string` зменнай `x` на аснове адзіночнага значэння, прадстаўленага падчас ініцыялізацыі (`x`); гэта прыклад пашырэння.
 
-TypeScript provides ways to have control of the widening process, for instance using "const".
+TypeScript дае магчымасць кантраляваць працэс пашырэння, напрыклад, з дапамогай "const".
 
 ### Const
 
-Using the `const` keyword when declaring a variable results in a narrower type inference in TypeScript.
+Выкарыстанне ключавога слова `const` пры аб'яўленні зменнай прыводзіць да больш вузкага вываду тыпу ў TypeScript.
 
-For example:
+Напрыклад:
 
 ```typescript
 const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
@@ -1323,12 +1323,12 @@ let y: 'y' | 'x' = 'y';
 y = x; // Valid: The type of x is inferred as 'x'
 ```
 
-By using `const` to declare the variable x, its type is narrowed to the specific literal value 'x'. Since the type of x is narrowed, it can be assigned to the variable y without any error.
-The reason the type can be inferred is because `const` variables cannot be reassigned, so their type can be narrowed down to a specific literal type, in this case, the literal type 'x'.
+Дзякуючы выкарыстанню `const` для аб'яўлення зменнай x, яе тып звужаецца да канкрэтнага літэральнага значэння 'x'. Паколькі тып x звужаны, яго можна прысвоіць зменнай y без памылак.
+Прычына, па якой тып можа быць выведзены, заключаецца ў тым, што зменныя `const` не могуць быць перапрысвоены, таму іх тып можа быць звужаны да пэўнага літэральнага тыпу, у дадзеным выпадку літэральнага тыпу 'x'.
 
-#### Const Modifier on Type Parameters
+#### Мадыфікатар Const для параметраў тыпу
 
-From version 5.0 of TypeScript, it is possible to specify the `const` attribute on a generic type parameter. This allows for inferring the most precise type possible. Let's see an example without using `const`:
+Пачынаючы з версіі 5.0 TypeScript, можна ўказваць атрыбут `const` для абагульненага параметра тыпу. Гэта дазваляе вывесці найбольш дакладны магчымы тып. Давайце паглядзім на прыклад без выкарыстання `const`:
 
 ```typescript
 function identity<T>(value: T) {
@@ -1338,9 +1338,9 @@ function identity<T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // Type infered is: { a: string; b: string; }
 ```
 
-As you can see, the properties `a` and `b` are inferred with a type of `string`   .
+Як бачыце, уласцівасці `a` і `b` выводзяцца з тыпам `string`.
 
-Now, let's see the difference with the `const` version:
+Цяпер давайце паглядзім розніцу з версіяй `const`:
 
 ```typescript
 function identity<const T>(value: T) {
@@ -1350,13 +1350,13 @@ function identity<const T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // Type infered is: { a: "a"; b: "b"; }
 ```
 
-Now we can see that the properties `a` and `b` are inferred as `const`, so `a` and `b` are treated as string literals rather than just `string` types.
+Цяпер мы бачым, што ўласцівасці `a` і `b` выводзяцца як `const`, таму `a` і `b` разглядаюцца як радковыя літэралы, а не проста як тыпы `string`.
 
-#### Const assertion
+#### Сцвярджэнне Const (Const assertion)
 
-This feature allows you to declare a variable with a more precise literal type based on its initialization value, signifying to the compiler that the value should be treated as an immutable literal. Here are a few examples:
+Гэтая функцыя дазваляе аб'яўляць зменную з больш дакладным літэральным тыпам на аснове яе значэння ініцыялізацыі, паказваючы кампілятару, што значэнне павінна разглядацца як нязменны літэрал. Вось некалькі прыкладаў:
 
-On a single property:
+Для асобнай уласцівасці:
 
 ```typescript
 const v = {
@@ -1365,7 +1365,7 @@ const v = {
 v.x = 3;
 ```
 
-On an entire object:
+Для цэлага аб'екта:
 
 ```typescript
 const v = {
@@ -1374,16 +1374,16 @@ const v = {
 } as const;
 ```
 
-This can be particularly useful when defining the type for a tuple:
+Гэта можа быць асабліва карысна пры вызначэнні тыпу для картэжа:
 
 ```typescript
 const x = [1, 2, 3]; // number[]
 const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
 ```
 
-### Explicit Type Annotation
+### Яўная анатацыя тыпу
 
-We can be specific and pass a type, in the following example property `x` is of type `number`:
+Мы можам быць канкрэтнымі і перадаць тып; у наступным прыкладзе ўласцівасць `x` мае тып `number`:
 
 ```typescript
 const v = {
@@ -1392,7 +1392,7 @@ const v = {
 v.x = 3; // Valid
 ```
 
-We can make the type annotation more specific by using a union of literal types:
+Мы можам зрабіць анатацыю тыпу больш канкрэтнай, выкарыстоўваючы аб'яднанне літэральных тыпаў:
 
 <!-- skip -->
 ```typescript
@@ -1403,15 +1403,15 @@ v.x = 3; // Valid
 v.x = 100; // Invalid
 ```
 
-### Type Narrowing
+### Звужэнне тыпаў (Type Narrowing)
 
-Type Narrowing is the process in TypeScript where a general type is narrowed down to a more specific type. This occurs when TypeScript analyzes the code and determines that certain conditions or operations can refine the type information.
+Звужэнне тыпаў (Type Narrowing) — гэта працэс у TypeScript, пры якім агульны тып звужаецца да больш канкрэтнага тыпу. Гэта адбываецца, калі TypeScript аналізуе код і вызначае, што пэўныя ўмовы або аперацыі могуць удакладніць інфармацыю пра тып.
 
-Narrowing types can occur in different ways, including:
+Звужэнне тыпаў можа адбывацца рознымі спосабамі, у тым ліку:
 
-#### Conditions
+#### Умовы
 
-By using conditional statements, such as `if` or `switch`, TypeScript can narrow down the type based on the outcome of the condition. For example:
+Выкарыстоўваючы ўмоўныя аператары, такія як `if` або `switch`, TypeScript можа звузіць тып на аснове выніку ўмовы. Напрыклад:
 
 ```typescript
 let x: number | undefined = 10;
@@ -1421,9 +1421,9 @@ if (x !== undefined) {
 }
 ```
 
-#### Throwing or returning
+#### Выкід (Throwing) або вяртанне (returning)
 
-Throwing an error or returning early from a branch can be used to help TypeScript narrow down a type. For example:
+Выкід памылкі або датэрміновае вяртанне з галіны могуць быць выкарыстаны, каб дапамагчы TypeScript звузіць тып. Напрыклад:
 
 ```typescript
 let x: number | undefined = 10;
@@ -1434,16 +1434,16 @@ if (x === undefined) {
 x += 100;
 ```
 
-Other ways to narrow down types in TypeScript include:
+Іншыя спосабы звужэння тыпаў у TypeScript ўключаюць:
 
-* `instanceof` operator: Used to check if an object is an instance of a specific class.
-* `in` operator: Used to check if a property exists in an object.
-* `typeof` operator: Used to check the type of a value at runtime.
-* Built-in functions like `Array.isArray()`: Used to check if a value is an array.
+* Аператар `instanceof`: Выкарыстоўваецца для праверкі таго, ці з'яўляецца аб'ект экзэмплярам пэўнага класа.
+* Аператар `in`: Выкарыстоўваецца для праверкі таго, ці існуе ўласцівасць у аб'екце.
+* Аператар `typeof`: Выкарыстоўваецца для праверкі тыпу значэння падчас выканання.
+* Убудаваныя функцыі, такія як `Array.isArray()`: Выкарыстоўваюцца для праверкі таго, ці з'яўляецца значэнне масівам.
 
-#### Discriminated Union
+#### Дыскрымінаванае аб'яднанне (Discriminated Union)
 
-Using a "Discriminated Union" is a pattern in TypeScript where an explicit "tag" is added to objects to distinguish between different types within a union. This pattern is also referred to as a "tagged union." In the following example, the "tag" is represented by the property "type":
+Выкарыстанне «дыскрымінаванага аб'яднання» — гэта шаблон у TypeScript, дзе да аб'ектаў дадаецца відавочны «тэг» (tag), каб адрозніваць розныя тыпы ўнутры аб'яднання. Гэты шаблон таксама называюць «пазначанае аб'яднанне» (tagged union). У наступным прыкладзе «тэг» прадстаўлены ўласцівасцю «type»:
 
 ```typescript
 type A = { type: 'type_a'; value: number };
@@ -1459,9 +1459,9 @@ const x = (input: A | B): string | number => {
 };
 ```
 
-#### User-Defined Type Guards
+#### Карыстальніцкія вартаўнікі тыпу (User-Defined Type Guards)
 
-In cases where TypeScript is unable to determine a type, it is possible to write a helper function known as a "user-defined type guard." In the following example, we will utilize a Type Predicate to narrow down the type after applying certain filtering:
+У выпадках, калі TypeScript не можа вызначыць тып, можна напісаць дапаможную функцыю, вядомую як «карыстальніцкі вартаўнік тыпу». У наступным прыкладзе мы будзем выкарыстоўваць прэдыкат тыпу (Type Predicate), каб звузіць тып пасля прымянення пэўнай фільтрацыі:
 
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
@@ -1473,20 +1473,20 @@ const isValid = (item: string | null): item is string => item !== null; // Custo
 const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
 ```
 
-## Primitive Types
+## Прымітыўныя тыпы
 
-TypeScript supports 7 primitive types. A primitive data type refers to a type that is not an object and does not have any methods associated with it. In TypeScript, all primitive types are immutable, meaning their values cannot be changed once they are assigned.
+TypeScript падтрымлівае 7 прымітыўных тыпаў. Прымітыўны тып даных адносіцца да тыпу, які не з'яўляецца аб'ектам і не мае звязаных з ім метадаў. У TypeScript усе прымітыўныя тыпы з'яўляюцца нязменнымі (immutable), што азначае, што іх значэнні не могуць быць зменены пасля прысваення.
 
 ### string
 
-The `string` primitive type stores textual data, and the value is always double or single-quoted.
+Прымітыўны тып `string` захоўвае тэкставыя даныя, і значэнне заўсёды бярэцца ў двайныя або адзінарныя двукоссі.
 
 ```typescript
 const x: string = 'x';
 const y: string = 'y';
 ```
 
-Strings can span multiple lines if surrounded by the backtick (`) character:
+Радкі могуць займаць некалькі радкоў, калі яны акружаны сімвалам зваротнага апострафа (`):
 
 ```typescript
 let sentence: string = `xxx,
@@ -1495,7 +1495,7 @@ let sentence: string = `xxx,
 
 ### boolean
 
-The `boolean` data type in TypeScript stores a binary value, either `true` or `false`.
+Тып даных `boolean` у TypeScript захоўвае бінарнае значэнне, альбо `true`, альбо `false`.
 
 ```typescript
 const isReady: boolean = true;
@@ -1503,8 +1503,8 @@ const isReady: boolean = true;
 
 ### number
 
-A `number` data type in TypeScript is represented with a 64-bit floating point value. A `number` type can represent integers and fractions.
-TypeScript also supports hexadecimal, binary, and octal, for instance:
+Тып даных `number` у TypeScript прадстаўлены 64-бітным значэннем з плывучай коскай. Тып `number` можа прадстаўляць цэлыя лікі і дробы.
+TypeScript таксама падтрымлівае шаснаццатковыя, двайковыя і васьмярковыя лікі, напрыклад:
 
 ```typescript
 const decimal: number = 10;
@@ -1515,23 +1515,23 @@ const octal: number = 0o633; // Octal starts with 0o
 
 ### bigInt
 
-A `bigInt` represents numeric values that are very large (253 – 1) and cannot be represented with a `number`.
+`bigInt` прадстаўляе лікавыя значэнні, якія з'яўляюцца вельмі вялікімі (2^53 – 1) і не могуць быць прадстаўлены з дапамогай `number`.
 
-A `bigInt` can be created by calling the built-in function `BigInt()` or by adding `n` to the end of any integer numeric literal:
+`bigInt` можа быць створаны выклікам убудаванай функцыі `BigInt()` або даданнем `n` у канец любога цэлага лікавага літэрала:
 
 ```typescript
 const x: bigint = BigInt(9007199254740991);
 const y: bigint = 9007199254740991n;
 ```
 
-Notes:
+Заўвагі:
 
-* `bigInt` values cannot be mixed with `number` and cannot be used with built-in `Math`, they must be coerced to the same type.
-* `bigInt` values are available only if target configuration is ES2020 or higher.
+* Значэнні `bigInt` нельга змешваць з `number` і выкарыстоўваць з убудаваным `Math`; яны павінны быць прыведзены да аднаго тыпу.
+* Значэнні `bigInt` даступныя толькі калі мэтавая канфігурацыя — ES2020 або вышэй.
 
 ### Symbol
 
-Symbols are unique identifiers that can be used as property keys in objects to prevent naming conflicts.
+Сімвалы (Symbols) — гэта ўнікальныя ідэнтыфікатары, якія могуць выкарыстоўвацца ў якасці ключоў уласцівасцей у аб'ектах для прадухілення канфліктаў імёнаў.
 
 ```typescript
 type Obj = {
@@ -1550,15 +1550,15 @@ console.log(obj[b]); // 456
 
 ### null and undefined
 
-`null` and `undefined` types both represent no value or the absence of any value.
+Тыпы `null` і `undefined` абодва прадстаўляюць адсутнасць значэння.
 
-The `undefined` type means the value is not assigned or initialized or indicates an unintentional absence of value.
+Тып `undefined` азначае, што значэнне не прысвоена ці не ініцыялізавана, альбо паказвае на ненаўмысную адсутнасць значэння.
 
-The `null` type means that we know that the field does not have a value, so value is unavailable, it indicates an intentional absence of value.
+Тып `null` азначае, што мы ведаем, што поле не мае значэння, таму значэнне недаступна; гэта паказвае на наўмысную адсутнасць значэння.
 
 ### Array
 
-An `array` is a data type that can store multiple values of the same type or not. It can be defined using the following syntax:
+`Array` (масіў) — гэта тып даных, які можа захоўваць некалькі значэнняў аднаго або розных тыпаў. Яго можна вызначыць з дапамогай наступнага сінтаксісу:
 
 ```typescript
 const x: string[] = ['a', 'b'];
@@ -1566,7 +1566,7 @@ const y: Array<string> = ['a', 'b'];
 const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
 ```
 
-TypeScript supports readonly arrays using the following syntax:
+TypeScript падтрымлівае масівы толькі для чытання (readonly arrays), выкарыстоўваючы наступны сінтаксіс:
 
 <!-- skip -->
 ```typescript
@@ -1576,7 +1576,7 @@ const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
 j.push('x'); // Invalid
 ```
 
-TypeScript supports tuple and readonly tuple:
+TypeScript падтрымлівае картэжы (tuple) і картэжы толькі для чытання:
 
 ```typescript
 const x: [string, number] = ['a', 1];
@@ -1585,15 +1585,15 @@ const y: readonly [string, number] = ['a', 1];
 
 ### any
 
-The `any` data type represents literally "any" value, it is the default value when TypeScript cannot infer the type or is not specified.
+Тып даных `any` літаральна прадстаўляе «любое» значэнне; гэта значэнне па змаўчанні, калі TypeScript не можа вывесці тып або ён не паказаны.
 
-When using `any` TypeScript compiler skips the type checking so there is no type safety when `any` is being used. Generally do not use `any` to silence the compiler when an error occurs, instead focus on fixing the error as with using `any`  it is possible to break contracts and we lose the benefits of TypeScript autocomplete.
+Пры выкарыстанні `any` кампілятар TypeScript прапускае праверку тыпаў, таму пры выкарыстанні `any` адсутнічае бяспека тыпаў. Як правіла, не выкарыстоўвайце `any`, каб заглушыць кампілятар пры ўзнікненні памылкі; замест гэтага засяродзьцеся на выпраўленні памылкі, паколькі пры выкарыстанні `any` можна парушыць кантракты, і мы губляем перавагі аўтазапаўнення TypeScript.
 
-The `any` type could be useful during a gradual migration from JavaScript to TypeScript, as it can silence the compiler.
+Тып `any` можа быць карысны падчас паступовай міграцыі з JavaScript на TypeScript, бо ён можа заглушыць кампілятар.
 
-For new projects use TypeScript configuration `noImplicitAny` which enables TypeScript to issue errors where `any` is used or inferred.
+Для новых праектаў выкарыстоўвайце наладу TypeScript `noImplicitAny`, якая дазваляе TypeScript выдаваць памылкі там, дзе выкарыстоўваецца або выводзіцца `any`.
 
-The `any`type  is usually a source of errors which can mask real problems with your types. Avoid using it as much as possible.
+Тып `any` звычайна з'яўляецца крыніцай памылак, якія могуць маскіраваць рэальныя праблемы з вашымі тыпамі. Пазбягайце яго выкарыстання, наколькі гэта магчыма.
 
 ## Type Annotations
 
@@ -2869,11 +2869,11 @@ interface B {
 type C = A | B; // Union of interfaces
 ```
 
-## Class
+## Клас (Class)
 
-### Class Common Syntax
+### Агульны сінтаксіс класа
 
-The `class` keyword is used in TypeScript to define a class. Below, you can see an example:
+Ключавое слова `class` выкарыстоўваецца ў TypeScript для вызначэння класа. Ніжэй вы можаце ўбачыць прыклад:
 
 ```typescript
 class Person {
@@ -2891,15 +2891,15 @@ class Person {
 }
 ```
 
-The `class` keyword is used to define a class named "Person".
+Ключавое слова `class` выкарыстоўваецца для вызначэння класа з імем "Person".
 
-The class has two private properties: name of type `string` and age of type `number`.
+Клас мае дзве прыватныя ўласцівасці: name тыпу `string` і age тыпу `number`.
 
-The constructor is defined using the `constructor` keyword. It takes name and age as parameters and assigns them to the corresponding properties.
+Канструктар вызначаецца з дапамогай ключавога слова `constructor`. Ён прымае name і age ў якасці параметраў і прысвойвае іх адпаведным уласцівасцям.
 
-The class has a `public` method named sayHi that logs a greeting message.
+Клас мае `public` (публічны) метад з імем sayHi, які выводзіць прывітальнае паведамленне.
 
-To create an instance of a class in TypeScript, you can use the `new` keyword followed by the class name, followed by parentheses `()`. For instance:
+Каб стварыць асобнік класа ў TypeScript, вы можаце выкарыстаць ключавое слова `new`, за якім ідзе імя класа і дужкі `()`. Напрыклад:
 
 <!-- skip -->
 ```typescript
@@ -2907,9 +2907,9 @@ const myObject = new Person('John Doe', 25);
 myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
 ```
 
-### Constructor
+### Канструктар (Constructor)
 
-Constructors are special methods within a class that are used to initialize the object's properties when an instance of the class is created.
+Канструктары — гэта спецыяльныя метады ўнутры класа, якія выкарыстоўваюцца для ініцыялізацыі ўласцівасцей аб'екта пры стварэнні асобніка класа.
 
 ```typescript
 class Person {
@@ -2932,7 +2932,7 @@ const john = new Person('Simon', 17);
 john.sayHello();
 ```
 
-It is possible to overload a constructor using the following syntax:
+Можна перагрузіць (overload) канструктар, выкарыстоўваючы наступны сінтаксіс:
 
 ```typescript
 type Sex = 'm' | 'f';
@@ -2954,7 +2954,7 @@ const p1 = new Person('Simon', 17);
 const p2 = new Person('Alice', 22, 'f');
 ```
 
-In TypeScript, it is possible to define multiple constructor overloads, but you can have only one implementation that must be compatible with all the overloads, this can be achieved  by using an optional parameter.
+У TypeScript можна вызначыць некалькі перагрузак канструктара, але вы можаце мець толькі адну рэалізацыю, якая павінна быць сумяшчальная з усімі перагрузкамі; гэтага можна дасягнуць, выкарыстоўваючы неабавязковы параметр.
 
 ```typescript
 class Person {
@@ -2984,15 +2984,15 @@ const person3 = new Person('Jane', 25);
 person3.displayInfo(); // Name: Jane, Age: 25
 ```
 
-### Private and Protected Constructors
+### Прыватныя і абароненыя канструктары
 
-In TypeScript, constructors can be marked as private or protected, which restricts their accessibility and usage.
+У TypeScript канструктары могуць быць пазначаны як прыватныя (`private`) або абароненыя (`protected`), што абмяжоўвае іх даступнасць і выкарыстанне.
 
-Private Constructors:
-Can be called only within the class itself. Private constructors are often used in scenarios where you want to enforce a singleton pattern or restrict the creation of instances to a factory method within the class
+Прыватныя канструктары:
+Могуць быць выкліканы толькі ўнутры самога класа. Прыватныя канструктары часта выкарыстоўваюцца ў сцэнарыях, калі вы хочаце прымусова выкарыстоўваць шаблон адзіночкі (singleton) або абмежаваць стварэнне асобнікаў фабрычным метадам унутры класа.
 
-Protected Constructors:
-Protected constructors are useful when you want to create a base class that should not be instantiated directly but can be extended by subclasses.
+Абароненыя канструктары:
+Абароненыя канструктары карысныя, калі вы хочаце стварыць базавы клас, асобнікі якога не павінны стварацца напрамую, але які можа быць пашыраны падкласамі.
 
 ```typescript
 class BaseClass {
@@ -3015,20 +3015,20 @@ class DerivedClass extends BaseClass {
 const derivedObj = new DerivedClass(10);
 ```
 
-### Access Modifiers
+### Мадыфікатары доступу
 
-Access Modifiers `private`, `protected`, and `public` are used to control the visibility and accessibility of class members, such as properties and methods, in TypeScript classes. These modifiers are essential for enforcing encapsulation and establishing boundaries for accessing and modifying the internal state of a class.
+Мадыфікатары доступу `private`, `protected` і `public` выкарыстоўваюцца для кіравання бачнасцю і даступнасцю членаў класа, такіх як уласцівасці і метады, у класах TypeScript. Гэтыя мадыфікатары неабходныя для забеспячэння інкапсуляцыі і ўсталявання меж для доступу і змены ўнутранага стану класа.
 
-The `private` modifier restricts access to the class member only within the containing class.
+Мадыфікатар `private` (прыватны) абмяжоўвае доступ да члена класа толькі ў межах класа, які яго змяшчае.
 
-The `protected` modifier allows access to the class member within the containing class and its derived classes.
+Мадыфікатар `protected` (абаронены) дазваляе доступ да члена класа ў межах класа, які яго змяшчае, і яго вытворных класаў.
 
-The `public` modifier provides unrestricted access to the class member, allowing it to be accessed from anywhere."
+Мадыфікатар `public` (публічны) забяспечвае неабмежаваны доступ да члена класа, дазваляючы звяртацца да яго адкуль заўгодна.
 
-### Get and Set
+### Get і Set (Гетэры і Сэтэры)
 
-Getters and setters are special methods that allow you to define custom access and modification behavior for class properties. They enable you to encapsulate the internal state of an object and provide additional logic when getting or setting the values of properties.
-In TypeScript, getters and setters are defined using the `get` and `set` keywords respectively. Here's an example:
+Гетэры (Getters) і сэтэры (setters) — гэта спецыяльныя метады, якія дазваляюць вызначаць карыстальніцкія паводзіны доступу і мадыфікацыі для ўласцівасцей класа. Яны дазваляюць інкапсуляваць унутраны стан аб'екта і забяспечваць дадатковую логіку пры атрыманні або ўсталяванні значэнняў уласцівасцей.
+У TypeScript гетэры і сэтэры вызначаюцца з дапамогай ключавых слоў `get` і `set` адпаведна. Вось прыклад:
 
 ```typescript
 class MyClass {
@@ -3046,9 +3046,9 @@ class MyClass {
 }
 ```
 
-### Auto-Accessors in Classes
+### Аўтаматычныя аксэсары ў класах
 
-TypeScript version 4.9 adds support for auto-accessors, a forthcoming ECMAScript feature. They resemble class properties but are declared with the "accessor" keyword.
+TypeScript версіі 4.9 дадае падтрымку аўтаматычных аксэсараў (auto-accessors), будучай функцыі ECMAScript. Яны нагадваюць уласцівасці класа, але аб'яўляюцца з дапамогай ключавога слова «accessor».
 
 ```typescript
 class Animal {
@@ -3060,7 +3060,7 @@ class Animal {
 }
 ```
 
-Auto-accessors are "de-sugared" into private `get` and `set` accessors, operating on an inaccessible property.
+Аўтаматычныя аксэсары ператвараюцца ("de-sugared") у прыватныя аксэсары `get` і `set`, якія працуюць з недаступнай уласцівасцю.
 
 <!-- skip -->
 ```typescript
@@ -3082,8 +3082,8 @@ class Animal {
 
 ### this
 
-In TypeScript, the `this` keyword refers to the current instance of a class within its methods or constructors. It allows you to access and modify the properties and methods of the class from within its own scope.
-It provides a way to access and manipulate the internal state of an object within its own methods.
+У TypeScript ключавое слова `this` спасылаецца на бягучы асобнік класа ў яго метадах або канструктарах. Гэта дазваляе атрымліваць доступ і змяняць уласцівасці і метады класа з яго ўласнай вобласці бачнасці.
+Яно забяспечвае спосаб доступу і маніпулявання ўнутраным станам аб'екта ў яго ўласных метадах.
 
 ```typescript
 class Person {
@@ -3100,9 +3100,9 @@ const person1 = new Person('Alice');
 person1.introduce(); // Hello, my name is Alice.
 ```
 
-### Parameter Properties
+### Уласцівасці параметраў
 
-Parameter properties allow you to declare and initialize class properties directly within the constructor parameters avoiding boilerplate code, example:
+Уласцівасці параметраў дазваляюць аб'яўляць і ініцыялізаваць уласцівасці класа непасрэдна ў параметрах канструктара, пазбягаючы шаблоннага кода, напрыклад:
 
 ```typescript
 class Person {
@@ -3110,8 +3110,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // Ключавыя словы "private" і "public" у канструктары
+        // аўтаматычна аб'яўляюць і ініцыялізуюць адпаведныя ўласцівасці класа.
     }
     public introduce(): void {
         console.log(
@@ -3123,10 +3123,10 @@ const person = new Person('Alice', 25);
 person.introduce();
 ```
 
-### Abstract Classes
+### Абстрактныя класы
 
-Abstract Classes are used in TypeScript mainly for inheritance, they provide a way to define common properties and methods that can be inherited by subclasses.
-This is useful when you want to define common behavior and enforce that subclasses implement certain methods. They provide a way to create a hierarchy of classes where the abstract base class provides a shared interface and common functionality for the subclasses.
+Абстрактныя класы выкарыстоўваюцца ў TypeScript галоўным чынам для атрымання ў спадчыну (inheritance); яны забяспечваюць спосаб вызначэння агульных уласцівасцей і метадаў, якія могуць быць успадкаваны падкласамі.
+Гэта карысна, калі вы хочаце вызначыць агульныя паводзіны і прымусіць падкласы рэалізаваць пэўныя метады. Яны забяспечваюць спосаб стварэння іерархіі класаў, дзе абстрактны базавы клас забяспечвае агульны інтэрфейс і агульную функцыянальнасць для падкласаў.
 
 ```typescript
 abstract class Animal {
@@ -3149,9 +3149,9 @@ const cat = new Cat('Whiskers');
 cat.makeSound(); // Output: Whiskers meows.
 ```
 
-### With Generics
+### З абагульненымі тыпамі (Generics)
 
-Classes with generics allow you to define reusable classes which can work with different types.
+Класы з абагульненымі тыпамі (generics) дазваляюць вызначаць шматразовыя класы, якія могуць працаваць з рознымі тыпамі.
 
 ```typescript
 class Container<T> {
@@ -3178,32 +3178,32 @@ container2.setItem('World');
 console.log(container2.getItem()); // World
 ```
 
-### Decorators
+### Дэкаратары
 
-Decorators provide a mechanism to add metadata, modify behavior, validate, or extend the functionality of the target element. They are functions that execute at runtime. Multiple decorators can be applied to a declaration.
+Дэкаратары забяспечваюць механізм дадання метаданых, змены паводзін, праверкі або пашырэння функцыянальнасці мэтавага элемента. Гэта функцыі, якія выконваюцца падчас выканання (at runtime). Да аб'яўлення можна прымяніць некалькі дэкаратараў.
 
-Decorators are experimental features, and the following examples are only compatible with TypeScript version 5 or above using ES6.
+Дэкаратары з'яўляюцца эксперыментальнымі функцыямі, і наступныя прыклады сумяшчальныя толькі з версіяй TypeScript 5 або вышэй з выкарыстаннем ES6.
 
-For TypeScript versions prior to 5, they should be enabled using the `experimentalDecorators` property in your `tsconfig.json` or by using `--experimentalDecorators` in your command line (but the following example won't work).
+Для версій TypeScript ранейшых за 5 яны павінны быць уключаны з дапамогай уласцівасці `experimentalDecorators` у вашым `tsconfig.json` або з дапамогай `--experimentalDecorators` у вашым камандным радку (але наступны прыклад працаваць не будзе).
 
-Some of the common use cases for decorators include:
+Некаторыя з распаўсюджаных выпадкаў выкарыстання дэкаратараў ўключаюць:
 
-* Watching property changes.
-* Watching method calls.
-* Adding extra properties or methods.
-* Runtime validation.
-* Automatic serialization and deserialization.
-* Logging.
-* Authorization and authentication.
-* Error guarding.
+* Назіранне за зменамі ўласцівасцей.
+* Назіранне за выклікамі метадаў.
+* Даданне дадатковых уласцівасцей або метадаў.
+* Валідацыя падчас выканання.
+* Аўтаматычная серыялізацыя і дэсерыялізацыя.
+* Лагіраванне.
+* Аўтарызацыя і аўтэнтыфікацыя.
+* Ахова ад памылак (Error guarding).
 
-Note: Decorators for version 5 do not allow decorating parameters.
+Заўвага: Дэкаратары для версіі 5 не дазваляюць дэкараваць параметры.
 
-Types of decorators:
+Тыпы дэкаратараў:
 
-#### Class Decorators
+#### Дэкаратары класа
 
-Class Decorators are useful for extending an existing class, such as adding properties or methods, or collecting instances of a class. In the following example, we add a `toString` method that converts the class into a string representation.
+Дэкаратары класа карысныя для пашырэння існуючага класа, напрыклад, дадання ўласцівасцей або метадаў, або збору асобнікаў класа. У наступным прыкладзе мы дадаем метад `toString`, які пераўтварае клас у радковыя прадстаўленне.
 
 ```typescript
 type Constructor<T = {}> = new (...args: any[]) => T;
@@ -3240,9 +3240,9 @@ const person = new Person('Simon');
 */
 ```
 
-#### Property Decorator
+#### Дэкаратар уласцівасці
 
-Property decorators are useful for modifying the behavior of a property, such as changing the initialization values. In the following code, we have a script that sets a property to always be in uppercase:
+Дэкаратары ўласцівасці карысныя для змены паводзін уласцівасці, напрыклад, для змены значэнняў ініцыялізацыі. У наступным кодзе ў нас ёсць скрыпт, які ўсталёўвае ўласцівасць заўсёды ў верхнім рэгістры:
 
 ```typescript
 function upperCase<T>(
@@ -3262,9 +3262,9 @@ class MyClass {
 console.log(new MyClass().prop1); // Logs: HELLO!
 ```
 
-#### Method Decorator
+#### Дэкаратар метаду
 
-Method decorators allow you to change or enhance the behavior of methods. Below is an example of a simple logger:
+Дэкаратары метаду дазваляюць змяняць або паляпшаць паводзіны метадаў. Ніжэй прыведзены прыклад простага лагера (logger):
 
 ```typescript
 function log<This, Args extends any[], Return>(
@@ -3296,7 +3296,7 @@ class MyClass {
 new MyClass().sayHello();
 ```
 
-It logs:
+Гэта выводзіць у журнал:
 
 ```shell
 LOG: Entering method 'sayHello'.
@@ -3304,9 +3304,9 @@ Hello!
 LOG: Exiting method 'sayHello'.
 ```
 
-#### Getter and Setter Decorators
+#### Дэкаратары гетэра і сэтэра
 
-Getter and setter decorators allow you to change or enhance the behavior of class accessors. They are useful, for instance, for validating property assignments. Here's a simple example for a getter decorator:
+Дэкаратары гетэра і сэтэра дазваляюць змяняць або паляпшаць паводзіны аксэсараў класа. Яны карысныя, напрыклад, для праверкі прысваенняў уласцівасцей. Вось просты прыклад для дэкаратара гетэра:
 
 ```typescript
 function range<This, Return extends number>(min: number, max: number) {
@@ -3347,12 +3347,12 @@ const obj2 = new MyClass(999);
 console.log(obj2.getValue); // Throw: Invalid!
 ```
 
-#### Decorator Metadata
+#### Метаданыя дэкаратара
 
-Decorator Metadata simplifies the process for decorators to apply and utilize metadata in any class. They can access a new metadata property on the context object, which can serve as a key for both primitives and objects.
-Metadata information can be accessed on the class via `Symbol.metadata`.
+Метаданыя дэкаратара спрашчаюць працэс прымянення і выкарыстання метаданых дэкаратарамі ў любым класе. Яны могуць атрымаць доступ да новай уласцівасці `metadata` у аб'екце кантэксту, якая можа служыць ключом як для прымітываў, так і для аб'ектаў.
+Інфармацыя пра метаданыя можа быць даступная ў класе праз `Symbol.metadata`.
 
-Metadata can be used for various purposes, such as debugging, serialization, or dependency injection with decorators.
+Метаданыя могуць выкарыстоўвацца для розных мэтаў, такіх як адладка, серыялізацыя або ўкараненне залежнасцей (dependency injection) з дапамогай дэкаратараў.
 
 ```typescript
 //@ts-ignore
@@ -3518,9 +3518,9 @@ const x = new MyClass();
 x.log();
 ```
 
-### Method overloading
+### Перагрузка метадаў
 
-Method overloading allows a class to have multiple methods with the same name but different parameter types or a different number of parameters. This allows us to call a method in different ways based on the arguments passed.
+Перагрузка метадаў дазваляе класу мець некалькі метадаў з адным і тым жа імем, але рознымі тыпамі параметраў або рознай колькасцю параметраў. Гэта дазваляе нам выклікаць метад рознымі спосабамі ў залежнасці ад перададзеных аргументаў.
 
 ```typescript
 class MyClass {
@@ -3542,15 +3542,15 @@ const r = new MyClass();
 console.log(r.add(10, 5)); // Logs 15
 ```
 
-## Generics
+## Абагульненыя тыпы (Generics)
 
-Generics allow you to create reusable components and functions that can work with multiple types. With generics, you can parameterize types, functions, and interfaces, allowing them to operate on different types without explicitly specifying them beforehand.
+Абагульненыя тыпы (Generics) дазваляюць ствараць шматразовыя кампаненты і функцыі, якія могуць працаваць з некалькімі тыпамі. З дапамогай абагульненых тыпаў вы можаце параметрызаваць тыпы, функцыі і інтэрфейсы, дазваляючы ім працаваць з рознымі тыпамі без папярэдняга відавочнага ўказання.
 
-Generics allow you to make code more flexible and reusable.
+Абагульненыя тыпы дазваляюць зрабіць код больш гнуткім і прыдатным для паўторнага выкарыстання.
 
-### Generic Type
+### Абагульнены тып
 
-To define a generic type, you use angle brackets (`<>`) to specify the type parameters, for instance:
+Каб вызначыць абагульнены тып, вы выкарыстоўваеце вуглавыя дужкі (`<>`) для ўказання параметраў тыпу, напрыклад:
 
 ```typescript
 function identity<T>(arg: T): T {
@@ -3563,9 +3563,9 @@ const getLen = <T,>(data: ReadonlyArray<T>) => data.length;
 const len = getLen([1, 2, 3]);
 ```
 
-### Generic Classes
+### Абагульненыя класы
 
-Generics can be applied also to classes, in this way they can work with multiple types by using type parameters. This is useful to create reusable class definitions that can operate on different data types while maintaining type safety.
+Абагульненыя тыпы таксама могуць прымяняцца да класаў, такім чынам яны могуць працаваць з некалькімі тыпамі, выкарыстоўваючы параметры тыпу. Гэта карысна для стварэння шматразовых азначэнняў класаў, якія могуць працаваць з рознымі тыпамі даных, захоўваючы пры гэтым бяспеку тыпаў.
 
 ```typescript
 class Container<T> {
@@ -3587,11 +3587,11 @@ const stringContainer = new Container<string>('hello');
 console.log(stringContainer.getItem()); // hello
 ```
 
-### Generic Constraints
+### Абмежаванні абагульненых тыпаў (Generic Constraints)
 
-Generic parameters can be constrained using the `extends` keyword followed by a type or interface that the type parameter must satisfy.
+Абагульненыя параметры могуць быць абмежаваныя з выкарыстаннем ключавога слова `extends`, за якім ідзе тып або інтэрфейс, якому павінен задавальняць параметр тыпу.
 
-In the following example T it is must containing a properly `length` in order to be valid:
+У наступным прыкладзе T павінен утрымліваць уласцівасць `length`, каб быць сапраўдным:
 
 <!-- skip -->
 ```typescript
@@ -3605,7 +3605,7 @@ printLen({ length: 10 }); // 10
 printLen(123); // Invalid
 ```
 
-An interesting feature of generic introduced in version 3.4 RC is Higher order function type inference which introduced  propagated generic type arguments:
+Цікавай асаблівасцю абагульненых тыпаў, уведзенай у версіі 3.4 RC, з'яўляецца вывад тыпу функцыі вышэйшага парадку, які ўвёў распаўсюджванне аргументаў абагульненага тыпу:
 
 ```typescript
 declare function pipe<A extends any[], B, C>(
@@ -3620,11 +3620,11 @@ const listBox = pipe(list, box); // <T>(a: T) => { value: T[] }
 const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```
 
-This functionality allows more easily typed safe pointfree style programming which is common in functional programming.
+Гэтая функцыянальнасць дазваляе лягчэй пісаць тыпабяспечны код у стылі "pointfree", што распаўсюджана ў функцыянальным праграмаванні.
 
-### Generic contextual narrowing
+### Абагульненае кантэкстнае звужэнне
 
-Contextual narrowing for generics is the mechanism in TypeScript that allows the compiler to narrow down the type of a generic parameter based on the context in which it is used, it is useful when working with generic types in conditional statements:
+Кантэкстнае звужэнне для абагульненых тыпаў — гэта механізм у TypeScript, які дазваляе кампілятару звузіць тып абагульненага параметра на аснове кантэксту, у якім ён выкарыстоўваецца; гэта карысна пры працы з абагульненымі тыпамі ва ўмоўных аператарах:
 
 ```typescript
 function process<T>(value: T): void {
@@ -3641,10 +3641,10 @@ process('hello'); // 5
 process(3.14159); // 3.14
 ```
 
-## Erased Structural Types
+## Сцёртыя структурныя тыпы
 
-In TypeScript, objects do not have to match a specific, exact type. For instance, if we create an object that fulfills an interface's requirements, we can utilize that object in places where that interface is required, even if there was no explicit connection between them.
-Example:
+У TypeScript аб'екты не павінны адпавядаць канкрэтнаму, дакладнаму тыпу. Напрыклад, калі мы ствараем аб'ект, які задавальняе патрабаванням інтэрфейсу, мы можам выкарыстоўваць гэты аб'ект у месцах, дзе патрабуецца гэты інтэрфейс, нават калі паміж імі не было відавочнай сувязі.
+Прыклад:
 
 ```typescript
 type NameProp1 = {
@@ -3663,10 +3663,10 @@ const obj = {
 log(obj); // Valid
 ```
 
-## Namespacing
+## Прасторы імёнаў (Namespacing)
 
-In TypeScript, namespaces are used to organize code into logical containers, preventing naming collisions and providing a way to group related code together.
-The usage of the `export` keywords allows access to the namespace in "outside" modules.
+У TypeScript прасторы імёнаў (namespaces) выкарыстоўваюцца для арганізацыі кода ў лагічныя кантэйнеры, прадухіляючы калізіі імёнаў і забяспечваючы спосаб групоўкі звязанага кода разам.
+Выкарыстанне ключавога слова `export` дазваляе атрымаць доступ да прасторы імёнаў у «вонкавых» модулях.
 
 ```typescript
 export namespace MyNamespace {
@@ -3683,11 +3683,11 @@ const a: MyNamespace.MyInterface1 = {
 };
 ```
 
-## Symbols
+## Сімвалы (Symbols)
 
-Symbols are a primitive data type that represents an immutable value which is guaranteed to be globally unique throughout the lifetime of the program.
+Сімвалы (Symbols) — гэта прымітыўны тып даных, які прадстаўляе нязменнае значэнне, якое гарантавана будзе глабальна ўнікальным на працягу ўсяго часу выканання праграмы.
 
-Symbols can be used as keys for object properties and provide a way to create non-enumerable properties.
+Сімвалы могуць выкарыстоўвацца ў якасці ключоў уласцівасцей аб'екта і забяспечваюць спосаб стварэння ўласцівасцей, якія не падлягаюць пералічэнню.
 
 ```typescript
 const key1: symbol = Symbol('key1');
@@ -3702,44 +3702,44 @@ console.log(obj[key1]); // value 1
 console.log(obj[key2]); // value 2
 ```
 
-In WeakMaps and WeakSets, symbols are now permissible as keys.
+У WeakMap і WeakSet сімвалы цяпер дапушчальныя ў якасці ключоў.
 
-## Triple-Slash Directives
+## Дырэктывы Triple-Slash (Triple-Slash Directives)
 
-Triple-slash directives are special comments that provide instructions to the compiler about how to process a file. These directives begin with three consecutive slashes (`///`) and are typically placed at the top of a TypeScript file and have no effects on the runtime behavior.
+Дырэктывы Triple-slash (патройная касая рыса) — гэта спецыяльныя каментарыі, якія даюць інструкцыі кампілятару аб тым, як апрацоўваць файл. Гэтыя дырэктывы пачынаюцца з трох паслядоўных касых рыс (`///`) і звычайна размяшчаюцца ў пачатку файла TypeScript і не ўплываюць на паводзіны падчас выканання.
 
-Triple-slash directives are used to reference external dependencies, specify module loading behavior, enable/disable certain compiler features, and more. Few examples:
+Дырэктывы Triple-slash выкарыстоўваюцца для спасылкі на знешнія залежнасці, указання паводзін загрузкі модуляў, уключэння/выключэння пэўных функцый кампілятара і многага іншага. Некалькі прыкладаў:
 
-Referencing a declaration file:
+Спасылка на файл дэкларацыі:
 
 <!-- skip -->
 ```typescript
 /// <reference path="path/to/declaration/file.d.ts" />
 ```
 
-Indicate the module format:
+Указанне фармату модуля:
 
 <!-- skip -->
 ```typescript
 /// <amd|commonjs|system|umd|es6|es2015|none>
 ```
 
-Enable compiler options, in the following example strict mode:
+Уключэнне опцый кампілятара, у наступным прыкладзе строгі рэжым:
 
 <!-- skip -->
 ```typescript
 /// <strict|noImplicitAny|noUnusedLocals|noUnusedParameters>
 ```
 
-## Type Manipulation
+## Маніпуляцыя тыпамі
 
-### Creating Types from Types
+### Стварэнне тыпаў з тыпаў
 
-Is it possible to create new types composing, manipulating or transforming existing types.
+Магчыма ствараць новыя тыпы, кампануючы, маніпулюючы або трансфармуючы існуючыя тыпы.
 
-Intersection Types (`&`):
+Тыпы перасячэння (`&`):
 
-Allow you to combine multiple types into a single  type:
+Дазваляюць аб'ядноўваць некалькі тыпаў у адзін тып:
 
 ```typescript
 type A = { foo: number };
@@ -3748,9 +3748,9 @@ type C = A & B; // Intersection of A and B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
-Union Types (`|`):
+Тыпы аб'яднання (`|`):
 
-Allow you to define a type that can be one of several types:
+Дазваляюць вызначыць тып, які можа быць адным з некалькіх тыпаў:
 
 ```typescript
 type Result = string | number;
@@ -3758,9 +3758,9 @@ const value1: Result = 'hello';
 const value2: Result = 42;
 ```
 
-Mapped Types:
+Супастаўленыя тыпы (Mapped Types):
 
-Allow you to transform the properties of an existing type to create new type:
+Дазваляюць трансфармаваць уласцівасці існуючага тыпу для стварэння новага тыпу:
 
 ```typescript
 type Mutable<T> = {
@@ -3773,9 +3773,9 @@ type Person = {
 type ImmutablePerson = Mutable<Person>; // Properties become read-only
 ```
 
-Conditional types:
+Умоўныя тыпы (Conditional types):
 
-Allow you to create types based on some conditions:
+Дазваляюць ствараць тыпы на аснове пэўных умоў:
 
 ```typescript
 type ExtractParam<T> = T extends (param: infer P) => any ? P : never;
@@ -3783,9 +3783,9 @@ type MyFunction = (name: string) => number;
 type ParamType = ExtractParam<MyFunction>; // string
 ```
 
-### Indexed Access Types
+### Тыпы індэксаванага доступу
 
-In TypeScript is it possible to access and manipulate  the types of properties within another type using an index, `Type[Key]`.
+У TypeScript можна атрымліваць доступ і маніпуляваць тыпамі ўласцівасцей унутры іншага тыпу, выкарыстоўваючы індэкс, `Type[Key]`.
 
 ```typescript
 type Person = {
@@ -3801,13 +3801,13 @@ type MyTuple = [string, number, boolean];
 type MyType = MyTuple[2]; // boolean
 ```
 
-### Utility Types
+### Утылітныя тыпы (Utility Types)
 
-Several built-in utility types can be used to manipulate types, below a list of the most common used:
+Некалькі ўбудаваных утылітных тыпаў могуць быць выкарыстаны для маніпуляцыі тыпамі, ніжэй прыведзены спіс найбольш часта выкарыстоўваных:
 
 #### Awaited\<T\>
 
-Constructs a type that recursively unwraps Promise types.
+Канструюе тып, які рэкурсіўна разгортвае (unwraps) тыпы Promise.
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
@@ -3815,7 +3815,7 @@ type A = Awaited<Promise<string>>; // string
 
 #### Partial\<T\>
 
-Constructs a type with all properties of T set to optional.
+Канструюе тып, у якім усе ўласцівасці T устаноўлены як неабавязковыя (optional).
 
 ```typescript
 type Person = {
@@ -3828,7 +3828,7 @@ type A = Partial<Person>; // { name?: string | undefined; age?: number | undefin
 
 #### Required\<T\>
 
-Constructs a type with all properties of T set to required.
+Канструюе тып, у якім усе ўласцівасці T устаноўлены як абавязковыя (required).
 
 ```typescript
 type Person = {
@@ -3841,7 +3841,7 @@ type A = Required<Person>; // { name: string; age: number; }
 
 #### Readonly\<T\>
 
-Constructs a type with all properties of T set to readonly.
+Канструюе тып, у якім усе ўласцівасці T устаноўлены як толькі для чытання (readonly).
 
 <!-- skip -->
 ```typescript
@@ -3858,7 +3858,7 @@ a.name = 'John'; // Invalid
 
 #### Record\<K, T\>
 
-Constructs a type with a set of properties K of type T.
+Канструюе тып з наборам уласцівасцей K тыпу T.
 
 ```typescript
 type Product = {
@@ -3876,7 +3876,7 @@ console.log(products.apple); // { name: 'Apple', price: 0.5 }
 
 #### Pick\<T, K\>
 
-Constructs a type by picking the specified properties K from T.
+Канструюе тып, выбіраючы паказаныя ўласцівасці K з T.
 
 ```typescript
 type Product = {
@@ -3889,7 +3889,7 @@ type Price = Pick<Product, 'price'>; // { price: number; }
 
 #### Omit\<T, K\>
 
-Constructs a type by omitting the specified properties K from T.
+Канструюе тып, выключаючы паказаныя ўласцівасці K з T.
 
 ```typescript
 type Product = {
@@ -3902,7 +3902,7 @@ type Name = Omit<Product, 'price'>; // { name: string; }
 
 #### Exclude\<T, U\>
 
-Constructs a type by excluding all values of type U from T.
+Канструюе тып, выключаючы ўсе значэнні тыпу U з T.
 
 ```typescript
 type Union = 'a' | 'b' | 'c';
@@ -3911,7 +3911,7 @@ type MyType = Exclude<Union, 'a' | 'c'>; // b
 
 #### Extract\<T, U\>
 
-Constructs a type by extracting all values of type U from T.
+Канструюе тып, здабываючы ўсе значэнні тыпу U з T.
 
 ```typescript
 type Union = 'a' | 'b' | 'c';
@@ -3920,7 +3920,7 @@ type MyType = Extract<Union, 'a' | 'c'>; // a | c
 
 #### NonNullable\<T\>
 
-Constructs a type by excluding null and undefined from T.
+Канструюе тып, выключаючы null і undefined з T.
 
 ```typescript
 type Union = 'a' | null | undefined | 'b';
@@ -3929,7 +3929,7 @@ type MyType = NonNullable<Union>; // 'a' | 'b'
 
 #### Parameters\<T\>
 
-Extracts the parameter types of a function type T.
+Выцягвае тыпы параметраў функцыянальнага тыпу T.
 
 ```typescript
 type Func = (a: string, b: number) => void;
@@ -3938,7 +3938,7 @@ type MyType = Parameters<Func>; // [a: string, b: number]
 
 #### ConstructorParameters\<T\>
 
-Extracts the parameter types of a constructor function type T.
+Выцягвае тыпы параметраў тыпу функцыі канструктара T.
 
 ```typescript
 class Person {
@@ -3955,7 +3955,7 @@ console.log(person); // Person { name: 'John', age: 30 }
 
 #### ReturnType\<T\>
 
-Extracts the return type of a function type T.
+Выцягвае тып вяртання функцыянальнага тыпу T.
 
 ```typescript
 type Func = (name: string) => number;
@@ -3964,7 +3964,7 @@ type MyType = ReturnType<Func>; // number
 
 #### InstanceType\<T\>
 
-Extracts the instance type of a class type T.
+Выцягвае тып асобніка класавага тыпу T.
 
 ```typescript
 class Person {
@@ -3988,7 +3988,7 @@ person.sayHello(); // Hello, my name is John!
 
 #### ThisParameterType\<T\>
 
-Extracts the type of 'this' parameter from a function type T.
+Выцягвае тып параметра 'this' з функцыянальнага тыпу T.
 
 ```typescript
 interface Person {
@@ -4000,7 +4000,7 @@ type PersonThisType = ThisParameterType<Person['greet']>; // Person
 
 #### OmitThisParameter\<T\>
 
-Removes the 'this' parameter from a function type T.
+Выдаляе параметр 'this' з функцыянальнага тыпу T.
 
 ```typescript
 function capitalize(this: String) {
@@ -4012,7 +4012,7 @@ type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
 
 #### ThisType\<T\>
 
-Servers as a market for a contextual `this` type.
+Служыць маркёрам для кантэкстнага тыпу 'this'.
 
 <!-- skip -->
 ```typescript
@@ -4030,7 +4030,7 @@ let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
 
 #### Uppercase\<T\>
 
-Make uppercase the name of the input type T.
+Пераўтварае імя ўваходнага тыпу T у верхні рэгістр.
 
 ```typescript
 type MyType = Uppercase<'abc'>; // "ABC"
@@ -4038,7 +4038,7 @@ type MyType = Uppercase<'abc'>; // "ABC"
 
 #### Lowercase\<T\>
 
-Make lowercase the name of the input type T.
+Пераўтварае імя ўваходнага тыпу T у ніжні рэгістр.
 
 ```typescript
 type MyType = Lowercase<'ABC'>; // "abc"
@@ -4046,7 +4046,7 @@ type MyType = Lowercase<'ABC'>; // "abc"
 
 #### Capitalize\<T\>
 
-Capitalize the name of the input type T.
+Піша з вялікай літары імя ўваходнага тыпу T.
 
 ```typescript
 type MyType = Capitalize<'abc'>; // "Abc"
@@ -4054,7 +4054,7 @@ type MyType = Capitalize<'abc'>; // "Abc"
 
 #### Uncapitalize\<T\>
 
-Uncapitalize the name of the input type T.
+Піша з малой літары імя ўваходнага тыпу T.
 
 ```typescript
 type MyType = Uncapitalize<'Abc'>; // "abc"
@@ -4062,9 +4062,9 @@ type MyType = Uncapitalize<'Abc'>; // "abc"
 
 #### NoInfer\<T\>
 
-NoInfer is a utility type designed to block the automatic inference of types within the scope of a generic function.
+NoInfer — гэта ўтылітны тып, прызначаны для блакіроўкі аўтаматычнага вываду тыпаў у межах вобласці бачнасці абагульненай функцыі.
 
-Example:
+Прыклад:
 
 ```typescript
 // Automatic inference of types within the scope of a generic function.
@@ -4074,7 +4074,7 @@ function fn<T extends string>(x: T[], y: T) {
 const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
 ```
 
-With NoInfer:
+З NoInfer:
 
 <!-- skip -->
 ```typescript
@@ -4086,13 +4086,13 @@ function fn2<T extends string>(x: T[], y: NoInfer<T>) {
 const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
 ```
 
-## Others
+## Іншае
 
-### Errors and Exception Handling
+### Памылкі і апрацоўка выключэнняў
 
-TypeScript allows you to catch and handle errors using standard JavaScript error handling mechanisms:
+TypeScript дазваляе перахопліваць і апрацоўваць памылкі з дапамогай стандартных механізмаў апрацоўкі памылак JavaScript:
 
-Try-Catch-Finally Blocks:
+Блокі Try-Catch-Finally:
 
 ```typescript
 try {
@@ -4104,7 +4104,7 @@ try {
 }
 ```
 
-You can also handle different types of error:
+Вы таксама можаце апрацоўваць розныя тыпы памылак:
 
 ```typescript
 try {
@@ -4120,9 +4120,9 @@ try {
 }
 ```
 
-Custom Error Types:
+Карыстальніцкія тыпы памылак:
 
-It is possible to specify more specific error by extending on the Error `class`:
+Можна вызначыць больш канкрэтныя памылкі шляхам пашырэння класа `Error`:
 
 ```typescript
 class CustomError extends Error {
@@ -4135,9 +4135,9 @@ class CustomError extends Error {
 throw new CustomError('This is a custom error.');
 ```
 
-### Mixin classes
+### Класы Mixin
 
-Mixin classes allow you to combine and compose behavior from multiple classes into a single class. They provide a way to reuse and extend functionality without the need for deep inheritance chains.
+Класы Mixin дазваляюць аб'ядноўваць і кампанаваць паводзіны некалькіх класаў у адзін клас. Яны забяспечваюць спосаб паўторнага выкарыстання і пашырэння функцыянальнасці без неабходнасці глыбокіх ланцужкоў успадкоўвання.
 
 ```typescript
 abstract class Identifiable {
@@ -4187,25 +4187,25 @@ o.logId();
 o.select();
 ```
 
-### Asynchronous Language Features
+### Асінхронныя магчымасці мовы
 
-As TypeScript is a superset of JavaScript, it has built-in asynchronous language features of JavaScript as:
+Паколькі TypeScript з'яўляецца надмноствам JavaScript, ён мае ўбудаваныя асінхронныя магчымасці мовы JavaScript, такія як:
 
-Promises:
+Прамісы (Promises):
 
-Promises are a way to handle asynchronous operations and their results using methods like `.then()` and `.catch()` to handle success and error conditions.
+Прамісы — гэта спосаб апрацоўкі асінхронных аперацый і іх вынікаў з дапамогай такіх метадаў, як `.then()` і `.catch()`, для апрацоўкі ўмоў поспеху і памылак.
 
-To learn more: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+Каб даведацца больш: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 Async/await:
 
-Async/await keywords are a way to provide a more synchronous-looking syntax for working with Promises. The `async` keyword is used to define an asynchronous function, and the `await` keyword is used within an async function to pause execution until a Promise is resolved or rejected.
+Ключавыя словы Async/await — гэта спосаб забяспечыць больш сінхронны сінтаксіс для працы з прамісамі. Ключавое слова `async` выкарыстоўваецца для вызначэння асінхроннай функцыі, а ключавое слова `await` выкарыстоўваецца ўнутры асінхроннай функцыі для прыпынення выканання да таго часу, пакуль праміс не будзе вырашаны або адхілены.
 
-To learn more:
+Каб даведацца больш:
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 
-The following API are well supported in TypeScript:
+Наступныя API добра падтрымліваюцца ў TypeScript:
 
 Fetch API:
 [https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
@@ -4219,11 +4219,11 @@ Shared Workers:
 WebSocket:
 [https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
-### Iterators and Generators
+### Ітэратары і генератары
 
-Both Iterators and Generators are well supported in TypeScript.
+І ітэратары, і генератары добра падтрымліваюцца ў TypeScript.
 
-Iterators are objects that implement the iterator protocol, providing a way to access elements of a collection or sequence one by one. It is a structure that contains a pointer to the next element in the iteration. They have a `next()` method that returns the next value in the sequence along with a boolean indicating if the sequence is `done`.
+Ітэратары — гэта аб'екты, якія рэалізуюць пратакол ітэратара, забяспечваючы спосаб доступу да элементаў калекцыі або паслядоўнасці па адным. Гэта структура, якая змяшчае паказальнік на наступны элемент у ітэрацыі. Яны маюць метад `next()`, які вяртае наступнае значэнне ў паслядоўнасці разам з лагічным значэннем, якое паказвае, ці паслядоўнасць завершана (`done`).
 
 ```typescript
 class NumberIterator implements Iterable<number> {
@@ -4258,11 +4258,11 @@ for (const num of iterator) {
 }
 ```
 
-Generators are special functions defined using the `function*` syntax that simplifies the creation of iterators. They use the `yield` keyword to define the sequence of values and automatically pause and resume execution when values are requested.
+Генератары — гэта спецыяльныя функцыі, вызначаныя з дапамогай сінтаксісу `function*`, якія спрашчаюць стварэнне ітэратараў. Яны выкарыстоўваюць ключавое слова `yield` для вызначэння паслядоўнасці значэнняў і аўтаматычнага прыпынення і аднаўлення выканання пры запыце значэнняў.
 
-Generators make it easier to create iterators and are especially useful for working with large or infinite sequences.
+Генератары палягчаюць стварэнне ітэратараў і асабліва карысныя для працы з вялікімі або бясконцымі паслядоўнасцямі.
 
-Example:
+Прыклад:
 
 ```typescript
 function* numberGenerator(start: number, end: number): Generator<number> {
@@ -4278,19 +4278,19 @@ for (const num of generator) {
 }
 ```
 
-TypeScript also supports async iterators and async Generators.
+TypeScript таксама падтрымлівае асінхронныя ітэратары і асінхронныя генератары.
 
-To learn more:
+Каб даведацца больш:
 
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
 
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator)
 
-### TsDocs JSDoc Reference
+### Даведнік па TsDocs JSDoc
 
-When working with a JavaScript code base, it is possible to help TypeScript to infer the right Type by using JSDoc comments with additional annotation to provide type information.
+Пры працы з кодавай базай JavaScript можна дапамагчы TypeScript вывесці правільны тып, выкарыстоўваючы каментарыі JSDoc з дадатковай анатацыяй для прадастаўлення інфармацыі аб тыпе.
 
-Example:
+Прыклад:
 
 ```typescript
 /**
@@ -4305,46 +4305,46 @@ function power(base: number, exponent: number) {
 power(10, 2); // function power(base: number, exponent: number): number
 ```
 
-Full documentation is provided to this link:
+Поўная дакументацыя прадстаўлена па гэтай спасылцы:
 [https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
 
-From version 3.7 it is possible to generate .d.ts type definitions from JavaScript JSDoc syntax.
-More information can be found here:
+З версіі 3.7 можна генераваць азначэнні тыпаў .d.ts з сінтаксісу JavaScript JSDoc.
+Больш інфармацыі можна знайсці тут:
 [https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html](https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html)
 
 ### @types
 
-Packages under the @types organization are special package naming conventions used to provide type definitions for existing JavaScript libraries or modules. For instance using:
+Пакеты ў арганізацыі @types — гэта спецыяльныя пагадненні аб найменні пакетаў, якія выкарыстоўваюцца для прадастаўлення азначэнняў тыпаў для існуючых бібліятэк або модуляў JavaScript. Напрыклад, выкарыстанне:
 
 ```shell
 npm install --save-dev @types/lodash
 ```
 
-Will install the type definitions of `lodash` in your current project.
+Усталюе азначэнні тыпаў `lodash` у вашым бягучым праекце.
 
-To contribute to the type definitions of @types package, please submit a pull request to [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
+Каб унесці свой уклад у азначэнні тыпаў пакета @types, калі ласка, адпраўце pull request у [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
 
 ### JSX
 
-JSX (JavaScript XML) is an extension to the JavaScript language syntax that allows you to write HTML-like code within your JavaScript or TypeScript files. It is commonly used in React to define the HTML structure.
+JSX (JavaScript XML) — гэта пашырэнне сінтаксісу мовы JavaScript, якое дазваляе пісаць HTML-падобны код у файлах JavaScript або TypeScript. Звычайна выкарыстоўваецца ў React для вызначэння структуры HTML.
 
-TypeScript extends the capabilities of JSX by providing type checking and static analysis.
+TypeScript пашырае магчымасці JSX, забяспечваючы праверку тыпаў і статычны аналіз.
 
-To use JSX you need to set the `jsx` compiler option in your `tsconfig.json` file. Two common configuration options:
+Каб выкарыстоўваць JSX, вам трэба ўсталяваць опцыю кампілятара `jsx` у файле `tsconfig.json`. Два агульныя варыянты канфігурацыі:
 
-* "preserve": emit .jsx files with the JSX unchanged. This option tells TypeScript to keep the JSX syntax as-is and not transform it during the compilation process. You can use this option if you have a separate tool, like Babel, that handles the transformation.
-* "react": enables TypeScript's built-in JSX transformation. React.createElement will be used.
+* "preserve": генеруе файлы .jsx з нязменным JSX. Гэтая опцыя паказвае TypeScript пакінуць сінтаксіс JSX як ёсць і не трансфармаваць яго ў працэсе кампіляцыі. Вы можаце выкарыстоўваць гэтую опцыю, калі ў вас ёсць асобны інструмент, напрыклад Babel, які апрацоўвае трансфармацыю.
+* "react": уключае ўбудаваную трансфармацыю JSX у TypeScript. Будзе выкарыстоўвацца React.createElement.
 
-All options are available here:
+Усе варыянты даступныя тут:
 [https://www.typescriptlang.org/tsconfig#jsx](https://www.typescriptlang.org/tsconfig#jsx)
 
-### ES6 Modules
+### Модулі ES6
 
-TypeScript does support ES6 (ECMAScript 2015) and many subsequent versions. This means you can use ES6 syntax, such as arrow functions, template literals, classes, modules, destructuring, and more.
+TypeScript падтрымлівае ES6 (ECMAScript 2015) і многія наступныя версіі. Гэта азначае, што вы можаце выкарыстоўваць сінтаксіс ES6, такі як стрэлачныя функцыі, шаблонныя літэралы, класы, модулі, дэструктурызацыю і многае іншае.
 
-To enable ES6 features in your project, you can specify the `target` property in the tsconfig.json.
+Каб уключыць функцыі ES6 у сваім праекце, вы можаце паказаць уласцівасць `target` у tsconfig.json.
 
-A configuration example:
+Прыклад канфігурацыі:
 
 ```json
 {
@@ -4359,18 +4359,18 @@ A configuration example:
 }
 ```
 
-### ES7 Exponentiation Operator
+### Аператар узвядзення ў ступень ES7
 
-The exponentiation (`**`) operator computes the value obtained by raising the first operand to the power of the second operand. It functions similarly to `Math.pow()`, but with the added capability of accepting BigInts as operands.
-TypeScript fully supports this operator using as `target` in your tsconfig.json file `es2016` or larger version.
+Аператар узвядзення ў ступень (`**`) вылічвае значэнне, атрыманае ўзвядзеннем першага аперанда ў ступень другога аперанда. Ён працуе падобна да `Math.pow()`, але з дадатковай магчымасцю прымаць BigInts у якасці аперандаў.
+TypeScript цалкам падтрымлівае гэты аператар пры выкарыстанні `es2016` або больш позняй версіі ў якасці `target` у вашым файле tsconfig.json.
 
 ```typescript
 console.log(2 ** (2 ** 2)); // 16
 ```
 
-### The for-await-of Statement
+### Аператар for-await-of
 
-This is a JavaScript feature fully supported in TypeScript which allows you to iterate over asynchronous iterable objects from target version es2018.
+Гэта функцыя JavaScript, якая цалкам падтрымліваецца ў TypeScript і дазваляе вам перабіраць асінхронныя ітэраваныя аб'екты пачынаючы з мэтавай версіі es2018.
 
 ```typescript
 async function* asyncNumbers(): AsyncIterableIterator<number> {
@@ -4386,9 +4386,9 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 })();
 ```
 
-### New target meta-property
+### Метаўласцівасць new.target
 
-You can use in TypeScript the `new.target` meta-property which enables you to determine if a function or constructor was invoked using the new operator. It allows you to detect whether an object was created as a result of a constructor call.
+Вы можаце выкарыстоўваць у TypeScript метаўласцівасць `new.target`, якая дазваляе вызначыць, ці былі функцыя або канструктар выкліканы з дапамогай аператара `new`. Гэта дазваляе вызначыць, ці быў аб'ект створаны ў выніку выкліку канструктара.
 
 ```typescript
 class Parent {
@@ -4407,11 +4407,11 @@ const parentX = new Parent(); // [Function: Parent]
 const child = new Child(); // [Function: Child]
 ```
 
-### Dynamic Import Expressions
+### Выразы дынамічнага імпарту
 
-It is possible to conditionally load modules or lazy load them on-demand using the ECMAScript proposal for dynamic import which is supported in TypeScript.
+Магчыма ўмоўна загружаць модулі або ляніва загружаць іх па патрабаванні, выкарыстоўваючы прапанову ECMAScript для дынамічнага імпарту, якая падтрымліваецца ў TypeScript.
 
-The syntax for dynamic import expressions in TypeScript is as follows:
+Сінтаксіс для выразаў дынамічнага імпарту ў TypeScript выглядае наступным чынам:
 
 <!-- skip -->
 ```typescript
@@ -4428,17 +4428,17 @@ renderWidget();
 
 ### "tsc –watch"
 
-This command starts a TypeScript compiler with `--watch` parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
+Гэтая каманда запускае кампілятар TypeScript з параметрам `--watch` з магчымасцю аўтаматычнай перакампіляцыі файлаў TypeScript пры кожнай іх змене.
 
 ```shell
 tsc --watch
 ```
 
-Starting from TypeScript version 4.9, file monitoring primarily relies on file system events, automatically resorting to polling if an event-based watcher cannot be established.
+Пачынаючы з версіі TypeScript 4.9, маніторынг файлаў у асноўным абапіраецца на падзеі файлавай сістэмы, аўтаматычна звяртаючыся да апытання (polling), калі назіральнік на аснове падзей не можа быць усталяваны.
 
-### Non-null Assertion Operator
+### Аператар сцвярджэння non-null
 
-The Non-null Assertion Operator (Postfix !) also called Definite Assignment Assertions is a TypeScript feature that allows you to assert that a variable or property is not null or undefined, even if TypeScript's static type analysis suggests that it might be. With this feature it is possible to remove any explicit checking.
+Аператар сцвярджэння non-null (постфіксны !), таксама званы Definite Assignment Assertions (сцвярджэнні вызначанага прысваення), — гэта функцыя TypeScript, якая дазваляе вам сцвярджаць, што зменная або ўласцівасць не роўныя `null` або `undefined`, нават калі статычны аналіз тыпаў TypeScript мяркуе, што гэта можа быць так. З дапамогай гэтай функцыі можна выдаліць любую відавочную праверку.
 
 ```typescript
 type Person = {
@@ -4450,9 +4450,9 @@ const printName = (person?: Person) => {
 };
 ```
 
-### Defaulted declarations
+### Дэкларацыі па змаўчанні
 
-Defaulted declarations are used when a variable or parameter is assigned a default value. This means that if no value is provided for that variable or parameter, the default value will be used instead.
+Дэкларацыі па змаўчанні выкарыстоўваюцца, калі зменнай або параметру прысвойваецца значэнне па змаўчанні. Гэта азначае, што калі для гэтай зменнай або параметра не ўказана значэнне, замест яго будзе выкарыстоўвацца значэнне па змаўчанні.
 
 ```typescript
 function greet(name: string = 'Anonymous'): void {
@@ -4462,9 +4462,9 @@ greet(); // Hello, Anonymous!
 greet('John'); // Hello, John!
 ```
 
-### Optional Chaining
+### Апцыянальны ланцужок (Optional Chaining)
 
-The optional chaining operator `?.` works like the regular dot operator (`.`) for accessing properties or methods. However, it gracefully handles null or undefined values by terminating the expression and returning `undefined`, instead of throwing an error.
+Аператар апцыянальнага ланцужка `?.` працуе як звычайны аператар кропкі (`.`) для доступу да ўласцівасцей або метадаў. Аднак ён карэктна апрацоўвае значэнні `null` або `undefined`, завяршаючы выраз і вяртаючы `undefined` замест выдачы памылкі.
 
 ```typescript
 type Person = {
@@ -4483,9 +4483,9 @@ const person: Person = {
 console.log(person.address?.city); // undefined
 ```
 
-### Nullish coalescing operator
+### Аператар нулявога аб'яднання (Nullish coalescing)
 
-The nullish coalescing operator `??` returns the right-hand side value if the left-hand side is `null` or `undefined`; otherwise, it returns the left-hand side value.
+Аператар нулявога аб'яднання `??` вяртае значэнне правага боку, калі левы бок роўны `null` або `undefined`; у адваротным выпадку ён вяртае значэнне левага боку.
 
 ```typescript
 const foo = null ?? 'foo';
@@ -4497,9 +4497,9 @@ console.log(baz); // 1
 console.log(baz2); // 0
 ```
 
-### Template Literal Types
+### Тыпы шаблонных літэралаў
 
-Template Literal Types allow to manipulate string value at type level and generate new string types based on existing ones. They are useful to create more expressive and precise types from string-based operations.
+Тыпы шаблонных літэралаў дазваляюць маніпуляваць значэннем радка на ўзроўні тыпу і генераваць новыя тыпы радкоў на аснове існуючых. Яны карысныя для стварэння больш выразных і дакладных тыпаў з аперацый на аснове радкоў.
 
 ```typescript
 type Department = 'engineering' | 'hr';
@@ -4507,10 +4507,10 @@ type Language = 'english' | 'spanish';
 type Id = `${Department}-${Language}-id`; // "engineering-english-id" | "engineering-spanish-id" | "hr-english-id" | "hr-spanish-id"
 ```
 
-### Function overloading
+### Перагрузка функцый
 
-Function overloading allows you to define multiple function signatures for the same function name, each with different parameter types and return type.
-When you call an overloaded function, TypeScript uses the provided arguments to determine the correct function signature:
+Перагрузка функцый дазваляе вызначаць некалькі сігнатур функцый для аднаго і таго ж імя функцыі, кожная з рознымі тыпамі параметраў і тыпам вяртання.
+Калі вы выклікаеце перагружаную функцыю, TypeScript выкарыстоўвае прадстаўленыя аргументы для вызначэння правільнай сігнатуры функцыі:
 
 ```typescript
 function makeGreeting(name: string): string;
@@ -4529,9 +4529,9 @@ makeGreeting('Simon');
 makeGreeting(['Simone', 'John']);
 ```
 
-### Recursive Types
+### Рэкурсіўныя тыпы
 
-A Recursive Type is a type that can refer to itself. This is useful for defining data structures that have a hierarchical or recursive structure (potentially infinite nesting), such as linked lists, trees, and graphs.
+Рэкурсіўны тып — гэта тып, які можа спасылацца на самога сябе. Гэта карысна для вызначэння структур даных, якія маюць іерархічную або рэкурсіўную структуру (патэнцыйна бясконцую ўкладзенасць), такіх як звязаныя спісы, дрэвы і графы.
 
 ```typescript
 type ListNode<T> = {
@@ -4540,12 +4540,12 @@ type ListNode<T> = {
 };
 ```
 
-### Recursive Conditional Types
+### Рэкурсіўныя ўмоўныя тыпы
 
-It is possible to define complex type relationships using logic and recursion in TypeScript.
-Let’s break it down in simple terms:
+У TypeScript можна вызначаць складаныя адносіны паміж тыпамі, выкарыстоўваючы логіку і рэкурсію.
+Давайце разбярэм гэта простымі словамі:
 
-Conditional Types: allows you to define types based on boolean conditions:
+Умоўныя тыпы: дазваляюць вызначаць тыпы на аснове лагічных умоў:
 
 ```typescript
 type CheckNumber<T> = T extends number ? 'Number' : 'Not a number';
@@ -4553,7 +4553,7 @@ type A = CheckNumber<123>; // 'Number'
 type B = CheckNumber<'abc'>; // 'Not a number'
 ```
 
-Recursion: means a type definition that refers to itself within its own definition:
+Рэкурсія: азначае азначэнне тыпу, якое спасылаецца на самога сябе ў сваім уласным азначэнні:
 
 ```typescript
 type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
@@ -4567,7 +4567,7 @@ const data: Json = {
 };
 ```
 
-Recursive Conditional Types combine both conditional logic and recursion. It means that a type definition can depend on itself through conditional logic, creating complex and flexible type relationships.
+Рэкурсіўныя ўмоўныя тыпы аб'ядноўваюць як умоўную логіку, так і рэкурсію. Гэта азначае, што азначэнне тыпу можа залежаць ад самога сябе праз умоўную логіку, ствараючы складаныя і гнуткія адносіны паміж тыпамі.
 
 ```typescript
 type Flatten<T> = T extends Array<infer U> ? Flatten<U> : T;
@@ -4576,9 +4576,9 @@ type NestedArray = [1, [2, [3, 4], 5], 6];
 type FlattenedArray = Flatten<NestedArray>; // 2 | 3 | 4 | 5 | 1 | 6
 ```
 
-### ECMAScript Module Support in Node
+### Падтрымка модуляў ECMAScript у Node
 
-Node.js added support for ECMAScript Modules starting from version 15.3.0, and TypeScript has had ECMAScript Module Support for Node.js since version 4.7. This support can be enabled by using the `module` property with the value `nodenext` in the tsconfig.json file. Here's an example:
+Node.js дадаў падтрымку модуляў ECMAScript пачынаючы з версіі 15.3.0, а TypeScript мае падтрымку модуляў ECMAScript для Node.js пачынаючы з версіі 4.7. Гэтую падтрымку можна ўключыць, выкарыстоўваючы ўласцівасць `module` са значэннем `nodenext` у файле tsconfig.json. Вось прыклад:
 
 ```json
 {
@@ -4590,15 +4590,15 @@ Node.js added support for ECMAScript Modules starting from version 15.3.0, and T
 }
 ```
 
-Node.js supports two file extensions for modules: `.mjs` for ES modules and `.cjs` for CommonJS modules. The equivalent file extensions in TypeScript are `.mts` for ES modules and `.cts` for CommonJS modules. When the TypeScript compiler transpiles these files to JavaScript, it will create `.mjs` and `.cjs` files.
+Node.js падтрымлівае два пашырэнні файлаў для модуляў: `.mjs` для модуляў ES і `.cjs` для модуляў CommonJS. Эквівалентнымі пашырэннямі файлаў у TypeScript з'яўляюцца `.mts` для модуляў ES і `.cts` для модуляў CommonJS. Калі кампілятар TypeScript транспалюе гэтыя файлы ў JavaScript, ён стварае файлы `.mjs` і `.cjs`.
 
-If you want to use ES modules in your project, you can set the `type` property to "module" in your package.json file. This instructs Node.js to treat the project as an ES module project.
+Калі вы хочаце выкарыстоўваць модулі ES у сваім праекце, вы можаце ўсталяваць уласцівасць `type` у значэнне "module" у вашым файле package.json. Гэта ўказвае Node.js разглядаць праект як праект модуля ES.
 
-Additionally, TypeScript also supports type declarations in .d.ts files. These declaration files provide type information for libraries or modules written in TypeScript, allowing other developers to utilize them with TypeScript's type checking and auto-completion features.
+Акрамя таго, TypeScript таксама падтрымлівае дэкларацыі тыпаў у файлах .d.ts. Гэтыя файлы дэкларацыі прадастаўляюць інфармацыю аб тыпе для бібліятэк або модуляў, напісаных на TypeScript, што дазваляе іншым распрацоўшчыкам выкарыстоўваць іх з функцыямі праверкі тыпаў і аўтазапаўнення TypeScript.
 
-### Assertion Functions
+### Функцыі сцвярджэння (Assertion Functions)
 
-In TypeScript, assertion functions are functions that indicate the verification of a specific condition based on their return value. In their simplest form, an assert function examines a provided predicate and raises an error when the predicate evaluates to false.
+У TypeScript функцыі сцвярджэння — гэта функцыі, якія паказваюць на праверку пэўнай умовы на аснове іх значэння вяртання. У сваёй найпрасцейшай форме функцыя сцвярджэння правярае прадстаўлены прэдыкат і выклікае памылку, калі прэдыкат ацэньваецца як false.
 
 ```typescript
 function isNumber(value: unknown): asserts value is number {
@@ -4608,7 +4608,7 @@ function isNumber(value: unknown): asserts value is number {
 }
 ```
 
-Or can be declared as function expression:
+Або можа быць аб'яўлена як функцыянальны выраз:
 
 ```typescript
 type AssertIsNumber = (value: unknown) => asserts value is number;
@@ -4619,29 +4619,29 @@ const isNumber: AssertIsNumber = value => {
 };
 ```
 
-Assertion functions share similarities with type guards. Type guards were initially introduced to perform runtime checks and ensure the type of a value within a specific scope.
-Specifically, a type guard is a function that evaluates a type predicate and returns a boolean value indicating whether the predicate is true or false. This differs slightly from assertion functions,where the intention is to throw an error rather than returning false when the predicate is not satisfied.
+Функцыі сцвярджэння маюць падабенства з вартаўнікамі тыпаў. Вартаўнікі тыпаў былі першапачаткова ўведзены для выканання праверак падчас выканання і забеспячэння тыпу значэння ў пэўнай вобласці бачнасці.
+У прыватнасці, вартаўнік тыпу — гэта функцыя, якая ацэньвае прэдыкат тыпу і вяртае лагічнае значэнне, якое паказвае, ці з'яўляецца прэдыкат ісцінным або ілжывым. Гэта крыху адрозніваецца ад функцый сцвярджэння, дзе намер складаецца ў тым, каб выкінуць памылку, а не вярнуць false, калі прэдыкат не задаволены.
 
-Example of type guard:
+Прыклад вартаўніка тыпу:
 
 ```typescript
 const isNumber = (value: unknown): value is number => typeof value === 'number';
 ```
 
-### Variadic Tuple Types
+### Варыятыўныя тыпы картэжаў (Variadic Tuple Types)
 
-Variadic Tuple Types are a features introduces in TypeScript version 4.0, let’s start to learn them by revise what is a tuple:
+Варыятыўныя тыпы картэжаў — гэта функцыі, уведзеныя ў TypeScript версіі 4.0; давайце пачнем іх вывучэнне з паўтарэння таго, што такое картэж:
 
-A tuple type is an array which has a defined length, and were the type of each element is known:
+Тып картэжа — гэта масіў, які мае пэўную даўжыню і ў якім вядомы тып кожнага элемента:
 
 ```typescript
 type Student = [string, number];
 const [name, age]: Student = ['Simone', 20];
 ```
 
-The term "variadic" means indefinite arity (accept a variable number of arguments).
+Тэрмін «варыятыўны» (variadic) азначае нявызначаную арнасць (accept a variable number of arguments — прымаць зменную колькасць аргументаў).
 
-A variadic tuple is a tuple type which has all the property as before but the exact shape is not defined yet:
+Варыятыўны картэж — гэта тып картэжа, які мае ўсе ўласцівасці, што і раней, але дакладная форма якога яшчэ не вызначана:
 
 ```typescript
 type Bar<T extends unknown[]> = [boolean, ...T, number];
@@ -4651,9 +4651,9 @@ type B = Bar<['a', 'b']>; // [boolean, 'a', 'b', number]
 type C = Bar<[]>; // [boolean, number]
 ```
 
-In the previous code we can see that the tuple shape is defined by the `T` generic passed in.
+У папярэднім кодзе мы бачым, што форма картэжа вызначаецца перададзеным абагульненым тыпам `T`.
 
-Variadic tuples can accept multiple generics make them very flexible:
+Варыятыўныя картэжы могуць прымаць некалькі абагульненых тыпаў, што робіць іх вельмі гнуткімі:
 
 ```typescript
 type Bar<T extends unknown[], G extends unknown[]> = [...T, boolean, ...G];
@@ -4662,12 +4662,12 @@ type A = Bar<[number], [string]>; // [number, boolean, string]
 type B = Bar<['a', 'b'], [boolean]>; // ["a", "b", boolean, boolean]
 ```
 
-With the new variadic tuples we can use:
+З новымі варыятыўнымі картэжамі мы можам выкарыстоўваць:
 
-* The spreads in tuple type syntax can now be generic, so we can represent higher-order operation on tuples and arrays even when we do not know the actual types we are operating over.
-* The rest elements can occur anywhere in a tuple.
+* Распаўсюджванні (spreads) у сінтаксісе тыпу картэжа цяпер могуць быць абагульненымі, таму мы можам прадстаўляць аперацыі вышэйшага парадку над картэжамі і масівамі, нават калі мы не ведаем фактычных тыпаў, з якімі мы працуем.
+* Элементы rest могуць сустракацца ў любым месцы картэжа.
 
-Example:
+Прыклад:
 
 ```typescript
 type Items = readonly unknown[];
@@ -4682,13 +4682,13 @@ function concat<T extends Items, U extends Items>(
 concat([1, 2, 3], ['4', '5', '6']); // [1, 2, 3, "4", "5", "6"]
 ```
 
-### Boxed types
+### Упакаваныя тыпы (Boxed types)
 
-Boxed types refer to the wrapper objects that are used to represent primitive types as objects. These wrapper objects provide additional functionality and methods that are not available directly on the primitive values.
+Упакаваныя тыпы (Boxed types) адносяцца да аб'ектаў-абгортак, якія выкарыстоўваюцца для прадстаўлення прымітыўных тыпаў у выглядзе аб'ектаў. Гэтыя аб'екты-абгорткі забяспечваюць дадатковую функцыянальнасць і метады, якія недаступныя непасрэдна ў прымітыўных значэннях.
 
-When you access a method like `charAt` or `normalize` on a `string` primitive, JavaScript wraps it in a `String` object, calls the method, and then throws the object away.
+Калі вы звяртаецеся да такога метаду, як `charAt` або `normalize`, на прымітыве `string`, JavaScript загортвае яго ў аб'ект `String`, выклікае метад, а затым выкідвае аб'ект.
 
-Demonstration:
+Дэманстрацыя:
 
 ```typescript
 const originalNormalize = String.prototype.normalize;
@@ -4699,7 +4699,7 @@ String.prototype.normalize = function () {
 console.log('\u0041'.normalize());
 ```
 
-TypeScript represents this differentiation by providing separate types for the primitives and their corresponding object wrappers:
+TypeScript адлюстроўвае гэтае адрозненне, забяспечваючы асобныя тыпы для прымітываў і адпаведных ім аб'ектаў-абгортак:
 
 * string => String
 * number => Number
@@ -4707,23 +4707,23 @@ TypeScript represents this differentiation by providing separate types for the p
 * symbol => Symbol
 * bigint => BigInt
 
-The boxed types are usually not needed. Avoid using boxed types and instead use type for the primitives,  for instance `string` instead of `String`.
+Упакаваныя тыпы звычайна не патрэбныя. Пазбягайце выкарыстання ўпакаваных тыпаў і замест гэтага выкарыстоўвайце тып для прымітываў, напрыклад `string` замест `String`.
 
-### Covariance and Contravariance in TypeScript
+### Каварыянтнасць і контраварыянтнасць у TypeScript
 
-Covariance and Contravariance are used to describe how relationships work when dealing with inheritance or assignment of types.
+Каварыянтнасць і контраварыянтнасць выкарыстоўваюцца для апісання таго, як працуюць адносіны пры працы з успадкоўваннем або прысваеннем тыпаў.
 
-Covariance means that a type relationship preserves the direction of inheritance or assignment, so if a type A is a subtype of type B, then an array of type A is also considered a subtype of an array of type B. The important thing to note here is that the subtype relationship is maintained this means that Covariance accept subtype but doesn't accept supertype.
+Каварыянтнасць азначае, што адносіны паміж тыпамі захоўваюць кірунак успадкоўвання або прысваення, таму, калі тып A з'яўляецца падтыпам тыпу B, то масіў тыпу A таксама лічыцца падтыпам масіва тыпу B. Важна адзначыць, што адносіны падтыпаў захоўваюцца; гэта азначае, што каварыянтнасць прымае падтып, але не прымае супертып.
 
-Contravariance means that a type relationship reverses the direction of inheritance or assignment, so if a type A is a subtype of type B, then an array of type B is considered a subtype of an array of type A. The subtype relationship is reversed this means that Contravariance accept supertype but doesn't accept subtype.
+Контраварыянтнасць азначае, што адносіны паміж тыпамі змяняюць кірунак успадкоўвання або прысваення на адваротны, таму, калі тып A з'яўляецца падтыпам тыпу B, то масіў тыпу B лічыцца падтыпам масіва тыпу A. Адносіны падтыпаў змяняюцца на адваротныя; гэта азначае, што контраварыянтнасць прымае супертып, але не прымае падтып.
 
-Notes: Bivariance means accept both supertype & subtype.
+Заўвагі: Біварыянтнасць азначае прыняцце як супертыпу, так і падтыпу.
 
-Example: Let's say we have a space for all animals and a separate space just for dogs.
+Прыклад: Давайце ўявім, што ў нас ёсць месца для ўсіх жывёл і асобнае месца толькі для сабак.
 
-In Covariance, you can put all the dogs in the animals space because dogs are a type of animal. But you cannot put all the animals in the dog space because there might be other animals mixed in.
+Пры каварыянтнасці вы можаце змясціць усіх сабак у месца для жывёл, таму што сабакі — гэта разнавіднасць жывёл. Але вы не можаце змясціць усіх жывёл у месца для сабак, бо там могуць быць прымешаны іншыя жывёлы.
 
-In Contravariance, you cannot put all the animals in the dogs space because the animals space might contain other animals as well. However, you can put all the dogs in the animal space because all dogs are also animals.
+Пры контраварыянтнасці вы не можаце змясціць усіх жывёл у месца для сабак, бо ў месцы для жывёл могуць знаходзіцца і іншыя жывёлы. Аднак вы можаце змясціць усіх сабак у месца для жывёл, таму што ўсе сабакі таксама з'яўляюцца жывёламі.
 
 <!-- skip -->
 ```typescript
@@ -4766,29 +4766,29 @@ feedDog = feedAnimal;
 feedAnimal = feedDog; // Invalid: Type 'Feed<Dog>' is not assignable to type 'Feed<Animal>'.
 ```
 
-In TypeScript, type relationships for arrays are covariant, while type relationships for function parameters are contravariant. This means that TypeScript exhibits both covariance and contravariance, depending on the context.
+У TypeScript адносіны тыпаў для масіваў з'яўляюцца каварыянтнымі, у той час як адносіны тыпаў для параметраў функцыі з'яўляюцца контраварыянтнымі. Гэта азначае, што TypeScript дэманструе як каварыянтнасць, так і контраварыянтнасць, у залежнасці ад кантэксту.
 
-#### Optional Variance Annotations for Type Parameters
+#### Неабавязковыя анатацыі варыянтнасці для параметраў тыпу
 
-As of TypeScript 4.7.0, we can use the `out` and `in` keywords to be specific about Variance annotation.
+Пачынаючы з TypeScript 4.7.0, мы можам выкарыстоўваць ключавыя словы `out` і `in`, каб канкрэтызаваць анатацыю варыянтнасці.
 
-For Covariant, use the `out` keyword:
+Для каварыянтнасці (Covariant) выкарыстоўвайце ключавое слова `out`:
 
 ```typescript
 type AnimalCallback<out T> = () => T; // T is Covariant here
 ```
 
-And for Contravariant, use the `in` keyword:
+А для контраварыянтнасці (Contravariant) выкарыстоўвайце ключавое слова `in`:
 
 ```typescript
 type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
 ```
 
-### Template String Pattern Index Signatures
+### Шаблонныя радковыя індэксныя сігнатуры
 
-Template string pattern index signatures allow us to define flexible index signatures using template string patterns. This feature enables us to create objects that can be indexed with specific patterns of string keys, providing more control and specificity when accessing and manipulating properties.
+Шаблонныя радковыя індэксныя сігнатуры дазваляюць нам вызначаць гнуткія індэксныя сігнатуры з выкарыстаннем шаблонаў радкоў. Гэтая функцыя дазваляе нам ствараць аб'екты, якія могуць індэксавацца з дапамогай пэўных шаблонаў радковых ключоў, забяспечваючы большы кантроль і спецыфічнасць пры доступе і маніпуляванні ўласцівасцямі.
 
-TypeScript from version 4.4 allows index signatures for symbols and template string patterns.
+TypeScript пачынаючы з версіі 4.4 дазваляе індэксныя сігнатуры для сімвалаў і шаблонаў радкоў.
 
 ```typescript
 const uniqueSymbol = Symbol('description');
@@ -4811,10 +4811,10 @@ console.log(obj['key-a']); // 123
 console.log(obj['key-b']); // 456
 ```
 
-### The satisfies Operator
+### Аператар satisfies
 
-The `satisfies`  allows you to check if a given type satisfies a specific interface or condition. In other words, it ensures that a type has all the required properties and methods of a specific interface. It is a way to ensure a variable fits into a definition of a type.
-Here is an example:
+Аператар `satisfies` дазваляе праверыць, ці задавальняе дадзены тып пэўнаму інтэрфейсу або ўмове. Іншымі словамі, гэта гарантуе, што тып мае ўсе неабходныя ўласцівасці і метады канкрэтнага інтэрфейсу. Гэта спосаб пераканацца, што зменная ўпісваецца ў азначэнне тыпу.
+Вось прыклад:
 
 <!-- skip -->
 ```typescript
@@ -4855,22 +4855,22 @@ user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
 user3.nickName; // TypeScript infers correctly: undefined
 ```
 
-### Type-Only Imports and Export
+### Імпарт і экспарт толькі тыпаў
 
-Type-Only Imports and Export allows you to import or export types without importing or exporting the values or functions associated with those types. This can be useful for reducing the size of your bundle.
+Імпарт і экспарт толькі тыпаў (Type-Only Imports and Export) дазваляе імпартаваць або экспартаваць тыпы без імпарту або экспарту значэнняў або функцый, звязаных з гэтымі тыпамі. Гэта можа быць карысна для памяншэння памеру вашага пакета (bundle).
 
-To use type-only imports, you can use the `import type` keyword.
+Каб выкарыстоўваць імпарт толькі тыпаў, вы можаце выкарыстоўваць ключавое слова `import type`.
 
-TypeScript permits using both declaration and implementation file extensions (.ts, .mts, .cts, and .tsx) in type-only imports, regardless of `allowImportingTsExtensions` settings.
+TypeScript дазваляе выкарыстоўваць пашырэнні файлаў як дэкларацый, так і рэалізацый (.ts, .mts, .cts і .tsx) пры імпарце толькі тыпаў, незалежна ад налад `allowImportingTsExtensions`.
 
-For example:
+Напрыклад:
 
 <!-- skip -->
 ```typescript
 import type { House } from './house.ts';
 ```
 
-The following are supported forms:
+Падтрымліваюцца наступныя формы:
 
 <!-- skip -->
 ```typescript
@@ -4881,16 +4881,16 @@ export type { T };
 export type { T } from './mod';
 ```
 
-### using declaration and Explicit Resource Management
+### Дэкларацыя using і відавочнае кіраванне рэсурсамі
 
-A `using` declaration is a block-scoped, immutable binding, similar to `const`, used for managing disposable resources. When initialized with a value, the `Symbol.dispose` method of that value is recorded and subsequently executed upon exiting the enclosing block scope.
+Дэкларацыя `using` — гэта нязменнае звязванне з вобласцю бачнасці блока, падобнае да `const`, якое выкарыстоўваецца для кіравання аднаразовымі рэсурсамі. Пры ініцыялізацыі значэннем метад `Symbol.dispose` гэтага значэння запісваецца і пасля выконваецца пры выхадзе з ахопліваючай вобласці бачнасці блока.
 
-This is based on ECMAScript's Resource Management feature, which is useful for performing essential cleanup tasks after object creation, such as closing connections, deleting files, and releasing memory.
+Гэта заснавана на функцыі кіравання рэсурсамі ECMAScript, якая карысная для выканання істотных задач ачысткі пасля стварэння аб'екта, такіх як закрыццё злучэнняў, выдаленне файлаў і вызваленне памяці.
 
-Notes:
+Заўвагі:
 
-* Due to its recent introduction in TypeScript version 5.2, most runtimes lack native support. You'll need polyfills for: `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`.
-* Additionally, you will need to configure your tsconfig.json as follows:
+* З-за нядаўняга ўвядзення ў TypeScript версіі 5.2 большасць асяроддзяў выканання не маюць убудаванай падтрымкі. Вам спатрэбяцца поліфілы (polyfills) для: `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`.
+* Акрамя таго, вам трэба будзе наладзіць ваш `tsconfig.json` наступным чынам:
 
 ```json
 {
@@ -4901,7 +4901,7 @@ Notes:
 }
 ```
 
-Example:
+Прыклад:
 
 <!-- skip -->
 ```typescript
@@ -4926,7 +4926,7 @@ console.log(1);
 console.log(3);
 ```
 
-The code will log:
+Код выведзе ў журнал:
 
 ```shell
 1
@@ -4935,7 +4935,7 @@ disposed
 3
 ```
 
-A resource eligible for disposal must adhere to the `Disposable` interface:
+Рэсурс, які падлягае вызваленню (disposal), павінен адпавядаць інтэрфейсу `Disposable`:
 
 ```typescript
 // lib.esnext.disposable.d.ts
@@ -4944,7 +4944,7 @@ interface Disposable {
 }
 ```
 
-The `using` declarations record resource disposal operations in a stack, ensuring they are disposed in reverse order of declaration:
+Дэкларацыі `using` запісваюць аперацыі вызвалення рэсурсаў у стэк, гарантуючы, што яны вызваляюцца ў парадку, адваротным аб'яўленню:
 
 <!-- skip -->
 ```typescript
@@ -4955,11 +4955,11 @@ The `using` declarations record resource disposal operations in a stack, ensurin
 } // disposes `C`, then `B`, then `A`.
 ```
 
-Resources are guaranteed to be disposed, even if subsequent code or exceptions occur. This may lead to disposal potentially throwing an exception, possibly suppressing another. To retain information on suppressed errors, a new native exception, `SuppressedError`, is introduced.
+Рэсурсы гарантавана будуць вызвалены, нават калі адбудзецца выкананне наступнага кода або ўзнікнуць выключэнні. Гэта можа прывесці да таго, што вызваленне патэнцыйна выкліча выключэнне, магчыма, заглушаючы іншае. Каб захаваць інфармацыю аб заглушаных памылках, уводзіцца новае натыўнае выключэнне `SuppressedError`.
 
-#### await using declaration
+#### Дэкларацыя await using
 
-An `await using` declaration handles an asynchronously disposable resource. The value must have a `Symbol.asyncDispose` method, which will be awaited at the block's end.
+Дэкларацыя `await using` апрацоўвае асінхронна вызваляемы рэсурс. Значэнне павінна мець метад `Symbol.asyncDispose`, які будзе чакацца (awaited) у канцы блока.
 
 <!-- skip -->
 ```typescript
@@ -4968,7 +4968,7 @@ async function doWorkAsync() {
 } // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
 ```
 
-For an asynchronously disposable resource, it must adhere to either the `Disposable` or `AsyncDisposable` interface:
+Асінхронна вызваляемы рэсурс павінен прытрымлівацца інтэрфейсу `Disposable` або `AsyncDisposable`:
 
 ```typescript
 // lib.esnext.disposable.d.ts
@@ -5005,7 +5005,7 @@ async function doWork() {
 doWork();
 ```
 
-The code logs:
+Код выводзіць у журнал:
 
 ```shell
 Doing some work...
@@ -5013,20 +5013,20 @@ Closing the connection...
 Connection closed.
 ```
 
-The `using` and `await using` declarations are allowed in Statements: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.
+Дэкларацыі `using` і `await using` дазволеныя ў аператарах: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.
 
-### Import Attributes
+### Атрыбуты імпарту (Import Attributes)
 
-TypeScript 5.3's Import Attributes (labels for imports) tell the runtime how to handle modules (JSON, etc.). This improves security by ensuring clear imports and aligns with Content Security Policy (CSP) for safer resource loading. TypeScript ensures they are valid but lets the runtime handle their interpretation for specific module handling.
+Атрыбуты імпарту (Import Attributes) у TypeScript 5.3 (цэтлікі для імпарту) паведамляюць асяроддзю выканання, як апрацоўваць модулі (JSON і г.д.). Гэта паляпшае бяспеку, забяспечваючы выразны імпарт і ўзгадненне з Палітыкай бяспекі кантэнту (CSP) для больш бяспечнай загрузкі рэсурсаў. TypeScript гарантуе, што яны сапраўдныя, але дазваляе асяроддзю выканання апрацоўваць іх інтэрпрэтацыю для апрацоўкі канкрэтнага модуля.
 
-Example:
+Прыклад:
 
 <!-- skip -->
 ```typescript
 import config from './config.json' with { type: 'json' };
 ```
 
-with dynamic import:
+з дынамічным імпартам:
 
 <!-- skip -->
 ```typescript
