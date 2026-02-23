@@ -155,6 +155,10 @@ gtag('config', 'G-SR2LV8LB90');
           label: 'Svenska',
           lang: 'sv-SE',
         },
+        "bg-bg": {
+          label: "Български",
+          lang: "bg-BG"
+        }
       },
       sidebar: [
         {
