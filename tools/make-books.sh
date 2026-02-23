@@ -8,17 +8,20 @@ INPUT_EN="README"
 INPUT_CN="README-zh_CN"
 INPUT_IT="README-it_IT"
 INPUT_PT="README-pt_BR"
+INPUT_BG="README-bg_BG"
 
 OUTPUT_EN="typescript-book"
 OUTPUT_CN="typescript-book-zh_CN"
 OUTPUT_IT="typescript-book-it_IT"
 OUTPUT_PT="typescript-book-pt_BR"
+OUTPUT_BG="typescript-book-bg_BG"
 
 AUTHOR="Simone Poggiali"
 TITLE_EN="The Concise TypeScript Book"
 TITLE_CN="# 简洁的TypeScript之书"
 TITLE_IT="The Concise TypeScript Book"
 TITLE_PT="The Concise TypeScript Book"
+TITLE_BG="The Concise TypeScript Book"
 
 cd ../
 
@@ -49,17 +52,20 @@ pandoc -o $DIR_DOWNLOADS/$OUTPUT_EN.epub --metadata title="$TITLE_EN" --metadata
 pandoc -o $DIR_DOWNLOADS/$OUTPUT_CN.epub --metadata title="$TITLE_CN" --metadata author="$AUTHOR" -s $INPUT_CN.md
 pandoc -o $DIR_DOWNLOADS/$OUTPUT_IT.epub --metadata title="$TITLE_IT" --metadata author="$AUTHOR" -s $INPUT_IT.md
 pandoc -o $DIR_DOWNLOADS/$OUTPUT_PT.epub --metadata title="$TITLE_PT" --metadata author="$AUTHOR" -s $INPUT_PT.md
+pandoc -o $DIR_DOWNLOADS/$OUTPUT_BG.epub --metadata title="$TITLE_BG" --metadata author="$AUTHOR" -s $INPUT_BG.md
 
 # Validate eBooks
 epubcheck $DIR_DOWNLOADS/$OUTPUT_EN.epub
 epubcheck $DIR_DOWNLOADS/$OUTPUT_CN.epub
 epubcheck $DIR_DOWNLOADS/$OUTPUT_IT.epub
 epubcheck $DIR_DOWNLOADS/$OUTPUT_PT.epub
+epubcheck $DIR_DOWNLOADS/$OUTPUT_BG.epub
 
 # Generate PDFs
 ebook-convert $DIR_DOWNLOADS/$OUTPUT_EN.epub $DIR_DOWNLOADS/$OUTPUT_EN.pdf --pdf-page-numbers
 ebook-convert $DIR_DOWNLOADS/$OUTPUT_CN.epub $DIR_DOWNLOADS/$OUTPUT_CN.pdf --pdf-page-numbers
 ebook-convert $DIR_DOWNLOADS/$OUTPUT_IT.epub $DIR_DOWNLOADS/$OUTPUT_IT.pdf --pdf-page-numbers
 ebook-convert $DIR_DOWNLOADS/$OUTPUT_PT.epub $DIR_DOWNLOADS/$OUTPUT_PT.pdf --pdf-page-numbers
+ebook-convert $DIR_DOWNLOADS/$OUTPUT_BG.epub $DIR_DOWNLOADS/$OUTPUT_BG.pdf --pdf-page-numbers
 
 echo "Books were created. Please commit!"
