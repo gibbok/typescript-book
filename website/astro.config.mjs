@@ -12,43 +12,12 @@ export default defineConfig({
         starlight({
             head: [
                 {
-                    tag: 'script',
-                    attrs: {
-                        src: 'https://www.googletagmanager.com/gtag/js?id=G-SR2LV8LB90',
-                    },
-                },
-                {
-                    tag: 'script',
-                    content: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-SR2LV8LB90');
-`
-                },
-                {
-                    tag: 'script',
-                    attrs: {
-                        async: true,
-                        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8180626414651391',
-                        crossorigin: 'anonymous',
-                    },
-                },
-                {
                     tag: 'link',
                     attrs: {
                         rel: 'stylesheet',
                         id: 'silktide-consent-manager-css',
                         href: '/typescript-book/cookie-banner/silktide-consent-manager.css',
                     },
-                },
-                {
-                    tag: 'style',
-                    content: `
-                        #silktide-cookie-icon {
-                            transform: scale(0.7);
-                        }
-                    `
                 },
                 {
                     tag: 'script',
@@ -129,6 +98,29 @@ silktideCookieBannerManager.updateCookieBannerConfig({
   }
 });
 `
+                },
+                {
+                    tag: 'script',
+                    attrs: {
+                        src: 'https://www.googletagmanager.com/gtag/js?id=G-SR2LV8LB90',
+                    },
+                },
+                {
+                    tag: 'script',
+                    content: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-SR2LV8LB90');
+`
+                },
+                {
+                    tag: 'script',
+                    attrs: {
+                        async: true,
+                        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8180626414651391',
+                        crossorigin: 'anonymous',
+                    },
                 },
                 {
                     tag: 'script',
