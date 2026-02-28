@@ -27,6 +27,14 @@ gtag('config', 'G-SR2LV8LB90');
 `
                 },
                 {
+                    tag: 'script',
+                    attrs: {
+                        async: true,
+                        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8180626414651391',
+                        crossorigin: 'anonymous',
+                    },
+                },
+                {
                     tag: 'link',
                     attrs: {
                         rel: 'stylesheet',
