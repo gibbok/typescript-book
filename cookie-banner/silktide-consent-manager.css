@@ -486,6 +486,7 @@
   box-shadow: 0px 0px 6px 0px #0000001a;
   pointer-events: auto;
   animation: silktide-fadeIn 0.3s ease-in-out forwards;
+  transform: scale(0.7);
 }
 
 #silktide-cookie-icon.bottomRight {
