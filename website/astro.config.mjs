@@ -20,11 +20,11 @@ export default defineConfig({
                 {
                     tag: 'script',
                     content: `
-                      window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', 'G-SR2LV8LB90');
-                    `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-SR2LV8LB90');
+`
                 },
                 {
                     tag: 'link',
@@ -33,6 +33,14 @@ export default defineConfig({
                         id: 'silktide-consent-manager-css',
                         href: '/typescript-book/cookie-banner/silktide-consent-manager.css',
                     },
+                },
+                {
+                    tag: 'style',
+                    content: `
+                        #silktide-cookie-icon {
+                            transform: scale(0.7);
+                        }
+                    `
                 },
                 {
                     tag: 'script',
@@ -48,7 +56,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
     showBackground: false 
   },
   cookieIcon: {
-    position: "bottomLeft"
+    position: "bottomRight"
   },
   cookieTypes: [
     {
@@ -112,7 +120,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
     }
   }
 });
-                    `
+`
                 },
                 {
                     tag: 'script',
