@@ -45,7 +45,7 @@ export default defineConfig({
                     content: `
 silktideCookieBannerManager.updateCookieBannerConfig({
   background: {
-    showBackground: true
+    showBackground: false 
   },
   cookieIcon: {
     position: "bottomLeft"
