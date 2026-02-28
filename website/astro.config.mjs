@@ -20,6 +20,21 @@ export default defineConfig({
                             '{"token": "949aed66281e40378ac479993d699897"}',
                     },
                 },
+                {
+                    tag: 'script',
+                    attrs: {
+                        src: 'https://www.googletagmanager.com/gtag/js?id=G-SR2LV8LB90',
+                    },
+                },
+                {
+                    tag: 'script',
+                    content: `
+                      window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-SR2LV8LB90');
+                    `
+                }
             ],
             title: 'TypeScript Book',
             customCss: ['./src/styles/custom.css'],
@@ -41,10 +56,10 @@ export default defineConfig({
                     label: 'Italiano',
                     lang: 'it-IT',
                 },
-                "pt-br": {
-                    label: "Português (Brasil)",
-                    lang: "pt-BR"
-                }
+                'pt-br': {
+                    label: 'Português (Brasil)',
+                    lang: 'pt-BR',
+                },
             },
             sidebar: [
                 {
