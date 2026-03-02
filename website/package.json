@@ -15,7 +15,7 @@
     "@astrojs/starlight": "^0.15.3",
     "astro": "^4.0.1",
     "sharp": "^0.32.5",
-    "typescript": "^5.3.3"
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
     "gh-pages": "^6.1.1"

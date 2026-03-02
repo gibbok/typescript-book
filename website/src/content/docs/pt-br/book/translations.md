@@ -12,4 +12,7 @@ Este livro foi traduzido para várias versões de idiomas, incluindo:
 
 [Italiano](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
 
-[Português (Brasil)](https://github.com/gibbok/typescript-book/blob/main/README-pt_BR.md)
+[Português Brasileiro](https://github.com/gibbok/typescript-book/blob/main/README-pt_BR.md)
+
+[Sueco](https://github.com/gibbok/typescript-book/blob/main/README-sv_SE.md)
+
