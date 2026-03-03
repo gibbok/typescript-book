@@ -66,6 +66,6 @@ ebook-convert $DIR_DOWNLOADS/$OUTPUT_EN.epub $DIR_DOWNLOADS/$OUTPUT_EN.pdf --pdf
 ebook-convert $DIR_DOWNLOADS/$OUTPUT_CN.epub $DIR_DOWNLOADS/$OUTPUT_CN.pdf --pdf-page-numbers
 ebook-convert $DIR_DOWNLOADS/$OUTPUT_IT.epub $DIR_DOWNLOADS/$OUTPUT_IT.pdf --pdf-page-numbers
 ebook-convert $DIR_DOWNLOADS/$OUTPUT_BR.epub $DIR_DOWNLOADS/$OUTPUT_BR.pdf --pdf-page-numbers
-ebook-convert $DIR_DOWNLOADS/$OUTPUT_SE.epub $DIR_DOWNLOADS/$OUTPUT_BR.pdf --pdf-page-numbers
+ebook-convert $DIR_DOWNLOADS/$OUTPUT_SE.epub $DIR_DOWNLOADS/$OUTPUT_SE.pdf --pdf-page-numbers
 
 echo "Books were created. Please commit!"
