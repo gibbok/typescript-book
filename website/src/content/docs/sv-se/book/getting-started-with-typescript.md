@@ -170,7 +170,7 @@ npm install --save-dev @types/package-name
 eller
 
 ```shell
-yarn add --dev @types/package-name.
+yarn add --dev @types/package-name
 ```
 
 Det fjärde steget är att migrera modul för modul med en nedifrån-och-upp-metod, genom att följa ditt beroendeträd med start från löven. Tanken är att börja konvertera moduler som inte är beroende av andra moduler. För att visualisera beroendegrafer kan du använda verktyget "madge".
