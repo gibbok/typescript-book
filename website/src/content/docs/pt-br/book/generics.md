@@ -1,14 +1,14 @@
 ---
-title: Generics
+title: Genéricos (Generics)
 sidebar:
   order: 55
-  label: 55. Generics
+  label: 55. Genéricos (Generics)
 ---
 
 
-Generics permitem que você crie componentes e funções reutilizáveis que podem trabalhar com múltiplos tipos. Com generics, você pode parametrizar tipos, funções e interfaces, permitindo que operem em diferentes tipos sem especificá-los explicitamente de antemão.
+Os genéricos permitem que você crie componentes e funções reutilizáveis que podem trabalhar com múltiplos tipos. Com os genéricos, você pode parametrizar tipos, funções e interfaces, permitindo que operem em diferentes tipos sem especificá-los explicitamente de antemão.
 
-Generics permitem que você torne o código mais flexível e reutilizável.
+Os genéricos permitem tornar o código mais flexível e reutilizável.
 
 ### Tipo Genérico
 
@@ -27,7 +27,7 @@ const len = getLen([1, 2, 3]);
 
 ### Classes Genéricas
 
-Generics também podem ser aplicados a classes, desta forma elas podem trabalhar com múltiplos tipos usando parâmetros de tipo. Isso é útil para criar definições de classes reutilizáveis que podem operar em diferentes tipos de dados mantendo a segurança de tipos.
+Os genéricos também podem ser aplicados a classes, permitindo que trabalhem com múltiplos tipos por meio de parâmetros de tipo. Isso é útil para criar definições de classe reutilizáveis que podem operar em diferentes tipos de dados mantendo a segurança de tipo.
 
 ```typescript
 class Container<T> {
@@ -49,7 +49,7 @@ const stringContainer = new Container<string>('hello');
 console.log(stringContainer.getItem()); // hello
 ```
 
-### Restrições Genéricas
+### Restrições Genéricas (Generic Constraints)
 
 Parâmetros genéricos podem ser restringidos usando a palavra-chave `extends` seguida por um tipo ou interface que o parâmetro de tipo deve satisfazer.
 
@@ -67,7 +67,7 @@ printLen({ length: 10 }); // 10
 printLen(123); // Inválido
 ```
 
-Um recurso interessante de genéricos introduzido na versão 3.4 RC é a inferência de tipo de função de ordem superior que introduziu argumentos de tipo genérico propagados:
+Um recurso interessante de genéricos introduzido na versão 3.4 RC é a inferência de tipo de função de ordem superior, que introduziu argumentos de tipo genérico propagados:
 
 ```typescript
 declare function pipe<A extends any[], B, C>(
@@ -82,19 +82,19 @@ const listBox = pipe(list, box); // <T>(a: T) => { value: T[] }
 const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```
 
-Esta funcionalidade permite programação em estilo pointfree com tipos mais seguros, que é comum em programação funcional.
+Essa funcionalidade permite uma programação de estilo sem pontos (pointfree) com segurança de tipo mais fácil, o que é comum na programação funcional.
 
-### Narrowing contextual genérico
+### Estreitamento Contextual Genérico
 
-O narrowing contextual para generics é o mecanismo no TypeScript que permite ao compilador estreitar o tipo de um parâmetro genérico com base no contexto em que é usado, é útil ao trabalhar com tipos genéricos em instruções condicionais:
+O estreitamento contextual (contextual narrowing) para genéricos é o mecanismo no TypeScript que permite ao compilador estreitar o tipo de um parâmetro genérico com base no contexto em que é usado. É útil ao trabalhar com tipos genéricos em declarações condicionais:
 
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value é reduzido para o tipo 'string'
+        // O valor é estreitado para o tipo 'string'
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value é reduzido para o tipo 'number'
+        // O valor é estreitado para o tipo 'number'
         console.log(value.toFixed(2));
     }
 }

@@ -1,12 +1,12 @@
 ---
-title: Tipo Tupla Nomeada (Rotulada)
+title: Tipo Tupla Nomeado (Rotulado)
 sidebar:
   order: 29
-  label: 29. Tipo Tupla Nomeada (Rotulada)
+  label: 29. Tipo Tupla Nomeado (Rotulado)
 ---
 
 
-Tipos de tupla podem incluir rótulos ou nomes opcionais para cada elemento. Esses rótulos são para legibilidade e assistência de ferramentas, e não afetam as operações que você pode realizar com eles.
+Os tipos tupla podem incluir rótulos (labels) ou nomes opcionais para cada elemento. Esses rótulos são para legibilidade e assistência de ferramentas, e não afetam as operações que você pode realizar com eles.
 
 ```typescript
 type T = string;

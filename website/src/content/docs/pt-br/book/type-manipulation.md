@@ -10,7 +10,7 @@ sidebar:
 
 É possível criar novos tipos compondo, manipulando ou transformando tipos existentes.
 
-Tipos de Interseção (`&`):
+Tipos Interseção (`&`):
 
 Permitem combinar múltiplos tipos em um único tipo:
 
@@ -21,7 +21,7 @@ type C = A & B; // Interseção de A e B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
-Tipos de União (`|`):
+Tipos União (`|`):
 
 Permitem definir um tipo que pode ser um de vários tipos:
 
@@ -43,12 +43,12 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Propriedades se tornam somente leitura
+type ImmutablePerson = Mutable<Person>; // As propriedades tornam-se somente leitura
 ```
 
 Tipos Condicionais:
 
-Permitem criar tipos baseados em algumas condições:
+Permitem criar tipos com base em algumas condições:
 
 ```typescript
 type ExtractParam<T> = T extends (param: infer P) => any ? P : never;
@@ -56,9 +56,9 @@ type MyFunction = (name: string) => number;
 type ParamType = ExtractParam<MyFunction>; // string
 ```
 
-### Tipos de Acesso Indexado
+### Tipos de Acesso Indexado (Indexed Access Types)
 
-No TypeScript é possível acessar e manipular os tipos de propriedades dentro de outro tipo usando um índice, `Type[Key]`.
+No TypeScript, é possível acessar e manipular os tipos de propriedades dentro de outro tipo usando um índice, `Type[Key]`.
 
 ```typescript
 type Person = {
@@ -74,13 +74,13 @@ type MyTuple = [string, number, boolean];
 type MyType = MyTuple[2]; // boolean
 ```
 
-### Tipos Utilitários
+### Tipos Utilitários (Utility Types)
 
-Vários tipos utilitários integrados podem ser usados para manipular tipos. Abaixo, uma lista dos mais comumente usados:
+Vários tipos utilitários integrados podem ser usados para manipular tipos, abaixo uma lista dos mais comuns:
 
 #### Awaited\<T\>
 
-Constrói um tipo que desembrulha recursivamente tipos Promise.
+Constrói um tipo que descompacta recursivamente tipos Promise.
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
@@ -248,7 +248,7 @@ class Person {
     }
 
     sayHello() {
-        console.log(`Hello, my name is ${this.name}!`);
+        console.log(`Olá, meu nome é ${this.name}!`);
     }
 }
 
@@ -256,7 +256,7 @@ type PersonInstance = InstanceType<typeof Person>;
 
 const person: PersonInstance = new Person('John');
 
-person.sayHello(); // Hello, my name is John!
+person.sayHello(); // Olá, meu nome é John!
 ```
 
 #### ThisParameterType\<T\>
@@ -277,7 +277,7 @@ Remove o parâmetro 'this' de um tipo de função T.
 
 ```typescript
 function capitalize(this: String) {
-    return this[0].toUpperCase() + this.substring(1).toLowerCase();
+    return this[0].toUpperCase + this.substring(1).toLowerCase();
 }
 
 type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
@@ -295,7 +295,7 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Válido pois "log" é parte de "this".
+        this.log('some error'); // Válido, pois "log" faz parte de "this".
         this.update(); // Inválido
     },
 };
@@ -303,7 +303,7 @@ let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
 
 #### Uppercase\<T\>
 
-Transforma em maiúsculas o nome do tipo de entrada T.
+Converte para maiúsculas o nome do tipo de entrada T.
 
 ```typescript
 type MyType = Uppercase<'abc'>; // "ABC"
@@ -311,7 +311,7 @@ type MyType = Uppercase<'abc'>; // "ABC"
 
 #### Lowercase\<T\>
 
-Transforma em minúsculas o nome do tipo de entrada T.
+Converte para minúsculas o nome do tipo de entrada T.
 
 ```typescript
 type MyType = Lowercase<'ABC'>; // "abc"
@@ -319,7 +319,7 @@ type MyType = Lowercase<'ABC'>; // "abc"
 
 #### Capitalize\<T\>
 
-Capitaliza o nome do tipo de entrada T.
+Coloca a primeira letra em maiúscula no nome do tipo de entrada T.
 
 ```typescript
 type MyType = Capitalize<'abc'>; // "Abc"
@@ -327,7 +327,7 @@ type MyType = Capitalize<'abc'>; // "Abc"
 
 #### Uncapitalize\<T\>
 
-Remove a capitalização do nome do tipo de entrada T.
+Coloca a primeira letra em minúscula no nome do tipo de entrada T.
 
 ```typescript
 type MyType = Uncapitalize<'Abc'>; // "abc"
@@ -335,7 +335,7 @@ type MyType = Uncapitalize<'Abc'>; // "abc"
 
 #### NoInfer\<T\>
 
-NoInfer é um tipo utilitário projetado para bloquear a inferência automática de tipos dentro do escopo de uma função genérica.
+`NoInfer` é um tipo utilitário projetado para bloquear a inferência automática de tipos dentro do escopo de uma função genérica.
 
 Exemplo:
 
@@ -351,10 +351,11 @@ Com NoInfer:
 
 <!-- skip -->
 ```typescript
-// Exemplo de função que usa NoInfer para prevenir inferência de tipos
+// Exemplo de função que usa NoInfer para evitar inferência de tipo
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Erro: Argumento do tipo '"c"' não é atribuível ao parâmetro do tipo '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // Erro: Argumento de tipo '"c"' não é atribuível ao parâmetro do tipo '"a" | "b"'.
 ```
+

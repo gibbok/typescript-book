@@ -14,11 +14,11 @@ Try-Catch-Finally-block:
 
 ```typescript
 try {
-    // Kod som kan kasta ett fel
+    // Code that might throw an error
 } catch (error) {
-    // Hantera felet
+    // Handle the error
 } finally {
-    // Kod som alltid körs, finally är valfri
+    // Code that always executes, finally is optional
 }
 ```
 
@@ -26,14 +26,14 @@ Du kan också hantera olika typer av fel:
 
 ```typescript
 try {
-    // Kod som kan kasta olika typer av fel
+    // Code that might throw different types of errors
 } catch (error) {
     if (error instanceof TypeError) {
-        // Hantera TypeError
+        // Handle TypeError
     } else if (error instanceof RangeError) {
-        // Hantera RangeError
+        // Handle RangeError
     } else {
-        // Hantera ochra fel
+        // Handle other errors
     }
 }
 ```
@@ -79,10 +79,10 @@ class MyClass {
     constructor() {}
 }
 
-// Utöka MyClass för att inkludera beteendet av Identifiable och Selectable
+// Extend MyClass to include the behavior of Identifiable and Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Funktion för att tillämpa mixins på en klass
+// Function to apply mixins to a class
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -97,7 +97,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Tillämpa mixins på MyClass
+// Apply the mixins to MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -311,7 +311,7 @@ Du kan i TypeScript använda metaegenskapen `new.target` som gör det möjligt a
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Loggar konstruktorfunktionen som används för att skapa en instans
+        console.log(new.target); // Logs the constructor function used to create an instance
     }
 }
 
@@ -336,7 +336,7 @@ Syntaxen för dynamiska importuttryck i TypeScript är följande:
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamisk import
+        const widget = await import('./widget'); // Dynamic import
         widget.render(container);
     }
 }
@@ -645,7 +645,7 @@ Vid kontravarians kan du inte placera alla djur i hundutrymmet eftersom djurutry
 
 <!-- skip -->
 ```typescript
-// Kovarians-exempel
+// Covariance example
 class Animal {
     name: string;
     constructor(name: string) {
@@ -664,11 +664,11 @@ class Dog extends Animal {
 let animals: Animal[] = [];
 let dogs: Dog[] = [];
 
-// Kovarians tillåter tilldelning av subtyp (Dog) array till supertyp (Animal) array
+// Covariance allows assigning subtype (Dog) array to supertype (Animal) array
 animals = dogs;
-dogs = animals; // Ogiltig: Typ 'Animal[]' är inte tilldelningsbar till typ 'Dog[]'
+dogs = animals; // Invalid: Type 'Animal[]' is not assignable to type 'Dog[]'
 
-// Kontravarians-exempel
+// Contravariance example
 type Feed<in T> = (animal: T) => void;
 
 let feedAnimal: Feed<Animal> = (animal: Animal) => {
@@ -679,9 +679,9 @@ let feedDog: Feed<Dog> = (dog: Dog) => {
     console.log(`Dog name: ${dog.name}, Breed: ${dog.breed}`);
 };
 
-// Kontravarians tillåter tilldelning av supertyp (Animal) callback till subtyp (Dog) callback
+// Contravariance allows assigning supertype (Animal) callback to subtype (Dog) callback
 feedDog = feedAnimal;
-feedAnimal = feedDog; // Ogiltig: Typ 'Feed<Dog>' är inte tilldelningsbar till typ 'Feed<Animal>'.
+feedAnimal = feedDog; // Invalid: Type 'Feed<Dog>' is not assignable to type 'Feed<Animal>'.
 ```
 
 I TypeScript är typrelationer för arrayer kovarianta, medan typrelationer för funktionsparametrar är kontravarianta. Det innebär att TypeScript uppvisar både kovarians och kontravarians beroende på sammanhanget.
@@ -740,29 +740,29 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Typannotering med `User`
+// Type Annotation using `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// I följoche rader kommer TypeScript inte att kunna härle da korrekt
+// In the following lines, TypeScript won't be able to infer properly
 user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
 user.nickName; // string | string[] | undefined
 
-// Typpåstående med `as`
+// Type assertion using `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Här också kommer TypeScript inte att kunna härle da korrekt
+// Here too, TypeScript won't be able to infer properly
 user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Med `satisfies`-operatorn kan vi nu korrekt härleda typerna
+// Using `satisfies` operators we can properly infer the types now
 const user3 = {
     name: 'Simon',
     nickName: undefined,
@@ -824,7 +824,7 @@ Exempel:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Enkel polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polify
 
 const doWork = (): Disposable => {
     return {
@@ -837,9 +837,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resurs deklareras
+    using work = doWork(); // Resource is declared
     console.log(2);
-} // Resurs kasseras (e.g., `work[Symbol.dispose]()` is evaluated)
+} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
 
 console.log(3);
 ```
@@ -870,7 +870,7 @@ interface Disposable {
     using j = getA(),
         y = getB();
     using k = getC();
-} // kasserar `C`, then `B`, then `A`.
+} // disposes `C`, then `B`, then `A`.
 ```
 
 Resurser garanteras att disponeras, även om efterföljande kod eller undantag uppstår. Detta kan leda till att avyttringen potentiellt kastar ett undantag, som eventuellt undertrycker ett annat. För att behålla information om undertryckta fel introduceras ett nytt inbyggt undantag, `SuppressedError`.
@@ -882,8 +882,8 @@ En `await using`-deklaration hanterar en asynkront disponibel resurs. Värdet m�
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resurs deklareras
-} // Resurs kasseras (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // Resource is declared
+} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
 ```
 
 För en asynkront disponibel resurs måste den följa antingen `Disposable`- eller `AsyncDisposable`-gränssnittet:
@@ -898,12 +898,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Enkel polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polify
 
 class DatabaseConnection implements AsyncDisposable {
-    // En metod som anropas när objektet kasseras asynkront
+    // A method that is called when the object is disposed asynchronously
     [Symbol.asyncDispose]() {
-        // Stäng anslutningen och returnera ett löfte
+        // Close the connection and return a promise
         return this.close();
     }
 
@@ -915,10 +915,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Skapa en ny anslutning och kassera den asynkront när den går ur omfattning
-    await using connection = new DatabaseConnection(); //  Resurs deklareras
+    // Create a new connection and dispose it asynchronously when it goes out of scope
+    await using connection = new DatabaseConnection(); //  Resource is declared
     console.log('Doing some work...');
-} // Resurs kasseras (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
 
 doWork();
 ```

@@ -39,7 +39,7 @@ Några exempel där avsmalning inte sker:
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Fel, ingen avsmalning eftersom isString inte är const
+        x.length; // Error, no narrowing because isString it is not const
     }
 };
 
@@ -49,7 +49,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Fel, ingen avsmalning eftersom obj tilldelas i funktionskroppen
+        obj.foo; // Error, no narrowing because obj is assigned in function body
     }
 };
 ```

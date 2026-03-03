@@ -1,12 +1,12 @@
 ---
-title: Tipos Union de Template
+title: Tipos de União de Template (Template Union Types)
 sidebar:
   order: 43
-  label: 43. Tipos Union de Template
+  label: 43. Tipos de União de Template (Template Union Types)
 ---
 
 
-Tipos union de template podem ser usados para mesclar e manipular texto dentro do sistema de tipos, por exemplo:
+Tipos de união de template podem ser usados para mesclar e manipular texto dentro do sistema de tipos, por exemplo:
 
 ```typescript
 type Status = 'active' | 'inactive';

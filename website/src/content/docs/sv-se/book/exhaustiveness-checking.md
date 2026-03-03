@@ -21,7 +21,7 @@ const move = (direction: Direction) => {
             break;
         default:
             const exhaustiveCheck: never = direction;
-            console.log(exhaustiveCheck); // Denna rad kommer aldrig att köras
+            console.log(exhaustiveCheck); // This line will never be executed
     }
 };
 ```

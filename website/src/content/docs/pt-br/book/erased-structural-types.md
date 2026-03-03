@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-No TypeScript, objetos não precisam corresponder a um tipo específico e exato. Por exemplo, se criarmos um objeto que atende aos requisitos de uma interface, podemos utilizar esse objeto em lugares onde essa interface é necessária, mesmo que não haja uma conexão explícita entre eles.
+No TypeScript, os objetos não precisam corresponder a um tipo exato e específico. Por exemplo, se criarmos um objeto que satisfaça os requisitos de uma interface, podemos utilizar esse objeto em locais onde essa interface é necessária, mesmo que não haja uma conexão explícita entre eles.
 Exemplo:
 
 ```typescript

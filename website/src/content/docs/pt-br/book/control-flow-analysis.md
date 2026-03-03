@@ -6,9 +6,9 @@ sidebar:
 ---
 
 
-A Análise de Fluxo de Controle no TypeScript é uma maneira de analisar estaticamente o fluxo do código para inferir os tipos de variáveis, permitindo que o compilador estreite os tipos dessas variáveis conforme necessário, com base nos resultados da análise.
+A Análise de Fluxo de Controle (Control Flow Analysis) no TypeScript é uma forma de analisar estaticamente o fluxo do código para inferir os tipos das variáveis, permitindo que o compilador estreite os tipos dessas variáveis conforme necessário, com base nos resultados da análise.
 
-Antes do TypeScript 4.4, a análise de fluxo de código só seria aplicada ao código dentro de uma instrução if, mas a partir do TypeScript 4.4, ela também pode ser aplicada a expressões condicionais e acessos a propriedades discriminantes referenciadas indiretamente através de variáveis const.
+Antes do TypeScript 4.4, a análise de fluxo de código só seria aplicada ao código dentro de uma instrução `if`, mas a partir do TypeScript 4.4, ela também pode ser aplicada a expressões condicionais e acessos a propriedades discriminantes referenciados indiretamente por meio de variáveis `const`.
 
 Por exemplo:
 
@@ -32,14 +32,14 @@ const f2 = (
 };
 ```
 
-Alguns exemplos onde o narrowing não ocorre:
+Alguns exemplos onde o estreitamento não ocorre:
 
 <!-- skip -->
 ```typescript
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Erro, sem narrowing porque isString não é const
+        x.length; // Erro, sem estreitamento porque isString não é const
     }
 };
 
@@ -49,10 +49,10 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Erro, sem narrowing porque obj é atribuído no corpo da função
+        obj.foo; // Erro, sem estreitamento porque obj é atribuído no corpo da função
     }
 };
 ```
 
-Observações: Até cinco níveis de indireção são analisados em expressões condicionais.
+Notas: Até cinco níveis de indireção são analisados em expressões condicionais.
 

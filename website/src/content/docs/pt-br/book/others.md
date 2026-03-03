@@ -8,7 +8,7 @@ sidebar:
 
 ### Erros e Tratamento de Exceções
 
-TypeScript permite capturar e lidar com erros usando mecanismos padrão de tratamento de erros do JavaScript:
+O TypeScript permite capturar e tratar erros usando os mecanismos padrão de tratamento de erros do JavaScript:
 
 Blocos Try-Catch-Finally:
 
@@ -16,24 +16,24 @@ Blocos Try-Catch-Finally:
 try {
     // Código que pode lançar um erro
 } catch (error) {
-    // Lidar com o erro
+    // Trata o erro
 } finally {
     // Código que sempre executa, finally é opcional
 }
 ```
 
-Você também pode lidar com diferentes tipos de erro:
+Você também pode tratar diferentes tipos de erro:
 
 ```typescript
 try {
     // Código que pode lançar diferentes tipos de erros
 } catch (error) {
     if (error instanceof TypeError) {
-        // Lidar com TypeError
+        // Trata TypeError
     } else if (error instanceof RangeError) {
-        // Lidar com RangeError
+        // Trata RangeError
     } else {
-        // Lidar com outros erros
+        // Trata outros erros
     }
 }
 ```
@@ -50,12 +50,12 @@ class CustomError extends Error {
     }
 }
 
-throw new CustomError('This is a custom error.');
+throw new CustomError('Este é um erro personalizado.');
 ```
 
-### Classes Mixin
+### Classes Mixin (Mixin classes)
 
-Classes mixin permitem combinar e compor comportamentos de múltiplas classes em uma única classe. Elas fornecem uma maneira de reutilizar e estender funcionalidades sem a necessidade de cadeias de herança profundas.
+As classes mixin permitem combinar e compor comportamentos de múltiplas classes em uma única classe. Elas fornecem uma maneira de reutilizar e estender funcionalidades sem a necessidade de cadeias de herança profundas.
 
 ```typescript
 abstract class Identifiable {
@@ -79,7 +79,7 @@ class MyClass {
     constructor() {}
 }
 
-// Estender MyClass para incluir o comportamento de Identifiable e Selectable
+// Estende MyClass para incluir o comportamento de Identifiable e Selectable
 interface MyClass extends Identifiable, Selectable {}
 
 // Função para aplicar mixins a uma classe
@@ -97,7 +97,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Aplicar os mixins a MyClass
+// Aplica os mixins a MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -107,41 +107,41 @@ o.select();
 
 ### Recursos de Linguagem Assíncronos
 
-Como TypeScript é um superconjunto de JavaScript, ele possui recursos de linguagem assíncronos integrados do JavaScript, tais como:
+Como o TypeScript é um superconjunto do JavaScript, ele possui recursos de linguagem assíncronos integrados do JavaScript como:
 
 Promises:
 
-Promises são uma forma de lidar com operações assíncronas e seus resultados usando métodos como `.then()` e `.catch()` para lidar com condições de sucesso e erro.
+Promises são uma maneira de lidar com operações assíncronas e seus resultados usando métodos como `.then()` e `.catch()` para lidar com condições de sucesso e erro.
 
-Para saber mais: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+Para saber mais: [https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 Async/await:
 
-As palavras-chave Async/await fornecem uma sintaxe mais parecida com código síncrono para trabalhar com Promises. A palavra-chave `async` é usada para definir uma função assíncrona, e a palavra-chave `await` é usada dentro de uma função async para pausar a execução até que uma Promise seja resolvida ou rejeitada.
+As palavras-chave async/await são uma maneira de fornecer uma sintaxe com aparência mais síncrona para trabalhar com Promises. A palavra-chave `async` é usada para definir uma função assíncrona, e a palavra-chave `await` é usada dentro de uma função async para pausar a execução até que uma Promise seja resolvida ou rejeitada.
 
 Para saber mais:
-[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
-[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+[https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/async_function)
+[https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/await](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/await)
 
-As seguintes APIs são bem suportadas em TypeScript:
+As seguintes APIs são bem suportadas no TypeScript:
 
 Fetch API:
-[https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+[https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API](https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API)
 
 Web Workers:
-[https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
+[https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Workers_API](https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Workers_API)
 
 Shared Workers:
-[https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker](https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker)
+[https://developer.mozilla.org/pt-BR/docs/Web/API/SharedWorker](https://developer.mozilla.org/pt-BR/docs/Web/API/SharedWorker)
 
 WebSocket:
-[https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
+[https://developer.mozilla.org/pt-BR/docs/Web/API/WebSockets_API](https://developer.mozilla.org/pt-BR/docs/Web/API/WebSockets_API)
 
 ### Iteradores e Geradores
 
-Tanto Iteradores quanto Geradores são bem suportados em TypeScript.
+Tanto Iteradores quanto Geradores são bem suportados no TypeScript.
 
-Iteradores são objetos que implementam o protocolo de iterador, fornecendo uma maneira de acessar elementos de uma coleção ou sequência um por um. É uma estrutura que contém um ponteiro para o próximo elemento na iteração. Eles têm um método `next()` que retorna o próximo valor na sequência junto com um booleano indicando se a sequência está `done`.
+Iteradores são objetos que implementam o protocolo iterador, fornecendo uma maneira de acessar elementos de uma coleção ou sequência um por um. É uma estrutura que contém um ponteiro para o próximo elemento na iteração. Eles possuem um método `next()` que retorna o próximo valor na sequência junto com um booleano indicando se a sequência terminou (`done`).
 
 ```typescript
 class NumberIterator implements Iterable<number> {
@@ -176,7 +176,7 @@ for (const num of iterator) {
 }
 ```
 
-Geradores são funções especiais definidas usando a sintaxe `function*` que simplificam a criação de iteradores. Eles usam a palavra-chave `yield` para definir a sequência de valores e automaticamente pausam e retomam a execução quando os valores são solicitados.
+Geradores são funções especiais definidas usando a sintaxe `function*` que simplifica a criação de iteradores. Eles usam a palavra-chave `yield` para definir a sequência de valores e pausar e retomar automaticamente a execução quando os valores são solicitados.
 
 Geradores facilitam a criação de iteradores e são especialmente úteis para trabalhar com sequências grandes ou infinitas.
 
@@ -196,15 +196,15 @@ for (const num of generator) {
 }
 ```
 
-TypeScript também suporta iteradores assíncronos e Geradores assíncronos.
+O TypeScript também suporta iteradores assíncronos e geradores assíncronos.
 
 Para saber mais:
 
-[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
+[https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Generator](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Generator)
 
-[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator)
+[https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Iterator](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Iterator)
 
-### Referência JSDoc do TsDocs
+### Referência JSDoc TsDocs
 
 Ao trabalhar com uma base de código JavaScript, é possível ajudar o TypeScript a inferir o tipo correto usando comentários JSDoc com anotações adicionais para fornecer informações de tipo.
 
@@ -212,10 +212,10 @@ Exemplo:
 
 ```typescript
 /**
- * Computes the power of a given number
+ * Computa a potência de um dado número
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – O valor da base da expressão
+ * @param {number} exponent – O valor do expoente da expressão
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -223,7 +223,7 @@ function power(base: number, exponent: number) {
 power(10, 2); // function power(base: number, exponent: number): number
 ```
 
-A documentação completa está disponível neste link:
+A documentação completa é fornecida neste link:
 [https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
 
 A partir da versão 3.7, é possível gerar definições de tipo .d.ts a partir da sintaxe JSDoc do JavaScript.
@@ -238,29 +238,29 @@ Pacotes sob a organização @types são convenções especiais de nomenclatura d
 npm install --save-dev @types/lodash
 ```
 
-Isso instalará as definições de tipo do `lodash` em seu projeto atual.
+Instalará as definições de tipo de `lodash` em seu projeto atual.
 
-Para contribuir com as definições de tipo dos pacotes @types, envie um pull request para [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
+Para contribuir com as definições de tipo do pacote @types, envie um pull request para [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
 
 ### JSX
 
-JSX (JavaScript XML) é uma extensão da sintaxe da linguagem JavaScript que permite escrever código semelhante a HTML dentro de seus arquivos JavaScript ou TypeScript. É comumente usado no React para definir a estrutura HTML.
+JSX (JavaScript XML) é uma extensão da sintaxe da linguagem JavaScript que permite escrever código semelhante a HTML em seus arquivos JavaScript ou TypeScript. É comumente usado no React para definir a estrutura HTML.
 
-TypeScript estende as capacidades do JSX fornecendo verificação de tipo e análise estática.
+O TypeScript estende as capacidades do JSX fornecendo verificação de tipos e análise estática.
 
-Para usar JSX, você precisa definir a opção de compilador `jsx` no seu arquivo `tsconfig.json`. Duas opções de configuração comuns:
+Para usar JSX, você precisa definir a opção de compilador `jsx` em seu arquivo `tsconfig.json`. Duas opções de configuração comuns:
 
-* "preserve": emite arquivos .jsx com o JSX inalterado. Esta opção diz ao TypeScript para manter a sintaxe JSX como está e não transformá-la durante o processo de compilação. Você pode usar esta opção se tiver uma ferramenta separada, como Babel, que lida com a transformação.
-* "react": habilita a transformação JSX integrada do TypeScript. React.createElement será usado.
+* "preserve": emite arquivos .jsx com o JSX inalterado. Esta opção diz ao TypeScript para manter a sintaxe JSX como está e não transformá-la durante o processo de compilação. Você pode usar esta opção se tiver uma ferramenta separada, como o Babel, que lida com a transformação.
+* "react": habilita a transformação JSX integrada do TypeScript. `React.createElement` será usado.
 
 Todas as opções estão disponíveis aqui:
 [https://www.typescriptlang.org/tsconfig#jsx](https://www.typescriptlang.org/tsconfig#jsx)
 
 ### Módulos ES6
 
-TypeScript suporta ES6 (ECMAScript 2015) e muitas versões subsequentes. Isso significa que você pode usar sintaxe ES6, como arrow functions, template literals, classes, módulos, desestruturação e muito mais.
+O TypeScript suporta ES6 (ECMAScript 2015) e muitas versões subsequentes. Isso significa que você pode usar a sintaxe ES6, como arrow functions, template literals, classes, módulos, desestruturação e muito mais.
 
-Para habilitar recursos ES6 em seu projeto, você pode especificar a propriedade `target` no tsconfig.json.
+Para habilitar recursos do ES6 em seu projeto, você pode especificar a propriedade `target` no tsconfig.json.
 
 Um exemplo de configuração:
 
@@ -279,8 +279,8 @@ Um exemplo de configuração:
 
 ### Operador de Exponenciação ES7
 
-O operador de exponenciação (`**`) calcula o valor obtido ao elevar o primeiro operando à potência do segundo operando. Ele funciona de forma semelhante a `Math.pow()`, mas com a capacidade adicional de aceitar BigInts como operandos.
-TypeScript suporta totalmente este operador usando como `target` no seu arquivo tsconfig.json `es2016` ou versão maior.
+O operador de exponenciação (`**`) calcula o valor obtido elevando o primeiro operando à potência do segundo operando. Ele funciona de forma semelhante a `Math.pow()`, mas com a capacidade adicional de aceitar BigInts como operandos.
+O TypeScript suporta totalmente este operador usando como `target` no seu arquivo tsconfig.json a versão `es2016` ou superior.
 
 ```typescript
 console.log(2 ** (2 ** 2)); // 16
@@ -288,7 +288,7 @@ console.log(2 ** (2 ** 2)); // 16
 
 ### A Instrução for-await-of
 
-Este é um recurso do JavaScript totalmente suportado em TypeScript que permite iterar sobre objetos iteráveis assíncronos a partir da versão target es2018.
+Este é um recurso do JavaScript totalmente suportado no TypeScript que permite iterar sobre objetos iteráveis assíncronos a partir da versão de destino es2018.
 
 ```typescript
 async function* asyncNumbers(): AsyncIterableIterator<number> {
@@ -304,9 +304,9 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 })();
 ```
 
-### Nova Meta-propriedade target
+### Nova meta-propriedade target
 
-Você pode usar em TypeScript a meta-propriedade `new.target` que permite determinar se uma função ou construtor foi invocado usando o operador new. Ela permite detectar se um objeto foi criado como resultado de uma chamada de construtor.
+Você pode usar no TypeScript a meta-propriedade `new.target` que permite determinar se uma função ou construtor foi invocado usando o operador `new`. Ela permite detectar se um objeto foi criado como resultado de uma chamada de construtor.
 
 ```typescript
 class Parent {
@@ -327,9 +327,9 @@ const child = new Child(); // [Function: Child]
 
 ### Expressões de Importação Dinâmica
 
-É possível carregar módulos condicionalmente ou carregá-los sob demanda usando a proposta ECMAScript para importação dinâmica, que é suportada em TypeScript.
+É possível carregar módulos condicionalmente ou carregá-los sob demanda (lazy load) usando a proposta do ECMAScript para importação dinâmica, que é suportada no TypeScript.
 
-A sintaxe para expressões de importação dinâmica em TypeScript é a seguinte:
+A sintaxe para expressões de importação dinâmica no TypeScript é as seguinte:
 
 <!-- skip -->
 ```typescript
@@ -346,17 +346,17 @@ renderWidget();
 
 ### "tsc –watch"
 
-Este comando inicia um compilador TypeScript com o parâmetro `--watch`, com a capacidade de recompilar automaticamente arquivos TypeScript sempre que eles são modificados.
+Este comando inicia o compilador TypeScript com o parâmetro `--watch`, com a capacidade de recompilar automaticamente os arquivos TypeScript sempre que forem modificados.
 
 ```shell
 tsc --watch
 ```
 
-A partir da versão 4.9 do TypeScript, o monitoramento de arquivos depende principalmente de eventos do sistema de arquivos, recorrendo automaticamente à pesquisa se um observador baseado em eventos não puder ser estabelecido.
+A partir da versão 4.9 do TypeScript, o monitoramento de arquivos depende principalmente de eventos do sistema de arquivos, recorrendo automaticamente à sondagem (polling) se um observador baseado em eventos não puder ser estabelecido.
 
-### Operador de Asserção Não-nula
+### Operador de Asserção Não-Nulo (Non-null Assertion Operator)
 
-O Operador de Asserção Não-nula (Sufixo !) também chamado de Asserções de Atribuição Definitiva é um recurso do TypeScript que permite afirmar que uma variável ou propriedade não é null ou undefined, mesmo se a análise de tipo estático do TypeScript sugerir que pode ser. Com este recurso é possível remover qualquer verificação explícita.
+O Operador de Asserção Não-Nulo (Postfix !) também chamado de Asserções de Atribuição Definitiva (Definite Assignment Assertions) é um recurso do TypeScript que permite asseverar que uma variável ou propriedade não é nula ou indefinida, mesmo que a análise de tipo estática do TypeScript sugira que poderia ser. Com este recurso, é possível remover qualquer verificação explícita.
 
 ```typescript
 type Person = {
@@ -364,25 +364,25 @@ type Person = {
 };
 
 const printName = (person?: Person) => {
-    console.log(`Name is ${person!.name}`);
+    console.log(`O nome é ${person!.name}`);
 };
 ```
 
-### Declarações Padrão
+### Declarações com Valor Padrão (Defaulted declarations)
 
-Declarações padrão são usadas quando uma variável ou parâmetro recebe um valor padrão. Isso significa que se nenhum valor for fornecido para aquela variável ou parâmetro, o valor padrão será usado.
+Declarações com valor padrão são usadas quando uma variável ou parâmetro recebe um valor padrão. Isso significa que se nenhum valor for fornecido para essa variável ou parâmetro, o valor padrão será usado no lugar.
 
 ```typescript
-function greet(name: string = 'Anonymous'): void {
-    console.log(`Hello, ${name}!`);
+function greet(name: string = 'Anônimo'): void {
+    console.log(`Olá, ${name}!`);
 }
-greet(); // Hello, Anonymous!
-greet('John'); // Hello, John!
+greet(); // Olá, Anônimo!
+greet('John'); // Olá, John!
 ```
 
-### Encadeamento Opcional
+### Encadeamento Opcional (Optional Chaining)
 
-O operador de encadeamento opcional `?.` funciona como o operador de ponto regular (`.`) para acessar propriedades ou métodos. No entanto, ele lida graciosamente com valores null ou undefined terminando a expressão e retornando `undefined`, em vez de lançar um erro.
+O operador de encadeamento opcional `?.` funciona como o operador de ponto regular (`.`) para acessar propriedades ou métodos. No entanto, ele trata graciosamente valores nulos ou indefinidos terminando a expressão e retornando `undefined`, em vez de lançar um erro.
 
 ```typescript
 type Person = {
@@ -401,7 +401,7 @@ const person: Person = {
 console.log(person.address?.city); // undefined
 ```
 
-### Operador de Coalescência Nula
+### Operador de Coalescência Nula (Nullish coalescing operator)
 
 O operador de coalescência nula `??` retorna o valor do lado direito se o lado esquerdo for `null` ou `undefined`; caso contrário, retorna o valor do lado esquerdo.
 
@@ -415,9 +415,9 @@ console.log(baz); // 1
 console.log(baz2); // 0
 ```
 
-### Tipos de Template Literal
+### Tipos de Literal de Template (Template Literal Types)
 
-Tipos de Template Literal permitem manipular valores string no nível de tipo e gerar novos tipos string com base em tipos existentes. Eles são úteis para criar tipos mais expressivos e precisos a partir de operações baseadas em string.
+Tipos de Literal de Template permitem manipular valores de string em nível de tipo e gerar novos tipos de string baseados em existentes. Eles são úteis para criar tipos mais expressivos e precisos a partir de operações baseadas em string.
 
 ```typescript
 type Department = 'engineering' | 'hr';
@@ -425,10 +425,10 @@ type Language = 'english' | 'spanish';
 type Id = `${Department}-${Language}-id`; // "engineering-english-id" | "engineering-spanish-id" | "hr-english-id" | "hr-spanish-id"
 ```
 
-### Sobrecarga de Função
+### Sobrecarga de Função (Function overloading)
 
 A sobrecarga de função permite definir múltiplas assinaturas de função para o mesmo nome de função, cada uma com diferentes tipos de parâmetros e tipo de retorno.
-Quando você chama uma função sobrecarregada, TypeScript usa os argumentos fornecidos para determinar a assinatura de função correta:
+Quando você chama uma função sobrecarregada, o TypeScript usa os argumentos fornecidos para determinar a assinatura de função correta:
 
 ```typescript
 function makeGreeting(name: string): string;
@@ -440,7 +440,7 @@ function makeGreeting(person: unknown): unknown {
     } else if (Array.isArray(person)) {
         return person.map(name => `Hi, ${name}!`);
     }
-    throw new Error('Unable to greet');
+    throw new Error('Não foi possível saudar');
 }
 
 makeGreeting('Simon');
@@ -449,7 +449,7 @@ makeGreeting(['Simone', 'John']);
 
 ### Tipos Recursivos
 
-Um Tipo Recursivo é um tipo que pode se referir a si mesmo. Isso é útil para definir estruturas de dados que têm uma estrutura hierárquica ou recursiva (potencialmente aninhamento infinito), como listas encadeadas, árvores e grafos.
+Um Tipo Recursivo é um tipo que pode se referir a si mesmo. Isso é útil para definir estruturas de dados que possuem uma estrutura hierárquica ou recursiva (aninhamento potencialmente infinito), como listas ligadas, árvores e grafos.
 
 ```typescript
 type ListNode<T> = {
@@ -460,15 +460,15 @@ type ListNode<T> = {
 
 ### Tipos Condicionais Recursivos
 
-É possível definir relacionamentos de tipo complexos usando lógica e recursão em TypeScript.
+É possível definir relacionamentos de tipo complexos usando lógica e recursão no TypeScript.
 Vamos detalhar em termos simples:
 
-Tipos Condicionais: permitem definir tipos com base em condições booleanas:
+Tipos Condicionais: permite definir tipos baseados em condições booleanas:
 
 ```typescript
-type CheckNumber<T> = T extends number ? 'Number' : 'Not a number';
-type A = CheckNumber<123>; // 'Number'
-type B = CheckNumber<'abc'>; // 'Not a number'
+type CheckNumber<T> = T extends number ? 'Número' : 'Não é um número';
+type A = CheckNumber<123>; // 'Número'
+type B = CheckNumber<'abc'>; // 'Não é um número'
 ```
 
 Recursão: significa uma definição de tipo que se refere a si mesma dentro de sua própria definição:
@@ -496,7 +496,7 @@ type FlattenedArray = Flatten<NestedArray>; // 2 | 3 | 4 | 5 | 1 | 6
 
 ### Suporte a Módulos ECMAScript no Node
 
-Node.js adicionou suporte para Módulos ECMAScript a partir da versão 15.3.0, e TypeScript tem Suporte a Módulos ECMAScript para Node.js desde a versão 4.7. Este suporte pode ser habilitado usando a propriedade `module` com o valor `nodenext` no arquivo tsconfig.json. Aqui está um exemplo:
+O Node.js adicionou suporte para Módulos ECMAScript a partir da versão 15.3.0, e o TypeScript tem suporte a Módulos ECMAScript para Node.js desde a versão 4.7. Este suporte pode ser habilitado usando a propriedade `module` com o valor `nodenext` no arquivo tsconfig.json. Aqui está um exemplo:
 
 ```json
 {
@@ -508,58 +508,58 @@ Node.js adicionou suporte para Módulos ECMAScript a partir da versão 15.3.0, e
 }
 ```
 
-Node.js suporta duas extensões de arquivo para módulos: `.mjs` para módulos ES e `.cjs` para módulos CommonJS. As extensões de arquivo equivalentes em TypeScript são `.mts` para módulos ES e `.cts` para módulos CommonJS. Quando o compilador TypeScript transpila esses arquivos para JavaScript, ele criará arquivos `.mjs` e `.cjs`.
+O Node.js suporta duas extensões de arquivo para módulos: `.mjs` para módulos ES e `.cjs` para módulos CommonJS. As extensões de arquivo equivalentes no TypeScript são `.mts` para módulos ES e `.cts` para módulos CommonJS. Quando o compilador TypeScript transpila esses arquivos para JavaScript, ele criará arquivos `.mjs` e `.cjs`.
 
-Se você quiser usar módulos ES em seu projeto, pode definir a propriedade `type` como "module" no seu arquivo package.json. Isso instrui o Node.js a tratar o projeto como um projeto de módulo ES.
+Se você quiser usar módulos ES em seu projeto, você pode definir a propriedade `type` como "module" em seu arquivo package.json. Isso instrui o Node.js a tratar o projeto como um projeto de módulo ES.
 
-Além disso, TypeScript também suporta declarações de tipo em arquivos .d.ts. Esses arquivos de declaração fornecem informações de tipo para bibliotecas ou módulos escritos em TypeScript, permitindo que outros desenvolvedores os utilizem com a verificação de tipo e recursos de auto-completar do TypeScript.
+Além disso, o TypeScript também suporta declarações de tipo em arquivos .d.ts. Esses arquivos de declaração fornecem informações de tipo para bibliotecas ou módulos escritos em TypeScript, permitindo que outros desenvolvedores os utilizem com a verificação de tipo e os recursos de preenchimento automático do TypeScript.
 
-### Funções de Asserção
+### Funções de Asserção (Assertion Functions)
 
-Em TypeScript, funções de asserção são funções que indicam a verificação de uma condição específica com base em seu valor de retorno. Na sua forma mais simples, uma função assert examina um predicado fornecido e lança um erro quando o predicado avalia como false.
+No TypeScript, funções de asserção são funções que indicam a verificação de uma condição específica com base em seu valor de retorno. Em sua forma mais simples, uma função assert examina um predicado fornecido e lança um erro quando o predicado é avaliado como falso.
 
 ```typescript
 function isNumber(value: unknown): asserts value is number {
     if (typeof value !== 'number') {
-        throw new Error('Not a number');
+        throw new Error('Não é um número');
     }
 }
 ```
 
-Ou pode ser declarada como expressão de função:
+Ou pode ser declarada como uma expressão de função:
 
 ```typescript
 type AssertIsNumber = (value: unknown) => asserts value is number;
 const isNumber: AssertIsNumber = value => {
     if (typeof value !== 'number') {
-        throw new Error('Not a number');
+        throw new Error('Não é um número');
     }
 };
 ```
 
-Funções de asserção compartilham semelhanças com type guards. Type guards foram inicialmente introduzidos para realizar verificações em tempo de execução e garantir o tipo de um valor dentro de um escopo específico.
-Especificamente, um type guard é uma função que avalia um predicado de tipo e retorna um valor booleano indicando se o predicado é verdadeiro ou falso. Isso difere ligeiramente das funções de asserção, onde a intenção é lançar um erro em vez de retornar false quando o predicado não é satisfeito.
+Funções de asserção compartilham semelhanças com guardas de tipo (type guards). As guardas de tipo foram inicialmente introduzidas para realizar verificações em tempo de execução e garantir o tipo de um valor dentro de um escopo específico.
+Especificamente, uma guarda de tipo é uma função que avalia um predicado de tipo e retorna um valor booleano indicando se the predicado é verdadeiro ou falso. Isso difere ligeiramente das funções de asserção, onde a intenção é lançar um erro em vez de retornar falso quando o predicado não for satisfeito.
 
-Exemplo de type guard:
+Exemplo de guarda de tipo:
 
 ```typescript
 const isNumber = (value: unknown): value is number => typeof value === 'number';
 ```
 
-### Tipos Tupla Variádicos
+### Tipos de Tupla Variádicos (Variadic Tuple Types)
 
-Tipos Tupla Variádicos são recursos introduzidos no TypeScript versão 4.0, vamos começar a aprendê-los revisando o que é uma tupla:
+Tipos de Tupla Variádicos são recursos introduzidos na versão 4.0 do TypeScript. Vamos começar revisando o que é uma tupla:
 
-Um tipo tupla é um array que tem um comprimento definido, e onde o tipo de cada elemento é conhecido:
+Um tipo tupla é um array que possui um comprimento definido, e onde o tipo de cada elemento é conhecido:
 
 ```typescript
 type Student = [string, number];
 const [name, age]: Student = ['Simone', 20];
 ```
 
-O termo "variádico" significa aridade indefinida (aceitar um número variável de argumentos).
+O termo "variádico" significa aridade indefinida (aceita um número variável de argumentos).
 
-Uma tupla variádica é um tipo tupla que tem todas as propriedades anteriores, mas a forma exata ainda não está definida:
+Uma tupla variádica é um tipo tupla que possui todas as propriedades anteriores, mas o formato exato ainda não está definido:
 
 ```typescript
 type Bar<T extends unknown[]> = [boolean, ...T, number];
@@ -569,7 +569,7 @@ type B = Bar<['a', 'b']>; // [boolean, 'a', 'b', number]
 type C = Bar<[]>; // [boolean, number]
 ```
 
-No código anterior podemos ver que a forma da tupla é definida pelo genérico `T` passado.
+No código anterior, podemos ver que o formato da tupla é definido pelo genérico `T` passado.
 
 Tuplas variádicas podem aceitar múltiplos genéricos, tornando-as muito flexíveis:
 
@@ -582,8 +582,8 @@ type B = Bar<['a', 'b'], [boolean]>; // ["a", "b", boolean, boolean]
 
 Com as novas tuplas variádicas podemos usar:
 
-* Os spreads em sintaxe de tipo tupla agora podem ser genéricos, então podemos representar operações de ordem superior em tuplas e arrays mesmo quando não conhecemos os tipos reais sobre os quais estamos operando.
-* Os elementos rest podem ocorrer em qualquer lugar em uma tupla.
+* Os espalhamentos (spreads) na sintaxe de tipo tupla agora podem ser genéricos, assim podemos representar operações de ordem superior em tuplas e arrays mesmo quando não conhecemos os tipos reais sobre os quais estamos operando.
+* Os elementos de resto (rest elements) podem ocorrer em qualquer lugar em uma tupla.
 
 Exemplo:
 
@@ -600,11 +600,11 @@ function concat<T extends Items, U extends Items>(
 concat([1, 2, 3], ['4', '5', '6']); // [1, 2, 3, "4", "5", "6"]
 ```
 
-### Tipos Encaixotados
+### Tipos Boxed (Boxed types)
 
-Tipos encaixotados referem-se aos objetos wrapper que são usados para representar tipos primitivos como objetos. Esses objetos wrapper fornecem funcionalidade e métodos adicionais que não estão disponíveis diretamente nos valores primitivos.
+Tipos boxed referem-se aos objetos de empacotamento que são usados para representar tipos primitivos como objetos. Esses objetos de empacotamento fornecem funcionalidades e métodos adicionais que não estão disponíveis diretamente nos valores primitivos.
 
-Quando você acessa um método como `charAt` ou `normalize` em uma primitiva `string`, JavaScript a envolve em um objeto `String`, chama o método e então descarta o objeto.
+Quando você acessa um método como `charAt` ou `normalize` em um primitivo `string`, o JavaScript o empacota em um objeto `String`, chama o método e depois descarta o objeto.
 
 Demonstração:
 
@@ -617,7 +617,7 @@ String.prototype.normalize = function () {
 console.log('\u0041'.normalize());
 ```
 
-TypeScript representa essa diferenciação fornecendo tipos separados para as primitivas e seus wrappers de objeto correspondentes:
+O TypeScript representa essa diferenciação fornecendo tipos separados para os primitivos e seus empacotadores de objeto correspondentes:
 
 * string => String
 * number => Number
@@ -625,23 +625,23 @@ TypeScript representa essa diferenciação fornecendo tipos separados para as pr
 * symbol => Symbol
 * bigint => BigInt
 
-Os tipos encaixotados geralmente não são necessários. Evite usar tipos encaixotados e, em vez disso, use o tipo para as primitivas, por exemplo `string` em vez de `String`.
+Os tipos boxed geralmente não são necessários. Evite usar tipos boxed e, em vez disso, use o tipo para os primitivos, por exemplo, `string` em vez de `String`.
 
-### Covariância e Contravariância em TypeScript
+### Covariância e Contravariância no TypeScript
 
 Covariância e Contravariância são usadas para descrever como os relacionamentos funcionam ao lidar com herança ou atribuição de tipos.
 
-Covariância significa que um relacionamento de tipo preserva a direção da herança ou atribuição, então se um tipo A é um subtipo do tipo B, então um array do tipo A também é considerado um subtipo de um array do tipo B. O importante a notar aqui é que o relacionamento de subtipo é mantido, o que significa que Covariância aceita subtipo mas não aceita supertipo.
+Covariância significa que um relacionamento de tipo preserva a direção da herança ou atribuição, então se um tipo A é um subtipo do tipo B, então um array do tipo A também é considerado um subtipo de um array do tipo B. O importante a notar aqui é que o relacionamento de subtipo é mantido; isso significa que a Covariância aceita subtipo mas não aceita supertipo.
 
-Contravariância significa que um relacionamento de tipo inverte a direção da herança ou atribuição, então se um tipo A é um subtipo do tipo B, então um array do tipo B é considerado um subtipo de um array do tipo A. O relacionamento de subtipo é invertido, o que significa que Contravariância aceita supertipo mas não aceita subtipo.
+Contravariância significa que um relacionamento de tipo inverte a direção da herança ou atribuição, então se um tipo A é um subtipo do tipo B, então um array do tipo B é considerado um subtipo de um array do tipo A. O relacionamento de subtipo é invertido; isso significa que a Contravariância aceita supertipo mas não aceita subtipo.
 
-Observação: Bivariância significa aceitar tanto supertipo quanto subtipo.
+Notas: Bivariância significa aceitar tanto supertipo quanto subtipo.
 
-Exemplo: Digamos que temos um espaço para todos os animais e um espaço separado apenas para cães.
+Exemplo: Digamos que tenhamos um espaço para todos os animais e um espaço separado apenas para cachorros.
 
-Na Covariância, você pode colocar todos os cães no espaço dos animais porque cães são um tipo de animal. Mas você não pode colocar todos os animais no espaço dos cães porque pode haver outros animais misturados.
+Na Covariância, você pode colocar todos os cachorros no espaço dos animais porque cachorros são um tipo de animal. Mas você não pode colocar todos os animais no espaço dos cachorros porque pode haver outros animais misturados.
 
-Na Contravariância, você não pode colocar todos os animais no espaço dos cães porque o espaço dos animais pode conter outros animais também. No entanto, você pode colocar todos os cães no espaço dos animais porque todos os cães também são animais.
+Na Contravariância, você não pode colocar todos os animais no espaço dos cachorros porque o espaço dos animais também pode conter outros animais. No entanto, você pode colocar todos os cachorros no espaço dos animais porque todos os cachorros também são animais.
 
 <!-- skip -->
 ```typescript
@@ -666,29 +666,29 @@ let dogs: Dog[] = [];
 
 // Covariância permite atribuir array de subtipo (Dog) a array de supertipo (Animal)
 animals = dogs;
-dogs = animals; // Inválido: Type 'Animal[]' is not assignable to type 'Dog[]'
+dogs = animals; // Inválido: Tipo 'Animal[]' não é atribuível ao tipo 'Dog[]'
 
 // Exemplo de Contravariância
 type Feed<in T> = (animal: T) => void;
 
 let feedAnimal: Feed<Animal> = (animal: Animal) => {
-    console.log(`Animal name: ${animal.name}`);
+    console.log(`Nome do animal: ${animal.name}`);
 };
 
 let feedDog: Feed<Dog> = (dog: Dog) => {
-    console.log(`Dog name: ${dog.name}, Breed: ${dog.breed}`);
+    console.log(`Nome do cachorro: ${dog.name}, Raça: ${dog.breed}`);
 };
 
 // Contravariância permite atribuir callback de supertipo (Animal) a callback de subtipo (Dog)
 feedDog = feedAnimal;
-feedAnimal = feedDog; // Inválido: Type 'Feed<Dog>' is not assignable to type 'Feed<Animal>'.
+feedAnimal = feedDog; // Inválido: Tipo 'Feed<Dog>' não é atribuível ao tipo 'Feed<Animal>'.
 ```
 
-Em TypeScript, relacionamentos de tipo para arrays são covariantes, enquanto relacionamentos de tipo para parâmetros de função são contravariantes. Isso significa que TypeScript exibe tanto covariância quanto contravariância, dependendo do contexto.
+No TypeScript, relacionamentos de tipo para arrays são covariantes, enquanto relacionamentos de tipo para parâmetros de função são contravariantes. Isso significa que o TypeScript exibe tanto covariância quanto contravariância, dependendo do contexto.
 
 #### Anotações de Variância Opcionais para Parâmetros de Tipo
 
-A partir do TypeScript 4.7.0, podemos usar as palavras-chave `out` e `in` para ser específico sobre anotação de Variância.
+A partir do TypeScript 4.7.0, podemos usar as palavras-chave `out` e `in` para sermos específicos sobre a anotação de variância.
 
 Para Covariante, use a palavra-chave `out`:
 
@@ -699,14 +699,14 @@ type AnimalCallback<out T> = () => T; // T é Covariante aqui
 E para Contravariante, use a palavra-chave `in`:
 
 ```typescript
-type AnimalCallback<in T> = (value: T) => void; // T é Contravariância aqui
+type AnimalCallback<in T> = (value: T) => void; // T é Contravariante aqui
 ```
 
-### Assinaturas de Índice com Padrão de Template String
+### Assinaturas de Índice de Padrão de String de Template (Template String Pattern Index Signatures)
 
-Assinaturas de índice com padrão de template string nos permitem definir assinaturas de índice flexíveis usando padrões de template string. Este recurso nos permite criar objetos que podem ser indexados com padrões específicos de chaves string, fornecendo mais controle e especificidade ao acessar e manipular propriedades.
+Assinaturas de índice de padrão de string de template permitem definir assinaturas de índice flexíveis usando padrões de string de template. Este recurso nos permite criar objetos que podem ser indexados com padrões específicos de chaves de string, fornecendo mais controle e especificidade ao acessar e manipular propriedades.
 
-TypeScript a partir da versão 4.4 permite assinaturas de índice para símbolos e padrões de template string.
+O TypeScript a partir da versão 4.4 permite assinaturas de índice para símbolos e padrões de string de template.
 
 ```typescript
 const uniqueSymbol = Symbol('description');
@@ -719,19 +719,19 @@ type MyObject = {
 };
 
 const obj: MyObject = {
-    [uniqueSymbol]: 'Unique symbol key',
+    [uniqueSymbol]: 'Chave de símbolo único',
     'key-a': 123,
     'key-b': 456,
 };
 
-console.log(obj[uniqueSymbol]); // Unique symbol key
+console.log(obj[uniqueSymbol]); // Chave de símbolo único
 console.log(obj['key-a']); // 123
 console.log(obj['key-b']); // 456
 ```
 
 ### O Operador satisfies
 
-O `satisfies` permite verificar se um determinado tipo satisfaz uma interface ou condição específica. Em outras palavras, ele garante que um tipo tenha todas as propriedades e métodos necessários de uma interface específica. É uma maneira de garantir que uma variável se encaixe em uma definição de tipo.
+O `satisfies` permite verificar se um determinado tipo satisfaz uma interface ou condição específica. Em outras palavras, ele garante que um tipo possui todas as propriedades e métodos exigidos de uma interface específica. É uma maneira de garantir que uma variável se encaixe na definição de um tipo.
 Aqui está um exemplo:
 
 <!-- skip -->
@@ -740,15 +740,15 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Anotação de tipo usando `User`
+// Anotação de Tipo usando `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// Nas linhas seguintes, TypeScript não será capaz de inferir adequadamente
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Nas linhas seguintes, o TypeScript não conseguirá inferir corretamente
+user.attributes?.map(console.log); // A propriedade 'map' não existe no tipo 'string | string[]'. A propriedade 'map' não existe no tipo 'string'.
 user.nickName; // string | string[] | undefined
 
 // Asserção de tipo usando `as`
@@ -758,11 +758,11 @@ const user2 = {
     attributes: ['dev', 'admin'],
 } as User;
 
-// Aqui também, TypeScript não será capaz de inferir adequadamente
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Aqui também, o TypeScript não conseguirá inferir corretamente
+user2.attributes?.map(console.log); // A propriedade 'map' não existe no tipo 'string | string[]'. A propriedade 'map' não existe no tipo 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Usando o operador `satisfies` agora podemos inferir os tipos adequadamente
+// Usando operadores `satisfies` podemos inferir os tipos corretamente agora
 const user3 = {
     name: 'Simon',
     nickName: undefined,
@@ -773,13 +773,13 @@ user3.attributes?.map(console.log); // TypeScript infere corretamente: string[]
 user3.nickName; // TypeScript infere corretamente: undefined
 ```
 
-### Importações e Exportações Somente de Tipo
+### Importações e Exportações Apenas de Tipo (Type-Only Imports and Export)
 
-Importações e Exportações Somente de Tipo permitem importar ou exportar tipos sem importar ou exportar os valores ou funções associados a esses tipos. Isso pode ser útil para reduzir o tamanho do seu bundle.
+Importações e Exportações Apenas de Tipo permitem importar ou exportar tipos sem importar ou exportar os valores ou funções associados a esses tipos. Isso pode ser útil para reduzir o tamanho do seu bundle.
 
-Para usar importações somente de tipo, você pode usar a palavra-chave `import type`.
+Para usar importações apenas de tipo, você pode usar a palavra-chave `import type`.
 
-TypeScript permite usar extensões de arquivo de declaração e implementação (.ts, .mts, .cts e .tsx) em importações somente de tipo, independentemente das configurações de `allowImportingTsExtensions`.
+O TypeScript permite usar extensões de arquivo de declaração e implementação (.ts, .mts, .cts e .tsx) em importações apenas de tipo, independentemente das configurações de `allowImportingTsExtensions`.
 
 Por exemplo:
 
@@ -788,7 +788,7 @@ Por exemplo:
 import type { House } from './house.ts';
 ```
 
-As seguintes formas são suportadas:
+As seguintes são formas suportadas:
 
 <!-- skip -->
 ```typescript
@@ -799,15 +799,15 @@ export type { T };
 export type { T } from './mod';
 ```
 
-### Declaração using e Gerenciamento Explícito de Recursos
+### declaração using e Gerenciamento Explícito de Recursos (Explicit Resource Management)
 
-Uma declaração `using` é uma vinculação de escopo de bloco, imutável, semelhante a `const`, usada para gerenciar recursos descartáveis. Quando inicializada com um valor, o método `Symbol.dispose` desse valor é registrado e subsequentemente executado ao sair do escopo de bloco envolvente.
+Uma declaração `using` é um vínculo imutável com escopo de bloco, semelhante ao `const`, usado para gerenciar recursos descartáveis (disposable). Quando inicializado com um valor, o método `Symbol.dispose` desse valor é registrado e subsequentemente executado ao sair do escopo de bloco envolvente.
 
-Isso é baseado no recurso de Gerenciamento de Recursos do ECMAScript, que é útil para realizar tarefas essenciais de limpeza após a criação de objetos, como fechar conexões, excluir arquivos e liberar memória.
+Isso é baseado no recurso de Gerenciamento de Recursos do ECMAScript, que é útil para realizar tarefas essenciais de limpeza após a criação do objeto, como fechar conexões, excluir arquivos e liberar memória.
 
-Observações:
+Notas:
 
-* Devido à sua introdução recente no TypeScript versão 5.2, a maioria dos runtimes não possui suporte nativo. Você precisará de polyfills para: `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`.
+* Devido à sua introdução recente na versão 5.2 do TypeScript, a maioria dos ambientes de execução carece de suporte nativo. Você precisará de polyfills para: `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`.
 * Além disso, você precisará configurar seu tsconfig.json da seguinte forma:
 
 ```json
@@ -829,7 +829,7 @@ Symbol.dispose ??= Symbol('Symbol.dispose'); // Polyfill simples
 const doWork = (): Disposable => {
     return {
         [Symbol.dispose]: () => {
-            console.log('disposed');
+            console.log('disposto (disposed)');
         },
     };
 };
@@ -839,7 +839,7 @@ console.log(1);
 {
     using work = doWork(); // Recurso é declarado
     console.log(2);
-} // Recurso é descartado (ex., `work[Symbol.dispose]()` é avaliado)
+} // Recurso é descartado (ex: `work[Symbol.dispose]()` é avaliado)
 
 console.log(3);
 ```
@@ -849,7 +849,7 @@ O código registrará:
 ```shell
 1
 2
-disposed
+disposto (disposed)
 3
 ```
 
@@ -862,7 +862,7 @@ interface Disposable {
 }
 ```
 
-As declarações `using` registram operações de descarte de recursos em uma pilha, garantindo que eles sejam descartados na ordem inversa da declaração:
+As declarações `using` registram as operações de descarte de recursos em uma pilha, garantindo que sejam descartadas na ordem inversa da declaração:
 
 <!-- skip -->
 ```typescript
@@ -873,20 +873,20 @@ As declarações `using` registram operações de descarte de recursos em uma pi
 } // descarta `C`, depois `B`, depois `A`.
 ```
 
-Os recursos têm garantia de serem descartados, mesmo se ocorrerem código subsequente ou exceções. Isso pode levar ao descarte potencialmente lançar uma exceção, possivelmente suprimindo outra. Para reter informações sobre erros suprimidos, uma nova exceção nativa, `SuppressedError`, é introduzida.
+Os recursos têm garantia de serem descartados, mesmo que ocorra código subsequente ou exceções. Isso pode levar o descarte a potencialmente lançar uma exceção, possivelmente suprimindo outra. Para manter informações sobre erros suprimidos, uma nova exceção nativa, `SuppressedError`, é introduzida.
 
-#### Declaração await using
+#### declaração await using
 
-Uma declaração `await using` lida com um recurso descartável assincronamente. O valor deve ter um método `Symbol.asyncDispose`, que será aguardado no final do bloco.
+Uma declaração `await using` lida com um recurso descartável de forma assíncrona. O valor deve ter um método `Symbol.asyncDispose`, que será aguardado ao final do bloco.
 
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
     await using work = doWorkAsync(); // Recurso é declarado
-} // Recurso é descartado (ex., `await work[Symbol.asyncDispose]()` é avaliado)
+} // Recurso é descartado (ex: `await work[Symbol.asyncDispose]()` é avaliado)
 ```
 
-Para um recurso descartável assincronamente, ele deve aderir à interface `Disposable` ou `AsyncDisposable`:
+Para um recurso descartável de forma assíncrona, ele deve aderir à interface `Disposable` ou `AsyncDisposable`:
 
 ```typescript
 // lib.esnext.disposable.d.ts
@@ -903,22 +903,22 @@ Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Polyfill simples
 class DatabaseConnection implements AsyncDisposable {
     // Um método que é chamado quando o objeto é descartado assincronamente
     [Symbol.asyncDispose]() {
-        // Fechar a conexão e retornar uma promise
+        // Fecha a conexão e retorna uma promise
         return this.close();
     }
 
     async close() {
-        console.log('Closing the connection...');
+        console.log('Fechando a conexão...');
         await new Promise(resolve => setTimeout(resolve, 1000));
-        console.log('Connection closed.');
+        console.log('Conexão fechada.');
     }
 }
 
 async function doWork() {
-    // Criar uma nova conexão e descartá-la assincronamente quando sair do escopo
-    await using connection = new DatabaseConnection(); //  Recurso é declarado
-    console.log('Doing some work...');
-} // Recurso é descartado (ex., `await connection[Symbol.asyncDispose]()` é avaliado)
+    // Cria uma nova conexão e descarte-a assincronamente quando ela sair do escopo
+    await using connection = new DatabaseConnection(); // Recurso é declarado
+    console.log('Fazendo algum trabalho...');
+} // Recurso é descartado (ex: `await connection[Symbol.asyncDispose]()` é avaliado)
 
 doWork();
 ```
@@ -926,16 +926,16 @@ doWork();
 O código registra:
 
 ```shell
-Doing some work...
-Closing the connection...
-Connection closed.
+Fazendo algum trabalho...
+Fechando a conexão...
+Conexão fechada.
 ```
 
 As declarações `using` e `await using` são permitidas em Instruções: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.
 
-### Atributos de Importação
+### Atributos de Importação (Import Attributes)
 
-Atributos de Importação do TypeScript 5.3 (rótulos para importações) dizem ao runtime como lidar com módulos (JSON, etc.). Isso melhora a segurança garantindo importações claras e se alinha com a Política de Segurança de Conteúdo (CSP) para carregamento de recursos mais seguro. TypeScript garante que eles sejam válidos, mas deixa o runtime lidar com sua interpretação para manipulação específica de módulo.
+Os Atributos de Importação do TypeScript 5.3 (rótulos para importações) dizem ao ambiente de execução como lidar com módulos (JSON, etc.). Isso melhora a segurança garantindo importações claras e se alinha com a Política de Segurança de Conteúdo (CSP) para carregamento de recursos mais seguro. O TypeScript garante que eles sejam válidos, mas deixa o ambiente de execução lidar com sua interpretação para manipulação específica de módulos.
 
 Exemplo:
 

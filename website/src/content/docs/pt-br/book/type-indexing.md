@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Indexação de tipo refere-se à capacidade de definir tipos que podem ser indexados por uma chave que não é conhecida antecipadamente, usando uma assinatura de índice para especificar o tipo para propriedades que não são explicitamente declaradas.
+Indexação de tipo (type indexing) refere-se à capacidade de definir tipos que podem ser indexados por uma chave não conhecida antecipadamente, usando uma assinatura de índice para especificar o tipo para propriedades que não são declaradas explicitamente.
 
 ```typescript
 type Dictionary<T> = {

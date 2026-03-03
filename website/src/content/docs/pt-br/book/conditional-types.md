@@ -1,12 +1,12 @@
 ---
-title: Tipos Condicionais
+title: Tipos Condicionais (Conditional Types)
 sidebar:
   order: 39
-  label: 39. Tipos Condicionais
+  label: 39. Tipos Condicionais (Conditional Types)
 ---
 
 
-Tipos Condicionais são uma maneira de criar um tipo que depende de uma condição, onde o tipo a ser criado é determinado com base no resultado da condição. Eles são definidos usando a palavra-chave `extends` e um operador ternário para escolher condicionalmente entre dois tipos.
+Tipos Condicionais são uma forma de criar um tipo que depende de uma condição, onde o tipo a ser criado é determinado com base no resultado da condição. Eles são definidos usando a palavra-chave `extends` e um operador ternário para escolher condicionalmente entre dois tipos.
 
 ```typescript
 type IsArray<T> = T extends any[] ? true : false;

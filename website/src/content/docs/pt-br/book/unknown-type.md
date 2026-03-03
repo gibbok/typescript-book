@@ -1,14 +1,14 @@
 ---
-title: Tipo Unknown
+title: Tipo unknown
 sidebar:
   order: 45
-  label: 45. Tipo Unknown
+  label: 45. Tipo unknown
 ---
 
 
-No TypeScript, o tipo `unknown` representa um valor que é de um tipo desconhecido. Diferentemente do tipo `any`, que permite qualquer tipo de valor, `unknown` requer uma verificação ou asserção de tipo antes que possa ser usado de uma maneira específica, então nenhuma operação é permitida em um `unknown` sem primeiro assertar ou estreitar para um tipo mais específico.
+No TypeScript, o tipo `unknown` representa um valor que é de um tipo desconhecido. Ao contrário do tipo `any`, que permite qualquer tipo de valor, o `unknown` exige uma verificação de tipo ou asserção antes de poder ser usado de uma maneira específica, portanto nenhuma operação é permitida em um `unknown` sem primeiro asseverar ou estreitar para um tipo mais específico.
 
-O tipo `unknown` só é atribuível a qualquer tipo e ao próprio tipo `unknown`, é uma alternativa type-safe ao `any`.
+O tipo `unknown` só é atribuível a si mesmo e ao tipo `any`; é uma alternativa segura em termos de tipos ao `any`.
 
 <!-- skip -->
 ```typescript

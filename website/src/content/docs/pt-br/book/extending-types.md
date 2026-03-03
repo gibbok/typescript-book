@@ -31,7 +31,7 @@ interface Y extends A, B {
 }
 ```
 
-A palavra-chave `extends` funciona apenas em interfaces e classes, para tipos use uma interseção:
+A palavra-chave `extends` funciona apenas em interfaces e classes; para tipos, use uma interseção:
 
 ```typescript
 type A = {
@@ -43,7 +43,7 @@ type B = {
 type C = A & B;
 ```
 
-É possível estender um tipo usando uma interface, mas não vice-versa:
+É possível estender um tipo usando uma inferência, mas não o contrário:
 
 ```typescript
 type A = {

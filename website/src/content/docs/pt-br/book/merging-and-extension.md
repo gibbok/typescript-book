@@ -6,9 +6,9 @@ sidebar:
 ---
 
 
-Mesclagem e extensão referem-se a dois conceitos diferentes relacionados ao trabalho com tipos e interfaces.
+Mesclagem (merging) e extensão (extension) referem-se a dois conceitos diferentes relacionados ao trabalho com tipos e interfaces.
 
-Mesclagem permite que você combine múltiplas declarações do mesmo nome em uma única definição, por exemplo, quando você define uma interface com o mesmo nome múltiplas vezes:
+A mesclagem permite combinar várias declarações do mesmo nome em uma única definição, por exemplo, quando você define uma interface com o mesmo nome várias vezes:
 
 ```typescript
 interface X {
@@ -25,7 +25,7 @@ const person: X = {
 };
 ```
 
-Extensão refere-se à capacidade de estender ou herdar de tipos ou interfaces existentes para criar novos. É um mecanismo para adicionar propriedades ou métodos adicionais a um tipo existente sem modificar sua definição original. Exemplo:
+A extensão refere-se à capacidade de estender ou herdar de tipos ou interfaces existentes para criar novos. É um mecanismo para adicionar propriedades ou métodos adicionais a um tipo existente sem modificar sua definição original. Exemplo:
 
 ```typescript
 interface Animal {
@@ -40,10 +40,10 @@ interface Bird extends Animal {
 const dog: Bird = {
     name: 'Bird 1',
     eat() {
-        console.log('Eating');
+        console.log('Comendo');
     },
     sing() {
-        console.log('Singing');
+        console.log('Cantando');
     },
 };
 ```

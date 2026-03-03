@@ -1,12 +1,12 @@
 ---
-title: Sobrecargas
+title: Sobrecargas (Overloads)
 sidebar:
   order: 51
-  label: 51. Sobrecargas
+  label: 51. Sobrecargas (Overloads)
 ---
 
 
-Sobrecargas de função no TypeScript permitem que você defina múltiplas assinaturas de função para um único nome de função, permitindo que você defina funções que podem ser chamadas de várias maneiras. Aqui está um exemplo:
+As sobrecargas de função (function overloads) no TypeScript permitem definir múltiplas assinaturas para um mesmo nome de função, permitindo que as funções sejam chamadas de diversas maneiras. Aqui está um exemplo:
 
 ```typescript
 // Sobrecargas
@@ -20,7 +20,7 @@ function sayHi(name: unknown): unknown {
     } else if (Array.isArray(name)) {
         return name.map(name => `Hi, ${name}!`);
     }
-    throw new Error('Invalid value');
+    throw new Error('Valor inválido');
 }
 
 sayHi('xx'); // Válido
@@ -48,7 +48,7 @@ class Greeter {
         } else if (Array.isArray(name)) {
             return name.map(name => `${this.message}, ${name}!`);
         }
-        throw new Error('value is invalid');
+        throw new Error('o valor é inválido');
     }
 }
 console.log(new Greeter('Hello').sayHi('Simon'));

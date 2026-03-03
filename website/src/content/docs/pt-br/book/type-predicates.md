@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Predicados de Tipo no TypeScript são funções que retornam um valor booleano e são usadas para estreitar o tipo de uma variável para um tipo mais específico.
+Predicados de Tipo (Type Predicates) no TypeScript são funções que retornam um valor booleano e são usadas para estreitar o tipo de uma variável para um tipo mais específico.
 
 ```typescript
 const isString = (value: unknown): value is string => typeof value === 'string';
@@ -15,7 +15,7 @@ const foo = (bar: unknown) => {
     if (isString(bar)) {
         console.log(bar.toUpperCase());
     } else {
-        console.log('not a string');
+        console.log('não é uma string');
     }
 };
 ```

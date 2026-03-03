@@ -64,7 +64,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Ogiltig
+printLen(123); // Invalid
 ```
 
 En intressant funktion hos generics som introducerades i version 3.4 RC är typinferens för högre ordningens funktioner, vilket introducerade propagerade generiska typargument:
@@ -91,10 +91,10 @@ Kontextuell avsmalning för generics är mekanismen i TypeScript som gör det m�
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Värdet är avsmallnat till typen 'string'
+        // Value is narrowed down to type 'string'
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Värdet är avsmallnat till typen 'number'
+        // Value is narrowed down to type 'number'
         console.log(value.toFixed(2));
     }
 }

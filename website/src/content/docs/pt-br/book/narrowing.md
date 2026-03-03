@@ -1,18 +1,18 @@
 ---
-title: Narrowing
+title: Estreitamento (Narrowing)
 sidebar:
   order: 20
-  label: 20. Narrowing
+  label: 20. Estreitamento (Narrowing)
 ---
 
 
-Narrowing do TypeScript é o processo de refinar o tipo de uma variável dentro de um bloco condicional. Isso é útil ao trabalhar com tipos union, onde uma variável pode ter mais de um tipo.
+O estreitamento (narrowing) no TypeScript é o processo de refinar o tipo de uma variável dentro de um bloco condicional. Isso é útil ao trabalhar com tipos de união, onde uma variável pode ter mais de um tipo.
 
 O TypeScript reconhece várias maneiras de estreitar o tipo:
 
-### Type guards typeof
+### typeof type guards
 
-O type guard typeof é um type guard específico no TypeScript que verifica o tipo de uma variável com base em seu tipo JavaScript integrado.
+O protetor de tipo (type guard) `typeof` é um protetor de tipo específico no TypeScript que verifica o tipo de uma variável com base em seu tipo JavaScript integrado.
 
 ```typescript
 const fn = (x: number | string) => {
@@ -23,9 +23,9 @@ const fn = (x: number | string) => {
 };
 ```
 
-### Narrowing por veracidade
+### Estreitamento de veracidade (Truthiness narrowing)
 
-O narrowing por veracidade no TypeScript funciona verificando se uma variável é truthy ou falsy para estreitar seu tipo de acordo.
+O estreitamento de veracidade (truthiness narrowing) no TypeScript funciona verificando se uma variável é verdadeira (truthy) ou falsa (falsy) para estreitar seu tipo adequadamente.
 
 ```typescript
 const toUpperCase = (name: string | null) => {
@@ -37,11 +37,11 @@ const toUpperCase = (name: string | null) => {
 };
 ```
 
-### Narrowing por igualdade
+### Estreitamento de igualdade (Equality narrowing)
 
-O narrowing por igualdade no TypeScript funciona verificando se uma variável é igual a um valor específico ou não, para estreitar seu tipo de acordo.
+O estreitamento de igualdade (equality narrowing) no TypeScript funciona verificando se uma variável é igual a um valor específico ou não, para estreitar seu tipo adequadamente.
 
-É usado em conjunto com instruções `switch` e operadores de igualdade como `===`, `!==`, `==` e `!=` para estreitar tipos.
+É usado em conjunto com instruções `switch` e operadores de igualdade como `===`, `!==`, `==` e `!=` para estreitar os tipos.
 
 ```typescript
 const checkStatus = (status: 'success' | 'error') => {
@@ -54,9 +54,9 @@ const checkStatus = (status: 'success' | 'error') => {
 };
 ```
 
-### Narrowing com operador in
+### Estreitamento com operador In
 
-O narrowing com operador `in` no TypeScript é uma maneira de estreitar o tipo de uma variável com base em se uma propriedade existe dentro do tipo da variável.
+O estreitamento com o operador `in` no TypeScript é uma forma de estreitar o tipo de uma variável com base na existência de uma propriedade dentro do tipo da variável.
 
 ```typescript
 type Dog = {
@@ -78,9 +78,9 @@ const getAnimalType = (pet: Dog | Cat) => {
 };
 ```
 
-### Narrowing com instanceof
+### Estreitamento com instanceof
 
-O narrowing com operador `instanceof` no TypeScript é uma maneira de estreitar o tipo de uma variável com base em sua função construtora, verificando se um objeto é uma instância de uma determinada classe ou interface.
+O estreitamento com o operador `instanceof` no TypeScript é uma forma de estreitar o tipo de uma variável com base em sua função construtora, verificando se um objeto é uma instância de uma determinada classe ou interface.
 
 ```typescript
 class Square {

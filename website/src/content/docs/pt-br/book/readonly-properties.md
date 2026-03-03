@@ -1,12 +1,12 @@
 ---
-title: Propriedades Readonly
+title: Propriedades Somente Leitura (Readonly)
 sidebar:
   order: 13
-  label: 13. Propriedades Readonly
+  label: 13. Propriedades Somente Leitura (Readonly)
 ---
 
 
-É possível prevenir a escrita em uma propriedade usando o modificador `readonly` que garante que a propriedade não pode ser reescrita, mas não fornece nenhuma garantia de imutabilidade total:
+É possível impedir a escrita em uma propriedade usando o modificador `readonly`, que garante que a propriedade não possa ser reescrita, mas não fornece nenhuma garantia de imutabilidade total:
 
 ```typescript
 interface Y {

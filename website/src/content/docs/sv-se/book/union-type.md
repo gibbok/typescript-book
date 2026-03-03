@@ -10,7 +10,7 @@ En unionstyp är en typ som representerar ett värde som kan vara en av flera ty
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Giltig
-x = 123; // Giltig
+x = 'hello'; // Valid
+x = 123; // Valid
 ```
 

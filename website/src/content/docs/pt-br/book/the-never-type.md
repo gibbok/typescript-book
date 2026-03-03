@@ -1,8 +1,8 @@
 ---
-title: O Tipo Never
+title: O tipo never
 sidebar:
   order: 25
-  label: 25. O Tipo Never
+  label: 25. O tipo never
 ---
 
 
@@ -15,9 +15,9 @@ const printValue = (val: string | number) => {
     } else if (typeof val === 'number') {
         console.log(val.toFixed(2));
     } else {
-        // val tem tipo never aqui porque nunca pode ser nada além de uma string ou um number
+        // val tem o tipo never aqui porque nunca pode ser nada além de uma string ou um número
         const neverVal: never = val;
-        console.log(`Unexpected value: ${neverVal}`);
+        console.log(`Valor inesperado: ${neverVal}`);
     }
 };
 ```

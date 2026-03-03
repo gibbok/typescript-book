@@ -8,33 +8,33 @@ sidebar:
 
 ### O que é TypeScript?
 
-TypeScript é uma linguagem de programação fortemente tipada que se baseia em JavaScript. Foi originalmente projetada por Anders Hejlsberg em 2012 e atualmente é desenvolvida e mantida pela Microsoft como um projeto de código aberto.
+TypeScript é uma linguagem de programação fortemente tipada que se baseia no JavaScript. Foi originalmente projetada por Anders Hejlsberg em 2012 e é atualmente desenvolvida e mantida pela Microsoft como um projeto de código aberto.
 
-TypeScript compila para JavaScript e pode ser executado em qualquer runtime JavaScript (por exemplo, um navegador ou servidor Node.js).
+O TypeScript compila para JavaScript e pode ser executado em qualquer ambiente de execução JavaScript (por exemplo, um navegador ou Node.js em um servidor).
 
-TypeScript suporta múltiplos paradigmas de programação como funcional, genérico, imperativo e orientado a objetos. TypeScript não é uma linguagem interpretada nem compilada.
+Ele suporta múltiplos paradigmas de programação, como funcional, genérica, imperativa e orientada a objetos, e é uma linguagem compilada (transpilada) que é convertida em JavaScript antes da execução.
 
 ### Por que TypeScript?
 
-TypeScript é uma linguagem fortemente tipada que ajuda a prevenir erros comuns de programação e evitar certos tipos de erros de tempo de execução antes que o programa seja executado.
+TypeScript é uma linguagem fortemente tipada que ajuda a prevenir erros comuns de programação e a evitar certos tipos de erros em tempo de execução antes que o programa seja executado.
 
-Uma linguagem fortemente tipada permite que o desenvolvedor especifique várias restrições e comportamentos do programa nas definições de tipo de dados, facilitando a capacidade de verificar a correção do software e prevenir defeitos. Isso é especialmente valioso em aplicações de grande escala.
+Uma linguagem fortemente tipada permite ao desenvolvedor especificar várias restrições e comportamentos do programa nas definições de tipos de dados, facilitando a capacidade de verificar a correção do software e prevenir defeitos. Isso é especialmente valioso em aplicações de larga escala.
 
 Alguns dos benefícios do TypeScript:
 
 * Tipagem estática, opcionalmente fortemente tipada
-* Inferência de tipos
-* Acesso aos recursos do ES6 e ES7
-* Compatibilidade multi-plataforma e multi-navegador
+* Inferência de Tipo
+* Acesso a recursos ES6 e ES7
+* Compatibilidade multiplataforma e entre navegadores
 * Suporte de ferramentas com IntelliSense
 
 ### TypeScript e JavaScript
 
-TypeScript é escrito em arquivos `.ts` ou `.tsx`, enquanto arquivos JavaScript são escritos em `.js` ou `.jsx`.
+Arquivos TypeScript são escritos em arquivos `.ts` ou `.tsx`, enquanto arquivos JavaScript são escritos em `.js` ou `.jsx`.
 
-Arquivos com a extensão `.tsx` ou `.jsx` podem conter JavaScript Syntax Extension JSX, que é usado no React para desenvolvimento de UI.
+Arquivos com a extensão `.tsx` ou `.jsx` podem conter a Extensão de Sintaxe JavaScript JSX, que é usada no React para desenvolvimento de UI.
 
-TypeScript é um superconjunto tipado de JavaScript (ECMAScript 2015) em termos de sintaxe. Todo código JavaScript é código TypeScript válido, mas o inverso nem sempre é verdadeiro.
+O TypeScript é um superconjunto tipado de JavaScript (ECMAScript 2015) em termos de sintaxe. Todo código JavaScript é código TypeScript válido, mas o inverso nem sempre é verdadeiro.
 
 Por exemplo, considere uma função em um arquivo JavaScript com a extensão `.js`, como a seguinte:
 
@@ -43,14 +43,14 @@ Por exemplo, considere uma função em um arquivo JavaScript com a extensão `.j
 const sum = (a, b) => a + b;
 ```
 
-A função pode ser convertida e usada em TypeScript alterando a extensão do arquivo para `.ts`. No entanto, se a mesma função for anotada com tipos TypeScript, ela não pode ser executada em nenhum runtime JavaScript sem compilação. O seguinte código TypeScript produzirá um erro de sintaxe se não for compilado:
+A função pode ser convertida e usada no TypeScript alterando a extensão do arquivo para `.ts`. No entanto, se a mesma função for anotada com tipos TypeScript, ela não poderá ser executada em nenhum ambiente de execução JavaScript sem compilação. O seguinte código TypeScript produzirá um erro de sintaxe se não for compilado:
 
 <!-- skip -->
 ```typescript
 const sum = (a: number, b: number): number => a + b;
 ```
 
-TypeScript foi projetado para detectar possíveis exceções que podem ocorrer em tempo de execução durante o tempo de compilação, fazendo com que o desenvolvedor defina a intenção com anotações de tipo. Além disso, TypeScript também pode capturar problemas se nenhuma anotação de tipo for fornecida. Por exemplo, o seguinte trecho de código não especifica nenhum tipo TypeScript:
+O TypeScript foi projetado para detectar possíveis exceções que podem ocorrer em tempo de execução durante o tempo de compilação, fazendo com que o desenvolvedor defina a intenção com anotações de tipo. Além disso, o TypeScript também pode capturar problemas se nenhuma anotação de tipo for fornecida. Por exemplo, o seguinte trecho de código não especifica nenhum tipo TypeScript:
 
 <!-- skip -->
 ```typescript
@@ -58,36 +58,36 @@ const items = [{ x: 1 }, { x: 2 }];
 const result = items.filter(item => item.y);
 ```
 
-Neste caso, TypeScript detecta um erro e reporta:
+Neste caso, o TypeScript detecta um erro e informa:
 
 ```text
 Property 'y' does not exist on type '{ x: number; }'.
 ```
 
-O sistema de tipos do TypeScript é amplamente influenciado pelo comportamento em tempo de execução do JavaScript. Por exemplo, o operador de adição (+), que em JavaScript pode realizar tanto concatenação de string quanto adição numérica, é modelado da mesma forma no TypeScript:
+O sistema de tipos do TypeScript é amplamente influenciado pelo comportamento de tempo de execução do JavaScript. Por exemplo, o operador de adição (+), que no JavaScript pode realizar a concatenação de strings ou a adição numérica, é modelado da mesma forma no TypeScript:
 
 ```typescript
 const result = '1' + 1; // Result is of type string
 ```
 
-A equipe por trás do TypeScript tomou uma decisão deliberada de sinalizar o uso incomum de JavaScript como erros. Por exemplo, considere o seguinte código JavaScript válido:
+A equipe por trás do TypeScript tomou a decisão deliberada de sinalizar o uso incomum do JavaScript como erros. Por exemplo, considere o seguinte código JavaScript válido:
 
 <!-- skip -->
 ```typescript
 const result = 1 + true; // In JavaScript, the result is equal 2
 ```
 
-No entanto, TypeScript lança um erro:
+No entanto, o TypeScript lança um erro:
 
 ```text
 Operator '+' cannot be applied to types 'number' and 'boolean'.
 ```
 
-Este erro ocorre porque o TypeScript impõe estritamente a compatibilidade de tipos e, neste caso, identifica uma operação inválida entre um number e um boolean.
+Este erro ocorre porque o TypeScript impõe estritamente a compatibilidade de tipos e, neste caso, identifica uma operação inválida entre um número e um booleano.
 
 ### Geração de Código TypeScript
 
-O compilador TypeScript tem duas responsabilidades principais: verificar erros de tipo e compilar para JavaScript. Esses dois processos são independentes um do outro. Os tipos não afetam a execução do código em um runtime JavaScript, pois são completamente apagados durante a compilação. TypeScript ainda pode produzir JavaScript mesmo na presença de erros de tipo.
+O compilador TypeScript tem duas responsabilidades principais: verificar se há erros de tipo e compilar para JavaScript. Esses dois processos são independentes um do outro. Os tipos não afetam a execução do código em um ambiente de execução JavaScript, pois são completamente apagados durante a compilação. O TypeScript ainda pode gerar JavaScript mesmo na presença de erros de tipo.
 Aqui está um exemplo de código TypeScript com um erro de tipo:
 
 <!-- skip -->
@@ -96,7 +96,7 @@ const add = (a: number, b: number): number => a + b;
 const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
 ```
 
-No entanto, ainda pode produzir uma saída JavaScript executável:
+No entanto, ele ainda pode produzir uma saída JavaScript executável:
 
 <!-- skip -->
 ```typescript
@@ -126,7 +126,7 @@ const makeNoise = (animal: Animal) => {
 };
 ```
 
-Como os tipos são apagados após a compilação, não há como executar este código em JavaScript. Para reconhecer tipos em tempo de execução, precisamos usar outro mecanismo. TypeScript oferece várias opções, sendo uma comum a "tagged union". Por exemplo:
+Como os tipos são apagados após a compilação, não há como executar este código em JavaScript. Para reconhecer tipos em tempo de execução, precisamos usar outro mecanismo. O TypeScript fornece várias opções, sendo uma comum a "união tagueada" (tagged union). Por exemplo:
 
 ```typescript
 interface Dog {
@@ -156,9 +156,9 @@ makeNoise(dog);
 
 A propriedade "kind" é um valor que pode ser usado em tempo de execução para distinguir entre objetos em JavaScript.
 
-Também é possível que um valor em tempo de execução tenha um tipo diferente daquele declarado na declaração de tipo. Por exemplo, se o desenvolvedor interpretou incorretamente um tipo de API e o anotou incorretamente.
+Também é possível que um valor em tempo de execução tenha um tipo diferente daquele declarado na declaração de tipo. Por exemplo, se o desenvolvedor interpretou mal um tipo de API e o anotou incorretamente.
 
-TypeScript é um superconjunto de JavaScript, então a palavra-chave "class" pode ser usada como um tipo e valor em tempo de execução.
+O TypeScript é um superconjunto do JavaScript, portanto a palavra-chave "class" pode ser usada como um tipo e valor em tempo de execução.
 
 ```typescript
 class Animal {
@@ -194,25 +194,26 @@ const dog = new Dog('Fido', () => console.log('bark'));
 makeNoise(dog);
 ```
 
-Em JavaScript, uma "class" tem uma propriedade "prototype", e o operador "instanceof" pode ser usado para testar se a propriedade prototype de um construtor aparece em qualquer lugar na cadeia de protótipos de um objeto.
+No JavaScript, uma "classe" tem uma propriedade "prototype", e o operador "instanceof" pode ser usado para testar se a propriedade prototype de um construtor aparece em qualquer lugar na cadeia de protótipos de um objeto.
 
-TypeScript não tem efeito no desempenho em tempo de execução, pois todos os tipos serão apagados. No entanto, TypeScript introduz alguma sobrecarga no tempo de compilação.
+O TypeScript não tem efeito no desempenho em tempo de execução, pois todos os tipos serão apagados. No entanto, o TypeScript introduz alguma sobrecarga no tempo de compilação.
 
 ### JavaScript Moderno Agora (Downleveling)
 
-TypeScript pode compilar código para qualquer versão lançada de JavaScript desde ECMAScript 3 (1999). Isso significa que TypeScript pode transpilar código dos recursos JavaScript mais recentes para versões mais antigas, um processo conhecido como Downleveling. Isso permite o uso de JavaScript moderno enquanto mantém máxima compatibilidade com ambientes de tempo de execução mais antigos.
+O TypeScript pode compilar código para qualquer versão lançada do JavaScript desde o ECMAScript 3 (1999). Isso significa que o TypeScript pode transpilar o código dos recursos JavaScript mais recentes para versões mais antigas, um processo conhecido como *Downleveling*. Isso permite o uso do JavaScript moderno, mantendo a compatibilidade máxima com ambientes de execução mais antigos.
 
-É importante notar que durante a transpilação para uma versão mais antiga de JavaScript, TypeScript pode gerar código que pode incorrer em uma sobrecarga de desempenho comparado a implementações nativas.
+É importante notar que durante a transpilação para uma versão mais antiga do JavaScript, o TypeScript pode gerar código que pode incorrer em uma sobrecarga de desempenho em comparação com as implementações nativas.
 
-Aqui estão alguns dos recursos JavaScript modernos que podem ser usados no TypeScript:
+Aqui estão alguns dos recursos modernos do JavaScript que podem ser usados no TypeScript:
 
-* Módulos ECMAScript em vez de callbacks "define" estilo AMD ou declarações "require" CommonJS.
-* Classes em vez de prototypes.
+* Módulos ECMAScript em vez de callbacks "define" no estilo AMD ou instruções "require" do CommonJS.
+* Classes em vez de protótipos.
 * Declaração de variáveis usando "let" ou "const" em vez de "var".
 * Loop "for-of" ou ".forEach" em vez do loop "for" tradicional.
-* Arrow functions em vez de function expressions.
-* Destructuring assignment.
-* Nomes abreviados de propriedade/método e nomes de propriedade computados.
+* Funções de seta (Arrow functions) em vez de expressões de função.
+* Atribuição via desestruturação (Destructuring assignment).
+* Nomes de propriedade/método abreviados e nomes de propriedade computados.
 * Parâmetros de função padrão.
 
-Ao aproveitar esses recursos JavaScript modernos, os desenvolvedores podem escrever código mais expressivo e conciso em TypeScript.
+Ao aproveitar esses recursos modernos do JavaScript, os desenvolvedores podem escrever códigos mais expressivos e concisos no TypeScript.
+

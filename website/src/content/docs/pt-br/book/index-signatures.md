@@ -1,12 +1,12 @@
 ---
-title: Assinaturas de Índice
+title: Assinaturas de Índice (Index Signatures)
 sidebar:
   order: 14
-  label: 14. Assinaturas de Índice
+  label: 14. Assinaturas de Índice (Index Signatures)
 ---
 
 
-No TypeScript podemos usar como assinatura de índice `string`, `number` e `symbol`:
+No TypeScript, podemos usar como assinatura de índice `string`, `number` e `symbol`:
 
 ```typescript
 type K = {
@@ -18,5 +18,5 @@ console.log(k[1]);
 console.log(k['1']); // Mesmo resultado que k[1]
 ```
 
-Por favor, note que o JavaScript converte automaticamente um índice com `number` para um índice com `string`, então `k[1]` ou `k["1"]` retornam o mesmo valor.
+Observe que o JavaScript converte automaticamente um índice com `number` em um índice com `string`, portanto `k[1]` ou `k["1"]` retornam o mesmo valor.
 

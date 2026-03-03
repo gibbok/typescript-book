@@ -6,10 +6,10 @@ sidebar:
 ---
 
 
-O TypeScript é um superconjunto do JavaScript, ele inclui todos os objetos JavaScript integrados comumente usados. Você pode encontrar uma lista extensa desses objetos no site de documentação do Mozilla Developer Network (MDN):
-[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
+O TypeScript é um superconjunto do JavaScript e inclui todos os objetos integrados do JavaScript comumente usados. Você pode encontrar uma lista extensa desses objetos no site de documentação da Mozilla Developer Network (MDN):
+[https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects)
 
-Aqui está uma lista de alguns objetos JavaScript integrados comumente usados:
+Aqui está uma lista de alguns objetos integrados do JavaScript comumente usados:
 
 * Function
 * Object

@@ -1,16 +1,16 @@
 ---
-title: Modificadores de Tipo Mapeado
+title: Modificadores de Tipos Mapeados
 sidebar:
   order: 38
-  label: 38. Modificadores de Tipo Mapeado
+  label: 38. Modificadores de Tipos Mapeados
 ---
 
 
-Modificadores de Tipo Mapeado no TypeScript permitem a transformação de propriedades dentro de um tipo existente:
+Os Modificadores de Tipos Mapeados no TypeScript permitem a transformação de propriedades dentro de um tipo existente:
 
-* `readonly` ou `+readonly`: Isso torna uma propriedade no tipo mapeado como somente leitura.
-* `-readonly`: Isso permite que uma propriedade no tipo mapeado seja mutável.
-* `?`: Isso designa uma propriedade no tipo mapeado como opcional.
+* `readonly` ou `+readonly`: Torna uma propriedade no tipo mapeado como somente leitura.
+* `-readonly`: Permite que uma propriedade no tipo mapeado seja mutável.
+* `?`: Designa uma propriedade no tipo mapeado como opcional.
 
 Exemplos:
 

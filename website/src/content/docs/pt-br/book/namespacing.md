@@ -6,8 +6,8 @@ sidebar:
 ---
 
 
-No TypeScript, namespaces são usados para organizar código em contêineres lógicos, prevenindo colisões de nomes e fornecendo uma maneira de agrupar código relacionado.
-O uso da palavra-chave `export` permite acesso ao namespace em módulos "externos".
+No TypeScript, os namespaces são usados para organizar o código em contêineres lógicos, evitando colisões de nomes e fornecendo uma maneira de agrupar códigos relacionados.
+O uso das palavras-chave `export` permite o acesso ao namespace em módulos externos.
 
 ```typescript
 export namespace MyNamespace {

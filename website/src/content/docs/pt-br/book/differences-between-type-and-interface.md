@@ -6,9 +6,9 @@ sidebar:
 ---
 
 
-Mesclagem de declaração (augmentation):
+Mesclagem de declarações (aumento):
 
-Interfaces suportam mesclagem de declaração, o que significa que você pode definir múltiplas interfaces com o mesmo nome, e o TypeScript as mesclará em uma única interface com as propriedades e métodos combinados. Por outro lado, tipos não suportam mesclagem de declaração. Isso pode ser útil quando você deseja adicionar funcionalidade extra ou customizar tipos existentes sem modificar as definições originais ou corrigir tipos ausentes ou incorretos.
+As interfaces suportam a mesclagem de declarações, o que significa que você pode definir várias interfaces com o mesmo nome, e o TypeScript as mesclará em uma única interface com as propriedades e métodos combinados. Por outro lado, os tipos (types) não suportam a mesclagem de declarações. Isso pode ser útil quando você deseja adicionar funcionalidades extras ou personalizar tipos existentes sem modificar as definições originais ou corrigir tipos ausentes ou incorretos.
 
 ```typescript
 interface A {
@@ -25,7 +25,7 @@ const j: A = {
 
 Estendendo outros tipos/interfaces:
 
-Tanto tipos quanto interfaces podem estender outros tipos/interfaces, mas a sintaxe é diferente. Com interfaces, você usa a palavra-chave `extends` para herdar propriedades e métodos de outras interfaces. No entanto, uma interface não pode estender um tipo complexo como um tipo union.
+Tanto tipos quanto interfaces podem estender outros tipos/interfaces, mas a sintaxe é diferente. Com as interfaces, você usa a palavra-chave `extends` para herdar propriedades e métodos de outras interfaces. No entanto, uma interface não pode estender um tipo complexo, como um tipo união.
 
 ```typescript
 interface A {
@@ -42,7 +42,7 @@ const car: B = {
 };
 ```
 
-Para tipos, você usa o operador & para combinar múltiplos tipos em um único tipo (interseção).
+Para tipos, você usa o operador `&` para combinar múltiplos tipos em um único tipo (interseção).
 
 ```typescript
 interface A {
@@ -61,12 +61,12 @@ const c: B = {
 };
 ```
 
-Tipos Union e Intersection:
+Tipos União e Interseção:
 
-Tipos são mais flexíveis quando se trata de definir Tipos Union e Intersection. Com a palavra-chave `type`, você pode facilmente criar tipos union usando o operador `|` e tipos intersection usando o operador `&`. Embora interfaces também possam representar tipos union indiretamente, elas não têm suporte integrado para tipos intersection.
+Os tipos (types) são mais flexíveis quando se trata de definir Tipos União e Interseção. Com a palavra-chave `type`, você pode criar facilmente tipos união usando o operador `|` e tipos interseção usando o operador `&`. Embora as interfaces também possam representar tipos união indiretamente, elas não possuem suporte integrado para tipos interseção.
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // União
 
 type Person = {
     name: string;
@@ -78,7 +78,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // Interseção
 ```
 
 Exemplo com interfaces:
@@ -91,6 +91,6 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union de interfaces
+type C = A | B; // União de interfaces
 ```
 

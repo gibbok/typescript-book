@@ -39,7 +39,7 @@ För att skapa en instans av en klass i TypeScript kan du använda nyckelordet `
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Utmatning: Hej, jag heter John Doe och jag är 25 år gammal.
+myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Konstruktor
@@ -110,13 +110,13 @@ class Person {
 }
 
 const person1 = new Person();
-person1.displayInfo(); // Namn: Okänd, Age: 0
+person1.displayInfo(); // Name: Unknown, Age: 0
 
 const person2 = new Person('John');
-person2.displayInfo(); // Namn: John, Age: 0
+person2.displayInfo(); // Name: John, Age: 0
 
 const person3 = new Person('Jane', 25);
-person3.displayInfo(); // Namn: Jane, Age: 25
+person3.displayInfo(); // Name: Jane, Age: 25
 ```
 
 ### Privata och skyddade konstruktorer
@@ -143,10 +143,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Försöker instansiera basklassen direkt kommer resultera i ett fel
-// const baseObj = new BaseClass(); // Fel: Konstruktör för klass 'BaseClass' är skyddad.
+// Attempting to instantiate the base class directly will result in an error
+// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
 
-// Skapa en instans av den härledda klassen
+// Create an instance of the derived class
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -232,7 +232,7 @@ class Person {
 }
 
 const person1 = new Person('Alice');
-person1.introduce(); // Hej, jag heter Alice.
+person1.introduce(); // Hello, my name is Alice.
 ```
 
 ### Parameteregenskaper
@@ -245,8 +245,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // Nyckelorden "private" och "public" i konstruktorn
-        // deklarerar och initierar automatiskt motsvaroche klassegenskaper.
+        // The "private" and "public" keywords in the constructor
+        // automatically declare and initialize the corresponding class properties.
     }
     public introduce(): void {
         console.log(
@@ -281,7 +281,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Utmatning: Whiskers meows.
+cat.makeSound(); // Output: Whiskers meows.
 ```
 
 ### Med generics
@@ -476,7 +476,7 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Giltig: 10
+console.log(obj.getValue); // Valid: 10
 
 const obj2 = new MyClass(999);
 console.log(obj2.getValue); // Throw: Invalid!
@@ -491,7 +491,7 @@ Metadata kan användas för olika ändamål, till exempel felsökning, serialise
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Enkel polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
 
 type Context =
     | ClassFieldDecoratorContext
@@ -499,7 +499,7 @@ type Context =
     | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Ställ in metadataobjektet med ett primitivt värde
+    // Set the metadata object with a primitive value
     context.metadata[context.name] = true;
 }
 
@@ -549,11 +549,11 @@ class Dog extends Animal {
     }
 }
 
-// Skapa en instans av basklassen
+// Create an instance of the base class
 const animal = new Animal('Generic Animal');
-animal.speak(); // Djuret gör ett ljud
+animal.speak(); // The animal makes a sound
 
-// Skapa en instans av den härledda klassen
+// Create an instance of the derived class
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -643,7 +643,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // Det finns inget behov av att tilldela värdena till egenskaperna explicit.
+        // There is no need to assign the values to the properties explicitly.
     }
     log() {
         console.log(this.property2);
@@ -659,8 +659,8 @@ Metodöverlagring gör det möjligt för en klass att ha flera metoder med samma
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Överlagringssignatur 1
-    add(a: string, b: string): string; // Överlagringssignatur 2
+    add(a: number, b: number): number; // Overload signature 1
+    add(a: string, b: string): string; // Overload signature 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
