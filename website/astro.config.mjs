@@ -156,6 +156,10 @@ gtag('config', 'G-SR2LV8LB90');
                     label: 'Português (Brasil)',
                     lang: 'pt-BR',
                 },
+                'sv-se': {
+                    label: 'Svenska',
+                    lang: 'sv-SE',
+                },
             },
             sidebar: [
                 {

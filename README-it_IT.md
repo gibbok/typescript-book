@@ -22,6 +22,8 @@ Questo libro è stato tradotto in diverse lingue, tra cui:
 
 [Portoghese (Brasile)](https://github.com/gibbok/typescript-book/blob/main/README-pt_BR.md)
 
+[Svedese](https://github.com/gibbok/typescript-book/blob/main/README-sv_SE.md)
+
 ## Download e sito web
 
 Puoi anche scaricare la versione Epub:
