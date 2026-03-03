@@ -645,7 +645,7 @@ npm install --save-dev @types/package-name
 or
 
 ```shell
-yarn add --dev @types/package-name.
+yarn add --dev @types/package-name
 ```
 
 The fourth step is to migrate module by module with a bottom-up approach, following your Dependency Graph starting with the leaves. The idea is to start converting Modules that do not depend on other Modules. To visualize the dependency graphs, you can use the "madge" tool.
