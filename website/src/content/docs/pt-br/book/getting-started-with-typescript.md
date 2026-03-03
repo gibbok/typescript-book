@@ -170,7 +170,7 @@ npm install --save-dev @types/package-name
 ou
 
 ```shell
-yarn add --dev @types/package-name.
+yarn add --dev @types/package-name
 ```
 
 O quarto passo é migrar módulo por módulo com uma abordagem bottom-up, seguindo seu Grafo de Dependências começando pelas folhas. A ideia é começar a converter Módulos que não dependem de outros Módulos. Para visualizar os grafos de dependência, você pode usar a ferramenta "madge".

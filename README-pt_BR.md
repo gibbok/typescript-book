@@ -643,7 +643,7 @@ npm install --save-dev @types/package-name
 ou
 
 ```shell
-yarn add --dev @types/package-name.
+yarn add --dev @types/package-name
 ```
 
 O quarto passo é migrar módulo por módulo com uma abordagem bottom-up, seguindo seu Grafo de Dependências começando pelas folhas. A ideia é começar a converter Módulos que não dependem de outros Módulos. Para visualizar os grafos de dependência, você pode usar a ferramenta "madge".
@@ -1606,8 +1606,33 @@ const x: number = 1;
 O TypeScript executa uma análise estática automática das expressões e é geralmente capaz de inferir o tipo sem que este seja anotado. No exemplo anterior, o tipo poderia ser omitido:
 
 ```typescript
-const x = 1; // TypeScript infere o tipo number
+function sum(a: number, b: number) {
+    return a + b;
+}
 ```
+
+O exemplo a seguir utiliza uma função anônima (também chamada de função lambda):
+
+```typescript
+const sum = (a: number, b: number) => a + b;
+```
+
+Essas anotações podem ser evitadas quando um valor padrão para um parâmetro estiver presente:
+
+```typescript
+const sum = (a = 10, b: number) => a + b;
+```
+
+Anotações de tipo de retorno podem ser adicionadas às funções:
+
+```typescript
+const sum = (a = 10, b: number): number => a + b;
+
+```
+
+Isso é especialmente útil para funções mais complexas, pois explicitar o tipo de retorno antes da implementação pode ajudar a pensar melhor sobre a função.
+
+De modo geral, considere anotar as assinaturas de tipo, mas não as variáveis ​​locais do corpo da função, e sempre adicione tipos a literais de objeto.
 
 ## Propriedades Opcionais
 
@@ -1622,19 +1647,34 @@ type X = {
 
 ## Propriedades Readonly
 
-É possível marcar uma propriedade como readonly para o TypeScript, isso não altera nenhum comportamento em tempo de execução, mas uma propriedade marcada como readonly não pode ser escrita durante a verificação de tipo.
+É possível impedir a escrita em uma propriedade usando o modificador `readonly`, que garante que a propriedade não possa ser reescrita, mas não oferece nenhuma garantia de imutabilidade total?
 
-<!-- skip -->
 ```typescript
+interface Y {
+
+readonly a: number;
+
+}
+
 type X = {
-    readonly a: string;
+
+readonly a: number;
+
 };
 
-const x: X = { a: 'a' };
-x.a = 'b'; // Inválido
-```
+type J = Readonly<{
 
-Também é possível usar um "Mapping Modifier" para remover atributos readonly.
+a: number;
+
+}>;
+
+type K = {
+
+readonly [index: number]: string;
+
+};
+
+```
 
 ## Assinaturas de Índice
 
@@ -2337,10 +2377,6 @@ O tipo `never` representa valores que nunca ocorrem. É comumente usado para fun
 ```typescript
 const throwError = (message: string): never => {
     throw new Error(message);
-};
-
-const infiniteLoop = (): never => {
-    while (true) {}
 };
 ```
 
