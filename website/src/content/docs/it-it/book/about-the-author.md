@@ -15,3 +15,5 @@ Simone Poggiali è uno Staff Engineer esperto, con una passione per la scrittura
 * X.com: [https://x.com/gibbok_coding](https://x.com/gibbok_coding)
 * Email: gibbok.coding📧gmail.com
 
+Elenco completo dei collaboratori: [https://github.com/gibbok/typescript-book/graphs/contributors](https://github.com/gibbok/typescript-book/graphs/contributors)
+
