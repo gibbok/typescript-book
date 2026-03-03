@@ -1,30 +1,22 @@
 ---
-title: Assinaturas de Índice
+title: Assinaturas de Índice (Index Signatures)
 sidebar:
   order: 14
-  label: 14. Assinaturas de Índice
+  label: 14. Assinaturas de Índice (Index Signatures)
 ---
 
 
-Às vezes você não conhece antecipadamente os nomes das propriedades de um tipo, mas conhece a forma dos valores. Nesses casos, você pode usar uma assinatura de índice para descrever o tipo de valores possíveis. Uma assinatura de índice deve ser `string`, `number`, `symbol`, ou um template string pattern:
+No TypeScript, podemos usar como assinatura de índice `string`, `number` e `symbol`:
 
 ```typescript
-type X = {
-    [key: string]: number;
+type K = {
+    [name: string | number]: string;
 };
-
-const x: X = { a: 1, b: 2 };
+const k: K = { x: 'x', 1: 'b' };
+console.log(k['x']);
+console.log(k[1]);
+console.log(k['1']); // Mesmo resultado que k[1]
 ```
 
-É possível tornar uma assinatura de índice readonly adicionando a palavra-chave readonly:
-
-<!-- skip -->
-```typescript
-type X = {
-    readonly [key: string]: number;
-};
-
-const x: X = { a: 1, b: 2 };
-x.a = 3; // Inválido
-```
+Observe que o JavaScript converte automaticamente um índice com `number` em um índice com `string`, portanto `k[1]` ou `k["1"]` retornam o mesmo valor.
 

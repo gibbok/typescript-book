@@ -1,16 +1,16 @@
 ---
-title: Tipos Union de Template
+title: Tipos de União de Template (Template Union Types)
 sidebar:
   order: 43
-  label: 43. Tipos Union de Template
+  label: 43. Tipos de União de Template (Template Union Types)
 ---
 
 
-Tipos Union de Template em TypeScript permitem criar novas uniões de string concatenando, transformando ou combinando tipos string literais existentes.
+Tipos de união de template podem ser usados para mesclar e manipular texto dentro do sistema de tipos, por exemplo:
 
 ```typescript
-type Color = 'red' | 'blue';
-type Size = 'small' | 'large';
-type Style = `${Color}-${Size}`; // 'red-small' | 'red-large' | 'blue-small' | 'blue-large'
+type Status = 'active' | 'inactive';
+type Products = 'p1' | 'p2';
+type ProductId = `id-${Products}-${Status}`; // "id-p1-active" | "id-p1-inactive" | "id-p2-active" | "id-p2-inactive"
 ```
 

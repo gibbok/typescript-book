@@ -1,18 +1,24 @@
 ---
-title: O Tipo never
+title: O tipo never
 sidebar:
   order: 25
-  label: 25. O Tipo never
+  label: 25. O tipo never
 ---
 
 
-O tipo `never` no TypeScript representa valores que nunca ocorrem. É usado para denotar valores que nunca são observados pelo TypeScript, como quando o estreitamento de união remove todas as possibilidades.
-
-O tipo `never` é frequentemente usado como um tipo de retorno para funções que nunca retornam ou sempre lançam uma exceção:
+Quando uma variável é estreitada para um tipo que não pode conter nenhum valor, o compilador TypeScript inferirá que a variável deve ser do tipo `never`. Isso ocorre porque o Tipo Never representa um valor que nunca pode ser produzido.
 
 ```typescript
-const throwError = (message: string): never => {
-    throw new Error(message);
+const printValue = (val: string | number) => {
+    if (typeof val === 'string') {
+        console.log(val.toUpperCase());
+    } else if (typeof val === 'number') {
+        console.log(val.toFixed(2));
+    } else {
+        // val tem o tipo never aqui porque nunca pode ser nada além de uma string ou um número
+        const neverVal: never = val;
+        console.log(`Valor inesperado: ${neverVal}`);
+    }
 };
 ```
 

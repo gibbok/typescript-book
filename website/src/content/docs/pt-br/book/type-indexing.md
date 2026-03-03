@@ -6,14 +6,13 @@ sidebar:
 ---
 
 
-Indexação de tipo em TypeScript permite acessar e extrair tipos de propriedades de outro tipo usando uma sintaxe semelhante a índice.
+Indexação de tipo (type indexing) refere-se à capacidade de definir tipos que podem ser indexados por uma chave não conhecida antecipadamente, usando uma assinatura de índice para especificar o tipo para propriedades que não são declaradas explicitamente.
 
 ```typescript
-type Person = {
-    name: string;
-    age: number;
+type Dictionary<T> = {
+    [key: string]: T;
 };
-
-type Name = Person['name']; // string
+const myDict: Dictionary<string> = { a: 'a', b: 'b' };
+console.log(myDict['a']); // Retorna a
 ```
 

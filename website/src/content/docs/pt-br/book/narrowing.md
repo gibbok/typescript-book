@@ -1,29 +1,31 @@
 ---
-title: Narrowing
+title: Estreitamento (Narrowing)
 sidebar:
   order: 20
-  label: 20. Narrowing
+  label: 20. Estreitamento (Narrowing)
 ---
 
 
-Narrowing é o processo de refinar tipos para um tipo mais específico. Por exemplo, você pode ter um tipo union `string | number` e deseja especificar se algo é uma string ou um number.
+O estreitamento (narrowing) no TypeScript é o processo de refinar o tipo de uma variável dentro de um bloco condicional. Isso é útil ao trabalhar com tipos de união, onde uma variável pode ter mais de um tipo.
 
-### Type guards typeof
+O TypeScript reconhece várias maneiras de estreitar o tipo:
 
-Verificar se um determinado valor é do tipo primitivo usando o operador typeof é uma forma de type guards, narrowing e proteção. O TypeScript reconhece o uso do operador `typeof` e pode estreitar em certas branches.
+### typeof type guards
+
+O protetor de tipo (type guard) `typeof` é um protetor de tipo específico no TypeScript que verifica o tipo de uma variável com base em seu tipo JavaScript integrado.
 
 ```typescript
-const fn = (x: string | number) => {
+const fn = (x: number | string) => {
     if (typeof x === 'number') {
         return x + 1; // x é number
     }
-    return x + 'b'; // x é string
+    return -1;
 };
 ```
 
-### Narrowing de veracidade
+### Estreitamento de veracidade (Truthiness narrowing)
 
-Veracidade pode estreitar em qualquer valor que pode ser coagido em um boolean, por exemplo, `if` statements, `&&`, `||`, instruções condicionais, `!` e mais.
+O estreitamento de veracidade (truthiness narrowing) no TypeScript funciona verificando se uma variável é verdadeira (truthy) ou falsa (falsy) para estreitar seu tipo adequadamente.
 
 ```typescript
 const toUpperCase = (name: string | null) => {
@@ -35,38 +37,50 @@ const toUpperCase = (name: string | null) => {
 };
 ```
 
-### Narrowing de igualdade
+### Estreitamento de igualdade (Equality narrowing)
 
-O TypeScript pode estreitar tipos comparando diretamente valores usando ===, !==, ==, e != para estreitar tipos.
+O estreitamento de igualdade (equality narrowing) no TypeScript funciona verificando se uma variável é igual a um valor específico ou não, para estreitar seu tipo adequadamente.
+
+É usado em conjunto com instruções `switch` e operadores de igualdade como `===`, `!==`, `==` e `!=` para estreitar os tipos.
 
 ```typescript
 const checkStatus = (status: 'success' | 'error') => {
-    if (status === 'success') {
-        // status é 'success'
+    switch (status) {
+        case 'success':
+            return true;
+        case 'error':
+            return null;
     }
 };
 ```
 
-### Narrowing do operador In
+### Estreitamento com operador In
 
-O operador `in` no JavaScript é um método para determinar se um objeto tem uma propriedade com um nome específico, o TypeScript pode usar para estreitar os tipos possíveis.
+O estreitamento com o operador `in` no TypeScript é uma forma de estreitar o tipo de uma variável com base na existência de uma propriedade dentro do tipo da variável.
 
 ```typescript
-type Dog = { bark: () => void };
-type Cat = { meow: () => void };
+type Dog = {
+    name: string;
+    breed: string;
+};
 
-const talk = (pet: Dog | Cat) => {
-    if ('bark' in pet) {
-        pet.bark(); // pet é Dog
+type Cat = {
+    name: string;
+    likesCream: boolean;
+};
+
+const getAnimalType = (pet: Dog | Cat) => {
+    if ('breed' in pet) {
+        return 'dog';
     } else {
-        pet.meow(); // pet é Cat
+        return 'cat';
     }
 };
 ```
 
-### Narrowing instanceof
+### Estreitamento com instanceof
 
-O operador instanceof em JavaScript verifica se o protótipo de um construtor aparece em qualquer lugar na cadeia de protótipos de um objeto. O TypeScript pode usar para estreitar tipos:
+O estreitamento com o operador `instanceof` no TypeScript é uma forma de estreitar o tipo de uma variável com base em sua função construtora, verificando se um objeto é uma instância de uma determinada classe ou interface.
 
 ```typescript
 class Square {
@@ -78,13 +92,16 @@ class Rectangle {
         public height: number
     ) {}
 }
-
 function area(shape: Square | Rectangle) {
     if (shape instanceof Square) {
-        return shape.width * shape.width; // shape é Square
+        return shape.width * shape.width;
     } else {
-        return shape.width * shape.height; // shape é Rectangle
+        return shape.width * shape.height;
     }
 }
+const square = new Square(5);
+const rectangle = new Rectangle(5, 10);
+console.log(area(square)); // 25
+console.log(area(rectangle)); // 50
 ```
 

@@ -6,10 +6,9 @@ sidebar:
 ---
 
 
-Em TypeScript, você pode usar o tipo utilitário `ReturnType` para extrair o tipo de retorno de uma função:
+Tipo a partir de Retorno de Função refere-se à capacidade de inferir automaticamente o tipo de retorno de uma função com base em sua implementação. Isso permite que o TypeScript determine o tipo do valor retornado pela função sem anotações de tipo explícitas.
 
 ```typescript
-const getValue = () => ({ value: 42 });
-type Value = ReturnType<typeof getValue>; // { value: number }
+const add = (x: number, y: number) => x + y; // O TypeScript pode inferir que o tipo de retorno da função é um número
 ```
 

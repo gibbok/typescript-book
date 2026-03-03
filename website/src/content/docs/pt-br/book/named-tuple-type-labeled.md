@@ -1,15 +1,17 @@
 ---
-title: Tipo Tuple Nomeado (Rotulado)
+title: Tipo Tupla Nomeado (Rotulado)
 sidebar:
   order: 29
-  label: 29. Tipo Tuple Nomeado (Rotulado)
+  label: 29. Tipo Tupla Nomeado (Rotulado)
 ---
 
 
-Tuples nomeadas permitem que você atribua nomes aos elementos de uma tuple, tornando seu código auto-documentado:
+Os tipos tupla podem incluir rótulos (labels) ou nomes opcionais para cada elemento. Esses rótulos são para legibilidade e assistência de ferramentas, e não afetam as operações que você pode realizar com eles.
 
 ```typescript
-let tuple: [name: string, age: number, active: boolean];
-tuple = ['Alice', 30, true];
+type T = string;
+type Tuple1 = [T, T];
+type Tuple2 = [a: T, b: T];
+type Tuple3 = [a: T, T]; // Tupla Nomeada mais Tupla Anônima
 ```
 

@@ -1,17 +1,22 @@
 ---
-title: Tipo Any
+title: Tipo any
 sidebar:
   order: 44
-  label: 44. Tipo Any
+  label: 44. Tipo any
 ---
 
 
-O tipo `any` em TypeScript é o tipo mais permissivo que representa qualquer tipo de valor. Usar `any` essencialmente desativa a verificação de tipo para essa variável.
+O tipo `any` é um tipo especial (supertipo universal) que pode ser usado para representar qualquer tipo de valor (primitivos, objetos, arrays, funções, erros, símbolos). É frequentemente usado em situações onde o tipo de um valor não é conhecido em tempo de compilação, ou ao trabalhar com valores de APIs externas ou bibliotecas que não possuem tipagens TypeScript.
+
+Ao utilizar o tipo `any`, você está indicando ao compilador TypeScript que os valores devem ser representados sem quaisquer limitações. Para maximizar a segurança de tipo em seu código, considere o seguinte:
+
+* Limite o uso de `any` a casos específicos onde o tipo é verdadeiramente desconhecido.
+* Não retorne tipos `any` de uma função, pois isso enfraquece a segurança de tipo no código que a utiliza.
+* Em vez de `any`, use `@ts-ignore` se precisar silenciar o compilador.
 
 ```typescript
 let value: any;
-value = 'hello';
-value = 42;
-value = true;
+value = true; // Válido
+value = 7; // Válido
 ```
 

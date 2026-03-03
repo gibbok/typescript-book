@@ -1,16 +1,16 @@
 ---
-title: Índice
+title: Sumário
 sidebar:
   order: 4
-  label: 4. Índice
+  label: 4. Sumário
 ---
 
 
 <!-- markdownlint-disable MD004 -->
-- O Concise TypeScript Book
+- O Livro Conciso de TypeScript
   - Traduções
-  - Downloads e website
-  - Índice
+  - Downloads e site
+  - Sumário
   - Introdução
   - Sobre o Autor
   - Introdução ao TypeScript
@@ -22,7 +22,7 @@ sidebar:
   - Começando com TypeScript
     - Instalação
     - Configuração
-    - Arquivo de Configuração TypeScript
+    - Arquivo de Configuração do TypeScript
       - target
       - lib
       - strict
@@ -37,29 +37,29 @@ sidebar:
     - importHelpers
     - Conselhos para Migração para TypeScript
   - Explorando o Sistema de Tipos
-    - O Serviço de Linguagem TypeScript
+    - O Serviço de Linguagem do TypeScript
     - Tipagem Estrutural
     - Regras Fundamentais de Comparação do TypeScript
     - Tipos como Conjuntos
     - Atribuir um tipo: Declarações de Tipo e Asserções de Tipo
       - Declaração de Tipo
       - Asserção de Tipo
-      - Declarações Ambientes
-    - Verificação de Propriedade e Verificação de Propriedade Excessiva
-    - Tipos Fracos
+      - Declarações de Ambiente (Ambient Declarations)
+    - Verificação de Propriedades e Verificação de Excesso de Propriedades
+    - Tipos Fracos (Weak Types)
     - Verificação Estrita de Objeto Literal (Freshness)
     - Inferência de Tipo
     - Inferências Mais Avançadas
-    - Ampliação de Tipo
+    - Alargamento de Tipo (Type Widening)
     - Const
       - Modificador Const em Parâmetros de Tipo
-      - Asserção const
+      - Asserção Const
     - Anotação de Tipo Explícita
-    - Estreitamento de Tipo
+    - Estreitamento de Tipo (Type Narrowing)
       - Condições
-      - Lançar ou retornar
+      - Lançando ou retornando
       - União Discriminada
-      - Type Guards Definidos pelo Usuário
+      - Proteções de Tipo Definidas pelo Usuário (User-Defined Type Guards)
   - Tipos Primitivos
     - string
     - boolean
@@ -71,8 +71,8 @@ sidebar:
     - any
   - Anotações de Tipo
   - Propriedades Opcionais
-  - Propriedades Readonly
-  - Assinaturas de Índice
+  - Propriedades Somente Leitura (Readonly)
+  - Assinaturas de Índice (Index Signatures)
   - Estendendo Tipos
   - Tipos Literais
   - Inferência Literal
@@ -82,82 +82,82 @@ sidebar:
     - Enums de string
     - Enums constantes
     - Mapeamento reverso
-    - Enums ambiente
+    - Enums de ambiente
     - Membros computados e constantes
-  - Narrowing
-    - Type guards typeof
-    - Narrowing de veracidade
-    - Narrowing de igualdade
-    - Narrowing do operador In
-    - Narrowing instanceof
+  - Estreitamento (Narrowing)
+    - typeof type guards
+    - Estreitamento de veracidade (Truthiness narrowing)
+    - Estreitamento de igualdade (Equality narrowing)
+    - Estreitamento com operador In
+    - Estreitamento com instanceof
   - Atribuições
   - Análise de Fluxo de Controle
   - Predicados de Tipo
   - Uniões Discriminadas
-  - O Tipo never
+  - O tipo never
   - Verificação de exaustividade
   - Tipos de Objeto
-  - Tipo Tuple (Anônimo)
-  - Tipo Tuple Nomeado (Rotulado)
-  - Tuple de Comprimento Fixo
-  - Tipo Union
-  - Tipos de Intersecção
+  - Tipo Tupla (Anônimo)
+  - Tipo Tupla Nomeado (Rotulado)
+  - Tupla de Comprimento Fixo
+  - Tipo União
+  - Tipos de Interseção
   - Indexação de Tipo
   - Tipo a partir de Valor
   - Tipo a partir de Retorno de Função
   - Tipo a partir de Módulo
   - Tipos Mapeados
-  - Modificadores de Tipo Mapeado
+  - Modificadores de Tipos Mapeados
   - Tipos Condicionais
   - Tipos Condicionais Distributivos
-  - Inferência de Tipo infer em Tipos Condicionais
+  - Inferência de tipo infer em Tipos Condicionais
   - Tipos Condicionais Predefinidos
-  - Tipos Union de Template
+  - Tipos de União de Template
   - Tipo Any
   - Tipo Unknown
   - Tipo Void
   - Tipo Never
-  - Interface e Type
+  - Interface e Tipo
     - Sintaxe Comum
     - Tipos Básicos
     - Objetos e Interfaces
-    - Tipos Union e Intersection
+    - Tipos União e Interseção
   - Primitivos de Tipo Integrados
   - Objetos JS Integrados Comuns
-  - Overloads
+  - Sobrecargas
   - Mesclagem e Extensão
   - Diferenças entre Type e Interface
-  - Class
-    - Sintaxe Comum de Class
-    - Constructor
-    - Construtores Private e Protected
+  - Classe
+    - Sintaxe Comum de Classe
+    - Construtor
+    - Construtores Privados e Protegidos
     - Modificadores de Acesso
     - Get e Set
     - Auto-Accessors em Classes
     - this
     - Propriedades de Parâmetro
     - Classes Abstratas
-    - Com Generics
-    - Decorators
-      - Class Decorators
-      - Property Decorator
-      - Method Decorator
-      - Decorators de Getter e Setter
-      - Metadados de Decorator
+    - Com Genéricos
+    - Decoradores
+      - Decoradores de Classe
+      - Decorador de Propriedade
+      - Decorador de Método
+      - Decoradores de Getter e Setter
+      - Metadados de Decorador
     - Herança
-    - Statics
+    - Estáticos
     - Inicialização de propriedade
     - Sobrecarga de método
-  - Generics
-    - Tipo Generic
-    - Classes Generic
-    - Restrições Generic
-    - Narrowing contextual generic
-  - Tipos Estruturais Apagados
+  - Genéricos
+    - Tipo Genérico
+    - Classes Genéricas
+    - Restrições Genéricas
+    - Estreitamento contextual genérico
+  - Tipos Estruturais Apagados (Erased Structural Types)
   - Namespacing
-  - Symbols
-  - Diretivas Triple-Slash
-  - Manipulação de Tipo
+  - Símbolos
+  - Diretivas de Barra Tripla
+  - Manipulação de Tipos
     - Criando Tipos a partir de Tipos
     - Tipos de Acesso Indexado
     - Tipos Utilitários
@@ -184,38 +184,38 @@ sidebar:
       - Uncapitalize\<T\>
       - NoInfer\<T\>
   - Outros
-    - Erros e Tratamento de Exceções
-    - Classes mixin
-    - Recursos de Linguagem Assíncrona
+    - Tratamento de Erros e Exceções
+    - Classes Mixin
+    - Recursos de Linguagem Assíncronos
     - Iteradores e Geradores
-    - Referência JSDoc do TsDocs
+    - Referência JSDoc TsDocs
     - @types
     - JSX
     - Módulos ES6
     - Operador de Exponenciação ES7
-    - A Instrução for-await-of
-    - Meta-propriedade new target
-    - Expressões de Import Dinâmico
+    - A instrução for-await-of
+    - Nova meta-propriedade target
+    - Expressões de Importação Dinâmica
     - "tsc –watch"
-    - Operador de Asserção Não-nulo
-    - Declarações com valor padrão
-    - Encadeamento Opcional
+    - Operador de Asserção Não-nula
+    - Declarações padronizadas
+    - Encadeamento Opcional (Optional Chaining)
     - Operador de coalescência nula
-    - Tipos Literais de Template
+    - Tipos de Literais de Template
     - Sobrecarga de função
     - Tipos Recursivos
     - Tipos Condicionais Recursivos
     - Suporte a Módulo ECMAScript no Node
     - Funções de Asserção
-    - Tipos Tuple Variádicos
-    - Tipos boxed
+    - Tipos de Tupla Variádicos
+    - Tipos Boxed
     - Covariância e Contravariância no TypeScript
       - Anotações de Variância Opcionais para Parâmetros de Tipo
     - Assinaturas de Índice de Padrão de String de Template
     - O Operador satisfies
-    - Importações e Exportações Somente de Tipo
+    - Importações e Exportações Apenas de Tipo
     - Declaração using e Gerenciamento Explícito de Recursos
       - Declaração await using
-    - Atributos de Import
+    - Atributos de Importação
 <!-- markdownlint-enable MD004 -->
 

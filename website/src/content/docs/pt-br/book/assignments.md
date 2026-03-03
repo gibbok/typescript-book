@@ -6,11 +6,17 @@ sidebar:
 ---
 
 
-O TypeScript examina o lado direito de uma atribuição e estreita o lado esquerdo apropriadamente ao reconhecer possíveis valores:
+O estreitamento do TypeScript usando atribuições é uma forma de estreitar o tipo de uma variável com base no valor atribuído a ela. Quando uma variável recebe um valor, o TypeScript infere seu tipo com base no valor atribuído e estreita o tipo da variável para corresponder ao tipo inferido.
 
 ```typescript
-let x: string | number = 1;
-x = 'a';
-x = 1;
+let value: string | number;
+value = 'hello';
+if (typeof value === 'string') {
+    console.log(value.toUpperCase());
+}
+value = 42;
+if (typeof value === 'number') {
+    console.log(value.toFixed(2));
+}
 ```
 

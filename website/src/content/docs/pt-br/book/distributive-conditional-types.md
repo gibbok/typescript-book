@@ -6,11 +6,12 @@ sidebar:
 ---
 
 
-Tipos condicionais distributivos em TypeScript distribuem operações de tipo sobre uniões. Quando um tipo condicional é aplicado a um tipo union, ele se aplica a cada membro da união separadamente.
+Tipos Condicionais Distributivos são um recurso que permite que um tipo seja distribuído sobre uma união de tipos, aplicando uma transformação a cada membro da união individualmente.
+Isso pode ser especialmente útil ao trabalhar com tipos mapeados ou tipos de ordem superior.
 
 ```typescript
-type ToArray<T> = T extends any ? T[] : never;
-
-type A = ToArray<string | number>; // string[] | number[]
+type Nullable<T> = T extends any ? T | null : never;
+type NumberOrBool = number | boolean;
+type NullableNumberOrBool = Nullable<NumberOrBool>; // number | boolean | null
 ```
 

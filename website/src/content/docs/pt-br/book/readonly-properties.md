@@ -1,22 +1,28 @@
 ---
-title: Propriedades Readonly
+title: Propriedades Somente Leitura (Readonly)
 sidebar:
   order: 13
-  label: 13. Propriedades Readonly
+  label: 13. Propriedades Somente Leitura (Readonly)
 ---
 
 
-É possível marcar uma propriedade como readonly para o TypeScript, isso não altera nenhum comportamento em tempo de execução, mas uma propriedade marcada como readonly não pode ser escrita durante a verificação de tipo.
+É possível impedir a escrita em uma propriedade usando o modificador `readonly`, que garante que a propriedade não possa ser reescrita, mas não fornece nenhuma garantia de imutabilidade total:
 
-<!-- skip -->
 ```typescript
+interface Y {
+    readonly a: number;
+}
+
 type X = {
-    readonly a: string;
+    readonly a: number;
 };
 
-const x: X = { a: 'a' };
-x.a = 'b'; // Inválido
-```
+type J = Readonly<{
+    a: number;
+}>;
 
-Também é possível usar um "Mapping Modifier" para remover atributos readonly.
+type K = {
+    readonly [index: number]: string;
+};
+```
 
