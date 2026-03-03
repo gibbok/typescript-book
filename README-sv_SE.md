@@ -267,6 +267,8 @@ Du kan nå Simone Poggiali på följande plattformar:
 * X.com: [https://x.com/gibbok_coding](https://x.com/gibbok_coding)
 * E-post: gibbok.coding📧gmail.com
 
+Fullständig lista över bidragsgivare: [https://github.com/gibbok/typescript-book/graphs/contributors](https://github.com/gibbok/typescript-book/graphs/contributors).
+
 ## Introduktion till TypeScript
 
 ### Vad är TypeScript?
