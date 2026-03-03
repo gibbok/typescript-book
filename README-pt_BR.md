@@ -266,6 +266,8 @@ Você pode encontrar Simone Poggiali nas seguintes plataformas:
 * X.com: [https://x.com/gibbok_coding](https://x.com/gibbok_coding)
 * Email: gibbok.coding📧gmail.com
 
+Lista completa de colaboradores: [https://github.com/gibbok/typescript-book/graphs/contributors](https://github.com/gibbok/typescript-book/graphs/contributors)
+
 ## Introdução ao TypeScript
 
 ### O que é TypeScript?

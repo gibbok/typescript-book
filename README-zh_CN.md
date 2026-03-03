@@ -266,6 +266,8 @@ Simone Poggiali 是一位经验丰富的资深工程师，自 90 年代以来便
 * X.com: [https://x.com/gibbok_coding](https://x.com/gibbok_coding)
 * 电子邮箱: gibbok.coding📧gmail.com
 
+完整的贡献者名单：[https://github.com/gibbok/typescript-book/graphs/contributors](https://github.com/gibbok/typescript-book/graphs/contributors)
+
 ## TypeScript简介
 
 ### 什么是TypeScript？
