@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-O TypeScript suporta 7 tipos primitivos. Um tipo de dado primitivo refere-se a um tipo que não é um objeto e não possui métodos associados a ele. No TypeScript, todos os tipos primitivos são imutáveis, o que significa que seus valores não podem ser alterados uma vez atribuídos.
+O TypeScript suporta 7 tipos primitivos. Um tipo de dado primitivo refere-se a um tipo que não é um objeto e não tem métodos associados a ele. No TypeScript, todos os tipos primitivos são imutáveis, o que significa que seus valores não podem ser alterados uma vez atribuídos.
 
 ### string
 
@@ -17,7 +17,7 @@ const x: string = 'x';
 const y: string = 'y';
 ```
 
-Strings podem abranger múltiplas linhas se cercadas pelo caractere de crase (\`):
+Strings podem abranger várias linhas se cercadas pelo caractere de crase (\`):
 
 ```typescript
 let sentence: string = `xxx,
@@ -58,11 +58,11 @@ const y: bigint = 9007199254740991n;
 Notas:
 
 * Valores `bigInt` não podem ser misturados com `number` e não podem ser usados com `Math` integrado, eles devem ser coagidos para o mesmo tipo.
-* Valores `bigInt` estão disponíveis apenas se a configuração target for ES2020 ou superior.
+* Valores `bigInt` estão disponíveis apenas se a configuração de destino for ES2020 ou superior.
 
 ### Symbol
 
-Símbolos são identificadores únicos que podem ser usados como chaves de propriedade em objetos para evitar conflitos de nomenclatura.
+Symbols são identificadores únicos que podem ser usados como chaves de propriedade em objetos para evitar conflitos de nomeação.
 
 ```typescript
 type Obj = {
@@ -81,15 +81,15 @@ console.log(obj[b]); // 456
 
 ### null e undefined
 
-Os tipos `null` e `undefined` representam nenhum valor ou a ausência de qualquer valor.
+Os tipos `null` e `undefined` ambos representam nenhum valor ou a ausência de qualquer valor.
 
-O tipo `undefined` significa que o valor não está atribuído ou inicializado ou indica uma ausência não intencional de valor.
+O tipo `undefined` significa que o valor não é atribuído ou inicializado ou indica uma ausência não intencional de valor.
 
-O tipo `null` significa que sabemos que o campo não possui um valor, então o valor está indisponível, indica uma ausência intencional de valor.
+O tipo `null` significa que sabemos que o campo não tem um valor, portanto o valor está indisponível, indica uma ausência intencional de valor.
 
 ### Array
 
-Um `array` é um tipo de dado que pode armazenar múltiplos valores do mesmo tipo ou não. Ele pode ser definido usando a seguinte sintaxe:
+Um `array` é um tipo de dado que pode armazenar múltiplos valores do mesmo tipo ou não. Pode ser definido usando a seguinte sintaxe:
 
 ```typescript
 const x: string[] = ['a', 'b'];
@@ -97,7 +97,7 @@ const y: Array<string> = ['a', 'b'];
 const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
 ```
 
-O TypeScript suporta arrays somente leitura usando a seguinte sintaxe:
+O TypeScript suporta arrays readonly usando a seguinte sintaxe:
 
 <!-- skip -->
 ```typescript
@@ -107,7 +107,7 @@ const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
 j.push('x'); // Inválido
 ```
 
-O TypeScript suporta tupla e tupla somente leitura:
+O TypeScript suporta tuple e readonly tuple:
 
 ```typescript
 const x: [string, number] = ['a', 1];
@@ -118,11 +118,11 @@ const y: readonly [string, number] = ['a', 1];
 
 O tipo de dado `any` representa literalmente "qualquer" valor, é o valor padrão quando o TypeScript não pode inferir o tipo ou não é especificado.
 
-Ao usar `any`, o compilador TypeScript pula a verificação de tipos, então não há segurança de tipos quando `any` está sendo usado. Geralmente não use `any` para silenciar o compilador quando ocorre um erro, em vez disso, concentre-se em corrigir o erro, pois com o uso de `any` é possível quebrar contratos e perdemos os benefícios do autocomplete do TypeScript.
+Ao usar `any`, o compilador TypeScript pula a verificação de tipo, então não há segurança de tipo quando `any` está sendo usado. Geralmente não use `any` para silenciar o compilador quando um erro ocorre, em vez disso foque em corrigir o erro, pois com o uso de `any` é possível quebrar contratos e perdemos os benefícios do autocomplete do TypeScript.
 
 O tipo `any` pode ser útil durante uma migração gradual de JavaScript para TypeScript, pois pode silenciar o compilador.
 
-Para novos projetos, use a configuração TypeScript `noImplicitAny` que habilita o TypeScript a emitir erros onde `any` é usado ou inferido.
+Para novos projetos use a configuração TypeScript `noImplicitAny` que habilita o TypeScript a emitir erros onde `any` é usado ou inferido.
 
-O tipo `any` geralmente é uma fonte de erros que pode mascarar problemas reais com seus tipos. Evite usá-lo o máximo possível.
+O tipo `any` é geralmente uma fonte de erros que pode mascarar problemas reais com seus tipos. Evite usá-lo o máximo possível.
 

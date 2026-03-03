@@ -67,14 +67,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 TypeScripts typsystem är till stor del influerat av körtidsbeteendet hos JavaScript. Till exempel kan additionsoperatorn (+), som i JavaScript kan utföra antingen strängkonkatenering eller numerisk addition, modelleras på samma sätt i TypeScript:
 
 ```typescript
-const result = '1' + 1; // Resultatet är av typen string
+const result = '1' + 1; // Result is of type string
 ```
 
 Teamet bakom TypeScript har fattat ett medvetet beslut att flagga ovanlig användning av JavaScript som fel. Betrakta till exempel följande giltiga JavaScript-kod:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // I JavaScript är resultatet lika med 2
+const result = 1 + true; // In JavaScript, the result is equal 2
 ```
 
 Dock kastar TypeScript ett fel:
@@ -93,7 +93,7 @@ Här är ett exempel på TypeScript-kod med ett typfel:
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument av typen 'string' är inte tilldelningsbart till parameter av typen 'number'.
+const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
 ```
 
 Trots detta kan den fortfarande producera körbar JavaScript-utdata:
@@ -120,7 +120,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' refererar endast till en typ, men används som ett värde här.
+        // 'Dog' only refers to a type, but is being used as a value here.
         // ...
     }
 };
@@ -130,11 +130,11 @@ Eftersom typerna raderas efter kompilering finns det inget sätt att köra denna
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Taggad union
+    kind: 'dog'; // Tagged union
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Taggad union
+    kind: 'cat'; // Tagged union
     meow: () => void;
 }
 type Animal = Dog | Cat;

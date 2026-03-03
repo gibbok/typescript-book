@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Simone Poggiali é um experiente Staff Engineer com uma paixão por escrever código de nível profissional desde os anos 90. Ao longo de sua carreira internacional, ele contribuiu para numerosos projetos para uma ampla gama de clientes, desde startups até grandes organizações. Empresas notáveis como HelloFresh, Siemens, O2, Leroy Merlin e Snowplow se beneficiaram de sua expertise e dedicação.
+Simone Poggiali é um Staff Engineer experiente com paixão por escrever código de nível profissional desde os anos 90. Ao longo de sua carreira internacional, ele contribuiu para inúmeros projetos para uma ampla gama de clientes, de startups a grandes organizações. Empresas notáveis como HelloFresh, Siemens, O2, Leroy Merlin e Snowplow se beneficiaram de sua expertise e dedicação.
 
 Você pode entrar em contato com Simone Poggiali nas seguintes plataformas:
 

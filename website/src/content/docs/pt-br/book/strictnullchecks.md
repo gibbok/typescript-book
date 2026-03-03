@@ -6,5 +6,13 @@ sidebar:
 ---
 
 
-`strictNullChecks` é uma opção do compilador TypeScript que impõe verificação rigorosa de null. Quando esta opção está habilitada, variáveis e parâmetros só podem receber `null` ou `undefined` se tiverem sido explicitamente declarados como sendo desse tipo usando o tipo union `null` | `undefined`. Se uma variável ou parâmetro não for explicitamente declarado como anulável, o TypeScript gerará um erro para prevenir potenciais erros em tempo de execução.
+Por padrão `null` e `undefined` são atribuíveis a todos os tipos, eles são ignorados pelo checker. É possível usar `--strictNullChecks` para impor que `null` e `undefined` sejam considerados ao fazer a verificação de tipo.
+
+Ao usar a opção `strictNullChecks`, podem surgir erros que poderiam ser silenciados (sem a opção ativa). Ao usar o modo `strictNullChecks`, `null` e `undefined` têm seus próprios tipos chamados `null` e `undefined` respectivamente.
+
+Em casos onde um valor pode ser de um tipo ou nulo/indefinido, você pode usar a união opcional:
+
+```typescript
+type X = string | null | undefined;
+```
 

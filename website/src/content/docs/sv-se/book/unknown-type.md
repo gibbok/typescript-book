@@ -13,10 +13,10 @@ I TypeScript representerar `unknown`-typen ett värde av en okänd typ. Till ski
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Giltig
-let value2: any = value; // Giltig
-let value3: boolean = value; // Ogiltig
-let value4: number = value; // Ogiltig
+let value1: unknown = value; // Valid
+let value2: any = value; // Valid
+let value3: boolean = value; // Invalid
+let value4: number = value; // Invalid
 ```
 
 ```typescript

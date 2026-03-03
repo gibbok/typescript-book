@@ -6,11 +6,12 @@ sidebar:
 ---
 
 
-Um Tipo Union é um tipo que representa um valor que pode ser um de vários tipos. Tipos Union são denotados usando o símbolo `|` entre cada tipo possível.
+Tipos union no TypeScript permitem expressar um valor que pode ser de vários tipos. Um tipo union usa o símbolo de barra vertical (`|`) para separar cada tipo.
 
 ```typescript
-let x: string | number;
-x = 'hello'; // Válido
-x = 123; // Válido
+let value: string | number;
+
+value = 'hello';
+value = 42;
 ```
 

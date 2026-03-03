@@ -6,23 +6,19 @@ sidebar:
 ---
 
 
-No TypeScript, objetos não precisam corresponder a um tipo específico e exato. Por exemplo, se criarmos um objeto que atende aos requisitos de uma interface, podemos utilizar esse objeto em lugares onde essa interface é necessária, mesmo que não haja uma conexão explícita entre eles.
-Exemplo:
+No TypeScript, objetos não precisam corresponder a um tipo específico e exato. Por exemplo, se criarmos um objeto que satisfaz os requisitos de uma interface, podemos utilizar esse objeto em lugares onde essa interface é necessária, mesmo que não houvesse conexão explícita entre eles.
 
 ```typescript
-type NameProp1 = {
-    prop1: string;
-};
-
-function log(x: NameProp1) {
-    console.log(x.prop1);
+interface Point {
+    x: number;
+    y: number;
 }
 
-const obj = {
-    prop2: 123,
-    prop1: 'Origin',
-};
+function printPoint(point: Point) {
+    console.log(`${point.x}, ${point.y}`);
+}
 
-log(obj); // Válido
+const point = { x: 1, y: 2, z: 3 };
+printPoint(point); // Válido, mesmo tendo z extra
 ```
 

@@ -1,64 +1,52 @@
 ---
-title: Manipulação de Tipos
+title: Manipulação de Tipo
 sidebar:
   order: 60
-  label: 60. Manipulação de Tipos
+  label: 60. Manipulação de Tipo
 ---
 
 
 ### Criando Tipos a partir de Tipos
 
-É possível criar novos tipos compondo, manipulando ou transformando tipos existentes.
+TypeScript permite criar novos tipos a partir de tipos existentes usando várias transformações.
 
-Tipos de Interseção (`&`):
-
-Permitem combinar múltiplos tipos em um único tipo:
+#### Tipos de Intersecção
 
 ```typescript
-type A = { foo: number };
-type B = { bar: string };
-type C = A & B; // Interseção de A e B
-const obj: C = { foo: 42, bar: 'hello' };
+type A = { a: string };
+type B = { b: number };
+type C = A & B; // { a: string; b: number; }
 ```
 
-Tipos de União (`|`):
+#### Tipos Union
 
-Permitem definir um tipo que pode ser um de vários tipos:
-
+<!-- skip -->
 ```typescript
-type Result = string | number;
-const value1: Result = 'hello';
-const value2: Result = 42;
+type Status = 'success' | 'error';
+type Response = SuccessResponse | ErrorResponse;
 ```
 
-Tipos Mapeados:
-
-Permitem transformar as propriedades de um tipo existente para criar um novo tipo:
+#### Tipos Mapeados
 
 ```typescript
-type Mutable<T> = {
+type Readonly<T> = {
     readonly [P in keyof T]: T[P];
 };
-type Person = {
-    name: string;
-    age: number;
-};
-type ImmutablePerson = Mutable<Person>; // Propriedades se tornam somente leitura
 ```
 
-Tipos Condicionais:
-
-Permitem criar tipos baseados em algumas condições:
+#### Tipos Condicionais
 
 ```typescript
-type ExtractParam<T> = T extends (param: infer P) => any ? P : never;
-type MyFunction = (name: string) => number;
-type ParamType = ExtractParam<MyFunction>; // string
+type TypeName<T> = T extends string
+    ? 'string'
+    : T extends number
+      ? 'number'
+      : 'other';
 ```
 
 ### Tipos de Acesso Indexado
 
-No TypeScript é possível acessar e manipular os tipos de propriedades dentro de outro tipo usando um índice, `Type[Key]`.
+Tipos de acesso indexado permitem acessar os tipos de propriedades:
 
 ```typescript
 type Person = {
@@ -66,29 +54,26 @@ type Person = {
     age: number;
 };
 
-type AgeType = Person['age']; // number
-```
-
-```typescript
-type MyTuple = [string, number, boolean];
-type MyType = MyTuple[2]; // boolean
+type Name = Person['name']; // string
+type Keys = Person['name' | 'age']; // string | number
 ```
 
 ### Tipos Utilitários
 
-Vários tipos utilitários integrados podem ser usados para manipular tipos. Abaixo, uma lista dos mais comumente usados:
+TypeScript fornece vários tipos utilitários integrados:
 
 #### Awaited\<T\>
 
-Constrói um tipo que desembrulha recursivamente tipos Promise.
+Desempacota recursivamente tipos Promise:
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
+type B = Awaited<Promise<Promise<number>>>; // number
 ```
 
 #### Partial\<T\>
 
-Constrói um tipo com todas as propriedades de T definidas como opcionais.
+Torna todas as propriedades opcionais:
 
 ```typescript
 type Person = {
@@ -96,12 +81,13 @@ type Person = {
     age: number;
 };
 
-type A = Partial<Person>; // { name?: string | undefined; age?: number | undefined; }
+type PartialPerson = Partial<Person>;
+// { name?: string; age?: number; }
 ```
 
 #### Required\<T\>
 
-Constrói um tipo com todas as propriedades de T definidas como obrigatórias.
+Torna todas as propriedades obrigatórias:
 
 ```typescript
 type Person = {
@@ -109,109 +95,104 @@ type Person = {
     age?: number;
 };
 
-type A = Required<Person>; // { name: string; age: number; }
+type RequiredPerson = Required<Person>;
+// { name: string; age: number; }
 ```
 
 #### Readonly\<T\>
 
-Constrói um tipo com todas as propriedades de T definidas como somente leitura.
+Torna todas as propriedades readonly:
 
-<!-- skip -->
 ```typescript
 type Person = {
     name: string;
     age: number;
 };
 
-type A = Readonly<Person>;
-
-const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Inválido
+type ReadonlyPerson = Readonly<Person>;
+// { readonly name: string; readonly age: number; }
 ```
 
 #### Record\<K, T\>
 
-Constrói um tipo com um conjunto de propriedades K do tipo T.
+Constrói um tipo com um conjunto de propriedades K do tipo T:
 
 ```typescript
-type Product = {
-    name: string;
-    price: number;
-};
-
-const products: Record<string, Product> = {
-    apple: { name: 'Apple', price: 0.5 },
-    banana: { name: 'Banana', price: 0.25 },
-};
-
-console.log(products.apple); // { name: 'Apple', price: 0.5 }
+type Roles = 'admin' | 'user' | 'guest';
+type Permissions = Record<Roles, boolean>;
+// { admin: boolean; user: boolean; guest: boolean; }
 ```
 
 #### Pick\<T, K\>
 
-Constrói um tipo selecionando as propriedades especificadas K de T.
+Constrói um tipo escolhendo propriedades específicas K de T:
 
 ```typescript
-type Product = {
+type Person = {
     name: string;
-    price: number;
+    age: number;
+    address: string;
 };
 
-type Price = Pick<Product, 'price'>; // { price: number; }
+type PersonName = Pick<Person, 'name' | 'age'>;
+// { name: string; age: number; }
 ```
 
 #### Omit\<T, K\>
 
-Constrói um tipo omitindo as propriedades especificadas K de T.
+Constrói um tipo omitindo propriedades específicas K de T:
 
 ```typescript
-type Product = {
+type Person = {
     name: string;
-    price: number;
+    age: number;
+    address: string;
 };
 
-type Name = Omit<Product, 'price'>; // { name: string; }
+type PersonWithoutAddress = Omit<Person, 'address'>;
+// { name: string; age: number; }
 ```
 
 #### Exclude\<T, U\>
 
-Constrói um tipo excluindo todos os valores do tipo U de T.
+Exclui de T tipos que são atribuíveis a U:
 
 ```typescript
-type Union = 'a' | 'b' | 'c';
-type MyType = Exclude<Union, 'a' | 'c'>; // b
+type A = Exclude<'a' | 'b' | 'c', 'a'>; // 'b' | 'c'
 ```
 
 #### Extract\<T, U\>
 
-Constrói um tipo extraindo todos os valores do tipo U de T.
+Extrai de T tipos que são atribuíveis a U:
 
 ```typescript
-type Union = 'a' | 'b' | 'c';
-type MyType = Extract<Union, 'a' | 'c'>; // a | c
+type A = Extract<'a' | 'b' | 'c', 'a' | 'f'>; // 'a'
 ```
 
 #### NonNullable\<T\>
 
-Constrói um tipo excluindo null e undefined de T.
+Exclui null e undefined de T:
 
 ```typescript
-type Union = 'a' | null | undefined | 'b';
-type MyType = NonNullable<Union>; // 'a' | 'b'
+type A = NonNullable<string | null | undefined>; // string
 ```
 
 #### Parameters\<T\>
 
-Extrai os tipos de parâmetros de um tipo de função T.
+Extrai os tipos de parâmetro de uma função:
 
 ```typescript
-type Func = (a: string, b: number) => void;
-type MyType = Parameters<Func>; // [a: string, b: number]
+function greet(name: string, age: number) {
+    console.log(`Hello ${name}, you are ${age}`);
+}
+
+type GreetParams = Parameters<typeof greet>;
+// [name: string, age: number]
 ```
 
 #### ConstructorParameters\<T\>
 
-Extrai os tipos de parâmetros de um tipo de função construtora T.
+Extrai os tipos de parâmetro de um construtor:
 
 ```typescript
 class Person {
@@ -220,141 +201,121 @@ class Person {
         public age: number
     ) {}
 }
-type PersonConstructorParams = ConstructorParameters<typeof Person>; // [name: string, age: number]
-const params: PersonConstructorParams = ['John', 30];
-const person = new Person(...params);
-console.log(person); // Person { name: 'John', age: 30 }
+
+type PersonParams = ConstructorParameters<typeof Person>;
+// [name: string, age: number]
 ```
 
 #### ReturnType\<T\>
 
-Extrai o tipo de retorno de um tipo de função T.
+Extrai o tipo de retorno de uma função:
 
 ```typescript
-type Func = (name: string) => number;
-type MyType = ReturnType<Func>; // number
+function getValue() {
+    return { value: 42 };
+}
+
+type Value = ReturnType<typeof getValue>;
+// { value: number }
 ```
 
 #### InstanceType\<T\>
 
-Extrai o tipo de instância de um tipo de classe T.
+Extrai o tipo de instância de uma classe:
 
 ```typescript
 class Person {
     name: string;
-
     constructor(name: string) {
         this.name = name;
-    }
-
-    sayHello() {
-        console.log(`Hello, my name is ${this.name}!`);
     }
 }
 
 type PersonInstance = InstanceType<typeof Person>;
-
-const person: PersonInstance = new Person('John');
-
-person.sayHello(); // Hello, my name is John!
+// Person
 ```
 
 #### ThisParameterType\<T\>
 
-Extrai o tipo do parâmetro 'this' de um tipo de função T.
+Extrai o tipo do parâmetro 'this' de uma função:
 
 ```typescript
-interface Person {
-    name: string;
-    greet(this: Person): void;
+function toHex(this: Number) {
+    return this.toString(16);
 }
-type PersonThisType = ThisParameterType<Person['greet']>; // Person
+
+type ThisType = ThisParameterType<typeof toHex>; // Number
 ```
 
 #### OmitThisParameter\<T\>
 
-Remove o parâmetro 'this' de um tipo de função T.
+Remove o parâmetro 'this' de uma função:
 
 ```typescript
-function capitalize(this: String) {
-    return this[0].toUpperCase() + this.substring(1).toLowerCase();
+function toHex(this: Number) {
+    return this.toString(16);
 }
 
-type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
+type NoThisType = OmitThisParameter<typeof toHex>; // () => string
 ```
 
 #### ThisType\<T\>
 
-Serve como um marcador para um tipo `this` contextual.
+Serve como um marcador para um tipo 'this' contextual:
 
-<!-- skip -->
 ```typescript
-type Logger = {
-    log: (error: string) => void;
-};
-
-let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
-    hello: function () {
-        this.log('some error'); // Válido pois "log" é parte de "this".
-        this.update(); // Inválido
-    },
+type ObjectDescriptor<D, M> = {
+    data?: D;
+    methods?: M & ThisType<D & M>;
 };
 ```
 
 #### Uppercase\<T\>
 
-Transforma em maiúsculas o nome do tipo de entrada T.
+Converte string literal types para maiúsculas:
 
 ```typescript
-type MyType = Uppercase<'abc'>; // "ABC"
+type Greeting = 'hello';
+type LoudGreeting = Uppercase<Greeting>; // 'HELLO'
 ```
 
 #### Lowercase\<T\>
 
-Transforma em minúsculas o nome do tipo de entrada T.
+Converte string literal types para minúsculas:
 
 ```typescript
-type MyType = Lowercase<'ABC'>; // "abc"
+type Greeting = 'HELLO';
+type QuietGreeting = Lowercase<Greeting>; // 'hello'
 ```
 
 #### Capitalize\<T\>
 
-Capitaliza o nome do tipo de entrada T.
+Capitaliza a primeira letra de string literal types:
 
 ```typescript
-type MyType = Capitalize<'abc'>; // "Abc"
+type Greeting = 'hello';
+type CapitalizedGreeting = Capitalize<Greeting>; // 'Hello'
 ```
 
 #### Uncapitalize\<T\>
 
-Remove a capitalização do nome do tipo de entrada T.
+Descapitaliza a primeira letra de string literal types:
 
 ```typescript
-type MyType = Uncapitalize<'Abc'>; // "abc"
+type Greeting = 'Hello';
+type UncapitalizedGreeting = Uncapitalize<Greeting>; // 'hello'
 ```
 
 #### NoInfer\<T\>
 
-NoInfer é um tipo utilitário projetado para bloquear a inferência automática de tipos dentro do escopo de uma função genérica.
-
-Exemplo:
+Bloqueia a inferência de tipos dentro do escopo de uma função genérica:
 
 ```typescript
-// Inferência automática de tipos dentro do escopo de uma função genérica.
-function fn<T extends string>(x: T[], y: T) {
-    return x.concat(y);
-}
-const r = fn(['a', 'b'], 'c'); // O tipo aqui é ("a" | "b" | "c")[]
-```
-
-Com NoInfer:
-
-<!-- skip -->
-```typescript
-// Exemplo de função que usa NoInfer para prevenir inferência de tipos
-function fn2<T extends string>(x: T[], y: NoInfer<T>) {
-    return x.concat(y);
+function createArray<T>(items: T[], item: NoInfer<T>): T[] {
+    return [...items, item];
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Erro: Argumento do tipo '"c"' não é atribuível ao parâmetro do tipo '"a" | "b"'.
+const arr = createArray(['a', 'b'], 'c'); // OK
+// const arr = createArray(['a', 'b'], 42); // Erro
 ```
+

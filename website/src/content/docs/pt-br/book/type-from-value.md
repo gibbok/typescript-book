@@ -1,14 +1,15 @@
 ---
-title: Tipo de Valor
+title: Tipo a partir de Valor
 sidebar:
   order: 34
-  label: 34. Tipo de Valor
+  label: 34. Tipo a partir de Valor
 ---
 
 
-Tipo de Valor no TypeScript refere-se à inferência automática de um tipo a partir de um valor ou expressão através da inferência de tipo.
+Em TypeScript, `typeof` pode ser usado para capturar o tipo de um valor:
 
 ```typescript
-const x = 'x'; // TypeScript infere 'x' como um literal string com 'const' (imutável), mas o amplia para 'string' com 'let' (reatribuível).
+const config = { url: 'https://example.com', port: 8080 };
+type Config = typeof config; // { url: string; port: number; }
 ```
 

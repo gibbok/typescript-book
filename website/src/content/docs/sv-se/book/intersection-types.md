@@ -17,7 +17,7 @@ type Y = {
     b: string;
 };
 
-type J = X & Y; // Skärning
+type J = X & Y; // Intersection
 
 const j: J = {
     a: 'a',

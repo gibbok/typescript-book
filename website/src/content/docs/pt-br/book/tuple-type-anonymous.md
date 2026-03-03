@@ -1,14 +1,15 @@
 ---
-title: Tipo Tupla (Anônima)
+title: Tipo Tuple (Anônimo)
 sidebar:
   order: 28
-  label: 28. Tipo Tupla (Anônima)
+  label: 28. Tipo Tuple (Anônimo)
 ---
 
 
-Um Tipo Tupla é um tipo que representa um array com um número fixo de elementos e seus tipos correspondentes. Um tipo tupla impõe um número específico de elementos e seus respectivos tipos em uma ordem fixa. Tipos de tupla são úteis quando você deseja representar uma coleção de valores com tipos específicos, onde a posição de cada elemento no array tem um significado específico.
+Tipos Tuple permitem criar arrays onde os tipos de um número fixo de elementos são conhecidos. Tuples são estruturas de dados que têm um comprimento fixo e podem conter elementos de tipos diferentes.
 
 ```typescript
-type Point = [number, number];
+let tuple: [string, number, boolean];
+tuple = ['hello', 42, true];
 ```
 

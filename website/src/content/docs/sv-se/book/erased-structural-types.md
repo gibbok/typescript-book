@@ -23,6 +23,6 @@ const obj = {
     prop1: 'Origin',
 };
 
-log(obj); // Giltig
+log(obj); // Valid
 ```
 

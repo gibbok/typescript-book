@@ -75,13 +75,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Union- och Intersection-typer
 
 ```typescript
-type MyType = string | number; // Unionstyp
+type MyType = string | number; // Union type
 let myUnion: MyType = 'hello'; // Can be a string
 myUnion = 123; // Or a number
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersektionstyp
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name och age properties
+type CombinedType = TypeA & TypeB; // Intersection type
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
 ```
 

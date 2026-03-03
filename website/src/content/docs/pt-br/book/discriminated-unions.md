@@ -6,34 +6,22 @@ sidebar:
 ---
 
 
-Uniões Discriminadas no TypeScript são um tipo de tipo union que usa uma propriedade comum, conhecida como discriminante, para estreitar o conjunto de tipos possíveis para a união.
+Uniões discriminadas em TypeScript são um tipo de tipo union onde cada tipo tem uma propriedade comum, chamada "discriminant", que o TypeScript pode usar para estreitar o tipo da união.
+
+Exemplo:
 
 ```typescript
-type Square = {
-    kind: 'square'; // Discriminante
-    size: number;
-};
+type Dog = { type: 'dog'; bark: () => void };
+type Cat = { type: 'cat'; meow: () => void };
 
-type Circle = {
-    kind: 'circle'; // Discriminante
-    radius: number;
-};
-
-type Shape = Square | Circle;
-
-const area = (shape: Shape) => {
-    switch (shape.kind) {
-        case 'square':
-            return Math.pow(shape.size, 2);
-        case 'circle':
-            return Math.PI * Math.pow(shape.radius, 2);
+const makeSound = (pet: Dog | Cat) => {
+    if (pet.type === 'dog') {
+        // TypeScript sabe que pet é Dog aqui
+        pet.bark();
+    } else {
+        // TypeScript sabe que pet é Cat aqui
+        pet.meow();
     }
 };
-
-const square: Square = { kind: 'square', size: 5 };
-const circle: Circle = { kind: 'circle', radius: 2 };
-
-console.log(area(square)); // 25
-console.log(area(circle)); // 12.566370614359172
 ```
 

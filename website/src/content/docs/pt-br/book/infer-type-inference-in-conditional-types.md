@@ -6,11 +6,11 @@ sidebar:
 ---
 
 
-A palavra-chave `infer` é usada em tipos condicionais para inferir (extrair) o tipo de um parâmetro genérico de um tipo que depende dele. Isso permite que você escreva definições de tipo mais flexíveis e reutilizáveis.
+A palavra-chave `infer` em tipos condicionais fornece uma maneira de inferir e capturar tipos dentro da cláusula condicional.
 
 ```typescript
 type ElementType<T> = T extends (infer U)[] ? U : never;
-type Numbers = ElementType<number[]>; // number
-type Strings = ElementType<string[]>; // string
+
+type A = ElementType<number[]>; // number
 ```
 
