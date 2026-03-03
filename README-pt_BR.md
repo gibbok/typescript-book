@@ -2440,7 +2440,7 @@ type NumberOrBool = number | boolean;
 type NullableNumberOrBool = Nullable<NumberOrBool>; // number | boolean | null
 ```
 
-## infer: Inferência de Tipo em Tipos Condicionais
+## infer Inferência de Tipo em Tipos Condicionais
 
 A palavra-chave `infer` é usada em tipos condicionais para inferir (extrair) o tipo de um parâmetro genérico de um tipo que depende dele. Isso permite escrever definições de tipo mais flexíveis e reutilizáveis.
 
