@@ -80,6 +80,11 @@ const result = 1 + true; // In JavaScript, the result is equal 2
 No entanto, o TypeScript lança um erro:
 
 ```text
+Operator '+' cannot be applied to types 'number' and 'boolean'.
+```
+
+Este erro ocorre porque o TypeScript impõe estritamente a compatibilidade de tipos e, neste caso, identifica uma operação inválida entre um número e um booleano.
+
 ### Geração de Código TypeScript
 
 O compilador TypeScript tem duas responsabilidades principais: verificar se há erros de tipo e compilar para JavaScript. Esses dois processos são independentes um do outro. Os tipos não afetam a execução do código em um ambiente de execução JavaScript, pois são completamente apagados durante a compilação. O TypeScript ainda pode gerar JavaScript mesmo na presença de erros de tipo.

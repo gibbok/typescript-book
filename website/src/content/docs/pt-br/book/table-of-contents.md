@@ -127,7 +127,7 @@ sidebar:
   - Sobrecargas
   - Mesclagem e Extensão
   - Diferenças entre Type e Interface
-  - Classe
+    - Classe
     - Sintaxe Comum de Classe
     - Construtor
     - Construtores Privados e Protegidos

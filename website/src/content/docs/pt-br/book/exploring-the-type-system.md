@@ -141,7 +141,6 @@ function x(a: string, b?: number): void {
 x('a'); // Válido
 x('a', 1); // Válido
 ```
-```
 
 ```typescript
 function y(a: string): void; // Inválido, não compatível com a assinatura de implementação

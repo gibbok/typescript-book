@@ -83,7 +83,7 @@ Uma versão online está disponível em:
     - [Alargamento de Tipo (Type Widening)](#alargamento-de-tipo-type-widening)
     - [Const](#const)
       - [Modificador Const em Parâmetros de Tipo](#modificador-const-em-parâmetros-de-tipo)
-      - [Asserção Const](#const-assertion)
+      - [Asserção Const](#asserção-const-const-assertion)
     - [Anotação de Tipo Explícita](#anotação-de-tipo-explícita)
     - [Estreitamento de Tipo (Type Narrowing)](#estreitamento-de-tipo-type-narrowing)
       - [Condições](#condições)
@@ -138,59 +138,59 @@ Uma versão online está disponível em:
   - [Tipo a partir de Módulo](#tipo-a-partir-de-módulo)
   - [Tipos Mapeados](#tipos-mapeados)
   - [Modificadores de Tipos Mapeados](#modificadores-de-tipos-mapeados)
-  - [Tipos Condicionais](#tipos-condicionais)
+  - [Tipos Condicionais](#tipos-condicionais-conditional-types)
   - [Tipos Condicionais Distributivos](#tipos-condicionais-distributivos)
-  - [Inferência de tipo infer em Tipos Condicionais](#inferência-de-tipo-infer-em-tipos-condicionais)
+  - [Inferência de tipo infer em Tipos Condicionais](#infer-inferência-de-tipo-em-tipos-condicionais)
   - [Tipos Condicionais Predefinidos](#tipos-condicionais-predefinidos)
-  - [Tipos de União de Template](#tipos-de-união-de-template)
+  - [Tipos de União de Template](#tipos-de-união-de-template-template-union-types)
   - [Tipo Any](#tipo-any)
   - [Tipo Unknown](#tipo-unknown)
   - [Tipo Void](#tipo-void)
   - [Tipo Never](#tipo-never)
-  - [Interface e Tipo](#interface-e-tipo)
+  - [Interface e Tipo](#interface-e-type)
     - [Sintaxe Comum](#sintaxe-comum)
     - [Tipos Básicos](#tipos-básicos)
     - [Objetos e Interfaces](#objetos-e-interfaces)
     - [Tipos União e Interseção](#tipos-união-e-interseção)
-  - [Primitivos de Tipo Integrados](#primitivos-de-tipo-integrados)
+  - [Primitivos de Tipo Integrados](#tipos-primitivos-integrados)
   - [Objetos JS Integrados Comuns](#objetos-js-integrados-comuns)
-  - [Sobrecargas](#sobrecargas)
+  - [Sobrecargas](#sobrecargas-overloads)
   - [Mesclagem e Extensão](#mesclagem-e-extensão)
   - [Diferenças entre Type e Interface](#diferenças-entre-type-e-interface)
-  - [Classe](#classe)
-    - [Sintaxe Comum de Classe](#sintaxe-comum-de-classe)
+    - [Classe](#classes)
+    - [Sintaxe Comum de Classe](#sintaxe-comum-de-classes)
     - [Construtor](#construtor)
     - [Construtores Privados e Protegidos](#construtores-privados-e-protegidos)
     - [Modificadores de Acesso](#modificadores-de-acesso)
     - [Get e Set](#get-e-set)
-    - [Auto-Accessors em Classes](#auto-accessors-em-classes)
+    - [Auto-Accessors em Classes](#auto-acessores-em-classes)
     - [this](#this)
     - [Propriedades de Parâmetro](#propriedades-de-parâmetro)
     - [Classes Abstratas](#classes-abstratas)
     - [Com Genéricos](#com-genéricos)
-    - [Decoradores](#decoradores)
-      - [Decoradores de Classe](#decoradores-de-classe)
-      - [Decorador de Propriedade](#decorador-de-propriedade)
-      - [Decorador de Método](#decorador-de-método)
+    - [Decoradores](#decoradores-decorators)
+      - [Decoradores de Classe](#decoradores-de-classe-class-decorators)
+      - [Decorador de Propriedade](#decorador- de-propriedade-property-decorator)
+      - [Decorador de Método](#decorador-de-método-method-decorator)
       - [Decoradores de Getter e Setter](#decoradores-de-getter-e-setter)
-      - [Metadados de Decorador](#metadados-de-decorador)
+      - [Metadados de Decorador](#metadados-de-decorador-decorator-metadata)
     - [Herança](#herança)
-    - [Estáticos](#estáticos)
+    - [Estáticos](#estáticos-statics)
     - [Inicialização de propriedade](#inicialização-de-propriedade)
     - [Sobrecarga de método](#sobrecarga-de-método)
-  - [Genéricos](#genéricos)
+  - [Genéricos](#genéricos-generics)
     - [Tipo Genérico](#tipo-genérico)
     - [Classes Genéricas](#classes-genéricas)
-    - [Restrições Genéricas](#restrições-genéricas)
+    - [Restrições Genéricas](#restrições-genéricas-generic-constraints)
     - [Estreitamento contextual genérico](#estreitamento-contextual-genérico)
-  - [Tipos Estruturais Apagados (Erased Structural Types)](#tipos-estruturais-apagados-erased-structural-types)
+  - [Tipos Estruturais Apagados (Erased Structural Types)](#tipos-estruturais-apagados)
   - [Namespacing](#namespacing)
-  - [Símbolos](#símbolos)
-  - [Diretivas de Barra Tripla](#diretivas-de-barra-tripla)
+  - [Símbolos](#símbolos-symbols)
+  - [Diretivas de Barra Tripla](#diretivas-triple-slash)
   - [Manipulação de Tipos](#manipulação-de-tipos)
     - [Criando Tipos a partir de Tipos](#criando-tipos-a-partir-de-tipos)
-    - [Tipos de Acesso Indexado](#tipos-de-acesso-indexado)
-    - [Tipos Utilitários](#tipos-utilitários)
+    - [Tipos de Acesso Indexado](#tipos-de-acesso-indexado-indexed-access-types)
+    - [Tipos Utilitários](#tipos-utilitários-utility-types)
       - [Awaited\<T\>](#awaitedt)
       - [Partial\<T\>](#partialt)
       - [Required\<T\>](#requiredt)
@@ -214,8 +214,8 @@ Uma versão online está disponível em:
       - [Uncapitalize\<T\>](#uncapitalizet)
       - [NoInfer\<T\>](#noinfert)
   - [Outros](#outros)
-    - [Tratamento de Erros e Exceções](#tratamento-de-erros-e-exceções)
-    - [Classes Mixin](#classes-mixin)
+    - [Tratamento de Erros e Exceções](#erros-e-tratamento-de-exceções)
+    - [Classes Mixin](#classes-mixin-mixin-classes)
     - [Recursos de Linguagem Assíncronos](#recursos-de-linguagem-assíncronos)
     - [Iteradores e Geradores](#iteradores-e-geradores)
     - [Referência JSDoc TsDocs](#referência-jsdoc-tsdocs)
@@ -227,26 +227,26 @@ Uma versão online está disponível em:
     - [Nova meta-propriedade target](#nova-meta-propriedade-target)
     - [Expressões de Importação Dinâmica](#expressões-de-importação-dinâmica)
     - ["tsc –watch"](#tsc-watch)
-    - [Operador de Asserção Não-nula](#operador-de-asserção-não-nula)
-    - [Declarações padronizadas](#declarações-padronizadas)
+    - [Operador de Asserção Não-nula](#operador-de-asserção-não-nulo-non-null-assertion-operator)
+    - [Declarações padronizadas](#declarações-com-valor-padrão-defaulted-declarations)
     - [Encadeamento Opcional (Optional Chaining)](#encadeamento-opcional-optional-chaining)
-    - [Operador de coalescência nula](#operador-de-coalescência-nula)
-    - [Tipos de Literais de Template](#tipos-de-literais-de-template)
-    - [Sobrecarga de função](#sobrecarga-de-função)
+    - [Operador de coalescência nula](#operador-de-coalescência-nula-nullish-coalescing-operator)
+    - [Tipos de Literais de Template](#tipos-de-literal-de-template-template-literal-types)
+    - [Sobrecarga de função](#sobrecarga-de-função-function-overloading)
     - [Tipos Recursivos](#tipos-recursivos)
     - [Tipos Condicionais Recursivos](#tipos-condicionais-recursivos)
-    - [Suporte a Módulo ECMAScript no Node](#suporte-a-módulo-ecmascript-no-node)
-    - [Funções de Asserção](#funções-de-asserção)
-    - [Tipos de Tupla Variádicos](#tipos-de-tupla-variádicos)
-    - [Tipos Boxed](#tipos-boxed)
+    - [Suporte a Módulo ECMAScript no Node](#suporte-a-módulos-ecmascript-no-node)
+    - [Funções de Asserção](#funções-de-asserção-assertion-functions)
+    - [Tipos de Tupla Variádicos](#tipos-de-tupla-variádicos-variadic-tuple-types)
+    - [Tipos Boxed](#tipos-boxed-boxed-types)
     - [Covariância e Contravariância no TypeScript](#covariância-e-contravariância-no-typescript)
       - [Anotações de Variância Opcionais para Parâmetros de Tipo](#anotações-de-variância-opcionais-para-parâmetros-de-tipo)
-    - [Assinaturas de Índice de Padrão de String de Template](#assinaturas-de-índice-de-padrão-de-string-de-template)
+    - [Assinaturas de Índice de Padrão de String de Template](#assinaturas-de-índice-de-padrão-de-string-de-template-template-string-pattern-index-signatures)
     - [O Operador satisfies](#o-operador-satisfies)
-    - [Importações e Exportações Apenas de Tipo](#importações-e-exportações-apenas-de-tipo)
-    - [Declaração using e Gerenciamento Explícito de Recursos](#declaração-using-e-gerenciamento-explícito-de-recursos)
+    - [Importações e Exportações Apenas de Tipo](#importações-e-exportações-apenas-de-tipo-type-only-imports-and-export)
+    - [Declaração using e Gerenciamento Explícito de Recursos](#declaração-using-e-gerenciamento-explícito-de-recursos-explicit-resource-management)
       - [Declaração await using](#declaração-await-using)
-    - [Atributos de Importação](#atributos-de-importação)
+    - [Atributos de Importação](#atributos-de-importação-import-attributes)
 <!-- markdownlint-enable MD004 -->
 
 ## Introdução
@@ -344,6 +344,11 @@ const result = 1 + true; // In JavaScript, the result is equal 2
 No entanto, o TypeScript lança um erro:
 
 ```text
+Operator '+' cannot be applied to types 'number' and 'boolean'.
+```
+
+Este erro ocorre porque o TypeScript impõe estritamente a compatibilidade de tipos e, neste caso, identifica uma operação inválida entre um número e um booleano.
+
 ### Geração de Código TypeScript
 
 O compilador TypeScript tem duas responsabilidades principais: verificar se há erros de tipo e compilar para JavaScript. Esses dois processos são independentes um do outro. Os tipos não afetam a execução do código em um ambiente de execução JavaScript, pois são completamente apagados durante a compilação. O TypeScript ainda pode gerar JavaScript mesmo na presença de erros de tipo.
@@ -795,7 +800,6 @@ function x(a: string, b?: number): void {
 }
 x('a'); // Válido
 x('a', 1); // Válido
-```
 ```
 
 ```typescript
@@ -3708,7 +3712,7 @@ Em WeakMaps e WeakSets, símbolos agora são permitidos como chaves.
 
 ## Diretivas Triple-Slash
 
-As diretivas triple-slash são comentários especiais que fornecem instruções ao compilador sobre como processar um arquivo. Essas diretivas começam com <SAME> consecutivas (`///`) e são normalmente colocadas no topo de um arquivo TypeScript e não têm efeitos no comportamento em tempo de execução.
+As diretivas triple-slash são comentários especiais que fornecem instruções ao compilador sobre como processar um arquivo. Essas diretivas começam com três barras consecutivas (`///`) e são normalmente colocadas no topo de um arquivo TypeScript e não têm efeitos no comportamento em tempo de execução.
 
 As diretivas triple-slash são usadas para referenciar dependências externas, especificar o comportamento de carregamento de módulos, habilitar/desabilitar certos recursos do compilador e muito mais. Alguns exemplos:
 
