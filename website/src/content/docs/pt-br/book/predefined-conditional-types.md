@@ -6,21 +6,18 @@ sidebar:
 ---
 
 
-No TypeScript, Tipos Condicionais Predefinidos são tipos condicionais integrados fornecidos pela linguagem. Eles são projetados para realizar transformações de tipo comuns com base nas características de um determinado tipo.
+TypeScript fornece vários tipos condicionais predefinidos que são úteis para transformações de tipo comuns:
 
-`Exclude<UnionType, ExcludedType>`: Este tipo remove todos os tipos de Type que são atribuíveis a ExcludedType.
+* `Exclude<T, U>`: Exclui de T tipos que são atribuíveis a U.
+* `Extract<T, U>`: Extrai de T tipos que são atribuíveis a U.
+* `NonNullable<T>`: Exclui null e undefined de T.
+* `ReturnType<T>`: Obtém o tipo de retorno de uma função.
+* `Parameters<T>`: Obtém os tipos de parâmetro de uma função.
+* E mais...
 
-`Extract<Type, Union>`: Este tipo extrai todos os tipos de Union que são atribuíveis a Type.
-
-`NonNullable<Type>`: Este tipo remove null e undefined de Type.
-
-`ReturnType<Type>`: Este tipo extrai o tipo de retorno de uma função Type.
-
-`Parameters<Type>`: Este tipo extrai os tipos de parâmetro de uma função Type.
-
-`Required<Type>`: Este tipo torna todas as propriedades em Type obrigatórias.
-
-`Partial<Type>`: Este tipo torna todas as propriedades em Type opcionais.
-
-`Readonly<Type>`: Este tipo torna todas as propriedades em Type somente leitura.
+```typescript
+type A = Exclude<string | number | boolean, boolean>; // string | number
+type B = Extract<string | number | boolean, boolean>; // boolean
+type C = NonNullable<string | null | undefined>; // string
+```
 

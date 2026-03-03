@@ -6,23 +6,17 @@ sidebar:
 ---
 
 
-É possível prevenir a escrita em uma propriedade usando o modificador `readonly` que garante que a propriedade não pode ser reescrita, mas não fornece nenhuma garantia de imutabilidade total:
+É possível marcar uma propriedade como readonly para o TypeScript, isso não altera nenhum comportamento em tempo de execução, mas uma propriedade marcada como readonly não pode ser escrita durante a verificação de tipo.
 
+<!-- skip -->
 ```typescript
-interface Y {
-    readonly a: number;
-}
-
 type X = {
-    readonly a: number;
+    readonly a: string;
 };
 
-type J = Readonly<{
-    a: number;
-}>;
-
-type K = {
-    readonly [index: number]: string;
-};
+const x: X = { a: 'a' };
+x.a = 'b'; // Inválido
 ```
+
+Também é possível usar um "Mapping Modifier" para remover atributos readonly.
 

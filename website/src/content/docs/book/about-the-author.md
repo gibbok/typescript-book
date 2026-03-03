@@ -15,3 +15,5 @@ You can reach Simone Poggiali on the following platforms:
 * X.com: [https://x.com/gibbok_coding](https://x.com/gibbok_coding)
 * Email: gibbok.coding📧gmail.com
 
+Full list of contributors: [https://github.com/gibbok/typescript-book/graphs/contributors](https://github.com/gibbok/typescript-book/graphs/contributors).
+

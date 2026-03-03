@@ -6,23 +6,19 @@ sidebar:
 ---
 
 
-Tipos Mapeados no TypeScript permitem que você crie novos tipos baseados em um tipo existente, transformando cada propriedade usando uma função de mapeamento. Ao mapear tipos existentes, você pode criar novos tipos que representam a mesma informação em um formato diferente. Para criar um tipo mapeado, você acessa as propriedades de um tipo existente usando o operador `keyof` e então as altera para produzir um novo tipo.
-No exemplo a seguir:
+Tipos mapeados no TypeScript permitem criar novos tipos baseados em tipos existentes transformando as propriedades. Eles são particularmente úteis quando você deseja criar um novo tipo alterando ou estendendo as propriedades de um tipo existente.
 
 ```typescript
-type MyMappedType<T> = {
-    [P in keyof T]: T[P][];
+type Readonly<T> = {
+    readonly [P in keyof T]: T[P];
 };
-type MyType = {
-    foo: string;
-    bar: number;
-};
-type MyNewType = MyMappedType<MyType>;
-const x: MyNewType = {
-    foo: ['hello', 'world'],
-    bar: [1, 2, 3],
-};
-```
 
-definimos MyMappedType para mapear as propriedades de T, criando um novo tipo com cada propriedade como um array de seu tipo original. Usando isso, criamos MyNewType para representar a mesma informação que MyType, mas com cada propriedade como um array.
+type Person = {
+    name: string;
+    age: number;
+};
+
+type ReadonlyPerson = Readonly<Person>;
+// { readonly name: string; readonly age: number; }
+```
 

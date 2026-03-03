@@ -16,7 +16,7 @@ Genom att använda `any`-typen indikerar du för TypeScript-kompilatorn att vär
 
 ```typescript
 let value: any;
-value = true; // Giltig
-value = 7; // Giltig
+value = true; // Valid
+value = 7; // Valid
 ```
 

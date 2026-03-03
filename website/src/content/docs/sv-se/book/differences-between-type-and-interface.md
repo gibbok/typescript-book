@@ -78,7 +78,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Skärning
+type EmployeeInfo = Person & Employee; // Intersection
 ```
 
 Exempel med interface:
@@ -91,6 +91,6 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union av interface
+type C = A | B; // Union of interfaces
 ```
 

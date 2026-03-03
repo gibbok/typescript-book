@@ -10,12 +10,12 @@ Diskriminerade unioner i TypeScript är en typ av unionstyp som använder en gem
 
 ```typescript
 type Square = {
-    kind: 'square'; // Diskriminant
+    kind: 'square'; // Discriminant
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Diskriminant
+    kind: 'circle'; // Discriminant
     radius: number;
 };
 

@@ -6,12 +6,13 @@ sidebar:
 ---
 
 
-É possível estender uma `interface` (copiar membros de outro tipo):
+É possível estender uma interface (copiar membros de outros tipos nomeados) usando a palavra-chave `extends`:
 
 ```typescript
 interface X {
     a: string;
 }
+
 interface Y extends X {
     b: string;
 }
@@ -23,34 +24,39 @@ Também é possível estender de múltiplos tipos:
 interface A {
     a: string;
 }
+
 interface B {
     b: string;
 }
+
 interface Y extends A, B {
     y: string;
 }
 ```
 
-A palavra-chave `extends` funciona apenas em interfaces e classes, para tipos use uma interseção:
+A palavra-chave `extends` funciona apenas em interfaces e classes, para tipos use uma intersecção:
 
 ```typescript
 type A = {
     a: number;
 };
+
 type B = {
     b: number;
 };
+
 type C = A & B;
 ```
 
-É possível estender um tipo usando uma interface, mas não vice-versa:
+Também é possível estender de uma interface com um tipo (usando intersecções):
 
 ```typescript
-type A = {
+interface A {
     a: string;
-};
-interface B extends A {
-    b: string;
 }
+
+type B = A & {
+    b: number;
+};
 ```
 

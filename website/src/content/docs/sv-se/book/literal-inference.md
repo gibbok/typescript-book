@@ -12,7 +12,7 @@ I följande exempel kan vi se att TypeScript betraktar `x` som en literaltyp eft
 
 ```typescript
 const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, eftersom we can change this value
+let y = 'y'; // Type string, as we can change this value
 ```
 
 I följande exempel kan vi se att `o.x` härleds som en `string` (och inte en literal av `a`) eftersom TypeScript anser att värdet kan ändras när som helst.
@@ -22,7 +22,7 @@ I följande exempel kan vi se att `o.x` härleds som en `string` (och inte en li
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // Detta är en bredare sträng
+    x: 'a', // This is a wider string
 };
 
 const fn = (x: X) => `${x}-foo`;

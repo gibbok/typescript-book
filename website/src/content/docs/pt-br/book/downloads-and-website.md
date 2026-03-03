@@ -1,8 +1,8 @@
 ---
-title: Downloads e Website
+title: Downloads e website
 sidebar:
   order: 3
-  label: 3. Downloads e Website
+  label: 3. Downloads e website
 ---
 
 

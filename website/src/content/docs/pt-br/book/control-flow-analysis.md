@@ -6,53 +6,17 @@ sidebar:
 ---
 
 
-A Análise de Fluxo de Controle no TypeScript é uma maneira de analisar estaticamente o fluxo do código para inferir os tipos de variáveis, permitindo que o compilador estreite os tipos dessas variáveis conforme necessário, com base nos resultados da análise.
+Análise de fluxo de controle em TypeScript é o processo de determinação do tipo de uma variável em diferentes pontos de um programa baseado no fluxo de controle do código. Possibilita ao TypeScript entender como o tipo de uma variável muda quando diferentes branches de código são executadas.
 
-Antes do TypeScript 4.4, a análise de fluxo de código só seria aplicada ao código dentro de uma instrução if, mas a partir do TypeScript 4.4, ela também pode ser aplicada a expressões condicionais e acessos a propriedades discriminantes referenciadas indiretamente através de variáveis const.
-
-Por exemplo:
+Em TypeScript, a análise de fluxo de controle é realizada pelos "type guards", que são funções ou expressões que realizam uma verificação de tempo de execução em um tipo e garantem esse tipo em um escopo específico. Type guards podem ser usados para estreitar o tipo de uma variável dentro de uma branch condicional, e o TypeScript usará essa informação para fornecer verificação de tipo mais precisa.
 
 ```typescript
-const f1 = (x: unknown) => {
-    const isString = typeof x === 'string';
-    if (isString) {
-        x.length;
-    }
-};
-
-const f2 = (
-    obj: { kind: 'foo'; foo: string } | { kind: 'bar'; bar: number }
-) => {
-    const isFoo = obj.kind === 'foo';
-    if (isFoo) {
-        obj.foo;
+const f = (x: string | number) => {
+    if (typeof x === 'string') {
+        x.length; // x é string
     } else {
-        obj.bar;
+        x + 1; // x é number
     }
 };
 ```
-
-Alguns exemplos onde o narrowing não ocorre:
-
-<!-- skip -->
-```typescript
-const f1 = (x: unknown) => {
-    let isString = typeof x === 'string';
-    if (isString) {
-        x.length; // Erro, sem narrowing porque isString não é const
-    }
-};
-
-const f6 = (
-    obj: { kind: 'foo'; foo: string } | { kind: 'bar'; bar: number }
-) => {
-    const isFoo = obj.kind === 'foo';
-    obj = obj;
-    if (isFoo) {
-        obj.foo; // Erro, sem narrowing porque obj é atribuído no corpo da função
-    }
-};
-```
-
-Observações: Até cinco níveis de indireção são analisados em expressões condicionais.
 

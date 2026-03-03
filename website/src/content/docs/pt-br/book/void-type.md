@@ -6,11 +6,11 @@ sidebar:
 ---
 
 
-O tipo `void` é usado para indicar que uma função não retorna um valor.
+O tipo `void` representa a ausência de um tipo. É comumente usado como tipo de retorno para funções que não retornam um valor.
 
 ```typescript
-const sayHello = (): void => {
-    console.log('Hello!');
+const logMessage = (message: string): void => {
+    console.log(message);
 };
 ```
 

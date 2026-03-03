@@ -6,100 +6,66 @@ sidebar:
 ---
 
 
-Generics permitem que você crie componentes e funções reutilizáveis que podem trabalhar com múltiplos tipos. Com generics, você pode parametrizar tipos, funções e interfaces, permitindo que operem em diferentes tipos sem especificá-los explicitamente de antemão.
+Generics fornecem uma maneira de criar componentes reutilizáveis que funcionam com vários tipos em vez de um único tipo.
 
-Generics permitem que você torne o código mais flexível e reutilizável.
-
-### Tipo Genérico
-
-Para definir um tipo genérico, você usa colchetes angulares (`<>`) para especificar os parâmetros de tipo, por exemplo:
+### Tipo Generic
 
 ```typescript
-function identity<T>(arg: T): T {
-    return arg;
+function identity<T>(value: T): T {
+    return value;
 }
-const a = identity('x');
-const b = identity(123);
 
-const getLen = <T,>(data: ReadonlyArray<T>) => data.length;
-const len = getLen([1, 2, 3]);
+const numberValue = identity<number>(42);
+const stringValue = identity<string>('hello');
 ```
 
-### Classes Genéricas
-
-Generics também podem ser aplicados a classes, desta forma elas podem trabalhar com múltiplos tipos usando parâmetros de tipo. Isso é útil para criar definições de classes reutilizáveis que podem operar em diferentes tipos de dados mantendo a segurança de tipos.
+### Classes Generic
 
 ```typescript
-class Container<T> {
-    private item: T;
+class Box<T> {
+    private content: T;
 
-    constructor(item: T) {
-        this.item = item;
+    constructor(content: T) {
+        this.content = content;
     }
 
-    getItem(): T {
-        return this.item;
+    getContent(): T {
+        return this.content;
     }
 }
 
-const numberContainer = new Container<number>(123);
-console.log(numberContainer.getItem()); // 123
-
-const stringContainer = new Container<string>('hello');
-console.log(stringContainer.getItem()); // hello
+const stringBox = new Box<string>('hello');
+const numberBox = new Box<number>(42);
 ```
 
-### Restrições Genéricas
+### Restrições Generic
 
-Parâmetros genéricos podem ser restringidos usando a palavra-chave `extends` seguida por um tipo ou interface que o parâmetro de tipo deve satisfazer.
+Você pode restringir tipos genéricos usando extends:
 
-No exemplo a seguir, T deve conter uma propriedade `length` para ser válido:
-
-<!-- skip -->
 ```typescript
-const printLen = <T extends { length: number }>(value: T): void => {
+interface HasLength {
+    length: number;
+}
+
+function logLength<T extends HasLength>(value: T): void {
     console.log(value.length);
-};
+}
 
-printLen('Hello'); // 5
-printLen([1, 2, 3]); // 3
-printLen({ length: 10 }); // 10
-printLen(123); // Inválido
+logLength('hello'); // 5
+logLength([1, 2, 3]); // 3
 ```
 
-Um recurso interessante de genéricos introduzido na versão 3.4 RC é a inferência de tipo de função de ordem superior que introduziu argumentos de tipo genérico propagados:
+### Narrowing contextual generic
 
-```typescript
-declare function pipe<A extends any[], B, C>(
-    ab: (...args: A) => B,
-    bc: (b: B) => C
-): (...args: A) => C;
-
-declare function list<T>(a: T): T[];
-declare function box<V>(x: V): { value: V };
-
-const listBox = pipe(list, box); // <T>(a: T) => { value: T[] }
-const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
-```
-
-Esta funcionalidade permite programação em estilo pointfree com tipos mais seguros, que é comum em programação funcional.
-
-### Narrowing contextual genérico
-
-O narrowing contextual para generics é o mecanismo no TypeScript que permite ao compilador estreitar o tipo de um parâmetro genérico com base no contexto em que é usado, é útil ao trabalhar com tipos genéricos em instruções condicionais:
+TypeScript pode estreitar tipos genéricos com base no contexto:
 
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value é reduzido para o tipo 'string'
-        console.log(value.length);
+        console.log(value.toUpperCase()); // value é string aqui
     } else if (typeof value === 'number') {
-        // Value é reduzido para o tipo 'number'
-        console.log(value.toFixed(2));
+        console.log(value.toFixed(2)); // value é number aqui
     }
 }
-
-process('hello'); // 5
-process(3.14159); // 3.14
 ```
 

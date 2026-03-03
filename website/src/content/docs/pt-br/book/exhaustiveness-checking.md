@@ -1,30 +1,32 @@
 ---
-title: Verificação de Exaustividade
+title: Verificação de exaustividade
 sidebar:
   order: 26
-  label: 26. Verificação de Exaustividade
+  label: 26. Verificação de exaustividade
 ---
 
 
-A verificação de exaustividade é um recurso no TypeScript que garante que todos os casos possíveis de uma união discriminada sejam tratados em uma instrução `switch` ou uma instrução `if`.
+Verificação de exaustividade é uma técnica no TypeScript para garantir que todos os casos possíveis foram tratados em um bloco de código. Ela é usada frequentemente em conjunto com uniões discriminadas e instruções switch.
 
+Exemplo:
+
+<!-- skip -->
 ```typescript
-type Direction = 'up' | 'down';
+type Shape = Circle | Square | Triangle;
 
-const move = (direction: Direction) => {
-    switch (direction) {
-        case 'up':
-            console.log('Moving up');
-            break;
-        case 'down':
-            console.log('Moving down');
-            break;
+const getArea = (shape: Shape) => {
+    switch (shape.kind) {
+        case 'circle':
+            return Math.PI * shape.radius ** 2;
+        case 'square':
+            return shape.sideLength ** 2;
+        case 'triangle':
+            return (shape.base * shape.height) / 2;
         default:
-            const exhaustiveCheck: never = direction;
-            console.log(exhaustiveCheck); // Esta linha nunca será executada
+            // Se todos os casos forem tratados, shape terá tipo never aqui
+            const _exhaustiveCheck: never = shape;
+            throw new Error('Unhandled shape');
     }
 };
 ```
-
-O tipo `never` é usado para garantir que o caso padrão seja exaustivo e que o TypeScript levantará um erro se um novo valor for adicionado ao tipo Direction sem ser tratado na instrução switch.
 

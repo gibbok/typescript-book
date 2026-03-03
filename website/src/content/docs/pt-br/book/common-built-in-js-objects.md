@@ -6,24 +6,13 @@ sidebar:
 ---
 
 
-O TypeScript é um superconjunto do JavaScript, ele inclui todos os objetos JavaScript integrados comumente usados. Você pode encontrar uma lista extensa desses objetos no site de documentação do Mozilla Developer Network (MDN):
-[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
+TypeScript fornece tipos para objetos JavaScript integrados comuns:
 
-Aqui está uma lista de alguns objetos JavaScript integrados comumente usados:
-
-* Function
-* Object
-* Boolean
-* Error
-* Number
-* BigInt
-* Math
-* Date
-* String
-* RegExp
-* Array
-* Map
-* Set
-* Promise
-* Intl
+* `Date`: Representa datas
+* `Error`: Objetos de erro
+* `Array<T>`: Arrays
+* `Map<K, V>`: Maps
+* `Set<T>`: Sets
+* `Promise<T>`: Promises
+* `RegExp`: Expressões regulares
 

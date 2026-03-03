@@ -13,7 +13,7 @@ Till exempel en oändlig loop:
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // gör något
+        // do something
     }
 };
 ```
@@ -33,10 +33,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // flytta upp
+            // move up
             break;
         case 'down':
-            // flytta ner
+            // move down
             break;
         default:
             const exhaustiveCheck: never = direction;

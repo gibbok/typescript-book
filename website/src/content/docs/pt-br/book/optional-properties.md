@@ -6,22 +6,12 @@ sidebar:
 ---
 
 
-Um objeto pode especificar Propriedades Opcionais adicionando um ponto de interrogação `?` ao final do nome da propriedade:
+Um tipo de objeto pode ter zero ou mais propriedades opcionais adicionando um `?` após o nome da propriedade:
 
 ```typescript
 type X = {
-    a: number;
-    b?: number; // Opcional
+    a: string;
+    b?: string; // Opcional
 };
-```
-
-É possível especificar um valor padrão quando uma propriedade é opcional:
-
-```typescript
-type X = {
-    a: number;
-    b?: number;
-};
-const x = ({ a, b = 100 }: X) => a + b;
 ```
 

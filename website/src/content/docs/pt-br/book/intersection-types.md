@@ -1,27 +1,18 @@
 ---
-title: Tipos Intersection
+title: Tipos de Intersecção
 sidebar:
   order: 32
-  label: 32. Tipos Intersection
+  label: 32. Tipos de Intersecção
 ---
 
 
-Um Tipo Intersection é um tipo que representa um valor que possui todas as propriedades de dois ou mais tipos. Tipos Intersection são denotados usando o símbolo `&` entre cada tipo.
+Tipos de intersecção permitem combinar múltiplos tipos em um único tipo. Um tipo de intersecção representa um valor que tem todas as propriedades de todos os tipos envolvidos.
 
 ```typescript
-type X = {
-    a: string;
-};
+type A = { a: string };
+type B = { b: number };
+type C = A & B;
 
-type Y = {
-    b: string;
-};
-
-type J = X & Y; // Intersection
-
-const j: J = {
-    a: 'a',
-    b: 'b',
-};
+const obj: C = { a: 'hello', b: 42 };
 ```
 

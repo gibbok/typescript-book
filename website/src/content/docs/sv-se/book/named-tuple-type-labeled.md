@@ -12,6 +12,6 @@ Tuppeltyper kan inkludera valfria etiketter eller namn för varje element. Dessa
 type T = string;
 type Tuple1 = [T, T];
 type Tuple2 = [a: T, b: T];
-type Tuple3 = [a: T, T]; // Namngiven tuppel plus anonym tuppel
+type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
 ```
 
