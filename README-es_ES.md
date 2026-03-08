@@ -3506,3 +3506,106 @@ o.name = 'abc';
 o.logId();
 o.select();
 ```
+
+### Características de lenguaje asíncronas
+
+La programación asíncrona está bien soportada en TypeScript utilizando las palabras clave `async` y `await`. Estas palabras clave proporcionan una forma más legible y limpia de trabajar con operaciones asíncronas.
+
+La palabra clave `async` se utiliza para definir una función que devuelve una `Promise`. La palabra clave `await` se utiliza dentro de una función `async` para pausar su ejecución hasta que una `Promise` se resuelva o se rechace.
+
+Para saber más:
+[https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/async_function)
+[https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/await](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/await)
+
+Las siguientes API están bien soportadas en TypeScript:
+
+Fetch API:
+[https://developer.mozilla.org/es/docs/Web/API/Fetch_API](https://developer.mozilla.org/es/docs/Web/API/Fetch_API)
+
+Web Workers:
+[https://developer.mozilla.org/es/docs/Web/API/Web_Workers_API](https://developer.mozilla.org/es/docs/Web/API/Web_Workers_API)
+
+Shared Workers:
+[https://developer.mozilla.org/es/docs/Web/API/SharedWorker](https://developer.mozilla.org/es/docs/Web/API/SharedWorker)
+
+WebSocket:
+[https://developer.mozilla.org/es/docs/Web/API/WebSockets_API](https://developer.mozilla.org/es/docs/Web/API/WebSockets_API)
+
+### Iteradores y Generadores
+
+Tanto los iteradores como los generadores están bien soportados en TypeScript.
+
+Los iteradores son objetos que implementan el protocolo de iterador, proporcionando una forma de acceder a los elementos de una colección o secuencia uno a uno. Es una estructura que contiene un puntero al siguiente elemento de la iteración. Tienen un método `next()` que devuelve el siguiente valor de la secuencia junto con un booleano que indica si la secuencia ha terminado (`done`).
+
+```typescript
+class NumberIterator implements Iterable<number> {
+    private current: number;
+
+    constructor(
+        private start: number,
+        private end: number
+    ) {
+        this.current = start;
+    }
+
+    public next(): IteratorResult<number> {
+        if (this.current <= this.end) {
+            const value = this.current;
+            this.current++;
+            return { value, done: false };
+        } else {
+            return { value: undefined, done: true };
+        }
+    }
+
+    [Symbol.iterator](): Iterator<number> {
+        return this;
+    }
+}
+
+const it = new NumberIterator(1, 5);
+for (const x of it) {
+    console.log(x); // 1, 2, 3, 4, 5
+}
+```
+
+Los generadores son funciones que pueden pausarse y reanudarse utilizando la palabra clave `yield`. Se definen mediante la sintaxis `function*` y devuelven un iterador.
+
+```typescript
+function* count() {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+
+const g = count();
+console.log(g.next().value); // 1
+console.log(g.next().value); // 2
+console.log(g.next().value); // 3
+```
+
+Los generadores facilitan la creación de iteradores y son especialmente útiles para trabajar con secuencias grandes o infinitas.
+
+Ejemplo:
+
+```typescript
+function* numberGenerator(start: number, end: number): Generator<number> {
+    for (let i = start; i <= end; i++) {
+        yield i;
+    }
+}
+
+const generator = numberGenerator(1, 5);
+
+for (const num of generator) {
+    console.log(num);
+}
+```
+
+TypeScript también soporta iteradores asíncronos y generadores asíncronos.
+
+Para saber más:
+
+[https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Generator](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Generator)
+
+[https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Iterator](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Iterator)
