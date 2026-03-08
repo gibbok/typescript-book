@@ -2062,8 +2062,8 @@ El modificador `public` proporciona acceso sin restricciones al miembro de la cl
 
 ### Get y Set
 
-Los getters y setters son métodos especiales que permiten definir un comportamiento personalizado de acceso y modificación para las propiedades de la clase. Permiten encapsular el estado interno de un objeto y proporcionar lógica adicional al obtener o establecer los valores de las propiedades.
-En TypeScript, los getters y setters se definen utilizando las palabras clave `get` y `set` respectivamente. Aquí tienes un ejemplo:
+Los *getters* y *setters* son métodos especiales que permiten definir un comportamiento personalizado de acceso y modificación para las propiedades de la clase. Permiten encapsular el estado interno de un objeto y proporcionar lógica adicional al obtener o establecer los valores de las propiedades.
+En TypeScript, los *getters* y *setters* se definen utilizando las palabras clave `get` y `set` respectivamente. He aquí un ejemplo:
 
 ```typescript
 class MyClass {
@@ -2134,6 +2134,291 @@ class Person {
 const person1 = new Person('Alice');
 person1.introduce(); // Hello, my name is Alice.
 ```
+
+### Propiedades de parámetro
+
+Las propiedades de parámetro permiten declarar e inicializar las propiedades de la clase directamente dentro de los parámetros del constructor evitando el código repetitivo (boilerplate), ejemplo:
+
+```typescript
+class Person {
+    constructor(
+        private name: string,
+        public age: number
+    ) {
+        // The "private" and "public" keywords in the constructor
+        // automatically declare and initialize the corresponding class properties.
+    }
+    public introduce(): void {
+        console.log(
+            `Hello, my name is ${this.name} and I am ${this.age} years old.`
+        );
+    }
+}
+const person = new Person('Alice', 25);
+person.introduce();
+```
+
+### Clases abstractas
+
+Las clases abstractas se utilizan en TypeScript principalmente para la herencia; proporcionan una forma de definir propiedades y métodos comunes que pueden ser heredados por las subclases.
+Esto es útil cuando se desea definir un comportamiento común y obligar a que las subclases implementen ciertos métodos. Proporcionan una forma de crear una jerarquía de clases donde la clase base abstracta ofrece una interfaz compartida y una funcionalidad común para las subclases.
+
+```typescript
+abstract class Animal {
+    protected name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    abstract makeSound(): void;
+}
+
+class Cat extends Animal {
+    makeSound(): void {
+        console.log(`${this.name} meows.`);
+    }
+}
+
+const cat = new Cat('Whiskers');
+cat.makeSound(); // Output: Whiskers meows.
+```
+
+### Con genéricos
+
+Las clases con genéricos permiten definir clases reutilizables que pueden funcionar con diferentes tipos.
+
+```typescript
+class Container<T> {
+    private item: T;
+
+    constructor(item: T) {
+        this.item = item;
+    }
+
+    getItem(): T {
+        return this.item;
+    }
+
+    setItem(item: T): void {
+        this.item = item;
+    }
+}
+
+const container1 = new Container<number>(42);
+console.log(container1.getItem()); //  42
+
+const container2 = new Container<string>('Hello');
+container2.setItem('World');
+console.log(container2.getItem()); // World
+```
+
+### Decoradores
+
+Los decoradores proporcionan un mecanismo para añadir metadatos, modificar el comportamiento, validar o extender la funcionalidad del elemento de destino. Son funciones que se ejecutan en tiempo de ejecución. Se pueden aplicar múltiples decoradores a una declaración.
+
+Los decoradores son características experimentales, y los siguientes ejemplos solo son compatibles con la versión 5 de TypeScript o superior utilizando ES6.
+
+Para las versiones de TypeScript anteriores a la 5, deben habilitarse mediante la propiedad `experimentalDecorators` en su `tsconfig.json` o utilizando `--experimentalDecorators` en su línea de comandos (pero el siguiente ejemplo no funcionará).
+
+Algunos de los casos de uso comunes para los decoradores incluyen:
+
+* Observar cambios en las propiedades.
+* Observar llamadas a métodos.
+* Añadir propiedades o métodos adicionales.
+* Validación en tiempo de ejecución.
+* Serialización y deserialización automática.
+* Registro (*logging*).
+* Autorización y autenticación.
+* Protección contra errores (*error guarding*).
+
+Nota: Los decoradores para la versión 5 no permiten decorar parámetros.
+
+Tipos de decoradores:
+
+#### Decoradores de clase
+
+Los decoradores de clase son útiles para extender una clase existente, como añadir propiedades o métodos, o recopilar instancias de una clase. En el siguiente ejemplo, añadimos un método `toString` que convierte la clase en una representación de cadena.
+
+```typescript
+type Constructor<T = {}> = new (...args: any[]) => T;
+
+function toString<Class extends Constructor>(
+    Value: Class,
+    context: ClassDecoratorContext<Class>
+) {
+    return class extends Value {
+        constructor(...args: any[]) {
+            super(...args);
+            console.log(JSON.stringify(this));
+            console.log(JSON.stringify(context));
+        }
+    };
+}
+
+@toString
+class Person {
+    name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    greet() {
+        return 'Hello, ' + this.name;
+    }
+}
+const person = new Person('Simon');
+/* Logs:
+{"name":"Simon"}
+{"kind":"class","name":"Person"}
+*/
+```
+
+#### Decorador de propiedad
+
+Los decoradores de propiedad son útiles para modificar el comportamiento de una propiedad, como cambiar los valores de inicialización. En el siguiente código, tenemos un script que establece que una propiedad esté siempre en mayúsculas:
+
+```typescript
+function upperCase<T>(
+    target: undefined,
+    context: ClassFieldDecoratorContext<T, string>
+) {
+    return function (this: T, value: string) {
+        return value.toUpperCase();
+    };
+}
+
+class MyClass {
+    @upperCase
+    prop1 = 'hello!';
+}
+
+console.log(new MyClass().prop1); // Logs: HELLO!
+```
+
+#### Decorador de método
+
+Los decoradores de método permiten cambiar o mejorar el comportamiento de los métodos. A continuación se muestra un ejemplo de un registrador (*logger*) simple:
+
+```typescript
+function log<This, Args extends any[], Return>(
+    target: (this: This, ...args: Args) => Return,
+    context: ClassMethodDecoratorContext<
+        This,
+        (this: This, ...args: Args) => Return
+    >
+) {
+    const methodName = String(context.name);
+
+    function replacementMethod(this: This, ...args: Args): Return {
+        console.log(`LOG: Entering method '${methodName}'.`);
+        const result = target.call(this, ...args);
+        console.log(`LOG: Exiting method '${methodName}'.`);
+        return result;
+    }
+
+    return replacementMethod;
+}
+
+class MyClass {
+    @log
+    sayHello() {
+        console.log('Hello!');
+    }
+}
+
+new MyClass().sayHello();
+```
+
+Registra:
+
+```shell
+LOG: Entering method 'sayHello'.
+Hello!
+LOG: Exiting method 'sayHello'.
+```
+
+#### Decoradores de Getter y Setter
+
+Los decoradores de *getter* y *setter* permiten cambiar o mejorar el comportamiento de los accesores de clase. Son útiles, por ejemplo, para validar las asignaciones de propiedades. He aquí un ejemplo sencillo de un decorador de *getter*:
+
+```typescript
+function range<This, Return extends number>(min: number, max: number) {
+    return function (
+        target: (this: This) => Return,
+        context: ClassGetterDecoratorContext<This, Return>
+    ) {
+        return function (this: This): Return {
+            const value = target.call(this);
+            if (value < min || value > max) {
+                throw 'Invalid';
+            }
+            Object.defineProperty(this, context.name, {
+                value,
+                enumerable: true,
+            });
+            return value;
+        };
+    };
+}
+
+class MyClass {
+    private _value = 0;
+
+    constructor(value: number) {
+        this._value = value;
+    }
+    @range(1, 100)
+    get getValue(): number {
+        return this._value;
+    }
+}
+
+const obj = new MyClass(10);
+console.log(obj.getValue); // Valid: 10
+
+const obj2 = new MyClass(999);
+console.log(obj2.getValue); // Throw: Invalid!
+```
+
+#### Metadatos de decorador
+
+Decorator Metadata simplifica el proceso para que los decoradores apliquen y utilicen metadatos en cualquier clase. Pueden acceder a una nueva propiedad de metadatos en el objeto de contexto, que puede servir como clave tanto para primitivos como para objetos.
+Se puede acceder a la información de los metadatos en la clase a través de `Symbol.metadata`.
+
+Los metadatos pueden utilizarse para diversos fines, como la depuración, la serialización o la inyección de dependencias con decoradores.
+
+```typescript
+//@ts-ignore
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
+
+type Context =
+    | ClassFieldDecoratorContext
+    | ClassAccessorDecoratorContext
+    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+
+function setMetadata(_target: any, context: Context) {
+    // Set the metadata object with a primitive value
+    context.metadata[context.name] = true;
+}
+
+class MyClass {
+    @setMetadata
+    a = 123;
+
+    @setMetadata
+    accessor b = 'b';
+
+    @setMetadata
+    fn() {}
+}
+
+const metadata = MyClass[Symbol.metadata]; // Get metadata information
+
+console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
+```
+
 
 ### Propiedades de parámetro
 
