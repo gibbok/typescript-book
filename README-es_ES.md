@@ -3072,3 +3072,152 @@ type MyType = Uppercase<'abc'>; // "ABC"
 ```
 
 #### Lowercase\<T\>
+
+Convierte a minúsculas el nombre del tipo de entrada `T`.
+
+```typescript
+type MyType = Lowercase<'ABC'>; // "abc"
+```
+
+#### Capitalize\<T\>
+
+Convierte en mayúscula la inicial del nombre del tipo de entrada `T`.
+
+```typescript
+type MyType = Capitalize<'abc'>; // "Abc"
+```
+
+#### Uncapitalize\<T\>
+
+Convierte en minúscula la inicial del nombre del tipo de entrada `T`.
+
+```typescript
+type MyType = Uncapitalize<'Abc'>; // "abc"
+```
+
+#### NoInfer\<T\>
+
+`NoInfer` es un tipo de utilidad diseñado para bloquear la inferencia automática de tipos dentro del ámbito de una función genérica.
+
+Ejemplo:
+
+```typescript
+// Inferencia automática de tipos dentro del ámbito de una función genérica.
+function fn<T extends string>(x: T[], y: T) {
+    return x.concat(y);
+}
+const r = fn(['a', 'b'], 'c'); // El tipo aquí es ("a" | "b" | "c")[]
+```
+
+Con NoInfer:
+
+<!-- skip -->
+```typescript
+// Ejemplo de función que usa NoInfer para evitar la inferencia de tipos
+function fn2<T extends string>(x: T[], y: NoInfer<T>) {
+    return x.concat(y);
+}
+
+const r2 = fn2(['a', 'b'], 'c'); // Error: El argumento de tipo de tipo '"c"' no es asignable al parámetro de tipo '"a" | "b"'.
+```
+
+## Otros
+
+### Manejo de errores y excepciones
+
+TypeScript permite capturar y manejar errores utilizando los mecanismos estándar de manejo de errores de JavaScript:
+
+Bloques Try-Catch-Finally:
+
+```typescript
+try {
+    // Código que podría lanzar un error
+} catch (error) {
+    // Manejar el error
+} finally {
+    // Código que siempre se ejecuta, finally es opcional
+}
+```
+
+También puedes manejar diferentes tipos de errores:
+
+```typescript
+try {
+    // Código que podría lanzar diferentes tipos de errores
+} catch (error) {
+    if (error instanceof TypeError) {
+        // Manejar TypeError
+    } else if (error instanceof RangeError) {
+        // Manejar RangeError
+    } else {
+        // Manejar otros errores
+    }
+}
+```
+
+Tipos de error personalizados:
+
+Es posible especificar errores más concretos extendiendo la `clase` Error:
+
+```typescript
+class CustomError extends Error {
+    constructor(message: string) {
+        super(message);
+        this.name = 'CustomError';
+    }
+}
+
+throw new CustomError('This is a custom error.');
+```
+
+### Clases Mixin
+
+Las clases Mixin te permiten combinar y componer el comportamiento de múltiples clases en una sola clase. Proporcionan una forma de reutilizar y extender la funcionalidad sin necesidad de cadenas de herencia profundas.
+
+```typescript
+abstract class Identifiable {
+    name: string = '';
+    logId() {
+        console.log('id:', this.name);
+    }
+}
+abstract class Selectable {
+    selected: boolean = false;
+    select() {
+        this.selected = true;
+        console.log('Select');
+    }
+    deselect() {
+        this.selected = false;
+        console.log('Deselect');
+    }
+}
+class MyClass {
+    constructor() {}
+}
+
+// Extender MyClass para incluir el comportamiento de Identifiable y Selectable
+interface MyClass extends Identifiable, Selectable {}
+
+// Función para aplicar mixins a una clase
+function applyMixins(source: any, baseCtors: any[]) {
+    baseCtors.forEach(baseCtor => {
+        Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
+            let descriptor = Object.getOwnPropertyDescriptor(
+                baseCtor.prototype,
+                name
+            );
+            if (descriptor) {
+                Object.defineProperty(source.prototype, name, descriptor);
+            }
+        });
+    });
+}
+
+// Aplicar los mixins a MyClass
+applyMixins(MyClass, [Identifiable, Selectable]);
+let o = new MyClass();
+o.name = 'abc';
+o.logId();
+o.select();
+```
