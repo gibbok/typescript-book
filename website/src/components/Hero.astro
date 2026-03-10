@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import CallToAction from '@astrojs/starlight/components/CallToAction.astro';
+import type { Props } from '@astrojs/starlight/props';
 
 const { entry } = Astro.props;
 const { data } = entry;
@@ -46,8 +47,8 @@ if (image) {
 		</div>
 		{actions.length > 0 && (
 			<div class="sl-flex actions">
-				{actions.map(({ text, ...attrs }: any) => (
-					<CallToAction {...attrs}>{text}</CallToAction>
+				{actions.map((action) => (
+					<CallToAction {...action}>{action.text}</CallToAction>
 				))}
 			</div>
 		)}
