@@ -46,8 +46,8 @@ if (image) {
 		</div>
 		{actions.length > 0 && (
 			<div class="sl-flex actions">
-				{actions.map(({ text, ...attrs }) => (
-					<CallToAction {...attrs} set:html={text} />
+				{actions.map(({ text, ...attrs }: any) => (
+					<CallToAction {...attrs}>{text}</CallToAction>
 				))}
 			</div>
 		)}
