@@ -27,3 +27,13 @@
 	--sl-color-gray-7: #f8f4fe;
 	--sl-color-black: #ffffff;
 }
+
+@media (min-width: 72rem) {
+	.right-sidebar-container {
+		min-width: 27.188rem; /* Carbon ads layout adjustments for screens ≤ 1366px width */
+	}
+}
+
+.right-sidebar-panel {
+	padding: 0.5rem var(--sl-sidebar-pad-x);
+}

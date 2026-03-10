@@ -1,0 +1,143 @@
+---
+import { Image } from 'astro:assets';
+import CallToAction from '@astrojs/starlight/components/CallToAction.astro';
+import type { Props } from '@astrojs/starlight/props';
+
+const { entry } = Astro.props;
+const { data } = entry;
+const { title = data.title, tagline, image, actions = [] } = data.hero || {};
+
+const imageAttrs = {
+	loading: 'eager' as const,
+	decoding: 'async' as const,
+	width: 400,
+	height: 400,
+	alt: image?.alt || '',
+};
+
+let darkImage: ImageMetadata | undefined;
+let lightImage: ImageMetadata | undefined;
+let rawHtml: string | undefined;
+if (image) {
+	if ('file' in image) {
+		darkImage = image.file;
+	} else if ('dark' in image) {
+		darkImage = image.dark;
+		lightImage = image.light;
+	} else {
+		rawHtml = image.html;
+	}
+}
+---
+
+<div class="hero">
+	{darkImage && (
+		<Image
+			src={darkImage}
+			{...imageAttrs}
+			class:list={{ 'light:sl-hidden': Boolean(lightImage) }}
+		/>
+	)}
+	{lightImage && <Image src={lightImage} {...imageAttrs} class="dark:sl-hidden" />}
+	{rawHtml && <div class="hero-html sl-flex" set:html={rawHtml} />}
+	<div class="sl-flex stack">
+		<div class="sl-flex copy">
+			<h1 id="_top" data-page-title set:html={title} />
+			{tagline && <div class="tagline" set:html={tagline} />}
+		</div>
+		{actions.length > 0 && (
+			<div class="sl-flex actions">
+				{actions.map((action) => (
+					<CallToAction {...action}>{action.text}</CallToAction>
+				))}
+			</div>
+		)}
+	</div>
+	<div class="home-banner">
+		<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CWBDPK3L&placement=gibbokgithubio&format=cover" id="_carbonads_js" is:inline></script>
+	</div>
+</div>
+
+<style>
+	@layer starlight.core {
+		.hero {
+			display: grid;
+			align-items: center;
+			gap: 1rem;
+			padding-bottom: 1rem;
+			justify-items: center;
+		}
+
+		.hero > img,
+		.hero > .hero-html {
+			object-fit: contain;
+			width: min(70%, 20rem);
+			height: auto;
+			margin-inline: auto;
+		}
+
+		.stack {
+			flex-direction: column;
+			gap: clamp(1.5rem, calc(1.5rem + 1vw), 2rem);
+			text-align: center;
+		}
+
+		.copy {
+			flex-direction: column;
+			gap: 1rem;
+			align-items: center;
+		}
+
+		.copy > * {
+			max-width: 50ch;
+		}
+
+		h1 {
+			font-size: clamp(var(--sl-text-3xl), calc(0.25rem + 5vw), var(--sl-text-6xl));
+			line-height: var(--sl-line-height-headings);
+			font-weight: 600;
+			color: var(--sl-color-white);
+		}
+
+		.tagline {
+			font-size: clamp(var(--sl-text-base), calc(0.0625rem + 2vw), var(--sl-text-xl));
+			color: var(--sl-color-gray-2);
+		}
+
+		.actions {
+			gap: 1rem 2rem;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.home-banner {
+			margin-top: 1rem !important;
+		}
+
+		@media (min-width: 50rem) {
+			.hero {
+				grid-template-columns: 7fr 4fr;
+				gap: 3%;
+				padding-block: clamp(2.5rem, calc(1rem + 10vmin), 10rem);
+			}
+
+			.hero > img,
+			.hero > .hero-html {
+				order: 2;
+				width: min(100%, 25rem);
+			}
+
+			.stack {
+				text-align: start;
+			}
+
+			.copy {
+				align-items: flex-start;
+			}
+
+			.actions {
+				justify-content: flex-start;
+			}
+		}
+	}
+</style>

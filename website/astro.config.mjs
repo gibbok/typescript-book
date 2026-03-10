@@ -3,31 +3,31 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://gibbok.github.io',
-    base: '/typescript-book',
-    build: {
-        assets: 'app_assets',
-    },
-    integrations: [
-        starlight({
-            head: [
-                {
-                    tag: 'link',
-                    attrs: {
-                        rel: 'stylesheet',
-                        id: 'silktide-consent-manager-css',
-                        href: '/typescript-book/cookie-banner/silktide-consent-manager.css',
-                    },
-                },
-                {
-                    tag: 'script',
-                    attrs: {
-                        src: '/typescript-book/cookie-banner/silktide-consent-manager.js',
-                    },
-                },
-                {
-                    tag: 'script',
-                    content: `
+  site: 'https://gibbok.github.io',
+  base: '/typescript-book',
+  build: {
+    assets: 'app_assets',
+  },
+  integrations: [
+    starlight({
+      head: [
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'stylesheet',
+            id: 'silktide-consent-manager-css',
+            href: '/typescript-book/cookie-banner/silktide-consent-manager.css',
+          },
+        },
+        {
+          tag: 'script',
+          attrs: {
+            src: '/typescript-book/cookie-banner/silktide-consent-manager.js',
+          },
+        },
+        {
+          tag: 'script',
+          content: `
 silktideCookieBannerManager.updateCookieBannerConfig({
   background: {
     showBackground: false 
@@ -98,75 +98,79 @@ silktideCookieBannerManager.updateCookieBannerConfig({
   }
 });
 `
-                },
-                {
-                    tag: 'script',
-                    attrs: {
-                        src: 'https://www.googletagmanager.com/gtag/js?id=G-SR2LV8LB90',
-                    },
-                },
-                {
-                    tag: 'script',
-                    content: `
+        },
+        {
+          tag: 'script',
+          attrs: {
+            src: 'https://www.googletagmanager.com/gtag/js?id=G-SR2LV8LB90',
+          },
+        },
+        {
+          tag: 'script',
+          content: `
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-SR2LV8LB90');
 `
-                },
-                {
-                    tag: 'script',
-                    attrs: {
-                        async: true,
-                        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8180626414651391',
-                        crossorigin: 'anonymous',
-                    },
-                },
-                {
-                    tag: 'script',
-                    attrs: {
-                        defer: true,
-                        src: 'https://static.cloudflareinsights.com/beacon.min.js',
-                        'data-cf-beacon':
-                            '{"token": "949aed66281e40378ac479993d699897"}',
-                    },
-                }
-            ],
-            title: 'TypeScript Book',
-            customCss: ['./src/styles/custom.css'],
-            social: {
-                github: 'https://github.com/gibbok/typescript-book',
-                'x.com': 'https://twitter.com/gibbok_coding',
-            },
-            defaultLocale: 'root',
-            locales: {
-                root: {
-                    label: 'English',
-                    lang: 'en',
-                },
-                'zh-cn': {
-                    label: '简体中文',
-                    lang: 'zh-CN',
-                },
-                'it-it': {
-                    label: 'Italiano',
-                    lang: 'it-IT',
-                },
-                'pt-br': {
-                    label: 'Português (Brasil)',
-                    lang: 'pt-BR',
-                },
-                'sv-se': {
-                    label: 'Svenska',
-                    lang: 'sv-SE',
-                },
-            },
-            sidebar: [
-                {
-                    label: 'TypeScript Book',
-                    autogenerate: { directory: 'book' },
-                },
-            ],
-        }),
-    ],
+        },
+        {
+          tag: 'script',
+          attrs: {
+            async: true,
+            src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8180626414651391',
+            crossorigin: 'anonymous',
+          },
+        },
+        {
+          tag: 'script',
+          attrs: {
+            defer: true,
+            src: 'https://static.cloudflareinsights.com/beacon.min.js',
+            'data-cf-beacon':
+              '{"token": "949aed66281e40378ac479993d699897"}',
+          },
+        }
+      ],
+      title: 'TypeScript Book',
+      customCss: ['./src/styles/custom.css'],
+      components: {
+        PageSidebar: './src/components/RightSidebarBanner.astro',
+        Hero: './src/components/Hero.astro',
+      },
+      social: {
+        github: 'https://github.com/gibbok/typescript-book',
+        'x.com': 'https://twitter.com/gibbok_coding',
+      },
+      defaultLocale: 'root',
+      locales: {
+        root: {
+          label: 'English',
+          lang: 'en',
+        },
+        'zh-cn': {
+          label: '简体中文',
+          lang: 'zh-CN',
+        },
+        'it-it': {
+          label: 'Italiano',
+          lang: 'it-IT',
+        },
+        'pt-br': {
+          label: 'Português (Brasil)',
+          lang: 'pt-BR',
+        },
+        'sv-se': {
+          label: 'Svenska',
+          lang: 'sv-SE',
+        },
+      },
+      sidebar: [
+        {
+          label: 'TypeScript Book',
+          autogenerate: { directory: 'book' },
+        },
+      ],
+    }),
+  ],
 });
