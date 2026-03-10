@@ -134,6 +134,9 @@ gtag('config', 'G-SR2LV8LB90');
             ],
             title: 'TypeScript Book',
             customCss: ['./src/styles/custom.css'],
+            components: {
+                PageSidebar: './src/components/RightSidebarBanner.astro',
+            },
             social: {
                 github: 'https://github.com/gibbok/typescript-book',
                 'x.com': 'https://twitter.com/gibbok_coding',
