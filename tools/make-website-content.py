@@ -38,7 +38,7 @@ def manage_output_dir(path: str) -> None:
 
 
 def read_content_file(path: str) -> List[str]:
-    with open(path, "r") as file:
+    with open(path, "r", encoding="utf-8") as file:
         lines = file.readlines()
     return lines
 
@@ -75,7 +75,7 @@ def make_markdown_page_metadata(order: int, header: str) -> List[str]:
 
 
 def save_content_to_file(path: str, lines: List[str]):
-    with open(path, "w") as output_file:
+    with open(path, "w", encoding="utf-8") as output_file:
         output_file.writelines(lines)
 
 
