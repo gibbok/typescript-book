@@ -63,12 +63,12 @@
       - [include](#include)
       - [exclude](#exclude)
     - [importHelpers](#importhelpers)
-    - [Migration to TypeScript Advice](#migration-to-typescript-advice)
-  - [Exploring the Type System](#exploring-the-type-system)
-    - [The TypeScript Language Service](#the-typescript-language-service)
-    - [Structural Typing](#structural-typing)
-    - [TypeScript Fundamental Comparison Rules](#typescript-fundamental-comparison-rules)
-    - [Types as Sets](#types-as-sets)
+    - [Съвети за миграция към TypeScript](#съвети-за-миграция-към-typescript)
+  - [Изследване на типовата система](#изследване-на-типовата-система)
+    - [Езиковата услуга на TypeScript](#езиковата-услуга-на-typescript)
+    - [Структурна типизация](#структурна-типизация)
+    - [Основни правила за сравнение в TypeScript](#основни-правила-за-сравнение-в-typescript)
+    - [Типовете като множества](#типовете-като-множества)
     - [Assign a type: Type Declarations and Type Assertions](#assign-a-type-type-declarations-and-type-assertions)
       - [Type Declaration](#type-declaration)
       - [Type Assertion](#type-assertion)
@@ -626,15 +626,15 @@ tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts an
 
 TypeScript използва помощен код при генериране на код за определени усъвършенствани или down-level JavaScript функционалности. По подразбиране тези помощни функции се дублират във файловете, които ги използват. Опцията `importHelpers` вместо това импортира тези помощни функции от модула `tslib`, което прави изходния JavaScript по-ефективен.
 
-### Migration to TypeScript Advice
+### Съвети за миграция към TypeScript
 
-For large projects, it is recommended to adopt a gradual transition where TypeScript and JavaScript code will initially coexist. Only small projects can be migrated to TypeScript in one go.
+При големи проекти се препоръчва постепенна миграция, при който кодът на TypeScript и JavaScript първоначално ще съществуват едновременно. Само малки проекти могат да бъдат мигрирани към TypeScript наведнъж.
 
-The first step of this transition is to introduce TypeScript into the build chain process. This can be done by using the "allowJs" compiler option, which permits .ts and .tsx files to coexist with existing JavaScript files. As TypeScript will fall back to a type of "any" for a variable when it cannot infer the type from JavaScript files, it is recommended to disable "noImplicitAny" in your compiler options at the beginning of the migration.
+Първата стъпка в този преход е въвеждането на TypeScript в процеса на изграждане. Това може да се направи чрез използване на опцията на компилатора "allowJs", която позволява на файловете .ts и .tsx да са заедно със съществуващите JavaScript файлове. Тъй като TypeScript ще използва типа "any" за променлива, когато не може да изведе типа от JavaScript файловете, се препоръчва да деактивирате "noImplicitAny" в опциите на компилатора в началото на миграцията.
 
-The second step is to ensure that your JavaScript tests work alongside TypeScript files so that you can run tests as you convert each module. If you are using Jest, consider using `ts-jest`, which allows you to test TypeScript projects with Jest.
+Втората стъпка е да се уверите, че вашите JavaScript тестове работят заедно с TypeScript файловете, така че да можете да изпълнявате тестове, докато конвертирате всеки модул. Ако използвате Jest, обмислете използването на `ts-jest`, което ви позволява да тествате TypeScript проекти с Jest.
 
-The third step is to include type declarations for third-party libraries in your project. These declarations can be found either bundled or on DefinitelyTyped. You can search for them using [https://www.typescriptlang.org/dt/search](https://www.typescriptlang.org/dt/search) and install them using:
+Третата стъпка е да включите декларации за типове за външни библиотеки във вашия проект. Тези декларации могат да бъдат намерени или вградени в самите библиотеки, или в DefinitelyTyped. Можете да ги търсите чрез [https://www.typescriptlang.org/dt/search](https://www.typescriptlang.org/dt/search) и да ги инсталирате, като използвате:
 
 ```shell
 npm install --save-dev @types/package-name
@@ -646,41 +646,41 @@ or
 yarn add --dev @types/package-name.
 ```
 
-The fourth step is to migrate module by module with a bottom-up approach, following your Dependency Graph starting with the leaves. The idea is to start converting Modules that do not depend on other Modules. To visualize the dependency graphs, you can use the "madge" tool.
+Четвъртата стъпка е да мигрирате модул по модул, като използвате подход "отдолу нагоре" и следвате графика на зависимостите, започвайки от крайните възли. Идеята е да започнете с преобразуването на модулите, които не зависят от други модули. За да визуализирате графиките на зависимостите, можете да използвате инструмента "madge".
 
-Good candidate modules for these initial conversions are utility functions and code related to external APIs or specifications. It is possible to automatically generate TypeScript type definitions from Swagger contracts, GraphQL or JSON schemas to be included in your project.
+Подходящи модули за тези първоначални преобразувания са помощните функции и кодът, свързан с външни API-та или спецификации. Възможно е автоматично да генерирате дефиниции на типове в TypeScript от Swagger договори, GraphQL или JSON схеми, които да бъдат включени във вашия проект.
 
-When there are no specifications or official schemas available, you can generate types from raw data, such as JSON returned by a server. However, it is recommended to generate types from specifications instead of data to avoid missing edge cases.
+Когато няма налични спецификации или официални схеми, можете да генерирате типове от необработени данни, като например JSON, върнат от сървър. Препоръчително е обаче да генерирате типове от спецификации, а не от данни, за да избегнете пропускане на крайни случаи.
 
-During the migration, refrain from code refactoring and focus only on adding types to your modules.
+По време на миграцията се въздържайте от рефакториране на кода и се фокусирайте единствено върху добавянето на типове към вашите модули.
 
-The fifth step is to enable "noImplicitAny," which will enforce that all types are known and defined, providing a better TypeScript experience for your project.
+Петата стъпка е да активирате "noImplicitAny", което ще наложи всички типове да бъдат известни и дефинирани, осигурявайки по-добра работа с TypeScript за вашия проект.
 
-During the migration, you can use the `@ts-check` directive, which enables TypeScript type checking in a JavaScript file. This directive provides a loose version of type checking and can be initially used to identify issues in JavaScript files. When `@ts-check` is included in a file, TypeScript will try to deduce definitions using JSDoc-style comments. However, consider using JSDoc annotations only at a very early stage of the migration.
+По време на миграцията можете да използвате директивата `@ts-check`, която активира проверката на типовете в TypeScript в JavaScript файл. Тази директива осигурява по-свободна форма на проверката на типовете и може първоначално да се използва за идентифициране на проблеми в JavaScript файлове. Когато `@ts-check` е включена във файл, TypeScript ще се опита да изведе дефиниции, използвайки коментари в стил JSDoc. Въпреки това, помислете за използването на JSDoc анотации само в много ранен етап от миграцията.
 
-Consider keeping the default value of `noEmitOnError` in your tsconfig.json as false. This will allow you to output JavaScript source code even if errors are reported.
+Също така е добре да запазите стойността по подразбиране на `noEmitOnError` в tsconfig.json като false. Това ще позволи генерирането на JavaScript код дори ако бъдат отчетени грешки.
 
-## Exploring the Type System
+## Изследване на типовата система
 
-### The TypeScript Language Service
+### Езиковата услуга на TypeScript
 
-The TypeScript Language Service, also known as tsserver, offers various features such as error reporting, diagnostics, compile-on-save, renaming, go to definition, completion lists, signature help, and more. It is primarily used by integrated development environments (IDEs) to provide IntelliSense support. It seamlessly integrates with Visual Studio Code and is utilized by tools like Conquer of Completion (Coc).
+Езиковата услуга на TypeScript, известна още като tsserver, предлага различни функции, като отчитане на грешки, диагностика, компилиране при запазване, преименуване, преминаване към дефиниция, списъци за автодопълване, помощ за сигнатури и други. Тя се използва предимно от интегрираните среди за разработка (IDE), за да осигурява поддръжка на IntelliSense. Тя се интегрира безпроблемно с Visual Studio Code и се използва от инструменти като Conquer of Completion (Coc).
 
-Developers can leverage a dedicated API and create their own custom language service plugins to enhance the TypeScript editing experience. This can be particularly useful for implementing special linting features or enabling auto-completion for a custom templating language.
+Разработчиците могат да използват специален API и да създават свои собствени плъгини за езиковата услуга, за да подобрят опита при редактиране на TypeScript. Това може да бъде особено полезно при имплементация на специални функции за проверка на кода или за активиране на автодопълване за персонализиран език за шаблони.
 
 <!-- markdownlint-disable MD044 -->
-An example of a real-world custom plugin is "typescript-styled-plugin", which provides syntax error reporting and IntelliSense support for CSS properties in styled components.
+Пример за реален потребителски плъгин е "typescript-styled-plugin", който предоставя докладване на синтактични грешки и IntelliSense поддръжка за CSS свойства в styled components.
 <!-- markdownlint-enable MD044 -->
 
-For more information and quick start guides, you can refer to the official TypeScript Wiki on GitHub: [https://github.com/microsoft/TypeScript/wiki/](https://github.com/microsoft/TypeScript/wiki/)
+За повече информация и ръководства за бързо начало можете да се обърнете към официалната документация на TypeScript Wiki в GitHub: [https://github.com/microsoft/TypeScript/wiki/](https://github.com/microsoft/TypeScript/wiki/)
 
-### Structural Typing
+### Структурна типизация
 
-TypeScript is based on a structural type system. This means that the compatibility and equivalence of types are determined by the type's actual structure or definition, rather than its name or place of declaration, as in nominative type systems like C# or C.
+TypeScript се базира на структурна типова система. Това означава, че съвместимостта и еквивалентността на типовете се определят от реалната структура или дефиниция на типа, а не от името му или мястото на декларация, както при номинативните типови системи като C# или C.
 
-TypeScript's structural type system was designed based on how JavaScript's dynamic duck typing system works during runtime.
+Структурната типова система на TypeScript е проектирана въз основа на това как работи динамичната duck typing система на JavaScript по време на изпълнение.
 
-The following example is valid TypeScript code. As you can observe, "X" and "Y" have the same member "a," even though they have different declaration names. The types are determined by their structures, and in this case, since the structures are the same, they are compatible and valid.
+Следният пример е валиден TypeScript код. Както може да се види, "X" и "Y" имат един и същи член "a", въпреки че имат различни имена на декларациите. Типовете се определят от техните структури и в този случай, тъй като структурите са еднакви, те са съвместими и валидни.
 
 ```typescript
 type X = {
@@ -690,35 +690,35 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // Валидно
 ```
 
-### TypeScript Fundamental Comparison Rules
+### Основни правила за сравнение в TypeScript
 
-The TypeScript comparison process is recursive and executed on types nested at any level.
+Процесът на сравнение в TypeScript е рекурсивен и се прилага върху типове, вложени на всяко ниво.
 
-A type "X" is compatible with "Y" if "Y" has at least the same members as "X".
+Типът "X" е съвместим с "Y", ако "Y" има поне същите елементи като "X".
 
 ```typescript
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // Вярно, тъй като има поне същите членове като X
 const r: X = y;
 ```
 
-Function parameters are compared by types, not by their names:
+Параметрите на функциите се сравняват по типове, а не по имена:
 
 ```typescript
 type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Валидно
+x = y; // Валидно
 ```
 
-Function return types must be the same:
+Типовете на връщаните стойности от функции трябва да са еднакви:
 
 <!-- skip -->
 ```typescript
@@ -726,66 +726,66 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // Невалидно
+x = y; // Невалидно
 ```
 
-The return type of a source function must be a subtype of the return type of a target function:
+Типът на връщаната стойност на изходната функция трябва да бъде подтип на типа на връщаната стойност на целевата функция:
 
 <!-- skip -->
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // Валидно
+y = x; // Липсва невалиден елемент b
 ```
 
-Discarding function parameters is allowed, as it is a common practice in JavaScript, for instance using "Array.prototype.map()":
+Допуска се изключването на параметри на функции, тъй като това е обичайна практика в JavaScript, например при използването на "Array.prototype.map()":
 
 ```typescript
 [1, 2, 3].map((element, _index, _array) => element + 'x');
 ```
 
-Therefore, the following type declarations are completely valid:
-
+Следователно следните декларации на типове са напълно валидни:
+    
 ```typescript
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // Липсва невалиден параметър b
+y = x; // Валидно
 ```
 
-Any additional optional parameters of the source type are valid:
+Всички допълнителни опционални параметри на изходния тип са валидни:
 
 ```typescript
 type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // Валидно
+x = y; //Валидно
 ```
 
-Any optional parameters of the target type without corresponding parameters in the source type are valid and not an error:
+Всички опционални параметри на целевия тип без съответстващи параметри в изходния тип са валидни и не са грешка:
 
 ```typescript
 type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Валидно
+x = y; // Валидно
 ```
 
-The rest parameter is treated as an infinite series of optional parameters:
+Параметърът "rest" се третира като безкрайна поредица от опционални параметри:
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //валидно
 ```
 
-Functions with overloads are valid if the overload signature is compatible with its implementation signature:
+Функциите с overloads са валидни, ако сигнатурата на overload е съвместима със сигнатурата на неговата реализация:
 
 <!-- skip -->
 ```typescript
@@ -794,10 +794,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // Валидно
+x('a', 1); // Валидно
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // Невалидно, несъвместимо със сигнатурата на реализацията
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -806,7 +806,7 @@ y('a');
 y('a', 1);
 ```
 
-Function parameter comparison succeeds if the source and target parameters are assignable to supertypes or subtypes (bivariance).
+Сравнението на параметрите на функциите е успешно, ако изходните и целевите параметри могат да бъдат присвоени към супертипове или подтипове (bivariance).
 
 ```typescript
 // Supertype
@@ -825,12 +825,12 @@ type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
 // Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+console.log(getA(new X('x'))); // Валидно
+console.log(getA(new Y('Y'))); // Валидно
+console.log(getA(new Z('z'))); // Валидно
 ```
 
-Enums are comparable and valid with numbers and vice versa, but comparing Enum values from different Enum types is invalid.
+Enum-овете могат да се сравняват и са валидни с числа и обратно, но сравняването на стойности от различни Enum типове е невалидно.
 
 <!-- skip -->
 ```typescript
@@ -843,12 +843,12 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // Валидно
+const ya: Y = 0; // Валидно
+X.A === Y.A; // Невалидно
 ```
 
-Instances of a class are subject to a compatibility check for their private and protected members:
+Инстанциите на даден клас се подлагат на проверка за съвместимост по отношение на частните и защитените им елементи:
 
 <!-- skip -->
 ```typescript
@@ -866,10 +866,10 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // Невалидно
 ```
 
-The comparison check does not take into consideration the different inheritance hierarchy, for instance:
+При сравнителната проверка не се взема предвид разликата в йерархията на наследяване, например:
 
 ```typescript
 class X {
@@ -894,11 +894,11 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // Валидно
+x === z; // Валидно дори ако z е от друга йерархия на наследяване
 ```
 
-Generics are compared using their structures based on the resulting type after applying the generic parameter, only the final result is compared as a non-generic type.
+Generics се сравняват чрез техните структури въз основа на резултатния тип след прилагане на generic параметъра; сравнява се само крайният резултат като не-generic тип.
 
 <!-- skip -->
 ```typescript
@@ -907,100 +907,100 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // Невалидно тъй като аргументът за типа се използва в крайната структура
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // Валидно тъй като аргументът за типа не се използва в крайната структура
 ```
 
-When generics do not have their type argument specified, all the unspecified arguments are treated as types with "any":
+Когато generics нямат зададен аргумент за тип, всички незададени аргументи се третират като типове "any":
 
 ```typescript
 type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // Валидно
 ```
 
-Remember:
+Не забравяйте:
 
 <!-- skip -->
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // Валидно, всичко може да се присвои на себе си
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // Валидно, всички типове могат да се присвоят на any
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // Валидно, всички типове могат да се присвоят на unknown
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // Валидно, unknown може да бъде присвоен само на себе си и на any
+let e2: any = e; // Валидно
+let e3: number = e; // Невалидно
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // Невалидно, нищо не може да се присвои на never
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything expect any
-g = g1; // Valid
+g = 1; // Невалидно, променливата void не може да бъде присвоявана към или от нищо, освен от самата себе си
+g = g1; // Валидно
 ```
 
-Please note that when "strictNullChecks" is enabled, "null" and "undefined" are treated similarly to "void"; otherwise, they are similar to "never".
+Имайте предвид, че когато е активирана опцията "strictNullChecks", "null" и "undefined" се третират по подобен начин като "void"; а в противен случай те се третират като "never".
 
-### Types as Sets
+### Типовете като множества
 
-In TypeScript, a type is a set of possible values. This set is also referred to as the domain of the type. Each value of a type can be viewed as an element in a set. A type establishes the constraints that every element in the set must satisfy to be considered a member of that set.
-The primary task of TypeScript is to check and verify whether one set is a subset of another.
+В TypeScript типът е множеството от възможни стойности. Това множество се нарича още домейн на типа. Всяка стойност на типа може да се разглежда като елемент в множеството. Типът определя ограниченията, които всеки елемент в множеството трябва да удовлетворява, за да се счита за член на това множество.
+Основната задача на TypeScript е да проверява и потвърждава дали едно множество е подмножество на друго.
 
-TypeScript supports various types of sets:
+TypeScript поддържа различни типове множества:
 
-| Set term           | TypeScript                      | Notes                                                                                                              |
-| ------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Empty set          | never                           | "never" contains anything apart itself                                                                             |
-| Single element set | undefined / null / literal type |                                                                                                                    |
-| Finite set         | boolean / union                 |                                                                                                                    |
-| Infinite set       | string / number / object        |                                                                                                                    |
-| Universal set      | any / unknown                   | Every element is a member of "any" and every set is a subset of it / "unknown" is a type-safe counterpart of "any" |
+| Термин от теорията на множествата | TypeScript                          | Бележки                                                                                                                     |
+| --------------------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Празно множество                  | never                               | "never" не съдържа нищо освен самото себе си                                                                                |
+| Множество с един елемент          | undefined / null / literal type     |                                                                                                                             |
+| Крайно множество                  | boolean / union                     |                                                                                                                             |
+| Безкрайно множество               | string / number / object            |                                                                                                                             |
+| Универсално множество             | any / unknown                       | Всеки елемент е член на "any", а всяко множество е негово подмножество / "unknown" е типово безопасна алтернатива на "any"        |
 
-Here few examples:
+Ето няколко примера:
 
-| TypeScript            | Set term               | Example                                                                         |
-| --------------------- | ---------------------- | ------------------------------------------------------------------------------- |
-| never                 | ∅ (empty set)          | const x: never = 'x'; // Error: Type 'string' is not assignable to type 'never' |
-|                       |                        |
-| Literal type          | Single element set     | type X = 'X';                                                                   |
-|                       |                        | type Y = 7;                                                                     |
-|                       |                        |
-| Value assignable to T | Value ∈ T (member of)  | type XY = 'X' \| 'Y';                                                           |
-|                       |                        | const x: XY = 'X';                                                              |
-|                       |                        |
-| T1 assignable to T2   | T1 ⊆ T2 (subset of)    | type XY = 'X' \| 'Y';                                                           |
-|                       |                        | const x: XY = 'X';                                                              |
-|                       |                        | const j: XY = 'J'; // Type '"J"' is not assignable to type 'XY'.                |
-|                       |                        |                                                                                 |
-| T1 extends T2         | T1 ⊆ T2 (subset of)    | type X = 'X' extends string ? true : false;                                     |
-|                       |                        |
-| T1 \| T2              | T1 ∪ T2 (union)        | type XY = 'X' \| 'Y';                                                           |
-|                       |                        | type JK = 1 \| 2;                                                               |
-|                       |                        |
-| T1 & T2               | T1 ∩ T2 (intersection) | type X = \{ a: string \}                                                          |
-|                       |                        | type Y = \{ b: string \}                                                          |
-|                       |                        | type XY = X & Y                                                                 |
-|                       |                        | const x: XY = \{ a: 'a', b: 'b' \}                                                |
-|                       |                        |
-| unknown               | Universal set          | const x: unknown = 1                                                            |
+| TypeScript                 | Термин от теорията на множествата | Пример                                                                                 |
+| -------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------- |
+| never                      | ∅ (празно множество)               | const x: never = 'x'; // Грешка: Тип 'string' не е присвоим към тип 'never'            |
+|                            |                                    |                                                                                        |
+| Literal type               | Множество с един елемент           | type X = 'X';                                                                          |
+|                            |                                    | type Y = 7;                                                                            |
+|                            |                                    |                                                                                        |
+| Стойност присвоима към T   | Стойност ∈ T (член на)             | type XY = 'X' \| 'Y';                                                                  |
+|                            |                                    | const x: XY = 'X';                                                                     |
+|                            |                                    |                                                                                        |
+| T1 присвоим към T2         | T1 ⊆ T2 (подмножество на)          | type XY = 'X' \| 'Y';                                                                  |
+|                            |                                    | const x: XY = 'X';                                                                     |
+|                            |                                    | const j: XY = 'J'; // Тип '"J"' не е присвоим към тип 'XY'.                            |
+|                            |                                    |                                                                                        |
+| T1 extends T2              | T1 ⊆ T2 (подмножество на)          | type X = 'X' extends string ? true : false;                                            |
+|                            |                                    |                                                                                        |
+| T1 \| T2                   | T1 ∪ T2 (обединение)               | type XY = 'X' \| 'Y';                                                                  |
+|                            |                                    | type JK = 1 \| 2;                                                                      |
+|                            |                                    |                                                                                        |
+| T1 & T2                    | T1 ∩ T2 (сечение)                  | type X = \{ a: string \}                                                               |
+|                            |                                    | type Y = \{ b: string \}                                                               |
+|                            |                                    | type XY = X & Y                                                                        |
+|                            |                                    | const x: XY = \{ a: 'a', b: 'b' \}                                                      |
+|                            |                                    |                                                                                        |
+| unknown                    | Универсално множество              | const x: unknown = 1                                                                   |
 
-An union, (T1 | T2) creates a wider set (both):
+Обединение, (T1 | T2) създава по-широко множество (и двете):
 
 ```typescript
 type X = {
@@ -1010,10 +1010,10 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // Валидно
 ```
 
-An intersection, (T1 & T2) create a narrower set (only shared):
+Сечение, (T1 & T2) създава по-тясно множество (само общите елементи):
 
 <!-- skip -->
 ```typescript
@@ -1025,13 +1025,14 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // Невалидно
+const j: XY = { a: 'a', b: 'b' }; // Валидно
 ```
 
-The `extends` keyword could be considered as a "subset of" in this context. It sets a constraint for a type. The extends used with a generic, take the generic as an infinite set and it will constrain it to a more specific type.
-Please note that `extends` has nothing to do with hierarchy in a OOP sense (there is no this concept in TypeScript).
-TypeScript works with sets and does not have a strict hierarchy, infact, as in the example below, two types could overlap without either being a subtype of the other type (TypeScript considers the structure, shape of the objects).
+Ключовата дума `extends` може да се разглежда като "подмножество на" в този контекст. Тя задава ограничение за даден тип. Когато `extends` се използва с generic, generic типът се разглежда като безкрайно множество и се ограничава до по-специфичен тип.
+Имайте предвид, че `extends` няма нищо общо с йерархия в смисъла на ООП (такова понятие на практика не съществува в TypeScript).
+TypeScript работи с множества и няма строга йерархия. Всъщност, както е показано в примера по-долу, два типа могат да се припокриват, без нито един от
+ тях да е подтип на другия (TypeScript разглежда структурата и формата на обектите).
 
 ```typescript
 interface X {
@@ -1058,7 +1059,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // Валидно
 ```
 
 ### Assign a type: Type Declarations and Type Assertions
@@ -1173,8 +1174,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // Валидно because structural typing
+const w: X = { a: 'a', b: 'b' }; // Невалидно because excess property checking
 ```
 
 ### Weak Types
@@ -1199,7 +1200,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // Невалидно
 ```
 
 Although not recommended, if needed, it is possible to bypass this check by using type assertion:
@@ -1210,7 +1211,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // Валидно
 ```
 
 Or by adding `unknown` to the index signature to the weak type:
@@ -1223,7 +1224,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // Валидно
 ```
 
 ### Strict Object Literal Checking (Freshness)
@@ -1242,16 +1243,16 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // Freshness check: Невалидно assignment
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // Freshness check: Невалидно assignment
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
 fn(y); // Widening: No errors, structurally type compatible
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // Freshness check: Невалидно argument
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
@@ -1304,7 +1305,7 @@ In the following example:
 ```typescript
 let x = 'x'; // TypeScript infers as string, a wide type
 let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+y = x; // Невалидно Type 'string' is not assignable to type '"x" | "y"'.
 ```
 
 TypeScript assigns `string` to `x` based on the single value provided during initialization (`x`), this is an example of widening.
@@ -1320,7 +1321,7 @@ For example:
 ```typescript
 const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // Валидно: The type of x is inferred as 'x'
 ```
 
 By using `const` to declare the variable x, its type is narrowed to the specific literal value 'x'. Since the type of x is narrowed, it can be assigned to the variable y without any error.
@@ -1389,7 +1390,7 @@ We can be specific and pass a type, in the following example property `x` is of 
 const v = {
     x: 1, // Inferred type: number (widening)
 };
-v.x = 3; // Valid
+v.x = 3; // Валидно
 ```
 
 We can make the type annotation more specific by using a union of literal types:
@@ -1399,8 +1400,8 @@ We can make the type annotation more specific by using a union of literal types:
 const v: { x: 1 | 2 | 3 } = {
     x: 1, // x is now a union of literal types: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // Валидно
+v.x = 100; // Невалидно
 ```
 
 ### Type Narrowing
@@ -1573,7 +1574,7 @@ TypeScript supports readonly arrays using the following syntax:
 const x: readonly string[] = ['a', 'b']; // Readonly modifier
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // Невалидно
 ```
 
 TypeScript supports tuple and readonly tuple:
@@ -2305,8 +2306,8 @@ A Union Type is a type that represents a value that can be one of several types.
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // Валидно
+x = 123; // Валидно
 ```
 
 ## Intersection Types
@@ -2488,8 +2489,8 @@ By utilizing `any` type, you are indicating to the TypeScript compiler that valu
 
 ```typescript
 let value: any;
-value = true; // Valid
-value = 7; // Valid
+value = true; // Валидно
+value = 7; // Валидно
 ```
 
 ## Unknown type
@@ -2502,10 +2503,10 @@ The `unknown` type is only assignable to any type and the `unknown` type itself,
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // Валидно
+let value2: any = value; // Валидно
+let value3: boolean = value; // Невалидно
+let value4: number = value; // Невалидно
 ```
 
 ```typescript
@@ -2701,11 +2702,11 @@ function sayHi(name: unknown): unknown {
     } else if (Array.isArray(name)) {
         return name.map(name => `Hi, ${name}!`);
     }
-    throw new Error('Invalid value');
+    throw new Error('Невалидно value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // Валидно
+sayHi(['aa', 'bb']); // Валидно
 ```
 
 Here's another example of using function overloads within a `class`:
@@ -3317,7 +3318,7 @@ function range<This, Return extends number>(min: number, max: number) {
         return function (this: This): Return {
             const value = target.call(this);
             if (value < min || value > max) {
-                throw 'Invalid';
+                throw 'Невалидно';
             }
             Object.defineProperty(this, context.name, {
                 value,
@@ -3341,10 +3342,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // Валидно: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // Throw: Невалидно!
 ```
 
 #### Decorator Metadata
@@ -3534,7 +3535,7 @@ class MyClass {
         if (typeof a === 'string' && typeof b === 'string') {
             return a.concat(b);
         }
-        throw new Error('Invalid arguments');
+        throw new Error('Невалидно arguments');
     }
 }
 
@@ -3602,7 +3603,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // Невалидно
 ```
 
 An interesting feature of generic introduced in version 3.4 RC is Higher order function type inference which introduced  propagated generic type arguments:
@@ -3660,7 +3661,7 @@ const obj = {
     prop1: 'Origin',
 };
 
-log(obj); // Valid
+log(obj); // Валидно
 ```
 
 ## Namespacing
@@ -3853,7 +3854,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // Невалидно
 ```
 
 #### Record\<K, T\>
@@ -4022,8 +4023,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // Валидно as "log" is a part of "this".
+        this.update(); // Невалидно
     },
 };
 ```
@@ -4748,7 +4749,7 @@ let dogs: Dog[] = [];
 
 // Covariance allows assigning subtype (Dog) array to supertype (Animal) array
 animals = dogs;
-dogs = animals; // Invalid: Type 'Animal[]' is not assignable to type 'Dog[]'
+dogs = animals; // Невалидно: Type 'Animal[]' is not assignable to type 'Dog[]'
 
 // Contravariance example
 type Feed<in T> = (animal: T) => void;
@@ -4763,7 +4764,7 @@ let feedDog: Feed<Dog> = (dog: Dog) => {
 
 // Contravariance allows assigning supertype (Animal) callback to subtype (Dog) callback
 feedDog = feedAnimal;
-feedAnimal = feedDog; // Invalid: Type 'Feed<Dog>' is not assignable to type 'Feed<Animal>'.
+feedAnimal = feedDog; // Невалидно: Type 'Feed<Dog>' is not assignable to type 'Feed<Animal>'.
 ```
 
 In TypeScript, type relationships for arrays are covariant, while type relationships for function parameters are contravariant. This means that TypeScript exhibits both covariance and contravariance, depending on the context.
