@@ -121,15 +121,6 @@ gtag('config', 'G-SR2LV8LB90');
             src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8180626414651391',
             crossorigin: 'anonymous',
           },
-        },
-        {
-          tag: 'script',
-          attrs: {
-            defer: true,
-            src: 'https://static.cloudflareinsights.com/beacon.min.js',
-            'data-cf-beacon':
-              '{"token": "949aed66281e40378ac479993d699897"}',
-          },
         }
       ],
       title: 'TypeScript Book',
