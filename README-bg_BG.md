@@ -69,57 +69,57 @@
     - [Структурна типизация](#структурна-типизация)
     - [Основни правила за сравнение в TypeScript](#основни-правила-за-сравнение-в-typescript)
     - [Типовете като множества](#типовете-като-множества)
-    - [Assign a type: Type Declarations and Type Assertions](#assign-a-type-type-declarations-and-type-assertions)
-      - [Type Declaration](#type-declaration)
-      - [Type Assertion](#type-assertion)
+    - [Присвояване на тип: Декларации и проверки на типове](#присвояване-на-тип-декларации-и-проверки-на-типове)
+      - [Декларация на тип](#декларация-на-тип)
+      - [Проверка на тип (Type Assertion)](#проверка-на-тип-type-assertion)
       - [Ambient Declarations](#ambient-declarations)
-    - [Property Checking and Excess Property Checking](#property-checking-and-excess-property-checking)
-    - [Weak Types](#weak-types)
-    - [Strict Object Literal Checking (Freshness)](#strict-object-literal-checking-freshness)
-    - [Type Inference](#type-inference)
-    - [More Advanced Inferences](#more-advanced-inferences)
-    - [Type Widening](#type-widening)
+    - [Проверка на свойства и проверка за излишни свойства](#проверка-на-свойства-и-проверка-за-излишни-свойства)
+    - [Слаби типове](#слаби-типове)
+    - [Строга проверка на обектни литерали (Freshness)](#строга-проверка-на-обектни-литерали-freshness)
+    - [Извеждане на типове](#извеждане-на-типове)
+    - [По-сложни изводи](#по-сложни-изводи)
+    - [Разширяване на типовете](#разширяване-на-типовете)
     - [Const](#const)
       - [Const Modifier on Type Parameters](#const-modifier-on-type-parameters)
       - [Const assertion](#const-assertion)
-    - [Explicit Type Annotation](#explicit-type-annotation)
-    - [Type Narrowing](#type-narrowing)
-      - [Conditions](#conditions)
-      - [Throwing or returning](#throwing-or-returning)
+    - [Явна типова анотация](#явна-типова-анотация)
+    - [Стесняване на типове](#стесняване-на-типове)
+      - [Условия](#условия)
+      - [Изключване на грешка или връщане от разклонение](#изключване-на-грешка-или-връщане-от-разклонение)
       - [Discriminated Union](#discriminated-union)
-      - [User-Defined Type Guards](#user-defined-type-guards)
-  - [Primitive Types](#primitive-types)
+      - [Потребителски type guards](#потребителски-type-guards)
+  - [Примитивни типове](#примитивни-типове)
     - [string](#string)
     - [boolean](#boolean)
     - [number](#number)
     - [bigInt](#bigint)
-    - [Symbol](#symbol)
-    - [null and undefined](#null-and-undefined)
-    - [Array](#array)
+    - [Символ](#символ)
+    - [null и undefined](#null-и-undefined)
+    - [Масив](#масив)
     - [any](#any)
-  - [Type Annotations](#type-annotations)
-  - [Optional Properties](#optional-properties)
-  - [Readonly Properties](#readonly-properties)
-  - [Index Signatures](#index-signatures)
-  - [Extending Types](#extending-types)
+  - [Анотации на типовете](#анотации-на-типовете)
+  - [Опционални свойства](#опционални-свойства)
+  - [Readonly свойства](#readonly-свойства)
+  - [Сигнатури на индекси](#сигнатури-на-индекси)
+  - [Разширяване на типове](#разширяване-на-типове)
   - [Literal Types](#literal-types)
   - [Literal Inference](#literal-inference)
   - [strictNullChecks](#strictnullchecks)
   - [Enums](#enums)
-    - [Numeric enums](#numeric-enums)
-    - [String enums](#string-enums)
-    - [Constant enums](#constant-enums)
-    - [Reverse mapping](#reverse-mapping)
+    - [Числови enums](#числови-enums)
+  - [Низови enums](#низови-enums)
+    - [Константни enums](#константни-enums)
+    - [Обратни съпоставки](#обратни-съпоставки)
     - [Ambient enums](#ambient-enums)
-    - [Computed and constant members](#computed-and-constant-members)
+    - [Изчисляеми и константни членове](#изчисляеми-и-константни-членове)
   - [Narrowing](#narrowing)
-    - [typeof type guards](#typeof-type-guards)
-    - [Truthiness narrowing](#truthiness-narrowing)
-    - [Equality narrowing](#equality-narrowing)
-    - [In Operator narrowing](#in-operator-narrowing)
-    - [instanceof narrowing](#instanceof-narrowing)
-  - [Assignments](#assignments)
-  - [Control Flow Analysis](#control-flow-analysis)
+    - [Проверки за типа "typeof"](#проверки-за-типа-typeof)
+    - [Свиване на тип чрез truthiness](#свиване-на-тип-чрез-truthiness)
+    - [Свиване на тип чрез равенство](#свиване-на-тип-чрез-равенство)
+    - [Свиване на тип чрез оператора "in"](#свиване-на-тип-чрез-оператора-in)
+    - [Свиване на тип чрез `instanceof`](#свиване-на-тип-чрез-instanceof)
+  - [Присвоявания](#присвоявания)
+  - [Анализ на потока на управление](#анализ-на-потока-на-управление)
   - [Type Predicates](#type-predicates)
   - [Discriminated Unions](#discriminated-unions)
   - [The never Type](#the-never-type)
@@ -1062,26 +1062,26 @@ const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 const r: Z1 = z; // Валидно
 ```
 
-### Assign a type: Type Declarations and Type Assertions
+### Присвояване на тип: Декларации и проверки на типове
 
-A type can be assigned in different ways in TypeScript:
+Тип може да бъде зададен по различни начини в TypeScript:
 
-#### Type Declaration
+#### Декларация на тип
 
-In the following example, we use x: X (": Type") to declare a type for the variable x.
+В следния пример използваме x: X (": Type"), за да декларираме тип за променливата x.
 
 ```typescript
 type X = {
     a: string;
 };
 
-// Type declaration
+// Декларация на тип
 const x: X = {
     a: 'a',
 };
 ```
 
-If the variable is not in the specified format, TypeScript will report an error. For instance:
+Ако променливата не е в посочения формат, TypeScript ще отчете грешка. Например:
 
 <!-- skip -->
 ```typescript
@@ -1095,11 +1095,11 @@ const x: X = {
 };
 ```
 
-#### Type Assertion
+#### Проверка на тип (Type Assertion)
 
-It is possible to add an assertion by using the `as` keyword. This tells the compiler that the developer has more information about a type and silences any errors that may occur.
+Може да се добави проверка чрез ключовата дума `as`. Това указва на компилатора, че разработчикът разполага с повече информация за даден тип, и потиска евентуалните грешки.
 
-For example:
+Например:
 
 ```typescript
 type X = {
@@ -1111,16 +1111,16 @@ const x = {
 } as X;
 ```
 
-In the above example, the object x is asserted to have the type X using the as keyword. This informs the TypeScript compiler that the object conforms to the specified type, even though it has an additional property b not present in the type definition.
+В горния пример обектът x е деклариран като тип X чрез използването на ключовата дума as. Това информира TypeScript компилатора, че обектът отговаря на посочения тип, въпреки че има допълнително свойство b, което не присъства в дефиницията на типа.
 
-Type assertions are useful in situations where a more specific type needs to be specified, especially when working with the DOM. For instance:
+Type assertions са полезни в ситуации, когато трябва да се посочи по-специфичен тип, особено при работа с DOM. Например:
 
 ```typescript
 const myInput = document.getElementById('my_input') as HTMLInputElement;
 ```
 
-Here, the type assertion as HTMLInputElement is used to tell TypeScript that the result of getElementById should be treated as an HTMLInputElement.
-Type assertions can also be used to remap keys, as shown in the example below with template literals:
+Тук type assertion as HTMLInputElement се използва, за да се укаже на TypeScript, че резултатът от getElementById трябва да бъде третиран като HTMLInputElement.
+Type assertions могат също да се използват за пренасочване (remap) на ключове, както е показано в примера по-долу с template literals:
 
 ```typescript
 type J<Type> = {
@@ -1134,39 +1134,39 @@ type X = {
 type Y = J<X>;
 ```
 
-In this example, the type `J<Type>` uses a mapped type with a template literal to remap the keys of Type. It creates new properties with a "prefix_" added to each key, and their corresponding values are functions returning the original property values.
+В този пример типът `J<Type>` използва mapped type с template literal, за да пренасочи ключовете на Type. Той създава нови свойства с добавен префикс "prefix_" към всеки ключ, като съответните им стойности са функции, които връщат оригиналните стойности на свойствата.
 
-It is worth noting that when using a type assertion, TypeScript will not execute excess property checking. Therefore, it is generally preferable to use a Type Declaration when the structure of the object is known in advance.
+Струва си да се отбележи, че при използване на type assertion TypeScript няма да извърши excess property checking. Затова обикновено е за предпочитане да се използва декларация на тип, когато структурата на обекта е известна предварително.
 
 #### Ambient Declarations
 
-Ambient declarations are files that describe types for JavaScript code, they have a file name format as `.d.ts.`. They are usually imported and used to annotate existing JavaScript libraries or to add types to existing JS files in your project.
+Ambient declarations са файлове, които описват типове за JavaScript код. Те имат файлов формат `.d.ts`. Обикновено се импортират и използват за анотиране на съществуващи JavaScript библиотеки или за добавяне на типове към съществуващи JS файлове във вашия проект.
 
-Many common libraries types can be found at:
+Типовете за много често използвани библиотеки могат да бъдат намерени на:
 [https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
 
-and can be installed using:
+и могат да бъдат инсталирани с помощта на:
 
 ```shell
 npm install --save-dev @types/library-name
 ```
 
-For your defined Ambient Declarations, you can import using the "triple-slash" reference:
+За вашите дефинирани Ambient Declarations, можете да ги импортирате, използвайки "triple-slash" reference:
 
 <!-- skip -->
 ```typescript
 /// <reference path="./library-types.d.ts" />
 ```
 
-You can use Ambient Declarations even within JavaScript files using `// @ts-check`.
+Можете да използвате Ambient Declarations дори и в JavaScript файлове, като използвате `// @ts-check`.
 
-The `declare` keyword enables type definitions for existing JavaScript code without importing it, serving as a placeholder for types from another file or globally.
+Ключовата дума `declare` позволява дефиниране на типове за съществуващ JavaScript код, без да е необходимо да се импортира, като служи като заместител за типове от друг файл или глобално.
 
-### Property Checking and Excess Property Checking
+### Проверка на свойства и проверка за излишни свойства
 
-TypeScript is based on a structural type system but excess property checking is a property of TypeScript which allows it to check whether an object has the exact properties specified in the type.
+TypeScript се базира на структурна типова система, но проверката за излишни свойства е характеристика на TypeScript, която му позволява да проверява дали обектът има точно определените свойства, посочени в типа.
 
-Excess Property Checking is performed when assigning object literals to variables or when passing them as arguments to the function's excess property, for instance.
+Проверката за излишни свойства се извършва например при присвояване на обектни литерали на променливи или при предаването им като аргументи на функцията за излишни свойства.
 
 <!-- skip -->
 ```typescript
@@ -1174,13 +1174,13 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Валидно because structural typing
-const w: X = { a: 'a', b: 'b' }; // Невалидно because excess property checking
+const x: X = y; // Валидно благодарение на структурното типизиране
+const w: X = { a: 'a', b: 'b' }; // Невалидно поради проверка за излишък на свойства
 ```
 
-### Weak Types
+### Слаби типове
 
-A type is considered weak when it contains nothing but a set of all-optional properties:
+Един тип се счита за слаб, когато съдържа единствено множество от изцяло опционални свойства:
 
 ```typescript
 type X = {
@@ -1189,7 +1189,7 @@ type X = {
 };
 ```
 
-TypeScript considers an error to assign anything to a weak type when there is no overlap, for instance, the following throws an error:
+TypeScript счита за грешка присвояването на каквото и да е към слаб тип, когато няма припокриване, например следният код ще хвърли грешка:
 
 <!-- skip -->
 ```typescript
@@ -1203,7 +1203,7 @@ const fn = (options: Options) => undefined;
 fn({ c: 'c' }); // Невалидно
 ```
 
-Although not recommended, if needed, it is possible to bypass this check by using type assertion:
+Въпреки че не се препоръчва, ако е необходимо, е възможно да се заобиколи тази проверка, като се използва type assertion:
 
 ```typescript
 type Options = {
@@ -1214,7 +1214,7 @@ const fn = (options: Options) => undefined;
 fn({ c: 'c' } as Options); // Валидно
 ```
 
-Or by adding `unknown` to the index signature to the weak type:
+Или като добавите `unknown` към сигнатурата на индекса на слабия тип:
 
 ```typescript
 type Options = {
@@ -1227,15 +1227,15 @@ const fn = (options: Options) => undefined;
 fn({ c: 'c' }); // Валидно
 ```
 
-### Strict Object Literal Checking (Freshness)
+### Строга проверка на обектни литерали (Freshness)
 
-Strict object literal checking, sometimes referred to as "freshness", is a feature in TypeScript that helps catch excess or misspelled properties that would otherwise go unnoticed in normal structural type checks.
+Strict object literal checking, понякога наричана "freshness", е функционалност в TypeScript, която помага да се откриват излишни или грешно изписани свойства, които иначе биха останали незабелязани при стандартните структурни проверки на типовете.
 
-When creating an object literal, the TypeScript compiler considers it "fresh." If the object literal is assigned to a variable or passed as a parameter, TypeScript will throw an error if the object literal specifies properties that do not exist in the target type.
+Когато се създава обектен литерал, TypeScript компилаторът го счита за "fresh". Ако обектният литерал бъде присвоен на променлива или подаден като параметър, TypeScript ще върне грешка, ако са зададени свойства, които не съществуват в целевия тип.
 
-However, "freshness" disappears when an object literal is widened or a type assertion is used.
+Въпреки това "freshness" изчезва, когато обектният литерал бъде разширен (widened) или когато се използва type assertion.
 
-Here are some examples to illustrate:
+Ето няколко примера за илюстрация:
 
 <!-- skip -->
 ```typescript
@@ -1243,121 +1243,120 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Невалидно assignment
+x = { a: 'a', b: 'b' }; // Проверка за валидност: Невалидно присвояване
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Невалидно assignment
+y = { a: 'a', bx: 'bx' }; // Проверка за валидност: Невалидно присвояване
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // Разширяване: Без грешки, съвместимост на типовете по структура
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Невалидно argument
+fn({ a: 'a', bx: 'b' }); // Проверка за валидност: Невалидно присвояване
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // Разширяване: Без проверка за валидност
 ```
 
-### Type Inference
+### Извеждане на типове
 
-TypeScript can infer types when no annotation is provided during:
+TypeScript може да извежда типове, когато не е предоставена анотация при:
 
-* Variable initialization.
-* Member initialization.
-* Setting defaults for parameters.
-* Function return type.
+* Инициализация на променлива.
+* Инициализация на член (member).
+* Задаване на стойности по подразбиране за параметри.
+* Типа на връщаната стойност от функция.
 
-For example:
+Например:
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // Типът, който се извежда, е string
 ```
 
-The TypeScript compiler analyzes the value or expression and determines its type based on the available information.
+Компилаторът на TypeScript анализира стойността или израза и определя неговия тип въз основа на наличната информация.
 
-### More Advanced Inferences
+### По-сложни изводи
 
-When multiple expressions are used in type inference, TypeScript looks for the "best common types." For instance:
+Когато при извеждането на типове се използват няколко израза, TypeScript търси "най-добрите общи типове". Например:
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // Типът, който се извежда, е (string | number | null)[]
 ```
 
-If the compiler cannot find the best common types, it returns a union type. For example:
+Ако компилаторът не успее да намери най-подходящите общи типове, той връща тип "union". Например:
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // Типът, който се извежда, е (RegExp | Date)[]
 ```
 
-TypeScript utilizes "contextual typing" based on the variable's location to infer types. In the following example, the compiler knows that `e` is of type `MouseEvent` because of the `click` event type defined in the lib.d.ts file, which contains ambient declarations for various common JavaScript constructs and the DOM:
+TypeScript използва "contextual typing", базирано на местоположението на променливата, за да изведе типовете. В следния пример компилаторът знае, че `e` е от тип `MouseEvent`, благодарение на типа на събитието `click`, дефиниран във файла lib.d.ts, който съдържа общи декларации за различни често срещани конструкции в JavaScript и DOM:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // Типът, който се извежда за "e" е "MouseEvent"
 ```
 
-### Type Widening
+### Разширяване на типовете
 
-Type widening is the process in which TypeScript assigns a type to a variable initialized when no type annotation was provided. It allows narrow to wider types but not vice versa.
-In the following example:
+Разширяването на типовете е процесът, при който TypeScript присвоява тип на инициализирана променлива, когато не е зададена типова анотация. То позволява преминаване от по-тесен към по-широк тип, но не и обратното.
+В следния пример:
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Невалидно Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript извежда като string, широк тип
+let y: 'y' | 'x' = 'y'; // Типът на y е "union" на литерални типове
+y = x; // Невалиден Тип 'string' не може да бъде присвоен на типа '"x" | "y"'.
 ```
 
-TypeScript assigns `string` to `x` based on the single value provided during initialization (`x`), this is an example of widening.
+TypeScript присвоява `string` на `x` въз основа на единствената стойност, предоставена по време на инициализацията (`x`), това е пример за разширяване.
 
-TypeScript provides ways to have control of the widening process, for instance using "const".
+TypeScript предоставя начини за контрол на процеса на разширяване, например чрез използване на "const".
 
 ### Const
 
-Using the `const` keyword when declaring a variable results in a narrower type inference in TypeScript.
+Използването на ключовата дума `const` при деклариране на променлива води до по-тясно извеждане на типове в TypeScript.
 
-For example:
+Например:
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript извежда типа на x като 'x', по-тесен тип
 let y: 'y' | 'x' = 'y';
-y = x; // Валидно: The type of x is inferred as 'x'
+y = x; // Валидно: Типът на x е изведен като 'x'
 ```
 
-By using `const` to declare the variable x, its type is narrowed to the specific literal value 'x'. Since the type of x is narrowed, it can be assigned to the variable y without any error.
-The reason the type can be inferred is because `const` variables cannot be reassigned, so their type can be narrowed down to a specific literal type, in this case, the literal type 'x'.
+Чрез използването на `const` за деклариране на променливата x, нейният тип се стеснява до конкретната литерална стойност 'x'. Тъй като типът на x е по-тесен, той може да бъде присвоен на променливата y без грешка. Причината е, че `const` променливите не могат да бъдат преназначавани, затова техният тип може да бъде стеснен до конкретен литерален тип — в този случай 'x'.
 
 #### Const Modifier on Type Parameters
 
-From version 5.0 of TypeScript, it is possible to specify the `const` attribute on a generic type parameter. This allows for inferring the most precise type possible. Let's see an example without using `const`:
+От версия 5.0 на TypeScript е възможно да се зададе `const` атрибут върху generic параметър. Това позволява извеждане на възможно най-точния тип. Нека видим пример без използване на `const`:
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // Няма const тук
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type infered is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // Изведения тип е: { a: string; b: string; }
 ```
 
-As you can see, the properties `a` and `b` are inferred with a type of `string`   .
+Както се вижда, свойствата `a` и `b` са изведени като тип `string`.
 
-Now, let's see the difference with the `const` version:
+Сега нека видим разликата при използване на `const`:
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // Използване на const modifier върху type параметри
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type infered is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // Изведения тип е: { a: "a"; b: "b"; }
 ```
 
-Now we can see that the properties `a` and `b` are inferred as `const`, so `a` and `b` are treated as string literals rather than just `string` types.
+Тук свойствата `a` и `b` са изведени като `const`, т.е. се третират като string литерали, а не просто като тип `string`.
 
 #### Const assertion
 
-This feature allows you to declare a variable with a more precise literal type based on its initialization value, signifying to the compiler that the value should be treated as an immutable literal. Here are a few examples:
+Тази функционалност позволява да декларирате променлива с по-прецизен литерален тип въз основа на нейната начална стойност, като указва на компилатора, че стойността трябва да се третира като неизменим литерал. Ето няколко примера:
 
-On a single property:
+За отделно свойство:
 
 ```typescript
 const v = {
@@ -1366,7 +1365,7 @@ const v = {
 v.x = 3;
 ```
 
-On an entire object:
+За цял обект:
 
 ```typescript
 const v = {
@@ -1375,56 +1374,56 @@ const v = {
 } as const;
 ```
 
-This can be particularly useful when defining the type for a tuple:
+Това е особено полезно при дефиниране на тип за tuple:
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // Tuple от readonly [1, 2, 3]
 ```
 
-### Explicit Type Annotation
+### Явна типова анотация
 
-We can be specific and pass a type, in the following example property `x` is of type `number`:
+Можем изрично да зададем тип. В следния пример свойството `x` е от тип `number`:
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // Предполагаем тип: число (разширяване)
 };
 v.x = 3; // Валидно
 ```
 
-We can make the type annotation more specific by using a union of literal types:
+Можем да направим типовата анотация по-конкретна, като използваме обединение на литерални типове:
 
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // x вече е обединение от литерални типове: 1 | 2 | 3
 };
 v.x = 3; // Валидно
 v.x = 100; // Невалидно
 ```
 
-### Type Narrowing
+### Стесняване на типове
 
-Type Narrowing is the process in TypeScript where a general type is narrowed down to a more specific type. This occurs when TypeScript analyzes the code and determines that certain conditions or operations can refine the type information.
+Стесняването на типове е процес в TypeScript, при който един по-общ тип се стеснява до по-специфичен. Това се случва, когато TypeScript анализира кода и установи, че определени условия или операции могат да уточнят типовата информация.
 
-Narrowing types can occur in different ways, including:
+Стесняването на типове може да се случи по различни начини, включително:
 
-#### Conditions
+#### Условия
 
-By using conditional statements, such as `if` or `switch`, TypeScript can narrow down the type based on the outcome of the condition. For example:
+Чрез използване на условни конструкции, като `if` или `switch`, TypeScript може да стесни типа въз основа на резултата от условието. Например:
 
 ```typescript
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // Типът е число, което е било ограничено от условието
 }
 ```
 
-#### Throwing or returning
+#### Изключване на грешка или връщане от разклонение
 
-Throwing an error or returning early from a branch can be used to help TypeScript narrow down a type. For example:
+Изключването на грешка или преждевременното връщане от разклонение може да се използва, за да помогне на TypeScript да стесни типа. Например:
 
 ```typescript
 let x: number | undefined = 10;
@@ -1435,16 +1434,16 @@ if (x === undefined) {
 x += 100;
 ```
 
-Other ways to narrow down types in TypeScript include:
+Други начини за стесняване на типове в TypeScript включват:
 
-* `instanceof` operator: Used to check if an object is an instance of a specific class.
-* `in` operator: Used to check if a property exists in an object.
-* `typeof` operator: Used to check the type of a value at runtime.
-* Built-in functions like `Array.isArray()`: Used to check if a value is an array.
+* операторът `instanceof`: използва се за проверка дали даден обект е инстанция на конкретен клас.
+* операторът `in`: използва се за проверка дали дадено свойство съществува в обект.
+* операторът `typeof`: използва се за проверка на типа на стойност по време на изпълнение.
+* вградени функции като `Array.isArray()`: използват се за проверка дали дадена стойност е масив.
 
 #### Discriminated Union
 
-Using a "Discriminated Union" is a pattern in TypeScript where an explicit "tag" is added to objects to distinguish between different types within a union. This pattern is also referred to as a "tagged union." In the following example, the "tag" is represented by the property "type":
+Използването на "Discriminated Union" е патърн в TypeScript, при който се добавя изричен "таг" към обектите, за да се разграничат различните типове в едно обединение. Този патърн се нарича още "tagged union". В следния пример "тагът" е представен чрез свойството "type":
 
 ```typescript
 type A = { type: 'type_a'; value: number };
@@ -1453,41 +1452,41 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // типът е A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // типът е B
     }
 };
 ```
 
-#### User-Defined Type Guards
+#### Потребителски type guards
 
-In cases where TypeScript is unable to determine a type, it is possible to write a helper function known as a "user-defined type guard." In the following example, we will utilize a Type Predicate to narrow down the type after applying certain filtering:
+В случаите, когато TypeScript не може да определи тип, е възможно да се напише помощна функция, известна като "user-defined type guard". В следния пример ще използваме type predicate, за да стесним типа след прилагане на определено филтриране:
 
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // Типът е (string | null)[], TypeScript не успя да определи типа правилно
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // Потребителски type guard
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // Типът вече е string[], като използвахме predicate type guard успяхме да стесним типа
 ```
 
-## Primitive Types
+## Примитивни типове
 
-TypeScript supports 7 primitive types. A primitive data type refers to a type that is not an object and does not have any methods associated with it. In TypeScript, all primitive types are immutable, meaning their values cannot be changed once they are assigned.
+TypeScript поддържа 7 примитивни типа. Примитивният тип данни е тип, който не е обект и няма свързани с него методи. В TypeScript всички примитивни типове са неизменни, което означава, че стойностите им не могат да бъдат променяни, след като бъдат присвоени.
 
 ### string
 
-The `string` primitive type stores textual data, and the value is always double or single-quoted.
+Примитивният тип `string` съхранява текстови данни, като стойността винаги се поставя в двойни или единични кавички.
 
 ```typescript
 const x: string = 'x';
 const y: string = 'y';
 ```
 
-Strings can span multiple lines if surrounded by the backtick (`) character:
+Низовете могат да обхващат няколко реда, ако са обградени със символа обратна кавичка (`):
 
 ```typescript
 let sentence: string = `xxx,
@@ -1496,7 +1495,7 @@ let sentence: string = `xxx,
 
 ### boolean
 
-The `boolean` data type in TypeScript stores a binary value, either `true` or `false`.
+Типът данни `boolean` в TypeScript съхранява двоична стойност, която може да бъде `true` или `false`.
 
 ```typescript
 const isReady: boolean = true;
@@ -1504,35 +1503,35 @@ const isReady: boolean = true;
 
 ### number
 
-A `number` data type in TypeScript is represented with a 64-bit floating point value. A `number` type can represent integers and fractions.
-TypeScript also supports hexadecimal, binary, and octal, for instance:
+Типът данни `number` в TypeScript се представя като 64-битова стойност с плаваща запетая. Типът `number` може да представя цели числа и дроби.
+TypeScript поддържа също шестнадесетични, двоични и осмични числа, например:
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // Шестнадесетичната система започва с 0x
+const binary: number = 0b1010; // Двоичната система започва с 0b
+const octal: number = 0o633; // Осмичната система започва с 0o
 ```
 
 ### bigInt
 
-A `bigInt` represents numeric values that are very large (253 – 1) and cannot be represented with a `number`.
+`bigInt` представлява числови стойности, които са много големи (253 – 1) и не могат да бъдат представени с `number`.
 
-A `bigInt` can be created by calling the built-in function `BigInt()` or by adding `n` to the end of any integer numeric literal:
+`bigInt` може да бъде създаден чрез извикване на вградената функция `BigInt()` или чрез добавяне на `n` в края на всеки целочислен литерал:
 
 ```typescript
 const x: bigint = BigInt(9007199254740991);
 const y: bigint = 9007199254740991n;
 ```
 
-Notes:
+Забележки:
 
-* `bigInt` values cannot be mixed with `number` and cannot be used with built-in `Math`, they must be coerced to the same type.
-* `bigInt` values are available only if target configuration is ES2020 or higher.
+* Стойностите от тип `bigInt` не могат да се смесват със стойности от тип `number` и не могат да се използват с вградената библиотека `Math`; те трябва да бъдат преобразувани към един и същ тип.
+* Стойностите от тип `bigInt` са достъпни само ако целевата конфигурация е ES2020 или по-нова.
 
-### Symbol
+### Символ
 
-Symbols are unique identifiers that can be used as property keys in objects to prevent naming conflicts.
+Символите са уникални идентификатори, които могат да се използват като ключове на свойства в обекти, за да се предотвратят конфликти при наименуване.
 
 ```typescript
 type Obj = {
@@ -1549,17 +1548,17 @@ console.log(obj[a]); // 123
 console.log(obj[b]); // 456
 ```
 
-### null and undefined
+### null и undefined
 
-`null` and `undefined` types both represent no value or the absence of any value.
+Типовете `null` и `undefined` представляват липса на стойност или отсъствие на каквато и да е стойност.
 
-The `undefined` type means the value is not assigned or initialized or indicates an unintentional absence of value.
+Типът `undefined` означава, че стойността не е присвоена или инициализирана, или показва непреднамерено отсъствие на стойност.
 
-The `null` type means that we know that the field does not have a value, so value is unavailable, it indicates an intentional absence of value.
+Типът `null` означава, че знаем, че полето няма стойност, така че стойността не е налична, което показва умишлено отсъствие на стойност.
 
-### Array
+### Масив
 
-An `array` is a data type that can store multiple values of the same type or not. It can be defined using the following syntax:
+`array` е тип данни, който може да съхранява множество стойности от един и същ тип или не. Той може да бъде дефиниран, като се използва следният синтаксис:
 
 ```typescript
 const x: string[] = ['a', 'b'];
@@ -1567,17 +1566,17 @@ const y: Array<string> = ['a', 'b'];
 const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
 ```
 
-TypeScript supports readonly arrays using the following syntax:
+TypeScript поддържа readonly масиви чрез следния синтаксис:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // Readonly модификатор
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
 j.push('x'); // Невалидно
 ```
 
-TypeScript supports tuple and readonly tuple:
+TypeScript поддържа tuple и readonly tuple:
 
 ```typescript
 const x: [string, number] = ['a', 1];
@@ -1586,27 +1585,27 @@ const y: readonly [string, number] = ['a', 1];
 
 ### any
 
-The `any` data type represents literally "any" value, it is the default value when TypeScript cannot infer the type or is not specified.
+Типът `any` представлява буквално "всякаква" стойност и е стойността по подразбиране, когато TypeScript не може да изведе тип или когато такъв не е указан.
 
-When using `any` TypeScript compiler skips the type checking so there is no type safety when `any` is being used. Generally do not use `any` to silence the compiler when an error occurs, instead focus on fixing the error as with using `any`  it is possible to break contracts and we lose the benefits of TypeScript autocomplete.
+При използване на `any` TypeScript компилаторът пропуска проверката на типовете, което означава, че няма типова безопасност. По принцип не бива да се използва `any`, за да се заглуши компилаторът при възникване на грешка. Вместо това е по-добре грешката да бъде отстранена, тъй като чрез използването на `any` могат да се нарушат контрактите и се губят предимствата на TypeScript като autocomplete.
 
-The `any` type could be useful during a gradual migration from JavaScript to TypeScript, as it can silence the compiler.
+Типът `any` може да бъде полезен по време на постепенна миграция от JavaScript към TypeScript, тъй като може временно да заглуши компилатора.
 
-For new projects use TypeScript configuration `noImplicitAny` which enables TypeScript to issue errors where `any` is used or inferred.
+При нови проекти използвайте TypeScript конфигурацията `noImplicitAny`, която позволява на TypeScript да генерира грешки, когато `any` се използва или бъде изведен автоматично.
 
-The `any`type  is usually a source of errors which can mask real problems with your types. Avoid using it as much as possible.
+Типът `any` често е източник на грешки, тъй като може да прикрие реални проблеми с типовете. Избягвайте използването му възможно най-много.
 
-## Type Annotations
+## Анотации на типовете
 
-On variables declared using `var`, `let` and `const`, it is possible to optionally add a type:
+При променливи, декларирани с `var`, `let` и `const`, по желание може да бъде добавена типова анотация:
 
 ```typescript
 const x: number = 1;
 ```
 
-TypeScript does a good job of inferring types, especially when simple one, so these declarations in most cases are not necessary.
+TypeScript се справя добре с извеждането на типове, особено когато са прости, така че тези декларации в повечето случаи не са необходими.
 
-On functions is possible to add type annotations to parameters:
+При функции е възможно да се добавят анотации на типовете към параметрите:
 
 ```typescript
 function sum(a: number, b: number) {
@@ -1614,40 +1613,41 @@ function sum(a: number, b: number) {
 }
 ```
 
-The following is an example using a anonymous functions (so called lambda function):
+Ето един пример с използване на анонимни функции (т.нар. lambda функции):
 
 ```typescript
 const sum = (a: number, b: number) => a + b;
 ```
 
-These annotation can be avoided when a default value for a parameter is present:
+Тези анотации могат да бъдат избегнати, когато за параметър е зададена стойност по подразбиране:
 
 ```typescript
 const sum = (a = 10, b: number) => a + b;
 ```
 
-Return type annotations can be added to functions:
+Към функциите могат да се добавят анотации за типа на връщаната стойност:
 
 ```typescript
 const sum = (a = 10, b: number): number => a + b;
 ```
 
-This is useful especially for  more complex functions as writing expliciting the return type before an implementation can help better think about the function.
+Това е полезно особено за по-сложни функции, тъй като написването на явен тип на връщаната стойност преди имплементацията може да помогне за по-добро обмисляне на функцията.
 
-Generally consider annotating type signatures but not the body local variables and add types always to object literals.
+Като цяло е препоръчително да се посочват типовете на сигнатурите, но не и на локалните променливи в тялото на функцията, а типовете винаги да се добавят към литералите на обектите.
 
-## Optional Properties
+## Опционални свойства
 
-An object can specify Optional Properties by adding a question mark `?` to the end of the property name:
+Един обект може да дефинира опционални свойства, като добави въпросителен знак `?` в края на името на свойствата:
 
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // Опционално свойство
 };
 ```
 
-It is possible to specify a default value when a property is optional:
+Възможно е да се зададе стойност по подразбиране, когато свойството е опционално:
+
 
 ```typescript
 type X = {
@@ -1657,9 +1657,9 @@ type X = {
 const x = ({ a, b = 100 }: X) => a + b;
 ```
 
-## Readonly Properties
+## Readonly свойства
 
-Is it possible to prevent writing on a property by using the modifier `readonly`which  makes sure that the property cannot be re-written but does not provide any guarantee of total immutability:
+Възможно е да се предотврати записването в дадено свойство чрез използването на модификатора `readonly`, който гарантира, че свойството не може да бъде презаписвано, но не предоставя пълна гаранция за цялостна неизменяемост:
 
 ```typescript
 interface Y {
@@ -1679,9 +1679,9 @@ type K = {
 };
 ```
 
-## Index Signatures
+## Сигнатури на индекси
 
-In TypeScript we can use as index signature `string`, `number`, and `symbol`:
+В TypeScript като сигнатури на индекси можем да използваме `string`, `number` и `symbol`:
 
 ```typescript
 type K = {
@@ -1690,14 +1690,14 @@ type K = {
 const k: K = { x: 'x', 1: 'b' };
 console.log(k['x']);
 console.log(k[1]);
-console.log(k['1']); // Same result as k[1]
+console.log(k['1']); // Същият резултат като k[1]
 ```
 
-Please note that JavaScript automatically converts an index with `number` to an index with `string` so `k[1]` or `k["1"]` return the same value.
+Моля, обърнете внимание, че JavaScript автоматично преобразува индекс с `number` в индекс с `string`, така че `k[1]` или `k["1"]` връщат същата стойност.
 
-## Extending Types
+## Разширяване на типове
 
-It is possible to extend an `interface` (copy members from another type):
+Възможно е да се разшири `interface` (да се копират елементи от друг тип):
 
 ```typescript
 interface X {
@@ -1708,7 +1708,7 @@ interface Y extends X {
 }
 ```
 
-It is also possible to extend from multiple types:
+Възможно е също така да се разшири от няколко типа:
 
 ```typescript
 interface A {
@@ -1722,7 +1722,7 @@ interface Y extends A, B {
 }
 ```
 
-The `extends` keyword works only on interfaces and classes, for types use an intersection:
+Ключовата дума `extends` работи само с interfaces и класове; при types се използва сечение (intersection):
 
 ```typescript
 type A = {
@@ -1734,7 +1734,7 @@ type B = {
 type C = A & B;
 ```
 
-It is possible to extend a type using an inference but not vice versa:
+Възможно е type да бъде разширен чрез interface, но не и обратното:
 
 ```typescript
 type A = {
@@ -1747,11 +1747,11 @@ interface B extends A {
 
 ## Literal Types
 
-A Literal Type is a single element set from a collective type, it defines a very exact value that is a JavaScript primitive.
+Literal type е множество с един елемент от по-общ тип, което дефинира много конкретна стойност, представляваща JavaScript примитив.
 
-Literal Types in TypeScript are numbers, strings, and booleans.
+Literal types в TypeScript са числа, низове и булеви стойности.
 
-Example of literals:
+Пример за literal стойности:
 
 ```typescript
 const a = 'a'; // String literal type
@@ -1759,8 +1759,8 @@ const b = 1; // Numeric literal type
 const c = true; // Boolean literal type
 ```
 
-String, Numeric, and Boolean Literal Types are used in unions, type guards, and type aliases.
-In the following example, you can see a union type alias. `O` consists of only the specified values, no other string is valid:
+String, Numeric и Boolean literal types се използват в unions, type guards и type aliases.
+В следния пример е показан union type alias. `O` се състои само от посочените стойности — други низове не са валидни:
 
 ```typescript
 type O = 'a' | 'b' | 'c';
@@ -1768,23 +1768,23 @@ type O = 'a' | 'b' | 'c';
 
 ## Literal Inference
 
-Literal Inference is a feature in TypeScript that allows the type of a variable or parameter to be inferred based on its value.
+Literal inference е функционалност в TypeScript, която позволява типът на променлива или параметър да бъде изведен въз основа на стойността му.
 
-In the following example we can see that TypeScript considers `x` a literal type as the value cannot be changed any time later, when instead `y` is inferred as string as it can be modified any time later.
+В следния пример може да се види, че TypeScript счита `x` за literal type, тъй като стойността не може да бъде променяна по-късно, докато `y` се извежда като string, тъй като може да бъде променяна:
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // Типът на 'x' е literal type, тъй като тази стойност не може да бъде променена
+let y = 'y'; // Типът е string, тъй като тази стойност може да бъде променена
 ```
 
-In the following example we can see that `o.x` was inferred as a `string` (and not a literal of `a`) as TypeScript considers that the value can be changed any time later.
+В следния пример може да се види, че `o.x` е изведено като `string` (а не като literal на `a`), тъй като TypeScript счита, че стойността може да бъде променяна по-късно.
 
 <!-- skip -->
 ```typescript
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // Това е по-широк тип string
 };
 
 const fn = (x: X) => `${x}-foo`;
@@ -1792,9 +1792,9 @@ const fn = (x: X) => `${x}-foo`;
 console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
 ```
 
-As you can see the code throws an error when passing `o.x` to `fn` as X is a narrower type.
+Както се вижда, кодът хвърля грешка при подаване на `o.x` към `fn`, тъй като `X` е по-тесен тип.
 
-We can solve this issue by using type assertion using `const` or the `X` type:
+Можем да решим този проблем чрез използване на type assertion с `const` или чрез типа `X`:
 
 <!-- skip -->
 ```typescript
@@ -1803,7 +1803,7 @@ let o = {
 };
 ```
 
-or:
+или:
 
 <!-- skip -->
 ```typescript
@@ -1814,11 +1814,11 @@ let o = {
 
 ## strictNullChecks
 
-`strictNullChecks` is a TypeScript compiler option that enforces strict null checking. When this option is enabled, variables and parameters can only be assigned `null` or `undefined` if they have been explicitly declared to be of that type using the union type `null` | `undefined`. If a variable or parameter is not explicitly declared as nullable, TypeScript will generate an error to prevent potential runtime errors.
+`strictNullChecks` е опция на TypeScript компилатора, която налага стриктна проверка за null стойности. Когато тази опция е активирана, променливи и параметри могат да получават стойности `null` или `undefined` само ако изрично са декларирани като такива чрез union типа `null | undefined`. Ако променлива или параметър не е изрично деклариран като nullable, TypeScript ще генерира грешка, за да предотврати потенциални по време на изпълнение грешки.
 
 ## Enums
 
-In TypeScript, an `enum` is a set of named constant values.
+В TypeScript `enum` представлява множество от именувани константни стойности.
 
 ```typescript
 enum Color {
@@ -1828,21 +1828,21 @@ enum Color {
 }
 ```
 
-Enums can be defined in different ways:
+Enums могат да бъдат дефинирани по различни начини:
 
-### Numeric enums
+### Числови enums
 
-In TypeScript, a Numeric Enum is an Enum where each constant is assigned a numeric value, starting from 0 by default.
+В TypeScript, Numeric Enum е enum, при който всяка константа получава числова стойност, започвайки от 0 по подразбиране.
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // стойността започва от 0
     Medium,
     Large,
 }
 ```
 
-It is possible to specify custom values by explicitly assigning them:
+Възможно е да се зададат потребителски стойности чрез изричното им присвояване:
 
 ```typescript
 enum Size {
@@ -1853,9 +1853,9 @@ enum Size {
 console.log(Size.Medium); // 11
 ```
 
-### String enums
+## Низови enums
 
-In TypeScript, a String enum is an Enum where each constant is assigned a string value.
+В TypeScript, низовият enum е Enum, при който всяка константа получава низова стойност.
 
 ```typescript
 enum Language {
@@ -1864,11 +1864,11 @@ enum Language {
 }
 ```
 
-Note: TypeScript allows the usage of heterogeneous Enums where string and numeric members can coexist.
+Забележка: TypeScript позволява използването на хетерогенни enums, където низови и числови членове могат да съществуват заедно.
 
-### Constant enums
+### Константни enums
 
-A constant enum in TypeScript is a special type of Enum where all the values are known at compile time and are inlined wherever the enum is used, resulting in more efficient code.
+Константният enum в TypeScript е специален вид Enum, при който всички стойности са известни още при компилирането и се вмъкват директно във всеки случай, в който се използва enum, което води до по-ефективен код.
 
 ```typescript
 const enum Language {
@@ -1878,20 +1878,20 @@ const enum Language {
 console.log(Language.English);
 ```
 
-Will be compiled into:
+Ще бъде компилирано в:
 
 ```typescript
 console.log('EN' /* Language.English */);
 ```
 
-Notes:
-Const Enums have hardcoded values, erasing the Enum, which can be more efficient in self-contained libraries but is generally not desirable. Also, Const enums cannot have computed members.
+Забележка:
+константните enums имат предварително зададени стойности, като самият enum се премахва при компилация, което може да е по-ефективно в самостоятелни библиотеки, но обикновено не е желателно. Също така, константните enums не могат да имат изчисляеми членове.
 
-### Reverse mapping
+### Обратни съпоставки
 
-In TypeScript, reverse mappings in Enums refer to the ability to retrieve the Enum member name from its value. By default, Enum members have forward mappings from name to value, but reverse mappings can be created by explicitly setting values for each member. Reverse mappings are useful when you need to look up an Enum member by its value, or when you need to iterate over all the Enum members. Note that only numeric enums members will generate reverse mappings, while String Enum members do not get a reverse mapping generated at all.
+В TypeScript, обратните съпоставки в Enums се отнасят до възможността да се извлече името на член на Enum от неговата стойност. По подразбиране членовете на Enum имат директни съпоставки от име към стойност, но обратни съпоставки могат да се създадат чрез явно задаване на стойности за всеки член. Обратните съпоставки са полезни, когато трябва да намерите член на Enum по стойността му или когато трябва да итерирате през всички членове на Enum. Обърнете внимание, че само числовите членове на Enum генерират обратни съпоставки, докато членовете на String Enum изобщо не получават генерирана обратна съпоставка.
 
-The following enum:
+Следният enum:
 
 ```typescript
 enum Grade {
@@ -1902,7 +1902,7 @@ enum Grade {
 }
 ```
 
-Compiles to:
+Компилира се в:
 
 <!-- skip -->
 ```javascript
@@ -1916,7 +1916,7 @@ var Grade;
 })(Grade || (Grade = {}));
 ```
 
-Therefore, mapping values to keys works for numeric enum members, but not for string enum members:
+Следователно, съпоставянето на стойности към ключове работи за числовите членове на enum, но не и за низовите членове на enum:
 
 <!-- skip -->
 ```typescript
@@ -1937,41 +1937,41 @@ console.log(Grade[failGrade]); // Element implicitly has an 'any' type because i
 
 ### Ambient enums
 
-An ambient enum in TypeScript is a type of Enum that is defined in a declaration file (*.d.ts) without an associated implementation. It allows you to define a set of named constants that can be used in a type-safe way across different files without having to import the implementation details in each file.
+Ambient enum в TypeScript е тип Enum, който е дефиниран в декларационен файл (*.d.ts) без свързана реализация. Той позволява да се дефинира набор от именовани константи, които могат да се използват по тип-безопасен начин в различни файлове, без да е необходимо да се импортират детайлите на реализацията във всеки файл.
 
-### Computed and constant members
+### Изчисляеми и константни членове
 
-In TypeScript, a computed member is a member of an Enum that has a value calculated at runtime, while a constant member is a member whose value is set at compile-time and cannot be changed during runtime. Computed members are allowed in regular Enums, while constant members are allowed in both regular and const enums.
+В TypeScript, изчисляем член е член на Enum, чиито стойност се изчислява по време на изпълнение, докато константен член е член, чиито стойност е зададена по време на компилация и не може да се промени по време на изпълнение. Изчисляемите членове са разрешени в обикновени Enums, докато константните членове са разрешени както в обикновени, така и в константни enums.
 
 ```typescript
-// Constant members
+// Константни членове
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6 генерирано по време на компилация
 ```
 
 ```typescript
-// Computed members
+// Изчисляеми членове
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // случайно число, генерирано по време на изпълнение
 ```
 
-Enums are denoted by unions comprising their member types. The values of each member can be determined through constant or non-constant expressions, with members possessing constant values being assigned literal types. To illustrate, consider the declaration of type E and its subtypes E.A, E.B, and E.C. In this case, E represents the union E.A | E.B | E.C.
+Enums се означават чрез unions, съставени от типовете на техните членове. Стойностите на всеки член могат да се определят чрез константни или неконстантни изрази, като членовете с константни стойности се присвояват на литерални типове. За илюстрация, разгледайте декларацията на type E и неговите подтипове E.A, E.B и E.C. В този случай E представлява union E.A | E.B | E.C.
 
 ```typescript
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // Числов литерал
+    B = 'bar', // Низов литерал
+    C = identity(42), // Изчисляем член
 }
 
 console.log(E.C); //42
@@ -1979,26 +1979,26 @@ console.log(E.C); //42
 
 ## Narrowing
 
-TypeScript narrowing is the process of refining the type of a variable within a conditional block. This is useful when working with union types, where a variable can have more than one type.
+TypeScript narrowing е процес на уточняване на типа на променлива в рамките на условен блок. Това е полезно при работа с union типове, където променлива може да има повече от един тип.
 
-TypeScript recognizes several ways to narrow the type:
+TypeScript поддържа няколко начина за стесняване на типа:
 
-### typeof type guards
+### Проверки за типа "typeof"
 
-The typeof type guard is one specific type guard in TypeScript that checks the type of a variable based on its built-in JavaScript type.
+Проверката за типа "typeof" е специфична проверка в TypeScript, която проверява типа на променлива въз основа на нейния вграден тип в JavaScript.
 
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x е число
     }
     return -1;
 };
 ```
 
-### Truthiness narrowing
+### Свиване на тип чрез truthiness
 
-Truthiness narrowing in TypeScript works by checking whether a variable is truthy or falsy to narrow its type accordingly.
+Свиването на тип чрез truthiness в TypeScript работи като проверява дали променлива е truthy или falsy, за да стесни съответно нейния тип.
 
 ```typescript
 const toUpperCase = (name: string | null) => {
@@ -2010,11 +2010,11 @@ const toUpperCase = (name: string | null) => {
 };
 ```
 
-### Equality narrowing
+### Свиване на тип чрез равенство
 
-Equality narrowing in TypeScript works by checking whether a variable is equal to a specific value or not, to narrow its type accordingly.
+Свиването на тип чрез равенство в TypeScript работи чрез проверка дали променлива е равна на конкретна стойност или не, за да се стесни съответно нейният тип.
 
-It is used in conjunction with `switch` statements and equality operators such as `===`, `!==`, `==`, and `!=` to narrow down types.
+Използва се в комбинация с `switch` изрази и оператори за равенство като `===`, `!==`, `==` и `!=`, за да се стесни типът.
 
 ```typescript
 const checkStatus = (status: 'success' | 'error') => {
@@ -2027,9 +2027,9 @@ const checkStatus = (status: 'success' | 'error') => {
 };
 ```
 
-### In Operator narrowing
+### Свиване на тип чрез оператора "in"
 
-The `in` Operator narrowing in TypeScript is a way to narrow the type of a variable based on whether a property exists within the variable's type.
+Свиването на тип чрез оператора `in` в TypeScript е начин да се стесни типът на променлива, базирайки се на това дали дадено свойство съществува в типа на променливата.
 
 ```typescript
 type Dog = {
@@ -2051,9 +2051,9 @@ const getAnimalType = (pet: Dog | Cat) => {
 };
 ```
 
-### instanceof narrowing
+### Свиване на тип чрез `instanceof`
 
-The `instanceof` operator narrowing in TypeScript is a way to narrow the type of a variable based on its constructor function, by checking if an object is an instance of a certain class or interface.
+Свиването на тип чрез оператора `instanceof` в TypeScript е начин да се стесни типът на променлива, базирайки се на нейната конструкторска функция, чрез проверка дали обектът е инстанция на определен клас или interface.
 
 ```typescript
 class Square {
@@ -2078,9 +2078,9 @@ console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
 
-## Assignments
+## Присвоявания
 
-TypeScript narrowing using assignments is a way to narrow the type of a variable based on the value assigned to it. When a variable is assigned a value, TypeScript infers its type based on the assigned value, and it narrows the type of the variable to match the inferred type.
+Свиването на типове в TypeScript чрез присвоявания е начин да се стесни типът на променлива въз основа на стойността, която ѝ е присвоена. Когато на променлива се присвои стойност, TypeScript извежда нейния тип въз основа на присвоената стойност и стеснява типа на променливата, за да съответства на изведения тип.
 
 ```typescript
 let value: string | number;
@@ -2094,13 +2094,13 @@ if (typeof value === 'number') {
 }
 ```
 
-## Control Flow Analysis
+## Анализ на потока на управление
 
-Control Flow Analysis in TypeScript is a way to statically analyze the code flow to infer the types of variables, allowing the compiler to narrow the types of those variables as needed, based on the results of the analysis.
+Анализът на потока на управление в TypeScript е начин за статичен анализ на потока на кода с цел извеждане на типовете на променливите, което позволява на компилатора да стеснява типовете на тези променливи при необходимост, базирайки се на резултатите от анализа.
 
-Prior to TypeScript 4.4, code flow analysis would only be applied to code within an if statement, but from TypeScript 4.4, it can also be applied to conditional expressions and discriminant property accesses indirectly referenced through const variables.
+Преди TypeScript 4.4, анализът на потока на кода се прилагаше само за код в рамките на if изрази, но от TypeScript 4.4 нататък той може да се прилага и за условни изрази и достъпи до дискриминантни свойства, косвено реферирани чрез const променливи.
 
-For example:
+Например:
 
 ```typescript
 const f1 = (x: unknown) => {
@@ -2122,14 +2122,14 @@ const f2 = (
 };
 ```
 
-Some examples where narrowing does not occur:
+Някои примери, при които не се наблюдава стесняване:
 
 <!-- skip -->
 ```typescript
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // Грешка, няма стесняване, защото isString не е const
     }
 };
 
@@ -2139,12 +2139,12 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // Грешка: няма стесняване, тъй като obj се присвоява в тялото на функцията
     }
 };
 ```
 
-Notes: Up to five levels of indirection are analyzed in conditional expressions.
+Забележки: В условните изрази се анализират до пет нива на индирекция.
 
 ## Type Predicates
 
