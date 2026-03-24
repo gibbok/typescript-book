@@ -123,23 +123,23 @@
   - [Type Predicates](#type-predicates)
   - [Discriminated Unions](#discriminated-unions)
   - [The never Type](#the-never-type)
-  - [Exhaustiveness checking](#exhaustiveness-checking)
-  - [Object Types](#object-types)
-  - [Tuple Type (Anonymous)](#tuple-type-anonymous)
-  - [Named Tuple Type (Labeled)](#named-tuple-type-labeled)
-  - [Fixed Length Tuple](#fixed-length-tuple)
-  - [Union Type](#union-type)
-  - [Intersection Types](#intersection-types)
-  - [Type Indexing](#type-indexing)
-  - [Type from Value](#type-from-value)
-  - [Type from Func Return](#type-from-func-return)
-  - [Type from Module](#type-from-module)
-  - [Mapped Types](#mapped-types)
-  - [Mapped Type Modifiers](#mapped-type-modifiers)
-  - [Conditional Types](#conditional-types)
-  - [Distributive Conditional Types](#distributive-conditional-types)
-  - [infer Type Inference in Conditional Types](#infer-type-inference-in-conditional-types)
-  - [Predefined Conditional Types](#predefined-conditional-types)
+  - [Проверка за изчерпателност](#проверка-за-изчерпателност)
+  - [Обектни типове](#обектни-типове)
+  - [Tuple тип (анонимен)](#tuple-тип-анонимен)
+  - [Именуван Tuple тип (с етикети)](#именуван-tuple-тип-с-етикети)
+  - [Tuple с фиксирана дължина](#tuple-с-фиксирана-дължина)
+  - [Union тип](#union-тип)
+  - [Intersection типове](#intersection-типове)
+  - [Индексиране на тип](#индексиране-на-тип)
+  - [Тип от стойност](#тип-от-стойност)
+  - [Тип от резултат на функция](#тип-от-резултат-на-функция)
+  - [Тип от модул](#тип-от-модул)
+  - [Mapped типове](#mapped-типове)
+  - [Модификатори на Mapped типове](#модификатори-на-mapped-типове)
+  - [Conditional типове](#conditional-типове)
+  - [Дистрибутивни Conditional типове](#дистрибутивни-conditional-типове)
+  - [infer извеждане на тип в Conditional типове](#infer-извеждане-на-тип-в-conditional-типове)
+  - [Предефинирани Conditional типове](#предефинирани-conditional-типове)
   - [Template Union Types](#template-union-types)
   - [Any type](#any-type)
   - [Unknown type](#unknown-type)
@@ -2148,7 +2148,7 @@ const f6 = (
 
 ## Type Predicates
 
-Type Predicates in TypeScript are functions that return a boolean value and are used to narrow the type of a variable to a more specific type.
+Type Predicates в TypeScript са функции, които връщат boolean стойност и се използват за стесняване на типа на променлива до по-специфичен тип.
 
 ```typescript
 const isString = (value: unknown): value is string => typeof value === 'string';
@@ -2157,23 +2157,23 @@ const foo = (bar: unknown) => {
     if (isString(bar)) {
         console.log(bar.toUpperCase());
     } else {
-        console.log('not a string');
+        console.log('не е низ');
     }
 };
 ```
 
 ## Discriminated Unions
 
-Discriminated Unions in TypeScript are a type of union type that uses a common property, known as the discriminant, to narrow down the set of possible types for the union.
+Discriminated Unions в TypeScript са тип на обединение, който използва общо свойство, известно като дискриминант, за да стесни набора от възможни типове за обединението.
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // Дискриминант
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // Дискриминант
     radius: number;
 };
 
@@ -2197,7 +2197,7 @@ console.log(area(circle)); // 12.566370614359172
 
 ## The never Type
 
-When a variable is narrowed to a type that cannot contain any values, the TypeScript compiler will infer that the variable must be of the `never` type. This is because The never Type represents a value that can never be produced.
+Когато променлива бъде стеснена до тип, който не може да съдържа никакви стойности, компилаторът на TypeScript ще извлече, че променливата трябва да бъде от тип `never`. Това е така, защото типът `never` представлява стойност, която никога не може да бъде произведена.
 
 ```typescript
 const printValue = (val: string | number) => {
@@ -2206,16 +2206,16 @@ const printValue = (val: string | number) => {
     } else if (typeof val === 'number') {
         console.log(val.toFixed(2));
     } else {
-        // val has type never here because it can never be anything other than a string or a number
+        // val има тип never тук, защото не може да бъде нищо друго освен низ или число
         const neverVal: never = val;
         console.log(`Unexpected value: ${neverVal}`);
     }
 };
 ```
 
-## Exhaustiveness checking
+## Проверка за изчерпателност
 
-Exhaustiveness checking is a feature in TypeScript that ensures all possible cases of a discriminated union are handled in a `switch` statement or an `if` statement.
+Проверката за изчерпателност е функция в TypeScript, която гарантира, че всички възможни случаи на дискриминиран union са обработени в `switch` или `if` израз.
 
 ```typescript
 type Direction = 'up' | 'down';
@@ -2230,20 +2230,20 @@ const move = (direction: Direction) => {
             break;
         default:
             const exhaustiveCheck: never = direction;
-            console.log(exhaustiveCheck); // This line will never be executed
+            console.log(exhaustiveCheck); // Този ред никога няма да бъде изпълнен
     }
 };
 ```
 
-The `never` type is used to ensure that the default case is exhaustive and that TypeScript will raise an error if a new value is added to the Direction type without being handled in the switch statement.
+Типът `never` се използва, за да се гарантира, че default случаят е изчерпателен и че TypeScript ще генерира грешка, ако бъде добавена нова стойност към типа Direction без да бъде обработена в switch израза.
 
-## Object Types
+## Обектни типове
 
-In TypeScript, object types describe the shape of an object. They specify the names and types of the object's properties, as well as whether those properties are required or optional.
+В TypeScript, обектните типове описват структурата на един обект. Те задават имената и типовете на свойствата на обекта, както и дали тези свойства са задължителни или по избор.
 
-In TypeScript, you can define object types in two primary ways:
+В TypeScript можете да дефинирате обектни типове по два основни начина:
 
-Interface which defines the shape of an object by specifying the names, types, and optionality of its properties.
+Interface, който определя структурата на обект, като задава имената, типовете и опционалността на неговите свойства.
 
 ```typescript
 interface User {
@@ -2253,7 +2253,7 @@ interface User {
 }
 ```
 
-Type alias, similar to an interface, defines the shape of an object. However, it can also create a new custom type that is based on an existing type or a combination of existing types. This includes defining union types, intersection types, and other complex types.
+Type alias, подобно на interface, определя структурата на обект. Въпреки това, той може също така да създаде нов персонализиран тип, базиран на съществуващ тип или комбинация от съществуващи типове. Това включва дефиниране на union типове, intersection типове и други сложни типове.
 
 ```typescript
 type Point = {
@@ -2262,37 +2262,37 @@ type Point = {
 };
 ```
 
-It also possible to define a type anonymously:
+Възможно е също така да се дефинира тип анонимно:
 
 ```typescript
 const sum = (x: { a: number; b: number }) => x.a + x.b;
 console.log(sum({ a: 5, b: 1 }));
 ```
 
-## Tuple Type (Anonymous)
+## Tuple тип (анонимен)
 
-A Tuple Type is a type that represents an array with a fixed number of elements and their corresponding types. A tuple type enforces a specific number of elements and their respective types in a fixed order. Tuple types are useful when you want to represent a collection of values with specific types, where the position of each element in the array has a specific meaning.
+Tuple тип е тип, който представлява масив с фиксиран брой елементи и съответните им типове. Tuple типът налага конкретен брой елементи и съответните им типове в определен ред. Tuple типовете са полезни, когато искате да представите колекция от стойности със специфични типове, при която позицията на всеки елемент в масива има конкретно значение.
 
 ```typescript
 type Point = [number, number];
 ```
 
-## Named Tuple Type (Labeled)
+## Именуван Tuple тип (с етикети)
 
-Tuple types can include optional labels or names for each element. These labels are for readability and tooling assistance, and do not affect the operations you can perform with them.
+Tuple типовете могат да включват опционални етикети или имена за всеки елемент. Тези етикети са предназначени за по-добра четимост и помощ от инструментите и не влияят на операциите, които могат да се извършват с тях.
 
 ```typescript
 type T = string;
 type Tuple1 = [T, T];
 type Tuple2 = [a: T, b: T];
-type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
+type Tuple3 = [a: T, T]; // Именуван Tuple тип плюс анонимен Tuple тип
 ```
 
-## Fixed Length Tuple
+## Tuple с фиксирана дължина
 
-A Fixed Length Tuple is a specific type of tuple that enforces a fixed number of elements of specific types, and disallows any modifications to the length of the tuple once it is defined.
+Tuple с фиксирана дължина е специфичен тип tuple, който налага фиксиран брой елементи от определени типове и не позволява промени в дължината на tuple след като бъде дефиниран.
 
-Fixed Length Tuples are useful when you need to represent a collection of values with a specific number of elements and specific types, and you want to ensure that the length and types of the tuple cannot be changed inadvertently.
+Tuple с фиксирана дължина са полезни, когато трябва да представите колекция от стойности с конкретен брой елементи и конкретни типове и искате да гарантирате, че дължината и типовете на tuple не могат да бъдат променени неволно.
 
 <!-- skip -->
 ```typescript
@@ -2300,9 +2300,9 @@ const x = [10, 'hello'] as const;
 x.push(2); // Error
 ```
 
-## Union Type
+## Union тип
 
-A Union Type is a type that represents a value that can be one of several types. Union Types are denoted using the `|` symbol between each possible type.
+Union тип е тип, който представлява стойност, която може да бъде от няколко различни типа. Union типовете се обозначават със символа `|` между всеки възможен тип.
 
 ```typescript
 let x: string | number;
@@ -2310,9 +2310,9 @@ x = 'hello'; // Валидно
 x = 123; // Валидно
 ```
 
-## Intersection Types
+## Intersection типове
 
-An Intersection Type is a type that represents a value that has all the properties of two or more types. Intersection Types are denoted using the `&` symbol between each type.
+Intersection тип е тип, който представлява стойност, която има всички свойства на два или повече типа. Intersection типовете се обозначават със символа `&` между всеки тип.
 
 ```typescript
 type X = {
@@ -2331,37 +2331,37 @@ const j: J = {
 };
 ```
 
-## Type Indexing
+## Индексиране на тип
 
-Type indexing refers to the ability to define types that can be indexed by a key that is not known in advance, using an index signature to specify the type for properties that are not explicitly declared.
+Индексирането на тип се отнася до възможността да се дефинират типове, които могат да бъдат индексирани чрез ключ, който не е известен предварително, като се използва index signature за определяне на типа на свойства, които не са изрично декларирани.
 
 ```typescript
 type Dictionary<T> = {
     [key: string]: T;
 };
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-console.log(myDict['a']); // Returns a
+console.log(myDict['a']); // Връща a
 ```
 
-## Type from Value
+## Тип от стойност
 
-Type from Value in TypeScript refers to the automatic inference of a type from a value or expression through type inference.
+Type from Value в TypeScript се отнася до автоматичното извеждане на тип от стойност или израз чрез type inference.
 
 ```typescript
-const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immutable), but widens it to 'string' with 'let' (reassignable).
+const x = 'x'; // TypeScript извежда 'x' като string literal с 'const' (immutable), но го разширява до 'string' с 'let' (reassignable).
 ```
 
-## Type from Func Return
+## Тип от резултат на функция
 
-Type from Func Return refers to the ability to automatically infer the return type of a function based on its implementation. This allows TypeScript to determine the type of the value returned by the function without explicit type annotations.
+Type from Func Return се отнася до възможността автоматично да се извежда типът на стойността, върната от функция, въз основа на нейната имплементация. Това позволява на TypeScript да определи типа на върнатата стойност без изрични type анотации.
 
 ```typescript
-const add = (x: number, y: number) => x + y; // TypeScript can infer that the return type of the function is a number
+const add = (x: number, y: number) => x + y; // TypeScript може да изведе, че върнатият тип на функцията е number
 ```
 
-## Type from Module
+## Тип от модул
 
-Type from Module refers to the ability to use a module's exported values to automatically infer their types. When a module exports a value with a specific type, TypeScript can use that information to automatically infer the type of that value when it is imported into another module.
+Type from Module се отнася до възможността да се използват експорт-натите стойности от даден модул, за да се извлекат автоматично техните типове. Когато модул експорт-ва стойност с конкретен тип, TypeScript може да използва тази информация, за да извлече автоматично типа на тази стойност при импортиране в друг модул.
 
 <!-- skip -->
 ```typescript
@@ -2369,13 +2369,13 @@ Type from Module refers to the ability to use a module's exported values to auto
 export const add = (x: number, y: number) => x + y;
 // index.ts
 import { add } from 'calc';
-const r = add(1, 2); // r is number
+const r = add(1, 2); // r е число
 ```
 
-## Mapped Types
+## Mapped типове
 
-Mapped Types in TypeScript allow you to create new types based on an existing type by transforming each property using a mapping function. By mapping existing types, you can create new types that represent the same information in a different format. To create a mapped type, you access the properties of an existing type using the `keyof` operator and then alter them to produce a new type.
-In the following example:
+Mapped типовете в TypeScript позволяват създаване на нови типове на базата на съществуващ тип чрез трансформиране на всяко свойство с помощта на mapping функция. Чрез mapping на съществуващи типове могат да се създадат нови типове, които представят същата информация в различен формат. За създаване на mapped тип се достъпват свойствата на съществуващ тип чрез оператора `keyof`, след което те се променят, за да се създаде нов тип.
+В следния пример:
 
 ```typescript
 type MyMappedType<T> = {
@@ -2392,29 +2392,29 @@ const x: MyNewType = {
 };
 ```
 
-we define MyMappedType to map over T's properties, creating a new type with each property as an array of its original type. Using this, we create MyNewType to represent the same info as MyType, but with each property as an array.
+дефинираме MyMappedType, който обхожда свойствата на T и създава нов тип, при който всяко свойство е масив от оригиналния си тип. По този начин създаваме MyNewType, който представя същата информация като MyType, но с всяко свойство като масив.
 
-## Mapped Type Modifiers
+## Модификатори на Mapped типове
 
-Mapped Type Modifiers in TypeScript enable the transformation of properties within an existing type:
+Модификаторите на Mapped типове в TypeScript позволяват трансформиране на свойства в рамките на съществуващ тип:
 
-* `readonly` or `+readonly`: This renders a property in the mapped type as read-only.
-* `-readonly`: This allows a property in the mapped type to be mutable.
-* `?`: This designates a property in the mapped type as optional.
+* `readonly` или `+readonly`: Прави свойството в mapped типа само за четене.
+* `-readonly`: Позволява свойството в mapped типа да бъде променяемо.
+* `?`: Определя свойството в mapped типа като опционално.
 
-Examples:
+Примери:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Всички свойства са маркирани като само за четене
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Всички свойства са маркирани като променяеми
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // Всички свойства са маркирани като опционални
 ```
 
-## Conditional Types
+## Conditional типове
 
-Conditional Types are a way to create a type that depends on a condition, where the type to be created is determined based on the result of the condition. They are defined using the `extends` keyword and a ternary operator to conditionally choose between two types.
+Conditional типовете са начин за създаване на тип, който зависи от условие, като създаваният тип се определя въз основа на резултата от условието. Те се дефинират чрез ключовата дума `extends` и тернарен оператор за условен избор между два типа.
 
 ```typescript
 type IsArray<T> = T extends any[] ? true : false;
@@ -2422,14 +2422,14 @@ type IsArray<T> = T extends any[] ? true : false;
 const myArray = [1, 2, 3];
 const myNumber = 42;
 
-type IsMyArrayAnArray = IsArray<typeof myArray>; // Type true
-type IsMyNumberAnArray = IsArray<typeof myNumber>; // Type false
+type IsMyArrayAnArray = IsArray<typeof myArray>; // Тип true
+type IsMyNumberAnArray = IsArray<typeof myNumber>; // Тип false
 ```
 
-## Distributive Conditional Types
+## Дистрибутивни Conditional типове
 
-Distributive Conditional Types are a feature that allow a type to be distributed over a union of types, by applying a transformation to each member of the union individually.
-This can be especially useful when working with mapped types or higher-order types.
+Дистрибутивните Conditional типове са функционалност, която позволява даден тип да бъде разпределен върху union от типове чрез прилагане на трансформация върху всеки член на union поотделно.
+Това е особено полезно при работа с mapped типове или по-високоабстрактни (higher-order) типове.
 
 ```typescript
 type Nullable<T> = T extends any ? T | null : never;
@@ -2437,9 +2437,9 @@ type NumberOrBool = number | boolean;
 type NullableNumberOrBool = Nullable<NumberOrBool>; // number | boolean | null
 ```
 
-## infer Type Inference in Conditional Types
+## infer извеждане на тип в Conditional типове
 
-The `infer`keyword is used in conditional types to infer (extract) the type of a generic parameter from a type that depends on it. This allows you to write more flexible and reusable type definitions.
+Ключовата дума `infer` се използва в conditional типове, за да се извлече типът на generic параметър от тип, който зависи от него. Това позволява създаването на по-гъвкави и преизползваеми дефиниции на типове.
 
 ```typescript
 type ElementType<T> = T extends (infer U)[] ? U : never;
@@ -2447,25 +2447,25 @@ type Numbers = ElementType<number[]>; // number
 type Strings = ElementType<string[]>; // string
 ```
 
-## Predefined Conditional Types
+## Предефинирани Conditional типове
 
-In TypeScript, Predefined Conditional Types are built-in conditional types provided by the language. They are designed to perform common type transformations based on the characteristics of a given type.
+В TypeScript, предефинираните Conditional типове са вградени conditional типове, предоставени от езика. Те са създадени, за да извършват често използвани трансформации на типове въз основа на характеристиките на даден тип.
 
-`Exclude<UnionType, ExcludedType>`: This type removes all the types from Type that are assignable to ExcludedType.
+`Exclude<UnionType, ExcludedType>`: Премахва всички типове от UnionType, които могат да бъдат присвоени на ExcludedType.
 
-`Extract<Type, Union>`: This type extracts all the types from Union that are assignable to Type.
+`Extract<Type, Union>`: Извлича всички типове от Union, които могат да бъдат присвоени на Type.
 
-`NonNullable<Type>`: This type removes null and undefined from Type.
+`NonNullable<Type>`: Премахва null и undefined от Type.
 
-`ReturnType<Type>`: This type extracts the return type of a function Type.
+`ReturnType<Type>`: Извлича типа на върнатата стойност на функция Type.
 
-`Parameters<Type>`: This type extracts the parameter types of a function Type.
+`Parameters<Type>`: Извлича типовете на параметрите на функция Type.
 
-`Required<Type>`: This type makes all properties in Type required.
+`Required<Type>`: Прави всички свойства в Type задължителни.
 
-`Partial<Type>`: This type makes all properties in Type optional.
+`Partial<Type>`: Прави всички свойства в Type опционални.
 
-`Readonly<Type>`: This type makes all properties in Type readonly.
+`Readonly<Type>`: Прави всички свойства в Type само за четене.
 
 ## Template Union Types
 
