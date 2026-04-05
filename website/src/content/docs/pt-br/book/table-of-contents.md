@@ -60,6 +60,7 @@ sidebar:
       - Lançando ou retornando
       - União Discriminada
       - Proteções de Tipo Definidas pelo Usuário (User-Defined Type Guards)
+      - Redução de tipos com switch-true
   - Tipos Primitivos
     - string
     - boolean
@@ -217,5 +218,7 @@ sidebar:
     - Declaração using e Gerenciamento Explícito de Recursos
       - Declaração await using
     - Atributos de Importação
+    - Verificação de Sintaxe de Expressões Regulares
+    - import defer
 <!-- markdownlint-enable MD004 -->
 

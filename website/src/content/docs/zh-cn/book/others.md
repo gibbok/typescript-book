@@ -932,3 +932,34 @@ import config from './config.json' with { type: 'json' };
 ```typescript
 const config = import('./config.json', { with: { type: 'json' } });
 ```
+
+### 正则表达式语法检查
+
+自 TypeScript 5.5.4 起，它会在编译时检查正则表达式字面量是否存在常见错误（例如，语法无效、反向引用错误、目标 JS 版本不支持的功能）。这有助于尽早发现 bug，但不会检查 `new RegExp("...")` 字符串。
+
+<!-- skip -->
+```typescript
+let r = /(a)\2/; // 错误：此反向引用指向一个不存在的组。
+```
+
+### import defer
+
+`import defer` 允许你加载一个模块，但延迟其执行，直到你实际使用它中的某些内容。这有助于避免不必要的工作和副作用。
+
+* 仅适用于：`import defer * as name from "module"`
+* 代码仅在你访问导出项时执行
+
+文件：a.ts
+<!-- skip -->
+```typescript
+console.log("runs!");
+export const x = 1;
+```
+
+文件：main.ts
+<!-- skip -->
+```typescript
+import defer * as a from "./a.js";
+console.log("start"); // a.ts 中尚无任何内容
+console.log(a.x); // 现在打印“runs!"，然后输出 1
+```

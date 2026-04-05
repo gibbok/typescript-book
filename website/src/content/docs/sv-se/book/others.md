@@ -304,7 +304,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 })();
 ```
 
-### Metaegenskapen new.target
+### Metaegenskapen new target
 
 Du kan i TypeScript använda metaegenskapen `new.target` som gör det möjligt att avgöra om en funktion eller konstruktor anropades med new-operatorn. Det låter dig upptäcka om ett objekt skapades som ett resultat av ett konstruktoranrop.
 
@@ -949,4 +949,35 @@ med dynamisk import:
 <!-- skip -->
 ```typescript
 const config = import('./config.json', { with: { type: 'json' } });
+```
+
+### Syntaxkontroll för reguljära uttryck
+
+Sedan TypeScript 5.5.4 kontrollerar den regex-literaler för vanliga fel vid kompileringstid (t.ex. ogiltig syntax, felaktiga bakåtreferenser, funktioner som inte stöds för din mål-JS-version). Den hjälper till att upptäcka buggar tidigare, men kontrollerar inte nya RegExp("...)-strängar.
+
+<!-- skip -->
+```typescript
+let r = /(a)\2/; // Fel: Denna bakåtreferens refererar till en grupp som inte finns.
+```
+
+### import defer
+
+`import defer` låter dig ladda en modul men fördröja dess körning tills du faktiskt använder något från den. Detta hjälper till att undvika onödigt arbete och biverkningar.
+
+* Fungerar bara med: `import defer * as name from "module"`
+* Koden körs bara när du öppnar en export
+
+file: a.ts
+<!-- skip -->
+```typescript
+console.log('runs!');
+export const x = 1;
+```
+
+file: main.ts
+<!-- skip -->
+```typescript
+import defer * as a from "./a.js";
+console.log("start"); // inget från a.ts ännu
+console.log(a.x); // nu "runs!" skrivs ut, sedan 1
 ```

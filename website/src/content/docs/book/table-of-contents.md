@@ -60,6 +60,7 @@ sidebar:
       - Throwing or returning
       - Discriminated Union
       - User-Defined Type Guards
+      - Switch-true narrowing
   - Primitive Types
     - string
     - boolean
@@ -217,5 +218,6 @@ sidebar:
     - using declaration and Explicit Resource Management
       - await using declaration
     - Import Attributes
+    - Regular Expression Syntax Checking
 <!-- markdownlint-enable MD004 -->
 

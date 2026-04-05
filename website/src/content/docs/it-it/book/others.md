@@ -957,3 +957,35 @@ con importazione dinamica:
 ```typescript
 const config = import('./config.json', { with: { type: 'json' } });
 ```
+
+### Controllo della sintassi delle espressioni regolari
+
+A partire dalla versione 5.5.4, TypeScript controlla i letterali delle espressioni regolari per individuare errori comuni in fase di compilazione (ad esempio, sintassi non valida, riferimenti errati, funzionalità non supportate dalla versione di JavaScript di destinazione). Questo aiuta a individuare i bug in anticipo, ma non controlla le nuove stringhe RegExp("...").
+
+<!-- skip -->
+```typescript
+let r = /(a)\2/; // Errore: questo riferimento punta a un gruppo inesistente.
+```
+
+### import defer
+
+`import defer` permette di caricare un modulo ma di ritardarne l'esecuzione fino a quando non si utilizza effettivamente qualcosa al suo interno. Questo aiuta a evitare lavoro non necessario ed effetti collaterali.
+
+* Funziona solo con: `import defer * as name from "module"`
+* Il codice viene eseguito solo quando si accede a un elemento esportato.
+
+file: a.ts
+<!-- skip -->
+```typescript
+console.log('runs!');
+export const x = 1;
+```
+
+file: main.ts
+
+<!-- skip -->
+```typescript
+import defer * as a from "./a.js";
+console.log("start"); // ancora niente da a.ts
+console.log(a.x); // ora viene stampato "runs!", poi 1
+```

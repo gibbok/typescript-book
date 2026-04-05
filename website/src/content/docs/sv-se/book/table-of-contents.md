@@ -60,6 +60,7 @@ sidebar:
       - Kasta eller returnera
       - Diskriminerad union
       - Användardefinierade typvakter
+      - Switch-true-förträngning
   - Primitiva typer
     - string
     - boolean
@@ -195,7 +196,7 @@ sidebar:
     - ES6-moduler
     - ES7 exponentiationsoperator
     - for-await-of-satsen
-    - Metaegenskapen new.target
+    - Metaegenskapen new target
     - Dynamiska importuttryck
     - "tsc –watch"
     - Non-null Assertion Operator
@@ -218,5 +219,7 @@ sidebar:
     - using-deklaration och explicit resurshantering
       - await using-deklaration
     - Importattribut
+    - Syntaxkontroll för reguljära uttryck
+    - import defer
 <!-- markdownlint-enable MD004 -->
 

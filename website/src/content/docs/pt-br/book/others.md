@@ -950,3 +950,34 @@ com importação dinâmica:
 ```typescript
 const config = import('./config.json', { with: { type: 'json' } });
 ```
+
+### Verificação de Sintaxe de Expressões Regulares
+
+Desde o TypeScript 5.5.4, ele verifica literais de expressões regulares em busca de erros comuns em tempo de compilação (por exemplo, sintaxe inválida, referências invertidas, recursos não suportados pela sua versão de destino do JavaScript). Isso ajuda a detectar erros mais cedo, mas não verifica novas strings RegExp("...").
+
+<!-- skip -->
+```typescript
+let r = /(a)\2/; // Erro: Esta referência invertida se refere a um grupo que não existe.
+```
+
+### import defer
+
+`import defer` permite carregar um módulo, mas adiar sua execução até que você realmente use algo dele. Isso ajuda a evitar trabalho desnecessário e efeitos colaterais.
+
+* Funciona apenas com: `import defer * as name from "module"`
+* O código é executado somente quando você acessa uma exportação
+
+arquivo: a.ts
+<!-- skip -->
+```typescript
+console.log('executando!');
+export const x = 1;
+```
+
+arquivo: main.ts
+<!-- skip -->
+```typescript
+import * as a from './a.js';
+console.log('iniciando'); // nada de a.ts ainda
+console.log(a.x); // agora imprime "executando!", depois 1
+```

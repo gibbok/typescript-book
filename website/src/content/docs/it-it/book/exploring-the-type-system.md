@@ -818,3 +818,22 @@ const isValid = (item: string | null): item is string => item !== null; // Prote
 const r2 = data.filter(isValid); // Il tipo ora è corretto string[], utilizzando la protezione del tipo predicato siamo riusciti a restringere il tipo
 ```
 
+#### Restringimento Switch-true
+
+TypeScript 5.3 introduce la funzionalità di restringimento dei tipi tramite `switch-true`, che permette di sostituire le complesse catene di `if/else` con `switch(true)` utilizzando condizioni booleane. Migliora la leggibilità e al contempo restringe i tipi. È simile al pattern matching, ma più semplice.
+
+```typescript
+function classify(x: unknown) {
+    switch (true) {
+        case typeof x === 'string':
+            return `"${x.toUpperCase()}"`;
+        case typeof x === 'number':
+            return x > 0 ? 'positive' : 'negative';
+        case Array.isArray(x):
+            return `[${x.length} items]`;
+        default:
+            return 'something else';
+    }
+}
+```
+
