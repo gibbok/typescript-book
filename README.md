@@ -248,6 +248,7 @@ An online version is available at:
     - [using declaration and Explicit Resource Management](#using-declaration-and-explicit-resource-management)
       - [await using declaration](#await-using-declaration)
     - [Import Attributes](#import-attributes)
+    - [Regular Expression Syntax Checking](#regular-expression-syntax-checking)
 <!-- markdownlint-enable MD004 -->
 
 ## Introduction
