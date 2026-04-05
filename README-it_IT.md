@@ -1444,14 +1444,14 @@ TypeScript 5.3 introduce la funzionalità di restringimento dei tipi tramite `sw
 ```typescript
 function classify(x: unknown) {
     switch (true) {
-        case typeof x === "string":
+        case typeof x === 'string':
             return `"${x.toUpperCase()}"`;
-        case typeof x === "number":
-            return x > 0 ? "positive" : "negative";
+        case typeof x === 'number':
+            return x > 0 ? 'positive' : 'negative';
         case Array.isArray(x):
             return `[${x.length} items]`;
         default:
-            return "something else";
+            return 'something else';
     }
 }
 ```
@@ -5038,7 +5038,7 @@ let r = /(a)\2/; // Errore: questo riferimento punta a un gruppo inesistente.
 file: a.ts
 <!-- skip -->
 ```typescript
-console.log("runs!");
+console.log('runs!');
 export const x = 1;
 ```
 

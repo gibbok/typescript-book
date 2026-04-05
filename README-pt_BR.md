@@ -1487,14 +1487,14 @@ O TypeScript 5.3 adiciona a redução de tipos com `switch-true`, permitindo sub
 ```typescript
 function classify(x: unknown) {
     switch (true) {
-        case typeof x === "string":
+        case typeof x === 'string':
             return `"${x.toUpperCase()}"`;
-        case typeof x === "number":
-            return x > 0 ? "positive" : "negative";
+        case typeof x === 'number':
+            return x > 0 ? 'positive' : 'negative';
         case Array.isArray(x):
             return `[${x.length} items]`;
         default:
-            return "something else";
+            return 'something else';
     }
 }
 ```
@@ -5085,7 +5085,7 @@ let r = /(a)\2/; // Erro: Esta referência invertida se refere a um grupo que n�
 arquivo: a.ts
 <!-- skip -->
 ```typescript
-console.log("executando!");
+console.log('executando!');
 export const x = 1;
 ```
 
@@ -5093,6 +5093,6 @@ arquivo: main.ts
 <!-- skip -->
 ```typescript
 // import defer * as a from "./a.js";
-console.log("iniciando"); // nada de a.ts ainda
+console.log('iniciando'); // nada de a.ts ainda
 console.log(a.x); // agora imprime "executando!", depois 1
 ```
