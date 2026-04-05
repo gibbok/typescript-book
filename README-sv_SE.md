@@ -249,6 +249,7 @@ En onlineversion finns tillgänglig på:
     - [using-deklaration och explicit resurshantering](#using-deklaration-och-explicit-resurshantering)
       - [await using-deklaration](#await-using-deklaration)
     - [Importattribut](#importattribut)
+    - [Syntaxkontroll för reguljära uttryck](#syntaxkontroll-för-reguljära-uttryck)
 <!-- markdownlint-enable MD004 -->
 
 ## Introduktion
@@ -5061,4 +5062,12 @@ med dynamisk import:
 <!-- skip -->
 ```typescript
 const config = import('./config.json', { with: { type: 'json' } });
+```
+
+### Syntaxkontroll för reguljära uttryck
+
+Sedan TypeScript 5.5.4 kontrollerar den regex-literaler för vanliga fel vid kompileringstid (t.ex. ogiltig syntax, felaktiga bakåtreferenser, funktioner som inte stöds för din mål-JS-version). Den hjälper till att upptäcka buggar tidigare, men kontrollerar inte nya RegExp("...)-strängar.
+
+```typescript
+let r = /(a)\2/; // Fel: Denna bakåtreferens refererar till en grupp som inte finns.
 ```
