@@ -248,6 +248,7 @@ Uma versão online está disponível em:
     - [Declaração using e Gerenciamento Explícito de Recursos](#declaração-using-e-gerenciamento-explícito-de-recursos-explicit-resource-management)
       - [Declaração await using](#declaração-await-using)
     - [Atributos de Importação](#atributos-de-importação-import-attributes)
+    - [Verificação de Sintaxe de Expressões Regulares](#verificação-de-sintaxe-de-expressões-regulares)
 <!-- markdownlint-enable MD004 -->
 
 ## Introdução
@@ -5060,4 +5061,12 @@ com importação dinâmica:
 <!-- skip -->
 ```typescript
 const config = import('./config.json', { with: { type: 'json' } });
+```
+
+### Verificação de Sintaxe de Expressões Regulares
+
+Desde o TypeScript 5.5.4, ele verifica literais de expressões regulares em busca de erros comuns em tempo de compilação (por exemplo, sintaxe inválida, referências invertidas, recursos não suportados pela sua versão de destino do JavaScript). Isso ajuda a detectar erros mais cedo, mas não verifica novas strings RegExp("...").
+
+```typescript
+let r = /(a)\2/; // Erro: Esta referência invertida se refere a um grupo que não existe.
 ```
