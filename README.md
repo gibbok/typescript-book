@@ -5072,3 +5072,28 @@ Since TypeScript 5.5.4 it checks regex literals for common errors at compile tim
 ```typescript
 let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
 ```
+
+### import defer
+
+`import defer` lets you load a module but delay its execution until you actually use something from it. This helps avoid unnecessary work and side effects.
+
+- Only works with: `import defer * as name from "module"`
+- Code runs only when you access an export
+
+<!-- skip -->
+```typescript
+// file: a.ts
+console.log("runs!");
+export const x = 1;
+```
+
+<!-- skip -->
+```typescript
+// file: main.ts
+import defer * as a from "./a.js";
+
+console.log("start"); // nothing from a.ts yet
+
+console.log(a.x); 
+// now "runs!" prints, then 1
+```
