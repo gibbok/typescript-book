@@ -5032,8 +5032,8 @@ let r = /(a)\2/; // Errore: questo riferimento punta a un gruppo inesistente.
 
 `import defer` permette di caricare un modulo ma di ritardarne l'esecuzione fino a quando non si utilizza effettivamente qualcosa al suo interno. Questo aiuta a evitare lavoro non necessario ed effetti collaterali.
 
-- Funziona solo con: `import defer * as name from "module"`
-- Il codice viene eseguito solo quando si accede a un elemento esportato.
+* Funziona solo con: `import defer * as name from "module"`
+* Il codice viene eseguito solo quando si accede a un elemento esportato.
 
 file: a.ts
 <!-- skip -->

@@ -5078,8 +5078,8 @@ let r = /(a)\2/; // Fel: Denna bakåtreferens refererar till en grupp som inte f
 
 `import defer` låter dig ladda en modul men fördröja dess körning tills du faktiskt använder något från den. Detta hjälper till att undvika onödigt arbete och biverkningar.
 
-- Fungerar bara med: `import defer * as name from "module"`
-- Koden körs bara när du öppnar en export
+* Fungerar bara med: `import defer * as name from "module"`
+* Koden körs bara när du öppnar en export
 
 file: a.ts
 <!-- skip -->

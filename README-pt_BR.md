@@ -5074,13 +5074,12 @@ Desde o TypeScript 5.5.4, ele verifica literais de expressões regulares em busc
 let r = /(a)\2/; // Erro: Esta referência invertida se refere a um grupo que não existe.
 ```
 
-
 ### import defer
 
 `import defer` permite carregar um módulo, mas adiar sua execução até que você realmente use algo dele. Isso ajuda a evitar trabalho desnecessário e efeitos colaterais.
 
-- Funciona apenas com: `import defer * as name from "module"`
-- O código é executado somente quando você acessa uma exportação
+* Funciona apenas com: `import defer * as name from "module"`
+* O código é executado somente quando você acessa uma exportação
 
 arquivo: a.ts
 <!-- skip -->

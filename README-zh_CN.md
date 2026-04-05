@@ -5033,9 +5033,8 @@ let r = /(a)\2/; // 错误：此反向引用指向一个不存在的组。
 
 `import defer` 允许你加载一个模块，但延迟其执行，直到你实际使用它中的某些内容。这有助于避免不必要的工作和副作用。
 
-- 仅适用于：`import defer * as name from "module"`
-
-- 代码仅在你访问导出项时执行
+* 仅适用于：`import defer * as name from "module"`
+* 代码仅在你访问导出项时执行
 
 文件：a.ts
 <!-- skip -->

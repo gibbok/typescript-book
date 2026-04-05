@@ -5077,8 +5077,8 @@ let r = /(a)\2/; // Error: This backreference refers to a group that does not ex
 
 `import defer` lets you load a module but delay its execution until you actually use something from it. This helps avoid unnecessary work and side effects.
 
-- Only works with: `import defer * as name from "module"`
-- Code runs only when you access an export
+* Only works with: `import defer * as name from "module"`
+* Code runs only when you access an export
 
 <!-- skip -->
 ```typescript
