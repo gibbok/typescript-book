@@ -1497,6 +1497,7 @@ function classify(x: unknown) {
      return "something else";
  }
 }
+```
 
 ## Tipos Primitivos
 
