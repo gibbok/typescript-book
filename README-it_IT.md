@@ -204,6 +204,7 @@ Puoi anche scaricare la versione Epub:
     - [dichiarazione await using](#dichiarazione-await-using)
   - [Attributi di importazione](#attributi-di-importazione)
   - [Controllo della sintassi delle espressioni regolari](#controllo-della-sintassi-delle-espressioni-regolari)
+  - [import defer](#import-defer)
 <!-- markdownlint-enable MD004 -->
 
 ## Introduzione
@@ -5025,4 +5026,29 @@ A partire dalla versione 5.5.4, TypeScript controlla i letterali delle espressio
 <!-- skip -->
 ```typescript
 let r = /(a)\2/; // Errore: questo riferimento punta a un gruppo inesistente.
+```
+
+### import defer
+
+`import defer` permette di caricare un modulo ma di ritardarne l'esecuzione fino a quando non si utilizza effettivamente qualcosa al suo interno. Questo aiuta a evitare lavoro non necessario ed effetti collaterali.
+
+- Funziona solo con: `import defer * as name from "module"`
+- Il codice viene eseguito solo quando si accede a un elemento esportato.
+
+<!-- salta -->
+```typescript
+// file: a.ts
+console.log("runs!");
+export const x = 1;
+
+```
+
+<!-- salta -->
+```typescript
+// file: main.ts
+import defer * as a from "./a.js";
+
+console.log("start"); // ancora niente da a.ts
+
+console.log(a.x); // ora viene stampato "runs!", poi 1
 ```
