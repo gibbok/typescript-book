@@ -255,7 +255,7 @@ An online version is available at:
 
 Welcome to The Concise TypeScript Book! This guide equips you with essential knowledge and practical skills for effective TypeScript development. Discover key concepts and techniques to write clean, robust code. Whether you're a beginner or an experienced developer, this book serves as both a comprehensive guide and a handy reference for leveraging TypeScript's power in your projects.
 
-This book covers TypeScript 5.2.
+This book covers TypeScript 5.9.
 
 ## About the Author
 
@@ -5090,7 +5090,7 @@ export const x = 1;
 <!-- skip -->
 ```typescript
 // file: main.ts
-// import defer * as a from "./a.js";
+import defer * as a from "./a.js";
 console.log("start"); // nothing from a.ts yet
 console.log(a.x); // now "runs!" prints, then 1
 ```

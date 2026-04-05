@@ -211,7 +211,7 @@ Puoi anche scaricare la versione Epub:
 
 Benvenuti a The Concise TypeScript Book! Questa guida vi fornirà le conoscenze essenziali e le competenze pratiche per uno sviluppo TypeScript efficace. Scoprite i concetti e le tecniche chiave per scrivere codice pulito e robusto. Che siate principianti o sviluppatori esperti, questo libro rappresenta sia una guida completa che un pratico riferimento per sfruttare la potenza di TypeScript nei vostri progetti.
 
-Questo libro tratta TypeScript 5.2.
+Questo libro tratta TypeScript 5.9.
 
 ## Informazioni sull'autore
 
@@ -5035,18 +5035,18 @@ let r = /(a)\2/; // Errore: questo riferimento punta a un gruppo inesistente.
 * Funziona solo con: `import defer * as name from "module"`
 * Il codice viene eseguito solo quando si accede a un elemento esportato.
 
-file: a.ts
 <!-- skip -->
 ```typescript
+// file: a.ts
 console.log('runs!');
 export const x = 1;
 ```
 
 file: main.ts
-
 <!-- skip -->
 ```typescript
-// import defer * as a from "./a.js";
+// file: main.ts
+import defer * as a from "./a.js";
 console.log("start"); // ancora niente da a.ts
 console.log(a.x); // ora viene stampato "runs!", poi 1
 ```

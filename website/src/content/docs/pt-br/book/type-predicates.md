@@ -20,3 +20,9 @@ const foo = (bar: unknown) => {
 };
 ```
 
+O TypeScript 5.5 infere automaticamente predicados de tipo (como `x is T`) em funções como `.filter`, de forma que ele saiba quando valores como `undefined` são removidos — resultando em tipos mais precisos e menos erros; isso funciona para verificações claras (por exemplo, `x !== undefined`), mas não para verificações ambíguas como `!!x`.
+
+```typescript
+const nums = [1, null, 2].filter(x => x !== null);
+```
+

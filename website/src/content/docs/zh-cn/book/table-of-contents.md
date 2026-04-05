@@ -61,6 +61,7 @@ sidebar:
       - 抛错或者返回
       - 可区分联合
       - 用户定义的类型保护
+      - switch-true 类型缩减
   - 原始类型
     - string
     - boolean
@@ -217,5 +218,7 @@ sidebar:
     - 使用声明和显式资源管理
       - 使用声明等待
     - 导入属性
+    - 正则表达式语法检查
+    - import defer
 <!-- markdownlint-enable MD004 -->
 

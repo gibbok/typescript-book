@@ -226,7 +226,7 @@ En onlineversion finns tillgänglig på:
     - [ES6-moduler](#es6-moduler)
     - [ES7 exponentiationsoperator](#es7-exponentiationsoperator)
     - [for-await-of-satsen](#for-await-of-satsen)
-    - [Metaegenskapen new.target](#metaegenskapen-newtarget)
+    - [Metaegenskapen new target](#metaegenskapen-new-target)
     - [Dynamiska importuttryck](#dynamiska-importuttryck)
     - ["tsc –watch"](#tsc-watch)
     - [Non-null Assertion Operator](#non-null-assertion-operator)
@@ -257,7 +257,7 @@ En onlineversion finns tillgänglig på:
 
 Välkommen till Den koncisa TypeScript-boken! Denna guide utrustar dig med väsentlig kunskap och praktiska färdigheter för effektiv TypeScript-utveckling. Upptäck nyckelkoncept och tekniker för att skriva ren, robust kod. Oavsett om du är nybörjare eller en erfaren utvecklare fungerar denna bok både som en omfattande guide och en praktisk referens för att utnyttja TypeScripts kraft i dina projekt.
 
-Denna bok täcker TypeScript 5.2.
+Denna bok täcker TypeScript 5.9.
 
 ## Om författaren
 
@@ -4418,7 +4418,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 })();
 ```
 
-### Metaegenskapen new.target
+### Metaegenskapen new target
 
 Du kan i TypeScript använda metaegenskapen `new.target` som gör det möjligt att avgöra om en funktion eller konstruktor anropades med new-operatorn. Det låter dig upptäcka om ett objekt skapades som ett resultat av ett konstruktoranrop.
 
@@ -5081,17 +5081,17 @@ let r = /(a)\2/; // Fel: Denna bakåtreferens refererar till en grupp som inte f
 * Fungerar bara med: `import defer * as name from "module"`
 * Koden körs bara när du öppnar en export
 
-file: a.ts
 <!-- skip -->
 ```typescript
+// file: a.ts
 console.log('runs!');
 export const x = 1;
 ```
 
-file: main.ts
 <!-- skip -->
 ```typescript
-// import defer * as a from "./a.js";
+// file: main.ts
+import defer * as a from "./a.js";
 console.log("start"); // inget från a.ts ännu
 console.log(a.x); // nu "runs!" skrivs ut, sedan 1
 ```

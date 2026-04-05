@@ -171,7 +171,7 @@ Uma versão online está disponível em:
     - [Com Genéricos](#com-genéricos)
     - [Decoradores](#decoradores-decorators)
       - [Decoradores de Classe](#decoradores-de-classe-class-decorators)
-      - [Decorador de Propriedade](#decorador- de-propriedade-property-decorator)
+      - [Decorador de Propriedade](#decorador-de-propriedade-property-decorator)
       - [Decorador de Método](#decorador-de-método-method-decorator)
       - [Decoradores de Getter e Setter](#decoradores-de-getter-e-setter)
       - [Metadados de Decorador](#metadados-de-decorador-decorator-metadata)
@@ -256,7 +256,7 @@ Uma versão online está disponível em:
 
 Bem-vindo ao Livro Conciso de TypeScript! Este guia o equipa com conhecimentos essenciais e habilidades práticas para o desenvolvimento eficaz em TypeScript. Descubra conceitos e técnicas fundamentais para escrever código limpo e robusto. Seja você um iniciante ou um desenvolvedor experiente, este livro serve tanto como um guia abrangente quanto como uma referência prática para aproveitar o poder do TypeScript em seus projetos.
 
-Este livro cobre o TypeScript 5.2.
+Este livro cobre o TypeScript 5.9.
 
 ## Sobre o Autor
 
@@ -5081,17 +5081,17 @@ let r = /(a)\2/; // Erro: Esta referência invertida se refere a um grupo que n�
 * Funciona apenas com: `import defer * as name from "module"`
 * O código é executado somente quando você acessa uma exportação
 
-arquivo: a.ts
 <!-- skip -->
 ```typescript
+// arquivo: a.ts
 console.log('executando!');
 export const x = 1;
 ```
 
-arquivo: main.ts
 <!-- skip -->
 ```typescript
-// import defer * as a from "./a.js";
+// arquivo: main.ts
+import * as a from './a.js';
 console.log('iniciando'); // nada de a.ts ainda
 console.log(a.x); // agora imprime "executando!", depois 1
 ```

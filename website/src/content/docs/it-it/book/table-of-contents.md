@@ -52,6 +52,7 @@ sidebar:
     - Generazione o restituzione
     - Unione Discriminata
     - Protezioni di tipo definite dall'utente
+    - Restringimento Switch-true
 - Tipi primitivi
   - string
 - Inferenza letterale
@@ -172,5 +173,7 @@ sidebar:
   - Dichiarazione using e Gestione Risorse Esplicita
     - dichiarazione await using
   - Attributi di importazione
+  - Controllo della sintassi delle espressioni regolari
+  - import defer
 <!-- markdownlint-enable MD004 -->
 
