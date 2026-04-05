@@ -90,6 +90,7 @@ En onlineversion finns tillgänglig på:
       - [Kasta eller returnera](#kasta-eller-returnera)
       - [Diskriminerad union](#diskriminerad-union)
       - [Användardefinierade typvakter](#användardefinierade-typvakter)
+      - [Switch-true-förträngning](#switch-true-förträngning)
   - [Primitiva typer](#primitiva-typer)
     - [string](#string)
     - [boolean](#boolean)
@@ -1476,6 +1477,25 @@ const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeSc
 const isValid = (item: string | null): item is string => item !== null; // Custom type guard
 
 const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+```
+
+#### Switch-true-förträngning
+
+TypeScript 5.3 lägger till switch-true-förträngning, vilket låter dig ersätta röriga if/else-kedjor med switch (true) med hjälp av booleska villkor. Det förbättrar läsbarheten och förtränger fortfarande typer. Det liknar mönstermatchning, men enklare.
+
+```typescript
+function classify(x: unknown) {
+ switch (true) {
+   case typeof x === "string":
+     return `"${x.toUpperCase()}"`;
+   case typeof x === "number":
+     return x > 0 ? "positive" : "negative";
+   case Array.isArray(x):
+     return `[${x.length} items]`;
+   default:
+     return "something else";
+ }
+}
 ```
 
 ## Primitiva typer
