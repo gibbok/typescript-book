@@ -249,6 +249,7 @@ Uma versão online está disponível em:
       - [Declaração await using](#declaração-await-using)
     - [Atributos de Importação](#atributos-de-importação-import-attributes)
     - [Verificação de Sintaxe de Expressões Regulares](#verificação-de-sintaxe-de-expressões-regulares)
+    - [import defer](#import-defer)
 <!-- markdownlint-enable MD004 -->
 
 ## Introdução
@@ -5070,4 +5071,31 @@ Desde o TypeScript 5.5.4, ele verifica literais de expressões regulares em busc
 <!-- skip -->
 ```typescript
 let r = /(a)\2/; // Erro: Esta referência invertida se refere a um grupo que não existe.
+```
+
+
+### import defer
+
+`import defer` permite carregar um módulo, mas adiar sua execução até que você realmente use algo dele. Isso ajuda a evitar trabalho desnecessário e efeitos colaterais.
+
+- Funciona apenas com: `import defer * as name from "module"`
+- O código é executado somente quando você acessa uma exportação
+
+<!-- skip -->
+```typescript
+// arquivo: a.ts
+console.log("executando!");
+
+export const x = 1;
+
+```
+
+<!-- skip -->
+```typescript
+// arquivo: main.ts
+import defer * as a from "./a.js";
+
+console.log("iniciando"); // nada de a.ts ainda
+
+console.log(a.x); // agora imprime "executando!", depois 1
 ```
