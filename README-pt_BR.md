@@ -5085,17 +5085,13 @@ let r = /(a)\2/; // Erro: Esta referÃªncia invertida se refere a um grupo que nÃ
 ```typescript
 // arquivo: a.ts
 console.log("executando!");
-
 export const x = 1;
-
 ```
 
 <!-- skip -->
 ```typescript
 // arquivo: main.ts
 import defer * as a from "./a.js";
-
 console.log("iniciando"); // nada de a.ts ainda
-
 console.log(a.x); // agora imprime "executando!", depois 1
 ```
