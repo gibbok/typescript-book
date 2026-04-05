@@ -91,6 +91,7 @@
       - [抛错或者返回](#抛错或者返回)
       - [可区分联合](#可区分联合)
       - [用户定义的类型保护](#用户定义的类型保护)
+      - [switch-true 类型缩减](#switch-true-类型缩减)
   - [原始类型](#原始类型)
     - [string](#string)
     - [boolean](#boolean)
@@ -1474,6 +1475,25 @@ const r1 = data.filter(x => x != null); // 类型为 (string | null)[], TypeScri
 const isValid = (item: string | null): item is string => item !== null; // 自定义类型保护
 
 const r2 = data.filter(isValid); // 类型现在为 string[], 通过使用断言类型保护，我们能够缩小类型
+```
+
+#### switch-true 类型缩减
+
+TypeScript 5.3 新增了 switch-true 类型缩减功能，允许你使用布尔条件，通过 switch (true) 语句替换繁琐的 if/else 链。这既提高了代码的可读性，又能实现类型缩减。它类似于模式匹配，但更简洁。
+
+```typescript
+function classify(x: unknown) {
+ switch (true) {
+   case typeof x === "string":
+     return `"${x.toUpperCase()}"`;
+   case typeof x === "number":
+     return x > 0 ? "positive" : "negative";
+   case Array.isArray(x):
+     return `[${x.length} items]`;
+   default:
+     return "something else";
+ }
+}
 ```
 
 ## 原始类型
