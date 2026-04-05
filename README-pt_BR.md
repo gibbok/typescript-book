@@ -171,7 +171,7 @@ Uma versão online está disponível em:
     - [Com Genéricos](#com-genéricos)
     - [Decoradores](#decoradores-decorators)
       - [Decoradores de Classe](#decoradores-de-classe-class-decorators)
-      - [Decorador de Propriedade](#decorador- de-propriedade-property-decorator)
+      - [Decorador de Propriedade](#decorador-de-propriedade-property-decorator)
       - [Decorador de Método](#decorador-de-método-method-decorator)
       - [Decoradores de Getter e Setter](#decoradores-de-getter-e-setter)
       - [Metadados de Decorador](#metadados-de-decorador-decorator-metadata)
