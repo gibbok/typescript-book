@@ -1486,16 +1486,16 @@ O TypeScript 5.3 adiciona a redução de tipos com `switch-true`, permitindo sub
 
 ```typescript
 function classify(x: unknown) {
- switch (true) {
-   case typeof x === "string":
-     return `"${x.toUpperCase()}"`;
-   case typeof x === "number":
-     return x > 0 ? "positive" : "negative";
-   case Array.isArray(x):
-     return `[${x.length} items]`;
-   default:
-     return "something else";
- }
+    switch (true) {
+        case typeof x === "string":
+            return `"${x.toUpperCase()}"`;
+        case typeof x === "number":
+            return x > 0 ? "positive" : "negative";
+        case Array.isArray(x):
+            return `[${x.length} items]`;
+        default:
+            return "something else";
+    }
 }
 ```
 
