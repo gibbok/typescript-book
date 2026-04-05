@@ -5037,18 +5037,16 @@ let r = /(a)\2/; // 错误：此反向引用指向一个不存在的组。
 
 - 代码仅在你访问导出项时执行
 
+文件：a.ts
 <!-- skip -->
-
 ```typescript
-// 文件：a.ts
 console.log("runs!");
 export const x = 1;
-
 ```
 
+文件：main.ts
 <!-- skip -->
 ```typescript
-// 文件：main.ts
 import defer * as a from "./a.js";
 console.log("start"); // a.ts 中尚无任何内容
 console.log(a.x); // 现在打印“runs!"，然后输出 1
