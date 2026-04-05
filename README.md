@@ -5062,3 +5062,11 @@ with dynamic import:
 ```typescript
 const config = import('./config.json', { with: { type: 'json' } });
 ```
+
+### Regular Expression Syntax Checking
+
+Since TypeScript 5.5.4 it checks regex literals for common errors at compile time (e.g. invalid syntax, wrong backreferences, unsupported features for your target JS version). It helps catch bugs earlier, but does not check new RegExp("...") strings.
+
+```typescript
+let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+```
