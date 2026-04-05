@@ -226,7 +226,7 @@ En onlineversion finns tillgänglig på:
     - [ES6-moduler](#es6-moduler)
     - [ES7 exponentiationsoperator](#es7-exponentiationsoperator)
     - [for-await-of-satsen](#for-await-of-satsen)
-    - [Metaegenskapen new.target](#metaegenskapen-newtarget)
+    - [Metaegenskapen new target](#metaegenskapen-new-target)
     - [Dynamiska importuttryck](#dynamiska-importuttryck)
     - ["tsc –watch"](#tsc-watch)
     - [Non-null Assertion Operator](#non-null-assertion-operator)
@@ -4418,7 +4418,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 })();
 ```
 
-### Metaegenskapen new.target
+### Metaegenskapen new target
 
 Du kan i TypeScript använda metaegenskapen `new.target` som gör det möjligt att avgöra om en funktion eller konstruktor anropades med new-operatorn. Det låter dig upptäcka om ett objekt skapades som ett resultat av ett konstruktoranrop.
 
