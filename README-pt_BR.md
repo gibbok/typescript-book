@@ -2184,6 +2184,12 @@ const foo = (bar: unknown) => {
 };
 ```
 
+O TypeScript 5.5 infere automaticamente predicados de tipo (como `x is T`) em funções como `.filter`, de forma que ele saiba quando valores como `undefined` são removidos — resultando em tipos mais precisos e menos erros; isso funciona para verificações claras (por exemplo, `x !== undefined`), mas não para verificações ambíguas como `!!x`.
+
+```typescript
+const nums = [1, null, 2].filter(x => x !== null);
+```
+
 ## Uniões Discriminadas
 
 Uniões Discriminadas (Discriminated Unions) no TypeScript são um tipo de união que usa uma propriedade comum, conhecida como discriminante, para estreitar o conjunto de tipos possíveis para a união.
