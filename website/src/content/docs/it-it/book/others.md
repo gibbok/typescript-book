@@ -980,6 +980,7 @@ let r = /(a)\2/; // Errore: questo riferimento punta a un gruppo inesistente.
 console.log('runs!');
 export const x = 1;
 ```
+
 file: main.ts
 <!-- skip -->
 ```typescript
