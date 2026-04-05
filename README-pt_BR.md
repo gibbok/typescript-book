@@ -5092,7 +5092,7 @@ export const x = 1;
 arquivo: main.ts
 <!-- skip -->
 ```typescript
-import defer * as a from "./a.js";
+// import defer * as a from "./a.js";
 console.log("iniciando"); // nada de a.ts ainda
 console.log(a.x); // agora imprime "executando!", depois 1
 ```
