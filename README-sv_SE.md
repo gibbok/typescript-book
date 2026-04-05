@@ -5084,7 +5084,7 @@ let r = /(a)\2/; // Fel: Denna bakåtreferens refererar till en grupp som inte f
 file: a.ts
 <!-- skip -->
 ```typescript
-console.log("runs!");
+console.log('runs!');
 export const x = 1;
 ```
 
