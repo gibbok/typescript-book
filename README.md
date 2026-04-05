@@ -1486,14 +1486,14 @@ TypeScript 5.3 adds switch-true narrowing, letting you replace messy if/else cha
 ```typescript
 function classify(x: unknown) {
     switch (true) {
-        case typeof x === "string":
+        case typeof x === 'string':
             return `"${x.toUpperCase()}"`;
-        case typeof x === "number":
-            return x > 0 ? "positive" : "negative";
+        case typeof x === 'number':
+            return x > 0 ? 'positive' : 'negative';
         case Array.isArray(x):
             return `[${x.length} items]`;
         default:
-            return "something else";
+            return 'something else';
     }
 }
 ```
