@@ -250,6 +250,7 @@ En onlineversion finns tillgänglig på:
       - [await using-deklaration](#await-using-deklaration)
     - [Importattribut](#importattribut)
     - [Syntaxkontroll för reguljära uttryck](#syntaxkontroll-för-reguljära-uttryck)
+    - [import defer](#import-defer)
 <!-- markdownlint-enable MD004 -->
 
 ## Introduktion
@@ -5071,4 +5072,28 @@ Sedan TypeScript 5.5.4 kontrollerar den regex-literaler för vanliga fel vid kom
 <!-- skip -->
 ```typescript
 let r = /(a)\2/; // Fel: Denna bakåtreferens refererar till en grupp som inte finns.
+```
+
+### import defer
+
+`import defer` låter dig ladda en modul men fördröja dess körning tills du faktiskt använder något från den. Detta hjälper till att undvika onödigt arbete och biverkningar.
+
+- Fungerar bara med: `import defer * as name from "module"`
+- Koden körs bara när du öppnar en export
+
+<!-- skip -->
+```typescript
+// file: a.ts
+console.log("runs!");
+export const x = 1;
+```
+
+<!-- skip -->
+```typescript
+// file: main.ts
+import defer * as a from "./a.js";
+
+console.log("start"); // inget från a.ts ännu
+
+console.log(a.x); // nu "runs!" skrivs ut, sedan 1
 ```
