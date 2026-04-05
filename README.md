@@ -90,6 +90,7 @@ An online version is available at:
       - [Throwing or returning](#throwing-or-returning)
       - [Discriminated Union](#discriminated-union)
       - [User-Defined Type Guards](#user-defined-type-guards)
+      - [Switch-true narrowing](#switch-true-narrowing)
   - [Primitive Types](#primitive-types)
     - [string](#string)
     - [boolean](#boolean)
@@ -247,6 +248,7 @@ An online version is available at:
     - [using declaration and Explicit Resource Management](#using-declaration-and-explicit-resource-management)
       - [await using declaration](#await-using-declaration)
     - [Import Attributes](#import-attributes)
+    - [Regular Expression Syntax Checking](#regular-expression-syntax-checking)
 <!-- markdownlint-enable MD004 -->
 
 ## Introduction
@@ -1477,6 +1479,25 @@ const isValid = (item: string | null): item is string => item !== null; // Custo
 const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
 ```
 
+#### Switch-true narrowing
+
+TypeScript 5.3 adds switch-true narrowing, letting you replace messy if/else chains with switch (true) using boolean conditions. It improves readability and still narrows types. It’s similar to pattern matching, but simpler.
+
+```typescript
+function classify(x: unknown) {
+    switch (true) {
+        case typeof x === 'string':
+            return `"${x.toUpperCase()}"`;
+        case typeof x === 'number':
+            return x > 0 ? 'positive' : 'negative';
+        case Array.isArray(x):
+            return `[${x.length} items]`;
+        default:
+            return 'something else';
+    }
+}
+```
+
 ## Primitive Types
 
 TypeScript supports 7 primitive types. A primitive data type refers to a type that is not an object and does not have any methods associated with it. In TypeScript, all primitive types are immutable, meaning their values cannot be changed once they are assigned.
@@ -2163,6 +2184,12 @@ const foo = (bar: unknown) => {
         console.log('not a string');
     }
 };
+```
+
+TypeScript 5.5 automatically infers type predicates (like `x is T`) in functions such as `.filter`, so it knows when values like undefined are removed—giving more precise types and fewer errors; this works for clear checks (e.g., `x !== undefined`) but not ambiguous ones like `!!x`.
+
+```typescript
+const nums = [1, null, 2].filter(x => x !== null);
 ```
 
 ## Discriminated Unions
@@ -5035,4 +5062,35 @@ with dynamic import:
 <!-- skip -->
 ```typescript
 const config = import('./config.json', { with: { type: 'json' } });
+```
+
+### Regular Expression Syntax Checking
+
+Since TypeScript 5.5.4 it checks regex literals for common errors at compile time (e.g. invalid syntax, wrong backreferences, unsupported features for your target JS version). It helps catch bugs earlier, but does not check new RegExp("...") strings.
+
+<!-- skip -->
+```typescript
+let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+```
+
+### import defer
+
+`import defer` lets you load a module but delay its execution until you actually use something from it. This helps avoid unnecessary work and side effects.
+
+* Only works with: `import defer * as name from "module"`
+* Code runs only when you access an export
+
+<!-- skip -->
+```typescript
+// file: a.ts
+console.log("runs!");
+export const x = 1;
+```
+
+<!-- skip -->
+```typescript
+// file: main.ts
+// import defer * as a from "./a.js";
+console.log("start"); // nothing from a.ts yet
+console.log(a.x); // now "runs!" prints, then 1
 ```

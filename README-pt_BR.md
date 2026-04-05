@@ -90,6 +90,7 @@ Uma versão online está disponível em:
       - [Lançando ou retornando](#lançando-ou-retornando)
       - [União Discriminada](#união-discriminada)
       - [Proteções de Tipo Definidas pelo Usuário (User-Defined Type Guards)](#proteções-de-tipo-definidas-pelo-usuário-user-defined-type-guards)
+      - [Redução de tipos com switch-true](#redução-de-tipos-com-switch-true)
   - [Tipos Primitivos](#tipos-primitivos)
     - [string](#string)
     - [boolean](#boolean)
@@ -247,6 +248,8 @@ Uma versão online está disponível em:
     - [Declaração using e Gerenciamento Explícito de Recursos](#declaração-using-e-gerenciamento-explícito-de-recursos-explicit-resource-management)
       - [Declaração await using](#declaração-await-using)
     - [Atributos de Importação](#atributos-de-importação-import-attributes)
+    - [Verificação de Sintaxe de Expressões Regulares](#verificação-de-sintaxe-de-expressões-regulares)
+    - [import defer](#import-defer)
 <!-- markdownlint-enable MD004 -->
 
 ## Introdução
@@ -1477,6 +1480,25 @@ const isValid = (item: string | null): item is string => item !== null; // Prote
 const r2 = data.filter(isValid); // O tipo está correto agora string[], ao usar o protetor de tipo predicado conseguimos estreitar o tipo
 ```
 
+#### Redução de tipos com switch-true
+
+O TypeScript 5.3 adiciona a redução de tipos com `switch-true`, permitindo substituir cadeias complexas de `if/else` por `switch (true)` usando condições booleanas. Isso melhora a legibilidade e ainda reduz os tipos. É semelhante ao casamento de padrões, mas mais simples.
+
+```typescript
+function classify(x: unknown) {
+    switch (true) {
+        case typeof x === 'string':
+            return `"${x.toUpperCase()}"`;
+        case typeof x === 'number':
+            return x > 0 ? 'positive' : 'negative';
+        case Array.isArray(x):
+            return `[${x.length} items]`;
+        default:
+            return 'something else';
+    }
+}
+```
+
 ## Tipos Primitivos
 
 O TypeScript suporta 7 tipos primitivos. Um tipo de dado primitivo refere-se a um tipo que não é um objeto e não possui nenhum método associado a ele. No TypeScript, todos os tipos primitivos são imutáveis, o que significa que seus valores não podem ser alterados uma vez que são atribuídos.
@@ -2163,6 +2185,12 @@ const foo = (bar: unknown) => {
         console.log('não é uma string');
     }
 };
+```
+
+O TypeScript 5.5 infere automaticamente predicados de tipo (como `x is T`) em funções como `.filter`, de forma que ele saiba quando valores como `undefined` são removidos — resultando em tipos mais precisos e menos erros; isso funciona para verificações claras (por exemplo, `x !== undefined`), mas não para verificações ambíguas como `!!x`.
+
+```typescript
+const nums = [1, null, 2].filter(x => x !== null);
 ```
 
 ## Uniões Discriminadas
@@ -5035,4 +5063,35 @@ com importação dinâmica:
 <!-- skip -->
 ```typescript
 const config = import('./config.json', { with: { type: 'json' } });
+```
+
+### Verificação de Sintaxe de Expressões Regulares
+
+Desde o TypeScript 5.5.4, ele verifica literais de expressões regulares em busca de erros comuns em tempo de compilação (por exemplo, sintaxe inválida, referências invertidas, recursos não suportados pela sua versão de destino do JavaScript). Isso ajuda a detectar erros mais cedo, mas não verifica novas strings RegExp("...").
+
+<!-- skip -->
+```typescript
+let r = /(a)\2/; // Erro: Esta referência invertida se refere a um grupo que não existe.
+```
+
+### import defer
+
+`import defer` permite carregar um módulo, mas adiar sua execução até que você realmente use algo dele. Isso ajuda a evitar trabalho desnecessário e efeitos colaterais.
+
+* Funciona apenas com: `import defer * as name from "module"`
+* O código é executado somente quando você acessa uma exportação
+
+arquivo: a.ts
+<!-- skip -->
+```typescript
+console.log('executando!');
+export const x = 1;
+```
+
+arquivo: main.ts
+<!-- skip -->
+```typescript
+// import defer * as a from "./a.js";
+console.log('iniciando'); // nada de a.ts ainda
+console.log(a.x); // agora imprime "executando!", depois 1
 ```

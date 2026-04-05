@@ -82,6 +82,7 @@ Puoi anche scaricare la versione Epub:
     - [Generazione o restituzione](#generazione-o-restituzione)
     - [Unione Discriminata](#unione-discriminata)
     - [Protezioni di tipo definite dall'utente](#protezioni-di-tipo-definite-dallutente)
+    - [Restringimento Switch-true](#restringimento-switch-true)
 - [Tipi primitivi](#tipi-primitivi)
   - [string](#string)
 - [Inferenza letterale](#inferenza-letterale)
@@ -202,6 +203,8 @@ Puoi anche scaricare la versione Epub:
   - [Dichiarazione using e Gestione Risorse Esplicita](#dichiarazione-using-e-gestione-risorse-esplicita)
     - [dichiarazione await using](#dichiarazione-await-using)
   - [Attributi di importazione](#attributi-di-importazione)
+  - [Controllo della sintassi delle espressioni regolari](#controllo-della-sintassi-delle-espressioni-regolari)
+  - [import defer](#import-defer)
 <!-- markdownlint-enable MD004 -->
 
 ## Introduzione
@@ -1432,6 +1435,25 @@ const r1 = data.filter(x => x != null); // Il tipo è (string | null)[], TypeScr
 const isValid = (item: string | null): item is string => item !== null; // Protezione personalizzata del tipo
 
 const r2 = data.filter(isValid); // Il tipo ora è corretto string[], utilizzando la protezione del tipo predicato siamo riusciti a restringere il tipo
+```
+
+#### Restringimento Switch-true
+
+TypeScript 5.3 introduce la funzionalità di restringimento dei tipi tramite `switch-true`, che permette di sostituire le complesse catene di `if/else` con `switch(true)` utilizzando condizioni booleane. Migliora la leggibilità e al contempo restringe i tipi. È simile al pattern matching, ma più semplice.
+
+```typescript
+function classify(x: unknown) {
+    switch (true) {
+        case typeof x === 'string':
+            return `"${x.toUpperCase()}"`;
+        case typeof x === 'number':
+            return x > 0 ? 'positive' : 'negative';
+        case Array.isArray(x):
+            return `[${x.length} items]`;
+        default:
+            return 'something else';
+    }
+}
 ```
 
 ## Tipi primitivi
@@ -4995,4 +5017,36 @@ con importazione dinamica:
 <!-- skip -->
 ```typescript
 const config = import('./config.json', { with: { type: 'json' } });
+```
+
+### Controllo della sintassi delle espressioni regolari
+
+A partire dalla versione 5.5.4, TypeScript controlla i letterali delle espressioni regolari per individuare errori comuni in fase di compilazione (ad esempio, sintassi non valida, riferimenti errati, funzionalità non supportate dalla versione di JavaScript di destinazione). Questo aiuta a individuare i bug in anticipo, ma non controlla le nuove stringhe RegExp("...").
+
+<!-- skip -->
+```typescript
+let r = /(a)\2/; // Errore: questo riferimento punta a un gruppo inesistente.
+```
+
+### import defer
+
+`import defer` permette di caricare un modulo ma di ritardarne l'esecuzione fino a quando non si utilizza effettivamente qualcosa al suo interno. Questo aiuta a evitare lavoro non necessario ed effetti collaterali.
+
+* Funziona solo con: `import defer * as name from "module"`
+* Il codice viene eseguito solo quando si accede a un elemento esportato.
+
+file: a.ts
+<!-- skip -->
+```typescript
+console.log('runs!');
+export const x = 1;
+```
+
+file: main.ts
+
+<!-- skip -->
+```typescript
+// import defer * as a from "./a.js";
+console.log("start"); // ancora niente da a.ts
+console.log(a.x); // ora viene stampato "runs!", poi 1
 ```

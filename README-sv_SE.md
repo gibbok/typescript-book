@@ -90,6 +90,7 @@ En onlineversion finns tillgänglig på:
       - [Kasta eller returnera](#kasta-eller-returnera)
       - [Diskriminerad union](#diskriminerad-union)
       - [Användardefinierade typvakter](#användardefinierade-typvakter)
+      - [Switch-true-förträngning](#switch-true-förträngning)
   - [Primitiva typer](#primitiva-typer)
     - [string](#string)
     - [boolean](#boolean)
@@ -248,6 +249,8 @@ En onlineversion finns tillgänglig på:
     - [using-deklaration och explicit resurshantering](#using-deklaration-och-explicit-resurshantering)
       - [await using-deklaration](#await-using-deklaration)
     - [Importattribut](#importattribut)
+    - [Syntaxkontroll för reguljära uttryck](#syntaxkontroll-för-reguljära-uttryck)
+    - [import defer](#import-defer)
 <!-- markdownlint-enable MD004 -->
 
 ## Introduktion
@@ -1478,6 +1481,25 @@ const isValid = (item: string | null): item is string => item !== null; // Custo
 const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
 ```
 
+#### Switch-true-förträngning
+
+TypeScript 5.3 lägger till switch-true-förträngning, vilket låter dig ersätta röriga if/else-kedjor med switch (true) med hjälp av booleska villkor. Det förbättrar läsbarheten och förtränger fortfarande typer. Det liknar mönstermatchning, men enklare.
+
+```typescript
+function classify(x: unknown) {
+    switch (true) {
+        case typeof x === 'string':
+            return `"${x.toUpperCase()}"`;
+        case typeof x === 'number':
+            return x > 0 ? 'positive' : 'negative';
+        case Array.isArray(x):
+            return `[${x.length} items]`;
+        default:
+            return 'something else';
+    }
+}
+```
+
 ## Primitiva typer
 
 TypeScript stöder 7 primitiva typer. En primitiv datatyp avser en typ som inte är ett objekt och som inte har några metoder kopplade till sig. I TypeScript är alla primitiva typer oföränderliga, vilket innebär att deras värden inte kan ändras efter att de har tilldelats.
@@ -2164,6 +2186,12 @@ const foo = (bar: unknown) => {
         console.log('not a string');
     }
 };
+```
+
+TypeScript 5.5 härleder automatiskt typpredikat (som `x is T`) i funktioner som `.filter`, så att den vet när värden som undefined tas bort – vilket ger mer exakta typer och färre fel; detta fungerar för tydliga kontroller (t.ex. `x !== undefined`) men inte tvetydiga som `!!x`.
+
+```typescript
+const nums = [1, null, 2].filter(x => x !== null);
 ```
 
 ## Diskriminerade unioner
@@ -5035,4 +5063,35 @@ med dynamisk import:
 <!-- skip -->
 ```typescript
 const config = import('./config.json', { with: { type: 'json' } });
+```
+
+### Syntaxkontroll för reguljära uttryck
+
+Sedan TypeScript 5.5.4 kontrollerar den regex-literaler för vanliga fel vid kompileringstid (t.ex. ogiltig syntax, felaktiga bakåtreferenser, funktioner som inte stöds för din mål-JS-version). Den hjälper till att upptäcka buggar tidigare, men kontrollerar inte nya RegExp("...)-strängar.
+
+<!-- skip -->
+```typescript
+let r = /(a)\2/; // Fel: Denna bakåtreferens refererar till en grupp som inte finns.
+```
+
+### import defer
+
+`import defer` låter dig ladda en modul men fördröja dess körning tills du faktiskt använder något från den. Detta hjälper till att undvika onödigt arbete och biverkningar.
+
+* Fungerar bara med: `import defer * as name from "module"`
+* Koden körs bara när du öppnar en export
+
+file: a.ts
+<!-- skip -->
+```typescript
+console.log('runs!');
+export const x = 1;
+```
+
+file: main.ts
+<!-- skip -->
+```typescript
+// import defer * as a from "./a.js";
+console.log("start"); // inget från a.ts ännu
+console.log(a.x); // nu "runs!" skrivs ut, sedan 1
 ```
