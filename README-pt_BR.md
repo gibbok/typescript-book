@@ -90,6 +90,7 @@ Uma versão online está disponível em:
       - [Lançando ou retornando](#lançando-ou-retornando)
       - [União Discriminada](#união-discriminada)
       - [Proteções de Tipo Definidas pelo Usuário (User-Defined Type Guards)](#proteções-de-tipo-definidas-pelo-usuário-user-defined-type-guards)
+      - [Redução de tipos com switch-true](#redução-de-tipos-com-switch-true)
   - [Tipos Primitivos](#tipos-primitivos)
     - [string](#string)
     - [boolean](#boolean)
@@ -1476,6 +1477,24 @@ const isValid = (item: string | null): item is string => item !== null; // Prote
 
 const r2 = data.filter(isValid); // O tipo está correto agora string[], ao usar o protetor de tipo predicado conseguimos estreitar o tipo
 ```
+
+#### Redução de tipos com switch-true
+
+O TypeScript 5.3 adiciona a redução de tipos com `switch-true`, permitindo substituir cadeias complexas de `if/else` por `switch (true)` usando condições booleanas. Isso melhora a legibilidade e ainda reduz os tipos. É semelhante ao casamento de padrões, mas mais simples.
+
+```typescript
+function classify(x: unknown) {
+ switch (true) {
+   case typeof x === "string":
+     return `"${x.toUpperCase()}"`;
+   case typeof x === "number":
+     return x > 0 ? "positive" : "negative";
+   case Array.isArray(x):
+     return `[${x.length} items]`;
+   default:
+     return "something else";
+ }
+}
 
 ## Tipos Primitivos
 
