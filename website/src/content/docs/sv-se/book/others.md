@@ -967,16 +967,16 @@ let r = /(a)\2/; // Fel: Denna bakåtreferens refererar till en grupp som inte f
 * Fungerar bara med: `import defer * as name from "module"`
 * Koden körs bara när du öppnar en export
 
-file: a.ts
 <!-- skip -->
 ```typescript
+// file: a.ts
 console.log('runs!');
 export const x = 1;
 ```
 
-file: main.ts
 <!-- skip -->
 ```typescript
+// file: main.ts
 import defer * as a from "./a.js";
 console.log("start"); // inget från a.ts ännu
 console.log(a.x); // nu "runs!" skrivs ut, sedan 1

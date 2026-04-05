@@ -967,16 +967,16 @@ let r = /(a)\2/; // Erro: Esta referência invertida se refere a um grupo que n�
 * Funciona apenas com: `import defer * as name from "module"`
 * O código é executado somente quando você acessa uma exportação
 
-arquivo: a.ts
 <!-- skip -->
 ```typescript
+// arquivo: a.ts
 console.log('executando!');
 export const x = 1;
 ```
 
-arquivo: main.ts
 <!-- skip -->
 ```typescript
+// arquivo: main.ts
 import * as a from './a.js';
 console.log('iniciando'); // nada de a.ts ainda
 console.log(a.x); // agora imprime "executando!", depois 1
