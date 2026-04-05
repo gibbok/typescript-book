@@ -90,6 +90,7 @@ An online version is available at:
       - [Throwing or returning](#throwing-or-returning)
       - [Discriminated Union](#discriminated-union)
       - [User-Defined Type Guards](#user-defined-type-guards)
+      - [Switch-true narrowing](#switch-true-narrowing)
   - [Primitive Types](#primitive-types)
     - [string](#string)
     - [boolean](#boolean)
@@ -1475,6 +1476,25 @@ const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeSc
 const isValid = (item: string | null): item is string => item !== null; // Custom type guard
 
 const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+```
+
+#### Switch-true narrowing
+
+TypeScript 5.3 adds switch-true narrowing, letting you replace messy if/else chains with switch (true) using boolean conditions. It improves readability and still narrows types. It’s similar to pattern matching, but simpler.
+
+```typescript
+function classify(x: unknown) {
+ switch (true) {
+   case typeof x === "string":
+     return `"${x.toUpperCase()}"`;
+   case typeof x === "number":
+     return x > 0 ? "positive" : "negative";
+   case Array.isArray(x):
+     return `[${x.length} items]`;
+   default:
+     return "something else";
+ }
+}
 ```
 
 ## Primitive Types
