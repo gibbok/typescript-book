@@ -2170,6 +2170,12 @@ const foo = (bar: unknown) => {
 };
 ```
 
+TypeScript 5.5 会自动推断函数（例如 `.filter`）中的类型谓词（例如 `x is T`），因此它知道何时会移除像 `undefined` 这样的值——从而提供更精确的类型并减少错误；这对于明确的类型检查（例如 `x !== undefined`）有效，但对于像 `!!x` 这样含义模糊的类型检查则无效。
+
+```typescript
+const nums = [1, null, 2].filter(x => x !== null);
+```
+
 ## 可区分联合
 
 TypeScript 中的可区分联合是一种联合类型，它使用称为判别式的公共属性来缩小联合的可能类型集。
