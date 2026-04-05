@@ -5067,6 +5067,7 @@ const config = import('./config.json', { with: { type: 'json' } });
 
 Desde o TypeScript 5.5.4, ele verifica literais de expressões regulares em busca de erros comuns em tempo de compilação (por exemplo, sintaxe inválida, referências invertidas, recursos não suportados pela sua versão de destino do JavaScript). Isso ajuda a detectar erros mais cedo, mas não verifica novas strings RegExp("...").
 
+<!-- skip -->
 ```typescript
 let r = /(a)\2/; // Erro: Esta referência invertida se refere a um grupo que não existe.
 ```

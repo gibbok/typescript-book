@@ -248,6 +248,7 @@
     - [使用声明和显式资源管理](#使用声明和显式资源管理)
       - [使用声明等待](#使用声明等待)
     - [导入属性](#导入属性)
+    - [正则表达式语法检查](#正则表达式语法检查)
 <!-- markdownlint-enable MD004 -->
 
 ## 介绍
@@ -5016,4 +5017,13 @@ import config from './config.json' with { type: 'json' };
 <!-- skip -->
 ```typescript
 const config = import('./config.json', { with: { type: 'json' } });
+```
+
+### 正则表达式语法检查
+
+自 TypeScript 5.5.4 起，它会在编译时检查正则表达式字面量是否存在常见错误（例如，语法无效、反向引用错误、目标 JS 版本不支持的功能）。这有助于尽早发现 bug，但不会检查 `new RegExp("...")` 字符串。
+
+<!-- skip -->
+```typescript
+let r = /(a)\2/; // 错误：此反向引用指向一个不存在的组。
 ```

@@ -5068,6 +5068,7 @@ const config = import('./config.json', { with: { type: 'json' } });
 
 Sedan TypeScript 5.5.4 kontrollerar den regex-literaler för vanliga fel vid kompileringstid (t.ex. ogiltig syntax, felaktiga bakåtreferenser, funktioner som inte stöds för din mål-JS-version). Den hjälper till att upptäcka buggar tidigare, men kontrollerar inte nya RegExp("...)-strängar.
 
+<!-- skip -->
 ```typescript
 let r = /(a)\2/; // Fel: Denna bakåtreferens refererar till en grupp som inte finns.
 ```

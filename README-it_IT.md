@@ -5022,6 +5022,7 @@ const config = import('./config.json', { with: { type: 'json' } });
 
 A partire dalla versione 5.5.4, TypeScript controlla i letterali delle espressioni regolari per individuare errori comuni in fase di compilazione (ad esempio, sintassi non valida, riferimenti errati, funzionalità non supportate dalla versione di JavaScript di destinazione). Questo aiuta a individuare i bug in anticipo, ma non controlla le nuove stringhe RegExp("...").
 
+<!-- skip -->
 ```typescript
 let r = /(a)\2/; // Errore: questo riferimento punta a un gruppo inesistente.
 ```
