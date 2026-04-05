@@ -5046,7 +5046,7 @@ file: main.ts
 
 <!-- skip -->
 ```typescript
-// import defer * as a from "./a.js";
+import defer * as a from "./a.js";
 console.log("start"); // ancora niente da a.ts
 console.log(a.x); // ora viene stampato "runs!", poi 1
 ```
