@@ -576,7 +576,7 @@ Följande representerar en lista över de vanligaste och mest användbara konfig
 
 #### target
 
-Egenskapen "target" används för att ange vilken version av JavaScript ECMAScript-version din TypeScript ska generera/kompilera till. För moderna webbläsare är ES6 ett bra alternativ, för äldre webbläsare rekommenderas ES5.
+Egenskapen "target" används för att ange vilken version av JavaScript ECMAScript-version din TypeScript ska generera/kompilera till. För moderna webbläsare är ES6 ett bra alternativ, för äldre webbläsare rekommenderas ES5. Obs: ES5-stödet togs bort i TypeScript 6.0.
 
 #### lib
 

@@ -574,7 +574,7 @@ The following represents a list of the common and useful configurations:
 
 #### target
 
-The "target" property is used to specify which version of JavaScript ECMAScript version your TypeScript should emit/compile into. For modern browsers ES6 is a good option, for older browsers, ES5 is recommended.
+The "target" property is used to specify which version of JavaScript ECMAScript version your TypeScript should emit/compile into. For modern browsers ES6 is a good option, for older browsers, ES5 is recommended. Note: ES5 support was removed in TypeScript 6.0.
 
 #### lib
 

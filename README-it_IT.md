@@ -529,7 +529,7 @@ Di seguito è riportato un elenco delle configurazioni più comuni e utili:
 
 #### target
 
-La proprietà "target" viene utilizzata per specificare in quale versione di JavaScript ECMAScript TypeScript deve emettere/compilare. Per i browser moderni, ES6 è una buona opzione, mentre per i browser più vecchi si consiglia ES5.
+La proprietà "target" viene utilizzata per specificare in quale versione di JavaScript ECMAScript TypeScript deve emettere/compilare. Per i browser moderni, ES6 è una buona opzione, mentre per i browser più vecchi si consiglia ES5. Nota: il supporto per ES5 è stato rimosso in TypeScript 6.0.
 
 #### lib
 
