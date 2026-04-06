@@ -5085,7 +5085,7 @@ let r = /(a)\2/; // Error: This backreference refers to a group that does not ex
 <!-- skip -->
 ```typescript
 // file: a.ts
-console.log("runs!");
+console.log('runs!');
 export const x = 1;
 ```
 
