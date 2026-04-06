@@ -141,11 +141,11 @@ gtag('config', 'G-SR2LV8LB90');
 <p><a href="https://www.typescriptlang.org/tsconfig/">https://www.typescriptlang.org/tsconfig/</a></p>
 <p>Följande representerar en lista över de vanligaste och mest användbara konfigurationerna:</p>
 <h4 id="target">target</h4>
-<p>Egenskapen “target” används för att ange vilken version av JavaScript ECMAScript-version din TypeScript ska generera/kompilera till. För moderna webbläsare är ES6 ett bra alternativ, för äldre webbläsare rekommenderas ES5.</p>
+<p>Egenskapen “target” används för att ange vilken version av JavaScript ECMAScript-version din TypeScript ska generera/kompilera till. För moderna webbläsare är ES6 ett bra alternativ, för äldre webbläsare rekommenderas ES5. Obs: ES5-stödet togs bort i TypeScript 6.0.</p>
 <h4 id="lib">lib</h4>
 <p>Egenskapen “lib” används för att ange vilka biblioteksfiler som ska inkluderas vid kompilering. TypeScript inkluderar automatiskt API</p><div></div> för funktioner som anges i “target”-egenskapen, men det är möjligt att utelämna eller välja specifika bibliotek för särskilda behov. Till exempel, om du arbetar med ett serverprojekt kan du exkludera “DOM”-biblioteket, som bara är användbart i en webbläsarmiljö.<p></p>
 <h4 id="strict">strict</h4>
-<p>Egenskapen “strict” möjliggör starkare garantier och förbättrar typsäkerheten. Det är tillrådligt att alltid inkludera denna egenskap i ditt projekts tsconfig.json-fil. Att aktivera egenskapen “strict” gör att TypeScript:</p>
+<p>Alternativet “strict” förbättrar typsäkerheten genom att möjliggöra starkare kontroller. Det är aktiverat som standard från och med TypeScript 6.0; annars bör du explicit ställa in det till true i din tsconfig.json. Genom att aktivera “strict” kan TypeScript:</p>
 <ul>
 <li>Genererar kod med “use strict” för varje källfil.</li>
 <li>Beaktar “null” och “undefined” i typkontrollprocessen.</li>
@@ -153,13 +153,14 @@ gtag('config', 'G-SR2LV8LB90');
 <li>Ger ett fel vid användning av “this”-uttrycket, som annars skulle innebära typen “any”.</li>
 </ul>
 <h4 id="module">module</h4>
-<p>Egenskapen “module” anger det modulsystem som stöds för det kompilerade programmet. Vid körning används en modulladdare för att lokalisera och köra beroenden baserat på det angivna modulsystemet.</p>
-<p>De vanligaste modulladdarna som används i JavaScript är Node.js CommonJS för serversidans applikationer och RequireJS för AMD-moduler i webbläsarbaserade webbapplikationer. TypeScript kan generera kod för olika modulsystem, inklusive UMD, System, ESNext, ES2015/ES6 och ES2020.</p>
-<p>Observera: Modulsystemet bör väljas baserat på målmiljön och den modulladdningsmekanism som finns tillgänglig i den miljön.</p>
+<p>Egenskapen “module” anger vilket modulsystem som stöds för det kompilerade programmet. Under körning används en modulladdare för att hitta och köra beroenden baserat på det angivna modulsystemet.</p>
+<p>De vanligaste modulladdarna som används i JavaScript är Node.js CommonJS för serverapplikationer och RequireJS för AMD-moduler i webbläsarbaserade webbapplikationer. TypeScript kan generera kod för olika modulsystem, inklusive UMD, System, ESNext, ES2015/ES6 och ES2020. Modulsystemet bör väljas baserat på målmiljön och den modulladdningsmekanism som är tillgänglig i den miljön.</p>
+<p>Obs: Stöd för äldre modulsystem (AMD, UMD, SystemJS) togs bort i TypeScript 6.0.</p>
 <h4 id="moduleresolution">moduleResolution</h4>
 <p>Egenskapen “moduleResolution” anger strategin för modulupplösning. Använd “node” för modern TypeScript-kod, strategin “classic” används bara för gamla versioner av TypeScript (före 1.6).</p>
 <h4 id="esmoduleinterop">esModuleInterop</h4>
 <p>Egenskapen “esModuleInterop” gör det möjligt att importera standard från CommonJS-moduler som inte exporterade med “default”-egenskapen. Denna egenskap tillhandahåller en shim för att säkerställa kompatibilitet i den genererade JavaScript-koden. Efter att ha aktiverat detta alternativ kan vi använda <code dir="auto">import MyLibrary from "my-library"</code> istället för <code dir="auto">import * as MyLibrary from "my-library"</code>.</p>
+<p>”esModuleInterop” var ursprungligen ett alternativ för att undvika att ändringar skulle gå fel, men har länge varit rekommenderade standardinställningar. Att inaktivera dem kan orsaka subtila problem under körning när CommonJS används med ESM. Obs: Från och med TypeScript 6.0 är detta säkrare interoperabilitetsbeteende alltid aktiverat.</p>
 <h4 id="jsx">jsx</h4>
 <p>Egenskapen “jsx” gäller bara för .tsx-filer som används i ReactJS och styr hur JSX-konstruktioner kompileras till JavaScript. Ett vanligt alternativ är “preserve” som kompilerar till en .jsx-fil och behåller JSX oförändrat så att det kan skickas vidare till olika verktyg som Babel för ytterligare transformationer.</p>
 <h4 id="skiplibcheck">skipLibCheck</h4>

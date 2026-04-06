@@ -141,11 +141,11 @@ gtag('config', 'G-SR2LV8LB90');
 <p><a href="https://www.typescriptlang.org/tsconfig/">https://www.typescriptlang.org/tsconfig/</a></p>
 <p>Di seguito è riportato un elenco delle configurazioni più comuni e utili:</p>
 <h4 id="target">target</h4>
-<p>La proprietà “target” viene utilizzata per specificare in quale versione di JavaScript ECMAScript TypeScript deve emettere/compilare. Per i browser moderni, ES6 è una buona opzione, mentre per i browser più vecchi si consiglia ES5.</p>
+<p>La proprietà “target” viene utilizzata per specificare in quale versione di JavaScript ECMAScript TypeScript deve emettere/compilare. Per i browser moderni, ES6 è una buona opzione, mentre per i browser più vecchi si consiglia ES5. Nota: il supporto per ES5 è stato rimosso in TypeScript 6.0.</p>
 <h4 id="lib">lib</h4>
 <p>La proprietà “lib” viene utilizzata per specificare quali file di libreria includere in fase di compilazione. TypeScript include automaticamente le API per le funzionalità specificate nella proprietà “target”, ma è possibile omettere o selezionare librerie specifiche per esigenze particolari. Ad esempio, se si lavora su un progetto server, è possibile escludere la libreria “DOM”, utile solo in un ambiente browser.</p>
 <h4 id="strict">strict</h4>
-<p>La proprietà “strict” offre garanzie più solide e migliora la sicurezza dei tipi. Si consiglia di includere sempre questa proprietà nel file tsconfig.json del progetto. Abilitando la proprietà “strict”, TypeScript può:</p>
+<p>L’opzione “strict” migliora la sicurezza dei tipi consentendo controlli più rigorosi. È abilitata per impostazione predefinita a partire da TypeScript 6.0; in caso contrario, è necessario impostarla esplicitamente su true nel file tsconfig.json. L’abilitazione di “strict” consente a TypeScript di:</p>
 <ul>
 <li>Emettere codice utilizzando “use strict” per ogni file sorgente.</li>
 <li>Considerare “null” e “undefined” nel processo di controllo dei tipi.</li>
@@ -153,13 +153,14 @@ gtag('config', 'G-SR2LV8LB90');
 <li>Generare un errore sull’utilizzo dell’espressione “this”, che altrimenti implicherebbe il tipo “any”.</li>
 </ul>
 <h4 id="module">module</h4>
-<p>La proprietà “module” imposta il sistema di moduli supportato dal programma compilato. Durante l’esecuzione, un caricatore di moduli viene utilizzato per individuare ed eseguire le dipendenze in base al sistema di moduli specificato.</p>
-<p>I caricatori di moduli più comuni utilizzati in JavaScript sono Node.js CommonJS per le applicazioni lato server e RequireJS per i moduli AMD nelle applicazioni web basate su browser. TypeScript può generare codice per vari sistemi di moduli, tra cui UMD, System, ESNext, ES2015/ES6 ed ES2020.</p>
-<p>Nota: il sistema di moduli deve essere scelto in base all’ambiente di destinazione e al meccanismo di caricamento dei moduli disponibile in tale ambiente.</p>
+<p>La proprietà “module” imposta il sistema di moduli supportato per il programma compilato. Durante l’esecuzione, un caricatore di moduli viene utilizzato per individuare ed eseguire le dipendenze in base al sistema di moduli specificato.</p>
+<p>I caricatori di moduli più comuni utilizzati in JavaScript sono CommonJS di Node.js per le applicazioni lato server e RequireJS per i moduli AMD nelle applicazioni web basate su browser. TypeScript può generare codice per diversi sistemi di moduli, tra cui UMD, System, ESNext, ES2015/ES6 e ES2020. Il sistema di moduli deve essere scelto in base all’ambiente di destinazione e al meccanismo di caricamento dei moduli disponibile in tale ambiente.</p>
+<p>Nota: il supporto per i sistemi di moduli più vecchi (AMD, UMD, SystemJS) è stato rimosso in TypeScript 6.0.</p>
 <h4 id="moduleresolution">moduleResolution</h4>
 <p>La proprietà “moduleResolution” specifica la strategia di risoluzione dei moduli. Utilizzare “node” per il codice TypeScript moderno, la strategia “classic” viene utilizzata solo per le vecchie versioni di TypeScript (precedenti alla 1.6).</p>
 <h4 id="esmoduleinterop">esModuleInterop</h4>
 <p>La proprietà “esModuleInterop” consente l’importazione predefinita dai moduli CommonJS che non sono stati esportati utilizzando la proprietà “default”. Questa proprietà fornisce uno shim per garantire la compatibilità nel codice JavaScript emesso. Dopo aver abilitato questa opzione, possiamo usare <code dir="auto">import MyLibrary from "my-library"</code> invece di <code dir="auto">import * as MyLibrary from "my-library"</code>.</p>
+<p>”esModuleInterop” era originariamente un’opzione da attivare per evitare modifiche incompatibili con le versioni precedenti, ma da tempo è l’impostazione predefinita consigliata. Disabilitarla può causare problemi di runtime non evidenti quando si utilizza CommonJS con ESM. Nota: a partire da TypeScript 6.0, questo comportamento di interoperabilità più sicuro è sempre abilitato.</p>
 <h4 id="jsx">jsx</h4>
 <p>La proprietà “jsx” si applica solo ai file .tsx utilizzati in ReactJS e controlla il modo in cui i costrutti JSX vengono compilati in JavaScript. Un’opzione comune è “preserve”, che compilerà in un file .jsx mantenendo invariato il codice JSX, in modo che possa essere passato a diversi strumenti come Babel per ulteriori trasformazioni.</p>
 <h4 id="skiplibcheck">skipLibCheck</h4>

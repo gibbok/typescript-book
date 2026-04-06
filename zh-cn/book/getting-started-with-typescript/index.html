@@ -141,11 +141,11 @@ gtag('config', 'G-SR2LV8LB90');
 <p><a href="https://www.typescriptlang.org/tsconfig/">https://www.typescriptlang.org/tsconfig/</a></p>
 <p>以下列出了常见且有用的配置：</p>
 <h4 id="target">target</h4>
-<p>”target”属性用于指定 TypeScript 应发出/编译到哪个版本的 JavaScript ECMAScript 版本。对于现代浏览器，ES6是一个不错的选择，对于较旧的浏览器，建议使用ES5。</p>
+<p>”target”属性用于指定 TypeScript 应发出/编译到哪个版本的 JavaScript ECMAScript 版本。对于现代浏览器，ES6是一个不错的选择，对于较旧的浏览器，建议使用ES5。 注意：TypeScript 6.0 中已移除对 ES5 的支持。</p>
 <h4 id="lib">lib</h4>
 <p>”lib”属性用于指定编译时要包含哪些库文件。TypeScript 自动包含”目标”属性中指定功能的 API，但可以根据特定需求省略或选择特定库。例如，如果您正在开发服务器项目，则可以排除”DOM”库，该库仅在浏览器环境中有用。</p>
 <h4 id="strict">strict</h4>
-<p>”strict”属性可以提供更强有力的保证并增强类型安全性。建议始终将此属性包含在项目的 tsconfig.json 文件中。启用”strict”属性允许 TypeScript ：</p>
+<p>“strict”选项通过启用更严格的类型检查来提高类型安全性。从TypeScript 6.0开始，该选项默认启用；否则，您需要在tsconfig.json文件中显式地将其设置为true。启用“strict”后，TypeScript可以：</p>
 <ul>
 <li>触发每个源文件的代码使用”use strict”。</li>
 <li>在类型检查过程中考虑”null”和”undefined”</li>
@@ -153,14 +153,14 @@ gtag('config', 'G-SR2LV8LB90');
 <li>在使用”this”表达式时引发错误，否则”this”会被视为任意类型。</li>
 </ul>
 <h4 id="module">module</h4>
-<p>”module”属性设置编译程序支持的模块系统。在运行时，模块加载器用于根据指定的模块系统定位并执行依赖项。
-JavaScript 中最常见的模块加载器是用于服务器端应用程序的 Node.js 的CommonJS和用于基于浏览器的 Web 应用程序中的 AMD 模块的 RequireJS。
-TypeScript 可以为各种模块系统生成代码，包括 UMD、System、ESNext、ES2015/ES6 和 ES2020。</p>
-<p>注意：应根据目标环境和该环境中可用的模块加载机制来选择模块系统。</p>
+<p><code dir="auto">module</code> 属性用于设置编译程序支持的模块系统。运行时，模块加载器会根据指定的模块系统查找并执行依赖项。</p>
+<p>JavaScript 中最常用的模块加载器是用于服务器端应用程序的 Node.js CommonJS 和用于基于浏览器的 Web 应用程序的 AMD 模块的 RequireJS。TypeScript 可以为各种模块系统生成代码，包括 UMD、SystemJS、ESNext、ES2015/ES6 和 ES2020。应根据目标环境以及该环境中可用的模块加载机制来选择模块系统。</p>
+<p>注意：TypeScript 6.0 已移除对旧版模块系统（AMD、UMD、SystemJS）的支持。</p>
 <h4 id="moduleresolution">moduleResolution</h4>
 <p>”moduleResolution”属性指定模块解析策略。对现代TypeScript代码使用”node”，“classic”仅用于旧版本的 TypeScript（1.6 之前）。</p>
 <h4 id="esmoduleinterop">esModuleInterop</h4>
 <p>”esModuleInterop”属性允许从未使用”default”属性导出的 CommonJS 模块导入默认值，此属性提供了一个兼容以确保生成的 JavaScript 的兼容性。启用此选项后，我们可以使用 <code dir="auto">import MyLibrary from "my-library"</code> 而不是 <code dir="auto">import * as MyLibrary from "my-library"</code>。</p>
+<p>“esModuleInterop”最初是可选的，以避免破坏性变更，但长期以来一直是推荐的默认设置。禁用它可能会导致在使用CommonJS和ESM时出现一些不易察觉的运行时问题。注意：从TypeScript 6.0开始，这种更安全的互操作行为始终启用。</p>
 <h4 id="jsx">jsx</h4>
 <p>”jsx”属性仅适用于 ReactJS 中使用的 .tsx 文件，并控制 JSX 构造如何编译为 JavaScript。一个常见的选项是”preserve”，它将编译为 .jsx 文件，保持 JSX 不变，以便可以将其传递给 Babel 等不同工具进行进一步转换。</p>
 <h4 id="skiplibcheck">skipLibCheck</h4>
