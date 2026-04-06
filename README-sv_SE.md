@@ -593,11 +593,11 @@ Alternativet "strict" förbättrar typsäkerheten genom att möjliggöra starkar
 
 #### module
 
-Egenskapen "module" anger det modulsystem som stöds för det kompilerade programmet. Vid körning används en modulladdare för att lokalisera och köra beroenden baserat på det angivna modulsystemet.
+Egenskapen "module" anger vilket modulsystem som stöds för det kompilerade programmet. Under körning används en modulladdare för att hitta och köra beroenden baserat på det angivna modulsystemet.
 
-De vanligaste modulladdarna som används i JavaScript är Node.js CommonJS för serversidans applikationer och RequireJS för AMD-moduler i webbläsarbaserade webbapplikationer. TypeScript kan generera kod för olika modulsystem, inklusive UMD, System, ESNext, ES2015/ES6 och ES2020.
+De vanligaste modulladdarna som används i JavaScript är Node.js CommonJS för serverapplikationer och RequireJS för AMD-moduler i webbläsarbaserade webbapplikationer. TypeScript kan generera kod för olika modulsystem, inklusive UMD, System, ESNext, ES2015/ES6 och ES2020. Modulsystemet bör väljas baserat på målmiljön och den modulladdningsmekanism som är tillgänglig i den miljön.
 
-Observera: Modulsystemet bör väljas baserat på målmiljön och den modulladdningsmekanism som finns tillgänglig i den miljön.
+Obs: Stöd för äldre modulsystem (AMD, UMD, SystemJS) togs bort i TypeScript 6.0.
 
 #### moduleResolution
 

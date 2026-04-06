@@ -593,9 +593,9 @@ The "strict" option improves type safety by enabling stronger checks. It is enab
 
 The "module" property sets the module system supported for the compiled program. During runtime, a module loader is used to locate and execute dependencies based on the specified module system.
 
-The most common module loaders used in JavaScript are Node.js CommonJS for server-side applications and RequireJS for AMD modules in browser-based web applications. TypeScript can emit code for various module systems, including UMD, System, ESNext, ES2015/ES6, and ES2020.
+The most common module loaders used in JavaScript are Node.js CommonJS for server-side applications and RequireJS for AMD modules in browser-based web applications. TypeScript can emit code for various module systems, including UMD, System, ESNext, ES2015/ES6, and ES2020. The module system should be chosen based on the target environment and the module loading mechanism available in that environment.
 
-Note: The module system should be chosen based on the target environment and the module loading mechanism available in that environment.
+Note: Support for older module systems (AMD, UMD, SystemJS) was removed in TypeScript 6.0.
 
 #### moduleResolution
 

@@ -590,11 +590,11 @@ tsconfig.json 文件用于配置 TypeScript 编译器 (tsc)。通常，它与文
 
 #### module
 
-"module"属性设置编译程序支持的模块系统。在运行时，模块加载器用于根据指定的模块系统定位并执行依赖项。
-JavaScript 中最常见的模块加载器是用于服务器端应用程序的 Node.js 的CommonJS和用于基于浏览器的 Web 应用程序中的 AMD 模块的 RequireJS。
-TypeScript 可以为各种模块系统生成代码，包括 UMD、System、ESNext、ES2015/ES6 和 ES2020。
+`module` 属性用于设置编译程序支持的模块系统。运行时，模块加载器会根据指定的模块系统查找并执行依赖项。
 
-注意：应根据目标环境和该环境中可用的模块加载机制来选择模块系统。
+JavaScript 中最常用的模块加载器是用于服务器端应用程序的 Node.js CommonJS 和用于基于浏览器的 Web 应用程序的 AMD 模块的 RequireJS。TypeScript 可以为各种模块系统生成代码，包括 UMD、SystemJS、ESNext、ES2015/ES6 和 ES2020。应根据目标环境以及该环境中可用的模块加载机制来选择模块系统。
+
+注意：TypeScript 6.0 已移除对旧版模块系统（AMD、UMD、SystemJS）的支持。
 
 #### moduleResolution
 

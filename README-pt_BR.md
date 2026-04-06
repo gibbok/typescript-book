@@ -592,11 +592,11 @@ A opção "strict" aprimora a segurança de tipos, permitindo verificações mai
 
 #### module
 
-A propriedade "module" define o sistema de módulo suportado para o programa compilado. Durante o tempo de execução, um carregador de módulo é usado para localizar e executar dependências com base no sistema de módulo especificado.
+A propriedade "module" define o sistema de módulos suportado pelo programa compilado. Durante a execução, um carregador de módulos é usado para localizar e executar as dependências com base no sistema de módulos especificado.
 
-Os carregadores de módulos mais comuns usados no JavaScript são o CommonJS do Node.js para aplicações do lado do servidor e o RequireJS para módulos AMD em aplicações web baseadas em navegador. O TypeScript pode emitir código para vários sistemas de módulos, incluindo UMD, System, ESNext, ES2015/ES6 e ES2020.
+Os carregadores de módulos mais comuns usados ​​em JavaScript são o CommonJS do Node.js para aplicações do lado do servidor e o RequireJS para módulos AMD em aplicações web baseadas em navegador. O TypeScript pode gerar código para vários sistemas de módulos, incluindo UMD, SystemJS, ESNext, ES2015/ES6 e ES2020. O sistema de módulos deve ser escolhido com base no ambiente de destino e no mecanismo de carregamento de módulos disponível nesse ambiente.
 
-Nota: O sistema de módulos deve ser escolhido com base no ambiente de destino e no mecanismo de carregamento de módulos disponível nesse ambiente.
+Nota: O suporte para sistemas de módulos mais antigos (AMD, UMD, SystemJS) foi removido no TypeScript 6.0.
 
 #### moduleResolution
 
