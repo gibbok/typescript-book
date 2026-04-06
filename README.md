@@ -582,7 +582,7 @@ The "lib" property is used to specify which library files to include at compilat
 
 #### strict
 
-The "strict" property enables stronger guarantees and enhances type safety. It is advisable to always include this property in your project's tsconfig.json file. Enabling the "strict" property allows TypeScript to:
+The "strict" option improves type safety by enabling stronger checks. It is enabled by default starting with TypeScript 6.0; otherwise, you should explicitly set it to true in your tsconfig.json. Enabling "strict" allows TypeScript to:
 
 * Emit code using "use strict" for each source file.
 * Consider "null" and "undefined" in the type checking process.

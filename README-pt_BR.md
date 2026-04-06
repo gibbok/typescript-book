@@ -583,7 +583,7 @@ A propriedade "lib" é usada para especificar quais arquivos de biblioteca inclu
 
 #### strict
 
-A propriedade "strict" habilita garantias mais fortes e aumenta a segurança de tipos. É aconselhável incluir sempre esta propriedade no arquivo tsconfig.json do seu projeto. Habilitar a propriedade "strict" permite que o TypeScript possa:
+A opção "strict" aprimora a segurança de tipos, permitindo verificações mais rigorosas. Ela está habilitada por padrão a partir do TypeScript 6.0; caso contrário, você deve defini-la explicitamente como true no seu arquivo tsconfig.json. Habilitar "strict" permite que o TypeScript:
 
 * Emitir código usando "use strict" para cada arquivo de origem.
 * Considerar "null" e "undefined" no processo de verificação de tipos.

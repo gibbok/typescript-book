@@ -584,7 +584,7 @@ Egenskapen "lib" används för att ange vilka biblioteksfiler som ska inkluderas
 
 #### strict
 
-Egenskapen "strict" möjliggör starkare garantier och förbättrar typsäkerheten. Det är tillrådligt att alltid inkludera denna egenskap i ditt projekts tsconfig.json-fil. Att aktivera egenskapen "strict" gör att TypeScript:
+Alternativet "strict" förbättrar typsäkerheten genom att möjliggöra starkare kontroller. Det är aktiverat som standard från och med TypeScript 6.0; annars bör du explicit ställa in det till true i din tsconfig.json. Genom att aktivera "strict" kan TypeScript:
 
 * Genererar kod med "use strict" för varje källfil.
 * Beaktar "null" och "undefined" i typkontrollprocessen.

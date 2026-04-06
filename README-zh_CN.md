@@ -581,7 +581,7 @@ tsconfig.json 文件用于配置 TypeScript 编译器 (tsc)。通常，它与文
 
 #### strict
 
-"strict"属性可以提供更强有力的保证并增强类型安全性。建议始终将此属性包含在项目的 tsconfig.json 文件中。启用"strict"属性允许 TypeScript ：
+“strict”选项通过启用更严格的类型检查来提高类型安全性。从TypeScript 6.0开始，该选项默认启用；否则，您需要在tsconfig.json文件中显式地将其设置为true。启用“strict”后，TypeScript可以：
 
 * 触发每个源文件的代码使用"use strict"。
 * 在类型检查过程中考虑"null"和"undefined"
