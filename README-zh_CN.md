@@ -604,6 +604,8 @@ TypeScript 可以为各种模块系统生成代码，包括 UMD、System、ESNex
 
 "esModuleInterop"属性允许从未使用"default"属性导出的 CommonJS 模块导入默认值，此属性提供了一个兼容以确保生成的 JavaScript 的兼容性。启用此选项后，我们可以使用 `import MyLibrary from "my-library"` 而不是 `import * as MyLibrary from "my-library"`。
 
+“esModuleInterop”最初是可选的，以避免破坏性变更，但长期以来一直是推荐的默认设置。禁用它可能会导致在使用CommonJS和ESM时出现一些不易察觉的运行时问题。注意：从TypeScript 6.0开始，这种更安全的互操作行为始终启用。
+
 #### jsx
 
 "jsx"属性仅适用于 ReactJS 中使用的 .tsx 文件，并控制 JSX 构造如何编译为 JavaScript。一个常见的选项是"preserve"，它将编译为 .jsx 文件，保持 JSX 不变，以便可以将其传递给 Babel 等不同工具进行进一步转换。

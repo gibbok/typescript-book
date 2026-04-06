@@ -560,6 +560,8 @@ La proprietà "moduleResolution" specifica la strategia di risoluzione dei modul
 
 La proprietà "esModuleInterop" consente l'importazione predefinita dai moduli CommonJS che non sono stati esportati utilizzando la proprietà "default". Questa proprietà fornisce uno shim per garantire la compatibilità nel codice JavaScript emesso. Dopo aver abilitato questa opzione, possiamo usare `import MyLibrary from "my-library"` invece di `import * as MyLibrary from "my-library"`.
 
+"esModuleInterop" era originariamente un'opzione da attivare per evitare modifiche incompatibili con le versioni precedenti, ma da tempo è l'impostazione predefinita consigliata. Disabilitarla può causare problemi di runtime non evidenti quando si utilizza CommonJS con ESM. Nota: a partire da TypeScript 6.0, questo comportamento di interoperabilità più sicuro è sempre abilitato.
+
 #### jsx
 
 La proprietà "jsx" si applica solo ai file .tsx utilizzati in ReactJS e controlla il modo in cui i costrutti JSX vengono compilati in JavaScript. Un'opzione comune è "preserve", che compilerà in un file .jsx mantenendo invariato il codice JSX, in modo che possa essere passato a diversi strumenti come Babel per ulteriori trasformazioni.
