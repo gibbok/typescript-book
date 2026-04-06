@@ -95,7 +95,7 @@ A seguir, apresentamos uma lista das configurações comuns e úteis:
 
 #### target
 
-A propriedade "target" é usada para especificar qual versão do JavaScript ECMAScript seu TypeScript deve emitir/compilar. Para navegadores modernos, o ES6 é uma boa opção; para navegadores mais antigos, o ES5 é recomendado.
+A propriedade "target" é usada para especificar qual versão do JavaScript ECMAScript seu TypeScript deve emitir/compilar. Para navegadores modernos, o ES6 é uma boa opção; para navegadores mais antigos, o ES5 é recomendado. Observação: o suporte a ES5 foi removido no TypeScript 6.0.
 
 #### lib
 
@@ -103,7 +103,7 @@ A propriedade "lib" é usada para especificar quais arquivos de biblioteca inclu
 
 #### strict
 
-A propriedade "strict" habilita garantias mais fortes e aumenta a segurança de tipos. É aconselhável incluir sempre esta propriedade no arquivo tsconfig.json do seu projeto. Habilitar a propriedade "strict" permite que o TypeScript possa:
+A opção "strict" aprimora a segurança de tipos, permitindo verificações mais rigorosas. Ela está habilitada por padrão a partir do TypeScript 6.0; caso contrário, você deve defini-la explicitamente como true no seu arquivo tsconfig.json. Habilitar "strict" permite que o TypeScript:
 
 * Emitir código usando "use strict" para cada arquivo de origem.
 * Considerar "null" e "undefined" no processo de verificação de tipos.
@@ -112,11 +112,11 @@ A propriedade "strict" habilita garantias mais fortes e aumenta a segurança de 
 
 #### module
 
-A propriedade "module" define o sistema de módulo suportado para o programa compilado. Durante o tempo de execução, um carregador de módulo é usado para localizar e executar dependências com base no sistema de módulo especificado.
+A propriedade "module" define o sistema de módulos suportado pelo programa compilado. Durante a execução, um carregador de módulos é usado para localizar e executar as dependências com base no sistema de módulos especificado.
 
-Os carregadores de módulos mais comuns usados no JavaScript são o CommonJS do Node.js para aplicações do lado do servidor e o RequireJS para módulos AMD em aplicações web baseadas em navegador. O TypeScript pode emitir código para vários sistemas de módulos, incluindo UMD, System, ESNext, ES2015/ES6 e ES2020.
+Os carregadores de módulos mais comuns usados ​​em JavaScript são o CommonJS do Node.js para aplicações do lado do servidor e o RequireJS para módulos AMD em aplicações web baseadas em navegador. O TypeScript pode gerar código para vários sistemas de módulos, incluindo UMD, SystemJS, ESNext, ES2015/ES6 e ES2020. O sistema de módulos deve ser escolhido com base no ambiente de destino e no mecanismo de carregamento de módulos disponível nesse ambiente.
 
-Nota: O sistema de módulos deve ser escolhido com base no ambiente de destino e no mecanismo de carregamento de módulos disponível nesse ambiente.
+Nota: O suporte para sistemas de módulos mais antigos (AMD, UMD, SystemJS) foi removido no TypeScript 6.0.
 
 #### moduleResolution
 
@@ -125,6 +125,8 @@ A propriedade "moduleResolution" especifica a estratégia de resolução de mód
 #### esModuleInterop
 
 A propriedade "esModuleInterop" permite a importação padrão de módulos CommonJS que não exportaram usando a propriedade "default"; esta propriedade fornece um shim para garantir a compatibilidade no JavaScript emitido. Após habilitar esta opção, podemos usar `import MyLibrary from "my-library"` em vez de `import * as MyLibrary from "my-library"`.
+
+Originalmente, a opção "esModuleInterop" era opcional para evitar alterações que quebrassem a compatibilidade, mas há muito tempo é o padrão recomendado. Desativá-la pode causar problemas sutis em tempo de execução ao usar CommonJS com ESM. Observação: a partir do TypeScript 6.0, esse comportamento de interoperabilidade mais seguro está sempre ativado.
 
 #### jsx
 
