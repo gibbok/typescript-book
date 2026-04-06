@@ -95,7 +95,7 @@ tsconfig.json 文件用于配置 TypeScript 编译器 (tsc)。通常，它与文
 
 #### target
 
-"target"属性用于指定 TypeScript 应发出/编译到哪个版本的 JavaScript ECMAScript 版本。对于现代浏览器，ES6是一个不错的选择，对于较旧的浏览器，建议使用ES5。
+"target"属性用于指定 TypeScript 应发出/编译到哪个版本的 JavaScript ECMAScript 版本。对于现代浏览器，ES6是一个不错的选择，对于较旧的浏览器，建议使用ES5。 注意：TypeScript 6.0 中已移除对 ES5 的支持。
 
 #### lib
 
@@ -103,7 +103,7 @@ tsconfig.json 文件用于配置 TypeScript 编译器 (tsc)。通常，它与文
 
 #### strict
 
-"strict"属性可以提供更强有力的保证并增强类型安全性。建议始终将此属性包含在项目的 tsconfig.json 文件中。启用"strict"属性允许 TypeScript ：
+“strict”选项通过启用更严格的类型检查来提高类型安全性。从TypeScript 6.0开始，该选项默认启用；否则，您需要在tsconfig.json文件中显式地将其设置为true。启用“strict”后，TypeScript可以：
 
 * 触发每个源文件的代码使用"use strict"。
 * 在类型检查过程中考虑"null"和"undefined"
@@ -112,11 +112,11 @@ tsconfig.json 文件用于配置 TypeScript 编译器 (tsc)。通常，它与文
 
 #### module
 
-"module"属性设置编译程序支持的模块系统。在运行时，模块加载器用于根据指定的模块系统定位并执行依赖项。
-JavaScript 中最常见的模块加载器是用于服务器端应用程序的 Node.js 的CommonJS和用于基于浏览器的 Web 应用程序中的 AMD 模块的 RequireJS。
-TypeScript 可以为各种模块系统生成代码，包括 UMD、System、ESNext、ES2015/ES6 和 ES2020。
+`module` 属性用于设置编译程序支持的模块系统。运行时，模块加载器会根据指定的模块系统查找并执行依赖项。
 
-注意：应根据目标环境和该环境中可用的模块加载机制来选择模块系统。
+JavaScript 中最常用的模块加载器是用于服务器端应用程序的 Node.js CommonJS 和用于基于浏览器的 Web 应用程序的 AMD 模块的 RequireJS。TypeScript 可以为各种模块系统生成代码，包括 UMD、SystemJS、ESNext、ES2015/ES6 和 ES2020。应根据目标环境以及该环境中可用的模块加载机制来选择模块系统。
+
+注意：TypeScript 6.0 已移除对旧版模块系统（AMD、UMD、SystemJS）的支持。
 
 #### moduleResolution
 
@@ -125,6 +125,8 @@ TypeScript 可以为各种模块系统生成代码，包括 UMD、System、ESNex
 #### esModuleInterop
 
 "esModuleInterop"属性允许从未使用"default"属性导出的 CommonJS 模块导入默认值，此属性提供了一个兼容以确保生成的 JavaScript 的兼容性。启用此选项后，我们可以使用 `import MyLibrary from "my-library"` 而不是 `import * as MyLibrary from "my-library"`。
+
+“esModuleInterop”最初是可选的，以避免破坏性变更，但长期以来一直是推荐的默认设置。禁用它可能会导致在使用CommonJS和ESM时出现一些不易察觉的运行时问题。注意：从TypeScript 6.0开始，这种更安全的互操作行为始终启用。
 
 #### jsx
 

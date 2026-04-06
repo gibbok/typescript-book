@@ -95,7 +95,7 @@ The following represents a list of the common and useful configurations:
 
 #### target
 
-The "target" property is used to specify which version of JavaScript ECMAScript version your TypeScript should emit/compile into. For modern browsers ES6 is a good option, for older browsers, ES5 is recommended.
+The "target" property is used to specify which version of JavaScript ECMAScript version your TypeScript should emit/compile into. For modern browsers ES6 is a good option, for older browsers, ES5 is recommended. Note: ES5 support was removed in TypeScript 6.0.
 
 #### lib
 
@@ -103,7 +103,7 @@ The "lib" property is used to specify which library files to include at compilat
 
 #### strict
 
-The "strict" property enables stronger guarantees and enhances type safety. It is advisable to always include this property in your project's tsconfig.json file. Enabling the "strict" property allows TypeScript to:
+The "strict" option improves type safety by enabling stronger checks. It is enabled by default starting with TypeScript 6.0; otherwise, you should explicitly set it to true in your tsconfig.json. Enabling "strict" allows TypeScript to:
 
 * Emit code using "use strict" for each source file.
 * Consider "null" and "undefined" in the type checking process.
@@ -114,9 +114,9 @@ The "strict" property enables stronger guarantees and enhances type safety. It i
 
 The "module" property sets the module system supported for the compiled program. During runtime, a module loader is used to locate and execute dependencies based on the specified module system.
 
-The most common module loaders used in JavaScript are Node.js CommonJS for server-side applications and RequireJS for AMD modules in browser-based web applications. TypeScript can emit code for various module systems, including UMD, System, ESNext, ES2015/ES6, and ES2020.
+The most common module loaders used in JavaScript are Node.js CommonJS for server-side applications and RequireJS for AMD modules in browser-based web applications. TypeScript can emit code for various module systems, including UMD, System, ESNext, ES2015/ES6, and ES2020. The module system should be chosen based on the target environment and the module loading mechanism available in that environment.
 
-Note: The module system should be chosen based on the target environment and the module loading mechanism available in that environment.
+Note: Support for older module systems (AMD, UMD, SystemJS) was removed in TypeScript 6.0.
 
 #### moduleResolution
 
@@ -125,6 +125,8 @@ The "moduleResolution" property specifies the module resolution strategy. Use "n
 #### esModuleInterop
 
 The "esModuleInterop" property allows import default from CommonJS modules that did not export using the "default" property, this property provides a shim to ensure compatibility in the emitted JavaScript. After enabling this option we can use `import MyLibrary from "my-library"` instead of `import * as MyLibrary from "my-library"`.
+
+"esModuleInterop" was originally opt-in to avoid breaking changes, but have long been the recommended defaults. Disabling them can cause subtle runtime issues when using CommonJS with ESM. Note: Starting with TypeScript 6.0, this safer interop behavior is always enabled.
 
 #### jsx
 

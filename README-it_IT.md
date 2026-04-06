@@ -211,7 +211,7 @@ Puoi anche scaricare la versione Epub:
 
 Benvenuti a The Concise TypeScript Book! Questa guida vi fornirà le conoscenze essenziali e le competenze pratiche per uno sviluppo TypeScript efficace. Scoprite i concetti e le tecniche chiave per scrivere codice pulito e robusto. Che siate principianti o sviluppatori esperti, questo libro rappresenta sia una guida completa che un pratico riferimento per sfruttare la potenza di TypeScript nei vostri progetti.
 
-Questo libro tratta TypeScript 5.9.
+Questo libro tratta TypeScript 6.0.
 
 ## Informazioni sull'autore
 
@@ -529,7 +529,7 @@ Di seguito è riportato un elenco delle configurazioni più comuni e utili:
 
 #### target
 
-La proprietà "target" viene utilizzata per specificare in quale versione di JavaScript ECMAScript TypeScript deve emettere/compilare. Per i browser moderni, ES6 è una buona opzione, mentre per i browser più vecchi si consiglia ES5.
+La proprietà "target" viene utilizzata per specificare in quale versione di JavaScript ECMAScript TypeScript deve emettere/compilare. Per i browser moderni, ES6 è una buona opzione, mentre per i browser più vecchi si consiglia ES5. Nota: il supporto per ES5 è stato rimosso in TypeScript 6.0.
 
 #### lib
 
@@ -537,7 +537,7 @@ La proprietà "lib" viene utilizzata per specificare quali file di libreria incl
 
 #### strict
 
-La proprietà "strict" offre garanzie più solide e migliora la sicurezza dei tipi. Si consiglia di includere sempre questa proprietà nel file tsconfig.json del progetto. Abilitando la proprietà "strict", TypeScript può:
+L'opzione "strict" migliora la sicurezza dei tipi consentendo controlli più rigorosi. È abilitata per impostazione predefinita a partire da TypeScript 6.0; in caso contrario, è necessario impostarla esplicitamente su true nel file tsconfig.json. L'abilitazione di "strict" consente a TypeScript di:
 
 * Emettere codice utilizzando "use strict" per ogni file sorgente.
 * Considerare "null" e "undefined" nel processo di controllo dei tipi.
@@ -546,11 +546,11 @@ La proprietà "strict" offre garanzie più solide e migliora la sicurezza dei ti
 
 #### module
 
-La proprietà "module" imposta il sistema di moduli supportato dal programma compilato. Durante l'esecuzione, un caricatore di moduli viene utilizzato per individuare ed eseguire le dipendenze in base al sistema di moduli specificato.
+La proprietà "module" imposta il sistema di moduli supportato per il programma compilato. Durante l'esecuzione, un caricatore di moduli viene utilizzato per individuare ed eseguire le dipendenze in base al sistema di moduli specificato.
 
-I caricatori di moduli più comuni utilizzati in JavaScript sono Node.js CommonJS per le applicazioni lato server e RequireJS per i moduli AMD nelle applicazioni web basate su browser. TypeScript può generare codice per vari sistemi di moduli, tra cui UMD, System, ESNext, ES2015/ES6 ed ES2020.
+I caricatori di moduli più comuni utilizzati in JavaScript sono CommonJS di Node.js per le applicazioni lato server e RequireJS per i moduli AMD nelle applicazioni web basate su browser. TypeScript può generare codice per diversi sistemi di moduli, tra cui UMD, System, ESNext, ES2015/ES6 e ES2020. Il sistema di moduli deve essere scelto in base all'ambiente di destinazione e al meccanismo di caricamento dei moduli disponibile in tale ambiente.
 
-Nota: il sistema di moduli deve essere scelto in base all'ambiente di destinazione e al meccanismo di caricamento dei moduli disponibile in tale ambiente.
+Nota: il supporto per i sistemi di moduli più vecchi (AMD, UMD, SystemJS) è stato rimosso in TypeScript 6.0.
 
 #### moduleResolution
 
@@ -559,6 +559,8 @@ La proprietà "moduleResolution" specifica la strategia di risoluzione dei modul
 #### esModuleInterop
 
 La proprietà "esModuleInterop" consente l'importazione predefinita dai moduli CommonJS che non sono stati esportati utilizzando la proprietà "default". Questa proprietà fornisce uno shim per garantire la compatibilità nel codice JavaScript emesso. Dopo aver abilitato questa opzione, possiamo usare `import MyLibrary from "my-library"` invece di `import * as MyLibrary from "my-library"`.
+
+"esModuleInterop" era originariamente un'opzione da attivare per evitare modifiche incompatibili con le versioni precedenti, ma da tempo è l'impostazione predefinita consigliata. Disabilitarla può causare problemi di runtime non evidenti quando si utilizza CommonJS con ESM. Nota: a partire da TypeScript 6.0, questo comportamento di interoperabilità più sicuro è sempre abilitato.
 
 #### jsx
 

@@ -977,7 +977,7 @@ export const x = 1;
 <!-- skip -->
 ```typescript
 // file: main.ts
-import defer * as a from "./a.js";
-console.log("start"); // inget från a.ts ännu
+import * as a from './a.js';
+console.log('start'); // inget från a.ts ännu
 console.log(a.x); // nu "runs!" skrivs ut, sedan 1
 ```

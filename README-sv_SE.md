@@ -257,7 +257,7 @@ En onlineversion finns tillgänglig på:
 
 Välkommen till Den koncisa TypeScript-boken! Denna guide utrustar dig med väsentlig kunskap och praktiska färdigheter för effektiv TypeScript-utveckling. Upptäck nyckelkoncept och tekniker för att skriva ren, robust kod. Oavsett om du är nybörjare eller en erfaren utvecklare fungerar denna bok både som en omfattande guide och en praktisk referens för att utnyttja TypeScripts kraft i dina projekt.
 
-Denna bok täcker TypeScript 5.9.
+Denna bok täcker TypeScript 6.0.
 
 ## Om författaren
 
@@ -576,7 +576,7 @@ Följande representerar en lista över de vanligaste och mest användbara konfig
 
 #### target
 
-Egenskapen "target" används för att ange vilken version av JavaScript ECMAScript-version din TypeScript ska generera/kompilera till. För moderna webbläsare är ES6 ett bra alternativ, för äldre webbläsare rekommenderas ES5.
+Egenskapen "target" används för att ange vilken version av JavaScript ECMAScript-version din TypeScript ska generera/kompilera till. För moderna webbläsare är ES6 ett bra alternativ, för äldre webbläsare rekommenderas ES5. Obs: ES5-stödet togs bort i TypeScript 6.0.
 
 #### lib
 
@@ -584,7 +584,7 @@ Egenskapen "lib" används för att ange vilka biblioteksfiler som ska inkluderas
 
 #### strict
 
-Egenskapen "strict" möjliggör starkare garantier och förbättrar typsäkerheten. Det är tillrådligt att alltid inkludera denna egenskap i ditt projekts tsconfig.json-fil. Att aktivera egenskapen "strict" gör att TypeScript:
+Alternativet "strict" förbättrar typsäkerheten genom att möjliggöra starkare kontroller. Det är aktiverat som standard från och med TypeScript 6.0; annars bör du explicit ställa in det till true i din tsconfig.json. Genom att aktivera "strict" kan TypeScript:
 
 * Genererar kod med "use strict" för varje källfil.
 * Beaktar "null" och "undefined" i typkontrollprocessen.
@@ -593,11 +593,11 @@ Egenskapen "strict" möjliggör starkare garantier och förbättrar typsäkerhet
 
 #### module
 
-Egenskapen "module" anger det modulsystem som stöds för det kompilerade programmet. Vid körning används en modulladdare för att lokalisera och köra beroenden baserat på det angivna modulsystemet.
+Egenskapen "module" anger vilket modulsystem som stöds för det kompilerade programmet. Under körning används en modulladdare för att hitta och köra beroenden baserat på det angivna modulsystemet.
 
-De vanligaste modulladdarna som används i JavaScript är Node.js CommonJS för serversidans applikationer och RequireJS för AMD-moduler i webbläsarbaserade webbapplikationer. TypeScript kan generera kod för olika modulsystem, inklusive UMD, System, ESNext, ES2015/ES6 och ES2020.
+De vanligaste modulladdarna som används i JavaScript är Node.js CommonJS för serverapplikationer och RequireJS för AMD-moduler i webbläsarbaserade webbapplikationer. TypeScript kan generera kod för olika modulsystem, inklusive UMD, System, ESNext, ES2015/ES6 och ES2020. Modulsystemet bör väljas baserat på målmiljön och den modulladdningsmekanism som är tillgänglig i den miljön.
 
-Observera: Modulsystemet bör väljas baserat på målmiljön och den modulladdningsmekanism som finns tillgänglig i den miljön.
+Obs: Stöd för äldre modulsystem (AMD, UMD, SystemJS) togs bort i TypeScript 6.0.
 
 #### moduleResolution
 
@@ -606,6 +606,8 @@ Egenskapen "moduleResolution" anger strategin för modulupplösning. Använd "no
 #### esModuleInterop
 
 Egenskapen "esModuleInterop" gör det möjligt att importera standard från CommonJS-moduler som inte exporterade med "default"-egenskapen. Denna egenskap tillhandahåller en shim för att säkerställa kompatibilitet i den genererade JavaScript-koden. Efter att ha aktiverat detta alternativ kan vi använda `import MyLibrary from "my-library"` istället för `import * as MyLibrary from "my-library"`.
+
+"esModuleInterop" var ursprungligen ett alternativ för att undvika att ändringar skulle gå fel, men har länge varit rekommenderade standardinställningar. Att inaktivera dem kan orsaka subtila problem under körning när CommonJS används med ESM. Obs: Från och med TypeScript 6.0 är detta säkrare interoperabilitetsbeteende alltid aktiverat.
 
 #### jsx
 
@@ -5091,7 +5093,7 @@ export const x = 1;
 <!-- skip -->
 ```typescript
 // file: main.ts
-import defer * as a from "./a.js";
-console.log("start"); // inget från a.ts ännu
+import * as a from './a.js';
+console.log('start'); // inget från a.ts ännu
 console.log(a.x); // nu "runs!" skrivs ut, sedan 1
 ```
