@@ -140,25 +140,25 @@
   - [Дистрибутивни Conditional типове](#дистрибутивни-conditional-типове)
   - [infer извеждане на тип в Conditional типове](#infer-извеждане-на-тип-в-conditional-типове)
   - [Предефинирани Conditional типове](#предефинирани-conditional-типове)
-  - [Template Union Types](#template-union-types)
-  - [Any type](#any-type)
-  - [Unknown type](#unknown-type)
-  - [Void type](#void-type)
-  - [Never type](#never-type)
-  - [Interface and Type](#interface-and-type)
-    - [Common Syntax](#common-syntax)
-    - [Basic Types](#basic-types)
-    - [Objects and Interfaces](#objects-and-interfaces)
-    - [Union and Intersection Types](#union-and-intersection-types)
-  - [Built-in Type Primitives](#built-in-type-primitives)
-  - [Common Built-in JS Objects](#common-built-in-js-objects)
+  - [Template Union типове](#template-union-типове)
+  - [Any тип](#any-тип)
+  - [Unknown тип](#unknown-тип)
+  - [Void тип](#void-тип)
+  - [Never тип](#never-тип)
+  - [Interface и Type](#interface-и-type)
+    - [Общ синтаксис](#общ-синтаксис)
+    - [Основни типове](#основни-типове)
+    - [Обекти и Interfaces](#обекти-и-interfaces)
+    - [Union и Intersection типове](#union-и-intersection-типове)
+  - [Вградени примитивни типове](#вградени-примитивни-типове)
+  - [Често използвани вградени JS обекти](#често-използвани-вградени-js-обекти)
   - [Overloads](#overloads)
-  - [Merging and Extension](#merging-and-extension)
-  - [Differences between Type and Interface](#differences-between-type-and-interface)
+  - [Merging и Extension](#merging-и-extension)
+  - [Разлики между Type и Interface](#разлики-между-type-и-interface)
   - [Class](#class)
-    - [Class Common Syntax](#class-common-syntax)
+    - [Общ синтаксис на Class](#общ-синтаксис-на-class)
     - [Constructor](#constructor)
-    - [Private and Protected Constructors](#private-and-protected-constructors)
+    - [Private и Protected конструктори](#private-и-protected-конструктори)
     - [Access Modifiers](#access-modifiers)
     - [Get and Set](#get-and-set)
     - [Auto-Accessors in Classes](#auto-accessors-in-classes)
@@ -2467,9 +2467,9 @@ type Strings = ElementType<string[]>; // string
 
 `Readonly<Type>`: Прави всички свойства в Type само за четене.
 
-## Template Union Types
+## Template Union типове
 
-Template union types can be used to merge and manipulate text inside the type system for instance:
+Template union типовете могат да се използват за комбиниране и манипулиране на текст в рамките на type системата, например:
 
 ```typescript
 type Status = 'active' | 'inactive';
@@ -2477,15 +2477,15 @@ type Products = 'p1' | 'p2';
 type ProductId = `id-${Products}-${Status}`; // "id-p1-active" | "id-p1-inactive" | "id-p2-active" | "id-p2-inactive"
 ```
 
-## Any type
+## Any тип
 
-The `any` type is a special type (universal supertype) that can be used to represent any type of value (primitives, objects, arrays, functions, errors, symbols). It is often used in situations where the type of a value is not known at compile time, or when working with values from external APIs or libraries that do not have TypeScript typings.
+Типът `any` е специален тип (универсален supertype), който може да се използва за представяне на стойност от произволен тип (примитиви, обекти, масиви, функции, грешки, символи). Често се използва в ситуации, когато типът на дадена стойност не е известен по време на компилация или при работа със стойности от външни API-та или библиотеки, които нямат TypeScript типизации.
 
-By utilizing `any` type, you are indicating to the TypeScript compiler that values should be represented without any limitations. To maximize type safety in your code, consider the following:
+Използвайки типа `any`, вие указвате на TypeScript компилатора, че стойностите трябва да бъдат представени без ограничения. За да максимизирате type безопасността в кода си, имайте предвид следното:
 
-* Limit the usage of `any` to specific cases where the type is truly unknown.
-* Do not return `any` types from a function, as this weakens type safety in code that uses it.
-* Instead of `any` use `@ts-ignore` if you need to silence the compiler.
+* Ограничете използването на `any` само до случаи, в които типът наистина не е известен.
+* Не връщайте `any` тип от функция, тъй като това отслабва type безопасността на кода, който я използва.
+* Вместо `any`, използвайте `@ts-ignore`, ако е необходимо да игнорирате предупреждение от компилатора.
 
 ```typescript
 let value: any;
@@ -2493,11 +2493,11 @@ value = true; // Валидно
 value = 7; // Валидно
 ```
 
-## Unknown type
+## Unknown тип
 
-In TypeScript, the `unknown` type represents a value that is of an unknown type. Unlike `any` type, which allows for any type of value, `unknown` requires a type check or assertion before it can be used in a specific way so no operations are permitted on an `unknown` without first asserting or narrowing to a more specific type.
+В TypeScript, типът `unknown` представлява стойност с неизвестен тип. За разлика от типа `any`, който позволява всякакъв тип стойност, `unknown` изисква проверка на типа (type check) или type assertion, преди да може да бъде използван по конкретен начин, като не са позволени операции върху `unknown`, без първо да бъде уточнен или стеснен до по-специфичен тип.
 
-The `unknown` type is only assignable to any type and the `unknown` type itself, it is a type-safe alternative to `any`.
+Типът `unknown` може да бъде присвоен само на тип `any` и на самия тип `unknown`, като представлява type-safe алтернатива на `any`.
 
 <!-- skip -->
 ```typescript
@@ -2516,9 +2516,9 @@ console.log(add(1, 2)); // 3
 console.log(add('x', 2)); // undefined
 ```
 
-## Void type
+## Void тип
 
-The `void` type is used to indicate that a function does not return a value.
+Типът `void` се използва, за да покаже, че функция не връща стойност.
 
 ```typescript
 const sayHello = (): void => {
@@ -2526,11 +2526,11 @@ const sayHello = (): void => {
 };
 ```
 
-## Never type
+## Never тип
 
-The `never` type represents values that never occur. It is used to denote functions or expressions that never return or throw an error.
+Типът `never` представлява стойности, които никога не се появяват. Той се използва за обозначаване на функции или изрази, които никога не връщат стойност или хвърлят грешка.
 
-For instance an infinite loop:
+Например безкраен цикъл:
 
 ```typescript
 const infiniteLoop = (): never => {
@@ -2540,7 +2540,7 @@ const infiniteLoop = (): never => {
 };
 ```
 
-Throwing an error:
+Хвърляне на грешка:
 
 ```typescript
 const throwError = (message: string): never => {
@@ -2548,7 +2548,7 @@ const throwError = (message: string): never => {
 };
 ```
 
-The `never` type is useful in ensuring type safety and catching potential errors in your code. It helps TypeScript analyze and infer more precise types when used in combination with other types and control flow statements, for instance:
+Типът `never` е полезен за гарантиране на type безопасност и откриване на потенциални грешки във вашия код. Той помага на TypeScript да анализира и извежда по-прецизни типове, когато се използва в комбинация с други типове и конструкции за control flow, например:
 
 ```typescript
 type Direction = 'up' | 'down';
@@ -2567,11 +2567,11 @@ const move = (direction: Direction): void => {
 };
 ```
 
-## Interface and Type
+## Interface и Type
 
-### Common Syntax
+### Общ синтаксис
 
-In TypeScript, interfaces define the structure of objects, specifying the names and types of properties or methods that an object must have. The common syntax for defining an interface in TypeScript is as follows:
+В TypeScript, interface дефинират структурата на обекти, като задават имената и типовете на свойствата или методите, които даден обект трябва да има. Общият синтаксис за дефиниране на interface в TypeScript е следният:
 
 <!-- skip -->
 ```typescript
@@ -2583,7 +2583,7 @@ interface InterfaceName {
 }
 ```
 
-Similarly for type definition:
+По подобен начин се дефинира и type:
 
 <!-- skip -->
 ```typescript
@@ -2595,11 +2595,11 @@ type TypeName = {
 };
 ```
 
-`interface InterfaceName` or `type TypeName`: Defines the name of the interface.
-`property1`: `Type1`: Specifies the properties of the interface along with their corresponding types. Multiple properties can be defined, each separated by a semicolon.
-`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;`: Specifies the methods of the interface. Methods are defined with their names, followed by a parameter list in parentheses and the return type. Multiple methods can be defined, each separated by a semicolon.
+`interface InterfaceName` или `type TypeName`: Дефинира името на interface.
+`property1: Type1`: Определя свойствата на interface заедно със съответните им типове. Могат да бъдат дефинирани множество свойства, разделени със точка и запетая.
+`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;`: Определя методите на interface. Методите се дефинират чрез име, последвано от списък с параметри в скоби и тип на върнатата стойност. Могат да бъдат дефинирани множество методи, разделени със точка и запетая.
 
-Example interface:
+Пример за interface:
 
 ```typescript
 interface Person {
@@ -2609,7 +2609,7 @@ interface Person {
 }
 ```
 
-Example of type:
+Пример за type:
 
 ```typescript
 type TypeName = {
@@ -2618,57 +2618,57 @@ type TypeName = {
 };
 ```
 
-In TypeScript, types are used to define the shape of data and enforce type checking. There are several common syntaxes for defining types in TypeScript, depending on the specific use case. Here are some examples:
+В TypeScript, типовете се използват за дефиниране на структурата на данни и за прилагане на проверка на типовете (type checking). Съществуват различни често използвани синтаксиси за дефиниране на типове в TypeScript, в зависимост от конкретния случай на употреба. Ето някои примери:
 
-### Basic Types
+### Основни типове
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
+let myNumber: number = 123; // number тип
+let myBoolean: boolean = true; // boolean тип
+let myArray: string[] = ['a', 'b']; // масив от string
 let myTuple: [string, number] = ['a', 123]; // tuple
 ```
 
-### Objects and Interfaces
+### Обекти и Interfaces
 
 ```typescript
 const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ```
 
-### Union and Intersection Types
+### Union и Intersection типове
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // Union тип
+let myUnion: MyType = 'hello'; // Може да бъде string
+myUnion = 123; // Или number
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // Intersection тип
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Обект със свойства name и age
 ```
 
-## Built-in Type Primitives
+## Вградени примитивни типове
 
-TypeScript has several built-in type primitives that can be used to define variables, function parameters, and return types:
+TypeScript има няколко вградени примитивни типа, които могат да се използват за дефиниране на променливи, параметри на функции и типове на върнатите стойности:
 
-* `number`: Represents numeric values, including integers and floating-point numbers.
-* `string`: Represents textual data
-* `boolean`: Represents logical values, which can be either true or false.
-* `null`: Represents the absence of a value.
-* `undefined`: Represents a value that has not been assigned or has not been defined.
-* `symbol`: Represents a unique identifier. Symbols are typically used as keys for object properties.
-* `bigint`: Represents arbitrary-precision integers.
-* `any`: Represents a dynamic or unknown type. Variables of type any can hold values of any type, and they bypass type checking.
-* `void`: Represents the absence of any type. It is commonly used as the return type of functions that do not return a value.
-* `never`: Represents a type for values that never occur. It is typically used as the return type of functions that throw an error or enter an infinite loop.
+* `number`: Представя числови стойности, включително цели и числа с плаваща запетая.
+* `string`: Представя текстови данни.
+* `boolean`: Представя логически стойности, които могат да бъдат true или false.
+* `null`: Представя липса на стойност.
+* `undefined`: Представя стойност, която не е присвоена или не е дефинирана.
+* `symbol`: Представя уникален идентификатор. Symbol обикновено се използва като ключ за свойства на обекти.
+* `bigint`: Представя цели числа с произволна големина.
+* `any`: Представя динамичен или неизвестен тип. Променливи от тип any могат да съдържат стойности от всякакъв тип и заобикалят проверката на типовете.
+* `void`: Представя липса на тип. Обикновено се използва като тип на върната стойност на функции, които не връщат стойност.
+* `never`: Представя тип за стойности, които никога не се появяват. Обикновено се използва като тип на върната стойност на функции, които хвърлят грешка или влизат в безкраен цикъл.
 
-## Common Built-in JS Objects
+## Често използвани вградени JS обекти
 
-TypeScript is a superset of JavaScript, it includes all the commonly used built-in JavaScript objects. You can find an extensive list of these objects on the Mozilla Developer Network (MDN) documentation website:
+TypeScript е надмножество (superset) на JavaScript и включва всички често използвани вградени JavaScript обекти. Можете да намерите обширен списък с тези обекти в документацията на Mozilla Developer Network (MDN):
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 
-Here is a list of some commonly used built-in JavaScript objects:
+Ето списък с някои често използвани вградени JavaScript обекти:
 
 * Function
 * Object
@@ -2688,7 +2688,7 @@ Here is a list of some commonly used built-in JavaScript objects:
 
 ## Overloads
 
-Function overloads in TypeScript allow you to define multiple function signatures for a single function name, enabling you to define functions that can be called in multiple ways. Here's an example:
+Function overloads в TypeScript позволяват да дефинирате множество сигнатури на функция за едно и също име на функция, което позволява тя да бъде извиквана по различни начини. Ето пример:
 
 ```typescript
 // Overloads
@@ -2702,14 +2702,14 @@ function sayHi(name: unknown): unknown {
     } else if (Array.isArray(name)) {
         return name.map(name => `Hi, ${name}!`);
     }
-    throw new Error('Невалидно value');
+    throw new Error('Invalid value');
 }
 
 sayHi('xx'); // Валидно
 sayHi(['aa', 'bb']); // Валидно
 ```
 
-Here's another example of using function overloads within a `class`:
+Ето още един пример за използване на function overloads в рамките на `class`:
 
 ```typescript
 class Greeter {
@@ -2736,11 +2736,11 @@ class Greeter {
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
 
-## Merging and Extension
+## Merging и Extension
 
-Merging and extension refer to two different concepts related to working with types and interfaces.
+Merging и extension се отнасят до две различни концепции, свързани с работа с типове и interfaces.
 
-Merging allows you to combine multiple declarations of the same name into a single definition, for example, when you define an interface with the same name multiple times:
+Merging позволява да комбинирате множество декларации със същото име в една дефиниция, например когато дефинирате interface със същото име повече от веднъж:
 
 ```typescript
 interface X {
@@ -2757,7 +2757,7 @@ const person: X = {
 };
 ```
 
-Extension refers to the ability to extend or inherit from existing types or interfaces to create new ones. It is a mechanism to add additional properties or methods to an existing type without modifying its original definition. Example:
+Extension се отнася до възможността да разширявате или наследявате съществуващи типове или interfaces, за да създавате нови. Това е механизъм за добавяне на допълнителни свойства или методи към съществуващ тип, без да се променя оригиналната му дефиниция. Пример:
 
 ```typescript
 interface Animal {
@@ -2780,11 +2780,11 @@ const dog: Bird = {
 };
 ```
 
-## Differences between Type and Interface
+## Разлики между Type и Interface
 
 Declaration merging (augmentation):
 
-Interfaces support declaration merging, which means that you can define multiple interfaces with the same name, and TypeScript will merge them into a single interface with the combined properties and methods. On the other hand, types do not support declaration merging. This can be helpful when you want to add extra functionality or customize existing types without modifying the original definitions or patching missing or incorrect types.
+Interfaces поддържат declaration merging, което означава, че можете да дефинирате множество interfaces със същото име и TypeScript ще ги обедини в един interface с комбинирани свойства и методи. От друга страна, types не поддържат declaration merging. Това е полезно, когато искате да добавите допълнителна функционалност или да разширите съществуващи типове, без да променяте оригиналните дефиниции или да поправяте липсващи или некоректни типове.
 
 ```typescript
 interface A {
@@ -2799,9 +2799,9 @@ const j: A = {
 };
 ```
 
-Extending other types/interfaces:
+Разширяване на други типове/interfaces:
 
-Both types and interfaces can extend other types/interfaces, but the syntax is different. With interfaces, you use the `extends` keyword to inherit properties and methods from other interfaces. However, an interface cannot extend a complex type like a union type.
+Както types, така и interfaces могат да разширяват други типове/interfaces, но синтаксисът е различен. При interfaces използвате ключовата дума `extends`, за да наследите свойства и методи от други interfaces. Въпреки това, interface не може да разширява сложен тип като union тип.
 
 ```typescript
 interface A {
@@ -2818,7 +2818,7 @@ const car: B = {
 };
 ```
 
-For types, you use the & operator to combine multiple types into a single type (intersection).
+При types използвате оператора `&`, за да комбинирате множество типове в един тип (intersection).
 
 ```typescript
 interface A {
@@ -2837,9 +2837,9 @@ const c: B = {
 };
 ```
 
-Union and Intersection Types:
+Union и Intersection типове:
 
-Types are more flexible when it comes to defining Union and Intersection Types. With the `type` keyword, you can easily create union types using the `|` operator and intersection types using the `&` operator. While interfaces can also represent union types indirectly, they don't have built-in support for intersection types.
+Types са по-гъвкави при дефиниране на Union и Intersection типове. С ключовата дума `type` можете лесно да създавате union типове чрез оператора `|` и intersection типове чрез оператора `&`. Докато interfaces могат индиректно да представят union типове, те нямат вградена поддръжка за intersection типове.
 
 ```typescript
 type Department = 'dep-x' | 'dep-y'; // Union
@@ -2857,7 +2857,7 @@ type Employee = {
 type EmployeeInfo = Person & Employee; // Intersection
 ```
 
-Example with interfaces:
+Пример с interfaces:
 
 ```typescript
 interface A {
@@ -2867,14 +2867,14 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // Union от interfaces
 ```
 
 ## Class
 
-### Class Common Syntax
+### Общ синтаксис на Class
 
-The `class` keyword is used in TypeScript to define a class. Below, you can see an example:
+Ключовата дума `class` се използва в TypeScript за дефиниране на клас. По-долу е показан пример:
 
 ```typescript
 class Person {
@@ -2892,15 +2892,15 @@ class Person {
 }
 ```
 
-The `class` keyword is used to define a class named "Person".
+Ключовата дума `class` се използва за дефиниране на клас с име "Person".
 
-The class has two private properties: name of type `string` and age of type `number`.
+Класът има две private свойства: name от тип `string` и age от тип `number`.
 
-The constructor is defined using the `constructor` keyword. It takes name and age as parameters and assigns them to the corresponding properties.
+Конструкторът се дефинира чрез ключовата дума `constructor`. Той приема name и age като параметри и ги присвоява на съответните свойства.
 
-The class has a `public` method named sayHi that logs a greeting message.
+Класът има `public` метод с име sayHi, който извежда поздравително съобщение.
 
-To create an instance of a class in TypeScript, you can use the `new` keyword followed by the class name, followed by parentheses `()`. For instance:
+За да създадете инстанция на клас в TypeScript, можете да използвате ключовата дума `new`, последвана от името на класа и скоби `()`. Например:
 
 <!-- skip -->
 ```typescript
@@ -2910,7 +2910,7 @@ myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
 
 ### Constructor
 
-Constructors are special methods within a class that are used to initialize the object's properties when an instance of the class is created.
+Конструкторите са специални методи в рамките на class, които се използват за инициализиране на свойствата на обекта при създаване на инстанция на класа.
 
 ```typescript
 class Person {
@@ -2933,7 +2933,7 @@ const john = new Person('Simon', 17);
 john.sayHello();
 ```
 
-It is possible to overload a constructor using the following syntax:
+Възможно е да се използва overload на constructor със следния синтаксис:
 
 ```typescript
 type Sex = 'm' | 'f';
@@ -2955,7 +2955,7 @@ const p1 = new Person('Simon', 17);
 const p2 = new Person('Alice', 22, 'f');
 ```
 
-In TypeScript, it is possible to define multiple constructor overloads, but you can have only one implementation that must be compatible with all the overloads, this can be achieved  by using an optional parameter.
+В TypeScript е възможно да се дефинират множество constructor overload-и, но може да има само една имплементация, която трябва да бъде съвместима с всички overload-и. Това може да се постигне чрез използване на опционални параметри.
 
 ```typescript
 class Person {
@@ -2985,15 +2985,15 @@ const person3 = new Person('Jane', 25);
 person3.displayInfo(); // Name: Jane, Age: 25
 ```
 
-### Private and Protected Constructors
+### Private и Protected конструктори
 
-In TypeScript, constructors can be marked as private or protected, which restricts their accessibility and usage.
+В TypeScript конструкторите могат да бъдат маркирани като private или protected, което ограничава тяхната достъпност и използване.
 
-Private Constructors:
-Can be called only within the class itself. Private constructors are often used in scenarios where you want to enforce a singleton pattern or restrict the creation of instances to a factory method within the class
+Private конструктори:
+Могат да бъдат извиквани само в рамките на самия class. Private конструкторите често се използват, когато искате да наложите singleton pattern или да ограничите създаването на инстанции чрез factory метод в рамките на класа.
 
-Protected Constructors:
-Protected constructors are useful when you want to create a base class that should not be instantiated directly but can be extended by subclasses.
+Protected конструктори:
+Protected конструкторите са полезни, когато искате да създадете базов клас, който не трябва да бъде инстанциран директно, но може да бъде разширяван от наследяващи класове.
 
 ```typescript
 class BaseClass {
@@ -3009,10 +3009,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
+// Опит за директно създаване на инстанция на базовия клас ще доведе до грешка
 // const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
 
-// Create an instance of the derived class
+// Създаване на инстанция на наследения клас
 const derivedObj = new DerivedClass(10);
 ```
 
