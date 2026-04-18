@@ -1,0 +1,221 @@
+---
+title: Съдържание
+sidebar:
+  order: 4
+  label: 4. Съдържание
+---
+
+
+<!-- markdownlint-disable MD004 -->
+- The Concise TypeScript Book
+  - Преводи
+  - Изтегляния и уебсайт
+  - Съдържание
+  - Въведение
+  - За автора
+  - Въведение в TypeScript
+    - Какво е TypeScript?
+    - Защо TypeScript?
+    - TypeScript и JavaScript
+    - Генериране на код с TypeScript
+    - Модерен JavaScript днес (Downleveling)
+  - Първи стъпки с TypeScript
+    - Инсталация
+    - Конфигурация
+    - Конфигурационен файл на TypeScript
+      - target
+      - lib
+      - strict
+      - module
+      - moduleResolution
+      - esModuleInterop
+      - jsx
+      - skipLibCheck
+      - files
+      - include
+      - exclude
+    - importHelpers
+    - Съвети за миграция към TypeScript
+  - Изследване на типовата система
+    - Езиковата услуга на TypeScript
+    - Структурна типизация
+    - Основни правила за сравнение в TypeScript
+    - Типовете като множества
+    - Присвояване на тип: Декларации и проверки на типове
+      - Декларация на тип
+      - Проверка на тип (Type Assertion)
+      - Ambient Declarations
+    - Проверка на свойства и проверка за излишни свойства
+    - Слаби типове
+    - Строга проверка на обектни литерали (Freshness)
+    - Извеждане на типове
+    - По-сложни изводи
+    - Разширяване на типовете
+    - Const
+      - Const Modifier on Type Parameters
+      - Const assertion
+    - Явна типова анотация
+    - Стесняване на типове
+      - Условия
+      - Изключване на грешка или връщане от разклонение
+      - Discriminated Union
+      - Потребителски type guards
+  - Примитивни типове
+    - string
+    - boolean
+    - number
+    - bigInt
+    - Символ
+    - null и undefined
+    - Масив
+    - any
+  - Анотации на типовете
+  - Опционални свойства
+  - Readonly свойства
+  - Сигнатури на индекси
+  - Разширяване на типове
+  - Literal Types
+  - Literal Inference
+  - strictNullChecks
+  - Enums
+    - Числови enums
+  - Низови enums
+    - Константни enums
+    - Обратни съпоставки
+    - Ambient enums
+    - Изчисляеми и константни членове
+  - Narrowing
+    - Проверки за типа "typeof"
+    - Свиване на тип чрез truthiness
+    - Свиване на тип чрез равенство
+    - Свиване на тип чрез оператора "in"
+    - Свиване на тип чрез `instanceof`
+  - Присвоявания
+  - Анализ на потока на управление
+  - Type Predicates
+  - Discriminated Unions
+  - The never Type
+  - Проверка за изчерпателност
+  - Обектни типове
+  - Tuple тип (анонимен)
+  - Именуван Tuple тип (с етикети)
+  - Tuple с фиксирана дължина
+  - Union тип
+  - Intersection типове
+  - Индексиране на тип
+  - Тип от стойност
+  - Тип от резултат на функция
+  - Тип от модул
+  - Mapped типове
+  - Модификатори на Mapped типове
+  - Conditional типове
+  - Дистрибутивни Conditional типове
+  - infer извеждане на тип в Conditional типове
+  - Предефинирани Conditional типове
+  - Template Union типове
+  - Any тип
+  - Unknown тип
+  - Void тип
+  - Never тип
+  - Interface и Type
+    - Общ синтаксис
+    - Основни типове
+    - Обекти и Interfaces
+    - Union и Intersection типове
+  - Вградени примитивни типове
+  - Често използвани вградени JS обекти
+  - Overloads
+  - Merging и Extension
+  - Разлики между Type и Interface
+  - Class
+    - Общ синтаксис на Class
+    - Constructor
+    - Private и Protected конструктори
+    - Модификатори за достъп
+    - Get и Set
+    - Auto-accessors в класове
+    - this
+    - Parameter Properties
+    - Абстрактни класове
+    - С generics
+    - Decorators
+      - Class Decorators
+      - Property Decorator
+      - Method Decorator
+      - Декоратори за Getter и Setter
+      - Metadata за декоратори
+    - Наследяване
+    - Статични членове
+    - Инициализация на свойства
+    - Method overloading
+  - Generics
+    - Generic тип
+    - Generic класове
+    - Ограничения при generics
+    - Контекстуално стесняване при generics
+  - Изтрити структурни типове
+  - Namespacing
+  - Symbols
+  - Triple-Slash директиви
+  - Манипулация на типове
+    - Създаване на типове от типове
+    - Indexed Access Types
+    - Utility типове
+      - Awaited\<T\>
+      - Partial\<T\>
+      - Required\<T\>
+      - Readonly\<T\>
+      - Record\<K, T\>
+      - Pick\<T, K\>
+      - Omit\<T, K\>
+      - Exclude\<T, U\>
+      - Extract\<T, U\>
+      - NonNullable\<T\>
+      - Parameters\<T\>
+      - ConstructorParameters\<T\>
+      - ReturnType\<T\>
+      - InstanceType\<T\>
+      - ThisParameterType\<T\>
+      - OmitThisParameter\<T\>
+      - ThisType\<T\>
+      - Uppercase\<T\>
+      - Lowercase\<T\>
+      - Capitalize\<T\>
+      - Uncapitalize\<T\>
+      - NoInfer\<T\>
+  - Други
+    - Грешки и обработка на изключения
+    - Mixin класове
+    - Асинхронни функционалности
+    - Итератори и генератори
+    - TsDocs JSDoc Reference
+    - @types
+    - JSX
+    - ES6 Modules
+    - ES7 Exponentiation Operator
+    - The for-await-of Statement
+    - New target meta-property
+    - Dynamic Import Expressions
+    - "tsc –watch"
+    - Non-null Assertion Operator
+    - Декларации със стойности по подразбиране
+    - Optional Chaining
+    - Nullish coalescing operator
+    - Template Literal Types
+    - Function overloading
+    - Recursive Types
+    - Recursive Conditional Types
+    - ECMAScript Module Support in Node
+    - Assertion Functions
+    - Variadic Tuple Types
+    - Boxed types
+    - Covariance и Contravariance в TypeScript
+      - Optional Variance Annotations for Type Parameters
+    - Template String Pattern Index Signatures
+    - The satisfies Operator
+    - Type-Only Imports и Export
+    - using declaration и Explicit Resource Management
+      - Декларация await using
+    - Import Attributes
+<!-- markdownlint-enable MD004 -->
+

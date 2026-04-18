@@ -30,6 +30,9 @@ OUTPUT_DIR_PATH_PT = "../website/src/content/docs/pt-br/book"
 INPUT_FILE_PATH_SV = "../README-sv_SE.md"
 OUTPUT_DIR_PATH_SV = "../website/src/content/docs/sv-se/book"
 
+INPUT_FILE_PATH_BG = "../README-bg_BG.md"
+OUTPUT_DIR_PATH_BG = "../website/src/content/docs/bg-bg/book"
+
 
 def manage_output_dir(path: str) -> None:
     if os.path.exists(path):
@@ -38,7 +41,7 @@ def manage_output_dir(path: str) -> None:
 
 
 def read_content_file(path: str) -> List[str]:
-    with open(path, "r") as file:
+    with open(path, "r", encoding="utf-8") as file:
         lines = file.readlines()
     return lines
 
@@ -75,7 +78,7 @@ def make_markdown_page_metadata(order: int, header: str) -> List[str]:
 
 
 def save_content_to_file(path: str, lines: List[str]):
-    with open(path, "w") as output_file:
+    with open(path, "w", encoding="utf-8") as output_file:
         output_file.writelines(lines)
 
 
@@ -156,3 +159,5 @@ process(INPUT_FILE_PATH, INPUT_FILE_PATH_IT, OUTPUT_DIR_PATH_IT)
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_PT, OUTPUT_DIR_PATH_PT)
 
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_SV, OUTPUT_DIR_PATH_SV)
+
+process(INPUT_FILE_PATH, INPUT_FILE_PATH_BG, OUTPUT_DIR_PATH_BG)
