@@ -159,36 +159,36 @@
     - [Общ синтаксис на Class](#общ-синтаксис-на-class)
     - [Constructor](#constructor)
     - [Private и Protected конструктори](#private-и-protected-конструктори)
-    - [Access Modifiers](#access-modifiers)
-    - [Get and Set](#get-and-set)
-    - [Auto-Accessors in Classes](#auto-accessors-in-classes)
+    - [Модификатори за достъп](#модификатори-за-достъп)
+    - [Get и Set](#get-и-set)
+    - [Auto-accessors в класове](#auto-accessors-в-класове)
     - [this](#this)
     - [Parameter Properties](#parameter-properties)
-    - [Abstract Classes](#abstract-classes)
-    - [With Generics](#with-generics)
+    - [Абстрактни класове](#абстрактни-класове)
+    - [С generics](#с-generics)
     - [Decorators](#decorators)
       - [Class Decorators](#class-decorators)
       - [Property Decorator](#property-decorator)
       - [Method Decorator](#method-decorator)
-      - [Getter and Setter Decorators](#getter-and-setter-decorators)
-      - [Decorator Metadata](#decorator-metadata)
-    - [Inheritance](#inheritance)
-    - [Statics](#statics)
-    - [Property initialization](#property-initialization)
+      - [Декоратори за Getter и Setter](#декоратори-за-getter-и-setter)
+      - [Metadata за декоратори](#metadata-за-декоратори)
+    - [Наследяване](#наследяване)
+    - [Статични членове](#статични-членове)
+    - [Инициализация на свойства](#инициализация-на-свойства)
     - [Method overloading](#method-overloading)
   - [Generics](#generics)
-    - [Generic Type](#generic-type)
-    - [Generic Classes](#generic-classes)
-    - [Generic Constraints](#generic-constraints)
-    - [Generic contextual narrowing](#generic-contextual-narrowing)
-  - [Erased Structural Types](#erased-structural-types)
+    - [Generic тип](#generic-тип)
+    - [Generic класове](#generic-класове)
+    - [Ограничения при generics](#ограничения-при-generics)
+    - [Контекстуално стесняване при generics](#контекстуално-стесняване-при-generics)
+  - [Изтрити структурни типове](#изтрити-структурни-типове)
   - [Namespacing](#namespacing)
   - [Symbols](#symbols)
-  - [Triple-Slash Directives](#triple-slash-directives)
-  - [Type Manipulation](#type-manipulation)
-    - [Creating Types from Types](#creating-types-from-types)
+  - [Triple-Slash директиви](#triple-slash-директиви)
+  - [Манипулация на типове](#манипулация-на-типове)
+    - [Създаване на типове от типове](#създаване-на-типове-от-типове)
     - [Indexed Access Types](#indexed-access-types)
-    - [Utility Types](#utility-types)
+    - [Utility типове](#utility-типове)
       - [Awaited\<T\>](#awaitedt)
       - [Partial\<T\>](#partialt)
       - [Required\<T\>](#requiredt)
@@ -211,11 +211,11 @@
       - [Capitalize\<T\>](#capitalizet)
       - [Uncapitalize\<T\>](#uncapitalizet)
       - [NoInfer\<T\>](#noinfert)
-  - [Others](#others)
-    - [Errors and Exception Handling](#errors-and-exception-handling)
-    - [Mixin classes](#mixin-classes)
-    - [Asynchronous Language Features](#asynchronous-language-features)
-    - [Iterators and Generators](#iterators-and-generators)
+  - [Други](#други)
+    - [Грешки и обработка на изключения](#грешки-и-обработка-на-изключения)
+    - [Mixin класове](#mixin-класове)
+    - [Асинхронни функционалности](#асинхронни-функционалности)
+    - [Итератори и генератори](#итератори-и-генератори)
     - [TsDocs JSDoc Reference](#tsdocs-jsdoc-reference)
     - [@types](#types)
     - [JSX](#jsx-1)
@@ -226,7 +226,7 @@
     - [Dynamic Import Expressions](#dynamic-import-expressions)
     - ["tsc –watch"](#tsc-watch)
     - [Non-null Assertion Operator](#non-null-assertion-operator)
-    - [Defaulted declarations](#defaulted-declarations)
+    - [Декларации със стойности по подразбиране](#декларации-със-стойности-по-подразбиране)
     - [Optional Chaining](#optional-chaining)
     - [Nullish coalescing operator](#nullish-coalescing-operator)
     - [Template Literal Types](#template-literal-types)
@@ -237,13 +237,13 @@
     - [Assertion Functions](#assertion-functions)
     - [Variadic Tuple Types](#variadic-tuple-types)
     - [Boxed types](#boxed-types)
-    - [Covariance and Contravariance in TypeScript](#covariance-and-contravariance-in-typescript)
+    - [Covariance и Contravariance в TypeScript](#covariance-и-contravariance-в-typescript)
       - [Optional Variance Annotations for Type Parameters](#optional-variance-annotations-for-type-parameters)
     - [Template String Pattern Index Signatures](#template-string-pattern-index-signatures)
     - [The satisfies Operator](#the-satisfies-operator)
-    - [Type-Only Imports and Export](#type-only-imports-and-export)
-    - [using declaration and Explicit Resource Management](#using-declaration-and-explicit-resource-management)
-      - [await using declaration](#await-using-declaration)
+    - [Type-Only Imports и Export](#type-only-imports-и-export)
+    - [using declaration и Explicit Resource Management](#using-declaration-и-explicit-resource-management)
+      - [Декларация await using](#декларация-await-using)
     - [Import Attributes](#import-attributes)
 <!-- markdownlint-enable MD004 -->
 
@@ -3016,20 +3016,20 @@ class DerivedClass extends BaseClass {
 const derivedObj = new DerivedClass(10);
 ```
 
-### Access Modifiers
+### Модификатори за достъп
 
-Access Modifiers `private`, `protected`, and `public` are used to control the visibility and accessibility of class members, such as properties and methods, in TypeScript classes. These modifiers are essential for enforcing encapsulation and establishing boundaries for accessing and modifying the internal state of a class.
+Модификаторите за достъп `private`, `protected` и `public` се използват за контролиране на видимостта и достъпността на членовете на клас (като свойства и методи) в TypeScript. Тези модификатори са от съществено значение за прилагане на енкапсулация и за определяне на граници при достъп и промяна на вътрешното състояние на един клас.
 
-The `private` modifier restricts access to the class member only within the containing class.
+Модификаторът `private` ограничава достъпа до члена на класа само в рамките на самия клас.
 
-The `protected` modifier allows access to the class member within the containing class and its derived classes.
+Модификаторът `protected` позволява достъп до члена на класа в рамките на самия клас и неговите наследници.
 
-The `public` modifier provides unrestricted access to the class member, allowing it to be accessed from anywhere."
+Модификаторът `public` предоставя неограничен достъп до члена на класа, като позволява той да бъде достъпен отвсякъде.
 
-### Get and Set
+### Get и Set
 
-Getters and setters are special methods that allow you to define custom access and modification behavior for class properties. They enable you to encapsulate the internal state of an object and provide additional logic when getting or setting the values of properties.
-In TypeScript, getters and setters are defined using the `get` and `set` keywords respectively. Here's an example:
+Getter-и и setter-и са специални методи, които позволяват да дефинирате персонализирано поведение при достъп и промяна на свойства на клас. Те позволяват да капсулирате вътрешното състояние на обект и да добавите допълнителна логика при вземане (get) или задаване (set) на стойности.
+В TypeScript getter-ите и setter-ите се дефинират съответно чрез ключовите думи `get` и `set`. Ето пример:
 
 ```typescript
 class MyClass {
@@ -3047,9 +3047,9 @@ class MyClass {
 }
 ```
 
-### Auto-Accessors in Classes
+### Auto-accessors в класове
 
-TypeScript version 4.9 adds support for auto-accessors, a forthcoming ECMAScript feature. They resemble class properties but are declared with the "accessor" keyword.
+TypeScript версия 4.9 добавя поддръжка за auto-accessors — предстояща функционалност в ECMAScript. Те наподобяват свойства на клас, но се декларират с ключовата дума `accessor`.
 
 ```typescript
 class Animal {
@@ -3061,7 +3061,7 @@ class Animal {
 }
 ```
 
-Auto-accessors are "de-sugared" into private `get` and `set` accessors, operating on an inaccessible property.
+Auto-accessors се "десъгарират" (de-sugared) до private `get` и `set` аксесори, които работят върху недостъпно свойство.
 
 <!-- skip -->
 ```typescript
@@ -3083,8 +3083,8 @@ class Animal {
 
 ### this
 
-In TypeScript, the `this` keyword refers to the current instance of a class within its methods or constructors. It allows you to access and modify the properties and methods of the class from within its own scope.
-It provides a way to access and manipulate the internal state of an object within its own methods.
+В TypeScript, ключовата дума `this` се отнася до текущата инстанция на класа в рамките на неговите методи или конструктори. Тя позволява достъп и промяна на свойствата и методите на класа от неговия собствен обхват.
+Тя предоставя начин за достъп и манипулиране на вътрешното състояние на обект в рамките на неговите методи.
 
 ```typescript
 class Person {
@@ -3103,7 +3103,7 @@ person1.introduce(); // Hello, my name is Alice.
 
 ### Parameter Properties
 
-Parameter properties allow you to declare and initialize class properties directly within the constructor parameters avoiding boilerplate code, example:
+Parameter properties позволяват да декларирате и инициализирате свойства на клас директно в параметрите на конструктора, като избягвате излишен boilerplate код. Пример:
 
 ```typescript
 class Person {
@@ -3111,8 +3111,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // Ключовите думи "private" и "public" в конструктора
+        // автоматично декларират и инициализират съответните свойства на класа.
     }
     public introduce(): void {
         console.log(
@@ -3124,10 +3124,10 @@ const person = new Person('Alice', 25);
 person.introduce();
 ```
 
-### Abstract Classes
+### Абстрактни класове
 
-Abstract Classes are used in TypeScript mainly for inheritance, they provide a way to define common properties and methods that can be inherited by subclasses.
-This is useful when you want to define common behavior and enforce that subclasses implement certain methods. They provide a way to create a hierarchy of classes where the abstract base class provides a shared interface and common functionality for the subclasses.
+Абстрактните класове се използват в TypeScript основно за наследяване. Те предоставят начин за дефиниране на общи свойства и методи, които могат да бъдат наследявани от под-класове.
+Това е полезно, когато искате да дефинирате общо поведение и да наложите под-класовете да имплементират определени методи. Те предоставят начин за създаване на йерархия от класове, където абстрактният базов клас осигурява общ интерфейс и функционалност за под-класовете.
 
 ```typescript
 abstract class Animal {
@@ -3150,9 +3150,9 @@ const cat = new Cat('Whiskers');
 cat.makeSound(); // Output: Whiskers meows.
 ```
 
-### With Generics
+### С generics
 
-Classes with generics allow you to define reusable classes which can work with different types.
+Класовете с generics позволяват да дефинирате преизползваеми класове, които могат да работят с различни типове.
 
 ```typescript
 class Container<T> {
@@ -3181,30 +3181,30 @@ console.log(container2.getItem()); // World
 
 ### Decorators
 
-Decorators provide a mechanism to add metadata, modify behavior, validate, or extend the functionality of the target element. They are functions that execute at runtime. Multiple decorators can be applied to a declaration.
+Decorators предоставят механизъм за добавяне на metadata, промяна на поведение, валидиране или разширяване на функционалността на даден елемент. Те са функции, които се изпълняват по време на runtime. Могат да бъдат прилагани множество decorators върху една декларация.
 
-Decorators are experimental features, and the following examples are only compatible with TypeScript version 5 or above using ES6.
+Decorators са експериментална функционалност и следващите примери са съвместими само с TypeScript версия 5 или по-нова, използвайки ES6.
 
-For TypeScript versions prior to 5, they should be enabled using the `experimentalDecorators` property in your `tsconfig.json` or by using `--experimentalDecorators` in your command line (but the following example won't work).
+За версии на TypeScript преди 5, те трябва да бъдат активирани чрез свойството `experimentalDecorators` във вашия `tsconfig.json` или чрез използване на `--experimentalDecorators` в командния ред (но следният пример няма да работи).
 
-Some of the common use cases for decorators include:
+Някои от често срещаните случаи на употреба на decorators включват:
 
-* Watching property changes.
-* Watching method calls.
-* Adding extra properties or methods.
-* Runtime validation.
-* Automatic serialization and deserialization.
-* Logging.
-* Authorization and authentication.
-* Error guarding.
+* Следене на промени в свойства.
+* Следене на извиквания на методи.
+* Добавяне на допълнителни свойства или методи.
+* Runtime валидиране.
+* Автоматична сериализация и десериализация.
+* Логване.
+* Авторизация и автентикация.
+* Защита от грешки.
 
-Note: Decorators for version 5 do not allow decorating parameters.
+Забележка: Decorators във версия 5 не позволяват декориране на параметри.
 
-Types of decorators:
+Видове decorators:
 
 #### Class Decorators
 
-Class Decorators are useful for extending an existing class, such as adding properties or methods, or collecting instances of a class. In the following example, we add a `toString` method that converts the class into a string representation.
+Class Decorators са полезни за разширяване на съществуващ клас, например чрез добавяне на свойства или методи, или събиране на инстанции на даден клас. В следния пример добавяме метод `toString`, който преобразува класа в текстово представяне.
 
 ```typescript
 type Constructor<T = {}> = new (...args: any[]) => T;
@@ -3243,7 +3243,7 @@ const person = new Person('Simon');
 
 #### Property Decorator
 
-Property decorators are useful for modifying the behavior of a property, such as changing the initialization values. In the following code, we have a script that sets a property to always be in uppercase:
+Property decorators са полезни за промяна на поведението на дадено свойство, например чрез промяна на началните му стойности. В следния код имаме скрипт, който задава стойността на свойство винаги да бъде с главни букви:
 
 ```typescript
 function upperCase<T>(
@@ -3265,7 +3265,7 @@ console.log(new MyClass().prop1); // Logs: HELLO!
 
 #### Method Decorator
 
-Method decorators allow you to change or enhance the behavior of methods. Below is an example of a simple logger:
+Method decorators позволяват да променяте или разширявате поведението на методи. По-долу е даден пример за прост logger:
 
 ```typescript
 function log<This, Args extends any[], Return>(
@@ -3297,7 +3297,7 @@ class MyClass {
 new MyClass().sayHello();
 ```
 
-It logs:
+Логва:
 
 ```shell
 LOG: Entering method 'sayHello'.
@@ -3305,9 +3305,9 @@ Hello!
 LOG: Exiting method 'sayHello'.
 ```
 
-#### Getter and Setter Decorators
+#### Декоратори за Getter и Setter
 
-Getter and setter decorators allow you to change or enhance the behavior of class accessors. They are useful, for instance, for validating property assignments. Here's a simple example for a getter decorator:
+Декораторите за getter и setter позволяват да променяте или разширявате поведението на аксесорите на клас. Те са полезни например за валидиране на присвоявания на свойства. Ето един прост пример за getter декоратор:
 
 ```typescript
 function range<This, Return extends number>(min: number, max: number) {
@@ -3348,24 +3348,24 @@ const obj2 = new MyClass(999);
 console.log(obj2.getValue); // Throw: Невалидно!
 ```
 
-#### Decorator Metadata
+#### Metadata за декоратори
 
-Decorator Metadata simplifies the process for decorators to apply and utilize metadata in any class. They can access a new metadata property on the context object, which can serve as a key for both primitives and objects.
-Metadata information can be accessed on the class via `Symbol.metadata`.
+Decorator Metadata улеснява процеса за decorators да прилагат и използват metadata във всеки клас. Те могат да достъпват ново metadata свойство върху context обекта, което може да служи като ключ както за примитиви, така и за обекти.
+Metadata информацията може да бъде достъпена от класа чрез `Symbol.metadata`.
 
-Metadata can be used for various purposes, such as debugging, serialization, or dependency injection with decorators.
+Metadata може да се използва за различни цели, като дебъгване, сериализация или dependency injection с decorators.
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Прост polify
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // Context съдържа metadata за свойства: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // Задава metadata обект с примитивна стойност
     context.metadata[context.name] = true;
 }
 
@@ -3380,14 +3380,14 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // Взима metadata информация
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
 
-### Inheritance
+### Наследяване
 
-Inheritance refers to the mechanism by which a class can inherit properties and methods from another class, known as the base class or superclass. The derived class, also called the child class or subclass, can extend and specialize the functionality of the base class by adding new properties and methods or overriding existing ones.
+Наследяването се отнася до механизма, при който един клас може да наследява свойства и методи от друг клас, наречен базов клас или superclass. Производният клас, наричан още child class или subclass, може да разширява и специализира функционалността на базовия клас чрез добавяне на нови свойства и методи или чрез презаписване (override) на съществуващи.
 
 ```typescript
 class Animal {
@@ -3415,17 +3415,17 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// Създаване на инстанция на базовия клас
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// Създаване на инстанция на производния клас
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
 
-TypeScript does not support multiple inheritance in the traditional sense and instead allows inheritance from a single base class.
-TypeScript supports multiple interfaces. An interface can define a contract for the structure of an object, and a class can implement multiple interfaces. This allows a class to inherit behavior and structure from multiple sources.
+TypeScript не поддържа множествено наследяване в традиционния смисъл и вместо това позволява наследяване от един базов клас.
+TypeScript поддържа множество interfaces. Един interface може да дефинира договор за структурата на обект, а един клас може да имплементира множество interfaces. Това позволява на класа да наследява поведение и структура от множество източници.
 
 ```typescript
 interface Flyable {
@@ -3451,11 +3451,11 @@ flyingFish.fly();
 flyingFish.swim();
 ```
 
-The `class` keyword in TypeScript, similar to JavaScript, is often referred to as syntactic sugar. It was introduced in ECMAScript 2015 (ES6) to offer a more familiar syntax for creating and working with objects in a class-based manner. However, it's important to note that TypeScript, being a superset of JavaScript, ultimately compiles down to JavaScript, which remains prototype-based at its core.
+Ключовата дума `class` в TypeScript, подобно на JavaScript, често се нарича syntactic sugar. Тя е въведена в ECMAScript 2015 (ES6), за да предостави по-познат синтаксис за създаване и работа с обекти по клас-ориентиран начин. Въпреки това е важно да се отбележи, че TypeScript, като надмножество на JavaScript, в крайна сметка се компилира до JavaScript, който остава прототипно базиран в основата си.
 
-### Statics
+### Статични членове
 
-TypeScript has static members. To access the static members of a class, you can use the class name followed by a dot, without the need to create an object.
+TypeScript поддържа статични членове. За достъп до статичните членове на клас можете да използвате името на класа, последвано от точка, без да е необходимо да създавате инстанция.
 
 ```typescript
 class OfficeWorker {
@@ -3472,13 +3472,13 @@ const total = OfficeWorker.memberCount;
 console.log(total); // 2
 ```
 
-### Property initialization
+### Инициализация на свойства
 
-There are several ways how you can initialize properties for a class in TypeScript:
+Съществуват няколко начина за инициализиране на свойства на клас в TypeScript:
 
 Inline:
 
-In the following example these initial values will be used when an instance of the class is created.
+В следния пример тези начални стойности ще бъдат използвани при създаване на инстанция на класа.
 
 ```typescript
 class MyClass {
@@ -3487,7 +3487,7 @@ class MyClass {
 }
 ```
 
-In the constructor:
+В конструктора:
 
 ```typescript
 class MyClass {
@@ -3501,7 +3501,7 @@ class MyClass {
 }
 ```
 
-Using constructor parameters:
+Чрез параметри на конструктора:
 
 ```typescript
 class MyClass {
@@ -3509,7 +3509,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // Няма нужда да присвояваме стойностите на свойствата изрично.
     }
     log() {
         console.log(this.property2);
@@ -3521,7 +3521,7 @@ x.log();
 
 ### Method overloading
 
-Method overloading allows a class to have multiple methods with the same name but different parameter types or a different number of parameters. This allows us to call a method in different ways based on the arguments passed.
+Method overloading позволява на един клас да има множество методи със същото име, но с различни типове параметри или различен брой параметри. Това позволява методът да бъде извикван по различни начини в зависимост от подадените аргументи.
 
 ```typescript
 class MyClass {
@@ -3535,7 +3535,7 @@ class MyClass {
         if (typeof a === 'string' && typeof b === 'string') {
             return a.concat(b);
         }
-        throw new Error('Невалидно arguments');
+        throw new Error('Invalid arguments');
     }
 }
 
@@ -3545,13 +3545,13 @@ console.log(r.add(10, 5)); // Logs 15
 
 ## Generics
 
-Generics allow you to create reusable components and functions that can work with multiple types. With generics, you can parameterize types, functions, and interfaces, allowing them to operate on different types without explicitly specifying them beforehand.
+Generics позволяват да създавате преизползваеми компоненти и функции, които могат да работят с множество типове. С generics можете да параметризирате типове, функции и interfaces, позволявайки им да работят с различни типове без да ги указвате изрично предварително.
 
-Generics allow you to make code more flexible and reusable.
+Generics правят кода по-гъвкав и преизползваем.
 
-### Generic Type
+### Generic тип
 
-To define a generic type, you use angle brackets (`<>`) to specify the type parameters, for instance:
+За да дефинирате generic тип, използвате ъглови скоби (`<>`), в които посочвате type параметрите, например:
 
 ```typescript
 function identity<T>(arg: T): T {
@@ -3564,9 +3564,9 @@ const getLen = <T,>(data: ReadonlyArray<T>) => data.length;
 const len = getLen([1, 2, 3]);
 ```
 
-### Generic Classes
+### Generic класове
 
-Generics can be applied also to classes, in this way they can work with multiple types by using type parameters. This is useful to create reusable class definitions that can operate on different data types while maintaining type safety.
+Generics могат да се прилагат и към класове, като по този начин те могат да работят с множество типове чрез използване на type параметри. Това е полезно за създаване на преизползваеми класове, които работят с различни типове данни, като същевременно запазват type безопасността.
 
 ```typescript
 class Container<T> {
@@ -3588,11 +3588,11 @@ const stringContainer = new Container<string>('hello');
 console.log(stringContainer.getItem()); // hello
 ```
 
-### Generic Constraints
+### Ограничения при generics
 
-Generic parameters can be constrained using the `extends` keyword followed by a type or interface that the type parameter must satisfy.
+Generic параметрите могат да бъдат ограничени чрез ключовата дума `extends`, последвана от тип или interface, който type параметърът трябва да удовлетворява.
 
-In the following example T it is must containing a properly `length` in order to be valid:
+В следния пример T трябва да съдържа свойство `length`, за да бъде валиден:
 
 <!-- skip -->
 ```typescript
@@ -3606,7 +3606,7 @@ printLen({ length: 10 }); // 10
 printLen(123); // Невалидно
 ```
 
-An interesting feature of generic introduced in version 3.4 RC is Higher order function type inference which introduced  propagated generic type arguments:
+Интересна функционалност на generics, въведена във версия 3.4 RC, е Higher order function type inference, която въвежда пропагирани generic type аргументи:
 
 ```typescript
 declare function pipe<A extends any[], B, C>(
@@ -3621,19 +3621,19 @@ const listBox = pipe(list, box); // <T>(a: T) => { value: T[] }
 const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```
 
-This functionality allows more easily typed safe pointfree style programming which is common in functional programming.
+Тази функционалност позволява по-лесно type-safe pointfree стил на програмиране, който е често срещан във функционалното програмиране.
 
-### Generic contextual narrowing
+### Контекстуално стесняване при generics
 
-Contextual narrowing for generics is the mechanism in TypeScript that allows the compiler to narrow down the type of a generic parameter based on the context in which it is used, it is useful when working with generic types in conditional statements:
+Контекстуалното стесняване при generics е механизъм в TypeScript, който позволява на компилатора да стеснява типа на generic параметър въз основа на контекста, в който се използва. Това е полезно при работа с generic типове в условни конструкции:
 
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // Стесняване до тип 'string'
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // Стесняване до тип 'number'
         console.log(value.toFixed(2));
     }
 }
@@ -3642,10 +3642,10 @@ process('hello'); // 5
 process(3.14159); // 3.14
 ```
 
-## Erased Structural Types
+## Изтрити структурни типове
 
-In TypeScript, objects do not have to match a specific, exact type. For instance, if we create an object that fulfills an interface's requirements, we can utilize that object in places where that interface is required, even if there was no explicit connection between them.
-Example:
+В TypeScript обектите не е необходимо да съвпадат с конкретен, точен тип. Например, ако създадем обект, който покрива изискванията на даден interface, можем да използваме този обект на места, където този interface се изисква, дори да няма изрична връзка между тях.
+Пример:
 
 ```typescript
 type NameProp1 = {
@@ -3666,8 +3666,8 @@ log(obj); // Валидно
 
 ## Namespacing
 
-In TypeScript, namespaces are used to organize code into logical containers, preventing naming collisions and providing a way to group related code together.
-The usage of the `export` keywords allows access to the namespace in "outside" modules.
+В TypeScript namespaces се използват за организиране на кода в логически контейнери, предотвратяване на конфликти в имената и групиране на свързан код.
+Използването на ключовата дума `export` позволява достъп до namespace от външни модули.
 
 ```typescript
 export namespace MyNamespace {
@@ -3686,9 +3686,9 @@ const a: MyNamespace.MyInterface1 = {
 
 ## Symbols
 
-Symbols are a primitive data type that represents an immutable value which is guaranteed to be globally unique throughout the lifetime of the program.
+Symbols са примитивен тип данни, който представлява неизменима стойност, гарантирано уникална в рамките на изпълнението на програмата.
 
-Symbols can be used as keys for object properties and provide a way to create non-enumerable properties.
+Symbols могат да се използват като ключове за свойства на обекти и предоставят начин за създаване на не-енумерируеми свойства.
 
 ```typescript
 const key1: symbol = Symbol('key1');
@@ -3703,44 +3703,44 @@ console.log(obj[key1]); // value 1
 console.log(obj[key2]); // value 2
 ```
 
-In WeakMaps and WeakSets, symbols are now permissible as keys.
+В WeakMap и WeakSet, symbols вече могат да се използват като ключове.
 
-## Triple-Slash Directives
+## Triple-Slash директиви
 
-Triple-slash directives are special comments that provide instructions to the compiler about how to process a file. These directives begin with three consecutive slashes (`///`) and are typically placed at the top of a TypeScript file and have no effects on the runtime behavior.
+Triple-slash директивите са специални коментари, които предоставят инструкции към компилатора как да обработи даден файл. Тези директиви започват с три наклонени черти (`///`) и обикновено се поставят в началото на TypeScript файл, като нямат ефект върху runtime поведението.
 
-Triple-slash directives are used to reference external dependencies, specify module loading behavior, enable/disable certain compiler features, and more. Few examples:
+Triple-slash директивите се използват за рефериране на външни зависимости, указване на начина на зареждане на модули, активиране/деактивиране на определени компилаторни функции и други. Няколко примера:
 
-Referencing a declaration file:
+Рефериране на декларационен файл:
 
 <!-- skip -->
 ```typescript
 /// <reference path="path/to/declaration/file.d.ts" />
 ```
 
-Indicate the module format:
+Указване на формат на модул:
 
 <!-- skip -->
 ```typescript
 /// <amd|commonjs|system|umd|es6|es2015|none>
 ```
 
-Enable compiler options, in the following example strict mode:
+Активиране на компилаторни опции, например strict режим:
 
 <!-- skip -->
 ```typescript
 /// <strict|noImplicitAny|noUnusedLocals|noUnusedParameters>
 ```
 
-## Type Manipulation
+## Манипулация на типове
 
-### Creating Types from Types
+### Създаване на типове от типове
 
-Is it possible to create new types composing, manipulating or transforming existing types.
+Възможно е да се създават нови типове чрез комбиниране, манипулиране или трансформиране на съществуващи типове.
 
-Intersection Types (`&`):
+Intersection типове (`&`):
 
-Allow you to combine multiple types into a single  type:
+Позволяват комбиниране на множество типове в един:
 
 ```typescript
 type A = { foo: number };
@@ -3749,9 +3749,9 @@ type C = A & B; // Intersection of A and B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
-Union Types (`|`):
+Union типове (`|`):
 
-Allow you to define a type that can be one of several types:
+Позволяват дефиниране на тип, който може да бъде един от няколко:
 
 ```typescript
 type Result = string | number;
@@ -3759,9 +3759,9 @@ const value1: Result = 'hello';
 const value2: Result = 42;
 ```
 
-Mapped Types:
+Mapped типове:
 
-Allow you to transform the properties of an existing type to create new type:
+Позволяват трансформиране на свойствата на съществуващ тип за създаване на нов тип:
 
 ```typescript
 type Mutable<T> = {
@@ -3771,12 +3771,12 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // Свойствата стават read-only
 ```
 
-Conditional types:
+Условни типове:
 
-Allow you to create types based on some conditions:
+Позволяват създаване на типове въз основа на условия:
 
 ```typescript
 type ExtractParam<T> = T extends (param: infer P) => any ? P : never;
@@ -3786,7 +3786,7 @@ type ParamType = ExtractParam<MyFunction>; // string
 
 ### Indexed Access Types
 
-In TypeScript is it possible to access and manipulate  the types of properties within another type using an index, `Type[Key]`.
+В TypeScript е възможно да се достъпват и манипулират типовете на свойства в друг тип чрез индекс, `Type[Key]`.
 
 ```typescript
 type Person = {
@@ -3802,13 +3802,13 @@ type MyTuple = [string, number, boolean];
 type MyType = MyTuple[2]; // boolean
 ```
 
-### Utility Types
+### Utility типове
 
-Several built-in utility types can be used to manipulate types, below a list of the most common used:
+Съществуват няколко вградени utility типа, които могат да се използват за манипулиране на типове. По-долу е списък с най-често използваните:
 
 #### Awaited\<T\>
 
-Constructs a type that recursively unwraps Promise types.
+Създава тип, който рекурсивно "разопакова" Promise типове.
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
@@ -3816,7 +3816,7 @@ type A = Awaited<Promise<string>>; // string
 
 #### Partial\<T\>
 
-Constructs a type with all properties of T set to optional.
+Създава тип, в който всички свойства на T са опционални.
 
 ```typescript
 type Person = {
@@ -3829,7 +3829,7 @@ type A = Partial<Person>; // { name?: string | undefined; age?: number | undefin
 
 #### Required\<T\>
 
-Constructs a type with all properties of T set to required.
+Създава тип, в който всички свойства на T са задължителни.
 
 ```typescript
 type Person = {
@@ -3842,7 +3842,7 @@ type A = Required<Person>; // { name: string; age: number; }
 
 #### Readonly\<T\>
 
-Constructs a type with all properties of T set to readonly.
+Създава тип, в който всички свойства на T са readonly.
 
 <!-- skip -->
 ```typescript
@@ -3859,7 +3859,7 @@ a.name = 'John'; // Невалидно
 
 #### Record\<K, T\>
 
-Constructs a type with a set of properties K of type T.
+Създава тип с набор от свойства K от тип T.
 
 ```typescript
 type Product = {
@@ -3877,7 +3877,7 @@ console.log(products.apple); // { name: 'Apple', price: 0.5 }
 
 #### Pick\<T, K\>
 
-Constructs a type by picking the specified properties K from T.
+Създава тип чрез избиране на конкретни свойства K от T.
 
 ```typescript
 type Product = {
@@ -3890,7 +3890,7 @@ type Price = Pick<Product, 'price'>; // { price: number; }
 
 #### Omit\<T, K\>
 
-Constructs a type by omitting the specified properties K from T.
+Създава тип чрез премахване на конкретни свойства K от T.
 
 ```typescript
 type Product = {
@@ -3903,7 +3903,7 @@ type Name = Omit<Product, 'price'>; // { name: string; }
 
 #### Exclude\<T, U\>
 
-Constructs a type by excluding all values of type U from T.
+Създава тип чрез изключване на всички стойности от тип U от T.
 
 ```typescript
 type Union = 'a' | 'b' | 'c';
@@ -3912,7 +3912,7 @@ type MyType = Exclude<Union, 'a' | 'c'>; // b
 
 #### Extract\<T, U\>
 
-Constructs a type by extracting all values of type U from T.
+Създава тип чрез извличане на всички стойности от тип U от T.
 
 ```typescript
 type Union = 'a' | 'b' | 'c';
@@ -3921,7 +3921,7 @@ type MyType = Extract<Union, 'a' | 'c'>; // a | c
 
 #### NonNullable\<T\>
 
-Constructs a type by excluding null and undefined from T.
+Създава тип чрез премахване на null и undefined от T.
 
 ```typescript
 type Union = 'a' | null | undefined | 'b';
@@ -3930,7 +3930,7 @@ type MyType = NonNullable<Union>; // 'a' | 'b'
 
 #### Parameters\<T\>
 
-Extracts the parameter types of a function type T.
+Извлича типовете на параметрите на функция T.
 
 ```typescript
 type Func = (a: string, b: number) => void;
@@ -3939,7 +3939,7 @@ type MyType = Parameters<Func>; // [a: string, b: number]
 
 #### ConstructorParameters\<T\>
 
-Extracts the parameter types of a constructor function type T.
+Извлича типовете на параметрите на конструктор T.
 
 ```typescript
 class Person {
@@ -3956,7 +3956,7 @@ console.log(person); // Person { name: 'John', age: 30 }
 
 #### ReturnType\<T\>
 
-Extracts the return type of a function type T.
+Извлича типа на стойността, върната от функция T.
 
 ```typescript
 type Func = (name: string) => number;
@@ -3965,7 +3965,7 @@ type MyType = ReturnType<Func>; // number
 
 #### InstanceType\<T\>
 
-Extracts the instance type of a class type T.
+Извлича типа на инстанцията на клас T.
 
 ```typescript
 class Person {
@@ -3989,7 +3989,7 @@ person.sayHello(); // Hello, my name is John!
 
 #### ThisParameterType\<T\>
 
-Extracts the type of 'this' parameter from a function type T.
+Извлича типа на `this` параметъра от функция T.
 
 ```typescript
 interface Person {
@@ -4001,7 +4001,7 @@ type PersonThisType = ThisParameterType<Person['greet']>; // Person
 
 #### OmitThisParameter\<T\>
 
-Removes the 'this' parameter from a function type T.
+Премахва `this` параметъра от функция T.
 
 ```typescript
 function capitalize(this: String) {
@@ -4013,7 +4013,7 @@ type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
 
 #### ThisType\<T\>
 
-Servers as a market for a contextual `this` type.
+Служи като маркер за контекстуален `this` тип.
 
 <!-- skip -->
 ```typescript
@@ -4031,7 +4031,7 @@ let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
 
 #### Uppercase\<T\>
 
-Make uppercase the name of the input type T.
+Прави текста на входния тип T с главни букви.
 
 ```typescript
 type MyType = Uppercase<'abc'>; // "ABC"
@@ -4039,7 +4039,7 @@ type MyType = Uppercase<'abc'>; // "ABC"
 
 #### Lowercase\<T\>
 
-Make lowercase the name of the input type T.
+Прави текста на входния тип T с малки букви.
 
 ```typescript
 type MyType = Lowercase<'ABC'>; // "abc"
@@ -4047,7 +4047,7 @@ type MyType = Lowercase<'ABC'>; // "abc"
 
 #### Capitalize\<T\>
 
-Capitalize the name of the input type T.
+Прави първата буква на входния тип T главна.
 
 ```typescript
 type MyType = Capitalize<'abc'>; // "Abc"
@@ -4055,7 +4055,7 @@ type MyType = Capitalize<'abc'>; // "Abc"
 
 #### Uncapitalize\<T\>
 
-Uncapitalize the name of the input type T.
+Прави първата буква на входния тип T малка.
 
 ```typescript
 type MyType = Uncapitalize<'Abc'>; // "abc"
@@ -4063,23 +4063,23 @@ type MyType = Uncapitalize<'Abc'>; // "abc"
 
 #### NoInfer\<T\>
 
-NoInfer is a utility type designed to block the automatic inference of types within the scope of a generic function.
+NoInfer е utility тип, създаден да блокира автоматичното извеждане (inference) на типове в рамките на generic функция.
 
-Example:
+Пример:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// Автоматично извеждане на типове в generic функция
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
 const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
 ```
 
-With NoInfer:
+С NoInfer:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// Примерна функция, която използва NoInfer, за да предотврати type inference
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
@@ -4087,43 +4087,43 @@ function fn2<T extends string>(x: T[], y: NoInfer<T>) {
 const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
 ```
 
-## Others
+## Други
 
-### Errors and Exception Handling
+### Грешки и обработка на изключения
 
-TypeScript allows you to catch and handle errors using standard JavaScript error handling mechanisms:
+TypeScript позволява да прихващате и обработвате грешки, използвайки стандартните механизми на JavaScript:
 
-Try-Catch-Finally Blocks:
+Try-Catch-Finally блокове:
 
 ```typescript
 try {
-    // Code that might throw an error
+    // Код, който може да хвърли грешка
 } catch (error) {
-    // Handle the error
+    // Обработка на грешката
 } finally {
-    // Code that always executes, finally is optional
+    // Код, който винаги се изпълнява, finally е по избор
 }
 ```
 
-You can also handle different types of error:
+Можете също така да обработвате различни типове грешки:
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // Код, който може да хвърли различни типове грешки
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // Обработка на TypeError
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // Обработка на RangeError
     } else {
-        // Handle other errors
+        // Обработка на други грешки
     }
 }
 ```
 
-Custom Error Types:
+Потребителски типове грешки:
 
-It is possible to specify more specific error by extending on the Error `class`:
+Възможно е да дефинирате по-специфични грешки чрез разширяване на класа Error:
 
 ```typescript
 class CustomError extends Error {
@@ -4136,9 +4136,9 @@ class CustomError extends Error {
 throw new CustomError('This is a custom error.');
 ```
 
-### Mixin classes
+### Mixin класове
 
-Mixin classes allow you to combine and compose behavior from multiple classes into a single class. They provide a way to reuse and extend functionality without the need for deep inheritance chains.
+Mixin класовете позволяват комбиниране и композиция на поведение от множество класове в един клас. Те предоставят начин за преизползване и разширяване на функционалност без нужда от дълбоки вериги на наследяване.
 
 ```typescript
 abstract class Identifiable {
@@ -4162,10 +4162,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// Разширяване на MyClass с поведението на Identifiable и Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// Функция за прилагане на mixins към клас
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -4180,7 +4180,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// Прилагане на mixins към MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -4188,25 +4188,25 @@ o.logId();
 o.select();
 ```
 
-### Asynchronous Language Features
+### Асинхронни функционалности
 
-As TypeScript is a superset of JavaScript, it has built-in asynchronous language features of JavaScript as:
+Тъй като TypeScript е надмножество на JavaScript, той поддържа вградените асинхронни функционалности на JavaScript, като:
 
 Promises:
 
-Promises are a way to handle asynchronous operations and their results using methods like `.then()` and `.catch()` to handle success and error conditions.
+Promises са начин за обработка на асинхронни операции и техните резултати чрез методи като `.then()` и `.catch()` за обработка на успешни и неуспешни състояния.
 
-To learn more: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+За повече информация: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 Async/await:
 
-Async/await keywords are a way to provide a more synchronous-looking syntax for working with Promises. The `async` keyword is used to define an asynchronous function, and the `await` keyword is used within an async function to pause execution until a Promise is resolved or rejected.
+Ключовите думи async/await предоставят по-синхронно изглеждащ синтаксис за работа с Promises. Ключовата дума `async` се използва за дефиниране на асинхронна функция, а `await` се използва в рамките на такава функция, за да спре изпълнението, докато Promise бъде изпълнен или отхвърлен.
 
-To learn more:
+За повече информация:
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 
-The following API are well supported in TypeScript:
+Следните API-та са добре поддържани в TypeScript:
 
 Fetch API:
 [https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
@@ -4220,11 +4220,11 @@ Shared Workers:
 WebSocket:
 [https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
-### Iterators and Generators
+### Итератори и генератори
 
-Both Iterators and Generators are well supported in TypeScript.
+Както итераторите, така и генераторите са добре поддържани в TypeScript.
 
-Iterators are objects that implement the iterator protocol, providing a way to access elements of a collection or sequence one by one. It is a structure that contains a pointer to the next element in the iteration. They have a `next()` method that returns the next value in the sequence along with a boolean indicating if the sequence is `done`.
+Итераторите са обекти, които имплементират iterator протокола, предоставяйки начин за достъп до елементите на колекция или последователност един по един. Те представляват структура, която съдържа указател към следващия елемент в итерацията. Имат метод `next()`, който връща следващата стойност в последователността заедно с boolean стойност, указваща дали последователността е `done`.
 
 ```typescript
 class NumberIterator implements Iterable<number> {
@@ -4259,11 +4259,11 @@ for (const num of iterator) {
 }
 ```
 
-Generators are special functions defined using the `function*` syntax that simplifies the creation of iterators. They use the `yield` keyword to define the sequence of values and automatically pause and resume execution when values are requested.
+Генераторите са специални функции, дефинирани със синтаксиса `function*`, които улесняват създаването на итератори. Те използват ключовата дума `yield`, за да дефинират последователността от стойности и автоматично спират и възобновяват изпълнението, когато се изискват стойности.
 
-Generators make it easier to create iterators and are especially useful for working with large or infinite sequences.
+Генераторите улесняват създаването на итератори и са особено полезни при работа с големи или безкрайни последователности.
 
-Example:
+Пример:
 
 ```typescript
 function* numberGenerator(start: number, end: number): Generator<number> {
@@ -4279,9 +4279,9 @@ for (const num of generator) {
 }
 ```
 
-TypeScript also supports async iterators and async Generators.
+TypeScript също така поддържа async итератори и async генератори.
 
-To learn more:
+За повече информация:
 
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
 
@@ -4289,16 +4289,16 @@ To learn more:
 
 ### TsDocs JSDoc Reference
 
-When working with a JavaScript code base, it is possible to help TypeScript to infer the right Type by using JSDoc comments with additional annotation to provide type information.
+Когато работите с JavaScript кодова база, е възможно да помогнете на TypeScript да извлече правилния тип, използвайки JSDoc коментари с допълнителни анотации за предоставяне на типова информация.
 
-Example:
+Пример:
 
 ```typescript
 /**
- * Computes the power of a given number
+ * Изчислява степента на дадено число
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – Основната стойност на израза
+ * @param {number} exponent – Степента на израза
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -4309,43 +4309,43 @@ power(10, 2); // function power(base: number, exponent: number): number
 Full documentation is provided to this link:
 [https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
 
-From version 3.7 it is possible to generate .d.ts type definitions from JavaScript JSDoc syntax.
-More information can be found here:
+От версия 3.7 е възможно да се генерират `.d.ts` type definitions от JavaScript JSDoc синтаксис.
+Повече информация може да бъде намерена тук:
 [https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html](https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html)
 
 ### @types
 
-Packages under the @types organization are special package naming conventions used to provide type definitions for existing JavaScript libraries or modules. For instance using:
+Пакетите под организацията @types са специална naming convention, използвана за предоставяне на type definitions за съществуващи JavaScript библиотеки или модули. Например:
 
 ```shell
 npm install --save-dev @types/lodash
 ```
 
-Will install the type definitions of `lodash` in your current project.
+ще инсталира type definitions за `lodash` във вашия проект.
 
-To contribute to the type definitions of @types package, please submit a pull request to [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
+За да допринесете към type definitions на @types пакет, изпратете pull request към: [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
 
 ### JSX
 
-JSX (JavaScript XML) is an extension to the JavaScript language syntax that allows you to write HTML-like code within your JavaScript or TypeScript files. It is commonly used in React to define the HTML structure.
+JSX (JavaScript XML) е разширение на синтаксиса на JavaScript, което позволява да пишете HTML-подобен код директно в JavaScript или TypeScript файлове. Често се използва в React за дефиниране на HTML структура.
 
-TypeScript extends the capabilities of JSX by providing type checking and static analysis.
+TypeScript разширява възможностите на JSX чрез type checking и static analysis.
 
-To use JSX you need to set the `jsx` compiler option in your `tsconfig.json` file. Two common configuration options:
+За да използвате JSX, трябва да зададете `jsx` опцията в `tsconfig.json`. Две често използвани конфигурации:
 
-* "preserve": emit .jsx files with the JSX unchanged. This option tells TypeScript to keep the JSX syntax as-is and not transform it during the compilation process. You can use this option if you have a separate tool, like Babel, that handles the transformation.
-* "react": enables TypeScript's built-in JSX transformation. React.createElement will be used.
+* "preserve": генерира .jsx файлове без промяна на JSX. TypeScript запазва JSX синтаксиса и не го трансформира. Подходящо, ако използвате инструмент като Babel.
+* "react": активира вградената JSX трансформация в TypeScript. Използва се React.createElement.
 
-All options are available here:
+Всички опции:
 [https://www.typescriptlang.org/tsconfig#jsx](https://www.typescriptlang.org/tsconfig#jsx)
 
 ### ES6 Modules
 
-TypeScript does support ES6 (ECMAScript 2015) and many subsequent versions. This means you can use ES6 syntax, such as arrow functions, template literals, classes, modules, destructuring, and more.
+TypeScript поддържа ES6 (ECMAScript 2015) и следващи версии. Това означава, че можете да използвате arrow functions, template literals, класове, модули, destructuring и други.
 
-To enable ES6 features in your project, you can specify the `target` property in the tsconfig.json.
+За да активирате ES6 функционалности, задайте `target` в tsconfig.json.
 
-A configuration example:
+Пример:
 
 ```json
 {
@@ -4362,8 +4362,8 @@ A configuration example:
 
 ### ES7 Exponentiation Operator
 
-The exponentiation (`**`) operator computes the value obtained by raising the first operand to the power of the second operand. It functions similarly to `Math.pow()`, but with the added capability of accepting BigInts as operands.
-TypeScript fully supports this operator using as `target` in your tsconfig.json file `es2016` or larger version.
+Операторът за повдигане в степен (`**`) изчислява стойността, получена при повдигането на първия операнд в степен на втория операнд. Той работи по подобен начин като `Math.pow()`, но с допълнителната възможност да приема BigInts като операнди.
+TypeScript поддържа напълно този оператор, ако използвате `target` в файла tsconfig.json и сте задали `es2016` или по-нова версия. 
 
 ```typescript
 console.log(2 ** (2 ** 2)); // 16
@@ -4371,7 +4371,7 @@ console.log(2 ** (2 ** 2)); // 16
 
 ### The for-await-of Statement
 
-This is a JavaScript feature fully supported in TypeScript which allows you to iterate over asynchronous iterable objects from target version es2018.
+Това е JavaScript функционалност, напълно поддържана в TypeScript, която позволява итериране върху асинхронни iterable обекти (от es2018).
 
 ```typescript
 async function* asyncNumbers(): AsyncIterableIterator<number> {
@@ -4389,7 +4389,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 
 ### New target meta-property
 
-You can use in TypeScript the `new.target` meta-property which enables you to determine if a function or constructor was invoked using the new operator. It allows you to detect whether an object was created as a result of a constructor call.
+В TypeScript можете да използвате метасвойството `new.target`, което ви позволява да установите дали дадена функция или конструктор е бил извикан чрез оператора `new`. То ви позволява да установите дали даден обект е бил създаден в резултат на извикване на конструктор.
 
 ```typescript
 class Parent {
@@ -4410,9 +4410,9 @@ const child = new Child(); // [Function: Child]
 
 ### Dynamic Import Expressions
 
-It is possible to conditionally load modules or lazy load them on-demand using the ECMAScript proposal for dynamic import which is supported in TypeScript.
+Възможно е модулите да се зареждат условно или да се зареждат при поискване чрез предложението на ECMAScript за динамичен импорт, което се поддържа в TypeScript.
 
-The syntax for dynamic import expressions in TypeScript is as follows:
+Синтаксисът за динамични import изрази в TypeScript е следният:
 
 <!-- skip -->
 ```typescript
@@ -4429,17 +4429,17 @@ renderWidget();
 
 ### "tsc –watch"
 
-This command starts a TypeScript compiler with `--watch` parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
+Тази команда стартира компилатора на TypeScript с параметъра `--watch`, който позволява автоматично прекомпилиране на файловете в TypeScript при всяка промяна в тях.
 
 ```shell
 tsc --watch
 ```
 
-Starting from TypeScript version 4.9, file monitoring primarily relies on file system events, automatically resorting to polling if an event-based watcher cannot be established.
+От версия 4.9 на TypeScript, наблюдението на файлове основно разчита на събития от файловата система, автоматично преминавайки към polling, ако не може да се установи наблюдател, базиран на събития.
 
 ### Non-null Assertion Operator
 
-The Non-null Assertion Operator (Postfix !) also called Definite Assignment Assertions is a TypeScript feature that allows you to assert that a variable or property is not null or undefined, even if TypeScript's static type analysis suggests that it might be. With this feature it is possible to remove any explicit checking.
+Non-null Assertion операторът (постфикс !), наричан още "утвърждаване за определено присвояване", е функция на TypeScript, която ви позволява да потвърдите, че дадена променлива или свойство не е null или undefined, дори ако статичният типов анализ на TypeScript предполага, че това може да е така. С тази функция е възможно да се премахнат всички изрични проверки.
 
 ```typescript
 type Person = {
@@ -4451,9 +4451,9 @@ const printName = (person?: Person) => {
 };
 ```
 
-### Defaulted declarations
+### Декларации със стойности по подразбиране
 
-Defaulted declarations are used when a variable or parameter is assigned a default value. This means that if no value is provided for that variable or parameter, the default value will be used instead.
+Декларации със стойности по подразбиране се използват, когато на дадена променлива или параметър е присвоена стойност по подразбиране. Това означава, че ако не бъде подадена стойност за тази променлива или параметър, вместо това ще се използва стойността по подразбиране.
 
 ```typescript
 function greet(name: string = 'Anonymous'): void {
@@ -4465,7 +4465,7 @@ greet('John'); // Hello, John!
 
 ### Optional Chaining
 
-The optional chaining operator `?.` works like the regular dot operator (`.`) for accessing properties or methods. However, it gracefully handles null or undefined values by terminating the expression and returning `undefined`, instead of throwing an error.
+Операторът за optional chaining `?.` работи подобно на стандартния точков оператор (`.`) за достъп до свойства или методи. Разликата е, че той обработва безопасно стойности `null` или `undefined`, като прекратява израза и връща `undefined`, вместо да хвърля грешка.
 
 ```typescript
 type Person = {
@@ -4486,7 +4486,7 @@ console.log(person.address?.city); // undefined
 
 ### Nullish coalescing operator
 
-The nullish coalescing operator `??` returns the right-hand side value if the left-hand side is `null` or `undefined`; otherwise, it returns the left-hand side value.
+Операторът за nullish coalescing `??` връща стойността от дясната страна, ако лявата страна е `null` или `undefined`; в противен случай връща стойността от лявата страна.
 
 ```typescript
 const foo = null ?? 'foo';
@@ -4500,7 +4500,7 @@ console.log(baz2); // 0
 
 ### Template Literal Types
 
-Template Literal Types allow to manipulate string value at type level and generate new string types based on existing ones. They are useful to create more expressive and precise types from string-based operations.
+Template Literal Types позволяват да се манипулират string стойности на ниво тип и да се генерират нови string типове на база съществуващи. Те са полезни за създаване на по-изразителни и прецизни типове при операции със string стойности.
 
 ```typescript
 type Department = 'engineering' | 'hr';
@@ -4510,8 +4510,8 @@ type Id = `${Department}-${Language}-id`; // "engineering-english-id" | "enginee
 
 ### Function overloading
 
-Function overloading allows you to define multiple function signatures for the same function name, each with different parameter types and return type.
-When you call an overloaded function, TypeScript uses the provided arguments to determine the correct function signature:
+Function overloading позволява да дефинираш множество function signatures за една и съща функция, като всяка има различни типове на параметрите и return type.
+Когато извикаш overloaded функция, TypeScript използва подадените аргументи, за да определи правилния function signature:
 
 ```typescript
 function makeGreeting(name: string): string;
@@ -4532,7 +4532,7 @@ makeGreeting(['Simone', 'John']);
 
 ### Recursive Types
 
-A Recursive Type is a type that can refer to itself. This is useful for defining data structures that have a hierarchical or recursive structure (potentially infinite nesting), such as linked lists, trees, and graphs.
+Recursive Type е тип, който може да реферира сам себе си. Това е полезно за дефиниране на структури от данни с йерархична или рекурсивна структура (потенциално безкрайно вложени), като linked lists, trees и graphs.
 
 ```typescript
 type ListNode<T> = {
@@ -4543,10 +4543,10 @@ type ListNode<T> = {
 
 ### Recursive Conditional Types
 
-It is possible to define complex type relationships using logic and recursion in TypeScript.
-Let’s break it down in simple terms:
+В TypeScript е възможно да се дефинират сложни типови зависимости чрез логика и рекурсия.
+Нека го разделим на по-прости части:
 
-Conditional Types: allows you to define types based on boolean conditions:
+Conditional Types позволяват да дефинираш типове на базата на булеви условия:
 
 ```typescript
 type CheckNumber<T> = T extends number ? 'Number' : 'Not a number';
@@ -4554,7 +4554,7 @@ type A = CheckNumber<123>; // 'Number'
 type B = CheckNumber<'abc'>; // 'Not a number'
 ```
 
-Recursion: means a type definition that refers to itself within its own definition:
+Рекурсия означава дефиниция на тип, която се реферира към самата себе си:
 
 ```typescript
 type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
@@ -4568,7 +4568,7 @@ const data: Json = {
 };
 ```
 
-Recursive Conditional Types combine both conditional logic and recursion. It means that a type definition can depend on itself through conditional logic, creating complex and flexible type relationships.
+Recursive Conditional Types комбинират и двете - условна логика и рекурсия. Това означава, че дефиницията на тип може да зависи от самата себе си чрез условни проверки, което позволява много гъвкави и сложни типови отношения.
 
 ```typescript
 type Flatten<T> = T extends Array<infer U> ? Flatten<U> : T;
@@ -4579,7 +4579,7 @@ type FlattenedArray = Flatten<NestedArray>; // 2 | 3 | 4 | 5 | 1 | 6
 
 ### ECMAScript Module Support in Node
 
-Node.js added support for ECMAScript Modules starting from version 15.3.0, and TypeScript has had ECMAScript Module Support for Node.js since version 4.7. This support can be enabled by using the `module` property with the value `nodenext` in the tsconfig.json file. Here's an example:
+Node.js добавя поддръжка за ECMAScript Modules от версия 15.3.0, а TypeScript поддържа ECMAScript Module Support за Node.js от версия 4.7. Това може да се активира чрез свойството `module` със стойност `nodenext` в tsconfig.json файла:
 
 ```json
 {
@@ -4591,15 +4591,15 @@ Node.js added support for ECMAScript Modules starting from version 15.3.0, and T
 }
 ```
 
-Node.js supports two file extensions for modules: `.mjs` for ES modules and `.cjs` for CommonJS modules. The equivalent file extensions in TypeScript are `.mts` for ES modules and `.cts` for CommonJS modules. When the TypeScript compiler transpiles these files to JavaScript, it will create `.mjs` and `.cjs` files.
+Node.js поддържа два файлови разширения за модули: `.mjs` за ES modules и `.cjs` за CommonJS modules. Съответните TypeScript разширения са `.mts` за ES modules и `.cts` за CommonJS modules. При компилация TypeScript ще генерира `.mjs` и `.cjs` файлове.
 
-If you want to use ES modules in your project, you can set the `type` property to "module" in your package.json file. This instructs Node.js to treat the project as an ES module project.
+Ако искате да използвате ES модули във вашия проект, можете да зададете стойността на свойството `type` на "module" във файла package.json. Това указва на Node.js да третира проекта като проект с ES модули.
 
-Additionally, TypeScript also supports type declarations in .d.ts files. These declaration files provide type information for libraries or modules written in TypeScript, allowing other developers to utilize them with TypeScript's type checking and auto-completion features.
+TypeScript също поддържа type declarations чрез .d.ts файлове. Те предоставят типова информация за библиотеки или модули, което позволява type checking и auto-completion.
 
 ### Assertion Functions
 
-In TypeScript, assertion functions are functions that indicate the verification of a specific condition based on their return value. In their simplest form, an assert function examines a provided predicate and raises an error when the predicate evaluates to false.
+В TypeScript assertion functions са функции, които чрез своята връщана стойност показват дали дадено условие е изпълнено. В най-опростения си вид функцията за проверка проверява даден предикат и генерира грешка, когато предикатът се оценява като false.
 
 ```typescript
 function isNumber(value: unknown): asserts value is number {
@@ -4609,7 +4609,7 @@ function isNumber(value: unknown): asserts value is number {
 }
 ```
 
-Or can be declared as function expression:
+Или може да бъде деклариран като function expression:
 
 ```typescript
 type AssertIsNumber = (value: unknown) => asserts value is number;
@@ -4620,10 +4620,10 @@ const isNumber: AssertIsNumber = value => {
 };
 ```
 
-Assertion functions share similarities with type guards. Type guards were initially introduced to perform runtime checks and ensure the type of a value within a specific scope.
-Specifically, a type guard is a function that evaluates a type predicate and returns a boolean value indicating whether the predicate is true or false. This differs slightly from assertion functions,where the intention is to throw an error rather than returning false when the predicate is not satisfied.
+Assertion functions са подобни на type guards. Type guards се използват за runtime проверки и връщат boolean стойност, която показва дали даден тип е валиден в конкретен контекст. Разликата е, че type guards връщат false, докато assertion functions хвърлят грешка при неуспех.
+Функциите за проверка имат сходства с типовите защити. Типовите защити бяха въведени първоначално, за да извършват проверки по време на изпълнение и да гарантират типа на дадена стойност в рамките на конкретен обхват. По-конкретно, типовата защита е функция, която изчислява типов предикат и връща булева стойност, показваща дали предикатът е истински или неистински. Това се различава леко от функциите за проверка, при които целта е да се генерира грешка, а не да се върне стойност false, когато предикатът не е изпълнен.
 
-Example of type guard:
+Пример за типна защита:
 
 ```typescript
 const isNumber = (value: unknown): value is number => typeof value === 'number';
@@ -4631,18 +4631,18 @@ const isNumber = (value: unknown): value is number => typeof value === 'number';
 
 ### Variadic Tuple Types
 
-Variadic Tuple Types are a features introduces in TypeScript version 4.0, let’s start to learn them by revise what is a tuple:
+Variadic Tuple Types са feature, въведен в TypeScript версия 4.0, нека започнем да ги изучаваме, като си припомним какво е tuple:
 
-A tuple type is an array which has a defined length, and were the type of each element is known:
+Tuple типът е масив, който има дефинирана дължина и в който типът на всеки елемент е известен:
 
 ```typescript
 type Student = [string, number];
 const [name, age]: Student = ['Simone', 20];
 ```
 
-The term "variadic" means indefinite arity (accept a variable number of arguments).
+Терминът "variadic" означава неопределена арност (приема променлив брой аргументи).
 
-A variadic tuple is a tuple type which has all the property as before but the exact shape is not defined yet:
+Variadic tuple е tuple тип, който има всички свойства като преди, но точната форма все още не е дефинирана:
 
 ```typescript
 type Bar<T extends unknown[]> = [boolean, ...T, number];
@@ -4652,9 +4652,9 @@ type B = Bar<['a', 'b']>; // [boolean, 'a', 'b', number]
 type C = Bar<[]>; // [boolean, number]
 ```
 
-In the previous code we can see that the tuple shape is defined by the `T` generic passed in.
+В предишния код можем да видим, че формата на tuple-а се определя от generic-а `T`, който е подаден.
 
-Variadic tuples can accept multiple generics make them very flexible:
+Variadic tuple-ите могат да приемат множество generics, което ги прави много гъвкави:
 
 ```typescript
 type Bar<T extends unknown[], G extends unknown[]> = [...T, boolean, ...G];
@@ -4663,12 +4663,12 @@ type A = Bar<[number], [string]>; // [number, boolean, string]
 type B = Bar<['a', 'b'], [boolean]>; // ["a", "b", boolean, boolean]
 ```
 
-With the new variadic tuples we can use:
+С новите variadic tuples можем да използваме:
 
-* The spreads in tuple type syntax can now be generic, so we can represent higher-order operation on tuples and arrays even when we do not know the actual types we are operating over.
-* The rest elements can occur anywhere in a tuple.
+* Spread синтаксисът в tuple type вече може да бъде generic, което означава, че можем да моделираме higher-order операции върху tuples и arrays дори когато не знаем реалните типове, с които работим.
+* Rest елементи могат да се появяват на всяка позиция в tuple.
 
-Example:
+Пример:
 
 ```typescript
 type Items = readonly unknown[];
@@ -4685,11 +4685,11 @@ concat([1, 2, 3], ['4', '5', '6']); // [1, 2, 3, "4", "5", "6"]
 
 ### Boxed types
 
-Boxed types refer to the wrapper objects that are used to represent primitive types as objects. These wrapper objects provide additional functionality and methods that are not available directly on the primitive values.
+Boxed types се отнасят до wrapper обекти, които се използват за представяне на primitive типове като обекти. Тези wrapper обекти предоставят допълнителна функционалност и методи, които не са налични директно върху primitive стойностите.
 
-When you access a method like `charAt` or `normalize` on a `string` primitive, JavaScript wraps it in a `String` object, calls the method, and then throws the object away.
+Когато достъпваш метод като `charAt` или `normalize` върху `string` primitive, JavaScript го обвива в `String` обект, извиква метода и след това изхвърля обекта.
 
-Demonstration:
+Демонстрация:
 
 ```typescript
 const originalNormalize = String.prototype.normalize;
@@ -4700,7 +4700,7 @@ String.prototype.normalize = function () {
 console.log('\u0041'.normalize());
 ```
 
-TypeScript represents this differentiation by providing separate types for the primitives and their corresponding object wrappers:
+TypeScript представя тази разлика чрез отделни типове за primitive стойностите и техните object wrapper-и:
 
 * string => String
 * number => Number
@@ -4708,23 +4708,23 @@ TypeScript represents this differentiation by providing separate types for the p
 * symbol => Symbol
 * bigint => BigInt
 
-The boxed types are usually not needed. Avoid using boxed types and instead use type for the primitives,  for instance `string` instead of `String`.
+Boxed types обикновено не са необходими. Избягвай използването им и вместо това използвай primitive типове — например `string` вместо `String`.
 
-### Covariance and Contravariance in TypeScript
+### Covariance и Contravariance в TypeScript
 
-Covariance and Contravariance are used to describe how relationships work when dealing with inheritance or assignment of types.
+Covariance и Contravariance се използват, за да опишат как работят връзките при наследяване или присвояване на типове.
 
-Covariance means that a type relationship preserves the direction of inheritance or assignment, so if a type A is a subtype of type B, then an array of type A is also considered a subtype of an array of type B. The important thing to note here is that the subtype relationship is maintained this means that Covariance accept subtype but doesn't accept supertype.
+Covariance означава, че връзката между типовете запазва посоката на наследяване или присвояване, така че ако тип A е subtype на тип B, тогава array от тип A също се счита за subtype на array от тип B. Важно е да се отбележи, че subtype връзката се запазва — това означава, че covariance приема subtype, но не приема supertype.
 
-Contravariance means that a type relationship reverses the direction of inheritance or assignment, so if a type A is a subtype of type B, then an array of type B is considered a subtype of an array of type A. The subtype relationship is reversed this means that Contravariance accept supertype but doesn't accept subtype.
+Contravariance означава, че връзката между типовете обръща посоката на наследяване или присвояване, така че ако тип A е subtype на тип B, тогава array от тип B се счита за subtype на array от тип A. Subtype връзката се обръща — това означава, че contravariance приема supertype, но не приема subtype.
 
-Notes: Bivariance means accept both supertype & subtype.
+Бележка: Bivariance означава приемане както на supertype, така и на subtype.
 
-Example: Let's say we have a space for all animals and a separate space just for dogs.
+Пример: да си представим пространство за всички животни и отделно пространство само за кучета.
 
-In Covariance, you can put all the dogs in the animals space because dogs are a type of animal. But you cannot put all the animals in the dog space because there might be other animals mixed in.
+При covariance можеш да поставиш всички кучета в пространството за животни, защото кучетата са вид животни. Но не можеш да поставиш всички животни в пространството за кучета, защото може да има и други животни.
 
-In Contravariance, you cannot put all the animals in the dogs space because the animals space might contain other animals as well. However, you can put all the dogs in the animal space because all dogs are also animals.
+При contravariance не можеш да поставиш всички животни в пространството за кучета, защото пространството за животни може да съдържа и други животни. Но можеш да поставиш всички кучета в пространството за животни, защото всички кучета са животни.
 
 <!-- skip -->
 ```typescript
@@ -4764,32 +4764,32 @@ let feedDog: Feed<Dog> = (dog: Dog) => {
 
 // Contravariance allows assigning supertype (Animal) callback to subtype (Dog) callback
 feedDog = feedAnimal;
-feedAnimal = feedDog; // Невалидно: Type 'Feed<Dog>' is not assignable to type 'Feed<Animal>'.
+feedAnimal = feedDog; // Invalid: Type 'Feed<Dog>' is not assignable to type 'Feed<Animal>'.
 ```
 
-In TypeScript, type relationships for arrays are covariant, while type relationships for function parameters are contravariant. This means that TypeScript exhibits both covariance and contravariance, depending on the context.
+В TypeScript типовите отношения за arrays са covariant, докато типовите отношения за function parameters са contravariant. Това означава, че TypeScript проявява и covariance, и contravariance в зависимост от контекста.
 
 #### Optional Variance Annotations for Type Parameters
 
-As of TypeScript 4.7.0, we can use the `out` and `in` keywords to be specific about Variance annotation.
+От TypeScript 4.7.0 можем да използваме `out` и `in` keywords, за да уточним variance аннотацията.
 
-For Covariant, use the `out` keyword:
+За covariant използваме `out`:
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T is Covariant here
+type AnimalCallback<out T> = () => T; // T е covariant тук
 ```
 
-And for Contravariant, use the `in` keyword:
+А за contravariant използваме `in`:
 
 ```typescript
-type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
+type AnimalCallback<in T> = (value: T) => void; // T е contravariant тук
 ```
 
 ### Template String Pattern Index Signatures
 
-Template string pattern index signatures allow us to define flexible index signatures using template string patterns. This feature enables us to create objects that can be indexed with specific patterns of string keys, providing more control and specificity when accessing and manipulating properties.
+Template string pattern index signatures ни позволяват да дефинираме гъвкави index signatures чрез template string patterns. Тази функционалност ни позволява да създаваме обекти, които могат да бъдат индексирани със специфични шаблони от string keys, като по този начин получаваме повече контрол и прецизност при достъп и манипулация на свойства.
 
-TypeScript from version 4.4 allows index signatures for symbols and template string patterns.
+TypeScript от версия 4.4 позволява index signatures за symbols и template string patterns.
 
 ```typescript
 const uniqueSymbol = Symbol('description');
@@ -4814,8 +4814,8 @@ console.log(obj['key-b']); // 456
 
 ### The satisfies Operator
 
-The `satisfies`  allows you to check if a given type satisfies a specific interface or condition. In other words, it ensures that a type has all the required properties and methods of a specific interface. It is a way to ensure a variable fits into a definition of a type.
-Here is an example:
+`satisfies` операторът позволява да провериш дали даден тип отговаря на специфичен interface или условие. С други думи, той гарантира, че типът има всички изисквани свойства и методи на даден interface. Това е начин да се гарантира, че дадена променлива съответства на дефиниция на тип.
+Ето един пример:
 
 <!-- skip -->
 ```typescript
@@ -4830,48 +4830,48 @@ const user: User = {
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
+// В следните редове TypeScript няма да може да направи правилно inference
 user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// Type assertion с `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
+// И тук TypeScript няма да може да направи правилно inference
 user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Using `satisfies` operators we can properly infer the types now
+// Използвайки `satisfies` операторите, можем да направим правилно inference на типовете
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript инферира правилно: string[]
+user3.nickName; // TypeScript инферира правилно: undefined
 ```
 
-### Type-Only Imports and Export
+### Type-Only Imports и Export
 
-Type-Only Imports and Export allows you to import or export types without importing or exporting the values or functions associated with those types. This can be useful for reducing the size of your bundle.
+Type-Only Imports и Export позволява да импортираш или експортираш типове без да импортираш или експортираш стойностите или функциите, свързани с тези типове. Това може да бъде полезно за намаляване на размера на bundle-а.
 
-To use type-only imports, you can use the `import type` keyword.
+За type-only imports можеш да използваш ключовата дума `import type`.
 
-TypeScript permits using both declaration and implementation file extensions (.ts, .mts, .cts, and .tsx) in type-only imports, regardless of `allowImportingTsExtensions` settings.
+TypeScript позволява използване както на declaration, така и на implementation файлови разширения (.ts, .mts, .cts и .tsx) в type-only imports, независимо от настройката `allowImportingTsExtensions`.
 
-For example:
+Например:
 
 <!-- skip -->
 ```typescript
 import type { House } from './house.ts';
 ```
 
-The following are supported forms:
+Поддържат се следните форми:
 
 <!-- skip -->
 ```typescript
@@ -4882,16 +4882,16 @@ export type { T };
 export type { T } from './mod';
 ```
 
-### using declaration and Explicit Resource Management
+### using declaration и Explicit Resource Management
 
-A `using` declaration is a block-scoped, immutable binding, similar to `const`, used for managing disposable resources. When initialized with a value, the `Symbol.dispose` method of that value is recorded and subsequently executed upon exiting the enclosing block scope.
+`using` декларация е block-scoped, immutable binding, подобен на `const`, използван за управление на disposable ресурси. Когато бъде инициализиран със стойност, методът `Symbol.dispose` на тази стойност се записва и впоследствие се изпълнява при излизане от съответния block scope.
 
-This is based on ECMAScript's Resource Management feature, which is useful for performing essential cleanup tasks after object creation, such as closing connections, deleting files, and releasing memory.
+Това е базирано на ECMAScript Resource Management функционалност, която е полезна за извършване на важни cleanup операции след създаване на обекти, като затваряне на връзки, изтриване на файлове и освобождаване на памет.
 
-Notes:
+Бележки:
 
-* Due to its recent introduction in TypeScript version 5.2, most runtimes lack native support. You'll need polyfills for: `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`.
-* Additionally, you will need to configure your tsconfig.json as follows:
+* Поради скорошното му въвеждане в TypeScript версия 5.2, повечето runtime среди нямат нативна поддръжка. Ще са ви необходими полифили за: `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`.
+* Освен това, ще трябва да конфигурирате вашия tsconfig.json както следва:
 
 ```json
 {
@@ -4902,7 +4902,7 @@ Notes:
 }
 ```
 
-Example:
+Пример:
 
 <!-- skip -->
 ```typescript
@@ -4927,7 +4927,7 @@ console.log(1);
 console.log(3);
 ```
 
-The code will log:
+Кодът ще изведе:
 
 ```shell
 1
@@ -4936,7 +4936,7 @@ disposed
 3
 ```
 
-A resource eligible for disposal must adhere to the `Disposable` interface:
+Resource, който е eligible за disposal, трябва да отговаря на `Disposable` interface:
 
 ```typescript
 // lib.esnext.disposable.d.ts
@@ -4945,7 +4945,7 @@ interface Disposable {
 }
 ```
 
-The `using` declarations record resource disposal operations in a stack, ensuring they are disposed in reverse order of declaration:
+`using` декларациите записват disposal операциите в stack, като гарантират, че те се изпълняват в обратен ред на декларацията:
 
 <!-- skip -->
 ```typescript
@@ -4956,11 +4956,11 @@ The `using` declarations record resource disposal operations in a stack, ensurin
 } // disposes `C`, then `B`, then `A`.
 ```
 
-Resources are guaranteed to be disposed, even if subsequent code or exceptions occur. This may lead to disposal potentially throwing an exception, possibly suppressing another. To retain information on suppressed errors, a new native exception, `SuppressedError`, is introduced.
+Resources се гарантира, че ще бъдат disposed, дори ако последващ код или exception възникне. Това може да доведе до ситуация, в която disposal хвърля exception, който може да suppress-не друг. За да се запази информация за suppressed errors, се въвежда нов native exception `SuppressedError`.
 
-#### await using declaration
+#### Декларация await using
 
-An `await using` declaration handles an asynchronously disposable resource. The value must have a `Symbol.asyncDispose` method, which will be awaited at the block's end.
+Декларацията `await using` се използва за управление на асинхронно освобождаеми ресурси. Стойността трябва да разполага с метод `Symbol.asyncDispose`, който ще бъде извикан в края на блока.
 
 <!-- skip -->
 ```typescript
@@ -4969,7 +4969,7 @@ async function doWorkAsync() {
 } // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
 ```
 
-For an asynchronously disposable resource, it must adhere to either the `Disposable` or `AsyncDisposable` interface:
+За да бъде ресурсът асинхронно освобождаем, той трябва да отговаря на интерфейса `Disposable` или `AsyncDisposable`:
 
 ```typescript
 // lib.esnext.disposable.d.ts
@@ -4984,9 +4984,9 @@ interface AsyncDisposable {
 Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polify
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // Метод, който се извиква, когато обектът се унищожава асинхронно
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // Затваряне на връзката и връщане на promise
         return this.close();
     }
 
@@ -4998,15 +4998,15 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // Създаване на нова връзка и асинхронно освобождаване, когато излезе от обхвата
+    await using connection = new DatabaseConnection(); //  Resource е деклариран
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Resource е освободен (например, `await connection[Symbol.asyncDispose]()` се извиква)
 
 doWork();
 ```
 
-The code logs:
+Кодът ще изведе:
 
 ```shell
 Doing some work...
@@ -5014,20 +5014,20 @@ Closing the connection...
 Connection closed.
 ```
 
-The `using` and `await using` declarations are allowed in Statements: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.
+Декларациите `using` и `await using` са разрешени в изрази: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.
 
 ### Import Attributes
 
-TypeScript 5.3's Import Attributes (labels for imports) tell the runtime how to handle modules (JSON, etc.). This improves security by ensuring clear imports and aligns with Content Security Policy (CSP) for safer resource loading. TypeScript ensures they are valid but lets the runtime handle their interpretation for specific module handling.
+Import Attributes в TypeScript 5.3 (labels за imports) казват на runtime-a как да обработи модули (JSON и др.). Това подобрява сигурността, като гарантира ясни imports и се съобразява с Content Security Policy (CSP) за по-безопасно зареждане на ресурси. TypeScript валидира тяхната коректност, но оставя интерпретацията на runtime-а.
 
-Example:
+Пример:
 
 <!-- skip -->
 ```typescript
 import config from './config.json' with { type: 'json' };
 ```
 
-with dynamic import:
+с dynamic import:
 
 <!-- skip -->
 ```typescript
