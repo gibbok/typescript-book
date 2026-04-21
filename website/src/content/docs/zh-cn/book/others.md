@@ -610,23 +610,35 @@ TypeScript 通过为原语及其相应的对象包装器提供单独的类型来
 
 ### TypeScript 中的协变和逆变
 
-协变和逆变用于描述在处理类型的继承或赋值时关系如何工作。
+协变和逆变描述了泛型类型中类型关系的行为方式。
 
-协变意味着类型关系保留继承或赋值的方向，因此如果类型 A 是类型 B 的子类型，则类型 A 的数组也被视为类型 B 的数组的子类型。这里需要注意的重要事项是维持子类型关系，这意味着协变接受子类型但不接受超类型。
+在 TypeScript 中：
 
-逆变意味着类型关系颠倒了继承或赋值的方向，因此如果类型 A 是类型 B 的子类型，则类型 B 的数组被视为类型 A 数组的子类型。子类型关系颠倒了，这意味着该逆变接受超类型但不接受子类型。
+* 数组是**协变的**，但这在类型上并不是完全安全的。
+* 函数参数类型是：
+  * 在启用 `strictFunctionTypes` 时为**逆变**
+  * 否则为**双变**
 
-注意：双变量意味着同时接受超类型和子类型。
+协变意味着关系被保留：如果类型 A 是类型 B 的子类型，那么 `F<A>` 也是 `F<B>` 的子类型。在 TypeScript 中，这通常出现在返回类型和数组中（尽管数组的协变并不是完全类型安全的）。
 
-示例：假设我们有一个适合所有动物的空间和一个专门适合狗的单独空间。
+逆变意味着关系被反转：如果类型 A 是类型 B 的子类型，那么 `F<B>` 是 `F<A>` 的子类型。在 TypeScript 中，函数参数类型被设计为逆变，这意味着一个接受更宽泛类型的函数可以在需要更具体类型的地方使用。
 
-在协方差中，您可以将所有狗放入动物空间中，因为狗是一种动物。但你不能把所有的动物都放在狗的空间里，因为可能还有其他动物混在一起。
+然而，在实践中，TypeScript 通常允许函数参数具有双变性（除非启用了 `strictFunctionTypes`），这意味着即使在不完全类型安全的情况下，两个方向都可能被接受。
 
-在逆变中，您不能将所有动物放入狗空间中，因为动物空间也可能包含其他动物。然而，你可以把所有的狗都放在动物空间里，因为所有的狗也是动物。
+示例：想象一个包含所有动物的空间，以及一个只包含狗的独立空间。
+
+* **协变**：  
+  你可以在需要“动物空间”的地方使用“狗空间”，因为所有的狗都是动物。  
+  但你不能在需要“狗空间”的地方使用“动物空间”，因为其中可能包含不是狗的动物。
+
+* **逆变**（从函数的角度思考）：  
+  如果你有一个可以处理**任何动物**的东西，你可以在需要处理**仅狗**的地方使用它。  
+  但反过来不行。
+
+协变示例：
 
 <!-- skip -->
 ```typescript
-// 协变示例
 class Animal {
     name: string;
     constructor(name: string) {
@@ -645,27 +657,48 @@ class Dog extends Animal {
 let animals: Animal[] = [];
 let dogs: Dog[] = [];
 
-// 协变允许将子类型（狗）数组分配给超类型（动物）数组
-animals = dogs;
-dogs = animals; // 无效: 'Animal[]' 不能赋值给 'Dog[]'
-
-// 逆变示例
-type Feed<in T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = (animal: Animal) => {
-    console.log(`Animal name: ${animal.name}`);
-};
-
-let feedDog: Feed<Dog> = (dog: Dog) => {
-    console.log(`Dog name: ${dog.name}, Breed: ${dog.breed}`);
-};
-
-// 逆变允许将超类型（动物）回调赋值给子类型（狗）回调
-feedDog = feedAnimal;
-feedAnimal = feedDog; // 无效: Type 'Feed<Dog>' 不能赋值给 'Feed<Animal>'.
+// Arrays are covariant in TypeScript (but not type-safe)
+animals = dogs; // allowed
+dogs = animals; // error
 ```
 
-在 TypeScript 中，数组的类型关系是协变的，而函数参数的类型关系是逆变的。这意味着 TypeScript 同时表现出协变和逆变，具体取决于上下文。
+这是不安全的，因为你可能会向 `animals` 中加入一个不是狗的元素。
+
+逆变示例：
+
+<!-- skip -->
+```typescript
+class Animal {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+class Dog extends Animal {
+  breed: string;
+  constructor(name: string, breed: string) {
+    super(name);
+    this.breed = breed;
+  }
+}
+
+type Feed<T> = (animal: T) => void;
+
+let feedAnimal: Feed<Animal> = (animal) => {
+  console.log(animal.name);
+};
+
+let feedDog: Feed<Dog> = (dog) => {
+  console.log(dog.breed);
+};
+
+// Intended contravariance:
+feedDog = feedAnimal; // safe
+
+// This depends on compiler settings:
+feedAnimal = feedDog; // error only with strictFunctionTypes
+```
 
 #### 类型参数的可选方差注释
 
@@ -952,14 +985,14 @@ let r = /(a)\2/; // 错误：此反向引用指向一个不存在的组。
 <!-- skip -->
 ```typescript
 // 文件：a.ts
-console.log("runs!");
+console.log('runs!');
 export const x = 1;
 ```
 
 <!-- skip -->
 ```typescript
 // 文件：main.ts
-import defer * as a from "./a.js";
-console.log("start"); // a.ts 中尚无任何内容
+import * as a from './a.js';
+console.log('start'); // a.ts 中尚无任何内容
 console.log(a.x); // 现在打印“runs!"，然后输出 1
 ```
