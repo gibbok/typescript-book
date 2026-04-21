@@ -4744,7 +4744,7 @@ The boxed types are usually not needed. Avoid using boxed types and instead use 
 
 ### Covariance and Contravariance in TypeScript
 
-Covariance and contravariance describe how type relationships behave in generic types in TypeScript.
+Covariance and contravariance describe how type relationships behave in generic types.
 
 In TypeScript:
 
@@ -4753,11 +4753,11 @@ In TypeScript:
   - **contravariant** when `strictFunctionTypes` is enabled
   - **bivariant** otherwise
 
-Covariance means the relationship is preserved: if type A is a subtype of type B, then F<A> is also a subtype of F<B>. In TypeScript, this commonly appears in return types and in arrays (although array covariance is not fully type-safe).
+Covariance means the relationship is preserved: if type A is a subtype of type B, then `F<A>` is also a subtype of `F<B>`. In TypeScript, this commonly appears in return types and in arrays (although array covariance is not fully type-safe).
 
-Contravariance means the relationship is reversed: if type A is a subtype of type B, then F<B> is a subtype of F<A>. In TypeScript, function parameter types are intended to be contravariant, meaning a function that accepts a broader type can be used where a narrower type is expected.
+Contravariance means the relationship is reversed: if type A is a subtype of type B, then `F<B>` is a subtype of `F<A>`. In TypeScript, function parameter types are intended to be contravariant, meaning a function that accepts a broader type can be used where a narrower type is expected.
 
-However, in practice, TypeScript often allows bivariance for function parameters (unless strictFunctionTypes is enabled), meaning both directions may be accepted even when it is not strictly type-safe.
+However, in practice, TypeScript often allows bivariance for function parameters (unless `strictFunctionTypes` is enabled), meaning both directions may be accepted even when it is not strictly type-safe.
 
 Example: Imagine a space for all animals and a separate space just for dogs.
 
