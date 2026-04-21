@@ -4748,10 +4748,10 @@ Covariance and contravariance describe how type relationships behave in generic 
 
 In TypeScript:
 
-- Arrays are **covariant**, but this is not fully type-safe.
-- Function parameter types are:
-  - **contravariant** when `strictFunctionTypes` is enabled
-  - **bivariant** otherwise
+* Arrays are **covariant**, but this is not fully type-safe.
+* Function parameter types are:
+  * **contravariant** when `strictFunctionTypes` is enabled
+  * **bivariant** otherwise
 
 Covariance means the relationship is preserved: if type A is a subtype of type B, then `F<A>` is also a subtype of `F<B>`. In TypeScript, this commonly appears in return types and in arrays (although array covariance is not fully type-safe).
 

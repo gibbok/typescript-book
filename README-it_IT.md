@@ -4704,10 +4704,10 @@ La covarianza e la controvarianza descrivono come si comportano le relazioni tra
 
 In TypeScript:
 
-- Gli array sono **covarianti**, ma questo non è completamente sicuro dal punto di vista dei tipi.
-- I tipi dei parametri delle funzioni sono:
-  - **controvarianti** quando `strictFunctionTypes` è abilitato
-  - **bivarianti** altrimenti
+* Gli array sono **covarianti**, ma questo non è completamente sicuro dal punto di vista dei tipi.
+* I tipi dei parametri delle funzioni sono:
+  * **controvarianti** quando `strictFunctionTypes` è abilitato
+  * **bivarianti** altrimenti
 
 La covarianza significa che la relazione è preservata: se il tipo A è un sottotipo del tipo B, allora `F<A>` è anche un sottotipo di `F<B>`. In TypeScript, questo appare comunemente nei tipi di ritorno e negli array (anche se la covarianza degli array non è completamente type-safe).
 
@@ -4784,10 +4784,10 @@ let feedDog: Feed<Dog> = dog => {
 };
 
 // Intended contravariance:
-feedDog = feedAnimal; // ✅ safe
+feedDog = feedAnimal; // safe
 
 // This depends on compiler settings:
-feedAnimal = feedDog; // ❗ error only with strictFunctionTypes
+feedAnimal = feedDog; // error only with strictFunctionTypes
 ```
 
 #### Annotazioni di varianza opzionali per i parametri di tipo

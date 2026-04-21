@@ -4703,10 +4703,10 @@ TypeScript 通过为原语及其相应的对象包装器提供单独的类型来
 
 在 TypeScript 中：
 
-- 数组是**协变的**，但这在类型上并不是完全安全的。
-- 函数参数类型是：
-  - 在启用 `strictFunctionTypes` 时为**逆变**
-  - 否则为**双变**
+* 数组是**协变的**，但这在类型上并不是完全安全的。
+* 函数参数类型是：
+  * 在启用 `strictFunctionTypes` 时为**逆变**
+  * 否则为**双变**
 
 协变意味着关系被保留：如果类型 A 是类型 B 的子类型，那么 `F<A>` 也是 `F<B>` 的子类型。在 TypeScript 中，这通常出现在返回类型和数组中（尽管数组的协变并不是完全类型安全的）。
 
@@ -4783,10 +4783,10 @@ let feedDog: Feed<Dog> = (dog) => {
 };
 
 // Intended contravariance:
-feedDog = feedAnimal; // ✅ safe
+feedDog = feedAnimal; // safe
 
 // This depends on compiler settings:
-feedAnimal = feedDog; // ❗ error only with strictFunctionTypes
+feedAnimal = feedDog; // error only with strictFunctionTypes
 ```
 
 #### 类型参数的可选方差注释

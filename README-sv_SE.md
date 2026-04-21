@@ -4749,10 +4749,10 @@ Kovarians och kontravarians beskriver hur typrelationer beter sig i generiska ty
 
 I TypeScript:
 
-- Arrayer är **kovarianta**, men detta är inte helt typesäkert.
-- Funktioners parametertyper är:
-  - **kontravarianta** när `strictFunctionTypes` är aktiverat
-  - **bivarianta** annars
+* Arrayer är **kovarianta**, men detta är inte helt typesäkert.
+* Funktioners parametertyper är:
+  * **kontravarianta** när `strictFunctionTypes` är aktiverat
+  * **bivarianta** annars
 
 Kovarians innebär att relationen bevaras: om typ A är en subtyp av typ B, så är `F<A>` också en subtyp av `F<B>`. I TypeScript förekommer detta vanligtvis i returtyper och i arrayer (även om arraykovarians inte är helt typesäker).
 
