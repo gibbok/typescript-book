@@ -4803,28 +4803,28 @@ Contravariance example:
 <!-- skip -->
 ```typescript
 class Animal {
-  name: string;
-  constructor(name: string) {
-    this.name = name;
-  }
+    name: string;
+    constructor(name: string) {
+        this.name = name;
+    }
 }
 
 class Dog extends Animal {
-  breed: string;
-  constructor(name: string, breed: string) {
-    super(name);
-    this.breed = breed;
-  }
+    breed: string;
+    constructor(name: string, breed: string) {
+        super(name);
+        this.breed = breed;
+    }
 }
 
 type Feed<T> = (animal: T) => void;
 
-let feedAnimal: Feed<Animal> = (animal) => {
-  console.log(animal.name);
+let feedAnimal: Feed<Animal> = animal => {
+    console.log(animal.name);
 };
 
-let feedDog: Feed<Dog> = (dog) => {
-  console.log(dog.breed);
+let feedDog: Feed<Dog> = dog => {
+    console.log(dog.breed);
 };
 
 // Intended contravariance:
