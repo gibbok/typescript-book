@@ -4830,9 +4830,6 @@ feedDog = feedAnimal; // ✅ safe
 feedAnimal = feedDog; // ❗ error only with strictFunctionTypes
 ```
 
-- Arrays in TypeScript are covariant (but unsafe)
-- Function parameters are: contravariant in strict mode bivariant otherwise
-
 #### Optional Variance Annotations for Type Parameters
 
 As of TypeScript 4.7.0, we can use the `out` and `in` keywords to be specific about Variance annotation.
