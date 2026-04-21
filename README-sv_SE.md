@@ -4775,26 +4775,26 @@ Exempel på kovarians:
 <!-- skip -->
 ```typescript
 class Animal {
-  name: string;
-  constructor(name: string) {
-    this.name = name;
-  }
+    name: string;
+    constructor(name: string) {
+        this.name = name;
+    }
 }
 
 class Dog extends Animal {
-  breed: string;
-  constructor(name: string, breed: string) {
-    super(name);
-    this.breed = breed;
-  }
+    breed: string;
+    constructor(name: string, breed: string) {
+        super(name);
+        this.breed = breed;
+    }
 }
 
 let animals: Animal[] = [];
 let dogs: Dog[] = [];
 
 // Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs;     // allowed
-dogs = animals;     // error
+animals = dogs; // allowed
+dogs = animals; // error
 ```
 
 Detta är osäkert eftersom du kan lägga till något som inte är en hund i `animals`.
