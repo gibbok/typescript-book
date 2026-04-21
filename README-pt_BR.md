@@ -4749,10 +4749,10 @@ Covariância e contravariância descrevem como as relações de tipo se comporta
 
 Em TypeScript:
 
-- Arrays são **covariantes**, mas isso não é totalmente seguro em termos de tipos.
-- Os tipos de parâmetros de funções são:
-  - **contravariantes** quando `strictFunctionTypes` está habilitado
-  - **bivariantes** caso contrário
+* Arrays são **covariantes**, mas isso não é totalmente seguro em termos de tipos.
+* Os tipos de parâmetros de funções são:
+  * **contravariantes** quando `strictFunctionTypes` está habilitado
+  * **bivariantes** caso contrário
 
 Covariância significa que a relação é preservada: se o tipo A é um subtipo de B, então `F<A>` também é um subtipo de `F<B>`. Em TypeScript, isso aparece comumente em tipos de retorno e em arrays (embora a covariância de arrays não seja totalmente type-safe).
 

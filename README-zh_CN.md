@@ -5081,7 +5081,7 @@ export const x = 1;
 <!-- skip -->
 ```typescript
 // 文件：main.ts
-import defer * as a from "./a.js";
-console.log("start"); // a.ts 中尚无任何内容
+import * as a from './a.js';
+console.log('start'); // a.ts 中尚无任何内容
 console.log(a.x); // 现在打印“runs!"，然后输出 1
 ```
