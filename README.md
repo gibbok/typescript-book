@@ -4746,6 +4746,13 @@ The boxed types are usually not needed. Avoid using boxed types and instead use 
 
 Covariance and contravariance describe how type relationships behave in generic types in TypeScript.
 
+In TypeScript:
+
+- Arrays are **covariant**, but this is not fully type-safe.
+- Function parameter types are:
+  - **contravariant** when `strictFunctionTypes` is enabled
+  - **bivariant** otherwise
+
 Covariance means the relationship is preserved: if type A is a subtype of type B, then F<A> is also a subtype of F<B>. In TypeScript, this commonly appears in return types and in arrays (although array covariance is not fully type-safe).
 
 Contravariance means the relationship is reversed: if type A is a subtype of type B, then F<B> is a subtype of F<A>. In TypeScript, function parameter types are intended to be contravariant, meaning a function that accepts a broader type can be used where a narrower type is expected.
@@ -4754,11 +4761,11 @@ However, in practice, TypeScript often allows bivariance for function parameters
 
 Example: Imagine a space for all animals and a separate space just for dogs.
 
-- **Covariance**:  
+* **Covariance**:  
   You can use a “dogs space” where an “animals space” is expected, because all dogs are animals.  
   But you cannot use an “animals space” where a “dogs space” is expected, because it might contain non-dog animals.
 
-- **Contravariance** (think in terms of functions):  
+* **Contravariance** (think in terms of functions):  
   If you have something that can handle **any animal**, you can use it where something that handles **only dogs** is expected.  
   But not the other way around.
 
