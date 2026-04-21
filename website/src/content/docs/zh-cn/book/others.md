@@ -985,7 +985,7 @@ let r = /(a)\2/; // 错误：此反向引用指向一个不存在的组。
 <!-- skip -->
 ```typescript
 // 文件：a.ts
-console.log("runs!");
+console.log('runs!');
 export const x = 1;
 ```
 
