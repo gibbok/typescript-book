@@ -4700,62 +4700,95 @@ I tipi boxed di solito non sono necessari. Evitare di utilizzare tipi boxed e ut
 
 ### Covarianza e Controvarianza in TypeScript
 
-Covarianza e Controvarianza vengono utilizzate per descrivere il funzionamento delle relazioni quando si ha a che fare con l'ereditarietà o l'assegnazione di tipi.
+La covarianza e la controvarianza descrivono come si comportano le relazioni tra tipi nei tipi generici.
 
-Covarianza significa che una relazione di tipo preserva la direzione dell'ereditarietà o dell'assegnazione, quindi se un tipo A è un sottotipo del tipo B, anche un array di tipo A è considerato un sottotipo di un array di tipo B. La cosa importante da notare qui è che la relazione di sottotipo viene mantenuta, il che significa che Covarianza accetta il sottotipo ma non il supertipo.
+In TypeScript:
 
-La controvarianza significa che una relazione di tipo inverte la direzione dell'ereditarietà o dell'assegnazione, quindi se un tipo A è un sottotipo del tipo B, allora un array di tipo B è considerato un sottotipo di un array di tipo A. La relazione di sottotipo è invertita, il che significa che la controvarianza accetta il supertipo ma non il sottotipo.
+- Gli array sono **covarianti**, ma questo non è completamente sicuro dal punto di vista dei tipi.
+- I tipi dei parametri delle funzioni sono:
+  - **controvarianti** quando `strictFunctionTypes` è abilitato
+  - **bivarianti** altrimenti
 
-Note: La bivarianza significa accettare sia il supertipo che il sottotipo.
+La covarianza significa che la relazione è preservata: se il tipo A è un sottotipo del tipo B, allora `F<A>` è anche un sottotipo di `F<B>`. In TypeScript, questo appare comunemente nei tipi di ritorno e negli array (anche se la covarianza degli array non è completamente type-safe).
 
-Esempio: supponiamo di avere uno spazio per tutti gli animali e uno spazio separato solo per i cani.
+La controvarianza significa che la relazione è invertita: se il tipo A è un sottotipo del tipo B, allora `F<B>` è un sottotipo di `F<A>`. In TypeScript, i tipi dei parametri delle funzioni sono pensati per essere controvarianti, il che significa che una funzione che accetta un tipo più generico può essere utilizzata dove è previsto un tipo più specifico.
 
-In covarianza, puoi inserire tutti i cani nello spazio degli animali perché i cani sono un tipo di animale. Ma non puoi inserire tutti gli animali nello spazio dei cani perché potrebbero esserci altri animali mescolati.
+Tuttavia, nella pratica, TypeScript spesso consente la bivariabilità per i parametri delle funzioni (a meno che `strictFunctionTypes` non sia abilitato), il che significa che entrambe le direzioni possono essere accettate anche quando non è strettamente type-safe.
 
-In controvarianza, non puoi inserire tutti gli animali nello spazio dei cani perché lo spazio degli animali potrebbe contenere anche altri animali. Tuttavia, puoi inserire tutti i cani nello spazio degli animali perché tutti i cani sono anche animali.
+Esempio: Immagina uno spazio per tutti gli animali e uno spazio separato solo per i cani.
+
+* **Covarianza**:  
+  Puoi usare uno “spazio per cani” dove è previsto uno “spazio per animali”, perché tutti i cani sono animali.  
+  Ma non puoi usare uno “spazio per animali” dove è previsto uno “spazio per cani”, perché potrebbe contenere animali che non sono cani.
+
+* **Controvarianza** (pensando in termini di funzioni):  
+  Se hai qualcosa che può gestire **qualsiasi animale**, puoi usarlo dove è previsto qualcosa che gestisce **solo cani**.  
+  Ma non il contrario.
+
+Esempio di covarianza:
 
 <!-- skip -->
 ```typescript
-// Esempio di covarianza
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+  breed: string;
+  constructor(name: string, breed: string) {
+    super(name);
+    this.breed = breed;
+  }
 }
 
 let animals: Animal[] = [];
 let dogs: Dog[] = [];
 
-// La covarianza consente di assegnare l'array del sottotipo (Dog) all'array del supertipo (Animal)
-animals = dogs;
-dogs = animals; // Non valido: il tipo 'Animal[]' non è assegnabile al tipo 'Dog[]'
-
-// Esempio di controvarianza
-type Feed<in T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = (animal: Animal) => {
-    console.log(`Nome animale: ${animal.name}`);
-};
-
-let feedDog: Feed<Dog> = (dog: Dog) => {
-    console.log(`Nome del cane: ${dog.name}, Razza: ${dog.breed}`);
-};
-
-// La controvarianza consente di assegnare la callback del supertipo (Animal) alla callback del sottotipo (Dog)
-feedDog = feedAnimal;
-feedAnimal = feedDog; // Non valido: il tipo 'Feed<Dog>' non è assegnabile al tipo 'Feed<Animal>'.
+// Arrays are covariant in TypeScript (but not type-safe)
+animals = dogs;     // allowed
+dogs = animals;     // error
 ```
 
-In TypeScript, le relazioni di tipo per gli array sono covarianti, mentre le relazioni di tipo per i parametri di funzione sono controvarianti. Ciò significa che TypeScript presenta sia covarianza che controvarianza, a seconda del contesto.
+Questo è insicuro perché potresti inserire un elemento che non è un cane in `animals`.
+
+Esempio di controvarianza:
+
+<!-- skip -->
+```typescript
+class Animal {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+class Dog extends Animal {
+  breed: string;
+  constructor(name: string, breed: string) {
+    super(name);
+    this.breed = breed;
+  }
+}
+
+type Feed<T> = (animal: T) => void;
+
+let feedAnimal: Feed<Animal> = (animal) => {
+  console.log(animal.name);
+};
+
+let feedDog: Feed<Dog> = (dog) => {
+  console.log(dog.breed);
+};
+
+// Intended contravariance:
+feedDog = feedAnimal; // ✅ safe
+
+// This depends on compiler settings:
+feedAnimal = feedDog; // ❗ error only with strictFunctionTypes
+```
 
 #### Annotazioni di varianza opzionali per i parametri di tipo
 
