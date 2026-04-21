@@ -4769,6 +4769,8 @@ Example: Imagine a space for all animals and a separate space just for dogs.
   If you have something that can handle **any animal**, you can use it where something that handles **only dogs** is expected.  
   But not the other way around.
 
+Covariance example:
+
 <!-- skip -->
 ```typescript
 class Animal {
@@ -4795,6 +4797,8 @@ dogs = animals;     // error
 ```
 
 This is unsafe because you could push a non-dog into animals.
+
+Contravariance example:
 
 <!-- skip -->
 ```typescript
