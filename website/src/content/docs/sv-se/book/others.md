@@ -629,23 +629,35 @@ Inkapslingstyperna behövs vanligtvis inte. Undvik att använda inkapslingstyper
 
 ### Kovarians och kontravarians i TypeScript
 
-Kovarians och kontravarians används för att beskriva hur relationer fungerar vid hantering av arv eller tilldelning av typer.
+Kovarians och kontravarians beskriver hur typrelationer beter sig i generiska typer.
 
-Kovarians innebär att en typrelation bevarar riktningen för arv eller tilldelning, så om en typ A är en subtyp av typ B, anses också en array av typ A vara en subtyp av en array av typ B. Det viktiga att notera här är att subtyprelationen bibehålls, vilket innebär att kovarians accepterar subtyper men inte accepterar supertyper.
+I TypeScript:
 
-Kontravarians innebär att en typrelation vänder riktningen för arv eller tilldelning, så om en typ A är en subtyp av typ B, anses en array av typ B vara en subtyp av en array av typ A. Subtyprelationen är omvänd, vilket innebär att kontravarians accepterar supertyper men inte accepterar subtyper.
+* Arrayer är **kovarianta**, men detta är inte helt typesäkert.
+* Funktioners parametertyper är:
+  * **kontravarianta** när `strictFunctionTypes` är aktiverat
+  * **bivarianta** annars
 
-Notera: Bivarians innebär att både supertyper och subtyper accepteras.
+Kovarians innebär att relationen bevaras: om typ A är en subtyp av typ B, så är `F<A>` också en subtyp av `F<B>`. I TypeScript förekommer detta vanligtvis i returtyper och i arrayer (även om arraykovarians inte är helt typesäker).
 
-Exempel: Låt oss säga att vi har ett utrymme för alla djur och ett separat utrymme bara för hundar.
+Kontravarians innebär att relationen är omvänd: om typ A är en subtyp av typ B, så är `F<B>` en subtyp av `F<A>`. I TypeScript är funktioners parametertyper avsedda att vara kontravarianta, vilket innebär att en funktion som accepterar en bredare typ kan användas där en smalare typ förväntas.
 
-Vid kovarians kan du placera alla hundar i djurutrymmet eftersom hundar är en typ av djur. Men du kan inte placera alla djur i hundutrymmet eftersom det kan finnas andra djur inblandade.
+I praktiken tillåter TypeScript dock ofta bivarians för funktionsparametrar (om inte `strictFunctionTypes` är aktiverat), vilket innebär att båda riktningarna kan accepteras även när det inte är strikt typesäkert.
 
-Vid kontravarians kan du inte placera alla djur i hundutrymmet eftersom djurutrymmet kan innehålla andra djur också. Däremot kan du placera alla hundar i djurutrymmet eftersom alla hundar också är djur.
+Exempel: Föreställ dig ett utrymme för alla djur och ett separat utrymme endast för hundar.
+
+* **Kovarians**:  
+  Du kan använda ett “hundutrymme” där ett “djurutrymme” förväntas, eftersom alla hundar är djur.  
+  Men du kan inte använda ett “djurutrymme” där ett “hundutrymme” förväntas, eftersom det kan innehålla djur som inte är hundar.
+
+* **Kontravarians** (tänk i termer av funktioner):  
+  Om du har något som kan hantera **vilket djur som helst**, kan du använda det där något som hanterar **endast hundar** förväntas.  
+  Men inte tvärtom.
+
+Exempel på kovarians:
 
 <!-- skip -->
 ```typescript
-// Covariance example
 class Animal {
     name: string;
     constructor(name: string) {
@@ -664,27 +676,48 @@ class Dog extends Animal {
 let animals: Animal[] = [];
 let dogs: Dog[] = [];
 
-// Covariance allows assigning subtype (Dog) array to supertype (Animal) array
-animals = dogs;
-dogs = animals; // Invalid: Type 'Animal[]' is not assignable to type 'Dog[]'
-
-// Contravariance example
-type Feed<in T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = (animal: Animal) => {
-    console.log(`Animal name: ${animal.name}`);
-};
-
-let feedDog: Feed<Dog> = (dog: Dog) => {
-    console.log(`Dog name: ${dog.name}, Breed: ${dog.breed}`);
-};
-
-// Contravariance allows assigning supertype (Animal) callback to subtype (Dog) callback
-feedDog = feedAnimal;
-feedAnimal = feedDog; // Invalid: Type 'Feed<Dog>' is not assignable to type 'Feed<Animal>'.
+// Arrays are covariant in TypeScript (but not type-safe)
+animals = dogs; // allowed
+dogs = animals; // error
 ```
 
-I TypeScript är typrelationer för arrayer kovarianta, medan typrelationer för funktionsparametrar är kontravarianta. Det innebär att TypeScript uppvisar både kovarians och kontravarians beroende på sammanhanget.
+Detta är osäkert eftersom du kan lägga till något som inte är en hund i `animals`.
+
+Exempel på kontravarians:
+
+<!-- skip -->
+```typescript
+class Animal {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+class Dog extends Animal {
+  breed: string;
+  constructor(name: string, breed: string) {
+    super(name);
+    this.breed = breed;
+  }
+}
+
+type Feed<T> = (animal: T) => void;
+
+let feedAnimal: Feed<Animal> = (animal) => {
+  console.log(animal.name);
+};
+
+let feedDog: Feed<Dog> = (dog) => {
+  console.log(dog.breed);
+};
+
+// Intended contravariance:
+feedDog = feedAnimal; // ✅ safe
+
+// This depends on compiler settings:
+feedAnimal = feedDog; // ❗ error only with strictFunctionTypes
+```
 
 #### Valfria variansannotationer för typparametrar
 

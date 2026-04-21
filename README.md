@@ -4828,10 +4828,10 @@ let feedDog: Feed<Dog> = dog => {
 };
 
 // Intended contravariance:
-feedDog = feedAnimal; // ✅ safe
+feedDog = feedAnimal; // safe
 
 // This depends on compiler settings:
-feedAnimal = feedDog; // ❗ error only with strictFunctionTypes
+feedAnimal = feedDog; // error only with strictFunctionTypes
 ```
 
 #### Optional Variance Annotations for Type Parameters
