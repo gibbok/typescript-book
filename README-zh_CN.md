@@ -4751,8 +4751,6 @@ animals = dogs; // allowed
 dogs = animals; // error
 ```
 
-这是不安全的，因为你可能会向 `animals` 中加入一个不是狗的元素。
-
 逆变示例：
 
 <!-- skip -->

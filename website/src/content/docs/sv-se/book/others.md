@@ -681,8 +681,6 @@ animals = dogs; // allowed
 dogs = animals; // error
 ```
 
-Detta är osäkert eftersom du kan lägga till något som inte är en hund i `animals`.
-
 Exempel på kontravarians:
 
 <!-- skip -->

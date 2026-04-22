@@ -4796,8 +4796,6 @@ animals = dogs; // allowed
 dogs = animals; // error
 ```
 
-This is unsafe because you could push a non-dog into animals.
-
 Contravariance example:
 
 <!-- skip -->
