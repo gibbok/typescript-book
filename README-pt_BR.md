@@ -4797,8 +4797,6 @@ animals = dogs; // allowed
 dogs = animals; // error
 ```
 
-Isso é inseguro porque você poderia inserir algo que não é um cão em `animals`.
-
 Exemplo de contravariância:
 
 <!-- skip -->
