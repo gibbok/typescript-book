@@ -24,6 +24,8 @@ This book has been translated into several language versions, including:
 
 [Swedish](https://github.com/gibbok/typescript-book/blob/main/README-sv_SE.md)
 
+[Bulgarian](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
+
 ## Downloads and website
 
 You can also download the Epub version:
@@ -249,6 +251,7 @@ An online version is available at:
       - [await using declaration](#await-using-declaration)
     - [Import Attributes](#import-attributes)
     - [Regular Expression Syntax Checking](#regular-expression-syntax-checking)
+    - [import defer](#import-defer)
 <!-- markdownlint-enable MD004 -->
 
 ## Introduction
