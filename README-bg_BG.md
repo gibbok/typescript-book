@@ -238,7 +238,7 @@
     - [Assertion Functions](#assertion-functions)
     - [Variadic Tuple Types](#variadic-tuple-types)
     - [Boxed types](#boxed-types)
-    - [Covariance и Contravariance в TypeScript](#covariance-и-contravariance-в-typescript)
+    - [Ковариантност и Контравариантност в TypeScript](#ковариантност-и-контравариантност-в-typescript)
       - [Optional Variance Annotations for Type Parameters](#optional-variance-annotations-for-type-parameters)
     - [Template String Pattern Index Signatures](#template-string-pattern-index-signatures)
     - [The satisfies Operator](#the-satisfies-operator)
@@ -4739,25 +4739,37 @@ TypeScript представя тази разлика чрез отделни т
 
 Boxed types обикновено не са необходими. Избягвай използването им и вместо това използвай primitive типове — например `string` вместо `String`.
 
-### Covariance и Contravariance в TypeScript
+### Ковариантност и Контравариантност в TypeScript
 
-Covariance и Contravariance се използват, за да опишат как работят връзките при наследяване или присвояване на типове.
+Ковариантността и контравариантността описват поведението на типовите отношения в генеричните типове.
 
-Covariance означава, че връзката между типовете запазва посоката на наследяване или присвояване, така че ако тип A е subtype на тип B, тогава array от тип A също се счита за subtype на array от тип B. Важно е да се отбележи, че subtype връзката се запазва — това означава, че covariance приема subtype, но не приема supertype.
+В TypeScript:
 
-Contravariance означава, че връзката между типовете обръща посоката на наследяване или присвояване, така че ако тип A е subtype на тип B, тогава array от тип B се счита за subtype на array от тип A. Subtype връзката се обръща — това означава, че contravariance приема supertype, но не приема subtype.
+* Масивите са **ковариантни**, но това не е напълно типово безопасно.
+* Типовете на параметрите на функциите са:
+  * **контравариантни**, когато `strictFunctionTypes` е включен
+  * **бивариантни** в противен случай
 
-Бележка: Bivariance означава приемане както на supertype, така и на subtype.
+Ковариантността означава, че връзката се запазва: ако тип A е подтип на тип B, тогава `F<A>` също е подтип на `F<B>`. В TypeScript това обикновено се появява в типовете на връщаните стойности и в масивите (въпреки че ковариантността на масивите не е напълно типово безопасна).
 
-Пример: да си представим пространство за всички животни и отделно пространство само за кучета.
+Контравариантността означава, че връзката е обърната: ако тип A е подтип на тип B, тогава `F<B>` е подтип на `F<A>`. В TypeScript типовете на параметрите на функциите са предназначени да бъдат контравариантни, което означава, че функция, която приема по-широк тип, може да се използва там, където се очаква по-тесен тип.
 
-При covariance можеш да поставиш всички кучета в пространството за животни, защото кучетата са вид животни. Но не можеш да поставиш всички животни в пространството за кучета, защото може да има и други животни.
+Въпреки това, на практика, TypeScript често позволява бивариантност за параметрите на функциите (освен ако `strictFunctionTypes` не е включен), което означава, че и двете посоки могат да бъдат приети, дори когато това не е строго типово безопасно.
 
-При contravariance не можеш да поставиш всички животни в пространството за кучета, защото пространството за животни може да съдържа и други животни. Но можеш да поставиш всички кучета в пространството за животни, защото всички кучета са животни.
+Пример: Представете си пространство за всички животни и отделно пространство само за кучета.
+
+* **Ковариантност**:  
+  Можете да използвате "пространство за кучета", където се очаква "пространство за животни", защото всички кучета са животни.  
+  Но не можете да използвате "пространство за животни", където се очаква "пространство за кучета", защото може да съдържа животни, които не са кучета.
+
+* **Контравариантност** (мислете в термини на функции):  
+  Ако имате нещо, което може да се справи с **всяко животно**, можете да го използвате там, където се очаква нещо, което се справя **само с кучета**.  
+  Но не и обратното.
+
+Пример за ковариантност:
 
 <!-- skip -->
 ```typescript
-// Covariance example
 class Animal {
     name: string;
     constructor(name: string) {
@@ -4776,27 +4788,47 @@ class Dog extends Animal {
 let animals: Animal[] = [];
 let dogs: Dog[] = [];
 
-// Covariance allows assigning subtype (Dog) array to supertype (Animal) array
-animals = dogs;
-dogs = animals; // Невалидно: Type 'Animal[]' is not assignable to type 'Dog[]'
-
-// Contravariance example
-type Feed<in T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = (animal: Animal) => {
-    console.log(`Animal name: ${animal.name}`);
-};
-
-let feedDog: Feed<Dog> = (dog: Dog) => {
-    console.log(`Dog name: ${dog.name}, Breed: ${dog.breed}`);
-};
-
-// Contravariance allows assigning supertype (Animal) callback to subtype (Dog) callback
-feedDog = feedAnimal;
-feedAnimal = feedDog; // Invalid: Type 'Feed<Dog>' is not assignable to type 'Feed<Animal>'.
+// Масивите в TypeScript са ковариантни (но не са типово безопасни)
+animals = dogs; // allowed
+dogs = animals; // error
 ```
+Това е опасно, защото може да вкарате някой, който не е куче, в групата от животни.
 
-В TypeScript типовите отношения за arrays са covariant, докато типовите отношения за function parameters са contravariant. Това означава, че TypeScript проявява и covariance, и contravariance в зависимост от контекста.
+Пример за контравариантност:
+
+<!-- skip -->
+```typescript
+class Animal {
+    name: string;
+    constructor(name: string) {
+        this.name = name;
+    }
+}
+
+class Dog extends Animal {
+    breed: string;
+    constructor(name: string, breed: string) {
+        super(name);
+        this.breed = breed;
+    }
+}
+
+type Feed<T> = (animal: T) => void;
+
+let feedAnimal: Feed<Animal> = animal => {
+    console.log(animal.name);
+};
+
+let feedDog: Feed<Dog> = dog => {
+    console.log(dog.breed);
+};
+
+// Преднамерена контравариантност:
+feedDog = feedAnimal; // safe
+
+// Това зависи от настройките на компилатора:
+feedAnimal = feedDog; // грешка само при strictFunctionTypes
+```
 
 #### Optional Variance Annotations for Type Parameters
 
