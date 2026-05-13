@@ -219,5 +219,6 @@ sidebar:
       - await using declaration
     - Import Attributes
     - Regular Expression Syntax Checking
+    - import defer
 <!-- markdownlint-enable MD004 -->
 

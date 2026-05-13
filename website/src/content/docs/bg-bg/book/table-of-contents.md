@@ -60,6 +60,7 @@ sidebar:
       - Изключване на грешка или връщане от разклонение
       - Discriminated Union
       - Потребителски type guards
+      - Switch-true narrowing
   - Примитивни типове
     - string
     - boolean
@@ -209,7 +210,7 @@ sidebar:
     - Assertion Functions
     - Variadic Tuple Types
     - Boxed types
-    - Covariance и Contravariance в TypeScript
+    - Ковариантност и Контравариантност в TypeScript
       - Optional Variance Annotations for Type Parameters
     - Template String Pattern Index Signatures
     - The satisfies Operator
@@ -217,5 +218,7 @@ sidebar:
     - using declaration и Explicit Resource Management
       - Декларация await using
     - Import Attributes
+    - Проверка на синтаксиса на регулярните изрази
+    - import defer
 <!-- markdownlint-enable MD004 -->
 

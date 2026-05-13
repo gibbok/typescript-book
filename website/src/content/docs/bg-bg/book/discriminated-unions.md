@@ -20,3 +20,9 @@ const foo = (bar: unknown) => {
 };
 ```
 
+TypeScript 5.5 автоматично извежда type predicates (като `x is T`) във функции като `.filter`, така че знае кога стойности като undefined са премахнати—давайки по-точни типове и по-малко грешки; това работи за ясни проверки (например `x !== undefined`), но не и за двусмислени като `!!x`.
+
+```typescript
+const nums = [1, null, 2].filter(x => x !== null);
+```
+
