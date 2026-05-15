@@ -5120,7 +5120,7 @@ export const x = 1;
 <!-- skip -->
 ```typescript
 // file: main.ts
-import defer * as a from "./a.js";
-console.log("start"); // нищо от a.ts все още
+import * as a from './a.js';
+console.log('start'); // нищо от a.ts все още
 console.log(a.x); // сега "runs!" се отпечатва, след това 1
 ```
