@@ -5125,7 +5125,7 @@ export const x = 1;
 ```typescript
 // file: main.ts
 // prettier-ignore
-import * as a from './a.js';
+import defer * as a from "./a.js";
 console.log('start'); // inget från a.ts ännu
 console.log(a.x); // nu "runs!" skrivs ut, sedan 1
 ```
