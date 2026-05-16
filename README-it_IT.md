@@ -5079,6 +5079,7 @@ file: main.ts
 <!-- skip -->
 ```typescript
 // file: main.ts
+// prettier-ignore
 import defer * as a from "./a.js";
 console.log("start"); // ancora niente da a.ts
 console.log(a.x); // ora viene stampato "runs!", poi 1
