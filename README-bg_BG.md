@@ -5121,7 +5121,8 @@ file: main.ts
 <!-- skip -->
 ```typescript
 // file: main.ts
+// prettier-ignore
 import defer * as a from "./a.js";
-console.log("start"); // нищо от a.ts все още
+console.log('start'); // нищо от a.ts все още
 console.log(a.x); // сега "runs!" се отпечатва, след това 1
 ```
