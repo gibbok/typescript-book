@@ -4,7 +4,8 @@ export enum Language {
     it_IT = 'it_IT',
     pt_BR = 'pt_BR',
     sv_SE = 'sv_SE',
+    bg_BG = 'bg_BG',
 }
-export type Languages = [Language.en_EN, Language.zh_CN, Language.it_IT, Language.pt_BR, Language.sv_SE]
+export type Languages = [Language.en_EN, Language.zh_CN, Language.it_IT, Language.pt_BR, Language.sv_SE, Language.bg_BG]
 
-export const languages: Languages = [Language.en_EN, Language.zh_CN, Language.it_IT, Language.pt_BR, Language.sv_SE]
+export const languages: Languages = [Language.en_EN, Language.zh_CN, Language.it_IT, Language.pt_BR, Language.sv_SE, Language.bg_BG]
