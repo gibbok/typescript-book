@@ -667,28 +667,28 @@ dogs = animals; // error
 <!-- skip -->
 ```typescript
 class Animal {
-  name: string;
-  constructor(name: string) {
-    this.name = name;
-  }
+    name: string;
+    constructor(name: string) {
+        this.name = name;
+    }
 }
 
 class Dog extends Animal {
-  breed: string;
-  constructor(name: string, breed: string) {
-    super(name);
-    this.breed = breed;
-  }
+    breed: string;
+    constructor(name: string, breed: string) {
+        super(name);
+        this.breed = breed;
+    }
 }
 
 type Feed<T> = (animal: T) => void;
 
-let feedAnimal: Feed<Animal> = (animal) => {
-  console.log(animal.name);
+let feedAnimal: Feed<Animal> = animal => {
+    console.log(animal.name);
 };
 
-let feedDog: Feed<Dog> = (dog) => {
-  console.log(dog.breed);
+let feedDog: Feed<Dog> = dog => {
+    console.log(dog.breed);
 };
 
 // Intended contravariance:
@@ -991,7 +991,7 @@ export const x = 1;
 ```typescript
 // 文件：main.ts
 // prettier-ignore
-import * as a from './a.js';
+import defer * as a from "./a.js";
 console.log('start'); // a.ts 中尚无任何内容
 console.log(a.x); // 现在打印“runs!"，然后输出 1
 ```
