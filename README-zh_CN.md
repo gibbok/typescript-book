@@ -1748,7 +1748,7 @@ type B = {
 type C = A & B;
 ```
 
-可以使用 `interface` 来扩展类 `type`，但反之则不然：
+可以使用接口扩展类型，但反之则不行：
 
 ```typescript
 type A = {
