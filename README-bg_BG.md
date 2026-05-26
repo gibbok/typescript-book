@@ -5110,19 +5110,3 @@ let r = /(a)\2/; // Error: This backreference refers to a group that does not ex
 * Работи само с: `import defer * as name from "module"`
 * Кодът се изпълнява само когато достъпите експорта
 
-<!-- skip -->
-```typescript
-// file: a.ts
-console.log('runs!');
-export const x = 1;
-```
-
-file: main.ts
-<!-- skip -->
-```typescript
-// file: main.ts
-// prettier-ignore
-import defer * as a from "./a.js";
-console.log('start'); // нищо от a.ts все още
-console.log(a.x); // сега "runs!" се отпечатва, след това 1
-```

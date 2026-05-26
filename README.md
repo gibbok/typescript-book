@@ -5115,18 +5115,3 @@ let r = /(a)\2/; // Error: This backreference refers to a group that does not ex
 
 * Only works with: `import defer * as name from "module"`
 * Code runs only when you access an export
-
-<!-- skip -->
-```typescript
-// file: a.ts
-console.log('runs!');
-export const x = 1;
-```
-
-file: main.ts
-<!-- skip -->
-```typescript
-import defer * as a from "./a.js"; // prettier-ignore
-console.log("start"); // nothing from a.ts yet
-console.log(a.x); // now "runs!" prints, then 1
-```
