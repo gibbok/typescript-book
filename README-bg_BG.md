@@ -5109,4 +5109,3 @@ let r = /(a)\2/; // Error: This backreference refers to a group that does not ex
 
 * Работи само с: `import defer * as name from "module"`
 * Кодът се изпълнява само когато достъпите експорта
-
