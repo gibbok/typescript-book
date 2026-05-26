@@ -43,7 +43,7 @@ type B = {
 type C = A & B;
 ```
 
-É possível estender um tipo usando uma inferência, mas não o contrário:
+É possível estender um tipo usando uma interface, mas não o contrário:
 
 ```typescript
 type A = {
