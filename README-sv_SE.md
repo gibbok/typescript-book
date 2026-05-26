@@ -1762,7 +1762,7 @@ type B = {
 type C = A & B;
 ```
 
-Det är möjligt att utöka en typ med hjälp av en härledning men inte tvärtom:
+Det är möjligt att utöka en `typ` med hjälp av ett `gränssnitt` men inte tvärtom:
 
 ```typescript
 type A = {
