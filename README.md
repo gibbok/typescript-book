@@ -1763,7 +1763,7 @@ type B = {
 type C = A & B;
 ```
 
-It is possible to extend a type using an inference but not vice versa:
+It is possible to extend a type using an interface but not vice versa:
 
 ```typescript
 type A = {
