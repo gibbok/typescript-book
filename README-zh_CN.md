@@ -5076,6 +5076,7 @@ console.log('runs!');
 export const x = 1;
 ```
 
+// 文件：main.ts
 <!-- skip -->
 ```typescript
 // 文件：main.ts

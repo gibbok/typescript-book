@@ -5123,6 +5123,7 @@ console.log('runs!');
 export const x = 1;
 ```
 
+file: main.ts
 <!-- skip -->
 ```typescript
 // file: main.ts
