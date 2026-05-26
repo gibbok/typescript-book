@@ -5126,8 +5126,7 @@ export const x = 1;
 file: main.ts
 <!-- skip -->
 ```typescript
-// prettier-ignore
-import defer * as a from "./a.js";
+import defer * as a from "./a.js"; // prettier-ignore
 console.log("start"); // nothing from a.ts yet
 console.log(a.x); // now "runs!" prints, then 1
 ```
