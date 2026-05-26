@@ -1008,6 +1008,7 @@ export const x = 1;
 <!-- skip -->
 ```typescript
 // file: main.ts
+// prettier-ignore
 import defer * as a from "./a.js";
 console.log("start"); // nothing from a.ts yet
 console.log(a.x); // now "runs!" prints, then 1
