@@ -1762,7 +1762,7 @@ type B = {
 type C = A & B;
 ```
 
-Det är möjligt att utöka en typ med hjälp av en härledning men inte tvärtom:
+Det är möjligt att utöka en `typ` med hjälp av ett `gränssnitt` men inte tvärtom:
 
 ```typescript
 type A = {
@@ -5113,19 +5113,3 @@ let r = /(a)\2/; // Fel: Denna bakåtreferens refererar till en grupp som inte f
 
 * Fungerar bara med: `import defer * as name from "module"`
 * Koden körs bara när du öppnar en export
-
-<!-- skip -->
-```typescript
-// file: a.ts
-console.log('runs!');
-export const x = 1;
-```
-
-<!-- skip -->
-```typescript
-// file: main.ts
-// prettier-ignore
-import defer * as a from "./a.js";
-console.log('start'); // inget från a.ts ännu
-console.log(a.x); // nu "runs!" skrivs ut, sedan 1
-```

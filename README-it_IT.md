@@ -1718,7 +1718,7 @@ type B = {
 type C = A & B;
 ```
 
-È possibile estendere un tipo utilizzando un'inferenza, ma non viceversa:
+È possibile estendere un tipo utilizzando un'interfaccia, ma non viceversa:
 
 ```typescript
 type A = {
@@ -5067,20 +5067,3 @@ let r = /(a)\2/; // Errore: questo riferimento punta a un gruppo inesistente.
 
 * Funziona solo con: `import defer * as name from "module"`
 * Il codice viene eseguito solo quando si accede a un elemento esportato.
-
-<!-- skip -->
-```typescript
-// file: a.ts
-console.log('runs!');
-export const x = 1;
-```
-
-file: main.ts
-<!-- skip -->
-```typescript
-// file: main.ts
-// prettier-ignore
-import defer * as a from "./a.js";
-console.log("start"); // ancora niente da a.ts
-console.log(a.x); // ora viene stampato "runs!", poi 1
-```

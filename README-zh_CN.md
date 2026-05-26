@@ -1748,7 +1748,7 @@ type B = {
 type C = A & B;
 ```
 
-可以使用 `interface` 来扩展类 `type`，但反之则不然：
+可以使用接口扩展类型，但反之则不行：
 
 ```typescript
 type A = {
@@ -5068,19 +5068,3 @@ let r = /(a)\2/; // 错误：此反向引用指向一个不存在的组。
 
 * 仅适用于：`import defer * as name from "module"`
 * 代码仅在你访问导出项时执行
-
-<!-- skip -->
-```typescript
-// 文件：a.ts
-console.log('runs!');
-export const x = 1;
-```
-
-<!-- skip -->
-```typescript
-// 文件：main.ts
-// prettier-ignore
-import defer * as a from "./a.js";
-console.log('start'); // a.ts 中尚无任何内容
-console.log(a.x); // 现在打印“runs!"，然后输出 1
-```
