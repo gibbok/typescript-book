@@ -1543,11 +1543,11 @@ const binary: number = 0b1010; // Binary starts with 0b
 const octal: number = 0o633; // Octal starts with 0o
 ```
 
-### bigInt
+### bigint
 
-A `bigInt` represents numeric values that are very large (253 – 1) and cannot be represented with a `number`.
+A `bigint` represents integer values that can be larger than the maximum safe integer supported by `number`, which is 2^53 - 1.
 
-A `bigInt` can be created by calling the built-in function `BigInt()` or by adding `n` to the end of any integer numeric literal:
+A `bigint` can be created by calling the built-in function `BigInt()` or by adding `n` to the end of any integer numeric literal:
 
 ```typescript
 const x: bigint = BigInt(9007199254740991);
@@ -1556,8 +1556,8 @@ const y: bigint = 9007199254740991n;
 
 Notes:
 
-* `bigInt` values cannot be mixed with `number` and cannot be used with built-in `Math`, they must be coerced to the same type.
-* `bigInt` values are available only if target configuration is ES2020 or higher.
+* `bigint` values cannot be mixed with `number` and cannot be used with built-in `Math`, they must be coerced to the same type.
+* `bigint` values are available only if target configuration is ES2020 or higher.
 
 ### Symbol
 
@@ -1688,7 +1688,7 @@ const x = ({ a, b = 100 }: X) => a + b;
 
 ## Readonly Properties
 
-Is it possible to prevent writing on a property by using the modifier `readonly`, which makes sure that the property cannot be re-written but does not provide any guarantee of total immutability:
+Is it possible to prevent writing to a property by using the modifier `readonly`, which makes sure that the property cannot be re-written but does not provide any guarantee of total immutability:
 
 ```typescript
 interface Y {
