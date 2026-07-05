@@ -855,7 +855,7 @@ Example:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polify
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
 
 const doWork = (): Disposable => {
     return {
@@ -929,7 +929,7 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polify
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
 
 class DatabaseConnection implements AsyncDisposable {
     // A method that is called when the object is disposed asynchronously

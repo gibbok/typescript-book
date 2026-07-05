@@ -3084,7 +3084,7 @@ class Animal {
         return this.#__name;
     }
     set name(value: string) {
-        this.#__name = name;
+        this.#__name = value;
     }
 
     constructor(name: string) {
@@ -4011,7 +4011,7 @@ type PersonThisType = ThisParameterType<Person['greet']>; // Person
 
 ```typescript
 function capitalize(this: String) {
-    return this[0].toUpperCase + this.substring(1).toLowerCase();
+    return this[0].toUpperCase() + this.substring(1).toLowerCase();
 }
 
 type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
@@ -5000,7 +5000,7 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polify
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
 
 class DatabaseConnection implements AsyncDisposable {
     // 当对象被异步释放时会被调用的方法

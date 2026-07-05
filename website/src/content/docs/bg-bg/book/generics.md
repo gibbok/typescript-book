@@ -206,7 +206,7 @@ class Animal {
         return this.#__name;
     }
     set name(value: string) {
-        this.#__name = name;
+        this.#__name = value;
     }
 
     constructor(name: string) {
@@ -491,7 +491,7 @@ Metadata може да се използва за различни цели, к�
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Прост polify
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Прост polyfill
 
 type Context =
     | ClassFieldDecoratorContext
