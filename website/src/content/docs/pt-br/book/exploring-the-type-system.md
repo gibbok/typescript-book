@@ -373,9 +373,11 @@ const r: XY = { a: 'a' }; // Inválido
 const j: XY = { a: 'a', b: 'b' }; // Válido
 ```
 
-A palavra-chave `extends` pode ser considerada como "subconjunto de" neste contexto. Ela define uma restrição para um tipo. O `extends` usado com um genérico trata o genérico como um conjunto infinito e o restringe a um tipo mais específico.
-Observe que o `extends` nada tem a ver com hierarquia no sentido de Orientação a Objetos (não existe esse conceito no TypeScript).
-O TypeScript trabalha com conjuntos e não possui uma hierarquia estrita; de fato, como no exemplo abaixo, dois tipos podem se sobrepor sem que nenhum seja um subtipo do outro (o TypeScript considera a estrutura, a forma dos objetos).
+A palavra-chave `extends` pode ser considerada como "subconjunto de" neste contexto. Ela define uma restrição para um tipo. Quando `extends` é usado com um generic, ele restringe o parâmetro de tipo generic a um tipo mais específico.
+
+Observe que `extends` aqui não tem nada a ver com herança de classes no sentido de OOP.
+
+TypeScript trabalha com tipos estruturais e não possui uma hierarquia nominal rígida. Na verdade, como no exemplo abaixo, dois tipos podem se sobrepor sem que um seja um subtipo do outro, porque TypeScript considera a estrutura, ou forma, dos objetos.
 
 ```typescript
 interface X {
