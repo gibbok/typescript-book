@@ -319,7 +319,7 @@ The function can be converted and used in TypeScript by changing the file extens
 const sum = (a: number, b: number): number => a + b;
 ```
 
-TypeScript was designed to detect possible exceptions that can occur at runtime during compilation time by having the developer define the intent with type annotations. In addition, TypeScript can also catch issues if no type annotation is provided. For instance, the following code snippet does not specify any TypeScript types:
+TypeScript was designed to detect potential runtime errors at compile time by allowing developers to express intent through type annotations. In addition, TypeScript can also catch certain issues even when no explicit type annotations are provided, thanks to type inference. For example, the following code snippet does not specify any TypeScript types:
 
 <!-- skip -->
 ```typescript
@@ -343,7 +343,7 @@ The team behind TypeScript has made a deliberate decision to flag unusual usage 
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal 2
+const result = 1 + true; // In JavaScript, the result is equal to 2
 ```
 
 However, TypeScript throws an error:
@@ -606,9 +606,9 @@ The "moduleResolution" property specifies the module resolution strategy. Use "n
 
 #### esModuleInterop
 
-The "esModuleInterop" property allows import default from CommonJS modules that did not export using the "default" property, this property provides a shim to ensure compatibility in the emitted JavaScript. After enabling this option we can use `import MyLibrary from "my-library"` instead of `import * as MyLibrary from "my-library"`.
+The "esModuleInterop" property allows default imports from CommonJS modules that did not export using the "default" property; this property provides a shim to ensure compatibility in the emitted JavaScript. After enabling this option, we can use `import MyLibrary from "my-library"` instead of `import * as MyLibrary from "my-library"`.
 
-"esModuleInterop" was originally opt-in to avoid breaking changes, but have long been the recommended defaults. Disabling them can cause subtle runtime issues when using CommonJS with ESM. Note: Starting with TypeScript 6.0, this safer interop behavior is always enabled.
+"esModuleInterop" was originally opt-in to avoid breaking changes, but has long been the recommended default. Disabling it can cause subtle runtime issues when using CommonJS with ESM. Note: Starting with TypeScript 6.0, this safer interop behavior is always enabled.
 
 #### jsx
 
@@ -616,7 +616,7 @@ The "jsx" property applies only to .tsx files used in ReactJS and controls how J
 
 #### skipLibCheck
 
-The "skipLibCheck'' property will prevent TypeScript from type-checking the entire imported third-party packages. This property will reduce the compile time of a project. TypeScript will still check your code against the type definitions provided by these packages.
+The "skipLibCheck" property will prevent TypeScript from type-checking the entire imported third-party packages. This property will reduce the compile time of a project. TypeScript will still check your code against the type definitions provided by these packages.
 
 #### files
 
@@ -962,7 +962,7 @@ f = 1; // Invalid, nothing is assignable to never
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything expect any
+g = 1; // Invalid, void is not assignable to or from anything except any
 g = g1; // Valid
 ```
 
@@ -977,13 +977,13 @@ TypeScript supports various types of sets:
 
 | Set term           | TypeScript                      | Notes                                                                                                              |
 | ------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Empty set          | never                           | "never" contains anything apart itself                                                                             |
+| Empty set          | never                           | "never" contains anything apart from itself                                                                         |
 | Single element set | undefined / null / literal type |                                                                                                                    |
 | Finite set         | boolean / union                 |                                                                                                                    |
 | Infinite set       | string / number / object        |                                                                                                                    |
 | Universal set      | any / unknown                   | Every element is a member of "any" and every set is a subset of it / "unknown" is a type-safe counterpart of "any" |
 
-Here few examples:
+Here are a few examples:
 
 | TypeScript            | Set term               | Example                                                                         |
 | --------------------- | ---------------------- | ------------------------------------------------------------------------------- |
@@ -1011,7 +1011,7 @@ Here few examples:
 |                       |                        |
 | unknown               | Universal set          | const x: unknown = 1                                                            |
 
-An union, (T1 | T2) creates a wider set (both):
+A union, (T1 | T2), creates a wider set (both):
 
 ```typescript
 type X = {
@@ -1024,7 +1024,7 @@ type XY = X | Y;
 const r: XY = { a: 'a', b: 'x' }; // Valid
 ```
 
-An intersection, (T1 & T2) create a narrower set (only shared):
+An intersection, (T1 & T2), creates a narrower set (only shared):
 
 <!-- skip -->
 ```typescript
@@ -1040,8 +1040,8 @@ const r: XY = { a: 'a' }; // Invalid
 const j: XY = { a: 'a', b: 'b' }; // Valid
 ```
 
-The `extends` keyword could be considered as a "subset of" in this context. It sets a constraint for a type. The extends used with a generic, take the generic as an infinite set and it will constrain it to a more specific type.
-Please note that `extends` has nothing to do with hierarchy in a OOP sense (there is no this concept in TypeScript).
+The `extends` keyword could be considered as a "subset of" in this context. It sets a constraint for a type. When `extends` is used with a generic, treat the generic as an infinite set and it will constrain it to a more specific type.
+Please note that `extends` has nothing to do with hierarchy in an OOP sense (there is no such concept in TypeScript).
 TypeScript works with sets and does not have a strict hierarchy, in fact, as in the example below, two types could overlap without either being a subtype of the other type (TypeScript considers the structure, shape of the objects).
 
 ```typescript
@@ -1308,7 +1308,7 @@ window.addEventListener('click', function (e) {}); // The inferred type of e is 
 
 ### Type Widening
 
-Type widening is the process in which TypeScript assigns a type to a variable initialized when no type annotation was provided. It allows narrow to wider types but not vice versa.
+Type widening is the process in which TypeScript assigns a type to a variable initialized without a type annotation. It allows narrow to wider types but not vice versa.
 In the following example:
 
 <!-- skip -->
@@ -1361,7 +1361,7 @@ function identity<const T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
 ```
 
-Now we can see that the properties `a` and `b` are inferred as `const`, so `a` and `b` are treated as string literals rather than just `string` types.
+Now we can see that the properties `a` and `b` are inferred as string literals rather than just `string` types.
 
 #### Const assertion
 
@@ -1394,7 +1394,7 @@ const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
 
 ### Explicit Type Annotation
 
-We can be specific and pass a type, in the following example property `x` is of type `number`:
+We can be specific and pass a type. In the following example, property `x` is of type `number`:
 
 ```typescript
 const v = {
@@ -1621,7 +1621,7 @@ When using `any`, the TypeScript compiler skips type checking, so there is no ty
 
 The `any` type could be useful during a gradual migration from JavaScript to TypeScript, as it can silence the compiler.
 
-For new projects use TypeScript configuration `noImplicitAny` which enables TypeScript to issue errors where `any` is used or inferred.
+For new projects, use the TypeScript configuration `noImplicitAny`, which enables TypeScript to issue errors where `any` is used or inferred.
 
 The `any` type is usually a source of errors that can mask real problems with your types. Avoid using it as much as possible.
 
@@ -1663,7 +1663,7 @@ const sum = (a = 10, b: number): number => a + b;
 
 This is especially useful for more complex functions, as writing the return type before an implementation can help you think through the function.
 
-Generally consider annotating type signatures but not the body local variables and add types always to object literals.
+Generally, consider annotating type signatures, but not body-local variables, and always add types to object literals.
 
 ## Optional Properties
 
@@ -1799,7 +1799,7 @@ type O = 'a' | 'b' | 'c';
 
 Literal Inference is a feature in TypeScript that allows the type of a variable or parameter to be inferred based on its value.
 
-In the following example we can see that TypeScript considers `x` a literal type as the value cannot be changed any time later, when instead `y` is inferred as string as it can be modified any time later.
+In the following example, we can see that TypeScript considers `x` a literal type as the value cannot be changed any time later, when instead `y` is inferred as string as it can be modified any time later.
 
 ```typescript
 const x = 'x'; // Literal type of 'x', because this value cannot be changed
@@ -1821,9 +1821,9 @@ const fn = (x: X) => `${x}-foo`;
 console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
 ```
 
-As you can see the code throws an error when passing `o.x` to `fn` as X is a narrower type.
+As you can see, the code throws an error when passing `o.x` to `fn` as X is a narrower type.
 
-We can solve this issue by using type assertion using `const` or the `X` type:
+We can solve this issue by using a type assertion with `const` or the `X` type:
 
 <!-- skip -->
 ```typescript
@@ -1918,7 +1918,7 @@ Const Enums have hardcoded values, erasing the Enum, which can be more efficient
 
 ### Reverse mapping
 
-In TypeScript, reverse mappings in Enums refer to the ability to retrieve the Enum member name from its value. By default, Enum members have forward mappings from name to value, but reverse mappings can be created by explicitly setting values for each member. Reverse mappings are useful when you need to look up an Enum member by its value, or when you need to iterate over all the Enum members. Note that only numeric enums members will generate reverse mappings, while String Enum members do not get a reverse mapping generated at all.
+In TypeScript, reverse mappings in Enums refer to the ability to retrieve the Enum member name from its value. By default, Enum members have forward mappings from name to value, but reverse mappings can be created by explicitly setting values for each member. Reverse mappings are useful when you need to look up an Enum member by its value, or when you need to iterate over all the Enum members. Note that only numeric enum members will generate reverse mappings, while string enum members do not get a reverse mapping generated at all.
 
 The following enum:
 
@@ -2127,7 +2127,7 @@ if (typeof value === 'number') {
 
 Control Flow Analysis in TypeScript is a way to statically analyze the code flow to infer the types of variables, allowing the compiler to narrow the types of those variables as needed, based on the results of the analysis.
 
-Prior to TypeScript 4.4, code flow analysis would only be applied to code within an if statement, but from TypeScript 4.4, it can also be applied to conditional expressions and discriminant property accesses indirectly referenced through const variables.
+Prior to TypeScript 4.4, code flow analysis would only be applied to code within an if statement, but starting in TypeScript 4.4, it can also be applied to conditional expressions and discriminant property accesses indirectly referenced through const variables.
 
 For example:
 
@@ -2288,7 +2288,7 @@ interface User {
 }
 ```
 
-Type alias, similar to an interface, defines the shape of an object. However, it can also create a new custom type that is based on an existing type or a combination of existing types. This includes defining union types, intersection types, and other complex types.
+A type alias, similar to an interface, defines the shape of an object. However, it can also create a new custom type that is based on an existing type or a combination of existing types. This includes defining union types, intersection types, and other complex types.
 
 ```typescript
 type Point = {
@@ -2565,7 +2565,7 @@ const sayHello = (): void => {
 
 The `never` type represents values that never occur. It is used to denote functions or expressions that never return or throw an error.
 
-For instance an infinite loop:
+For instance, an infinite loop:
 
 ```typescript
 const infiniteLoop = (): never => {
@@ -2990,7 +2990,7 @@ const p1 = new Person('Simon', 17);
 const p2 = new Person('Alice', 22, 'f');
 ```
 
-In TypeScript, it is possible to define multiple constructor overloads, but you can have only one implementation that must be compatible with all the overloads, this can be achieved  by using an optional parameter.
+In TypeScript, it is possible to define multiple constructor overloads, but you can have only one implementation that must be compatible with all the overloads; this can be achieved by using an optional parameter.
 
 ```typescript
 class Person {
@@ -3025,7 +3025,7 @@ person3.displayInfo(); // Name: Jane, Age: 25
 In TypeScript, constructors can be marked as private or protected, which restricts their accessibility and usage.
 
 Private Constructors:
-Can be called only within the class itself. Private constructors are often used in scenarios where you want to enforce a singleton pattern or restrict the creation of instances to a factory method within the class
+Can be called only within the class itself. Private constructors are often used in scenarios where you want to enforce a singleton pattern or restrict the creation of instances to a factory method within the class.
 
 Protected Constructors:
 Protected constructors are useful when you want to create a base class that should not be instantiated directly but can be extended by subclasses.
@@ -3059,7 +3059,7 @@ The `private` modifier restricts access to the class member only within the cont
 
 The `protected` modifier allows access to the class member within the containing class and its derived classes.
 
-The `public` modifier provides unrestricted access to the class member, allowing it to be accessed from anywhere."
+The `public` modifier provides unrestricted access to the class member, allowing it to be accessed from anywhere.
 
 ### Get and Set
 
@@ -3138,7 +3138,7 @@ person1.introduce(); // Hello, my name is Alice.
 
 ### Parameter Properties
 
-Parameter properties allow you to declare and initialize class properties directly within the constructor parameters avoiding boilerplate code, example:
+Parameter properties allow you to declare and initialize class properties directly within the constructor parameters, avoiding boilerplate code. For example:
 
 ```typescript
 class Person {
@@ -3161,7 +3161,7 @@ person.introduce();
 
 ### Abstract Classes
 
-Abstract Classes are used in TypeScript mainly for inheritance, they provide a way to define common properties and methods that can be inherited by subclasses.
+Abstract Classes are used in TypeScript mainly for inheritance. They provide a way to define common properties and methods that can be inherited by subclasses.
 This is useful when you want to define common behavior and enforce that subclasses implement certain methods. They provide a way to create a hierarchy of classes where the abstract base class provides a shared interface and common functionality for the subclasses.
 
 ```typescript
@@ -3392,7 +3392,7 @@ Metadata can be used for various purposes, such as debugging, serialization, or 
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
 
 type Context =
     | ClassFieldDecoratorContext
@@ -4474,7 +4474,7 @@ Starting from TypeScript version 4.9, file monitoring primarily relies on file s
 
 ### Non-null Assertion Operator
 
-The Non-null Assertion Operator (Postfix !) also called Definite Assignment Assertions is a TypeScript feature that allows you to assert that a variable or property is not null or undefined, even if TypeScript's static type analysis suggests that it might be. With this feature it is possible to remove any explicit checking.
+The non-null assertion operator (postfix !), also called definite assignment assertions, is a TypeScript feature that allows you to assert that a variable or property is not null or undefined, even if TypeScript's static type analysis suggests that it might be. With this feature it is possible to remove any explicit checking.
 
 ```typescript
 type Person = {
@@ -4589,7 +4589,7 @@ type A = CheckNumber<123>; // 'Number'
 type B = CheckNumber<'abc'>; // 'Not a number'
 ```
 
-Recursion: means a type definition that refers to itself within its own definition:
+Recursion means a type definition that refers to itself within its own definition:
 
 ```typescript
 type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
@@ -4675,9 +4675,9 @@ type Student = [string, number];
 const [name, age]: Student = ['Simone', 20];
 ```
 
-The term "variadic" means indefinite arity (accept a variable number of arguments).
+The term "variadic" means indefinite arity (accepting a variable number of arguments).
 
-A variadic tuple is a tuple type which has all the properties as before but the exact shape is not defined yet:
+A variadic tuple is a tuple type that has all the properties as before, but the exact shape is not defined yet:
 
 ```typescript
 type Bar<T extends unknown[]> = [boolean, ...T, number];
@@ -5080,7 +5080,7 @@ Closing the connection...
 Connection closed.
 ```
 
-The `using` and `await using` declarations are allowed in Statements: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.
+The `using` and `await using` declarations are allowed in statements: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.
 
 ### Import Attributes
 
