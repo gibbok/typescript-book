@@ -1039,9 +1039,11 @@ const r: XY = { a: 'a' }; // Invalid
 const j: XY = { a: 'a', b: 'b' }; // Valid
 ```
 
-Nyckelordet `extends` kan betraktas som "delmängd av" i detta sammanhang. Det sätter en begränsning för en typ. När extends används med en generisk typ, behandlas den generiska typen som en oändlig mängd och begränsas till en mer specifik typ.
-Observera att `extends` inte har något att göra med hierarki i OOP-bemärkelse (det finns inget sådant koncept i TypeScript).
-TypeScript arbetar med mängder och har ingen strikt hierarki. Faktum är att, som i exemplet nedan, två typer kan överlappa utan att någon av dem är en undertyp av den andra (TypeScript betraktar strukturen, formen på objekten).
+Nyckelordet `extends` kan betraktas som "delmängd av" i detta sammanhang. Det anger en begränsning för en typ. När `extends` används med en generisk typ begränsar det den generiska typparametern till en mer specifik typ.
+
+Observera att `extends` här inte har något att göra med klassarv i OOP-sammanhang.
+
+TypeScript arbetar med strukturella typer och har inte en strikt nominell hierarki. Faktum är att, som i exemplet nedan, två typer kan överlappa utan att någon av dem är en subtyp av den andra, eftersom TypeScript tar hänsyn till strukturen, eller formen, hos objekt.
 
 ```typescript
 interface X {
