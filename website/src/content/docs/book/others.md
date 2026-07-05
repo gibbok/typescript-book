@@ -40,7 +40,7 @@ try {
 
 Custom Error Types:
 
-It is possible to specify more specific error by extending on the Error `class`:
+It is possible to specify more specific errors by extending the Error `class`:
 
 ```typescript
 class CustomError extends Error {
@@ -123,7 +123,7 @@ To learn more:
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 
-The following API are well supported in TypeScript:
+The following APIs are well supported in TypeScript:
 
 Fetch API:
 [https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
@@ -206,7 +206,7 @@ To learn more:
 
 ### TsDocs JSDoc Reference
 
-When working with a JavaScript code base, it is possible to help TypeScript to infer the right Type by using JSDoc comments with additional annotation to provide type information.
+When working with a JavaScript code base, it is possible to help TypeScript infer the right type by using JSDoc comments with additional annotation to provide type information.
 
 Example:
 
@@ -223,10 +223,10 @@ function power(base: number, exponent: number) {
 power(10, 2); // function power(base: number, exponent: number): number
 ```
 
-Full documentation is provided to this link:
+Full documentation is provided at this link:
 [https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
 
-From version 3.7 it is possible to generate .d.ts type definitions from JavaScript JSDoc syntax.
+From version 3.7, it is possible to generate .d.ts type definitions from JavaScript JSDoc syntax.
 More information can be found here:
 [https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html](https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html)
 
@@ -238,9 +238,9 @@ Packages under the @types organization are special package naming conventions us
 npm install --save-dev @types/lodash
 ```
 
-Will install the type definitions of `lodash` in your current project.
+will install the type definitions of `lodash` in your current project.
 
-To contribute to the type definitions of @types package, please submit a pull request to [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
+To contribute to the type definitions of an `@types` package, please submit a pull request to [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
 
 ### JSX
 
@@ -280,7 +280,7 @@ A configuration example:
 ### ES7 Exponentiation Operator
 
 The exponentiation (`**`) operator computes the value obtained by raising the first operand to the power of the second operand. It functions similarly to `Math.pow()`, but with the added capability of accepting BigInts as operands.
-TypeScript fully supports this operator using as `target` in your tsconfig.json file `es2016` or larger version.
+TypeScript fully supports this operator by setting `target` in your tsconfig.json file to `es2016` or higher.
 
 ```typescript
 console.log(2 ** (2 ** 2)); // 16
@@ -288,7 +288,7 @@ console.log(2 ** (2 ** 2)); // 16
 
 ### The for-await-of Statement
 
-This is a JavaScript feature fully supported in TypeScript which allows you to iterate over asynchronous iterable objects from target version es2018.
+This is a JavaScript feature fully supported in TypeScript which allows you to iterate over asynchronous iterable objects with target version `es2018`.
 
 ```typescript
 async function* asyncNumbers(): AsyncIterableIterator<number> {
@@ -306,7 +306,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 
 ### New target meta-property
 
-You can use in TypeScript the `new.target` meta-property which enables you to determine if a function or constructor was invoked using the new operator. It allows you to detect whether an object was created as a result of a constructor call.
+You can use the `new.target` meta-property in TypeScript, which enables you to determine if a function or constructor was invoked using the new operator. It allows you to detect whether an object was created as a result of a constructor call.
 
 ```typescript
 class Parent {
@@ -327,7 +327,7 @@ const child = new Child(); // [Function: Child]
 
 ### Dynamic Import Expressions
 
-It is possible to conditionally load modules or lazy load them on-demand using the ECMAScript proposal for dynamic import which is supported in TypeScript.
+It is possible to conditionally load modules or lazily load them on demand using the ECMAScript proposal for dynamic import, which is supported in TypeScript.
 
 The syntax for dynamic import expressions in TypeScript is as follows:
 
@@ -346,7 +346,7 @@ renderWidget();
 
 ### "tsc –watch"
 
-This command starts a TypeScript compiler with `--watch` parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
+This command starts a TypeScript compiler with the `--watch` parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
 
 ```shell
 tsc --watch
@@ -356,7 +356,7 @@ Starting from TypeScript version 4.9, file monitoring primarily relies on file s
 
 ### Non-null Assertion Operator
 
-The Non-null Assertion Operator (Postfix !) also called Definite Assignment Assertions is a TypeScript feature that allows you to assert that a variable or property is not null or undefined, even if TypeScript's static type analysis suggests that it might be. With this feature it is possible to remove any explicit checking.
+The non-null assertion operator (postfix !), also called definite assignment assertions, is a TypeScript feature that allows you to assert that a variable or property is not null or undefined, even if TypeScript's static type analysis suggests that it might be. With this feature it is possible to remove any explicit checking.
 
 ```typescript
 type Person = {
@@ -417,7 +417,7 @@ console.log(baz2); // 0
 
 ### Template Literal Types
 
-Template Literal Types allow to manipulate string value at type level and generate new string types based on existing ones. They are useful to create more expressive and precise types from string-based operations.
+Template Literal Types allow you to manipulate string values at the type level and generate new string types based on existing ones. They are useful for creating more expressive and precise types from string-based operations.
 
 ```typescript
 type Department = 'engineering' | 'hr';
@@ -427,7 +427,7 @@ type Id = `${Department}-${Language}-id`; // "engineering-english-id" | "enginee
 
 ### Function overloading
 
-Function overloading allows you to define multiple function signatures for the same function name, each with different parameter types and return type.
+Function overloading allows you to define multiple function signatures for the same function name, each with different parameter types and return types.
 When you call an overloaded function, TypeScript uses the provided arguments to determine the correct function signature:
 
 ```typescript
@@ -463,7 +463,7 @@ type ListNode<T> = {
 It is possible to define complex type relationships using logic and recursion in TypeScript.
 Let’s break it down in simple terms:
 
-Conditional Types: allows you to define types based on boolean conditions:
+Conditional Types allow you to define types based on boolean conditions:
 
 ```typescript
 type CheckNumber<T> = T extends number ? 'Number' : 'Not a number';
@@ -471,7 +471,7 @@ type A = CheckNumber<123>; // 'Number'
 type B = CheckNumber<'abc'>; // 'Not a number'
 ```
 
-Recursion: means a type definition that refers to itself within its own definition:
+Recursion means a type definition that refers to itself within its own definition:
 
 ```typescript
 type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
@@ -526,7 +526,7 @@ function isNumber(value: unknown): asserts value is number {
 }
 ```
 
-Or can be declared as function expression:
+Or it can be declared as a function expression:
 
 ```typescript
 type AssertIsNumber = (value: unknown) => asserts value is number;
@@ -538,7 +538,7 @@ const isNumber: AssertIsNumber = value => {
 ```
 
 Assertion functions share similarities with type guards. Type guards were initially introduced to perform runtime checks and ensure the type of a value within a specific scope.
-Specifically, a type guard is a function that evaluates a type predicate and returns a boolean value indicating whether the predicate is true or false. This differs slightly from assertion functions,where the intention is to throw an error rather than returning false when the predicate is not satisfied.
+Specifically, a type guard is a function that evaluates a type predicate and returns a boolean value indicating whether the predicate is true or false. This differs slightly from assertion functions, where the intention is to throw an error rather than returning false when the predicate is not satisfied.
 
 Example of type guard:
 
@@ -548,18 +548,18 @@ const isNumber = (value: unknown): value is number => typeof value === 'number';
 
 ### Variadic Tuple Types
 
-Variadic Tuple Types are a features introduces in TypeScript version 4.0, let’s start to learn them by revise what is a tuple:
+Variadic Tuple Types are a feature introduced in TypeScript version 4.0, so let’s start by revisiting what a tuple is:
 
-A tuple type is an array which has a defined length, and were the type of each element is known:
+A tuple type is an array which has a defined length, and where the type of each element is known:
 
 ```typescript
 type Student = [string, number];
 const [name, age]: Student = ['Simone', 20];
 ```
 
-The term "variadic" means indefinite arity (accept a variable number of arguments).
+The term "variadic" means indefinite arity (accepting a variable number of arguments).
 
-A variadic tuple is a tuple type which has all the property as before but the exact shape is not defined yet:
+A variadic tuple is a tuple type that has all the properties as before, but the exact shape is not defined yet:
 
 ```typescript
 type Bar<T extends unknown[]> = [boolean, ...T, number];
@@ -571,7 +571,7 @@ type C = Bar<[]>; // [boolean, number]
 
 In the previous code we can see that the tuple shape is defined by the `T` generic passed in.
 
-Variadic tuples can accept multiple generics make them very flexible:
+Variadic tuples can accept multiple generics, making them very flexible:
 
 ```typescript
 type Bar<T extends unknown[], G extends unknown[]> = [...T, boolean, ...G];
@@ -582,7 +582,7 @@ type B = Bar<['a', 'b'], [boolean]>; // ["a", "b", boolean, boolean]
 
 With the new variadic tuples we can use:
 
-* The spreads in tuple type syntax can now be generic, so we can represent higher-order operation on tuples and arrays even when we do not know the actual types we are operating over.
+* The spreads in tuple type syntax can now be generic, so we can represent higher-order operations on tuples and arrays even when we do not know the actual types we are operating over.
 * The rest elements can occur anywhere in a tuple.
 
 Example:
@@ -625,7 +625,7 @@ TypeScript represents this differentiation by providing separate types for the p
 * symbol => Symbol
 * bigint => BigInt
 
-The boxed types are usually not needed. Avoid using boxed types and instead use type for the primitives,  for instance `string` instead of `String`.
+The boxed types are usually not needed. Avoid using boxed types and instead use the primitive types, for instance `string` instead of `String`.
 
 ### Covariance and Contravariance in TypeScript
 
@@ -719,9 +719,9 @@ feedAnimal = feedDog; // error only with strictFunctionTypes
 
 #### Optional Variance Annotations for Type Parameters
 
-As of TypeScript 4.7.0, we can use the `out` and `in` keywords to be specific about Variance annotation.
+As of TypeScript 4.7.0, we can use the `out` and `in` keywords to specify variance annotations.
 
-For Covariant, use the `out` keyword:
+For covariance, use the `out` keyword:
 
 ```typescript
 type AnimalCallback<out T> = () => T; // T is Covariant here
@@ -762,7 +762,7 @@ console.log(obj['key-b']); // 456
 
 ### The satisfies Operator
 
-The `satisfies`  allows you to check if a given type satisfies a specific interface or condition. In other words, it ensures that a type has all the required properties and methods of a specific interface. It is a way to ensure a variable fits into a definition of a type.
+The `satisfies` operator allows you to check if a given type satisfies a specific interface or condition. In other words, it ensures that a type has all the required properties and methods of a specific interface. It is a way to ensure a variable fits into a definition of a type.
 Here is an example:
 
 <!-- skip -->
@@ -793,7 +793,7 @@ const user2 = {
 user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Using `satisfies` operators we can properly infer the types now
+// Using the `satisfies` operator we can properly infer the types now
 const user3 = {
     name: 'Simon',
     nickName: undefined,
@@ -806,7 +806,7 @@ user3.nickName; // TypeScript infers correctly: undefined
 
 ### Type-Only Imports and Export
 
-Type-Only Imports and Export allows you to import or export types without importing or exporting the values or functions associated with those types. This can be useful for reducing the size of your bundle.
+Type-Only Imports and Exports allow you to import or export types without importing or exporting the values or functions associated with those types. This can be useful for reducing the size of your bundle.
 
 To use type-only imports, you can use the `import type` keyword.
 
@@ -962,7 +962,7 @@ Closing the connection...
 Connection closed.
 ```
 
-The `using` and `await using` declarations are allowed in Statements: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.
+The `using` and `await using` declarations are allowed in statements: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.
 
 ### Import Attributes
 
@@ -984,7 +984,7 @@ const config = import('./config.json', { with: { type: 'json' } });
 
 ### Regular Expression Syntax Checking
 
-Since TypeScript 5.5.4 it checks regex literals for common errors at compile time (e.g. invalid syntax, wrong backreferences, unsupported features for your target JS version). It helps catch bugs earlier, but does not check new RegExp("...") strings.
+Since TypeScript 5.5.4, it checks regex literals for common errors at compile time (e.g. invalid syntax, wrong backreferences, unsupported features for your target JS version). It helps catch bugs earlier, but does not check new RegExp("...") strings.
 
 <!-- skip -->
 ```typescript

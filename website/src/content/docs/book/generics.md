@@ -27,7 +27,7 @@ const len = getLen([1, 2, 3]);
 
 ### Generic Classes
 
-Generics can be applied also to classes, in this way they can work with multiple types by using type parameters. This is useful to create reusable class definitions that can operate on different data types while maintaining type safety.
+Generics can also be applied to classes, in this way they can work with multiple types by using type parameters. This is useful for creating reusable class definitions that can operate on different data types while maintaining type safety.
 
 ```typescript
 class Container<T> {
@@ -53,7 +53,7 @@ console.log(stringContainer.getItem()); // hello
 
 Generic parameters can be constrained using the `extends` keyword followed by a type or interface that the type parameter must satisfy.
 
-In the following example T it is must containing a properly `length` in order to be valid:
+In the following example, `T` must have a properly typed `length` property in order to be valid:
 
 <!-- skip -->
 ```typescript
@@ -67,7 +67,7 @@ printLen({ length: 10 }); // 10
 printLen(123); // Invalid
 ```
 
-An interesting feature of generic introduced in version 3.4 RC is Higher order function type inference which introduced  propagated generic type arguments:
+A notable generic feature introduced in version 3.4 RC is higher-order function type inference, which propagates generic type arguments:
 
 ```typescript
 declare function pipe<A extends any[], B, C>(
@@ -82,11 +82,11 @@ const listBox = pipe(list, box); // <T>(a: T) => { value: T[] }
 const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```
 
-This functionality allows more easily typed safe pointfree style programming which is common in functional programming.
+This functionality makes type-safe pointfree style programming easier, which is common in functional programming.
 
 ### Generic contextual narrowing
 
-Contextual narrowing for generics is the mechanism in TypeScript that allows the compiler to narrow down the type of a generic parameter based on the context in which it is used, it is useful when working with generic types in conditional statements:
+Contextual narrowing for generics is the mechanism in TypeScript that allows the compiler to narrow down the type of a generic parameter based on the context in which it is used. It is useful when working with generic types in conditional statements:
 
 ```typescript
 function process<T>(value: T): void {

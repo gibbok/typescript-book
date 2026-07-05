@@ -10,7 +10,7 @@ In TypeScript, object types describe the shape of an object. They specify the na
 
 In TypeScript, you can define object types in two primary ways:
 
-Interface which defines the shape of an object by specifying the names, types, and optionality of its properties.
+An interface defines the shape of an object by specifying the names, types, and optionality of its properties.
 
 ```typescript
 interface User {
@@ -20,7 +20,7 @@ interface User {
 }
 ```
 
-Type alias, similar to an interface, defines the shape of an object. However, it can also create a new custom type that is based on an existing type or a combination of existing types. This includes defining union types, intersection types, and other complex types.
+A type alias, similar to an interface, defines the shape of an object. However, it can also create a new custom type that is based on an existing type or a combination of existing types. This includes defining union types, intersection types, and other complex types.
 
 ```typescript
 type Point = {
@@ -29,7 +29,7 @@ type Point = {
 };
 ```
 
-It also possible to define a type anonymously:
+It is also possible to define a type anonymously:
 
 ```typescript
 const sum = (x: { a: number; b: number }) => x.a + x.b;

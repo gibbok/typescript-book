@@ -89,7 +89,7 @@ const p1 = new Person('Simon', 17);
 const p2 = new Person('Alice', 22, 'f');
 ```
 
-In TypeScript, it is possible to define multiple constructor overloads, but you can have only one implementation that must be compatible with all the overloads, this can be achieved  by using an optional parameter.
+In TypeScript, it is possible to define multiple constructor overloads, but you can have only one implementation that must be compatible with all the overloads; this can be achieved by using an optional parameter.
 
 ```typescript
 class Person {
@@ -124,7 +124,7 @@ person3.displayInfo(); // Name: Jane, Age: 25
 In TypeScript, constructors can be marked as private or protected, which restricts their accessibility and usage.
 
 Private Constructors:
-Can be called only within the class itself. Private constructors are often used in scenarios where you want to enforce a singleton pattern or restrict the creation of instances to a factory method within the class
+Can be called only within the class itself. Private constructors are often used in scenarios where you want to enforce a singleton pattern or restrict the creation of instances to a factory method within the class.
 
 Protected Constructors:
 Protected constructors are useful when you want to create a base class that should not be instantiated directly but can be extended by subclasses.
@@ -158,7 +158,7 @@ The `private` modifier restricts access to the class member only within the cont
 
 The `protected` modifier allows access to the class member within the containing class and its derived classes.
 
-The `public` modifier provides unrestricted access to the class member, allowing it to be accessed from anywhere."
+The `public` modifier provides unrestricted access to the class member, allowing it to be accessed from anywhere.
 
 ### Get and Set
 
@@ -237,7 +237,7 @@ person1.introduce(); // Hello, my name is Alice.
 
 ### Parameter Properties
 
-Parameter properties allow you to declare and initialize class properties directly within the constructor parameters avoiding boilerplate code, example:
+Parameter properties allow you to declare and initialize class properties directly within the constructor parameters, avoiding boilerplate code. For example:
 
 ```typescript
 class Person {
@@ -260,7 +260,7 @@ person.introduce();
 
 ### Abstract Classes
 
-Abstract Classes are used in TypeScript mainly for inheritance, they provide a way to define common properties and methods that can be inherited by subclasses.
+Abstract Classes are used in TypeScript mainly for inheritance. They provide a way to define common properties and methods that can be inherited by subclasses.
 This is useful when you want to define common behavior and enforce that subclasses implement certain methods. They provide a way to create a hierarchy of classes where the abstract base class provides a shared interface and common functionality for the subclasses.
 
 ```typescript
@@ -491,7 +491,7 @@ Metadata can be used for various purposes, such as debugging, serialization, or 
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
 
 type Context =
     | ClassFieldDecoratorContext
@@ -608,7 +608,7 @@ console.log(total); // 2
 
 ### Property initialization
 
-There are several ways how you can initialize properties for a class in TypeScript:
+There are several ways to initialize properties for a class in TypeScript:
 
 Inline:
 

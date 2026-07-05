@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-A Literal Type is a single element set from a collective type, it defines a very exact value that is a JavaScript primitive.
+A Literal Type is a single-element set within a collective type; it defines a very exact value that is a JavaScript primitive.
 
 Literal Types in TypeScript are numbers, strings, and booleans.
 
