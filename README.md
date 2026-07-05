@@ -1040,9 +1040,11 @@ const r: XY = { a: 'a' }; // Invalid
 const j: XY = { a: 'a', b: 'b' }; // Valid
 ```
 
-The `extends` keyword could be considered as a "subset of" in this context. It sets a constraint for a type. When `extends` is used with a generic, treat the generic as an infinite set and it will constrain it to a more specific type.
-Please note that `extends` has nothing to do with hierarchy in an OOP sense (there is no such concept in TypeScript).
-TypeScript works with sets and does not have a strict hierarchy, in fact, as in the example below, two types could overlap without either being a subtype of the other type (TypeScript considers the structure, shape of the objects).
+The `extends` keyword can be considered as "subset of" in this context. It sets a constraint for a type. When `extends` is used with a generic, it constrains the generic type parameter to a more specific type.
+
+Please note that `extends` here has nothing to do with class inheritance in an OOP sense.
+
+TypeScript works with structural types and does not have a strict nominal hierarchy. In fact, as in the example below, two types can overlap without either being a subtype of the other, because TypeScript considers the structure, or shape, of objects.
 
 ```typescript
 interface X {

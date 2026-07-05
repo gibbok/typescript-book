@@ -996,8 +996,11 @@ const r: XY = { a: 'a' }; // Non valido
 const j: XY = { a: 'a', b: 'b' }; // Valido
 ```
 
-La parola chiave `extends` potrebbe essere considerata un "sottoinsieme di" in questo contesto. Imposta un vincolo per un tipo. L'extends utilizzato con un generico, considera il generico come un insieme infinito e lo vincola a un tipo più specifico. Si noti che ``extends` non ha nulla a che fare con la gerarchia in senso OOP (questo concetto non esiste in TypeScript).
-TypeScript funziona con insiemi e non ha una gerarchia rigida; infatti, come nell'esempio seguente, due tipi potrebbero sovrapporsi senza che uno dei due sia un sottotipo dell'altro (TypeScript considera la struttura e la forma degli oggetti).
+La parola chiave `extends` può essere considerata come "sottoinsieme di" in questo contesto. Imposta un vincolo per un tipo. Quando `extends` viene usato con un generic, vincola il parametro di tipo generic a un tipo più specifico.
+
+Nota che qui `extends` non ha nulla a che fare con l’ereditarietà delle classi in senso OOP.
+
+TypeScript lavora con tipi strutturali e non ha una rigida gerarchia nominale. Infatti, come nell’esempio qui sotto, due tipi possono sovrapporsi senza che uno sia un sottotipo dell’altro, perché TypeScript considera la struttura, o forma, degli oggetti.
 
 ```typescript
 interface X {
