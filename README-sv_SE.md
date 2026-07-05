@@ -3105,7 +3105,7 @@ class Animal {
         return this.#__name;
     }
     set name(value: string) {
-        this.#__name = name;
+        this.#__name = value;
     }
 
     constructor(name: string) {
@@ -3390,7 +3390,7 @@ Metadata kan användas för olika ändamål, till exempel felsökning, serialise
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
 
 type Context =
     | ClassFieldDecoratorContext
@@ -4038,7 +4038,7 @@ Tar bort 'this'-parametern från en funktionstyp T.
 
 ```typescript
 function capitalize(this: String) {
-    return this[0].toUpperCase + this.substring(1).toLowerCase();
+    return this[0].toUpperCase() + this.substring(1).toLowerCase();
 }
 
 type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
@@ -4971,7 +4971,7 @@ Exempel:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polify
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
 
 const doWork = (): Disposable => {
     return {
@@ -5045,7 +5045,7 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polify
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
 
 class DatabaseConnection implements AsyncDisposable {
     // A method that is called when the object is disposed asynchronously

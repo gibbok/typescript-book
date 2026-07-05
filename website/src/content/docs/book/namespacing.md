@@ -7,7 +7,7 @@ sidebar:
 
 
 In TypeScript, namespaces are used to organize code into logical containers, preventing naming collisions and providing a way to group related code together.
-The usage of the `export` keywords allows access to the namespace in "outside" modules.
+The use of the `export` keyword allows access to the namespace from outside modules.
 
 ```typescript
 export namespace MyNamespace {

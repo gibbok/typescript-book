@@ -3105,7 +3105,7 @@ class Animal {
         return this.#__name;
     }
     set name(value: string) {
-        this.#__name = name;
+        this.#__name = value;
     }
 
     constructor(name: string) {
@@ -4038,7 +4038,7 @@ Remove o parâmetro 'this' de um tipo de função T.
 
 ```typescript
 function capitalize(this: String) {
-    return this[0].toUpperCase + this.substring(1).toLowerCase();
+    return this[0].toUpperCase() + this.substring(1).toLowerCase();
 }
 
 type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string

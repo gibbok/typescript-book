@@ -295,7 +295,7 @@ f = 1; // Invalid, nothing is assignable to never
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything expect any
+g = 1; // Invalid, void is not assignable to or from anything except any
 g = g1; // Valid
 ```
 
@@ -310,13 +310,13 @@ TypeScript supports various types of sets:
 
 | Set term           | TypeScript                      | Notes                                                                                                              |
 | ------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Empty set          | never                           | "never" contains anything apart itself                                                                             |
+| Empty set          | never                           | "never" contains anything apart from itself                                                                         |
 | Single element set | undefined / null / literal type |                                                                                                                    |
 | Finite set         | boolean / union                 |                                                                                                                    |
 | Infinite set       | string / number / object        |                                                                                                                    |
 | Universal set      | any / unknown                   | Every element is a member of "any" and every set is a subset of it / "unknown" is a type-safe counterpart of "any" |
 
-Here few examples:
+Here are a few examples:
 
 | TypeScript            | Set term               | Example                                                                         |
 | --------------------- | ---------------------- | ------------------------------------------------------------------------------- |
@@ -344,7 +344,7 @@ Here few examples:
 |                       |                        |
 | unknown               | Universal set          | const x: unknown = 1                                                            |
 
-An union, (T1 | T2) creates a wider set (both):
+A union, (T1 | T2), creates a wider set (both):
 
 ```typescript
 type X = {
@@ -357,7 +357,7 @@ type XY = X | Y;
 const r: XY = { a: 'a', b: 'x' }; // Valid
 ```
 
-An intersection, (T1 & T2) create a narrower set (only shared):
+An intersection, (T1 & T2), creates a narrower set (only shared):
 
 <!-- skip -->
 ```typescript
@@ -373,9 +373,9 @@ const r: XY = { a: 'a' }; // Invalid
 const j: XY = { a: 'a', b: 'b' }; // Valid
 ```
 
-The `extends` keyword could be considered as a "subset of" in this context. It sets a constraint for a type. The extends used with a generic, take the generic as an infinite set and it will constrain it to a more specific type.
-Please note that `extends` has nothing to do with hierarchy in a OOP sense (there is no this concept in TypeScript).
-TypeScript works with sets and does not have a strict hierarchy, infact, as in the example below, two types could overlap without either being a subtype of the other type (TypeScript considers the structure, shape of the objects).
+The `extends` keyword could be considered as a "subset of" in this context. It sets a constraint for a type. When `extends` is used with a generic, treat the generic as an infinite set and it will constrain it to a more specific type.
+Please note that `extends` has nothing to do with hierarchy in an OOP sense (there is no such concept in TypeScript).
+TypeScript works with sets and does not have a strict hierarchy, in fact, as in the example below, two types could overlap without either being a subtype of the other type (TypeScript considers the structure, shape of the objects).
 
 ```typescript
 interface X {
@@ -641,7 +641,7 @@ window.addEventListener('click', function (e) {}); // The inferred type of e is 
 
 ### Type Widening
 
-Type widening is the process in which TypeScript assigns a type to a variable initialized when no type annotation was provided. It allows narrow to wider types but not vice versa.
+Type widening is the process in which TypeScript assigns a type to a variable initialized without a type annotation. It allows narrow to wider types but not vice versa.
 In the following example:
 
 <!-- skip -->
@@ -679,7 +679,7 @@ function identity<T>(value: T) {
     // No const here
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type infered is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
 ```
 
 As you can see, the properties `a` and `b` are inferred with a type of `string`   .
@@ -691,10 +691,10 @@ function identity<const T>(value: T) {
     // Using const modifier on type parameters
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type infered is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
 ```
 
-Now we can see that the properties `a` and `b` are inferred as `const`, so `a` and `b` are treated as string literals rather than just `string` types.
+Now we can see that the properties `a` and `b` are inferred as string literals rather than just `string` types.
 
 #### Const assertion
 
@@ -727,7 +727,7 @@ const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
 
 ### Explicit Type Annotation
 
-We can be specific and pass a type, in the following example property `x` is of type `number`:
+We can be specific and pass a type. In the following example, property `x` is of type `number`:
 
 ```typescript
 const v = {

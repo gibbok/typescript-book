@@ -8,7 +8,7 @@ sidebar:
 
 Literal Inference is a feature in TypeScript that allows the type of a variable or parameter to be inferred based on its value.
 
-In the following example we can see that TypeScript considers `x` a literal type as the value cannot be changed any time later, when instead `y` is inferred as string as it can be modified any time later.
+In the following example, we can see that TypeScript considers `x` a literal type as the value cannot be changed any time later, when instead `y` is inferred as string as it can be modified any time later.
 
 ```typescript
 const x = 'x'; // Literal type of 'x', because this value cannot be changed
@@ -30,9 +30,9 @@ const fn = (x: X) => `${x}-foo`;
 console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
 ```
 
-As you can see the code throws an error when passing `o.x` to `fn` as X is a narrower type.
+As you can see, the code throws an error when passing `o.x` to `fn` as X is a narrower type.
 
-We can solve this issue by using type assertion using `const` or the `X` type:
+We can solve this issue by using a type assertion with `const` or the `X` type:
 
 <!-- skip -->
 ```typescript

@@ -8,7 +8,7 @@ sidebar:
 
 The `never` type represents values that never occur. It is used to denote functions or expressions that never return or throw an error.
 
-For instance an infinite loop:
+For instance, an infinite loop:
 
 ```typescript
 const infiniteLoop = (): never => {

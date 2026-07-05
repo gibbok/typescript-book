@@ -6,9 +6,9 @@ sidebar:
 ---
 
 
-Triple-slash directives are special comments that provide instructions to the compiler about how to process a file. These directives begin with three consecutive slashes (`///`) and are typically placed at the top of a TypeScript file and have no effects on the runtime behavior.
+Triple-slash directives are special comments that provide instructions to the compiler about how to process a file. These directives begin with three consecutive slashes (`///`) and are typically placed at the top of a TypeScript file and have no effect on runtime behavior.
 
-Triple-slash directives are used to reference external dependencies, specify module loading behavior, enable/disable certain compiler features, and more. Few examples:
+Triple-slash directives are used to reference external dependencies, specify module loading behavior, enable or disable certain compiler features, and more. A few examples:
 
 Referencing a declaration file:
 

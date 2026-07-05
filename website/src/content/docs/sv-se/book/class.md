@@ -206,7 +206,7 @@ class Animal {
         return this.#__name;
     }
     set name(value: string) {
-        this.#__name = name;
+        this.#__name = value;
     }
 
     constructor(name: string) {
@@ -491,7 +491,7 @@ Metadata kan användas för olika ändamål, till exempel felsökning, serialise
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polify
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
 
 type Context =
     | ClassFieldDecoratorContext

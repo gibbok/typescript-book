@@ -911,7 +911,7 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polify
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
 
 class DatabaseConnection implements AsyncDisposable {
     // 当对象被异步释放时会被调用的方法

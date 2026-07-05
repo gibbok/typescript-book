@@ -8,11 +8,11 @@ sidebar:
 
 ### Creating Types from Types
 
-Is it possible to create new types composing, manipulating or transforming existing types.
+It is possible to create new types by composing, manipulating, or transforming existing types.
 
 Intersection Types (`&`):
 
-Allow you to combine multiple types into a single  type:
+Allow you to combine multiple types into a single type:
 
 ```typescript
 type A = { foo: number };
@@ -33,7 +33,7 @@ const value2: Result = 42;
 
 Mapped Types:
 
-Allow you to transform the properties of an existing type to create new type:
+Allow you to transform the properties of an existing type to create a new type:
 
 ```typescript
 type Mutable<T> = {
@@ -58,7 +58,7 @@ type ParamType = ExtractParam<MyFunction>; // string
 
 ### Indexed Access Types
 
-In TypeScript is it possible to access and manipulate  the types of properties within another type using an index, `Type[Key]`.
+In TypeScript, it is possible to access and manipulate the types of properties within another type using an index, `Type[Key]`.
 
 ```typescript
 type Person = {
@@ -76,7 +76,7 @@ type MyType = MyTuple[2]; // boolean
 
 ### Utility Types
 
-Several built-in utility types can be used to manipulate types, below a list of the most common used:
+Several built-in utility types can be used to manipulate types, below is a list of the most commonly used:
 
 #### Awaited\<T\>
 
@@ -277,7 +277,7 @@ Removes the 'this' parameter from a function type T.
 
 ```typescript
 function capitalize(this: String) {
-    return this[0].toUpperCase + this.substring(1).toLowerCase();
+    return this[0].toUpperCase() + this.substring(1).toLowerCase();
 }
 
 type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
@@ -285,7 +285,7 @@ type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
 
 #### ThisType\<T\>
 
-Servers as a market for a contextual `this` type.
+Serves as a marker for a contextual `this` type.
 
 <!-- skip -->
 ```typescript

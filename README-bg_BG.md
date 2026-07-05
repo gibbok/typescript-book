@@ -3101,7 +3101,7 @@ class Animal {
         return this.#__name;
     }
     set name(value: string) {
-        this.#__name = name;
+        this.#__name = value;
     }
 
     constructor(name: string) {
@@ -3386,7 +3386,7 @@ Metadata може да се използва за различни цели, к�
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Прост polify
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Прост polyfill
 
 type Context =
     | ClassFieldDecoratorContext
@@ -4034,7 +4034,7 @@ type PersonThisType = ThisParameterType<Person['greet']>; // Person
 
 ```typescript
 function capitalize(this: String) {
-    return this[0].toUpperCase + this.substring(1).toLowerCase();
+    return this[0].toUpperCase() + this.substring(1).toLowerCase();
 }
 
 type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
@@ -4967,7 +4967,7 @@ export type { T } from './mod';
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polify
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
 
 const doWork = (): Disposable => {
     return {
@@ -5041,7 +5041,7 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polify
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
 
 class DatabaseConnection implements AsyncDisposable {
     // Метод, който се извиква, когато обектът се унищожава асинхронно

@@ -50,7 +50,7 @@ The function can be converted and used in TypeScript by changing the file extens
 const sum = (a: number, b: number): number => a + b;
 ```
 
-TypeScript was designed to detect possible exceptions that can occur at runtime during compilation time by having the developer define the intent with type annotations. In addition, TypeScript can also catch issues if no type annotation is provided. For instance, the following code snippet does not specify any TypeScript types:
+TypeScript was designed to detect potential runtime errors at compile time by allowing developers to express intent through type annotations. In addition, TypeScript can also catch certain issues even when no explicit type annotations are provided, thanks to type inference. For example, the following code snippet does not specify any TypeScript types:
 
 <!-- skip -->
 ```typescript
@@ -74,7 +74,7 @@ The team behind TypeScript has made a deliberate decision to flag unusual usage 
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal 2
+const result = 1 + true; // In JavaScript, the result is equal to 2
 ```
 
 However, TypeScript throws an error:
