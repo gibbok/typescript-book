@@ -1,6 +1,6 @@
 # The Concise TypeScript Book
 
-The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects found in the latest version of the language, from its powerful type system to advanced features. Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.
+The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects of the latest version of the language, from its powerful type system to advanced features. Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.
 
 This book is completely Free and Open Source.
 
@@ -14,7 +14,7 @@ If the book helped you squash a bug, understand a tricky concept, or advance in 
 
 ## Translations
 
-This book has been translated into several language versions, including:
+This book has been translated into several languages, including:
 
 [Chinese](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
@@ -28,7 +28,7 @@ This book has been translated into several language versions, including:
 
 ## Downloads and website
 
-You can also download the Epub version:
+You can also download the EPUB version:
 
 [https://github.com/gibbok/typescript-book/tree/main/downloads](https://github.com/gibbok/typescript-book/tree/main/downloads)
 
@@ -1042,7 +1042,7 @@ const j: XY = { a: 'a', b: 'b' }; // Valid
 
 The `extends` keyword could be considered as a "subset of" in this context. It sets a constraint for a type. The extends used with a generic, take the generic as an infinite set and it will constrain it to a more specific type.
 Please note that `extends` has nothing to do with hierarchy in a OOP sense (there is no this concept in TypeScript).
-TypeScript works with sets and does not have a strict hierarchy, infact, as in the example below, two types could overlap without either being a subtype of the other type (TypeScript considers the structure, shape of the objects).
+TypeScript works with sets and does not have a strict hierarchy, in fact, as in the example below, two types could overlap without either being a subtype of the other type (TypeScript considers the structure, shape of the objects).
 
 ```typescript
 interface X {
@@ -1346,7 +1346,7 @@ function identity<T>(value: T) {
     // No const here
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type infered is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
 ```
 
 As you can see, the properties `a` and `b` are inferred with a type of `string`   .
@@ -1358,7 +1358,7 @@ function identity<const T>(value: T) {
     // Using const modifier on type parameters
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type infered is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
 ```
 
 Now we can see that the properties `a` and `b` are inferred as `const`, so `a` and `b` are treated as string literals rather than just `string` types.
@@ -1584,7 +1584,7 @@ console.log(obj[b]); // 456
 
 The `undefined` type means the value is not assigned or initialized or indicates an unintentional absence of value.
 
-The `null` type means that we know that the field does not have a value, so value is unavailable, it indicates an intentional absence of value.
+The `null` type means that we know that the field does not have a value, so the value is unavailable, and it indicates an intentional absence of value.
 
 ### Array
 
@@ -1615,15 +1615,15 @@ const y: readonly [string, number] = ['a', 1];
 
 ### any
 
-The `any` data type represents literally "any" value, it is the default value when TypeScript cannot infer the type or is not specified.
+The `any` data type represents literally "any" value and is the default when TypeScript cannot infer the type or it is not specified.
 
-When using `any` TypeScript compiler skips the type checking so there is no type safety when `any` is being used. Generally do not use `any` to silence the compiler when an error occurs, instead focus on fixing the error as with using `any`  it is possible to break contracts and we lose the benefits of TypeScript autocomplete.
+When using `any`, the TypeScript compiler skips type checking, so there is no type safety when `any` is being used. Generally, do not use `any` to silence the compiler when an error occurs; instead, focus on fixing the error, as using `any` makes it possible to break contracts and lose the benefits of TypeScript autocomplete.
 
 The `any` type could be useful during a gradual migration from JavaScript to TypeScript, as it can silence the compiler.
 
 For new projects use TypeScript configuration `noImplicitAny` which enables TypeScript to issue errors where `any` is used or inferred.
 
-The `any`type  is usually a source of errors which can mask real problems with your types. Avoid using it as much as possible.
+The `any` type is usually a source of errors that can mask real problems with your types. Avoid using it as much as possible.
 
 ## Type Annotations
 
@@ -1633,9 +1633,9 @@ On variables declared using `var`, `let` and `const`, it is possible to optional
 const x: number = 1;
 ```
 
-TypeScript does a good job of inferring types, especially when simple one, so these declarations in most cases are not necessary.
+TypeScript does a good job of inferring types, especially for simple ones, so these declarations are not necessary in most cases.
 
-On functions is possible to add type annotations to parameters:
+On functions, it is possible to add type annotations to parameters:
 
 ```typescript
 function sum(a: number, b: number) {
@@ -1643,13 +1643,13 @@ function sum(a: number, b: number) {
 }
 ```
 
-The following is an example using a anonymous functions (so called lambda function):
+The following is an example using an anonymous function (also called a lambda function):
 
 ```typescript
 const sum = (a: number, b: number) => a + b;
 ```
 
-These annotation can be avoided when a default value for a parameter is present:
+These annotations can be avoided when a default value for a parameter is present:
 
 ```typescript
 const sum = (a = 10, b: number) => a + b;
@@ -1661,7 +1661,7 @@ Return type annotations can be added to functions:
 const sum = (a = 10, b: number): number => a + b;
 ```
 
-This is useful especially for  more complex functions as writing expliciting the return type before an implementation can help better think about the function.
+This is especially useful for more complex functions, as writing the return type before an implementation can help you think through the function.
 
 Generally consider annotating type signatures but not the body local variables and add types always to object literals.
 
@@ -1688,7 +1688,7 @@ const x = ({ a, b = 100 }: X) => a + b;
 
 ## Readonly Properties
 
-Is it possible to prevent writing on a property by using the modifier `readonly`which  makes sure that the property cannot be re-written but does not provide any guarantee of total immutability:
+Is it possible to prevent writing on a property by using the modifier `readonly`, which makes sure that the property cannot be re-written but does not provide any guarantee of total immutability:
 
 ```typescript
 interface Y {
@@ -1710,7 +1710,7 @@ type K = {
 
 ## Index Signatures
 
-In TypeScript we can use as index signature `string`, `number`, and `symbol`:
+In TypeScript, we can use `string`, `number`, and `symbol` as index signatures:
 
 ```typescript
 type K = {
@@ -1722,7 +1722,7 @@ console.log(k[1]);
 console.log(k['1']); // Same result as k[1]
 ```
 
-Please note that JavaScript automatically converts an index with `number` to an index with `string` so `k[1]` or `k["1"]` return the same value.
+Please note that JavaScript automatically converts an index with `number` to an index with `string`, so `k[1]` or `k["1"]` returns the same value.
 
 ## Extending Types
 
@@ -1776,7 +1776,7 @@ interface B extends A {
 
 ## Literal Types
 
-A Literal Type is a single element set from a collective type, it defines a very exact value that is a JavaScript primitive.
+A Literal Type is a single-element set within a collective type; it defines a very exact value that is a JavaScript primitive.
 
 Literal Types in TypeScript are numbers, strings, and booleans.
 
@@ -2232,7 +2232,7 @@ console.log(area(circle)); // 12.566370614359172
 
 ## The never Type
 
-When a variable is narrowed to a type that cannot contain any values, the TypeScript compiler will infer that the variable must be of the `never` type. This is because The never Type represents a value that can never be produced.
+When a variable is narrowed to a type that cannot contain any values, the TypeScript compiler will infer that the variable must be of the `never` type. This is because the never type represents a value that can never be produced.
 
 ```typescript
 const printValue = (val: string | number) => {
@@ -2278,7 +2278,7 @@ In TypeScript, object types describe the shape of an object. They specify the na
 
 In TypeScript, you can define object types in two primary ways:
 
-Interface which defines the shape of an object by specifying the names, types, and optionality of its properties.
+An interface defines the shape of an object by specifying the names, types, and optionality of its properties.
 
 ```typescript
 interface User {
@@ -2297,7 +2297,7 @@ type Point = {
 };
 ```
 
-It also possible to define a type anonymously:
+It is also possible to define a type anonymously:
 
 ```typescript
 const sum = (x: { a: number; b: number }) => x.a + x.b;
@@ -2463,7 +2463,7 @@ type IsMyNumberAnArray = IsArray<typeof myNumber>; // Type false
 
 ## Distributive Conditional Types
 
-Distributive Conditional Types are a feature that allow a type to be distributed over a union of types, by applying a transformation to each member of the union individually.
+Distributive Conditional Types are a feature that allows a type to be distributed over a union of types by applying a transformation to each member of the union individually.
 This can be especially useful when working with mapped types or higher-order types.
 
 ```typescript
@@ -2474,7 +2474,7 @@ type NullableNumberOrBool = Nullable<NumberOrBool>; // number | boolean | null
 
 ## infer Type Inference in Conditional Types
 
-The `infer`keyword is used in conditional types to infer (extract) the type of a generic parameter from a type that depends on it. This allows you to write more flexible and reusable type definitions.
+The `infer` keyword is used in conditional types to infer (extract) the type of a generic parameter from a type that depends on it. This allows you to write more flexible and reusable type definitions.
 
 ```typescript
 type ElementType<T> = T extends (infer U)[] ? U : never;
@@ -2532,7 +2532,7 @@ value = 7; // Valid
 
 In TypeScript, the `unknown` type represents a value that is of an unknown type. Unlike `any` type, which allows for any type of value, `unknown` requires a type check or assertion before it can be used in a specific way so no operations are permitted on an `unknown` without first asserting or narrowing to a more specific type.
 
-The `unknown` type is only assignable to any type and the `unknown` type itself, it is a type-safe alternative to `any`.
+The `unknown` type is only assignable to `any` and `unknown` itself, and it is a type-safe alternative to `any`.
 
 <!-- skip -->
 ```typescript
@@ -2700,7 +2700,7 @@ TypeScript has several built-in type primitives that can be used to define varia
 
 ## Common Built-in JS Objects
 
-TypeScript is a superset of JavaScript, it includes all the commonly used built-in JavaScript objects. You can find an extensive list of these objects on the Mozilla Developer Network (MDN) documentation website:
+TypeScript is a superset of JavaScript; it includes all the commonly used built-in JavaScript objects. You can find an extensive list of these objects on the Mozilla Developer Network (MDN) documentation website:
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 
 Here is a list of some commonly used built-in JavaScript objects:
@@ -3509,7 +3509,7 @@ console.log(total); // 2
 
 ### Property initialization
 
-There are several ways how you can initialize properties for a class in TypeScript:
+There are several ways to initialize properties for a class in TypeScript:
 
 Inline:
 
@@ -3601,7 +3601,7 @@ const len = getLen([1, 2, 3]);
 
 ### Generic Classes
 
-Generics can be applied also to classes, in this way they can work with multiple types by using type parameters. This is useful to create reusable class definitions that can operate on different data types while maintaining type safety.
+Generics can also be applied to classes, in this way they can work with multiple types by using type parameters. This is useful for creating reusable class definitions that can operate on different data types while maintaining type safety.
 
 ```typescript
 class Container<T> {
@@ -3627,7 +3627,7 @@ console.log(stringContainer.getItem()); // hello
 
 Generic parameters can be constrained using the `extends` keyword followed by a type or interface that the type parameter must satisfy.
 
-In the following example T it is must containing a properly `length` in order to be valid:
+In the following example, `T` must have a properly typed `length` property in order to be valid:
 
 <!-- skip -->
 ```typescript
@@ -3641,7 +3641,7 @@ printLen({ length: 10 }); // 10
 printLen(123); // Invalid
 ```
 
-An interesting feature of generic introduced in version 3.4 RC is Higher order function type inference which introduced  propagated generic type arguments:
+A notable generic feature introduced in version 3.4 RC is higher-order function type inference, which propagates generic type arguments:
 
 ```typescript
 declare function pipe<A extends any[], B, C>(
@@ -3656,11 +3656,11 @@ const listBox = pipe(list, box); // <T>(a: T) => { value: T[] }
 const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```
 
-This functionality allows more easily typed safe pointfree style programming which is common in functional programming.
+This functionality makes type-safe pointfree style programming easier, which is common in functional programming.
 
 ### Generic contextual narrowing
 
-Contextual narrowing for generics is the mechanism in TypeScript that allows the compiler to narrow down the type of a generic parameter based on the context in which it is used, it is useful when working with generic types in conditional statements:
+Contextual narrowing for generics is the mechanism in TypeScript that allows the compiler to narrow down the type of a generic parameter based on the context in which it is used. It is useful when working with generic types in conditional statements:
 
 ```typescript
 function process<T>(value: T): void {
@@ -3702,7 +3702,7 @@ log(obj); // Valid
 ## Namespacing
 
 In TypeScript, namespaces are used to organize code into logical containers, preventing naming collisions and providing a way to group related code together.
-The usage of the `export` keywords allows access to the namespace in "outside" modules.
+The use of the `export` keyword allows access to the namespace from outside modules.
 
 ```typescript
 export namespace MyNamespace {
@@ -3742,9 +3742,9 @@ In WeakMaps and WeakSets, symbols are now permissible as keys.
 
 ## Triple-Slash Directives
 
-Triple-slash directives are special comments that provide instructions to the compiler about how to process a file. These directives begin with three consecutive slashes (`///`) and are typically placed at the top of a TypeScript file and have no effects on the runtime behavior.
+Triple-slash directives are special comments that provide instructions to the compiler about how to process a file. These directives begin with three consecutive slashes (`///`) and are typically placed at the top of a TypeScript file and have no effect on runtime behavior.
 
-Triple-slash directives are used to reference external dependencies, specify module loading behavior, enable/disable certain compiler features, and more. Few examples:
+Triple-slash directives are used to reference external dependencies, specify module loading behavior, enable or disable certain compiler features, and more. A few examples:
 
 Referencing a declaration file:
 
@@ -3771,11 +3771,11 @@ Enable compiler options, in the following example strict mode:
 
 ### Creating Types from Types
 
-Is it possible to create new types composing, manipulating or transforming existing types.
+It is possible to create new types by composing, manipulating, or transforming existing types.
 
 Intersection Types (`&`):
 
-Allow you to combine multiple types into a single  type:
+Allow you to combine multiple types into a single type:
 
 ```typescript
 type A = { foo: number };
@@ -3796,7 +3796,7 @@ const value2: Result = 42;
 
 Mapped Types:
 
-Allow you to transform the properties of an existing type to create new type:
+Allow you to transform the properties of an existing type to create a new type:
 
 ```typescript
 type Mutable<T> = {
@@ -3821,7 +3821,7 @@ type ParamType = ExtractParam<MyFunction>; // string
 
 ### Indexed Access Types
 
-In TypeScript is it possible to access and manipulate  the types of properties within another type using an index, `Type[Key]`.
+In TypeScript, it is possible to access and manipulate the types of properties within another type using an index, `Type[Key]`.
 
 ```typescript
 type Person = {
@@ -3839,7 +3839,7 @@ type MyType = MyTuple[2]; // boolean
 
 ### Utility Types
 
-Several built-in utility types can be used to manipulate types, below a list of the most common used:
+Several built-in utility types can be used to manipulate types, below is a list of the most commonly used:
 
 #### Awaited\<T\>
 
@@ -4048,7 +4048,7 @@ type CapitalizeType = OmitThisParameter<typeof capitalize>; // () => string
 
 #### ThisType\<T\>
 
-Servers as a market for a contextual `this` type.
+Serves as a marker for a contextual `this` type.
 
 <!-- skip -->
 ```typescript
@@ -4158,7 +4158,7 @@ try {
 
 Custom Error Types:
 
-It is possible to specify more specific error by extending on the Error `class`:
+It is possible to specify more specific errors by extending the Error `class`:
 
 ```typescript
 class CustomError extends Error {
@@ -4241,7 +4241,7 @@ To learn more:
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 
-The following API are well supported in TypeScript:
+The following APIs are well supported in TypeScript:
 
 Fetch API:
 [https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
@@ -4324,7 +4324,7 @@ To learn more:
 
 ### TsDocs JSDoc Reference
 
-When working with a JavaScript code base, it is possible to help TypeScript to infer the right Type by using JSDoc comments with additional annotation to provide type information.
+When working with a JavaScript code base, it is possible to help TypeScript infer the right type by using JSDoc comments with additional annotation to provide type information.
 
 Example:
 
@@ -4341,10 +4341,10 @@ function power(base: number, exponent: number) {
 power(10, 2); // function power(base: number, exponent: number): number
 ```
 
-Full documentation is provided to this link:
+Full documentation is provided at this link:
 [https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
 
-From version 3.7 it is possible to generate .d.ts type definitions from JavaScript JSDoc syntax.
+From version 3.7, it is possible to generate .d.ts type definitions from JavaScript JSDoc syntax.
 More information can be found here:
 [https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html](https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html)
 
@@ -4356,9 +4356,9 @@ Packages under the @types organization are special package naming conventions us
 npm install --save-dev @types/lodash
 ```
 
-Will install the type definitions of `lodash` in your current project.
+will install the type definitions of `lodash` in your current project.
 
-To contribute to the type definitions of @types package, please submit a pull request to [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
+To contribute to the type definitions of an `@types` package, please submit a pull request to [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
 
 ### JSX
 
@@ -4398,7 +4398,7 @@ A configuration example:
 ### ES7 Exponentiation Operator
 
 The exponentiation (`**`) operator computes the value obtained by raising the first operand to the power of the second operand. It functions similarly to `Math.pow()`, but with the added capability of accepting BigInts as operands.
-TypeScript fully supports this operator using as `target` in your tsconfig.json file `es2016` or larger version.
+TypeScript fully supports this operator by setting `target` in your tsconfig.json file to `es2016` or higher.
 
 ```typescript
 console.log(2 ** (2 ** 2)); // 16
@@ -4406,7 +4406,7 @@ console.log(2 ** (2 ** 2)); // 16
 
 ### The for-await-of Statement
 
-This is a JavaScript feature fully supported in TypeScript which allows you to iterate over asynchronous iterable objects from target version es2018.
+This is a JavaScript feature fully supported in TypeScript which allows you to iterate over asynchronous iterable objects with target version `es2018`.
 
 ```typescript
 async function* asyncNumbers(): AsyncIterableIterator<number> {
@@ -4424,7 +4424,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 
 ### New target meta-property
 
-You can use in TypeScript the `new.target` meta-property which enables you to determine if a function or constructor was invoked using the new operator. It allows you to detect whether an object was created as a result of a constructor call.
+You can use the `new.target` meta-property in TypeScript, which enables you to determine if a function or constructor was invoked using the new operator. It allows you to detect whether an object was created as a result of a constructor call.
 
 ```typescript
 class Parent {
@@ -4445,7 +4445,7 @@ const child = new Child(); // [Function: Child]
 
 ### Dynamic Import Expressions
 
-It is possible to conditionally load modules or lazy load them on-demand using the ECMAScript proposal for dynamic import which is supported in TypeScript.
+It is possible to conditionally load modules or lazily load them on demand using the ECMAScript proposal for dynamic import, which is supported in TypeScript.
 
 The syntax for dynamic import expressions in TypeScript is as follows:
 
@@ -4464,7 +4464,7 @@ renderWidget();
 
 ### "tsc –watch"
 
-This command starts a TypeScript compiler with `--watch` parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
+This command starts a TypeScript compiler with the `--watch` parameter, with the ability to automatically recompile TypeScript files whenever they are modified.
 
 ```shell
 tsc --watch
@@ -4535,7 +4535,7 @@ console.log(baz2); // 0
 
 ### Template Literal Types
 
-Template Literal Types allow to manipulate string value at type level and generate new string types based on existing ones. They are useful to create more expressive and precise types from string-based operations.
+Template Literal Types allow you to manipulate string values at the type level and generate new string types based on existing ones. They are useful for creating more expressive and precise types from string-based operations.
 
 ```typescript
 type Department = 'engineering' | 'hr';
@@ -4545,7 +4545,7 @@ type Id = `${Department}-${Language}-id`; // "engineering-english-id" | "enginee
 
 ### Function overloading
 
-Function overloading allows you to define multiple function signatures for the same function name, each with different parameter types and return type.
+Function overloading allows you to define multiple function signatures for the same function name, each with different parameter types and return types.
 When you call an overloaded function, TypeScript uses the provided arguments to determine the correct function signature:
 
 ```typescript
@@ -4581,7 +4581,7 @@ type ListNode<T> = {
 It is possible to define complex type relationships using logic and recursion in TypeScript.
 Let’s break it down in simple terms:
 
-Conditional Types: allows you to define types based on boolean conditions:
+Conditional Types allow you to define types based on boolean conditions:
 
 ```typescript
 type CheckNumber<T> = T extends number ? 'Number' : 'Not a number';
@@ -4644,7 +4644,7 @@ function isNumber(value: unknown): asserts value is number {
 }
 ```
 
-Or can be declared as function expression:
+Or it can be declared as a function expression:
 
 ```typescript
 type AssertIsNumber = (value: unknown) => asserts value is number;
@@ -4656,7 +4656,7 @@ const isNumber: AssertIsNumber = value => {
 ```
 
 Assertion functions share similarities with type guards. Type guards were initially introduced to perform runtime checks and ensure the type of a value within a specific scope.
-Specifically, a type guard is a function that evaluates a type predicate and returns a boolean value indicating whether the predicate is true or false. This differs slightly from assertion functions,where the intention is to throw an error rather than returning false when the predicate is not satisfied.
+Specifically, a type guard is a function that evaluates a type predicate and returns a boolean value indicating whether the predicate is true or false. This differs slightly from assertion functions, where the intention is to throw an error rather than returning false when the predicate is not satisfied.
 
 Example of type guard:
 
@@ -4666,9 +4666,9 @@ const isNumber = (value: unknown): value is number => typeof value === 'number';
 
 ### Variadic Tuple Types
 
-Variadic Tuple Types are a features introduces in TypeScript version 4.0, let’s start to learn them by revise what is a tuple:
+Variadic Tuple Types are a feature introduced in TypeScript version 4.0, so let’s start by revisiting what a tuple is:
 
-A tuple type is an array which has a defined length, and were the type of each element is known:
+A tuple type is an array which has a defined length, and where the type of each element is known:
 
 ```typescript
 type Student = [string, number];
@@ -4677,7 +4677,7 @@ const [name, age]: Student = ['Simone', 20];
 
 The term "variadic" means indefinite arity (accept a variable number of arguments).
 
-A variadic tuple is a tuple type which has all the property as before but the exact shape is not defined yet:
+A variadic tuple is a tuple type which has all the properties as before but the exact shape is not defined yet:
 
 ```typescript
 type Bar<T extends unknown[]> = [boolean, ...T, number];
@@ -4689,7 +4689,7 @@ type C = Bar<[]>; // [boolean, number]
 
 In the previous code we can see that the tuple shape is defined by the `T` generic passed in.
 
-Variadic tuples can accept multiple generics make them very flexible:
+Variadic tuples can accept multiple generics, making them very flexible:
 
 ```typescript
 type Bar<T extends unknown[], G extends unknown[]> = [...T, boolean, ...G];
@@ -4700,7 +4700,7 @@ type B = Bar<['a', 'b'], [boolean]>; // ["a", "b", boolean, boolean]
 
 With the new variadic tuples we can use:
 
-* The spreads in tuple type syntax can now be generic, so we can represent higher-order operation on tuples and arrays even when we do not know the actual types we are operating over.
+* The spreads in tuple type syntax can now be generic, so we can represent higher-order operations on tuples and arrays even when we do not know the actual types we are operating over.
 * The rest elements can occur anywhere in a tuple.
 
 Example:
@@ -4743,7 +4743,7 @@ TypeScript represents this differentiation by providing separate types for the p
 * symbol => Symbol
 * bigint => BigInt
 
-The boxed types are usually not needed. Avoid using boxed types and instead use type for the primitives,  for instance `string` instead of `String`.
+The boxed types are usually not needed. Avoid using boxed types and instead use the primitive types, for instance `string` instead of `String`.
 
 ### Covariance and Contravariance in TypeScript
 
@@ -4837,9 +4837,9 @@ feedAnimal = feedDog; // error only with strictFunctionTypes
 
 #### Optional Variance Annotations for Type Parameters
 
-As of TypeScript 4.7.0, we can use the `out` and `in` keywords to be specific about Variance annotation.
+As of TypeScript 4.7.0, we can use the `out` and `in` keywords to specify variance annotations.
 
-For Covariant, use the `out` keyword:
+For covariance, use the `out` keyword:
 
 ```typescript
 type AnimalCallback<out T> = () => T; // T is Covariant here
@@ -4880,7 +4880,7 @@ console.log(obj['key-b']); // 456
 
 ### The satisfies Operator
 
-The `satisfies`  allows you to check if a given type satisfies a specific interface or condition. In other words, it ensures that a type has all the required properties and methods of a specific interface. It is a way to ensure a variable fits into a definition of a type.
+The `satisfies` operator allows you to check if a given type satisfies a specific interface or condition. In other words, it ensures that a type has all the required properties and methods of a specific interface. It is a way to ensure a variable fits into a definition of a type.
 Here is an example:
 
 <!-- skip -->
@@ -4911,7 +4911,7 @@ const user2 = {
 user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Using `satisfies` operators we can properly infer the types now
+// Using the `satisfies` operator we can properly infer the types now
 const user3 = {
     name: 'Simon',
     nickName: undefined,
@@ -4924,7 +4924,7 @@ user3.nickName; // TypeScript infers correctly: undefined
 
 ### Type-Only Imports and Export
 
-Type-Only Imports and Export allows you to import or export types without importing or exporting the values or functions associated with those types. This can be useful for reducing the size of your bundle.
+Type-Only Imports and Exports allow you to import or export types without importing or exporting the values or functions associated with those types. This can be useful for reducing the size of your bundle.
 
 To use type-only imports, you can use the `import type` keyword.
 
@@ -5102,7 +5102,7 @@ const config = import('./config.json', { with: { type: 'json' } });
 
 ### Regular Expression Syntax Checking
 
-Since TypeScript 5.5.4 it checks regex literals for common errors at compile time (e.g. invalid syntax, wrong backreferences, unsupported features for your target JS version). It helps catch bugs earlier, but does not check new RegExp("...") strings.
+Since TypeScript 5.5.4, it checks regex literals for common errors at compile time (e.g. invalid syntax, wrong backreferences, unsupported features for your target JS version). It helps catch bugs earlier, but does not check new RegExp("...") strings.
 
 <!-- skip -->
 ```typescript
