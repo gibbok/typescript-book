@@ -1,26 +1,16 @@
 ---
-title: Предефинирани Conditional типове
+title: Template Union типове
 sidebar:
   order: 43
-  label: 43. Предефинирани Conditional типове
+  label: 43. Template Union типове
 ---
 
 
-В TypeScript, предефинираните Conditional типове са вградени conditional типове, предоставени от езика. Те са създадени, за да извършват често използвани трансформации на типове въз основа на характеристиките на даден тип.
+Template union типовете могат да се използват за комбиниране и манипулиране на текст в рамките на type системата, например:
 
-`Exclude<UnionType, ExcludedType>`: Премахва всички типове от UnionType, които могат да бъдат присвоени на ExcludedType.
-
-`Extract<Type, Union>`: Извлича всички типове от Union, които могат да бъдат присвоени на Type.
-
-`NonNullable<Type>`: Премахва null и undefined от Type.
-
-`ReturnType<Type>`: Извлича типа на върнатата стойност на функция Type.
-
-`Parameters<Type>`: Извлича типовете на параметрите на функция Type.
-
-`Required<Type>`: Прави всички свойства в Type задължителни.
-
-`Partial<Type>`: Прави всички свойства в Type опционални.
-
-`Readonly<Type>`: Прави всички свойства в Type само за четене.
+```typescript
+type Status = 'active' | 'inactive';
+type Products = 'p1' | 'p2';
+type ProductId = `id-${Products}-${Status}`; // "id-p1-active" | "id-p1-inactive" | "id-p2-active" | "id-p2-inactive"
+```
 

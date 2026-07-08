@@ -1,47 +1,87 @@
 ---
-title: Never тип
+title: Interface и Type
 sidebar:
   order: 48
-  label: 48. Never тип
+  label: 48. Interface и Type
 ---
 
 
-Типът `never` представлява стойности, които никога не се появяват. Той се използва за обозначаване на функции или изрази, които никога не връщат стойност или хвърлят грешка.
+### Общ синтаксис
 
-Например безкраен цикъл:
+В TypeScript, interface дефинират структурата на обекти, като задават имената и типовете на свойствата или методите, които даден обект трябва да има. Общият синтаксис за дефиниране на interface в TypeScript е следният:
 
+<!-- skip -->
 ```typescript
-const infiniteLoop = (): never => {
-    while (true) {
-        // do something
-    }
+interface InterfaceName {
+    property1: Type1;
+    // ...
+    method1(arg1: ArgType1, arg2: ArgType2): ReturnType;
+    // ...
+}
+```
+
+По подобен начин се дефинира и type:
+
+<!-- skip -->
+```typescript
+type TypeName = {
+    property1: Type1;
+    // ...
+    method1(arg1: ArgType1, arg2: ArgType2): ReturnType;
+    // ...
 };
 ```
 
-Хвърляне на грешка:
+`interface InterfaceName` или `type TypeName`: Дефинира името на interface.
+`property1: Type1`: Определя свойствата на interface заедно със съответните им типове. Могат да бъдат дефинирани множество свойства, разделени със точка и запетая.
+`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;`: Определя методите на interface. Методите се дефинират чрез име, последвано от списък с параметри в скоби и тип на върнатата стойност. Могат да бъдат дефинирани множество методи, разделени със точка и запетая.
+
+Пример за interface:
 
 ```typescript
-const throwError = (message: string): never => {
-    throw new Error(message);
+interface Person {
+    name: string;
+    age: number;
+    greet(): void;
+}
+```
+
+Пример за type:
+
+```typescript
+type TypeName = {
+    property1: string;
+    method1(arg1: string, arg2: string): string;
 };
 ```
 
-Типът `never` е полезен за гарантиране на type безопасност и откриване на потенциални грешки във вашия код. Той помага на TypeScript да анализира и извежда по-прецизни типове, когато се използва в комбинация с други типове и конструкции за control flow, например:
+В TypeScript, типовете се използват за дефиниране на структурата на данни и за прилагане на проверка на типовете (type checking). Съществуват различни често използвани синтаксиси за дефиниране на типове в TypeScript, в зависимост от конкретния случай на употреба. Ето някои примери:
+
+### Основни типове
 
 ```typescript
-type Direction = 'up' | 'down';
-const move = (direction: Direction): void => {
-    switch (direction) {
-        case 'up':
-            // move up
-            break;
-        case 'down':
-            // move down
-            break;
-        default:
-            const exhaustiveCheck: never = direction;
-            throw new Error(`Unhandled direction: ${exhaustiveCheck}`);
-    }
-};
+let myNumber: number = 123; // number тип
+let myBoolean: boolean = true; // boolean тип
+let myArray: string[] = ['a', 'b']; // масив от string
+let myTuple: [string, number] = ['a', 123]; // tuple
+```
+
+### Обекти и Interfaces
+
+```typescript
+const x: { name: string; age: number } = { name: 'Simon', age: 7 };
+```
+
+### Union и Intersection типове
+
+```typescript
+type MyType = string | number; // Union тип
+let myUnion: MyType = 'hello'; // Може да бъде string
+myUnion = 123; // Или number
+
+type TypeA = { name: string };
+type TypeB = { age: number };
+type CombinedType = TypeA & TypeB; // Intersection тип
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Обект със свойства name и age
 ```
 

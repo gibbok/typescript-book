@@ -8,172 +8,172 @@ sidebar:
 
 <!-- markdownlint-disable MD004 -->
 
-- The Concise TypeScript Book
-- Traduzioni
-- Download e sito web
-- Indice
-- Introduzione
-- Informazioni sull'autore
-- Introduzione a TypeScript
-  - Cos'è TypeScript?
-  - Perché TypeScript?
-  - TypeScript e JavaScript
-  - Generazione di codice TypeScript
-  - JavaScript moderno ora (Downleveling)
-- Per iniziare con TypeScript
-  - Installazione
-  - Configurazione
-  - File di configurazione TypeScript
-    - target
-    - lib
-    - strict
-    - module
-    - moduleResolution
-    - esModuleInterop
-    - jsx
-    - skipLibCheck
-    - files
-    - include
-    - exclude
-  - importHelpers
-  - Consigli per la migrazione a TypeScript
-- Esplorazione del sistema di tipi
-  - Il servizio di linguaggio TypeScript
-  - Tipizzazione Strutturale
-  - Regole fondamentali di confronto di TypeScript
-  - Tipi come insiemi
-  - Allargamento di tipo
-  - Const
-    - Modificatore Const sui parametri di tipo
-    - Asserzione Const
-  - Annotazione di tipo esplicita
-  - Restringimento dei tipi
-    - Condizioni
-    - Generazione o restituzione
-    - Unione Discriminata
-    - Protezioni di tipo definite dall'utente
-    - Restringimento Switch-true
-- Tipi primitivi
-  - string
-- Inferenza letterale
-- strictNullChecks
-- Enumerazioni
-  - Enumerazioni numeriche
-  - Enum String
-  - Enum Constant
-  - Mapping inverso
-  - Enum ambientali
-  - Membri calcolati e costanti
-- Restringimento
-  - protezioni di tipo typeof
-  - Restringimento di veridicità
-  - Restringimento di uguaglianza
-  - Restringimento dell'operatore "in"
-  - Restringimento instanceof
-- Assegnazioni
-- Analisi del flusso di controllo
-- Tipo da Valore
-- Tipo da Ritorno Funzione
-- Tipo da modulo
-- Tipi mappati
-- Modificatori di tipo mappati
-- Tipi condizionali
-- Tipi condizionali distributivi
-- infer Inferenza di tipo nei tipi condizionali
-- Tipi Condizionali Predefiniti
-- Tipi di unione di template
-- Tipo Any
-- Tipo Unknown
-- Tipo Void
-- Tipo Never
-- Interfaccia e tipo
-  - Sintassi comune
-  - Tipi di base
-  - Oggetti e interfacce
-  - Modificatori di accesso
-  - Get e Set
-  - Accessori automatici nelle classi
-  - this
-  - Proprietà dei parametri
-  - Classi astratte
-  - Con i generici
-  - Decoratori
-    - Decoratori di classe
-    - Decoratore di proprietà
-  - Ereditarietà
-  - Statiche
-  - Inizializzazione delle proprietà
-  - Sovraccarico dei metodi
-- Generici
-  - Tipo generico
-  - Classi generiche
-  - Vincoli generici
-  - Restringimento contestuale generico
-- Tipi strutturali cancellati
-- Namespace
-- Simboli
-- Direttive con tripla barra
-- Manipolazione dei tipi
-  - Creazione di tipi da tipi
-  - Tipi di accesso indicizzati
-  - Tipi di utilità
-    - Awaited\<T\>
-    - Partial\<T\>
-    - Required\<T\>
-    - Readonly\<T\>
-    - Record\<K, T\>
-    - Pick\<T, K\>
-    - Omit\<T, K\>
-    - Exclude\<T, U\>
-    - Extract\<T, U\>
-    - NonNullable\<T\>
-    - Parameters\<T\>
-    - ConstructorParameters\<T\>
-    - ReturnType\<T\>
-    - InstanceType\<T\>
-    - ThisParameterType\<T\>
-    - OmitThisParameter\<T\>
-    - ThisType\<T\>
-    - Uppercase\<T\>
-    - Lowercase\<T\>
-    - Capitalize\<T\>
-    - Uncapitalize\<T\>
-    - NoInfer\<T\>
-- Altri
-  - Gestione degli errori e delle eccezioni
-  - Classi Mixin
-  - Funzionalità del linguaggio asincrono
-  - Iteratori e Generatori
-  - Riferimento JSDoc di TsDocs
-  - @types
-  - JSX
-  - Moduli ES6
-  - Operatore di elevamento a potenza ES7
-  - L'istruzione for-await-of
-  - Nuova meta-proprietà target
-  - Espressioni di importazione dinamica
-  - "tsc –watch"
-  - Operatore di asserzione non nullo
-  - Dichiarazioni predefinite
-  - Concatenamento opzionale
-  - Operatore di coalescenza nullo
-  - Tipi letterali di template
-  - Sovraccarico di funzioni
-  - Tipi ricorsivi
-  - Tipi condizionali ricorsivi
-  - Supporto per i moduli ECMAScript in Node
-  - Funzioni di asserzione
-  - Tipi di tupla variadici
-  - Tipi boxed
-  - Covarianza e Controvarianza in TypeScript
-    - Annotazioni di varianza opzionali per i parametri di tipo
-  - Firme di indice con pattern di stringhe modello
-  - Operatore `satisfies`
-  - Importazioni ed esportazioni solo per tipo
-  - Dichiarazione using e Gestione Risorse Esplicita
-    - dichiarazione await using
-  - Attributi di importazione
-  - Controllo della sintassi delle espressioni regolari
-  - import defer
+- [The Concise TypeScript Book](../the-concise-typescript-book/)
+- [Traduzioni](../translations/)
+- [Download e sito web](../downloads-and-website/)
+- [Indice](../table-of-contents/)
+- [Introduzione](../introduction/)
+- [Informazioni sull'autore](../about-the-author/)
+- [Introduzione a TypeScript](../typescript-introduction/)
+  - [Cos'è TypeScript?](../typescript-introduction/#cosè-typescript)
+  - [Perché TypeScript?](../typescript-introduction/#perché-typescript)
+  - [TypeScript e JavaScript](../typescript-introduction/#typescript-e-javascript)
+  - [Generazione di codice TypeScript](../typescript-introduction/#generazione-di-codice-typescript)
+  - [JavaScript moderno ora (Downleveling)](../typescript-introduction/#javascript-moderno-ora-downleveling)
+- [Per iniziare con TypeScript](../getting-started-with-typescript/)
+  - [Installazione](../getting-started-with-typescript/#installazione)
+  - [Configurazione](../getting-started-with-typescript/#configurazione)
+  - [File di configurazione TypeScript](../getting-started-with-typescript/#file-di-configurazione-typescript)
+    - [target](../getting-started-with-typescript/#target)
+    - [lib](../getting-started-with-typescript/#lib)
+    - [strict](../getting-started-with-typescript/#strict)
+    - [module](../getting-started-with-typescript/#module)
+    - [moduleResolution](../getting-started-with-typescript/#moduleresolution)
+    - [esModuleInterop](../getting-started-with-typescript/#esmoduleinterop)
+    - [jsx](../getting-started-with-typescript/#jsx)
+    - [skipLibCheck](../getting-started-with-typescript/#skiplibcheck)
+    - [files](../getting-started-with-typescript/#files)
+    - [include](../getting-started-with-typescript/#include)
+    - [exclude](../getting-started-with-typescript/#exclude)
+  - [importHelpers](../getting-started-with-typescript/#importhelpers)
+  - [Consigli per la migrazione a TypeScript](../getting-started-with-typescript/#consigli-per-la-migrazione-a-typescript)
+- [Esplorazione del sistema di tipi](../exploring-the-type-system/)
+  - [Il servizio di linguaggio TypeScript](../exploring-the-type-system/#il-servizio-di-linguaggio-typescript)
+  - [Tipizzazione Strutturale](../exploring-the-type-system/#tipizzazione-strutturale)
+  - [Regole fondamentali di confronto di TypeScript](../exploring-the-type-system/#regole-fondamentali-di-confronto-di-typescript)
+  - [Tipi come insiemi](../exploring-the-type-system/#tipi-come-insiemi)
+  - [Allargamento di tipo](../exploring-the-type-system/#allargamento-di-tipo)
+  - [Const](../exploring-the-type-system/#const)
+    - [Modificatore Const sui parametri di tipo](../exploring-the-type-system/#modificatore-const-sui-parametri-di-tipo)
+    - [Asserzione Const](../exploring-the-type-system/#asserzione-const)
+  - [Annotazione di tipo esplicita](../exploring-the-type-system/#annotazione-di-tipo-esplicita)
+  - [Restringimento dei tipi](../exploring-the-type-system/#restringimento-dei-tipi)
+    - [Condizioni](../exploring-the-type-system/#condizioni)
+    - [Generazione o restituzione](../exploring-the-type-system/#generazione-o-restituzione)
+    - [Unione Discriminata](../exploring-the-type-system/#unione-discriminata)
+    - [Protezioni di tipo definite dall'utente](../exploring-the-type-system/#protezioni-di-tipo-definite-dallutente)
+    - [Restringimento Switch-true](../exploring-the-type-system/#restringimento-switch-true)
+- [Tipi primitivi](../primitive-types/)
+  - [string](../primitive-types/#string)
+- [Inferenza letterale](../literal-inference/)
+- [strictNullChecks](../strictnullchecks/)
+- [Enumerazioni](../enums/)
+  - [Enumerazioni numeriche](../enums/#enumerazioni-numeriche)
+  - [Enum String](../enums/#enum-string)
+  - [Enum Constant](../enums/#enum-constant)
+  - [Mapping inverso](../enums/#mapping-inverso)
+  - [Enum ambientali](../enums/#enum-ambientali)
+  - [Membri calcolati e costanti](../enums/#membri-calcolati-e-costanti)
+- [Restringimento](../narrowing/)
+  - [protezioni di tipo typeof](../narrowing/#protezioni-di-tipo-typeof)
+  - [Restringimento di veridicità](../narrowing/#restringimento-di-veridicità)
+  - [Restringimento di uguaglianza](../narrowing/#restringimento-di-uguaglianza)
+  - [Restringimento dell'operatore "in"](../narrowing/#restringimento-delloperatore-in)
+  - [Restringimento instanceof](../narrowing/#restringimento-instanceof)
+- [Assegnazioni](../assignments/)
+- [Analisi del flusso di controllo](../control-flow-analysis/)
+- [Tipo da Valore](../type-from-value/)
+- [Tipo da Ritorno Funzione](../type-from-func-return/)
+- [Tipo da modulo](../type-from-module/)
+- [Tipi mappati](../mapped-types/)
+- [Modificatori di tipo mappati](../mapped-type-modifiers/)
+- [Tipi condizionali](../conditional-types/)
+- [Tipi condizionali distributivi](../distributive-conditional-types/)
+- [infer Inferenza di tipo nei tipi condizionali](../infer-type-inference-in-conditional-types/)
+- [Tipi Condizionali Predefiniti](../predefined-conditional-types/)
+- [Tipi di unione di template](../template-union-types/)
+- [Tipo Any](../any-type/)
+- [Tipo Unknown](../unknown-type/)
+- [Tipo Void](../void-type/)
+- [Tipo Never](../never-type/)
+- [Interfaccia e tipo](../interface-and-type/)
+  - [Sintassi comune](../interface-and-type/#sintassi-comune)
+  - [Tipi di base](../interface-and-type/#tipi-di-base)
+  - [Oggetti e interfacce](../interface-and-type/#oggetti-e-interfacce)
+  - [Modificatori di accesso](../class/#modificatori-di-accesso)
+  - [Get e Set](../class/#get-e-set)
+  - [Accessori automatici nelle classi](../class/#accessori-automatici-nelle-classi)
+  - [this](../class/#this)
+  - [Proprietà dei parametri](../class/#proprietà-dei-parametri)
+  - [Classi astratte](../class/#classi-astratte)
+  - [Con i generici](../class/#con-i-generici)
+  - [Decoratori](../class/#decoratori)
+    - [Decoratori di classe](../class/#decoratori-di-classe)
+    - [Decoratore di proprietà](../class/#decoratore-di-proprietà)
+  - [Ereditarietà](../class/#ereditarietà)
+  - [Statiche](../class/#statiche)
+  - [Inizializzazione delle proprietà](../class/#inizializzazione-delle-proprietà)
+  - [Sovraccarico dei metodi](../class/#sovraccarico-dei-metodi)
+- [Generici](../generics/)
+  - [Tipo generico](../generics/#tipo-generico)
+  - [Classi generiche](../generics/#classi-generiche)
+  - [Vincoli generici](../generics/#vincoli-generici)
+  - [Restringimento contestuale generico](../generics/#restringimento-contestuale-generico)
+- [Tipi strutturali cancellati](../erased-structural-types/)
+- [Namespace](../namespacing/)
+- [Simboli](../symbols/)
+- [Direttive con tripla barra](../triple-slash-directives/)
+- [Manipolazione dei tipi](../type-manipulation/)
+  - [Creazione di tipi da tipi](../type-manipulation/#creazione-di-tipi-da-tipi)
+  - [Tipi di accesso indicizzati](../type-manipulation/#tipi-di-accesso-indicizzati)
+  - [Tipi di utilità](../type-manipulation/#tipi-di-utilità)
+    - [Awaited\<T\>](../type-manipulation/#awaitedt)
+    - [Partial\<T\>](../type-manipulation/#partialt)
+    - [Required\<T\>](../type-manipulation/#requiredt)
+    - [Readonly\<T\>](../type-manipulation/#readonlyt)
+    - [Record\<K, T\>](../type-manipulation/#recordk-t)
+    - [Pick\<T, K\>](../type-manipulation/#pickt-k)
+    - [Omit\<T, K\>](../type-manipulation/#omitt-k)
+    - [Exclude\<T, U\>](../type-manipulation/#excludet-u)
+    - [Extract\<T, U\>](../type-manipulation/#extractt-u)
+    - [NonNullable\<T\>](../type-manipulation/#nonnullablet)
+    - [Parameters\<T\>](../type-manipulation/#parameterst)
+    - [ConstructorParameters\<T\>](../type-manipulation/#constructorparameterst)
+    - [ReturnType\<T\>](../type-manipulation/#returntypet)
+    - [InstanceType\<T\>](../type-manipulation/#instancetypet)
+    - [ThisParameterType\<T\>](../type-manipulation/#thisparametertypet)
+    - [OmitThisParameter\<T\>](../type-manipulation/#omitthisparametert)
+    - [ThisType\<T\>](../type-manipulation/#thistypet)
+    - [Uppercase\<T\>](../type-manipulation/#uppercaset)
+    - [Lowercase\<T\>](../type-manipulation/#lowercaset)
+    - [Capitalize\<T\>](../type-manipulation/#capitalizet)
+    - [Uncapitalize\<T\>](../type-manipulation/#uncapitalizet)
+    - [NoInfer\<T\>](../type-manipulation/#noinfert)
+- [Altri](../others/)
+  - [Gestione degli errori e delle eccezioni](../others/#gestione-degli-errori-e-delle-eccezioni)
+  - [Classi Mixin](../others/#classi-mixin)
+  - [Funzionalità del linguaggio asincrono](../others/#funzionalità-del-linguaggio-asincrono)
+  - [Iteratori e Generatori](../others/#iteratori-e-generatori)
+  - [Riferimento JSDoc di TsDocs](../others/#riferimento-jsdoc-di-tsdocs)
+  - [@types](../others/#types)
+  - [JSX](../others/#jsx)
+  - [Moduli ES6](../others/#moduli-es6)
+  - [Operatore di elevamento a potenza ES7](../others/#operatore-di-elevamento-a-potenza-es7)
+  - [L'istruzione for-await-of](../others/#listruzione-for-await-of)
+  - [Nuova meta-proprietà target](../others/#nuova-meta-proprietà-target)
+  - [Espressioni di importazione dinamica](../others/#espressioni-di-importazione-dinamica)
+  - ["tsc –watch"](../others/#tsc-watch)
+  - [Operatore di asserzione non nullo](../others/#operatore-di-asserzione-non-nullo)
+  - [Dichiarazioni predefinite](../others/#dichiarazioni-predefinite)
+  - [Concatenamento opzionale](../others/#concatenamento-opzionale)
+  - [Operatore di coalescenza nullo](../others/#operatore-di-coalescenza-nullo)
+  - [Tipi letterali di template](../others/#tipi-letterali-di-template)
+  - [Sovraccarico di funzioni](../others/#sovraccarico-di-funzioni)
+  - [Tipi ricorsivi](../others/#tipi-ricorsivi)
+  - [Tipi condizionali ricorsivi](../others/#tipi-condizionali-ricorsivi)
+  - [Supporto per i moduli ECMAScript in Node](../others/#supporto-per-i-moduli-ecmascript-in-node)
+  - [Funzioni di asserzione](../others/#funzioni-di-asserzione)
+  - [Tipi di tupla variadici](../others/#tipi-di-tupla-variadici)
+  - [Tipi boxed](../others/#tipi-boxed)
+  - [Covarianza e Controvarianza in TypeScript](../others/#covarianza-e-controvarianza-in-typescript)
+    - [Annotazioni di varianza opzionali per i parametri di tipo](../others/#annotazioni-di-varianza-opzionali-per-i-parametri-di-tipo)
+  - [Firme di indice con pattern di stringhe modello](../others/#firme-di-indice-con-pattern-di-stringhe-modello)
+  - [Operatore `satisfies`](../others/#operatore-satisfies)
+  - [Importazioni ed esportazioni solo per tipo](../others/#importazioni-ed-esportazioni-solo-per-tipo)
+  - [Dichiarazione using e Gestione Risorse Esplicita](../others/#dichiarazione-using-e-gestione-risorse-esplicita)
+    - [dichiarazione await using](../others/#dichiarazione-await-using)
+  - [Attributi di importazione](../others/#attributi-di-importazione)
+  - [Controllo della sintassi delle espressioni regolari](../others/#controllo-della-sintassi-delle-espressioni-regolari)
+  - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
 

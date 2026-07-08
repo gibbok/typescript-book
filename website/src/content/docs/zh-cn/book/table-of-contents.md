@@ -7,218 +7,218 @@ sidebar:
 
 
 <!-- markdownlint-disable MD004 -->
-- 简洁的TypeScript之书
-  - 翻译
-  - 下载和网站
-  - 目录表
-  - 介绍
-  - 关于作者
-  - TypeScript简介
-    - 什么是TypeScript？
-    - 为什么选择 TypeScript？
-    - TypeScript 和 JavaScript
-    - TypeScript 代码生成
-    - 现在的现代 JavaScript（降级）
-  - TypeScript 入门
-    - 安装
-    - 配置
-    - TypeScript 的配置文件
-      - target
-      - lib
-      - strict
-      - module
-      - moduleResolution
-      - esModuleInterop
-      - jsx
-      - skipLibCheck
-      - files
-      - include
-      - exclude
-    - importHelpers
-    - 迁移到 TypeScript 的建议
-  - 探索类型系统
-    - TypeScript 的语言服务
-    - 结构类型
-    - TypeScript 的基本比较规则
-    - 类型作为集合
-    - 赋值类型：类型声明和类型断言
-      - 类型声明
-      - 类型断言
-      - 非空断言
-      - 环境声明
-    - 属性检测和多余属性检测
-    - 弱类型
-    - 严格的对象字面量检测 (Freshness)
-    - 类型推断
-    - 更高级的推断
-    - 类型加宽
-    - 常量
-      - 类型参数的 const 修饰符
-    - 常量断言
-    - 显式类型注释
-    - 类型缩小
-      - 条件
-      - 抛错或者返回
-      - 可区分联合
-      - 用户定义的类型保护
-      - switch-true 类型缩减
-  - 原始类型
-    - string
-    - boolean
-    - number
-    - bigInt
-    - symbol
-    - null and undefined
-    - Array
-    - any
-  - 类型注释
-  - 可选属性
-  - 只读属性
-  - 索引签名
-  - 扩展类型
-  - 字面量类型
-  - 字面量推断
-  - 严格空检查
-  - 枚举
-    - 数字枚举
-    - 字符串枚举
-    - 常量枚举
-    - 反向映射
-    - 环境枚举
-    - 计算成员和常量成员
-  - 缩小范围
-    - typeof 类型保护
-    - 真实性缩小
-    - 相等缩小
-    - In运算符缩小
-    - instanceof 缩小
-  - 赋值
-  - 控制流分析
-  - 类型谓词
-  - 可区分联合
-  - never 类型
-  - 详尽性检查
-  - 对象类型
-  - 元组类型（匿名）
-  - 命名元组类型（已标记）
-  - 固定长度元组
-  - 联合类型
-  - 交集类型
-  - 类型索引
-  - 值的类型
-  - Func 返回值的类型
-  - 模块的类型
-  - 映射类型
-  - 映射类型修饰符
-  - 条件类型
-  - 分配条件类型
-  - infer 条件类型中的类型推断
-  - 预定义条件类型
-  - 模板联合类型
-  - 任意类型
-  - 未知类型
-  - 空类型
-  - Never类型
-  - 接口及类型
-    - 通用语法
-    - 基本类型
-    - 对象和接口
-    - 并集和交集类型
-  - 内置原始数据类型
-  - 常见的内置JS对象
-  - 重载
-  - 合并与扩展
-  - 类型和接口之间的差异
-  - Class
-    - 通用语法
-    - 构造函数
-    - 私有和受保护的构造函数
-    - 访问修饰符
-    - Get 与 Set
-    - 类中的自动访问器
-    - this
-    - 参数属性
-    - 抽象类
-    - 使用泛型
-    - 装饰器
-      - 类装饰器
-      - 属性装饰器
-      - 方法装饰器
-      - Getter 和 Setter 装饰器
-    - 装饰器元数据
-    - 继承
-    - 静态成员
-    - 属性初始化
-    - 方法重载
-  - 泛型
-    - 泛型类型
-    - 泛型类
-    - 泛型约束
-    - 泛型上下文缩小
-  - 擦除的结构类型
-  - 命名空间
-  - Symbols
-  - 三斜杠指令
-  - 类型操作
-    - 从类型创建类型
-    - 索引访问类型
-    - 工具类型
-      - Awaited\<T\>
-      - Partial\<T\>
-      - Required\<T\>
-      - Readonly\<T\>
-      - Record\<K, T\>
-      - Pick\<T, K\>
-      - Omit\<T, K\>
-      - Exclude\<T, U\>
-      - Extract\<T, U\>
-      - NonNullable\<T\>
-      - Parameters\<T\>
-      - ConstructorParameters\<T\>
-      - ReturnType\<T\>
-      - InstanceType\<T\>
-      - ThisParameterType\<T\>
-      - OmitThisParameter\<T\>
-      - ThisType\<T\>
-      - Uppercase\<T\>
-      - Lowercase\<T\>
-      - Capitalize\<T\>
-      - Uncapitalize\<T\>
-      - NoInfer\<T\>
-  - 其他
-    - 错误和异常处理
-    - 混合类
-    - 异步语言特性
-    - 迭代器和生成器
-    - TsDocs JSDoc 参考
-    - @types
-    - JSX
-    - ES6 模块
-    - ES7 求幂运算符
-    - for-await-of 语句
-    - New target 元属性
-    - 动态导入表达式
-    - "tsc –watch"
-    - 默认声明
-    - 可选链
-    - 空合并运算符
-    - 模板字符串类型
-    - 函数重载
-    - 递归类型
-    - 递归条件类型
-    - Node 中的 ECMAScript 模块支持
-    - 断言函数
-    - 可变参数元组类型
-    - 装箱类型
-    - TypeScript 中的协变和逆变
-      - 类型参数的可选方差注释
-    - 模板字符串模式索引签名
-    - satisfies操作符
-    - 仅类型导入和导出
-    - 使用声明和显式资源管理
-      - 使用声明等待
-    - 导入属性
-    - 正则表达式语法检查
-    - import defer
+- [简洁的TypeScript之书](../the-concise-typescript-book/)
+  - [翻译](../translations/)
+  - [下载和网站](../downloads-and-website/)
+  - [目录表](../table-of-contents/)
+  - [介绍](../introduction/)
+  - [关于作者](../about-the-author/)
+  - [TypeScript简介](../typescript-introduction/)
+    - [什么是TypeScript？](../typescript-introduction/#什么是typescript)
+    - [为什么选择 TypeScript？](../typescript-introduction/#为什么选择-typescript)
+    - [TypeScript 和 JavaScript](../typescript-introduction/#typescript-和-javascript)
+    - [TypeScript 代码生成](../typescript-introduction/#typescript-代码生成)
+    - [现在的现代 JavaScript（降级）](../typescript-introduction/#现在的现代-javascript降级)
+  - [TypeScript 入门](../getting-started-with-typescript/)
+    - [安装](../getting-started-with-typescript/#安装)
+    - [配置](../getting-started-with-typescript/#配置)
+    - [TypeScript 的配置文件](../getting-started-with-typescript/#typescript-的配置文件)
+      - [target](../getting-started-with-typescript/#target)
+      - [lib](../getting-started-with-typescript/#lib)
+      - [strict](../getting-started-with-typescript/#strict)
+      - [module](../getting-started-with-typescript/#module)
+      - [moduleResolution](../getting-started-with-typescript/#moduleresolution)
+      - [esModuleInterop](../getting-started-with-typescript/#esmoduleinterop)
+      - [jsx](../getting-started-with-typescript/#jsx)
+      - [skipLibCheck](../getting-started-with-typescript/#skiplibcheck)
+      - [files](../getting-started-with-typescript/#files)
+      - [include](../getting-started-with-typescript/#include)
+      - [exclude](../getting-started-with-typescript/#exclude)
+    - [importHelpers](../getting-started-with-typescript/#importhelpers)
+    - [迁移到 TypeScript 的建议](../getting-started-with-typescript/#迁移到-typescript-的建议)
+  - [探索类型系统](../exploring-the-type-system/)
+    - [TypeScript 的语言服务](../exploring-the-type-system/#typescript-的语言服务)
+    - [结构类型](../exploring-the-type-system/#结构类型)
+    - [TypeScript 的基本比较规则](../exploring-the-type-system/#typescript-的基本比较规则)
+    - [类型作为集合](../exploring-the-type-system/#类型作为集合)
+    - [赋值类型：类型声明和类型断言](../exploring-the-type-system/#赋值类型类型声明和类型断言)
+      - [类型声明](../exploring-the-type-system/#类型声明)
+      - [类型断言](../exploring-the-type-system/#类型断言)
+      - [非空断言](../exploring-the-type-system/#非空断言)
+      - [环境声明](../exploring-the-type-system/#环境声明)
+    - [属性检测和多余属性检测](../exploring-the-type-system/#属性检测和多余属性检测)
+    - [弱类型](../exploring-the-type-system/#弱类型)
+    - [严格的对象字面量检测 (Freshness)](../exploring-the-type-system/#严格的对象字面量检测-freshness)
+    - [类型推断](../exploring-the-type-system/#类型推断)
+    - [更高级的推断](../exploring-the-type-system/#更高级的推断)
+    - [类型加宽](../exploring-the-type-system/#类型加宽)
+    - [常量](../exploring-the-type-system/#常量)
+      - [类型参数的 const 修饰符](../exploring-the-type-system/#类型参数的-const-修饰符)
+    - [常量断言](../exploring-the-type-system/#常量断言)
+    - [显式类型注释](../exploring-the-type-system/#显式类型注释)
+    - [类型缩小](../exploring-the-type-system/#类型缩小)
+      - [条件](../exploring-the-type-system/#条件)
+      - [抛错或者返回](../exploring-the-type-system/#抛错或者返回)
+      - [可区分联合](../exploring-the-type-system/#可区分联合)
+      - [用户定义的类型保护](../exploring-the-type-system/#用户定义的类型保护)
+      - [switch-true 类型缩减](../exploring-the-type-system/#switch-true-类型缩减)
+  - [原始类型](../primitive-types/)
+    - [string](../primitive-types/#string)
+    - [boolean](../primitive-types/#boolean)
+    - [number](../primitive-types/#number)
+    - [bigInt](../primitive-types/#bigint)
+    - [symbol](../primitive-types/#symbol)
+    - [null and undefined](../primitive-types/#null-and-undefined)
+    - [Array](../primitive-types/#array)
+    - [any](../primitive-types/#any)
+  - [类型注释](../type-annotations/)
+  - [可选属性](../optional-properties/)
+  - [只读属性](../readonly-properties/)
+  - [索引签名](../index-signatures/)
+  - [扩展类型](../extending-types/)
+  - [字面量类型](../literal-types/)
+  - [字面量推断](../literal-inference/)
+  - [严格空检查](../strictnullchecks/)
+  - [枚举](../enums/)
+    - [数字枚举](../enums/#数字枚举)
+    - [字符串枚举](../enums/#字符串枚举)
+    - [常量枚举](../enums/#常量枚举)
+    - [反向映射](../enums/#反向映射)
+    - [环境枚举](../enums/#环境枚举)
+    - [计算成员和常量成员](../enums/#计算成员和常量成员)
+  - [缩小范围](../narrowing/)
+    - [typeof 类型保护](../narrowing/#typeof-类型保护)
+    - [真实性缩小](../narrowing/#真实性缩小)
+    - [相等缩小](../narrowing/#相等缩小)
+    - [In运算符缩小](../narrowing/#in运算符缩小)
+    - [instanceof 缩小](../narrowing/#instanceof-缩小)
+  - [赋值](../assignments/)
+  - [控制流分析](../control-flow-analysis/)
+  - [类型谓词](../type-predicates/)
+  - [可区分联合](../discriminated-unions/)
+  - [never 类型](../the-never-type/)
+  - [详尽性检查](../exhaustiveness-checking/)
+  - [对象类型](../object-types/)
+  - [元组类型（匿名）](../tuple-type-anonymous/)
+  - [命名元组类型（已标记）](../named-tuple-type-labeled/)
+  - [固定长度元组](../fixed-length-tuple/)
+  - [联合类型](../union-type/)
+  - [交集类型](../intersection-types/)
+  - [类型索引](../type-indexing/)
+  - [值的类型](../type-from-value/)
+  - [Func 返回值的类型](../type-from-func-return/)
+  - [模块的类型](../type-from-module/)
+  - [映射类型](../mapped-types/)
+  - [映射类型修饰符](../mapped-type-modifiers/)
+  - [条件类型](../conditional-types/)
+  - [分配条件类型](../distributive-conditional-types/)
+  - [infer 条件类型中的类型推断](../infer-type-inference-in-conditional-types/)
+  - [预定义条件类型](../predefined-conditional-types/)
+  - [模板联合类型](../template-union-types/)
+  - [任意类型](../any-type/)
+  - [未知类型](../unknown-type/)
+  - [空类型](../void-type/)
+  - [Never类型](../never-type/)
+  - [接口及类型](../interface-and-type/)
+    - [通用语法](../interface-and-type/#通用语法)
+    - [基本类型](../interface-and-type/#基本类型)
+    - [对象和接口](../interface-and-type/#对象和接口)
+    - [并集和交集类型](../interface-and-type/#并集和交集类型)
+  - [内置原始数据类型](../built-in-type-primitives/)
+  - [常见的内置JS对象](../common-built-in-js-objects/)
+  - [重载](../overloads/)
+  - [合并与扩展](../merging-and-extension/)
+  - [类型和接口之间的差异](../differences-between-type-and-interface/)
+  - [Class](../class/)
+    - [通用语法](../class/#通用语法)
+    - [构造函数](../class/#构造函数)
+    - [私有和受保护的构造函数](../class/#私有和受保护的构造函数)
+    - [访问修饰符](../class/#访问修饰符)
+    - [Get 与 Set](../class/#get-与-set)
+    - [类中的自动访问器](../class/#类中的自动访问器)
+    - [this](../class/#this)
+    - [参数属性](../class/#参数属性)
+    - [抽象类](../class/#抽象类)
+    - [使用泛型](../class/#使用泛型)
+    - [装饰器](../class/#装饰器)
+      - [类装饰器](../class/#类装饰器)
+      - [属性装饰器](../class/#属性装饰器)
+      - [方法装饰器](../class/#方法装饰器)
+      - [Getter 和 Setter 装饰器](../class/#getter-和-setter-装饰器)
+    - [装饰器元数据](../class/#装饰器元数据)
+    - [继承](../class/#继承)
+    - [静态成员](../class/#静态成员)
+    - [属性初始化](../class/#属性初始化)
+    - [方法重载](../class/#方法重载)
+  - [泛型](../generics/)
+    - [泛型类型](../generics/#泛型类型)
+    - [泛型类](../generics/#泛型类)
+    - [泛型约束](../generics/#泛型约束)
+    - [泛型上下文缩小](../generics/#泛型上下文缩小)
+  - [擦除的结构类型](../erased-structural-types/)
+  - [命名空间](../namespacing/)
+  - [Symbols](../symbols/)
+  - [三斜杠指令](../triple-slash-directives/)
+  - [类型操作](../type-manipulation/)
+    - [从类型创建类型](../type-manipulation/#从类型创建类型)
+    - [索引访问类型](../type-manipulation/#索引访问类型)
+    - [工具类型](../type-manipulation/#工具类型)
+      - [Awaited\<T\>](../type-manipulation/#awaitedt)
+      - [Partial\<T\>](../type-manipulation/#partialt)
+      - [Required\<T\>](../type-manipulation/#requiredt)
+      - [Readonly\<T\>](../type-manipulation/#readonlyt)
+      - [Record\<K, T\>](../type-manipulation/#recordk-t)
+      - [Pick\<T, K\>](../type-manipulation/#pickt-k)
+      - [Omit\<T, K\>](../type-manipulation/#omitt-k)
+      - [Exclude\<T, U\>](../type-manipulation/#excludet-u)
+      - [Extract\<T, U\>](../type-manipulation/#extractt-u)
+      - [NonNullable\<T\>](../type-manipulation/#nonnullablet)
+      - [Parameters\<T\>](../type-manipulation/#parameterst)
+      - [ConstructorParameters\<T\>](../type-manipulation/#constructorparameterst)
+      - [ReturnType\<T\>](../type-manipulation/#returntypet)
+      - [InstanceType\<T\>](../type-manipulation/#instancetypet)
+      - [ThisParameterType\<T\>](../type-manipulation/#thisparametertypet)
+      - [OmitThisParameter\<T\>](../type-manipulation/#omitthisparametert)
+      - [ThisType\<T\>](../type-manipulation/#thistypet)
+      - [Uppercase\<T\>](../type-manipulation/#uppercaset)
+      - [Lowercase\<T\>](../type-manipulation/#lowercaset)
+      - [Capitalize\<T\>](../type-manipulation/#capitalizet)
+      - [Uncapitalize\<T\>](../type-manipulation/#uncapitalizet)
+      - [NoInfer\<T\>](../type-manipulation/#noinfert)
+  - [其他](../others/)
+    - [错误和异常处理](../others/#错误和异常处理)
+    - [混合类](../others/#混合类)
+    - [异步语言特性](../others/#异步语言特性)
+    - [迭代器和生成器](../others/#迭代器和生成器)
+    - [TsDocs JSDoc 参考](../others/#tsdocs-jsdoc-参考)
+    - [@types](../others/#types)
+    - [JSX](../others/#jsx)
+    - [ES6 模块](../others/#es6-模块)
+    - [ES7 求幂运算符](../others/#es7-求幂运算符)
+    - [for-await-of 语句](../others/#for-await-of-语句)
+    - [New target 元属性](../others/#new-target-元属性)
+    - [动态导入表达式](../others/#动态导入表达式)
+    - ["tsc –watch"](../others/#tsc-watch)
+    - [默认声明](../others/#默认声明)
+    - [可选链](../others/#可选链)
+    - [空合并运算符](../others/#空合并运算符)
+    - [模板字符串类型](../others/#模板字符串类型)
+    - [函数重载](../others/#函数重载)
+    - [递归类型](../others/#递归类型)
+    - [递归条件类型](../others/#递归条件类型)
+    - [Node 中的 ECMAScript 模块支持](../others/#node-中的-ecmascript-模块支持)
+    - [断言函数](../others/#断言函数)
+    - [可变参数元组类型](../others/#可变参数元组类型)
+    - [装箱类型](../others/#装箱类型)
+    - [TypeScript 中的协变和逆变](../others/#typescript-中的协变和逆变)
+      - [类型参数的可选方差注释](../others/#类型参数的可选方差注释)
+    - [模板字符串模式索引签名](../others/#模板字符串模式索引签名)
+    - [satisfies操作符](../others/#satisfies操作符)
+    - [仅类型导入和导出](../others/#仅类型导入和导出)
+    - [使用声明和显式资源管理](../others/#使用声明和显式资源管理)
+      - [使用声明等待](../others/#使用声明等待)
+    - [导入属性](../others/#导入属性)
+    - [正则表达式语法检查](../others/#正则表达式语法检查)
+    - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
 

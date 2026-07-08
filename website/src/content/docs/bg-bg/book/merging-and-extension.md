@@ -1,56 +1,50 @@
 ---
-title: Overloads
+title: Merging и Extension
 sidebar:
   order: 52
-  label: 52. Overloads
+  label: 52. Merging и Extension
 ---
 
 
-Function overloads в TypeScript позволяват да дефинирате множество сигнатури на функция за едно и също име на функция, което позволява тя да бъде извиквана по различни начини. Ето пример:
+Merging и extension се отнасят до две различни концепции, свързани с работа с типове и interfaces.
+
+Merging позволява да комбинирате множество декларации със същото име в една дефиниция, например когато дефинирате interface със същото име повече от веднъж:
 
 ```typescript
-// Overloads
-function sayHi(name: string): string;
-function sayHi(names: string[]): string[];
-
-// Implementation
-function sayHi(name: unknown): unknown {
-    if (typeof name === 'string') {
-        return `Hi, ${name}!`;
-    } else if (Array.isArray(name)) {
-        return name.map(name => `Hi, ${name}!`);
-    }
-    throw new Error('Invalid value');
+interface X {
+    a: string;
 }
 
-sayHi('xx'); // Валидно
-sayHi(['aa', 'bb']); // Валидно
+interface X {
+    b: number;
+}
+
+const person: X = {
+    a: 'a',
+    b: 7,
+};
 ```
 
-Ето още един пример за използване на function overloads в рамките на `class`:
+Extension се отнася до възможността да разширявате или наследявате съществуващи типове или interfaces, за да създавате нови. Това е механизъм за добавяне на допълнителни свойства или методи към съществуващ тип, без да се променя оригиналната му дефиниция. Пример:
 
 ```typescript
-class Greeter {
-    message: string;
-
-    constructor(message: string) {
-        this.message = message;
-    }
-
-    // overload
-    sayHi(name: string): string;
-    sayHi(names: string[]): ReadonlyArray<string>;
-
-    // implementation
-    sayHi(name: unknown): unknown {
-        if (typeof name === 'string') {
-            return `${this.message}, ${name}!`;
-        } else if (Array.isArray(name)) {
-            return name.map(name => `${this.message}, ${name}!`);
-        }
-        throw new Error('value is invalid');
-    }
+interface Animal {
+    name: string;
+    eat(): void;
 }
-console.log(new Greeter('Hello').sayHi('Simon'));
+
+interface Bird extends Animal {
+    sing(): void;
+}
+
+const dog: Bird = {
+    name: 'Bird 1',
+    eat() {
+        console.log('Eating');
+    },
+    sing() {
+        console.log('Singing');
+    },
+};
 ```
 

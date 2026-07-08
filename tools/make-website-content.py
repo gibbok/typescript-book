@@ -7,7 +7,7 @@ Note: the number of headings per language must be the same.
 import os
 import re
 import shutil
-from typing import List
+from typing import Dict, List, Match
 
 
 # INPUT_FILE_PATH = "./test-md/README.md"
@@ -59,6 +59,10 @@ def is_line_header_1_to_2(line: str) -> bool:
     return re.match(r"^(#{1,2})\s+(.+)", line)
 
 
+def is_line_header(line: str) -> Match[str] | None:
+    return re.match(r"^(#{1,6})\s+(.+)", line)
+
+
 def make_file_output_path(output_dir: str, name: str) -> str:
     file_name = make_file_name(name)
     output_file_path = make_output_path(output_dir, file_name)
@@ -96,14 +100,89 @@ def find_master_headers(lines: List[str]) -> List[str]:
     return headers_clean
 
 
-def remove_markdown_anchors(markdown_text: str):
-    pattern = r"\[(.*?)\]\(#[^\)]*\)"
-    replacement = r"\1"
-    transformed_text = re.sub(pattern, replacement, markdown_text)
-    return transformed_text
+def find_page_heading_levels(lines: List[str]) -> List[int]:
+    return [
+        len(header_match.group(1))
+        for line in lines
+        if (header_match := is_line_header_1_to_2(line))
+    ]
 
 
-def split_content_by_headings(lines: List[str]):
+def validate_page_headings(
+    master_lines: List[str], content_lines: List[str], input_lang_path: str
+) -> None:
+    master_levels = find_page_heading_levels(master_lines)
+    content_levels = find_page_heading_levels(content_lines)
+    if len(master_levels) != len(content_levels):
+        raise ValueError(
+            f"{input_lang_path} has {len(content_levels)} page headings, "
+            f"but the master file has {len(master_levels)}."
+        )
+
+    for index, (master_level, content_level) in enumerate(
+        zip(master_levels, content_levels), start=1
+    ):
+        if master_level != content_level:
+            raise ValueError(
+                f"{input_lang_path} page heading {index} has level {content_level}, "
+                f"but the master file has level {master_level}."
+            )
+
+
+def make_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
+    anchor = re.sub(r"[^\w\s-]", "", text.lower())
+    anchor = re.sub(r"\s+", "-", anchor).strip("-")
+    count = anchor_counts.get(anchor, 0)
+    anchor_counts[anchor] = count + 1
+    if count == 0:
+        return anchor
+    return f"{anchor}-{count}"
+
+
+def make_page_anchor_links(lines: List[str], master_headers: List[str]) -> Dict[str, str]:
+    anchor_links = {}
+    global_anchor_counts: Dict[str, int] = {}
+    page_anchor_counts: Dict[str, int] = {}
+    current_page = None
+    page_index = -1
+
+    for line in lines:
+        header_match = is_line_header(line)
+        if not header_match:
+            continue
+
+        header_level = len(header_match.group(1))
+        header_text = header_match.group(2).strip()
+        source_anchor = make_anchor_slug(header_text, global_anchor_counts)
+
+        if header_level <= 2:
+            page_index += 1
+            current_page = master_headers[page_index]
+            page_anchor_counts = {}
+            anchor_links[source_anchor] = f"../{current_page}/"
+        elif current_page is not None:
+            target_anchor = make_anchor_slug(header_text, page_anchor_counts)
+            anchor_links[source_anchor] = f"../{current_page}/#{target_anchor}"
+
+    return anchor_links
+
+
+def rewrite_markdown_anchor_links(
+    markdown_text: str, anchor_links: Dict[str, str]
+) -> str:
+    pattern = r"(?<!!)\[([^\]]+)\]\(#([^\)]*)\)"
+
+    def replace_anchor_link(match: Match[str]) -> str:
+        text = match.group(1)
+        anchor = match.group(2)
+        if anchor not in anchor_links:
+            raise ValueError(f"Cannot map Markdown anchor link: {match.group(0)}")
+        return f"[{text}]({anchor_links[anchor]})"
+
+    return re.sub(pattern, replace_anchor_link, markdown_text)
+
+
+def split_content_by_headings(lines: List[str], anchor_links: Dict[str, str]):
     current_content = []
     in_page = False
     header_index = -1
@@ -127,7 +206,7 @@ def split_content_by_headings(lines: List[str]):
                     make_markdown_page_metadata(header_index + 1, header_text)
                 )
         else:
-            line_new = remove_markdown_anchors(line)
+            line_new = rewrite_markdown_anchor_links(line, anchor_links)
             current_content.append(line_new)
 
     header_index += 1
@@ -143,8 +222,11 @@ def process(base_input_path, input_lang_path: str, base_output_path: str) -> Non
     master_headers = find_master_headers(content_lines_master)
 
     content_lines = read_content_file(input_lang_path)
+    validate_page_headings(content_lines_master, content_lines, input_lang_path)
+    anchor_links = make_page_anchor_links(content_lines, master_headers)
     data_pages = split_content_by_headings(
         content_lines,
+        anchor_links,
     )
     save_pages_to_files(data_pages, master_headers, base_output_path)
     print(f"A total of: {len(master_headers)} files were at: {base_output_path}")

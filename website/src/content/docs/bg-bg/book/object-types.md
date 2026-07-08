@@ -1,30 +1,38 @@
 ---
-title: Проверка за изчерпателност
+title: Обектни типове
 sidebar:
   order: 27
-  label: 27. Проверка за изчерпателност
+  label: 27. Обектни типове
 ---
 
 
-Проверката за изчерпателност е функция в TypeScript, която гарантира, че всички възможни случаи на дискриминиран union са обработени в `switch` или `if` израз.
+В TypeScript, обектните типове описват структурата на един обект. Те задават имената и типовете на свойствата на обекта, както и дали тези свойства са задължителни или по избор.
+
+В TypeScript можете да дефинирате обектни типове по два основни начина:
+
+Interface, който определя структурата на обект, като задава имената, типовете и опционалността на неговите свойства.
 
 ```typescript
-type Direction = 'up' | 'down';
+interface User {
+    name: string;
+    age: number;
+    email?: string;
+}
+```
 
-const move = (direction: Direction) => {
-    switch (direction) {
-        case 'up':
-            console.log('Moving up');
-            break;
-        case 'down':
-            console.log('Moving down');
-            break;
-        default:
-            const exhaustiveCheck: never = direction;
-            console.log(exhaustiveCheck); // Този ред никога няма да бъде изпълнен
-    }
+Type alias, подобно на interface, определя структурата на обект. Въпреки това, той може също така да създаде нов персонализиран тип, базиран на съществуващ тип или комбинация от съществуващи типове. Това включва дефиниране на union типове, intersection типове и други сложни типове.
+
+```typescript
+type Point = {
+    x: number;
+    y: number;
 };
 ```
 
-Типът `never` се използва, за да се гарантира, че default случаят е изчерпателен и че TypeScript ще генерира грешка, ако бъде добавена нова стойност към типа Direction без да бъде обработена в switch израза.
+Възможно е също така да се дефинира тип анонимно:
+
+```typescript
+const sum = (x: { a: number; b: number }) => x.a + x.b;
+console.log(sum({ a: 5, b: 1 }));
+```
 

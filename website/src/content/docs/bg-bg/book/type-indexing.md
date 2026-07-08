@@ -1,27 +1,18 @@
 ---
-title: Intersection типове
+title: Индексиране на тип
 sidebar:
   order: 33
-  label: 33. Intersection типове
+  label: 33. Индексиране на тип
 ---
 
 
-Intersection тип е тип, който представлява стойност, която има всички свойства на два или повече типа. Intersection типовете се обозначават със символа `&` между всеки тип.
+Индексирането на тип се отнася до възможността да се дефинират типове, които могат да бъдат индексирани чрез ключ, който не е известен предварително, като се използва index signature за определяне на типа на свойства, които не са изрично декларирани.
 
 ```typescript
-type X = {
-    a: string;
+type Dictionary<T> = {
+    [key: string]: T;
 };
-
-type Y = {
-    b: string;
-};
-
-type J = X & Y; // Intersection
-
-const j: J = {
-    a: 'a',
-    b: 'b',
-};
+const myDict: Dictionary<string> = { a: 'a', b: 'b' };
+console.log(myDict['a']); // Връща a
 ```
 

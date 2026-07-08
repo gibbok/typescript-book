@@ -1,107 +1,22 @@
 ---
-title: Narrowing
+title: Присвоявания
 sidebar:
   order: 21
-  label: 21. Narrowing
+  label: 21. Присвоявания
 ---
 
 
-TypeScript narrowing е процес на уточняване на типа на променлива в рамките на условен блок. Това е полезно при работа с union типове, където променлива може да има повече от един тип.
-
-TypeScript поддържа няколко начина за стесняване на типа:
-
-### Проверки за типа "typeof"
-
-Проверката за типа "typeof" е специфична проверка в TypeScript, която проверява типа на променлива въз основа на нейния вграден тип в JavaScript.
+Свиването на типове в TypeScript чрез присвоявания е начин да се стесни типът на променлива въз основа на стойността, която ѝ е присвоена. Когато на променлива се присвои стойност, TypeScript извежда нейния тип въз основа на присвоената стойност и стеснява типа на променливата, за да съответства на изведения тип.
 
 ```typescript
-const fn = (x: number | string) => {
-    if (typeof x === 'number') {
-        return x + 1; // x е число
-    }
-    return -1;
-};
-```
-
-### Свиване на тип чрез truthiness
-
-Свиването на тип чрез truthiness в TypeScript работи като проверява дали променлива е truthy или falsy, за да стесни съответно нейния тип.
-
-```typescript
-const toUpperCase = (name: string | null) => {
-    if (name) {
-        return name.toUpperCase();
-    } else {
-        return null;
-    }
-};
-```
-
-### Свиване на тип чрез равенство
-
-Свиването на тип чрез равенство в TypeScript работи чрез проверка дали променлива е равна на конкретна стойност или не, за да се стесни съответно нейният тип.
-
-Използва се в комбинация с `switch` изрази и оператори за равенство като `===`, `!==`, `==` и `!=`, за да се стесни типът.
-
-```typescript
-const checkStatus = (status: 'success' | 'error') => {
-    switch (status) {
-        case 'success':
-            return true;
-        case 'error':
-            return null;
-    }
-};
-```
-
-### Свиване на тип чрез оператора "in"
-
-Свиването на тип чрез оператора `in` в TypeScript е начин да се стесни типът на променлива, базирайки се на това дали дадено свойство съществува в типа на променливата.
-
-```typescript
-type Dog = {
-    name: string;
-    breed: string;
-};
-
-type Cat = {
-    name: string;
-    likesCream: boolean;
-};
-
-const getAnimalType = (pet: Dog | Cat) => {
-    if ('breed' in pet) {
-        return 'dog';
-    } else {
-        return 'cat';
-    }
-};
-```
-
-### Свиване на тип чрез `instanceof`
-
-Свиването на тип чрез оператора `instanceof` в TypeScript е начин да се стесни типът на променлива, базирайки се на нейната конструкторска функция, чрез проверка дали обектът е инстанция на определен клас или interface.
-
-```typescript
-class Square {
-    constructor(public width: number) {}
+let value: string | number;
+value = 'hello';
+if (typeof value === 'string') {
+    console.log(value.toUpperCase());
 }
-class Rectangle {
-    constructor(
-        public width: number,
-        public height: number
-    ) {}
+value = 42;
+if (typeof value === 'number') {
+    console.log(value.toFixed(2));
 }
-function area(shape: Square | Rectangle) {
-    if (shape instanceof Square) {
-        return shape.width * shape.width;
-    } else {
-        return shape.width * shape.height;
-    }
-}
-const square = new Square(5);
-const rectangle = new Rectangle(5, 10);
-console.log(area(square)); // 25
-console.log(area(rectangle)); // 50
 ```
 

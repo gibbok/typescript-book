@@ -1,58 +1,28 @@
 ---
-title: Анализ на потока на управление
+title: Type Predicates
 sidebar:
   order: 23
-  label: 23. Анализ на потока на управление
+  label: 23. Type Predicates
 ---
 
 
-Анализът на потока на управление в TypeScript е начин за статичен анализ на потока на кода с цел извеждане на типовете на променливите, което позволява на компилатора да стеснява типовете на тези променливи при необходимост, базирайки се на резултатите от анализа.
-
-Преди TypeScript 4.4, анализът на потока на кода се прилагаше само за код в рамките на if изрази, но от TypeScript 4.4 нататък той може да се прилага и за условни изрази и достъпи до дискриминантни свойства, косвено реферирани чрез const променливи.
-
-Например:
+Type Predicates в TypeScript са функции, които връщат boolean стойност и се използват за стесняване на типа на променлива до по-специфичен тип.
 
 ```typescript
-const f1 = (x: unknown) => {
-    const isString = typeof x === 'string';
-    if (isString) {
-        x.length;
-    }
-};
+const isString = (value: unknown): value is string => typeof value === 'string';
 
-const f2 = (
-    obj: { kind: 'foo'; foo: string } | { kind: 'bar'; bar: number }
-) => {
-    const isFoo = obj.kind === 'foo';
-    if (isFoo) {
-        obj.foo;
+const foo = (bar: unknown) => {
+    if (isString(bar)) {
+        console.log(bar.toUpperCase());
     } else {
-        obj.bar;
+        console.log('не е низ');
     }
 };
 ```
 
-Някои примери, при които не се наблюдава стесняване:
+TypeScript 5.5 автоматично извежда type predicates (като `x is T`) във функции като `.filter`, така че знае кога стойности като undefined са премахнати—давайки по-точни типове и по-малко грешки; това работи за ясни проверки (например `x !== undefined`), но не и за двусмислени като `!!x`.
 
-<!-- skip -->
 ```typescript
-const f1 = (x: unknown) => {
-    let isString = typeof x === 'string';
-    if (isString) {
-        x.length; // Грешка, няма стесняване, защото isString не е const
-    }
-};
-
-const f6 = (
-    obj: { kind: 'foo'; foo: string } | { kind: 'bar'; bar: number }
-) => {
-    const isFoo = obj.kind === 'foo';
-    obj = obj;
-    if (isFoo) {
-        obj.foo; // Грешка: няма стесняване, тъй като obj се присвоява в тялото на функцията
-    }
-};
+const nums = [1, null, 2].filter(x => x !== null);
 ```
-
-Забележки: В условните изрази се анализират до пет нива на индирекция.
 

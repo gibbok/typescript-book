@@ -1,28 +1,39 @@
 ---
-title: Type Predicates
+title: Discriminated Unions
 sidebar:
   order: 24
-  label: 24. Type Predicates
+  label: 24. Discriminated Unions
 ---
 
 
-Type Predicates в TypeScript са функции, които връщат boolean стойност и се използват за стесняване на типа на променлива до по-специфичен тип.
+Discriminated Unions в TypeScript са тип на обединение, който използва общо свойство, известно като дискриминант, за да стесни набора от възможни типове за обединението.
 
 ```typescript
-const isString = (value: unknown): value is string => typeof value === 'string';
+type Square = {
+    kind: 'square'; // Дискриминант
+    size: number;
+};
 
-const foo = (bar: unknown) => {
-    if (isString(bar)) {
-        console.log(bar.toUpperCase());
-    } else {
-        console.log('не е низ');
+type Circle = {
+    kind: 'circle'; // Дискриминант
+    radius: number;
+};
+
+type Shape = Square | Circle;
+
+const area = (shape: Shape) => {
+    switch (shape.kind) {
+        case 'square':
+            return Math.pow(shape.size, 2);
+        case 'circle':
+            return Math.PI * Math.pow(shape.radius, 2);
     }
 };
-```
 
-TypeScript 5.5 автоматично извежда type predicates (като `x is T`) във функции като `.filter`, така че знае кога стойности като undefined са премахнати—давайки по-точни типове и по-малко грешки; това работи за ясни проверки (например `x !== undefined`), но не и за двусмислени като `!!x`.
+const square: Square = { kind: 'square', size: 5 };
+const circle: Circle = { kind: 'circle', radius: 2 };
 
-```typescript
-const nums = [1, null, 2].filter(x => x !== null);
+console.log(area(square)); // 25
+console.log(area(circle)); // 12.566370614359172
 ```
 
