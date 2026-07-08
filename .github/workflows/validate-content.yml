@@ -5,13 +5,13 @@ jobs:
   lint-content:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
       - name: Run lint script
         run: bash ${GITHUB_WORKSPACE}/.github/workflows/lint.sh
   compile-snippets:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
       - name: Run compile script
         run: bash ${GITHUB_WORKSPACE}/.github/workflows/compile.sh
 
