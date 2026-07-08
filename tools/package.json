@@ -16,7 +16,7 @@
   "devDependencies": {
     "@types/fs-extra": "^11.0.1",
     "@types/marked": "^5.0.0",
-    "@types/node": "^20.3.1",
+    "@types/node": "^26.1.1",
     "@types/prettier": "^2.7.3",
     "fp-ts": "^2.16.0",
     "fs-extra": "^11.1.1",
