@@ -1,29 +1,56 @@
 ---
-title: Често използвани вградени JS обекти
+title: Overloads
 sidebar:
   order: 51
-  label: 51. Често използвани вградени JS обекти
+  label: 51. Overloads
 ---
 
 
-TypeScript е надмножество (superset) на JavaScript и включва всички често използвани вградени JavaScript обекти. Можете да намерите обширен списък с тези обекти в документацията на Mozilla Developer Network (MDN):
-[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
+Function overloads в TypeScript позволяват да дефинирате множество сигнатури на функция за едно и също име на функция, което позволява тя да бъде извиквана по различни начини. Ето пример:
 
-Ето списък с някои често използвани вградени JavaScript обекти:
+```typescript
+// Overloads
+function sayHi(name: string): string;
+function sayHi(names: string[]): string[];
 
-* Function
-* Object
-* Boolean
-* Error
-* Number
-* BigInt
-* Math
-* Date
-* String
-* RegExp
-* Array
-* Map
-* Set
-* Promise
-* Intl
+// Implementation
+function sayHi(name: unknown): unknown {
+    if (typeof name === 'string') {
+        return `Hi, ${name}!`;
+    } else if (Array.isArray(name)) {
+        return name.map(name => `Hi, ${name}!`);
+    }
+    throw new Error('Invalid value');
+}
+
+sayHi('xx'); // Валидно
+sayHi(['aa', 'bb']); // Валидно
+```
+
+Ето още един пример за използване на function overloads в рамките на `class`:
+
+```typescript
+class Greeter {
+    message: string;
+
+    constructor(message: string) {
+        this.message = message;
+    }
+
+    // overload
+    sayHi(name: string): string;
+    sayHi(names: string[]): ReadonlyArray<string>;
+
+    // implementation
+    sayHi(name: unknown): unknown {
+        if (typeof name === 'string') {
+            return `${this.message}, ${name}!`;
+        } else if (Array.isArray(name)) {
+            return name.map(name => `${this.message}, ${name}!`);
+        }
+        throw new Error('value is invalid');
+    }
+}
+console.log(new Greeter('Hello').sayHi('Simon'));
+```
 

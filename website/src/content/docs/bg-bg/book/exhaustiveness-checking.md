@@ -1,24 +1,30 @@
 ---
-title: The never Type
+title: Проверка за изчерпателност
 sidebar:
   order: 26
-  label: 26. The never Type
+  label: 26. Проверка за изчерпателност
 ---
 
 
-Когато променлива бъде стеснена до тип, който не може да съдържа никакви стойности, компилаторът на TypeScript ще извлече, че променливата трябва да бъде от тип `never`. Това е така, защото типът `never` представлява стойност, която никога не може да бъде произведена.
+Проверката за изчерпателност е функция в TypeScript, която гарантира, че всички възможни случаи на дискриминиран union са обработени в `switch` или `if` израз.
 
 ```typescript
-const printValue = (val: string | number) => {
-    if (typeof val === 'string') {
-        console.log(val.toUpperCase());
-    } else if (typeof val === 'number') {
-        console.log(val.toFixed(2));
-    } else {
-        // val има тип never тук, защото не може да бъде нищо друго освен низ или число
-        const neverVal: never = val;
-        console.log(`Unexpected value: ${neverVal}`);
+type Direction = 'up' | 'down';
+
+const move = (direction: Direction) => {
+    switch (direction) {
+        case 'up':
+            console.log('Moving up');
+            break;
+        case 'down':
+            console.log('Moving down');
+            break;
+        default:
+            const exhaustiveCheck: never = direction;
+            console.log(exhaustiveCheck); // Този ред никога няма да бъде изпълнен
     }
 };
 ```
+
+Типът `never` се използва, за да се гарантира, че default случаят е изчерпателен и че TypeScript ще генерира грешка, ако бъде добавена нова стойност към типа Direction без да бъде обработена в switch израза.
 

@@ -1,130 +1,107 @@
 ---
-title: Низови enums
+title: Narrowing
 sidebar:
   order: 20
-  label: 20. Низови enums
+  label: 20. Narrowing
 ---
 
 
-В TypeScript, низовият enum е Enum, при който всяка константа получава низова стойност.
+TypeScript narrowing е процес на уточняване на типа на променлива в рамките на условен блок. Това е полезно при работа с union типове, където променлива може да има повече от един тип.
+
+TypeScript поддържа няколко начина за стесняване на типа:
+
+### Проверки за типа "typeof"
+
+Проверката за типа "typeof" е специфична проверка в TypeScript, която проверява типа на променлива въз основа на нейния вграден тип в JavaScript.
 
 ```typescript
-enum Language {
-    English = 'EN',
-    Spanish = 'ES',
+const fn = (x: number | string) => {
+    if (typeof x === 'number') {
+        return x + 1; // x е число
+    }
+    return -1;
+};
+```
+
+### Свиване на тип чрез truthiness
+
+Свиването на тип чрез truthiness в TypeScript работи като проверява дали променлива е truthy или falsy, за да стесни съответно нейния тип.
+
+```typescript
+const toUpperCase = (name: string | null) => {
+    if (name) {
+        return name.toUpperCase();
+    } else {
+        return null;
+    }
+};
+```
+
+### Свиване на тип чрез равенство
+
+Свиването на тип чрез равенство в TypeScript работи чрез проверка дали променлива е равна на конкретна стойност или не, за да се стесни съответно нейният тип.
+
+Използва се в комбинация с `switch` изрази и оператори за равенство като `===`, `!==`, `==` и `!=`, за да се стесни типът.
+
+```typescript
+const checkStatus = (status: 'success' | 'error') => {
+    switch (status) {
+        case 'success':
+            return true;
+        case 'error':
+            return null;
+    }
+};
+```
+
+### Свиване на тип чрез оператора "in"
+
+Свиването на тип чрез оператора `in` в TypeScript е начин да се стесни типът на променлива, базирайки се на това дали дадено свойство съществува в типа на променливата.
+
+```typescript
+type Dog = {
+    name: string;
+    breed: string;
+};
+
+type Cat = {
+    name: string;
+    likesCream: boolean;
+};
+
+const getAnimalType = (pet: Dog | Cat) => {
+    if ('breed' in pet) {
+        return 'dog';
+    } else {
+        return 'cat';
+    }
+};
+```
+
+### Свиване на тип чрез `instanceof`
+
+Свиването на тип чрез оператора `instanceof` в TypeScript е начин да се стесни типът на променлива, базирайки се на нейната конструкторска функция, чрез проверка дали обектът е инстанция на определен клас или interface.
+
+```typescript
+class Square {
+    constructor(public width: number) {}
 }
-```
-
-Забележка: TypeScript позволява използването на хетерогенни enums, където низови и числови членове могат да съществуват заедно.
-
-### Константни enums
-
-Константният enum в TypeScript е специален вид Enum, при който всички стойности са известни още при компилирането и се вмъкват директно във всеки случай, в който се използва enum, което води до по-ефективен код.
-
-```typescript
-const enum Language {
-    English = 'EN',
-    Spanish = 'ES',
+class Rectangle {
+    constructor(
+        public width: number,
+        public height: number
+    ) {}
 }
-console.log(Language.English);
-```
-
-Ще бъде компилирано в:
-
-```typescript
-console.log('EN' /* Language.English */);
-```
-
-Забележка:
-константните enums имат предварително зададени стойности, като самият enum се премахва при компилация, което може да е по-ефективно в самостоятелни библиотеки, но обикновено не е желателно. Също така, константните enums не могат да имат изчисляеми членове.
-
-### Обратни съпоставки
-
-В TypeScript, обратните съпоставки в Enums се отнасят до възможността да се извлече името на член на Enum от неговата стойност. По подразбиране членовете на Enum имат директни съпоставки от име към стойност, но обратни съпоставки могат да се създадат чрез явно задаване на стойности за всеки член. Обратните съпоставки са полезни, когато трябва да намерите член на Enum по стойността му или когато трябва да итерирате през всички членове на Enum. Обърнете внимание, че само числовите членове на Enum генерират обратни съпоставки, докато членовете на String Enum изобщо не получават генерирана обратна съпоставка.
-
-Следният enum:
-
-```typescript
-enum Grade {
-    A = 90,
-    B = 80,
-    C = 70,
-    F = 'fail',
+function area(shape: Square | Rectangle) {
+    if (shape instanceof Square) {
+        return shape.width * shape.width;
+    } else {
+        return shape.width * shape.height;
+    }
 }
-```
-
-Компилира се в:
-
-<!-- skip -->
-```javascript
-'use strict';
-var Grade;
-(function (Grade) {
-    Grade[(Grade['A'] = 90)] = 'A';
-    Grade[(Grade['B'] = 80)] = 'B';
-    Grade[(Grade['C'] = 70)] = 'C';
-    Grade['F'] = 'fail';
-})(Grade || (Grade = {}));
-```
-
-Следователно, съпоставянето на стойности към ключове работи за числовите членове на enum, но не и за низовите членове на enum:
-
-<!-- skip -->
-```typescript
-enum Grade {
-    A = 90,
-    B = 80,
-    C = 70,
-    F = 'fail',
-}
-const myGrade = Grade.A;
-console.log(Grade[myGrade]); // A
-console.log(Grade[90]); // A
-
-const failGrade = Grade.F;
-console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
-```
-
-### Ambient enums
-
-Ambient enum в TypeScript е тип Enum, който е дефиниран в декларационен файл (*.d.ts) без свързана реализация. Той позволява да се дефинира набор от именовани константи, които могат да се използват по тип-безопасен начин в различни файлове, без да е необходимо да се импортират детайлите на реализацията във всеки файл.
-
-### Изчисляеми и константни членове
-
-В TypeScript, изчисляем член е член на Enum, чиито стойност се изчислява по време на изпълнение, докато константен член е член, чиито стойност е зададена по време на компилация и не може да се промени по време на изпълнение. Изчисляемите членове са разрешени в обикновени Enums, докато константните членове са разрешени както в обикновени, така и в константни enums.
-
-```typescript
-// Константни членове
-enum Color {
-    Red = 1,
-    Green = 5,
-    Blue = Red + Green,
-}
-console.log(Color.Blue); // 6 генерирано по време на компилация
-```
-
-```typescript
-// Изчисляеми членове
-enum Color {
-    Red = 1,
-    Green = Math.pow(2, 2),
-    Blue = Math.floor(Math.random() * 3) + 1,
-}
-console.log(Color.Blue); // случайно число, генерирано по време на изпълнение
-```
-
-Enums се означават чрез unions, съставени от типовете на техните членове. Стойностите на всеки член могат да се определят чрез константни или неконстантни изрази, като членовете с константни стойности се присвояват на литерални типове. За илюстрация, разгледайте декларацията на type E и неговите подтипове E.A, E.B и E.C. В този случай E представлява union E.A | E.B | E.C.
-
-```typescript
-const identity = (value: number) => value;
-
-enum E {
-    A = 2 * 5, // Числов литерал
-    B = 'bar', // Низов литерал
-    C = identity(42), // Изчисляем член
-}
-
-console.log(E.C); //42
+const square = new Square(5);
+const rectangle = new Rectangle(5, 10);
+console.log(area(square)); // 25
+console.log(area(rectangle)); // 50
 ```
 

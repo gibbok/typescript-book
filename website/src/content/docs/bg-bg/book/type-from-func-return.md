@@ -1,14 +1,14 @@
 ---
-title: Тип от стойност
+title: Тип от резултат на функция
 sidebar:
   order: 35
-  label: 35. Тип от стойност
+  label: 35. Тип от резултат на функция
 ---
 
 
-Type from Value в TypeScript се отнася до автоматичното извеждане на тип от стойност или израз чрез type inference.
+Type from Func Return се отнася до възможността автоматично да се извежда типът на стойността, върната от функция, въз основа на нейната имплементация. Това позволява на TypeScript да определи типа на върнатата стойност без изрични type анотации.
 
 ```typescript
-const x = 'x'; // TypeScript извежда 'x' като string literal с 'const' (immutable), но го разширява до 'string' с 'let' (reassignable).
+const add = (x: number, y: number) => x + y; // TypeScript може да изведе, че върнатият тип на функцията е number
 ```
 

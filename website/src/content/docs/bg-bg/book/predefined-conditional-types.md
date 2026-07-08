@@ -1,16 +1,26 @@
 ---
-title: infer извеждане на тип в Conditional типове
+title: Предефинирани Conditional типове
 sidebar:
   order: 42
-  label: 42. infer извеждане на тип в Conditional типове
+  label: 42. Предефинирани Conditional типове
 ---
 
 
-Ключовата дума `infer` се използва в conditional типове, за да се извлече типът на generic параметър от тип, който зависи от него. Това позволява създаването на по-гъвкави и преизползваеми дефиниции на типове.
+В TypeScript, предефинираните Conditional типове са вградени conditional типове, предоставени от езика. Те са създадени, за да извършват често използвани трансформации на типове въз основа на характеристиките на даден тип.
 
-```typescript
-type ElementType<T> = T extends (infer U)[] ? U : never;
-type Numbers = ElementType<number[]>; // number
-type Strings = ElementType<string[]>; // string
-```
+`Exclude<UnionType, ExcludedType>`: Премахва всички типове от UnionType, които могат да бъдат присвоени на ExcludedType.
+
+`Extract<Type, Union>`: Извлича всички типове от Union, които могат да бъдат присвоени на Type.
+
+`NonNullable<Type>`: Премахва null и undefined от Type.
+
+`ReturnType<Type>`: Извлича типа на върнатата стойност на функция Type.
+
+`Parameters<Type>`: Извлича типовете на параметрите на функция Type.
+
+`Required<Type>`: Прави всички свойства в Type задължителни.
+
+`Partial<Type>`: Прави всички свойства в Type опционални.
+
+`Readonly<Type>`: Прави всички свойства в Type само за четене.
 

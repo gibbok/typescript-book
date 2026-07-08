@@ -1,28 +1,26 @@
 ---
-title: Изтрити структурни типове
+title: Namespacing
 sidebar:
   order: 57
-  label: 57. Изтрити структурни типове
+  label: 57. Namespacing
 ---
 
 
-В TypeScript обектите не е необходимо да съвпадат с конкретен, точен тип. Например, ако създадем обект, който покрива изискванията на даден interface, можем да използваме този обект на места, където този interface се изисква, дори да няма изрична връзка между тях.
-Пример:
+В TypeScript namespaces се използват за организиране на кода в логически контейнери, предотвратяване на конфликти в имената и групиране на свързан код.
+Използването на ключовата дума `export` позволява достъп до namespace от външни модули.
 
 ```typescript
-type NameProp1 = {
-    prop1: string;
-};
-
-function log(x: NameProp1) {
-    console.log(x.prop1);
+export namespace MyNamespace {
+    export interface MyInterface1 {
+        prop1: boolean;
+    }
+    export interface MyInterface2 {
+        prop2: string;
+    }
 }
 
-const obj = {
-    prop2: 123,
-    prop1: 'Origin',
+const a: MyNamespace.MyInterface1 = {
+    prop1: true,
 };
-
-log(obj); // Валидно
 ```
 

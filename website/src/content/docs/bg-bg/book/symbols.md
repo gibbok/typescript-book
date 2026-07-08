@@ -1,26 +1,27 @@
 ---
-title: Namespacing
+title: Symbols
 sidebar:
   order: 58
-  label: 58. Namespacing
+  label: 58. Symbols
 ---
 
 
-В TypeScript namespaces се използват за организиране на кода в логически контейнери, предотвратяване на конфликти в имената и групиране на свързан код.
-Използването на ключовата дума `export` позволява достъп до namespace от външни модули.
+Symbols са примитивен тип данни, който представлява неизменима стойност, гарантирано уникална в рамките на изпълнението на програмата.
+
+Symbols могат да се използват като ключове за свойства на обекти и предоставят начин за създаване на не-енумерируеми свойства.
 
 ```typescript
-export namespace MyNamespace {
-    export interface MyInterface1 {
-        prop1: boolean;
-    }
-    export interface MyInterface2 {
-        prop2: string;
-    }
-}
+const key1: symbol = Symbol('key1');
+const key2: symbol = Symbol('key2');
 
-const a: MyNamespace.MyInterface1 = {
-    prop1: true,
+const obj = {
+    [key1]: 'value 1',
+    [key2]: 'value 2',
 };
+
+console.log(obj[key1]); // value 1
+console.log(obj[key2]); // value 2
 ```
+
+В WeakMap и WeakSet, symbols вече могат да се използват като ключове.
 

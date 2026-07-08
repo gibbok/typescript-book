@@ -7,218 +7,218 @@ sidebar:
 
 
 <!-- markdownlint-disable MD004 -->
-- The Concise TypeScript Book
-  - Преводи
-  - Изтегляния и уебсайт
-  - Съдържание
-  - Въведение
-  - За автора
-  - Въведение в TypeScript
-    - Какво е TypeScript?
-    - Защо TypeScript?
-    - TypeScript и JavaScript
-    - Генериране на код с TypeScript
-    - Модерен JavaScript днес (Downleveling)
-  - Първи стъпки с TypeScript
-    - Инсталация
-    - Конфигурация
-    - Конфигурационен файл на TypeScript
-      - target
-      - lib
-      - strict
-      - module
-      - moduleResolution
-      - esModuleInterop
-      - jsx
-      - skipLibCheck
-      - files
-      - include
-      - exclude
-    - importHelpers
-    - Съвети за миграция към TypeScript
-  - Изследване на типовата система
-    - Езиковата услуга на TypeScript
-    - Структурна типизация
-    - Основни правила за сравнение в TypeScript
-    - Типовете като множества
-    - Присвояване на тип: Декларации и проверки на типове
-      - Декларация на тип
-      - Проверка на тип (Type Assertion)
-      - Ambient Declarations
-    - Проверка на свойства и проверка за излишни свойства
-    - Слаби типове
-    - Строга проверка на обектни литерали (Freshness)
-    - Извеждане на типове
-    - По-сложни изводи
-    - Разширяване на типовете
-    - Const
-      - Const Modifier on Type Parameters
-      - Const assertion
-    - Явна типова анотация
-    - Стесняване на типове
-      - Условия
-      - Изключване на грешка или връщане от разклонение
-      - Discriminated Union
-      - Потребителски type guards
-      - Switch-true narrowing
-  - Примитивни типове
-    - string
-    - boolean
-    - number
-    - bigInt
-    - Символ
-    - null и undefined
-    - Масив
-    - any
-  - Анотации на типовете
-  - Опционални свойства
-  - Readonly свойства
-  - Сигнатури на индекси
-  - Разширяване на типове
-  - Literal Types
-  - Literal Inference
-  - strictNullChecks
-  - Enums
-    - Числови enums
-  - Низови enums
-    - Константни enums
-    - Обратни съпоставки
-    - Ambient enums
-    - Изчисляеми и константни членове
-  - Narrowing
-    - Проверки за типа "typeof"
-    - Свиване на тип чрез truthiness
-    - Свиване на тип чрез равенство
-    - Свиване на тип чрез оператора "in"
-    - Свиване на тип чрез `instanceof`
-  - Присвоявания
-  - Анализ на потока на управление
-  - Type Predicates
-  - Discriminated Unions
-  - The never Type
-  - Проверка за изчерпателност
-  - Обектни типове
-  - Tuple тип (анонимен)
-  - Именуван Tuple тип (с етикети)
-  - Tuple с фиксирана дължина
-  - Union тип
-  - Intersection типове
-  - Индексиране на тип
-  - Тип от стойност
-  - Тип от резултат на функция
-  - Тип от модул
-  - Mapped типове
-  - Модификатори на Mapped типове
-  - Conditional типове
-  - Дистрибутивни Conditional типове
-  - infer извеждане на тип в Conditional типове
-  - Предефинирани Conditional типове
-  - Template Union типове
-  - Any тип
-  - Unknown тип
-  - Void тип
-  - Never тип
-  - Interface и Type
-    - Общ синтаксис
-    - Основни типове
-    - Обекти и Interfaces
-    - Union и Intersection типове
-  - Вградени примитивни типове
-  - Често използвани вградени JS обекти
-  - Overloads
-  - Merging и Extension
-  - Разлики между Type и Interface
-  - Class
-    - Общ синтаксис на Class
-    - Constructor
-    - Private и Protected конструктори
-    - Модификатори за достъп
-    - Get и Set
-    - Auto-accessors в класове
-    - this
-    - Parameter Properties
-    - Абстрактни класове
-    - С generics
-    - Decorators
-      - Class Decorators
-      - Property Decorator
-      - Method Decorator
-      - Декоратори за Getter и Setter
-      - Metadata за декоратори
-    - Наследяване
-    - Статични членове
-    - Инициализация на свойства
-    - Method overloading
-  - Generics
-    - Generic тип
-    - Generic класове
-    - Ограничения при generics
-    - Контекстуално стесняване при generics
-  - Изтрити структурни типове
-  - Namespacing
-  - Symbols
-  - Triple-Slash директиви
-  - Манипулация на типове
-    - Създаване на типове от типове
-    - Indexed Access Types
-    - Utility типове
-      - Awaited\<T\>
-      - Partial\<T\>
-      - Required\<T\>
-      - Readonly\<T\>
-      - Record\<K, T\>
-      - Pick\<T, K\>
-      - Omit\<T, K\>
-      - Exclude\<T, U\>
-      - Extract\<T, U\>
-      - NonNullable\<T\>
-      - Parameters\<T\>
-      - ConstructorParameters\<T\>
-      - ReturnType\<T\>
-      - InstanceType\<T\>
-      - ThisParameterType\<T\>
-      - OmitThisParameter\<T\>
-      - ThisType\<T\>
-      - Uppercase\<T\>
-      - Lowercase\<T\>
-      - Capitalize\<T\>
-      - Uncapitalize\<T\>
-      - NoInfer\<T\>
-  - Други
-    - Грешки и обработка на изключения
-    - Mixin класове
-    - Асинхронни функционалности
-    - Итератори и генератори
-    - TsDocs JSDoc Reference
-    - @types
-    - JSX
-    - ES6 Modules
-    - ES7 Exponentiation Operator
-    - The for-await-of Statement
-    - New target meta-property
-    - Dynamic Import Expressions
-    - "tsc –watch"
-    - Non-null Assertion Operator
-    - Декларации със стойности по подразбиране
-    - Optional Chaining
-    - Nullish coalescing operator
-    - Template Literal Types
-    - Function overloading
-    - Recursive Types
-    - Recursive Conditional Types
-    - ECMAScript Module Support in Node
-    - Assertion Functions
-    - Variadic Tuple Types
-    - Boxed types
-    - Ковариантност и Контравариантност в TypeScript
-      - Optional Variance Annotations for Type Parameters
-    - Template String Pattern Index Signatures
-    - The satisfies Operator
-    - Type-Only Imports и Export
-    - using declaration и Explicit Resource Management
-      - Декларация await using
-    - Import Attributes
-    - Проверка на синтаксиса на регулярните изрази
-    - import defer
+- [The Concise TypeScript Book](../the-concise-typescript-book/)
+  - [Преводи](../translations/)
+  - [Изтегляния и уебсайт](../downloads-and-website/)
+  - [Съдържание](../table-of-contents/)
+  - [Въведение](../introduction/)
+  - [За автора](../about-the-author/)
+  - [Въведение в TypeScript](../typescript-introduction/)
+    - [Какво е TypeScript?](../typescript-introduction/#какво-е-typescript)
+    - [Защо TypeScript?](../typescript-introduction/#защо-typescript)
+    - [TypeScript и JavaScript](../typescript-introduction/#typescript-и-javascript)
+    - [Генериране на код с TypeScript](../typescript-introduction/#генериране-на-код-с-typescript)
+    - [Модерен JavaScript днес (Downleveling)](../typescript-introduction/#модерен-javascript-днес-downleveling)
+  - [Първи стъпки с TypeScript](../getting-started-with-typescript/)
+    - [Инсталация](../getting-started-with-typescript/#инсталация)
+    - [Конфигурация](../getting-started-with-typescript/#конфигурация)
+    - [Конфигурационен файл на TypeScript](../getting-started-with-typescript/#конфигурационен-файл-на-typescript)
+      - [target](../getting-started-with-typescript/#target)
+      - [lib](../getting-started-with-typescript/#lib)
+      - [strict](../getting-started-with-typescript/#strict)
+      - [module](../getting-started-with-typescript/#module)
+      - [moduleResolution](../getting-started-with-typescript/#moduleresolution)
+      - [esModuleInterop](../getting-started-with-typescript/#esmoduleinterop)
+      - [jsx](../getting-started-with-typescript/#jsx)
+      - [skipLibCheck](../getting-started-with-typescript/#skiplibcheck)
+      - [files](../getting-started-with-typescript/#files)
+      - [include](../getting-started-with-typescript/#include)
+      - [exclude](../getting-started-with-typescript/#exclude)
+    - [importHelpers](../getting-started-with-typescript/#importhelpers)
+    - [Съвети за миграция към TypeScript](../getting-started-with-typescript/#съвети-за-миграция-към-typescript)
+  - [Изследване на типовата система](../exploring-the-type-system/)
+    - [Езиковата услуга на TypeScript](../exploring-the-type-system/#езиковата-услуга-на-typescript)
+    - [Структурна типизация](../exploring-the-type-system/#структурна-типизация)
+    - [Основни правила за сравнение в TypeScript](../exploring-the-type-system/#основни-правила-за-сравнение-в-typescript)
+    - [Типовете като множества](../exploring-the-type-system/#типовете-като-множества)
+    - [Присвояване на тип: Декларации и проверки на типове](../exploring-the-type-system/#присвояване-на-тип-декларации-и-проверки-на-типове)
+      - [Декларация на тип](../exploring-the-type-system/#декларация-на-тип)
+      - [Проверка на тип (Type Assertion)](../exploring-the-type-system/#проверка-на-тип-type-assertion)
+      - [Ambient Declarations](../exploring-the-type-system/#ambient-declarations)
+    - [Проверка на свойства и проверка за излишни свойства](../exploring-the-type-system/#проверка-на-свойства-и-проверка-за-излишни-свойства)
+    - [Слаби типове](../exploring-the-type-system/#слаби-типове)
+    - [Строга проверка на обектни литерали (Freshness)](../exploring-the-type-system/#строга-проверка-на-обектни-литерали-freshness)
+    - [Извеждане на типове](../exploring-the-type-system/#извеждане-на-типове)
+    - [По-сложни изводи](../exploring-the-type-system/#по-сложни-изводи)
+    - [Разширяване на типовете](../exploring-the-type-system/#разширяване-на-типовете)
+    - [Const](../exploring-the-type-system/#const)
+      - [Const Modifier on Type Parameters](../exploring-the-type-system/#const-modifier-on-type-parameters)
+      - [Const assertion](../exploring-the-type-system/#const-assertion)
+    - [Явна типова анотация](../exploring-the-type-system/#явна-типова-анотация)
+    - [Стесняване на типове](../exploring-the-type-system/#стесняване-на-типове)
+      - [Условия](../exploring-the-type-system/#условия)
+      - [Изключване на грешка или връщане от разклонение](../exploring-the-type-system/#изключване-на-грешка-или-връщане-от-разклонение)
+      - [Discriminated Union](../exploring-the-type-system/#discriminated-union)
+      - [Потребителски type guards](../exploring-the-type-system/#потребителски-type-guards)
+      - [Switch-true narrowing](../exploring-the-type-system/#switch-true-narrowing)
+  - [Примитивни типове](../primitive-types/)
+    - [string](../primitive-types/#string)
+    - [boolean](../primitive-types/#boolean)
+    - [number](../primitive-types/#number)
+    - [bigInt](../primitive-types/#bigint)
+    - [Символ](../primitive-types/#символ)
+    - [null и undefined](../primitive-types/#null-и-undefined)
+    - [Масив](../primitive-types/#масив)
+    - [any](../primitive-types/#any)
+  - [Анотации на типовете](../type-annotations/)
+  - [Опционални свойства](../optional-properties/)
+  - [Readonly свойства](../readonly-properties/)
+  - [Сигнатури на индекси](../index-signatures/)
+  - [Разширяване на типове](../extending-types/)
+  - [Literal Types](../literal-types/)
+  - [Literal Inference](../literal-inference/)
+  - [strictNullChecks](../strictnullchecks/)
+  - [Enums](../enums/)
+    - [Числови enums](../enums/#числови-enums)
+  - [Низови enums](../enums/#низови-enums)
+    - [Константни enums](../enums/#константни-enums)
+    - [Обратни съпоставки](../enums/#обратни-съпоставки)
+    - [Ambient enums](../enums/#ambient-enums)
+    - [Изчисляеми и константни членове](../enums/#изчисляеми-и-константни-членове)
+  - [Narrowing](../narrowing/)
+    - [Проверки за типа "typeof"](../narrowing/#проверки-за-типа-typeof)
+    - [Свиване на тип чрез truthiness](../narrowing/#свиване-на-тип-чрез-truthiness)
+    - [Свиване на тип чрез равенство](../narrowing/#свиване-на-тип-чрез-равенство)
+    - [Свиване на тип чрез оператора "in"](../narrowing/#свиване-на-тип-чрез-оператора-in)
+    - [Свиване на тип чрез `instanceof`](../narrowing/#свиване-на-тип-чрез-instanceof)
+  - [Присвоявания](../assignments/)
+  - [Анализ на потока на управление](../control-flow-analysis/)
+  - [Type Predicates](../type-predicates/)
+  - [Discriminated Unions](../discriminated-unions/)
+  - [The never Type](../the-never-type/)
+  - [Проверка за изчерпателност](../exhaustiveness-checking/)
+  - [Обектни типове](../object-types/)
+  - [Tuple тип (анонимен)](../tuple-type-anonymous/)
+  - [Именуван Tuple тип (с етикети)](../named-tuple-type-labeled/)
+  - [Tuple с фиксирана дължина](../fixed-length-tuple/)
+  - [Union тип](../union-type/)
+  - [Intersection типове](../intersection-types/)
+  - [Индексиране на тип](../type-indexing/)
+  - [Тип от стойност](../type-from-value/)
+  - [Тип от резултат на функция](../type-from-func-return/)
+  - [Тип от модул](../type-from-module/)
+  - [Mapped типове](../mapped-types/)
+  - [Модификатори на Mapped типове](../mapped-type-modifiers/)
+  - [Conditional типове](../conditional-types/)
+  - [Дистрибутивни Conditional типове](../distributive-conditional-types/)
+  - [infer извеждане на тип в Conditional типове](../infer-type-inference-in-conditional-types/)
+  - [Предефинирани Conditional типове](../predefined-conditional-types/)
+  - [Template Union типове](../template-union-types/)
+  - [Any тип](../any-type/)
+  - [Unknown тип](../unknown-type/)
+  - [Void тип](../void-type/)
+  - [Never тип](../never-type/)
+  - [Interface и Type](../interface-and-type/)
+    - [Общ синтаксис](../interface-and-type/#общ-синтаксис)
+    - [Основни типове](../interface-and-type/#основни-типове)
+    - [Обекти и Interfaces](../interface-and-type/#обекти-и-interfaces)
+    - [Union и Intersection типове](../interface-and-type/#union-и-intersection-типове)
+  - [Вградени примитивни типове](../built-in-type-primitives/)
+  - [Често използвани вградени JS обекти](../common-built-in-js-objects/)
+  - [Overloads](../overloads/)
+  - [Merging и Extension](../merging-and-extension/)
+  - [Разлики между Type и Interface](../differences-between-type-and-interface/)
+  - [Class](../class/)
+    - [Общ синтаксис на Class](../class/#общ-синтаксис-на-class)
+    - [Constructor](../class/#constructor)
+    - [Private и Protected конструктори](../class/#private-и-protected-конструктори)
+    - [Модификатори за достъп](../class/#модификатори-за-достъп)
+    - [Get и Set](../class/#get-и-set)
+    - [Auto-accessors в класове](../class/#auto-accessors-в-класове)
+    - [this](../class/#this)
+    - [Parameter Properties](../class/#parameter-properties)
+    - [Абстрактни класове](../class/#абстрактни-класове)
+    - [С generics](../class/#с-generics)
+    - [Decorators](../class/#decorators)
+      - [Class Decorators](../class/#class-decorators)
+      - [Property Decorator](../class/#property-decorator)
+      - [Method Decorator](../class/#method-decorator)
+      - [Декоратори за Getter и Setter](../class/#декоратори-за-getter-и-setter)
+      - [Metadata за декоратори](../class/#metadata-за-декоратори)
+    - [Наследяване](../class/#наследяване)
+    - [Статични членове](../class/#статични-членове)
+    - [Инициализация на свойства](../class/#инициализация-на-свойства)
+    - [Method overloading](../class/#method-overloading)
+  - [Generics](../generics/)
+    - [Generic тип](../generics/#generic-тип)
+    - [Generic класове](../generics/#generic-класове)
+    - [Ограничения при generics](../generics/#ограничения-при-generics)
+    - [Контекстуално стесняване при generics](../generics/#контекстуално-стесняване-при-generics)
+  - [Изтрити структурни типове](../erased-structural-types/)
+  - [Namespacing](../namespacing/)
+  - [Symbols](../symbols/)
+  - [Triple-Slash директиви](../triple-slash-directives/)
+  - [Манипулация на типове](../type-manipulation/)
+    - [Създаване на типове от типове](../type-manipulation/#създаване-на-типове-от-типове)
+    - [Indexed Access Types](../type-manipulation/#indexed-access-types)
+    - [Utility типове](../type-manipulation/#utility-типове)
+      - [Awaited\<T\>](../type-manipulation/#awaitedt)
+      - [Partial\<T\>](../type-manipulation/#partialt)
+      - [Required\<T\>](../type-manipulation/#requiredt)
+      - [Readonly\<T\>](../type-manipulation/#readonlyt)
+      - [Record\<K, T\>](../type-manipulation/#recordk-t)
+      - [Pick\<T, K\>](../type-manipulation/#pickt-k)
+      - [Omit\<T, K\>](../type-manipulation/#omitt-k)
+      - [Exclude\<T, U\>](../type-manipulation/#excludet-u)
+      - [Extract\<T, U\>](../type-manipulation/#extractt-u)
+      - [NonNullable\<T\>](../type-manipulation/#nonnullablet)
+      - [Parameters\<T\>](../type-manipulation/#parameterst)
+      - [ConstructorParameters\<T\>](../type-manipulation/#constructorparameterst)
+      - [ReturnType\<T\>](../type-manipulation/#returntypet)
+      - [InstanceType\<T\>](../type-manipulation/#instancetypet)
+      - [ThisParameterType\<T\>](../type-manipulation/#thisparametertypet)
+      - [OmitThisParameter\<T\>](../type-manipulation/#omitthisparametert)
+      - [ThisType\<T\>](../type-manipulation/#thistypet)
+      - [Uppercase\<T\>](../type-manipulation/#uppercaset)
+      - [Lowercase\<T\>](../type-manipulation/#lowercaset)
+      - [Capitalize\<T\>](../type-manipulation/#capitalizet)
+      - [Uncapitalize\<T\>](../type-manipulation/#uncapitalizet)
+      - [NoInfer\<T\>](../type-manipulation/#noinfert)
+  - [Други](../others/)
+    - [Грешки и обработка на изключения](../others/#грешки-и-обработка-на-изключения)
+    - [Mixin класове](../others/#mixin-класове)
+    - [Асинхронни функционалности](../others/#асинхронни-функционалности)
+    - [Итератори и генератори](../others/#итератори-и-генератори)
+    - [TsDocs JSDoc Reference](../others/#tsdocs-jsdoc-reference)
+    - [@types](../others/#types)
+    - [JSX](../others/#jsx)
+    - [ES6 Modules](../others/#es6-modules)
+    - [ES7 Exponentiation Operator](../others/#es7-exponentiation-operator)
+    - [The for-await-of Statement](../others/#the-for-await-of-statement)
+    - [New target meta-property](../others/#new-target-meta-property)
+    - [Dynamic Import Expressions](../others/#dynamic-import-expressions)
+    - ["tsc –watch"](../others/#tsc-watch)
+    - [Non-null Assertion Operator](../others/#non-null-assertion-operator)
+    - [Декларации със стойности по подразбиране](../others/#декларации-със-стойности-по-подразбиране)
+    - [Optional Chaining](../others/#optional-chaining)
+    - [Nullish coalescing operator](../others/#nullish-coalescing-operator)
+    - [Template Literal Types](../others/#template-literal-types)
+    - [Function overloading](../others/#function-overloading)
+    - [Recursive Types](../others/#recursive-types)
+    - [Recursive Conditional Types](../others/#recursive-conditional-types)
+    - [ECMAScript Module Support in Node](../others/#ecmascript-module-support-in-node)
+    - [Assertion Functions](../others/#assertion-functions)
+    - [Variadic Tuple Types](../others/#variadic-tuple-types)
+    - [Boxed types](../others/#boxed-types)
+    - [Ковариантност и Контравариантност в TypeScript](../others/#ковариантност-и-контравариантност-в-typescript)
+      - [Optional Variance Annotations for Type Parameters](../others/#optional-variance-annotations-for-type-parameters)
+    - [Template String Pattern Index Signatures](../others/#template-string-pattern-index-signatures)
+    - [The satisfies Operator](../others/#the-satisfies-operator)
+    - [Type-Only Imports и Export](../others/#type-only-imports-и-export)
+    - [using declaration и Explicit Resource Management](../others/#using-declaration-и-explicit-resource-management)
+      - [Декларация await using](../others/#декларация-await-using)
+    - [Import Attributes](../others/#import-attributes)
+    - [Проверка на синтаксиса на регулярните изрази](../others/#проверка-на-синтаксиса-на-регулярните-изрази)
+    - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
 

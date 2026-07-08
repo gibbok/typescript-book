@@ -1,24 +1,20 @@
 ---
-title: Модификатори на Mapped типове
+title: Conditional типове
 sidebar:
   order: 39
-  label: 39. Модификатори на Mapped типове
+  label: 39. Conditional типове
 ---
 
 
-Модификаторите на Mapped типове в TypeScript позволяват трансформиране на свойства в рамките на съществуващ тип:
-
-* `readonly` или `+readonly`: Прави свойството в mapped типа само за четене.
-* `-readonly`: Позволява свойството в mapped типа да бъде променяемо.
-* `?`: Определя свойството в mapped типа като опционално.
-
-Примери:
+Conditional типовете са начин за създаване на тип, който зависи от условие, като създаваният тип се определя въз основа на резултата от условието. Те се дефинират чрез ключовата дума `extends` и тернарен оператор за условен избор между два типа.
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Всички свойства са маркирани като само за четене
+type IsArray<T> = T extends any[] ? true : false;
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Всички свойства са маркирани като променяеми
+const myArray = [1, 2, 3];
+const myNumber = 42;
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // Всички свойства са маркирани като опционални
+type IsMyArrayAnArray = IsArray<typeof myArray>; // Тип true
+type IsMyNumberAnArray = IsArray<typeof myNumber>; // Тип false
 ```
 

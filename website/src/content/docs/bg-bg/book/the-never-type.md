@@ -1,39 +1,24 @@
 ---
-title: Discriminated Unions
+title: The never Type
 sidebar:
   order: 25
-  label: 25. Discriminated Unions
+  label: 25. The never Type
 ---
 
 
-Discriminated Unions в TypeScript са тип на обединение, който използва общо свойство, известно като дискриминант, за да стесни набора от възможни типове за обединението.
+Когато променлива бъде стеснена до тип, който не може да съдържа никакви стойности, компилаторът на TypeScript ще извлече, че променливата трябва да бъде от тип `never`. Това е така, защото типът `never` представлява стойност, която никога не може да бъде произведена.
 
 ```typescript
-type Square = {
-    kind: 'square'; // Дискриминант
-    size: number;
-};
-
-type Circle = {
-    kind: 'circle'; // Дискриминант
-    radius: number;
-};
-
-type Shape = Square | Circle;
-
-const area = (shape: Shape) => {
-    switch (shape.kind) {
-        case 'square':
-            return Math.pow(shape.size, 2);
-        case 'circle':
-            return Math.PI * Math.pow(shape.radius, 2);
+const printValue = (val: string | number) => {
+    if (typeof val === 'string') {
+        console.log(val.toUpperCase());
+    } else if (typeof val === 'number') {
+        console.log(val.toFixed(2));
+    } else {
+        // val има тип never тук, защото не може да бъде нищо друго освен низ или число
+        const neverVal: never = val;
+        console.log(`Unexpected value: ${neverVal}`);
     }
 };
-
-const square: Square = { kind: 'square', size: 5 };
-const circle: Circle = { kind: 'circle', radius: 2 };
-
-console.log(area(square)); // 25
-console.log(area(circle)); // 12.566370614359172
 ```
 

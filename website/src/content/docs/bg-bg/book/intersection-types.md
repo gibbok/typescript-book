@@ -1,16 +1,27 @@
 ---
-title: Union тип
+title: Intersection типове
 sidebar:
   order: 32
-  label: 32. Union тип
+  label: 32. Intersection типове
 ---
 
 
-Union тип е тип, който представлява стойност, която може да бъде от няколко различни типа. Union типовете се обозначават със символа `|` между всеки възможен тип.
+Intersection тип е тип, който представлява стойност, която има всички свойства на два или повече типа. Intersection типовете се обозначават със символа `&` между всеки тип.
 
 ```typescript
-let x: string | number;
-x = 'hello'; // Валидно
-x = 123; // Валидно
+type X = {
+    a: string;
+};
+
+type Y = {
+    b: string;
+};
+
+type J = X & Y; // Intersection
+
+const j: J = {
+    a: 'a',
+    b: 'b',
+};
 ```
 

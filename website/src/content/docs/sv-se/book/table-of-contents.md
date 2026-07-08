@@ -7,219 +7,219 @@ sidebar:
 
 
 <!-- markdownlint-disable MD004 -->
-- Den koncisa TypeScript-boken
-  - Översättningar
-  - Nedladdningar och webbplats
-  - Innehållsförteckning
-  - Introduktion
-  - Om författaren
-  - Introduktion till TypeScript
-    - Vad är TypeScript?
-    - Varför TypeScript?
-    - TypeScript och JavaScript
-    - TypeScript-kodgenerering
-    - Modernt JavaScript nu (Downleveling)
-  - Komma igång med TypeScript
-    - Installation
-    - Konfiguration
-    - TypeScript-konfigurationsfil
-      - target
-      - lib
-      - strict
-      - module
-      - moduleResolution
-      - esModuleInterop
-      - jsx
-      - skipLibCheck
-      - files
-      - include
-      - exclude
-    - importHelpers
-    - Råd vid migrering till TypeScript
-  - Utforska typsystemet
-    - TypeScript-språktjänsten
-    - Strukturell typning
-    - Grundläggande jämförelseregler i TypeScript
-    - Typer som mängder
-    - Tilldela en typ: Typdeklarationer och typpåståenden
-      - Typdeklaration
-      - Typpåstående
-      - Omgivande deklarationer
-    - Egenskapskontroll och kontroll av överskottsegenskaper
-    - Svaga typer
-    - Strikt kontroll av objektliteraler (Freshness)
-    - Typinferens
-    - Mer avancerade inferenser
-    - Typbreddning
-    - Const
-      - Const-modifierare på typparametrar
-      - Const-påstående
-    - Explicit typannotering
-    - Typavsmalnande
-      - Villkor
-      - Kasta eller returnera
-      - Diskriminerad union
-      - Användardefinierade typvakter
-      - Switch-true-förträngning
-  - Primitiva typer
-    - string
-    - boolean
-    - number
-    - bigInt
-    - Symbol
-    - null och undefined
-    - Array
-    - any
-  - Typannoteringar
-  - Valfria egenskaper
-  - Skrivskyddade egenskaper
-  - Indexsignaturer
-  - Utöka typer
-  - Literaltyper
-  - Literalhärledning
-  - strictNullChecks
-  - Enums
-    - Numeriska enums
-    - Sträng-enums
-    - Konstanta enums
-    - Omvänd mappning
-    - Omgivande enums
-    - Beräknade och konstanta medlemmar
-  - Avsmalning
-    - typeof-typvakter
-    - Sanningsvärdesavsmalning
-    - Likhetsavsmalning
-    - In-operatoravsmalning
-    - instanceof-avsmalning
-  - Tilldelningar
-  - Kontrollflödesanalys
-  - Typpredikat
-  - Diskriminerade unioner
-  - Never-typen
-  - Uttömmande kontroll
-  - Objekttyper
-  - Tuppeltyp (Anonym)
-  - Namngiven tuppeltyp (Märkt)
-  - Tuppel med fast längd
-  - Unionstyp
-  - Intersektionstyper
-  - Typindexering
-  - Typ från värde
-  - Typ från funktionsreturvärde
-  - Typ från modul
-  - Mappade typer
-  - Modifierare för mappade typer
-  - Villkorliga typer
-  - Distributiva villkorliga typer
-  - infer-typinferens i villkorliga typer
-  - Fördefinierade villkorliga typer
-  - Mall-unionstyper
-  - Any-typen
-  - Unknown-typen
-  - Void-typen
-  - Never-typen
-  - Användning av Never-typen
-  - Interface och Type
-    - Gemensam syntax
-    - Grundläggande typer
-    - Objekt och Interface
-    - Union- och Intersection-typer
-  - Inbyggda primitiva typer
-  - Vanliga inbyggda JS-objekt
-  - Överlagringar
-  - Sammanslagning och utökning
-  - Skillnader mellan Type och Interface
-  - Klass
-    - Vanlig klasssyntax
-    - Konstruktor
-    - Privata och skyddade konstruktorer
-    - Åtkomstmodifierare
-    - Get och Set
-    - Auto-accessorer i klasser
-    - this
-    - Parameteregenskaper
-    - Abstrakta klasser
-    - Med generics
-    - Dekoratörer
-      - Klassdekoratörer
-      - Egenskapsdekoratör
-      - Metoddekoratör
-      - Getter- och setter-dekoratörer
-      - Dekoratörmetadata
-    - Arv
-    - Statiska medlemmar
-    - Egenskapsinitiering
-    - Metodöverlagring
-  - Generics
-    - Generisk typ
-    - Generiska klasser
-    - Generiska begränsningar
-    - Generisk kontextuell avsmalning
-  - Raderade strukturella typer
-  - Namnrymder
-  - Symboler
-  - Trippelsnedstreck-direktiv
-  - Typmanipulation
-    - Skapa typer från typer
-    - Indexerade åtkomsttyper
-    - Verktygstyper
-      - Awaited\<T\>
-      - Partial\<T\>
-      - Required\<T\>
-      - Readonly\<T\>
-      - Record\<K, T\>
-      - Pick\<T, K\>
-      - Omit\<T, K\>
-      - Exclude\<T, U\>
-      - Extract\<T, U\>
-      - NonNullable\<T\>
-      - Parameters\<T\>
-      - ConstructorParameters\<T\>
-      - ReturnType\<T\>
-      - InstanceType\<T\>
-      - ThisParameterType\<T\>
-      - OmitThisParameter\<T\>
-      - ThisType\<T\>
-      - Uppercase\<T\>
-      - Lowercase\<T\>
-      - Capitalize\<T\>
-      - Uncapitalize\<T\>
-      - NoInfer\<T\>
-  - Övrigt
-    - Fel och undantagshantering
-    - Mixin-klasser
-    - Asynkrona språkfunktioner
-    - Iteratorer och generatorer
-    - TsDocs JSDoc-referens
-    - @types
-    - JSX
-    - ES6-moduler
-    - ES7 exponentiationsoperator
-    - for-await-of-satsen
-    - Metaegenskapen new target
-    - Dynamiska importuttryck
-    - "tsc –watch"
-    - Non-null Assertion Operator
-    - Standarddeklarationer
-    - Valfri kedjning (Optional Chaining)
-    - Nullish coalescing-operatorn
-    - Mallsträngslitteraltyper (Template Literal Types)
-    - Funktionsöverlagring
-    - Rekursiva typer
-    - Rekursiva villkorstyper
-    - Stöd för ECMAScript-moduler i Node
-    - Assertionsfunktioner
-    - Variadiska tuppeltyper
-    - Inkapslingstyper (Boxed types)
-    - Kovarians och kontravarians i TypeScript
-      - Valfria variansannotationer för typparametrar
-    - Mallsträngsmönsterindexsignaturer
-    - satisfies-operatorn
-    - Importer och exporter av enbart typer
-    - using-deklaration och explicit resurshantering
-      - await using-deklaration
-    - Importattribut
-    - Syntaxkontroll för reguljära uttryck
-    - import defer
+- [Den koncisa TypeScript-boken](../the-concise-typescript-book/)
+  - [Översättningar](../translations/)
+  - [Nedladdningar och webbplats](../downloads-and-website/)
+  - [Innehållsförteckning](../table-of-contents/)
+  - [Introduktion](../introduction/)
+  - [Om författaren](../about-the-author/)
+  - [Introduktion till TypeScript](../typescript-introduction/)
+    - [Vad är TypeScript?](../typescript-introduction/#vad-är-typescript)
+    - [Varför TypeScript?](../typescript-introduction/#varför-typescript)
+    - [TypeScript och JavaScript](../typescript-introduction/#typescript-och-javascript)
+    - [TypeScript-kodgenerering](../typescript-introduction/#typescript-kodgenerering)
+    - [Modernt JavaScript nu (Downleveling)](../typescript-introduction/#modernt-javascript-nu-downleveling)
+  - [Komma igång med TypeScript](../getting-started-with-typescript/)
+    - [Installation](../getting-started-with-typescript/#installation)
+    - [Konfiguration](../getting-started-with-typescript/#konfiguration)
+    - [TypeScript-konfigurationsfil](../getting-started-with-typescript/#typescript-konfigurationsfil)
+      - [target](../getting-started-with-typescript/#target)
+      - [lib](../getting-started-with-typescript/#lib)
+      - [strict](../getting-started-with-typescript/#strict)
+      - [module](../getting-started-with-typescript/#module)
+      - [moduleResolution](../getting-started-with-typescript/#moduleresolution)
+      - [esModuleInterop](../getting-started-with-typescript/#esmoduleinterop)
+      - [jsx](../getting-started-with-typescript/#jsx)
+      - [skipLibCheck](../getting-started-with-typescript/#skiplibcheck)
+      - [files](../getting-started-with-typescript/#files)
+      - [include](../getting-started-with-typescript/#include)
+      - [exclude](../getting-started-with-typescript/#exclude)
+    - [importHelpers](../getting-started-with-typescript/#importhelpers)
+    - [Råd vid migrering till TypeScript](../getting-started-with-typescript/#råd-vid-migrering-till-typescript)
+  - [Utforska typsystemet](../exploring-the-type-system/)
+    - [TypeScript-språktjänsten](../exploring-the-type-system/#typescript-språktjänsten)
+    - [Strukturell typning](../exploring-the-type-system/#strukturell-typning)
+    - [Grundläggande jämförelseregler i TypeScript](../exploring-the-type-system/#grundläggande-jämförelseregler-i-typescript)
+    - [Typer som mängder](../exploring-the-type-system/#typer-som-mängder)
+    - [Tilldela en typ: Typdeklarationer och typpåståenden](../exploring-the-type-system/#tilldela-en-typ-typdeklarationer-och-typpåståenden)
+      - [Typdeklaration](../exploring-the-type-system/#typdeklaration)
+      - [Typpåstående](../exploring-the-type-system/#typpåstående)
+      - [Omgivande deklarationer](../exploring-the-type-system/#omgivande-deklarationer)
+    - [Egenskapskontroll och kontroll av överskottsegenskaper](../exploring-the-type-system/#egenskapskontroll-och-kontroll-av-överskottsegenskaper)
+    - [Svaga typer](../exploring-the-type-system/#svaga-typer)
+    - [Strikt kontroll av objektliteraler (Freshness)](../exploring-the-type-system/#strikt-kontroll-av-objektliteraler-freshness)
+    - [Typinferens](../exploring-the-type-system/#typinferens)
+    - [Mer avancerade inferenser](../exploring-the-type-system/#mer-avancerade-inferenser)
+    - [Typbreddning](../exploring-the-type-system/#typbreddning)
+    - [Const](../exploring-the-type-system/#const)
+      - [Const-modifierare på typparametrar](../exploring-the-type-system/#const-modifierare-på-typparametrar)
+      - [Const-påstående](../exploring-the-type-system/#const-påstående)
+    - [Explicit typannotering](../exploring-the-type-system/#explicit-typannotering)
+    - [Typavsmalnande](../exploring-the-type-system/#typavsmalnande)
+      - [Villkor](../exploring-the-type-system/#villkor)
+      - [Kasta eller returnera](../exploring-the-type-system/#kasta-eller-returnera)
+      - [Diskriminerad union](../exploring-the-type-system/#diskriminerad-union)
+      - [Användardefinierade typvakter](../exploring-the-type-system/#användardefinierade-typvakter)
+      - [Switch-true-förträngning](../exploring-the-type-system/#switch-true-förträngning)
+  - [Primitiva typer](../primitive-types/)
+    - [string](../primitive-types/#string)
+    - [boolean](../primitive-types/#boolean)
+    - [number](../primitive-types/#number)
+    - [bigInt](../primitive-types/#bigint)
+    - [Symbol](../primitive-types/#symbol)
+    - [null och undefined](../primitive-types/#null-och-undefined)
+    - [Array](../primitive-types/#array)
+    - [any](../primitive-types/#any)
+  - [Typannoteringar](../type-annotations/)
+  - [Valfria egenskaper](../optional-properties/)
+  - [Skrivskyddade egenskaper](../readonly-properties/)
+  - [Indexsignaturer](../index-signatures/)
+  - [Utöka typer](../extending-types/)
+  - [Literaltyper](../literal-types/)
+  - [Literalhärledning](../literal-inference/)
+  - [strictNullChecks](../strictnullchecks/)
+  - [Enums](../enums/)
+    - [Numeriska enums](../enums/#numeriska-enums)
+    - [Sträng-enums](../enums/#sträng-enums)
+    - [Konstanta enums](../enums/#konstanta-enums)
+    - [Omvänd mappning](../enums/#omvänd-mappning)
+    - [Omgivande enums](../enums/#omgivande-enums)
+    - [Beräknade och konstanta medlemmar](../enums/#beräknade-och-konstanta-medlemmar)
+  - [Avsmalning](../narrowing/)
+    - [typeof-typvakter](../narrowing/#typeof-typvakter)
+    - [Sanningsvärdesavsmalning](../narrowing/#sanningsvärdesavsmalning)
+    - [Likhetsavsmalning](../narrowing/#likhetsavsmalning)
+    - [In-operatoravsmalning](../narrowing/#in-operatoravsmalning)
+    - [instanceof-avsmalning](../narrowing/#instanceof-avsmalning)
+  - [Tilldelningar](../assignments/)
+  - [Kontrollflödesanalys](../control-flow-analysis/)
+  - [Typpredikat](../type-predicates/)
+  - [Diskriminerade unioner](../discriminated-unions/)
+  - [Never-typen](../the-never-type/)
+  - [Uttömmande kontroll](../exhaustiveness-checking/)
+  - [Objekttyper](../object-types/)
+  - [Tuppeltyp (Anonym)](../tuple-type-anonymous/)
+  - [Namngiven tuppeltyp (Märkt)](../named-tuple-type-labeled/)
+  - [Tuppel med fast längd](../fixed-length-tuple/)
+  - [Unionstyp](../union-type/)
+  - [Intersektionstyper](../intersection-types/)
+  - [Typindexering](../type-indexing/)
+  - [Typ från värde](../type-from-value/)
+  - [Typ från funktionsreturvärde](../type-from-func-return/)
+  - [Typ från modul](../type-from-module/)
+  - [Mappade typer](../mapped-types/)
+  - [Modifierare för mappade typer](../mapped-type-modifiers/)
+  - [Villkorliga typer](../conditional-types/)
+  - [Distributiva villkorliga typer](../distributive-conditional-types/)
+  - [infer-typinferens i villkorliga typer](../infer-type-inference-in-conditional-types/)
+  - [Fördefinierade villkorliga typer](../predefined-conditional-types/)
+  - [Mall-unionstyper](../template-union-types/)
+  - [Any-typen](../any-type/)
+  - [Unknown-typen](../unknown-type/)
+  - [Void-typen](../void-type/)
+  - [Never-typen](../the-never-type/)
+  - [Användning av Never-typen](../never-type/)
+  - [Interface och Type](../interface-and-type/)
+    - [Gemensam syntax](../interface-and-type/#gemensam-syntax)
+    - [Grundläggande typer](../interface-and-type/#grundläggande-typer)
+    - [Objekt och Interface](../interface-and-type/#objekt-och-interface)
+    - [Union- och Intersection-typer](../interface-and-type/#union--och-intersection-typer)
+  - [Inbyggda primitiva typer](../built-in-type-primitives/)
+  - [Vanliga inbyggda JS-objekt](../common-built-in-js-objects/)
+  - [Överlagringar](../overloads/)
+  - [Sammanslagning och utökning](../merging-and-extension/)
+  - [Skillnader mellan Type och Interface](../differences-between-type-and-interface/)
+  - [Klass](../class/)
+    - [Vanlig klasssyntax](../class/#vanlig-klasssyntax)
+    - [Konstruktor](../class/#konstruktor)
+    - [Privata och skyddade konstruktorer](../class/#privata-och-skyddade-konstruktorer)
+    - [Åtkomstmodifierare](../class/#åtkomstmodifierare)
+    - [Get och Set](../class/#get-och-set)
+    - [Auto-accessorer i klasser](../class/#auto-accessorer-i-klasser)
+    - [this](../class/#this)
+    - [Parameteregenskaper](../class/#parameteregenskaper)
+    - [Abstrakta klasser](../class/#abstrakta-klasser)
+    - [Med generics](../class/#med-generics)
+    - [Dekoratörer](../class/#dekoratörer)
+      - [Klassdekoratörer](../class/#klassdekoratörer)
+      - [Egenskapsdekoratör](../class/#egenskapsdekoratör)
+      - [Metoddekoratör](../class/#metoddekoratör)
+      - [Getter- och setter-dekoratörer](../class/#getter--och-setter-dekoratörer)
+      - [Dekoratörmetadata](../class/#dekoratörmetadata)
+    - [Arv](../class/#arv)
+    - [Statiska medlemmar](../class/#statiska-medlemmar)
+    - [Egenskapsinitiering](../class/#egenskapsinitiering)
+    - [Metodöverlagring](../class/#metodöverlagring)
+  - [Generics](../generics/)
+    - [Generisk typ](../generics/#generisk-typ)
+    - [Generiska klasser](../generics/#generiska-klasser)
+    - [Generiska begränsningar](../generics/#generiska-begränsningar)
+    - [Generisk kontextuell avsmalning](../generics/#generisk-kontextuell-avsmalning)
+  - [Raderade strukturella typer](../erased-structural-types/)
+  - [Namnrymder](../namespacing/)
+  - [Symboler](../symbols/)
+  - [Trippelsnedstreck-direktiv](../triple-slash-directives/)
+  - [Typmanipulation](../type-manipulation/)
+    - [Skapa typer från typer](../type-manipulation/#skapa-typer-från-typer)
+    - [Indexerade åtkomsttyper](../type-manipulation/#indexerade-åtkomsttyper)
+    - [Verktygstyper](../type-manipulation/#verktygstyper)
+      - [Awaited\<T\>](../type-manipulation/#awaitedt)
+      - [Partial\<T\>](../type-manipulation/#partialt)
+      - [Required\<T\>](../type-manipulation/#requiredt)
+      - [Readonly\<T\>](../type-manipulation/#readonlyt)
+      - [Record\<K, T\>](../type-manipulation/#recordk-t)
+      - [Pick\<T, K\>](../type-manipulation/#pickt-k)
+      - [Omit\<T, K\>](../type-manipulation/#omitt-k)
+      - [Exclude\<T, U\>](../type-manipulation/#excludet-u)
+      - [Extract\<T, U\>](../type-manipulation/#extractt-u)
+      - [NonNullable\<T\>](../type-manipulation/#nonnullablet)
+      - [Parameters\<T\>](../type-manipulation/#parameterst)
+      - [ConstructorParameters\<T\>](../type-manipulation/#constructorparameterst)
+      - [ReturnType\<T\>](../type-manipulation/#returntypet)
+      - [InstanceType\<T\>](../type-manipulation/#instancetypet)
+      - [ThisParameterType\<T\>](../type-manipulation/#thisparametertypet)
+      - [OmitThisParameter\<T\>](../type-manipulation/#omitthisparametert)
+      - [ThisType\<T\>](../type-manipulation/#thistypet)
+      - [Uppercase\<T\>](../type-manipulation/#uppercaset)
+      - [Lowercase\<T\>](../type-manipulation/#lowercaset)
+      - [Capitalize\<T\>](../type-manipulation/#capitalizet)
+      - [Uncapitalize\<T\>](../type-manipulation/#uncapitalizet)
+      - [NoInfer\<T\>](../type-manipulation/#noinfert)
+  - [Övrigt](../others/)
+    - [Fel och undantagshantering](../others/#fel-och-undantagshantering)
+    - [Mixin-klasser](../others/#mixin-klasser)
+    - [Asynkrona språkfunktioner](../others/#asynkrona-språkfunktioner)
+    - [Iteratorer och generatorer](../others/#iteratorer-och-generatorer)
+    - [TsDocs JSDoc-referens](../others/#tsdocs-jsdoc-referens)
+    - [@types](../others/#types)
+    - [JSX](../others/#jsx)
+    - [ES6-moduler](../others/#es6-moduler)
+    - [ES7 exponentiationsoperator](../others/#es7-exponentiationsoperator)
+    - [for-await-of-satsen](../others/#for-await-of-satsen)
+    - [Metaegenskapen new target](../others/#metaegenskapen-new-target)
+    - [Dynamiska importuttryck](../others/#dynamiska-importuttryck)
+    - ["tsc –watch"](../others/#tsc-watch)
+    - [Non-null Assertion Operator](../others/#non-null-assertion-operator)
+    - [Standarddeklarationer](../others/#standarddeklarationer)
+    - [Valfri kedjning (Optional Chaining)](../others/#valfri-kedjning-optional-chaining)
+    - [Nullish coalescing-operatorn](../others/#nullish-coalescing-operatorn)
+    - [Mallsträngslitteraltyper (Template Literal Types)](../others/#mallsträngslitteraltyper-template-literal-types)
+    - [Funktionsöverlagring](../others/#funktionsöverlagring)
+    - [Rekursiva typer](../others/#rekursiva-typer)
+    - [Rekursiva villkorstyper](../others/#rekursiva-villkorstyper)
+    - [Stöd för ECMAScript-moduler i Node](../others/#stöd-för-ecmascript-moduler-i-node)
+    - [Assertionsfunktioner](../others/#assertionsfunktioner)
+    - [Variadiska tuppeltyper](../others/#variadiska-tuppeltyper)
+    - [Inkapslingstyper (Boxed types)](../others/#inkapslingstyper-boxed-types)
+    - [Kovarians och kontravarians i TypeScript](../others/#kovarians-och-kontravarians-i-typescript)
+      - [Valfria variansannotationer för typparametrar](../others/#valfria-variansannotationer-för-typparametrar)
+    - [Mallsträngsmönsterindexsignaturer](../others/#mallsträngsmönsterindexsignaturer)
+    - [satisfies-operatorn](../others/#satisfies-operatorn)
+    - [Importer och exporter av enbart typer](../others/#importer-och-exporter-av-enbart-typer)
+    - [using-deklaration och explicit resurshantering](../others/#using-deklaration-och-explicit-resurshantering)
+      - [await using-deklaration](../others/#await-using-deklaration)
+    - [Importattribut](../others/#importattribut)
+    - [Syntaxkontroll för reguljära uttryck](../others/#syntaxkontroll-för-reguljära-uttryck)
+    - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
 

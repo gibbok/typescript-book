@@ -1,20 +1,17 @@
 ---
-title: Conditional типове
+title: Дистрибутивни Conditional типове
 sidebar:
   order: 40
-  label: 40. Conditional типове
+  label: 40. Дистрибутивни Conditional типове
 ---
 
 
-Conditional типовете са начин за създаване на тип, който зависи от условие, като създаваният тип се определя въз основа на резултата от условието. Те се дефинират чрез ключовата дума `extends` и тернарен оператор за условен избор между два типа.
+Дистрибутивните Conditional типове са функционалност, която позволява даден тип да бъде разпределен върху union от типове чрез прилагане на трансформация върху всеки член на union поотделно.
+Това е особено полезно при работа с mapped типове или по-високоабстрактни (higher-order) типове.
 
 ```typescript
-type IsArray<T> = T extends any[] ? true : false;
-
-const myArray = [1, 2, 3];
-const myNumber = 42;
-
-type IsMyArrayAnArray = IsArray<typeof myArray>; // Тип true
-type IsMyNumberAnArray = IsArray<typeof myNumber>; // Тип false
+type Nullable<T> = T extends any ? T | null : never;
+type NumberOrBool = number | boolean;
+type NullableNumberOrBool = Nullable<NumberOrBool>; // number | boolean | null
 ```
 

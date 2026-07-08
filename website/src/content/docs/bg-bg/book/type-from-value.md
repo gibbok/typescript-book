@@ -1,18 +1,14 @@
 ---
-title: Индексиране на тип
+title: Тип от стойност
 sidebar:
   order: 34
-  label: 34. Индексиране на тип
+  label: 34. Тип от стойност
 ---
 
 
-Индексирането на тип се отнася до възможността да се дефинират типове, които могат да бъдат индексирани чрез ключ, който не е известен предварително, като се използва index signature за определяне на типа на свойства, които не са изрично декларирани.
+Type from Value в TypeScript се отнася до автоматичното извеждане на тип от стойност или израз чрез type inference.
 
 ```typescript
-type Dictionary<T> = {
-    [key: string]: T;
-};
-const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-console.log(myDict['a']); // Връща a
+const x = 'x'; // TypeScript извежда 'x' като string literal с 'const' (immutable), но го разширява до 'string' с 'let' (reassignable).
 ```
 
