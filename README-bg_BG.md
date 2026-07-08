@@ -1877,7 +1877,7 @@ enum Size {
 console.log(Size.Medium); // 11
 ```
 
-## Низови enums
+### Низови enums
 
 В TypeScript, низовият enum е Enum, при който всяка константа получава низова стойност.
 
