@@ -69,7 +69,7 @@ Puoi anche scaricare la versione Epub:
   - [Consigli per la migrazione a TypeScript](#consigli-per-la-migrazione-a-typescript)
 - [Esplorazione del sistema di tipi](#esplorazione-del-sistema-di-tipi)
   - [Il servizio di linguaggio TypeScript](#il-servizio-di-linguaggio-typescript)
-  - [Tipizzazione Strutturale](#tipizzazione-strutturale)
+  - [Tipizzazione strutturale](#tipizzazione-strutturale)
   - [Regole fondamentali di confronto di TypeScript](#regole-fondamentali-di-confronto-di-typescript)
   - [Tipi come insiemi](#tipi-come-insiemi)
   - [Allargamento di tipo](#allargamento-di-tipo)
@@ -89,13 +89,13 @@ Puoi anche scaricare la versione Epub:
 - [strictNullChecks](#strictnullchecks)
 - [Enumerazioni](#enumerazioni)
   - [Enumerazioni numeriche](#enumerazioni-numeriche)
-  - [Enum String](#enum-string)
-  - [Enum Constant](#enum-constant)
+  - [Enum string](#enum-string)
+  - [Enum costante](#enum-costante)
   - [Mapping inverso](#mapping-inverso)
   - [Enum ambientali](#enum-ambientali)
   - [Membri calcolati e costanti](#membri-calcolati-e-costanti)
 - [Restringimento](#restringimento)
-  - [protezioni di tipo typeof](#protezioni-di-tipo-typeof)
+  - [Protezioni di tipo typeof](#protezioni-di-tipo-typeof)
   - [Restringimento di veridicità](#restringimento-di-veridicità)
   - [Restringimento di uguaglianza](#restringimento-di-uguaglianza)
   - [Restringimento dell'operatore "in"](#restringimento-delloperatore-in)
@@ -171,10 +171,10 @@ Puoi anche scaricare la versione Epub:
     - [NoInfer\<T\>](#noinfert)
 - [Altri](#altri)
   - [Gestione degli errori e delle eccezioni](#gestione-degli-errori-e-delle-eccezioni)
-  - [Classi Mixin](#classi-mixin)
+  - [Classi mixin](#classi-mixin)
   - [Funzionalità del linguaggio asincrono](#funzionalità-del-linguaggio-asincrono)
-  - [Iteratori e Generatori](#iteratori-e-generatori)
-  - [Riferimento JSDoc di TsDocs](#riferimento-jsdoc-di-tsdocs)
+  - [Iteratori e generatori](#iteratori-e-generatori)
+  - [Riferimento a JSDoc](#riferimento-a-jsdoc)
   - [@types](#types)
   - [JSX](#jsx-1)
   - [Moduli ES6](#moduli-es6)
@@ -182,7 +182,7 @@ Puoi anche scaricare la versione Epub:
   - [L'istruzione for-await-of](#listruzione-for-await-of)
   - [Nuova meta-proprietà target](#nuova-meta-proprietà-target)
   - [Espressioni di importazione dinamica](#espressioni-di-importazione-dinamica)
-  - ["tsc –watch"](#tsc-watch)
+  - ["tsc --watch"](#tsc---watch)
   - [Operatore di asserzione non nullo](#operatore-di-asserzione-non-nullo)
   - [Dichiarazioni predefinite](#dichiarazioni-predefinite)
   - [Concatenamento opzionale](#concatenamento-opzionale)
@@ -238,7 +238,7 @@ Supporta diversi paradigmi di programmazione, come la programmazione funzionale,
 
 ### Perché TypeScript?
 
-TypeScript è un linguaggio fortemente tipizzato che aiuta a prevenire errori di programmazione comuni ed evitare determinati tipi di errori di runtime prima dell'esecuzione del programma.
+TypeScript è un linguaggio fortemente tipizzato che aiuta a prevenire errori di programmazione comuni e a evitare determinati tipi di errori di runtime prima dell'esecuzione del programma.
 
 Un linguaggio fortemente tipizzato consente allo sviluppatore di specificare vari vincoli e comportamenti del programma nelle definizioni dei tipi di dati, facilitando la verifica della correttezza del software e la prevenzione dei difetti. Questo è particolarmente utile nelle applicazioni su larga scala.
 
@@ -433,7 +433,8 @@ Ecco alcune delle funzionalità di JavaScript moderno che possono essere utilizz
 * Dichiarazione di variabili utilizzando "let" o "const" al posto di "var".
 * Ciclo "for-of" o ".forEach" al posto del tradizionale ciclo "for".
 * Funzioni freccia al posto delle espressioni di funzione.
-* Assegnazione destrutturata. \* Nomi abbreviati di proprietà/metodi e nomi di proprietà calcolate.
+* Assegnazione destrutturata.
+* Nomi abbreviati di proprietà/metodi e nomi di proprietà calcolate.
 * Parametri di funzione predefiniti.
 
 Sfruttando queste moderne funzionalità di JavaScript, gli sviluppatori possono scrivere codice più espressivo e conciso in TypeScript.
@@ -514,7 +515,7 @@ tsc app.ts util.ts --outfile index.js // Compila due file TypeScript (app.ts e u
 
 Un file tsconfig.json viene utilizzato per configurare il compilatore TypeScript (tsc). Solitamente, viene aggiunto alla radice del progetto, insieme al file `package.json`.
 
-Note:
+Nota:
 
 * tsconfig.json accetta commenti anche se è in formato json.
 * Si consiglia di utilizzare questo file di configurazione al posto delle opzioni della riga di comando.
@@ -605,7 +606,7 @@ Il terzo passaggio consiste nell'includere le dichiarazioni di tipo per le libre
 npm install --save-dev @types/package-name
 ```
 
-or
+oppure
 
 ```shell
 yarn add --dev @types/package-name
@@ -639,7 +640,7 @@ Un esempio di plugin personalizzato reale è "TypeScript-styled-plugin", che for
 
 Per ulteriori informazioni e guide rapide, è possibile consultare il Wiki ufficiale di TypeScript su GitHub: [https://github.com/microsoft/TypeScript/wiki/](https://github.com/microsoft/TypeScript/wiki/)
 
-### Tipizzazione Strutturale
+### Tipizzazione strutturale
 
 TypeScript si basa su un sistema di tipi strutturale. Ciò significa che la compatibilità e l'equivalenza dei tipi sono determinate dalla struttura o definizione effettiva del tipo, piuttosto che dal suo nome o dal punto di dichiarazione, come nei sistemi di tipi nominativi come C# o C.
 
@@ -814,7 +815,7 @@ const ya: Y = 0; // Valido
 X.A === Y.A; // Non valido
 ```
 
-Le istanze di una classe sono soggette a un controllo di compatibilità per i loro membri privati ​​e protetti:
+Le istanze di una classe sono soggette a un controllo di compatibilità per i loro membri privati e protetti:
 
 <!-- skip -->
 ```typescript
@@ -996,7 +997,7 @@ const r: XY = { a: 'a' }; // Non valido
 const j: XY = { a: 'a', b: 'b' }; // Valido
 ```
 
-La parola chiave `extends` può essere considerata come "sottoinsieme di" in questo contesto. Imposta un vincolo per un tipo. Quando `extends` viene usato con un generic, vincola il parametro di tipo generic a un tipo più specifico.
+La parola chiave `extends` può essere considerata come "sottoinsieme di" in questo contesto. Imposta un vincolo per un tipo. Quando `extends` viene usato con un generico, vincola il parametro di tipo generico a un tipo più specifico.
 
 Nota che qui `extends` non ha nulla a che fare con l’ereditarietà delle classi in senso OOP.
 
@@ -1107,9 +1108,9 @@ In questo esempio, il tipo `J<Tipo>` utilizza un tipo mappato con un letterale t
 
 È importante notare che quando si utilizza un'asserzione di tipo, TypeScript non eseguirà controlli di proprietà eccessivi. Pertanto, è generalmente preferibile utilizzare una Dichiarazione di Tipo quando la struttura dell'oggetto è nota in anticipo.
 
-#### Dichiarazioni Ambientali
+#### Dichiarazioni ambientali
 
-Le dichiarazioni Ambientali sono file che descrivono i tipi per il codice JavaScript e hanno un formato di nome file come `.d.ts.`. Di solito vengono importate e utilizzate per annotare librerie JavaScript esistenti o per aggiungere tipi a file JS esistenti nel progetto.
+Le dichiarazioni ambientali sono file che descrivono i tipi per il codice JavaScript e hanno un formato di nome file come `.d.ts`. Di solito vengono importate e utilizzate per annotare librerie JavaScript esistenti o per aggiungere tipi a file JS esistenti nel progetto.
 
 Molti tipi di librerie comuni sono disponibili all'indirizzo:
 [https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
@@ -1120,7 +1121,7 @@ e possono essere installate tramite:
 npm install --save-dev @types/library-name
 ```
 
-Per le dichiarazioni di ambiente definite, è possibile importarle utilizzando il riferimento "tripla barra":
+Per le dichiarazioni ambientali definite, è possibile importarle utilizzando il riferimento "tripla barra":
 
 <!-- skip -->
 ```typescript
@@ -1135,7 +1136,7 @@ La parola chiave `declare` abilita le definizioni di tipo per il codice JavaScri
 
 TypeScript si basa su un sistema di tipi strutturale, ma il controllo delle proprietà in eccesso è una proprietà di TypeScript che gli consente di verificare se un oggetto possiede esattamente le proprietà specificate nel tipo.
 
-Il controllo delle proprietà in eccesso viene eseguito, ad esempio, quando si assegnano letterali di oggetto a variabili o quando li si passa come argomenti alla proprietà in eccesso di una funzione.
+Il controllo delle proprietà in eccesso viene eseguito, ad esempio, quando si assegnano letterali di oggetto a variabili o quando li si passa come argomenti a una funzione.
 
 <!-- skip -->
 ```typescript
@@ -1200,7 +1201,7 @@ fn({ c: 'c' }); // Valido
 
 Il controllo rigoroso dei letterali di oggetto, a volte chiamato "freschezza", è una funzionalità di TypeScript che aiuta a individuare proprietà in eccesso o con errori di ortografia che altrimenti passerebbero inosservate nei normali controlli di tipo strutturale.
 
-Quando si crea un letterale di oggetto, il compilatore TypeScript lo considera "fresco". Se il letterale di oggetto viene assegnato a una variabile o passato come parametro, TypeScript genererà un errore se il letterale di oggetto specifica proprietà che non esistono nel tipo di destinazione.
+Quando si crea un letterale di oggetto, il compilatore TypeScript lo considera "fresco". Se il letterale di oggetto viene assegnato a una variabile o viene passato come parametro, TypeScript genererà un errore se il letterale di oggetto specifica proprietà che non esistono nel tipo di destinazione.
 
 Tuttavia, la "freschezza" scompare quando un letterale di oggetto viene ampliato o viene utilizzata un'asserzione di tipo.
 
@@ -1410,7 +1411,7 @@ Altri modi per restringere i tipi in TypeScript includono:
 * Operatore `typeof`: utilizzato per verificare il tipo di un valore in fase di esecuzione.
 * Funzioni integrate come `Array.isArray()`: utilizzate per verificare se un valore è un array.
 
-#### Unione Discriminata
+#### Unione discriminata
 
 L'utilizzo di una "Unione Discriminata" è un pattern in TypeScript in cui un "tag" esplicito viene aggiunto agli oggetti per distinguere i diversi tipi all'interno di un'unione. Questo pattern è anche definito "unione con tag". Nell'esempio seguente, il "tag" è rappresentato dalla proprietà "type":
 
@@ -1512,9 +1513,9 @@ const x: bigint = BigInt(9007199254740991);
 const y: bigint = 9007199254740991n;
 ```
 
-Note:
+Nota:
 
-* I valori `bigInt` non possono essere combinati con `number` e non possono essere utilizzati con `Math` integrato, devono essere forzati allo stesso tipo.
+* I valori `bigInt` non possono essere combinati con `number` e non possono essere utilizzati con `Math` integrato; devono essere forzati allo stesso tipo.
 * I valori `bigInt` sono disponibili solo se la configurazione di destinazione è ES2020 o superiore.
 
 ### Simbolo
@@ -1573,7 +1574,7 @@ const y: readonly [string, number] = ['a', 1];
 
 ### any
 
-Il tipo di dati ``any` rappresenta letteralmente un valore "qualsiasi", ed è il valore predefinito quando TypeScript non può dedurre il tipo o non è specificato.
+Il tipo di dati `any` rappresenta letteralmente un valore "qualsiasi" ed è il valore predefinito quando TypeScript non può dedurre il tipo o non è specificato.
 
 Quando si utilizza `any`, il compilatore TypeScript salta il controllo del tipo, quindi non c'è sicurezza di tipo quando si utilizza `any`. In genere, non utilizzare `any` per silenziare il compilatore quando si verifica un errore, ma concentrarsi sulla correzione dell'errore, poiché utilizzando `any` è possibile interrompere i contratti e perdere i vantaggi del completamento automatico di TypeScript.
 
@@ -1625,7 +1626,7 @@ In genere, si consiglia di annotare le firme dei tipi, ma non le variabili local
 
 ## Proprietà facoltative
 
-Un oggetto può specificare Proprietà facoltative aggiungendo un punto interrogativo `?` alla fine del nome della proprietà:
+Un oggetto può specificare proprietà facoltative aggiungendo un punto interrogativo `?` alla fine del nome della proprietà:
 
 ```typescript
 type X = {
@@ -1634,7 +1635,7 @@ type X = {
 };
 ```
 
-È possibile specificare un valore predefinito quando una proprietà è facoltativa"
+È possibile specificare un valore predefinito quando una proprietà è facoltativa:
 
 ```typescript
 type X = {
@@ -1841,9 +1842,9 @@ enum Size {
 console.log(Size.Medium); // 11
 ```
 
-### Enum String
+### Enum string
 
-In TypeScript, un enum String è un enum in cui a ogni costante viene assegnato un valore stringa.
+In TypeScript, un enum string è un enum in cui a ogni costante viene assegnato un valore stringa.
 
 ```typescript
 enum Language {
@@ -1854,9 +1855,9 @@ enum Language {
 
 Nota: TypeScript consente l'utilizzo di enum eterogenei in cui stringhe e membri numerici possono coesistere.
 
-### Enum Constant
+### Enum costante
 
-Un enum Constant in TypeScript è un tipo speciale di enum in cui tutti i valori sono noti in fase di compilazione e vengono inlineati ovunque venga utilizzato l'enum, con conseguente maggiore efficienza del codice.
+Un enum costante in TypeScript è un tipo speciale di enum in cui tutti i valori sono noti in fase di compilazione e vengono inlineati ovunque venga utilizzato l'enum, con conseguente maggiore efficienza del codice.
 
 ```typescript
 const enum Language {
@@ -1872,7 +1873,7 @@ Verrà compilato in:
 console.log('EN' /* Language.English */);
 ```
 
-Note:
+Nota:
 
 Gli enum costanti hanno valori hardcoded, che cancellano l'enum, il che può essere più efficiente nelle librerie autonome, ma generalmente non è auspicabile. Inoltre, gli enum costanti non possono avere membri calcolati.
 
@@ -1926,11 +1927,11 @@ console.log(Grade[failGrade]); // Element ha implicitamente un tipo 'any' perch�
 
 ### Enum ambientali
 
-Un enum ambientale in TypeScript è un tipo di Enum definito in un file di dichiarazione (\*.d.ts) senza un'implementazione associata. Permette di definire un set di costanti denominate che possono essere utilizzate in modo sicuro tra file diversi senza dover importare i dettagli di implementazione in ogni file.
+Un enum ambientale in TypeScript è un tipo di enum definito in un file di dichiarazione `*.d.ts` senza un'implementazione associata. Permette di definire un set di costanti denominate che possono essere utilizzate in modo sicuro tra file diversi senza dover importare i dettagli di implementazione in ogni file.
 
 ### Membri calcolati e costanti
 
-In TypeScript, un membro calcolato è un membro di un Enum il cui valore è calcolato in fase di esecuzione, mentre un membro costante è un membro il cui valore è impostato in fase di compilazione e non può essere modificato in fase di esecuzione. I membri calcolati sono consentiti negli Enum normali, mentre i membri costanti sono consentiti sia negli enum normali che in quelli costanti.
+In TypeScript, un membro calcolato è un membro di un enum il cui valore è calcolato in fase di esecuzione, mentre un membro costante è un membro il cui valore è impostato in fase di compilazione e non può essere modificato in fase di esecuzione. I membri calcolati sono consentiti negli enum normali, mentre i membri costanti sono consentiti sia negli enum normali che in quelli costanti.
 
 ```typescript
 // Membri costanti
@@ -1972,7 +1973,7 @@ Il restringimento di TypeScript è il processo di perfezionamento del tipo di un
 
 TypeScript riconosce diversi modi per restringere il tipo:
 
-### protezioni di tipo typeof
+### Protezioni di tipo typeof
 
 Il type guard typeof è uno specifico type guard in TypeScript che controlla il tipo di una variabile in base al suo tipo JavaScript predefinito.
 
@@ -2133,7 +2134,7 @@ const f6 = (
 };
 ```
 
-Note: Nelle espressioni condizionali vengono analizzati fino a cinque livelli di indirezione.
+Nota: nelle espressioni condizionali vengono analizzati fino a cinque livelli di indirezione.
 
 ## Predicati di tipo
 
@@ -2151,9 +2152,9 @@ const foo = (bar: unknown) => {
 };
 ```
 
-## Unioni Discriminate
+## Unioni discriminate
 
-Le unioni Discriminate in TypeScript sono un tipo di unione che utilizza una proprietà comune, nota come discriminante, per restringere l'insieme dei tipi possibili per l'unione.
+Le unioni discriminate in TypeScript sono un tipo di unione che utilizza una proprietà comune, nota come discriminante, per restringere l'insieme dei tipi possibili per l'unione.
 
 ```typescript
 type Square = {
@@ -2232,7 +2233,7 @@ In TypeScript, i tipi di oggetto descrivono la forma di un oggetto. Specificano 
 
 In TypeScript, è possibile definire i tipi di oggetto in due modi principali:
 
-interface, che definisce la forma di un oggetto specificando i nomi, i tipi e l'opzionalità delle sue proprietà.
+L'interfaccia `interface`, che definisce la forma di un oggetto specificando i nomi, i tipi e l'opzionalità delle sue proprietà.
 
 ```typescript
 interface User {
@@ -2585,9 +2586,9 @@ type TypeName = {
 };
 ```
 
-`interface InterfaceName` o `type TypeName`: Definisce il nome dell'interfaccia.
-`property1`: `Type1`: Specifica le proprietà dell'interfaccia insieme ai tipi corrispondenti. È possibile definire più proprietà, ciascuna separata da un punto e virgola.
-`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;`: Specifica i metodi dell'interfaccia. I metodi sono definiti con i loro nomi, seguiti da un elenco di parametri tra parentesi e dal tipo di ritorno. È possibile definire più metodi, ciascuno separato da un punto e virgola.
+* `interface InterfaceName` o `type TypeName`: definisce il nome dell'interfaccia.
+* `property1: Type1`: specifica le proprietà dell'interfaccia insieme ai tipi corrispondenti. È possibile definire più proprietà, ciascuna separata da un punto e virgola.
+* `method1(arg1: ArgType1, arg2: ArgType2): ReturnType;`: specifica i metodi dell'interfaccia. I metodi sono definiti con i loro nomi, seguiti da un elenco di parametri tra parentesi e dal tipo di ritorno. È possibile definire più metodi, ciascuno separato da un punto e virgola.
 
 Esempio di interfaccia:
 
@@ -2649,7 +2650,8 @@ TypeScript dispone di diverse primitive di tipo predefinite che possono essere u
 * `undefined`: rappresenta un valore che non è stato assegnato o non è stato definito.
 * `symbol`: rappresenta un identificatore univoco. I simboli vengono in genere utilizzati come chiavi per le proprietà degli oggetti.
 * `bigint`: rappresenta numeri interi con precisione arbitraria.
-* `any`: rappresenta un tipo dinamico o sconosciuto. Le variabili di tipo any possono contenere valori di qualsiasi tipo e ignorano il controllo del tipo. \* `void`: rappresenta l'assenza di qualsiasi tipo. È comunemente usato come tipo di ritorno di funzioni che non restituiscono alcun valore.
+* `any`: rappresenta un tipo dinamico o sconosciuto. Le variabili di tipo any possono contenere valori di qualsiasi tipo e ignorano il controllo del tipo.
+* `void`: rappresenta l'assenza di qualsiasi tipo. È comunemente usato come tipo di ritorno di funzioni che non restituiscono alcun valore.
 * `never`: rappresenta un tipo per valori che non si verificano mai. È tipicamente usato come tipo di ritorno di funzioni che generano un errore o entrano in un ciclo infinito.
 
 ## Oggetti JavaScript predefiniti comuni
@@ -2727,9 +2729,9 @@ console.log(new Greeter('Hello').sayHi('Simon'));
 
 ## Unione ed estensione
 
-Merging ed estensione si riferiscono a due concetti diversi relativi all'utilizzo di tipi e interfacce.
+L'unione e l'estensione si riferiscono a due concetti diversi relativi all'utilizzo di tipi e interfacce.
 
-Merging consente di combinare più dichiarazioni con lo stesso nome in un'unica definizione, ad esempio quando si definisce un'interfaccia con lo stesso nome più volte:
+L'unione consente di combinare più dichiarazioni con lo stesso nome in un'unica definizione, ad esempio quando si definisce un'interfaccia con lo stesso nome più volte:
 
 ```typescript
 interface X {
@@ -2807,7 +2809,7 @@ const car: B = {
 };
 ```
 
-Per i tipi, si utilizza l'operatore & per combinare più tipi in un unico tipo (intersezione).
+Per i tipi, si utilizza l'operatore `&` per combinare più tipi in un unico tipo (intersezione).
 
 ```typescript
 interface A {
@@ -2881,13 +2883,13 @@ class Person {
 
 La parola chiave `class` viene utilizzata per definire una classe denominata "Person".
 
-La classe ha due proprietà private: name di tipo `string` ed age di tipo `number`.
+La classe ha due proprietà private: name di tipo `string` e age di tipo `number`.
 
 Il costruttore viene definito utilizzando la parola chiave `constructor`. Accetta name ed age come parametri e li assegna alle proprietà corrispondenti.
 
 La classe ha un metodo `public` denominato sayHi che registra un messaggio di saluto.
 
-Per creare un'istanza di una classe in TypeScript, è possibile utilizzare la parola chiave `new` seguita dal nome della classe, seguito da parentesi `()`. Ad esempio:
+Per creare un'istanza di una classe in TypeScript, è possibile utilizzare la parola chiave `new` seguita dal nome della classe e da parentesi `()`. Ad esempio:
 
 <!-- skip -->
 ```typescript
@@ -2970,12 +2972,12 @@ const person3 = new Person('Jane', 25);
 person3.displayInfo(); // Nome: Jane, Età: 25
 ```
 
-### Costruttori privati ​​e protetti
+### Costruttori privati e protetti
 
-In TypeScript, i costruttori possono essere contrassegnati come privati ​​o protetti, il che ne limita l'accessibilità e l'utilizzo.
+In TypeScript, i costruttori possono essere contrassegnati come privati o protetti, il che ne limita l'accessibilità e l'utilizzo.
 
 Costruttori privati:
-possono essere chiamati solo all'interno della classe stessa. I costruttori privati ​​vengono spesso utilizzati in scenari in cui si desidera applicare un pattern singleton o limitare la creazione di istanze a un metodo factory all'interno della classe.
+possono essere chiamati solo all'interno della classe stessa. I costruttori privati vengono spesso utilizzati in scenari in cui si desidera applicare un pattern singleton o limitare la creazione di istanze a un metodo factory all'interno della classe.
 
 Costruttori protetti:
 I costruttori protetti sono utili quando si desidera creare una classe base che non deve essere istanziata direttamente, ma può essere estesa tramite sottoclassi.
@@ -3046,7 +3048,7 @@ class Animal {
 }
 ```
 
-Gli auto-accessor vengono "de-sugared" in accessor privati ​​`get` e `set`, che operano su una proprietà inaccessibile.
+Gli auto-accessor vengono "de-sugared" in accessor privati `get` e `set`, che operano su una proprietà inaccessibile.
 
 <!-- skip -->
 ```typescript
@@ -3068,7 +3070,7 @@ class Animal {
 
 ### this
 
-In TypeScript, la parola chiave `this` si riferisce all'istanza corrente di una classe all'interno dei suoi metodi o costruttori. Permette di accedere e modificare le proprietà e i metodi della classe. dall'interno del proprio ambito.
+In TypeScript, la parola chiave `this` si riferisce all'istanza corrente di una classe all'interno dei suoi metodi o costruttori. Permette di accedere e modificare le proprietà e i metodi della classe dall'interno del proprio ambito.
 Fornisce un modo per accedere e manipolare lo stato interno di un oggetto all'interno dei propri metodi.
 
 ```typescript
@@ -3166,7 +3168,7 @@ console.log(container2.getItem()); // Mondo
 
 I decoratori forniscono un meccanismo per aggiungere metadati, modificare il comportamento, convalidare o estendere la funzionalità dell'elemento di destinazione. Sono funzioni che vengono eseguite in fase di esecuzione. È possibile applicare più decoratori a una dichiarazione.
 
-I decoratori sono funzionalità sperimentali e gli esempi seguenti sono compatibili solo con TypeScript versione 5 o successive che utilizzano ES6.
+I decoratori sono funzionalità sperimentali e gli esempi seguenti sono compatibili solo con TypeScript versione 5 o versioni successive che utilizzano ES6.
 
 Per le versioni di TypeScript precedenti alla 5, dovrebbero essere abilitati utilizzando la proprietà `experimentalDecorators` nel file `tsconfig.json` o utilizzando `--experimentalDecorators` nella riga di comando (ma l'esempio seguente non funzionerà).
 
@@ -3288,9 +3290,9 @@ Ciao!
 LOG: Uscita dal metodo 'sayHello'.
 ```
 
-#### Decoratori Getter e Setter
+#### Decoratori getter e setter
 
-I decoratori Getter e Setter consentono di modificare o migliorare il comportamento degli accessor di classe. Sono utili, ad esempio, per convalidare le assegnazioni di proprietà. Ecco un semplice esempio di decoratore getter:
+I decoratori getter e setter consentono di modificare o migliorare il comportamento degli accessor di classe. Sono utili, ad esempio, per convalidare le assegnazioni di proprietà. Ecco un semplice esempio di decoratore getter:
 
 ```typescript
 function range<This, Return extends number>(min: number, max: number) {
@@ -3333,7 +3335,7 @@ console.log(obj2.getValue); // Throw: Invalid!
 
 #### Metadati del decoratore
 
-I metadati del decoratore semplificano il processo per i decoratori di applicare e utilizzare i metadati in qualsiasi classe. Possono accedere a una nuova proprietà metadati sull'oggetto contesto, che può fungere da chiave sia per le primitive che per gli oggetti.
+I metadati del decoratore semplificano il processo di applicazione e utilizzo dei metadati da parte dei decoratori in qualsiasi classe. Possono accedere a una nuova proprietà di metadati sull'oggetto contesto, che può fungere da chiave sia per le primitive che per gli oggetti.
 Le informazioni sui metadati sono accessibili sulla classe tramite `Symbol.metadata`.
 
 I metadati possono essere utilizzati per vari scopi, come il debug, la serializzazione o l'iniezione di dipendenze con i decoratori.
@@ -3457,7 +3459,7 @@ console.log(total); // 2
 
 ### Inizializzazione delle proprietà
 
-Esistono diversi modi per Inizializza le proprietà per una classe in TypeScript:
+Esistono diversi modi per inizializzare le proprietà di una classe in TypeScript:
 
 Inline:
 
@@ -3589,7 +3591,7 @@ printLen({ length: 10 }); // 10
 printLen(123); // Non valido
 ```
 
-Una caratteristica interessante di generic introdotta nella versione 3.4 RC è l'inferenza di tipo di funzione di ordine superiore, che ha introdotto argomenti di tipo generico propagati:
+Una caratteristica interessante dei generici introdotta nella versione 3.4 RC è l'inferenza di tipo di funzione di ordine superiore, che ha introdotto argomenti di tipo generico propagati:
 
 ```typescript
 declare function pipe<A extends any[], B, C>(
@@ -3686,7 +3688,7 @@ console.log(obj[key1]); // valore 1
 console.log(obj[key2]); // valore 2
 ```
 
-In WeakMaps e WeakSet, i simboli sono ora consentiti come chiavi.
+Nei WeakMap e nei WeakSet, i simboli sono ora consentiti come chiavi.
 
 ## Direttive con tripla barra
 
@@ -3734,7 +3736,7 @@ const obj: C = { foo: 42, bar: 'hello' };
 
 Tipi di unione (`|`):
 
-Consente di definire un tipo che può essere di diversi tipi:
+Consentono di definire un tipo che può essere di diversi tipi:
 
 ```typescript
 type Result = string | number;
@@ -3791,7 +3793,7 @@ Diversi tipi di utilità predefiniti possono essere utilizzati per manipolare i 
 
 #### Awaited\<T\>
 
-Costruisce un tipo che esegue ricorsivamente l'unwrapping dei tipi Promise.
+Costruisce un tipo che estrae ricorsivamente il tipo contenuto nelle Promise.
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
@@ -3799,7 +3801,7 @@ type A = Awaited<Promise<string>>; // string
 
 #### Partial\<T\>
 
-Costruisce un tipo con tutte le proprietà di T impostate su optional.
+Costruisce un tipo con tutte le proprietà di T impostate come facoltative.
 
 ```typescript
 type Person = {
@@ -3812,7 +3814,7 @@ type A = Partial<Person>; // { name?: string | undefined; age?:number | undefine
 
 #### Required\<T\>
 
-Costruisce un tipo con tutte le proprietà di T impostate su required.
+Costruisce un tipo con tutte le proprietà di T impostate come obbligatorie.
 
 ```typescript
 type Person = {
@@ -3825,7 +3827,7 @@ type A = Required<Person>; // { name: string; age:number; }
 
 #### Readonly\<T\>
 
-Costruisce un tipo con tutte le proprietà di T impostate su readonly.
+Costruisce un tipo con tutte le proprietà di T impostate come di sola lettura.
 
 <!-- skip -->
 ```typescript
@@ -4119,7 +4121,7 @@ class CustomError extends Error {
 throw new CustomError('Questo è un errore personalizzato.');
 ```
 
-### Classi Mixin
+### Classi mixin
 
 Le classi Mixin consentono di combinare e comporre il comportamento di più classi in un'unica classe. Forniscono un modo per riutilizzare ed estendere le funzionalità senza la necessità di catene di ereditarietà profonde.
 
@@ -4187,9 +4189,9 @@ Le promise sono un modo per gestire le operazioni asincrone e i loro risultati u
 
 Per saperne di più: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-Async/await:
+async/await:
 
-Le parole chiave Async/await sono un modo per fornire una sintassi più sincrona per lavorare con le promise. La parola chiave `async` viene utilizzata per definire una funzione asincrona, mentre la parola chiave `await` viene utilizzata all'interno di una funzione asincrona per mettere in pausa l'esecuzione finché una Promise non viene risolta o rifiutata.
+Le parole chiave `async` e `await` forniscono una sintassi più sincrona per lavorare con le promise. La parola chiave `async` viene utilizzata per definire una funzione asincrona, mentre la parola chiave `await` viene utilizzata all'interno di una funzione asincrona per mettere in pausa l'esecuzione finché una Promise non viene risolta o rifiutata.
 
 Per saperne di più:
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
@@ -4204,15 +4206,15 @@ API Fetch:
 Web Worker:
 [https://developer.mozilla.org/it/docs/Web/API/Web_Workers_API](https://developer.mozilla.org/it/docs/Web/API/Web_Workers_API)
 
-Condiviso Worker:
+Worker condiviso:
 [https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker](https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker)
 
 WebSocket:
 [https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
-### Iteratori e Generatori
+### Iteratori e generatori
 
-Sia gli Iteratori che i Generatori sono ben supportati in TypeScript.
+Sia gli iteratori che i generatori sono ben supportati in TypeScript.
 
 Gli Iteratori sono oggetti che implementano il protocollo Iterator, fornendo un modo per accedere agli elementi di una collezione o sequenza uno alla volta. Si tratta di una struttura che contiene un puntatore all'elemento successivo nell'iterazione. Hanno un metodo `next()` che restituisce il valore successivo nella sequenza insieme a un valore booleano che indica se la sequenza è `completata`.
 
@@ -4277,7 +4279,7 @@ Per saperne di più:
 
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator)
 
-### Riferimento JSDoc di TsDocs
+### Riferimento a JSDoc
 
 Quando si lavora con una base di codice JavaScript, è possibile aiutare TypeScript a dedurre il tipo corretto utilizzando commenti JSDoc con annotazioni aggiuntive per fornire informazioni sul tipo.
 
@@ -4288,7 +4290,7 @@ Esempio:
  * Calcola la potenza di un numero dato
  * @constructor
  * @param {number} base – Il valore base dell'espressione
- * @param {number} exponent – ​​Il valore esponente dell'espressione
+ * @param {number} exponent – Il valore esponente dell'espressione
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -4320,7 +4322,7 @@ Per contribuire alle definizioni di tipo del pacchetto @types, invia una pull re
 
 JSX (JavaScript XML) è un'estensione della sintassi del linguaggio JavaScript che consente di scrivere codice simile a HTML all'interno dei file JavaScript o TypeScript. Viene comunemente utilizzato in React per definire la struttura HTML.
 
-TypeScript extends le funzionalità di JSX fornendo il controllo dei tipi e l'analisi statica.
+TypeScript estende le funzionalità di JSX fornendo il controllo dei tipi e l'analisi statica.
 
 Per utilizzare JSX è necessario impostare l'opzione del compilatore `jsx` nel file `tsconfig.json`. Due opzioni di configurazione comuni:
 
@@ -4354,7 +4356,7 @@ Un esempio di configurazione:
 ### Operatore di elevamento a potenza ES7
 
 L'operatore di elevamento a potenza (`**`) calcola il valore ottenuto elevando il primo operando alla potenza del secondo operando. Funziona in modo simile a `Math.pow()`, ma con la possibilità aggiuntiva di accettare BigInt come operandi.
-TypeScript supporta pienamente questo operatore, utilizzandolo come `target` nel file tsconfig.json `es2016` o versione successiva.
+TypeScript supporta pienamente questo operatore se il valore di `target` nel file tsconfig.json è `es2016` o una versione successiva.
 
 ```typescript
 console.log(2 ** (2 ** 2)); // 16
@@ -4418,7 +4420,7 @@ async function renderWidget() {
 renderWidget();
 ```
 
-### "tsc –watch"
+### "tsc --watch"
 
 Questo comando avvia un compilatore TypeScript con il parametro `--watch`, con la possibilità di ricompilare automaticamente i file TypeScript ogni volta che vengono modificati.
 
@@ -4430,7 +4432,7 @@ A partire dalla versione 4.9 di TypeScript, il monitoraggio dei file si basa pri
 
 ### Operatore di asserzione non nullo
 
-L'operatore di asserzione non nullo (Postfix !), noto anche come asserzione di assegnazione definita, è una funzionalità di TypeScript che consente di affermare che una variabile o una proprietà non è nulla o indefinita, anche se l'analisi statica dei tipi di TypeScript suggerisce che potrebbe esserlo. Con questa funzionalità è possibile rimuovere qualsiasi controllo esplicito.
+L'operatore di asserzione non nullo (postfisso `!`), noto anche come asserzione di assegnazione definita, è una funzionalità di TypeScript che consente di affermare che una variabile o una proprietà non è nulla o indefinita, anche se l'analisi statica dei tipi di TypeScript suggerisce che potrebbe esserlo. Con questa funzionalità è possibile rimuovere qualsiasi controllo esplicito.
 
 ```typescript
 type Person = {
@@ -4537,7 +4539,7 @@ type ListNode<T> = {
 È possibile definire relazioni di tipo complesse utilizzando la logica e la ricorsione in TypeScript.
 Analizziamole in termini semplici:
 
-Tipi condizionali: consente di definire tipi in base a condizioni booleane:
+Tipi condizionali: consentono di definire tipi in base a condizioni booleane:
 
 ```typescript
 type CheckNumber<T> = T extends number ? 'Number' : 'Not a number';
@@ -4699,9 +4701,9 @@ TypeScript rappresenta questa differenziazione fornendo tipi separati per le pri
 * symbol => Symbol
 * bigint => BigInt
 
-I tipi boxed di solito non sono necessari. Evitare di utilizzare tipi boxed e utilizzare invece type per le primitive, ad esempio `string` invece di `String`.
+I tipi boxed di solito non sono necessari. Evitare di utilizzare tipi boxed e utilizzare invece i tipi primitivi, ad esempio `string` invece di `String`.
 
-### Covarianza e Controvarianza in TypeScript
+### Covarianza e controvarianza in TypeScript
 
 La covarianza e la controvarianza descrivono come si comportano le relazioni tra tipi nei tipi generici.
 
@@ -4910,9 +4912,10 @@ Una dichiarazione `using` è un binding immutabile con ambito a blocco, simile a
 
 Questo si basa sulla funzionalità di Gestione Risorse di ECMAScript, utile per eseguire attività di pulizia essenziali dopo la creazione di oggetti, come la chiusura di connessioni, l'eliminazione di file e il rilascio di memoria.
 
-Note:
+Nota:
 
-* A causa della sua recente introduzione nella versione 5.2 di TypeScript, la maggior parte dei runtime non dispone di supporto nativo. Sono necessari polyfill per: `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`. \* Inoltre, dovrai configurare il tuo file tsconfig.json come segue:
+* A causa della sua recente introduzione nella versione 5.2 di TypeScript, la maggior parte dei runtime non dispone di supporto nativo. Sono necessari polyfill per: `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`.
+* Inoltre, dovrai configurare il tuo file tsconfig.json come segue:
 
 ```json
 {
@@ -4979,7 +4982,7 @@ Le dichiarazioni `using` registrano le operazioni di eliminazione delle risorse 
 
 È garantito che le risorse vengano eliminate, anche se si verificano codice o eccezioni successive. Questo potrebbe portare alla generazione di un'eccezione durante l'eliminazione, con la possibile soppressione di un'altra. Per conservare le informazioni sugli errori soppressi, è stata introdotta una nuova eccezione nativa, `SuppressedError`.
 
-#### dichiarazione await using
+#### Dichiarazione await using
 
 Una dichiarazione `await using` gestisce una risorsa eliminabile in modo asincrono. Il valore deve avere un metodo `Symbol.asyncDispose`, che verrà atteso alla fine del blocco.
 
