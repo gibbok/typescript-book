@@ -1,20 +1,20 @@
 ---
-title: 目录表
+title: 目录
 sidebar:
   order: 4
-  label: 4. 目录表
+  label: 4. 目录
 ---
 
 
 <!-- markdownlint-disable MD004 -->
-- [简洁的TypeScript之书](../the-concise-typescript-book/)
+- [简洁的 TypeScript 之书](../the-concise-typescript-book/)
   - [翻译](../translations/)
   - [下载和网站](../downloads-and-website/)
-  - [目录表](../table-of-contents/)
+  - [目录](../table-of-contents/)
   - [介绍](../introduction/)
   - [关于作者](../about-the-author/)
-  - [TypeScript简介](../typescript-introduction/)
-    - [什么是TypeScript？](../typescript-introduction/#什么是typescript)
+  - [TypeScript 简介](../typescript-introduction/)
+    - [什么是 TypeScript？](../typescript-introduction/#什么是-typescript)
     - [为什么选择 TypeScript？](../typescript-introduction/#为什么选择-typescript)
     - [TypeScript 和 JavaScript](../typescript-introduction/#typescript-和-javascript)
     - [TypeScript 代码生成](../typescript-introduction/#typescript-代码生成)
@@ -66,7 +66,7 @@ sidebar:
     - [string](../primitive-types/#string)
     - [boolean](../primitive-types/#boolean)
     - [number](../primitive-types/#number)
-    - [bigInt](../primitive-types/#bigint)
+    - [bigint](../primitive-types/#bigint)
     - [symbol](../primitive-types/#symbol)
     - [null and undefined](../primitive-types/#null-and-undefined)
     - [Array](../primitive-types/#array)
@@ -118,14 +118,14 @@ sidebar:
   - [任意类型](../any-type/)
   - [未知类型](../unknown-type/)
   - [空类型](../void-type/)
-  - [Never类型](../never-type/)
+  - [never 类型](../the-never-type/)
   - [接口及类型](../interface-and-type/)
     - [通用语法](../interface-and-type/#通用语法)
     - [基本类型](../interface-and-type/#基本类型)
     - [对象和接口](../interface-and-type/#对象和接口)
     - [并集和交集类型](../interface-and-type/#并集和交集类型)
   - [内置原始数据类型](../built-in-type-primitives/)
-  - [常见的内置JS对象](../common-built-in-js-objects/)
+  - [常见的内置 JS 对象](../common-built-in-js-objects/)
   - [重载](../overloads/)
   - [合并与扩展](../merging-and-extension/)
   - [类型和接口之间的差异](../differences-between-type-and-interface/)
@@ -196,9 +196,9 @@ sidebar:
     - [ES6 模块](../others/#es6-模块)
     - [ES7 求幂运算符](../others/#es7-求幂运算符)
     - [for-await-of 语句](../others/#for-await-of-语句)
-    - [New target 元属性](../others/#new-target-元属性)
+    - [new.target 元属性](../others/#newtarget-元属性)
     - [动态导入表达式](../others/#动态导入表达式)
-    - ["tsc –watch"](../others/#tsc-watch)
+    - [tsc --watch](../others/#tsc---watch)
     - [默认声明](../others/#默认声明)
     - [可选链](../others/#可选链)
     - [空合并运算符](../others/#空合并运算符)
@@ -213,10 +213,10 @@ sidebar:
     - [TypeScript 中的协变和逆变](../others/#typescript-中的协变和逆变)
       - [类型参数的可选方差注释](../others/#类型参数的可选方差注释)
     - [模板字符串模式索引签名](../others/#模板字符串模式索引签名)
-    - [satisfies操作符](../others/#satisfies操作符)
+    - [satisfies 操作符](../others/#satisfies-操作符)
     - [仅类型导入和导出](../others/#仅类型导入和导出)
     - [使用声明和显式资源管理](../others/#使用声明和显式资源管理)
-      - [使用声明等待](../others/#使用声明等待)
+      - [await using 声明](../others/#await-using-声明)
     - [导入属性](../others/#导入属性)
     - [正则表达式语法检查](../others/#正则表达式语法检查)
     - [import defer](../others/#import-defer)

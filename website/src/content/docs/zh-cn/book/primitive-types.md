@@ -43,11 +43,11 @@ const binary: number = 0b1010; // 二进制数以 0b 开始
 const octal: number = 0o633; // 八进制数以 0o 开始
 ```
 
-### bigInt
+### bigint
 
-`bigInt` 表示无法用 `number` 表示的非常大的数值 (253 – 1)。
+`bigint` 表示无法用 `number` 表示的非常大的数值（2^53 - 1 以上）。
 
-`bigInt` 可以通过调用内置函数 `BigInt()` 或添加 `n` 到任何整数数字字面量的末尾来创建：
+`bigint` 可以通过调用内置函数 `BigInt()` 或在任何整数数字字面量末尾添加 `n` 来创建：
 
 ```typescript
 const x: bigint = BigInt(9007199254740991);
@@ -56,8 +56,8 @@ const y: bigint = 9007199254740991n;
 
 笔记：
 
-* `bigInt` 值不能与 `number` 混合，也不能与内置的 `Math` 一起使用，它们必须强制为相同的类型。
-* 仅当目标配置为 ES2020 或更高版本时，“bigInt”值才可用。
+* `bigint` 值不能与 `number` 混合，也不能与内置的 `Math` 一起使用，它们必须强制为相同的类型。
+* 仅当目标配置为 ES2020 或更高版本时，`bigint` 值才可用。
 
 ### symbol
 

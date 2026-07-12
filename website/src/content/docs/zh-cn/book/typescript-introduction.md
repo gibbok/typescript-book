@@ -1,12 +1,12 @@
 ---
-title: TypeScript简介
+title: TypeScript 简介
 sidebar:
   order: 7
-  label: 7. TypeScript简介
+  label: 7. TypeScript 简介
 ---
 
 
-### 什么是TypeScript？
+### 什么是 TypeScript？
 
 TypeScript 是一种基于 JavaScript 的强类型编程语言。它最初由 Anders Hejlsberg 于 2012 年设计，目前由微软开发和维护，是一个开源项目。
 
@@ -29,27 +29,27 @@ TypeScript 的一些好处
 
 ### TypeScript 和 JavaScript
 
-TypeScript是用`.ts`或`.tsx`文件编写的, 而JavaScript是用`.js`或`.jsx`文件编写的。
+TypeScript 是用 `.ts` 或 `.tsx` 文件编写的，而 JavaScript 是用 `.js` 或 `.jsx` 文件编写的。
 
 扩展名为.tsx或.jsx的文件可以包含 JavaScript 语法扩展 JSX，该扩展在 React 中用于 UI 开发。
 
 就语法而言，TypeScript 是 JavaScript (ECMAScript 2015) 的类型化超集。所有 JavaScript 代码都是有效的 TypeScript 代码，但反之则不然。
 
-例如，考虑 JavaScript 文件中具有.js扩展名的函数，如下所示：
+例如，考虑 JavaScript 文件中具有 `.js` 扩展名的函数，如下所示：
 
 <!-- skip -->
 ```typescript
 const sum = (a, b) => a + b;
 ```
 
-该函数可以通过将文件扩展名更改为 .TypeScript 来转换和使用.ts。但是，如果同一个函数使用 TypeScript 类型进行注释，则未经编译就无法在任何 JavaScript 运行时中执行。如果未编译以下 TypeScript 代码，将会产生语法错误
+该函数可以通过将文件扩展名更改为 `.ts` 来转换并在 TypeScript 中使用。但是，如果同一个函数使用 TypeScript 类型进行注释，则未经编译就无法在任何 JavaScript 运行时中执行。如果未编译以下 TypeScript 代码，将会产生语法错误。
 
 <!-- skip -->
 ```typescript
 const sum = (a: number, b: number): number => a + b;
 ```
 
-TypeScript 旨在通过让开发人员使用类型注释定义意图来检测编译期间运行时可能发生的异常。此外，如果没有提供类型注释，TypeScript 也可以捕获问题。例如，以下代码片段未指定任何 TypeScript 类型：
+TypeScript 旨在通过让开发人员使用类型注释来表达意图，从而在编译期间捕获运行时可能发生的问题。此外，如果没有提供类型注释，TypeScript 也可以捕获问题。例如，以下代码片段未指定任何 TypeScript 类型：
 
 <!-- skip -->
 ```typescript
@@ -60,7 +60,7 @@ const result = items.filter(item => item.y);
 在这种情况下，TypeScript 检测到错误并报告：
 
 ```text
-类型 '{ x: number; }' 上不存在属性 'y' 。
+类型 '{ x: number; }' 上不存在属性 'y'。
 ```
 
 TypeScript 的类型系统很大程度上受到 JavaScript 运行时行为的影响。例如，加法运算符 (+) 在 JavaScript 中可以执行字符串连接或数字加法，在 TypeScript 中以相同的方式建模：
@@ -69,18 +69,18 @@ TypeScript 的类型系统很大程度上受到 JavaScript 运行时行为的影
 const result = '1' + 1; // 结果是string类型
 ```
 
-TypeScript 背后的团队经过深思熟虑，决定将 JavaScript 的异常使用标记为错误。例如，考虑以下有效的 JavaScript 代码：
+TypeScript 背后的团队经过深思熟虑，决定将 JavaScript 的异常用法标记为错误。例如，考虑以下有效的 JavaScript 代码：
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // 在JavaScript中, 结果等于2
+const result = 1 + true; // 在 JavaScript 中，结果等于 2
 ```
 
 但是，TypeScript 会抛出错误：
 
 ```text
-运算符"+"不能应用于类型"number"和"boolean"。
-``````
+运算符 "+" 不能应用于类型 "number" 和 "boolean"。
+```
 
 出现此错误的原因是 TypeScript 严格强制执行类型兼容性，在这种情况下，它标识了数字和布尔值之间的无效操作。
 
@@ -152,11 +152,11 @@ const dog: Dog = {
 makeNoise(dog);
 ```
 
-属性"kind"是一个可以在运行时用来区分 JavaScript 中的对象的值。
+属性 "kind" 是一个可以在运行时用来区分 JavaScript 对象的值。
 
-运行时的值也可能具有与类型声明中声明的类型不同的类型。例如，如果开发人员误解了 API 类型并对其进行了错误注释。
+运行时的值也可能与类型声明中声明的类型不同。例如，如果开发人员误解了 API 类型并对其进行了错误注释，就会出现这种情况。
 
-TypeScript 是 JavaScript 的超集，因此"class"关键字可以在运行时用作类型和值。
+TypeScript 是 JavaScript 的超集，因此 `"class"` 关键字可以在运行时用作类型和值。
 
 ```typescript
 class Animal {
@@ -192,7 +192,7 @@ const dog = new Dog('Fido', () => console.log('bark'));
 makeNoise(dog);
 ```
 
-在 JavaScript 中，"类"具有"prototype"属性，"instanceof"运算符可用于测试构造函数的原型属性是否出现在对象原型链中的任何位置。
+在 JavaScript 中，类具有 `prototype` 属性，`instanceof` 运算符可用于测试构造函数的原型是否出现在对象原型链中的任何位置。
 
 TypeScript 对运行时性能没有影响，因为所有类型都将被删除。然而，TypeScript 确实引入了一些构建时间开销。
 

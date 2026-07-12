@@ -1,8 +1,8 @@
 ---
-title: 简洁的TypeScript之书
+title: 简洁的 TypeScript 之书
 sidebar:
   order: 1
-  label: 1. 简洁的TypeScript之书
+  label: 1. 简洁的 TypeScript 之书
 ---
 
 

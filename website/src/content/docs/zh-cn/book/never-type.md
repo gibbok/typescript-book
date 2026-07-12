@@ -1,8 +1,8 @@
 ---
-title: Never类型
+title: never 类型
 sidebar:
   order: 47
-  label: 47. Never类型
+  label: 47. never 类型
 ---
 
 

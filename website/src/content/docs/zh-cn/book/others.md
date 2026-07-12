@@ -302,7 +302,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 })();
 ```
 
-### New target 元属性
+### new.target 元属性
 
 您可以在 TypeScript 中使用 `new.target` 元属性，该属性使您能够确定是否使用 new 运算符调用函数或构造函数。它允许您检测对象是否是由于构造函数调用而创建的。
 
@@ -342,7 +342,7 @@ async function renderWidget() {
 renderWidget();
 ```
 
-### "tsc –watch"
+### tsc --watch
 
 此命令使用 `--watch` 参数启动 TypeScript 编译器，能够在修改 TypeScript 文件时自动重新编译它们。
 
@@ -741,7 +741,7 @@ console.log(obj['key-a']); // 123
 console.log(obj['key-b']); // 456
 ```
 
-### satisfies操作符
+### satisfies 操作符
 
 `satisfies` 允许您检查给定类型是否满足特定接口或条件。换句话说，它确保类型具有特定接口所需的所有属性和方法。这是确保变量适合类型定义的一种方法。
 
@@ -830,7 +830,7 @@ export type { T } from './mod';
         "lib": ["es2022", "esnext.disposable", "dom"]
     }
 }
-````
+```
 
 例子：
 
@@ -888,7 +888,7 @@ interface Disposable {
 
 即使发生后续代码或异常，也保证会释放资源。 这可能会导致处置可能引发异常，并可能抑制另一个异常。 为了保留有关被抑制错误的信息，引入了一个新的本机异常"SuppressedError"。
 
-#### 使用声明等待
+#### await using 声明
 
 "await using"声明处理异步一次性资源。 该值必须具有"Symbol.asyncDispose"方法，该方法将在块末尾等待。
 
