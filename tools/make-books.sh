@@ -25,6 +25,12 @@ TITLE_IT="The Concise TypeScript Book"
 TITLE_BR="The Concise TypeScript Book"
 TITLE_SE="The Concise TypeScript Book"
 TITLE_BG="The Concise TypeScript Book"
+LANG_EN="en-US"
+LANG_CN="zh-CN"
+LANG_IT="it-IT"
+LANG_BR="pt-BR"
+LANG_SE="sv-SE"
+LANG_BG="bg-BG"
 
 cd ../
 
@@ -51,12 +57,12 @@ else
 fi
 
 # Generate eBooks
-pandoc -o $DIR_DOWNLOADS/$OUTPUT_EN.epub --metadata title="$TITLE_EN" --metadata author="$AUTHOR" -s $INPUT_EN.md
-pandoc -o $DIR_DOWNLOADS/$OUTPUT_CN.epub --metadata title="$TITLE_CN" --metadata author="$AUTHOR" -s $INPUT_CN.md
-pandoc -o $DIR_DOWNLOADS/$OUTPUT_IT.epub --metadata title="$TITLE_IT" --metadata author="$AUTHOR" -s $INPUT_IT.md
-pandoc -o $DIR_DOWNLOADS/$OUTPUT_BR.epub --metadata title="$TITLE_BR" --metadata author="$AUTHOR" -s $INPUT_BR.md
-pandoc -o $DIR_DOWNLOADS/$OUTPUT_SE.epub --metadata title="$TITLE_SE" --metadata author="$AUTHOR" -s $INPUT_SE.md
-pandoc -o $DIR_DOWNLOADS/$OUTPUT_BG.epub --metadata title="$TITLE_BG" --metadata author="$AUTHOR" -s $INPUT_BG.md
+pandoc --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_EN.epub --metadata title="$TITLE_EN" --metadata author="$AUTHOR" --metadata lang="$LANG_EN" -s $INPUT_EN.md
+pandoc --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_CN.epub --metadata title="$TITLE_CN" --metadata author="$AUTHOR" --metadata lang="$LANG_CN" -s $INPUT_CN.md
+pandoc --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_IT.epub --metadata title="$TITLE_IT" --metadata author="$AUTHOR" --metadata lang="$LANG_IT" -s $INPUT_IT.md
+pandoc --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_BR.epub --metadata title="$TITLE_BR" --metadata author="$AUTHOR" --metadata lang="$LANG_BR" -s $INPUT_BR.md
+pandoc --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_SE.epub --metadata title="$TITLE_SE" --metadata author="$AUTHOR" --metadata lang="$LANG_SE" -s $INPUT_SE.md
+pandoc --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_BG.epub --metadata title="$TITLE_BG" --metadata author="$AUTHOR" --metadata lang="$LANG_BG" -s $INPUT_BG.md
 
 # Validate eBooks
 epubcheck $DIR_DOWNLOADS/$OUTPUT_EN.epub
