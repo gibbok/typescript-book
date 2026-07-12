@@ -126,7 +126,7 @@
   - [控制流分析](#控制流分析)
   - [类型谓词](#类型谓词)
   - [可区分联合](#可区分联合-1)
-  - [never 类型](#never-类型)
+  - [never 类型缩小](#never-类型缩小)
   - [详尽性检查](#详尽性检查)
   - [对象类型](#对象类型)
   - [元组类型（匿名）](#元组类型匿名)
@@ -226,7 +226,7 @@
     - [ES6 模块](#es6-模块)
     - [ES7 求幂运算符](#es7-求幂运算符)
     - [for-await-of 语句](#for-await-of-语句)
-    - [new.target 元属性](#newtarget-元属性)
+    - [new target 元属性](#new-target-元属性)
     - [动态导入表达式](#动态导入表达式)
     - [tsc --watch](#tsc---watch)
     - [默认声明](#默认声明)
@@ -2217,7 +2217,7 @@ console.log(area(square)); // 25
 console.log(area(circle)); // 12.566370614359172
 ```
 
-## never 类型
+## never 类型缩小
 
 当变量缩小为不能包含任何值的类型时，TypeScript 编译器将推断该变量必须属于该never类型。这是因为 never 类型代表永远无法生成的值。
 
@@ -4395,7 +4395,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 })();
 ```
 
-### new.target 元属性
+### new target 元属性
 
 您可以在 TypeScript 中使用 `new.target` 元属性，该属性使您能够确定是否使用 new 运算符调用函数或构造函数。它允许您检测对象是否是由于构造函数调用而创建的。
 
