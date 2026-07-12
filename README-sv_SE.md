@@ -1,12 +1,12 @@
 # Den koncisa TypeScript-boken
 
-Den koncisa TypeScript-boken ger en omfattande och kortfattad översikt över TypeScripts kapaciteter. Den erbjuder tydliga förklaringar som täcker alla aspekter i den senaste versionen av språket, från dess kraftfulla typsystem till avancerade funktioner. Oavsett om du är nybörjare eller en erfaren utvecklare är denna bok en ovärderlig resurs för att förbättra din förståelse och skicklighet i TypeScript.
+Den koncisa TypeScript-boken ger en omfattande och kortfattad översikt över TypeScripts möjligheter. Den erbjuder tydliga förklaringar som täcker alla aspekter i den senaste versionen av språket, från dess kraftfulla typsystem till avancerade funktioner. Oavsett om du är nybörjare eller en erfaren utvecklare är denna bok en ovärderlig resurs för att förbättra din förståelse och skicklighet i TypeScript.
 
-Denna bok är helt gratis och öppen källkod.
+Denna bok är helt gratis och har öppen källkod.
 
 Jag tror att teknisk utbildning av hög kvalitet bör vara tillgänglig för alla, vilket är anledningen till att jag håller denna bok gratis och öppen.
 
-Om boken hjälpte dig att lösa en bugg, förstå ett knepigt koncept eller avancera i din karriär, vänligen överväg att stödja mitt arbete genom att betala vad du vill (föreslaget pris: 15 USD) eller sponsra en kaffe. Ditt stöd hjälper mig att hålla innehållet uppdaterat och utöka det med nya exempel och djupare förklaringar.
+Om boken hjälpte dig att lösa en bugg, förstå ett knepigt koncept eller avancera i din karriär, vänligen överväg att stödja mitt arbete genom att betala vad du vill (föreslaget pris: 15 USD) eller sponsra en kopp kaffe. Ditt stöd hjälper mig att hålla innehållet uppdaterat och utöka det med nya exempel och djupare förklaringar.
 
 [![Buy Me a Coffee](https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/simonepoggiali)
 
@@ -24,9 +24,11 @@ Denna bok har översatts till flera språkversioner, inklusive:
 
 [Svenska](https://github.com/gibbok/typescript-book/blob/main/README-sv_SE.md)
 
+[Bulgariska](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
+
 ## Nedladdningar och webbplats
 
-Du kan också ladda ner Epub-versionen:
+Du kan också ladda ner EPUB-versionen:
 
 [https://github.com/gibbok/typescript-book/tree/main/downloads](https://github.com/gibbok/typescript-book/tree/main/downloads)
 
@@ -254,7 +256,7 @@ En onlineversion finns tillgänglig på:
 
 ## Introduktion
 
-Välkommen till Den koncisa TypeScript-boken! Denna guide utrustar dig med väsentlig kunskap och praktiska färdigheter för effektiv TypeScript-utveckling. Upptäck nyckelkoncept och tekniker för att skriva ren, robust kod. Oavsett om du är nybörjare eller en erfaren utvecklare fungerar denna bok både som en omfattande guide och en praktisk referens för att utnyttja TypeScripts kraft i dina projekt.
+Välkommen till Den koncisa TypeScript-boken! Denna guide ger dig viktig kunskap och praktiska färdigheter för effektiv TypeScript-utveckling. Upptäck nyckelkoncept och tekniker för att skriva ren, robust kod. Oavsett om du är nybörjare eller en erfaren utvecklare fungerar denna bok både som en omfattande guide och en praktisk referens för att utnyttja TypeScripts kraft i dina projekt.
 
 Denna bok täcker TypeScript 6.0.
 
@@ -275,7 +277,7 @@ Fullständig lista över bidragsgivare: [https://github.com/gibbok/typescript-bo
 
 ### Vad är TypeScript?
 
-TypeScript är ett starkt typat programmeringsspråk som bygger på JavaScript. Det designades ursprungligen av Anders Hejlsberg 2012 och utvecklas och underhålls för närvarande av Microsoft som ett öppen källkod-projekt.
+TypeScript är ett starkt typat programmeringsspråk som bygger på JavaScript. Det designades ursprungligen av Anders Hejlsberg 2012 och utvecklas och underhålls för närvarande av Microsoft som ett projekt med öppen källkod.
 
 TypeScript kompileras till JavaScript och kan köras i vilken JavaScript-runtime som helst (t.ex. en webbläsare eller Node.js på en server).
 

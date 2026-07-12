@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Du kan också ladda ner Epub-versionen:
+Du kan också ladda ner EPUB-versionen:
 
 [https://github.com/gibbok/typescript-book/tree/main/downloads](https://github.com/gibbok/typescript-book/tree/main/downloads)
 

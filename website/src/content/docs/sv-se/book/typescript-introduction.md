@@ -8,7 +8,7 @@ sidebar:
 
 ### Vad är TypeScript?
 
-TypeScript är ett starkt typat programmeringsspråk som bygger på JavaScript. Det designades ursprungligen av Anders Hejlsberg 2012 och utvecklas och underhålls för närvarande av Microsoft som ett öppen källkod-projekt.
+TypeScript är ett starkt typat programmeringsspråk som bygger på JavaScript. Det designades ursprungligen av Anders Hejlsberg 2012 och utvecklas och underhålls för närvarande av Microsoft som ett projekt med öppen källkod.
 
 TypeScript kompileras till JavaScript och kan köras i vilken JavaScript-runtime som helst (t.ex. en webbläsare eller Node.js på en server).
 
