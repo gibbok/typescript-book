@@ -108,7 +108,7 @@
   - [strictNullChecks](#strictnullchecks)
   - [Enums](#enums)
     - [Числови enums](#числови-enums)
-  - [Низови enums](#низови-enums)
+    - [Низови enums](#низови-enums)
     - [Константни enums](#константни-enums)
     - [Обратни съпоставки](#обратни-съпоставки)
     - [Ambient enums](#ambient-enums)
