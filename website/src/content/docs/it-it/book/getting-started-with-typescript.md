@@ -80,7 +80,7 @@ tsc app.ts util.ts --outfile index.js // Compila due file TypeScript (app.ts e u
 
 Un file tsconfig.json viene utilizzato per configurare il compilatore TypeScript (tsc). Solitamente, viene aggiunto alla radice del progetto, insieme al file `package.json`.
 
-Note:
+Nota:
 
 * tsconfig.json accetta commenti anche se è in formato json.
 * Si consiglia di utilizzare questo file di configurazione al posto delle opzioni della riga di comando.
@@ -171,7 +171,7 @@ Il terzo passaggio consiste nell'includere le dichiarazioni di tipo per le libre
 npm install --save-dev @types/package-name
 ```
 
-or
+oppure
 
 ```shell
 yarn add --dev @types/package-name

@@ -53,7 +53,7 @@ class CustomError extends Error {
 throw new CustomError('Questo è un errore personalizzato.');
 ```
 
-### Classi Mixin
+### Classi mixin
 
 Le classi Mixin consentono di combinare e comporre il comportamento di più classi in un'unica classe. Forniscono un modo per riutilizzare ed estendere le funzionalità senza la necessità di catene di ereditarietà profonde.
 
@@ -121,9 +121,9 @@ Le promise sono un modo per gestire le operazioni asincrone e i loro risultati u
 
 Per saperne di più: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-Async/await:
+async/await:
 
-Le parole chiave Async/await sono un modo per fornire una sintassi più sincrona per lavorare con le promise. La parola chiave `async` viene utilizzata per definire una funzione asincrona, mentre la parola chiave `await` viene utilizzata all'interno di una funzione asincrona per mettere in pausa l'esecuzione finché una Promise non viene risolta o rifiutata.
+Le parole chiave `async` e `await` forniscono una sintassi più sincrona per lavorare con le promise. La parola chiave `async` viene utilizzata per definire una funzione asincrona, mentre la parola chiave `await` viene utilizzata all'interno di una funzione asincrona per mettere in pausa l'esecuzione finché una Promise non viene risolta o rifiutata.
 
 Per saperne di più:
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
@@ -138,15 +138,15 @@ API Fetch:
 Web Worker:
 [https://developer.mozilla.org/it/docs/Web/API/Web_Workers_API](https://developer.mozilla.org/it/docs/Web/API/Web_Workers_API)
 
-Condiviso Worker:
+Worker condiviso:
 [https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker](https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker)
 
 WebSocket:
 [https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
-### Iteratori e Generatori
+### Iteratori e generatori
 
-Sia gli Iteratori che i Generatori sono ben supportati in TypeScript.
+Sia gli iteratori che i generatori sono ben supportati in TypeScript.
 
 Gli Iteratori sono oggetti che implementano il protocollo Iterator, fornendo un modo per accedere agli elementi di una collezione o sequenza uno alla volta. Si tratta di una struttura che contiene un puntatore all'elemento successivo nell'iterazione. Hanno un metodo `next()` che restituisce il valore successivo nella sequenza insieme a un valore booleano che indica se la sequenza è `completata`.
 
@@ -211,7 +211,7 @@ Per saperne di più:
 
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator)
 
-### Riferimento JSDoc di TsDocs
+### Riferimento a JSDoc
 
 Quando si lavora con una base di codice JavaScript, è possibile aiutare TypeScript a dedurre il tipo corretto utilizzando commenti JSDoc con annotazioni aggiuntive per fornire informazioni sul tipo.
 
@@ -222,7 +222,7 @@ Esempio:
  * Calcola la potenza di un numero dato
  * @constructor
  * @param {number} base – Il valore base dell'espressione
- * @param {number} exponent – ​​Il valore esponente dell'espressione
+ * @param {number} exponent – Il valore esponente dell'espressione
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -254,7 +254,7 @@ Per contribuire alle definizioni di tipo del pacchetto @types, invia una pull re
 
 JSX (JavaScript XML) è un'estensione della sintassi del linguaggio JavaScript che consente di scrivere codice simile a HTML all'interno dei file JavaScript o TypeScript. Viene comunemente utilizzato in React per definire la struttura HTML.
 
-TypeScript extends le funzionalità di JSX fornendo il controllo dei tipi e l'analisi statica.
+TypeScript estende le funzionalità di JSX fornendo il controllo dei tipi e l'analisi statica.
 
 Per utilizzare JSX è necessario impostare l'opzione del compilatore `jsx` nel file `tsconfig.json`. Due opzioni di configurazione comuni:
 
@@ -288,7 +288,7 @@ Un esempio di configurazione:
 ### Operatore di elevamento a potenza ES7
 
 L'operatore di elevamento a potenza (`**`) calcola il valore ottenuto elevando il primo operando alla potenza del secondo operando. Funziona in modo simile a `Math.pow()`, ma con la possibilità aggiuntiva di accettare BigInt come operandi.
-TypeScript supporta pienamente questo operatore, utilizzandolo come `target` nel file tsconfig.json `es2016` o versione successiva.
+TypeScript supporta pienamente questo operatore se il valore di `target` nel file tsconfig.json è `es2016` o una versione successiva.
 
 ```typescript
 console.log(2 ** (2 ** 2)); // 16
@@ -352,7 +352,7 @@ async function renderWidget() {
 renderWidget();
 ```
 
-### "tsc –watch"
+### "tsc --watch"
 
 Questo comando avvia un compilatore TypeScript con il parametro `--watch`, con la possibilità di ricompilare automaticamente i file TypeScript ogni volta che vengono modificati.
 
@@ -364,7 +364,7 @@ A partire dalla versione 4.9 di TypeScript, il monitoraggio dei file si basa pri
 
 ### Operatore di asserzione non nullo
 
-L'operatore di asserzione non nullo (Postfix !), noto anche come asserzione di assegnazione definita, è una funzionalità di TypeScript che consente di affermare che una variabile o una proprietà non è nulla o indefinita, anche se l'analisi statica dei tipi di TypeScript suggerisce che potrebbe esserlo. Con questa funzionalità è possibile rimuovere qualsiasi controllo esplicito.
+L'operatore di asserzione non nullo (postfisso `!`), noto anche come asserzione di assegnazione definita, è una funzionalità di TypeScript che consente di affermare che una variabile o una proprietà non è nulla o indefinita, anche se l'analisi statica dei tipi di TypeScript suggerisce che potrebbe esserlo. Con questa funzionalità è possibile rimuovere qualsiasi controllo esplicito.
 
 ```typescript
 type Person = {
@@ -471,7 +471,7 @@ type ListNode<T> = {
 È possibile definire relazioni di tipo complesse utilizzando la logica e la ricorsione in TypeScript.
 Analizziamole in termini semplici:
 
-Tipi condizionali: consente di definire tipi in base a condizioni booleane:
+Tipi condizionali: consentono di definire tipi in base a condizioni booleane:
 
 ```typescript
 type CheckNumber<T> = T extends number ? 'Number' : 'Not a number';
@@ -633,9 +633,9 @@ TypeScript rappresenta questa differenziazione fornendo tipi separati per le pri
 * symbol => Symbol
 * bigint => BigInt
 
-I tipi boxed di solito non sono necessari. Evitare di utilizzare tipi boxed e utilizzare invece type per le primitive, ad esempio `string` invece di `String`.
+I tipi boxed di solito non sono necessari. Evitare di utilizzare tipi boxed e utilizzare invece i tipi primitivi, ad esempio `string` invece di `String`.
 
-### Covarianza e Controvarianza in TypeScript
+### Covarianza e controvarianza in TypeScript
 
 La covarianza e la controvarianza descrivono come si comportano le relazioni tra tipi nei tipi generici.
 
@@ -844,9 +844,10 @@ Una dichiarazione `using` è un binding immutabile con ambito a blocco, simile a
 
 Questo si basa sulla funzionalità di Gestione Risorse di ECMAScript, utile per eseguire attività di pulizia essenziali dopo la creazione di oggetti, come la chiusura di connessioni, l'eliminazione di file e il rilascio di memoria.
 
-Note:
+Nota:
 
-* A causa della sua recente introduzione nella versione 5.2 di TypeScript, la maggior parte dei runtime non dispone di supporto nativo. Sono necessari polyfill per: `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`. \* Inoltre, dovrai configurare il tuo file tsconfig.json come segue:
+* A causa della sua recente introduzione nella versione 5.2 di TypeScript, la maggior parte dei runtime non dispone di supporto nativo. Sono necessari polyfill per: `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`.
+* Inoltre, dovrai configurare il tuo file tsconfig.json come segue:
 
 ```json
 {
@@ -913,7 +914,7 @@ Le dichiarazioni `using` registrano le operazioni di eliminazione delle risorse 
 
 È garantito che le risorse vengano eliminate, anche se si verificano codice o eccezioni successive. Questo potrebbe portare alla generazione di un'eccezione durante l'eliminazione, con la possibile soppressione di un'altra. Per conservare le informazioni sugli errori soppressi, è stata introdotta una nuova eccezione nativa, `SuppressedError`.
 
-#### dichiarazione await using
+#### Dichiarazione await using
 
 Una dichiarazione `await using` gestisce una risorsa eliminabile in modo asincrono. Il valore deve avere un metodo `Symbol.asyncDispose`, che verrà atteso alla fine del blocco.
 

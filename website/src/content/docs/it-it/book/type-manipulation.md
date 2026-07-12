@@ -23,7 +23,7 @@ const obj: C = { foo: 42, bar: 'hello' };
 
 Tipi di unione (`|`):
 
-Consente di definire un tipo che può essere di diversi tipi:
+Consentono di definire un tipo che può essere di diversi tipi:
 
 ```typescript
 type Result = string | number;
@@ -80,7 +80,7 @@ Diversi tipi di utilità predefiniti possono essere utilizzati per manipolare i 
 
 #### Awaited\<T\>
 
-Costruisce un tipo che esegue ricorsivamente l'unwrapping dei tipi Promise.
+Costruisce un tipo che estrae ricorsivamente il tipo contenuto nelle Promise.
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
@@ -88,7 +88,7 @@ type A = Awaited<Promise<string>>; // string
 
 #### Partial\<T\>
 
-Costruisce un tipo con tutte le proprietà di T impostate su optional.
+Costruisce un tipo con tutte le proprietà di T impostate come facoltative.
 
 ```typescript
 type Person = {
@@ -101,7 +101,7 @@ type A = Partial<Person>; // { name?: string | undefined; age?:number | undefine
 
 #### Required\<T\>
 
-Costruisce un tipo con tutte le proprietà di T impostate su required.
+Costruisce un tipo con tutte le proprietà di T impostate come obbligatorie.
 
 ```typescript
 type Person = {
@@ -114,7 +114,7 @@ type A = Required<Person>; // { name: string; age:number; }
 
 #### Readonly\<T\>
 
-Costruisce un tipo con tutte le proprietà di T impostate su readonly.
+Costruisce un tipo con tutte le proprietà di T impostate come di sola lettura.
 
 <!-- skip -->
 ```typescript

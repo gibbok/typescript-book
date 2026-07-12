@@ -32,9 +32,9 @@ type TypeName = {
 };
 ```
 
-`interface InterfaceName` o `type TypeName`: Definisce il nome dell'interfaccia.
-`property1`: `Type1`: Specifica le proprietà dell'interfaccia insieme ai tipi corrispondenti. È possibile definire più proprietà, ciascuna separata da un punto e virgola.
-`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;`: Specifica i metodi dell'interfaccia. I metodi sono definiti con i loro nomi, seguiti da un elenco di parametri tra parentesi e dal tipo di ritorno. È possibile definire più metodi, ciascuno separato da un punto e virgola.
+* `interface InterfaceName` o `type TypeName`: definisce il nome dell'interfaccia.
+* `property1: Type1`: specifica le proprietà dell'interfaccia insieme ai tipi corrispondenti. È possibile definire più proprietà, ciascuna separata da un punto e virgola.
+* `method1(arg1: ArgType1, arg2: ArgType2): ReturnType;`: specifica i metodi dell'interfaccia. I metodi sono definiti con i loro nomi, seguiti da un elenco di parametri tra parentesi e dal tipo di ritorno. È possibile definire più metodi, ciascuno separato da un punto e virgola.
 
 Esempio di interfaccia:
 

@@ -41,9 +41,9 @@ enum Size {
 console.log(Size.Medium); // 11
 ```
 
-### Enum String
+### Enum string
 
-In TypeScript, un enum String è un enum in cui a ogni costante viene assegnato un valore stringa.
+In TypeScript, un enum string è un enum in cui a ogni costante viene assegnato un valore stringa.
 
 ```typescript
 enum Language {
@@ -54,9 +54,9 @@ enum Language {
 
 Nota: TypeScript consente l'utilizzo di enum eterogenei in cui stringhe e membri numerici possono coesistere.
 
-### Enum Constant
+### Enum costante
 
-Un enum Constant in TypeScript è un tipo speciale di enum in cui tutti i valori sono noti in fase di compilazione e vengono inlineati ovunque venga utilizzato l'enum, con conseguente maggiore efficienza del codice.
+Un enum costante in TypeScript è un tipo speciale di enum in cui tutti i valori sono noti in fase di compilazione e vengono inlineati ovunque venga utilizzato l'enum, con conseguente maggiore efficienza del codice.
 
 ```typescript
 const enum Language {
@@ -72,7 +72,7 @@ Verrà compilato in:
 console.log('EN' /* Language.English */);
 ```
 
-Note:
+Nota:
 
 Gli enum costanti hanno valori hardcoded, che cancellano l'enum, il che può essere più efficiente nelle librerie autonome, ma generalmente non è auspicabile. Inoltre, gli enum costanti non possono avere membri calcolati.
 
@@ -126,11 +126,11 @@ console.log(Grade[failGrade]); // Element ha implicitamente un tipo 'any' perch�
 
 ### Enum ambientali
 
-Un enum ambientale in TypeScript è un tipo di Enum definito in un file di dichiarazione (\*.d.ts) senza un'implementazione associata. Permette di definire un set di costanti denominate che possono essere utilizzate in modo sicuro tra file diversi senza dover importare i dettagli di implementazione in ogni file.
+Un enum ambientale in TypeScript è un tipo di enum definito in un file di dichiarazione `*.d.ts` senza un'implementazione associata. Permette di definire un set di costanti denominate che possono essere utilizzate in modo sicuro tra file diversi senza dover importare i dettagli di implementazione in ogni file.
 
 ### Membri calcolati e costanti
 
-In TypeScript, un membro calcolato è un membro di un Enum il cui valore è calcolato in fase di esecuzione, mentre un membro costante è un membro il cui valore è impostato in fase di compilazione e non può essere modificato in fase di esecuzione. I membri calcolati sono consentiti negli Enum normali, mentre i membri costanti sono consentiti sia negli enum normali che in quelli costanti.
+In TypeScript, un membro calcolato è un membro di un enum il cui valore è calcolato in fase di esecuzione, mentre un membro costante è un membro il cui valore è impostato in fase di compilazione e non può essere modificato in fase di esecuzione. I membri calcolati sono consentiti negli enum normali, mentre i membri costanti sono consentiti sia negli enum normali che in quelli costanti.
 
 ```typescript
 // Membri costanti

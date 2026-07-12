@@ -6,9 +6,9 @@ sidebar:
 ---
 
 
-Merging ed estensione si riferiscono a due concetti diversi relativi all'utilizzo di tipi e interfacce.
+L'unione e l'estensione si riferiscono a due concetti diversi relativi all'utilizzo di tipi e interfacce.
 
-Merging consente di combinare più dichiarazioni con lo stesso nome in un'unica definizione, ad esempio quando si definisce un'interfaccia con lo stesso nome più volte:
+L'unione consente di combinare più dichiarazioni con lo stesso nome in un'unica definizione, ad esempio quando si definisce un'interfaccia con lo stesso nome più volte:
 
 ```typescript
 interface X {

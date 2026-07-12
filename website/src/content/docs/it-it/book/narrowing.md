@@ -10,7 +10,7 @@ Il restringimento di TypeScript è il processo di perfezionamento del tipo di un
 
 TypeScript riconosce diversi modi per restringere il tipo:
 
-### protezioni di tipo typeof
+### Protezioni di tipo typeof
 
 Il type guard typeof è uno specifico type guard in TypeScript che controlla il tipo di una variabile in base al suo tipo JavaScript predefinito.
 

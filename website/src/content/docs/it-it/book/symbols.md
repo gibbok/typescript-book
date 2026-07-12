@@ -23,5 +23,5 @@ console.log(obj[key1]); // valore 1
 console.log(obj[key2]); // valore 2
 ```
 
-In WeakMaps e WeakSet, i simboli sono ora consentiti come chiavi.
+Nei WeakMap e nei WeakSet, i simboli sono ora consentiti come chiavi.
 

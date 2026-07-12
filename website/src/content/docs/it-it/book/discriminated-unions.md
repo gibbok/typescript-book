@@ -1,12 +1,12 @@
 ---
-title: Unioni Discriminate
+title: Unioni discriminate
 sidebar:
   order: 24
-  label: 24. Unioni Discriminate
+  label: 24. Unioni discriminate
 ---
 
 
-Le unioni Discriminate in TypeScript sono un tipo di unione che utilizza una proprietà comune, nota come discriminante, per restringere l'insieme dei tipi possibili per l'unione.
+Le unioni discriminate in TypeScript sono un tipo di unione che utilizza una proprietà comune, nota come discriminante, per restringere l'insieme dei tipi possibili per l'unione.
 
 ```typescript
 type Square = {

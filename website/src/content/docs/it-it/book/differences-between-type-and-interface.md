@@ -42,7 +42,7 @@ const car: B = {
 };
 ```
 
-Per i tipi, si utilizza l'operatore & per combinare più tipi in un unico tipo (intersezione).
+Per i tipi, si utilizza l'operatore `&` per combinare più tipi in un unico tipo (intersezione).
 
 ```typescript
 interface A {
