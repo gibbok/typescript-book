@@ -44,11 +44,11 @@ const binary: number = 0b1010; // Binário começa com 0b
 const octal: number = 0o633; // Octal começa com 0o
 ```
 
-### bigInt
+### bigint
 
-Um `bigInt` representa valores numéricos muito grandes (253 – 1) e que não podem ser representados com um `number`.
+Um `bigint` representa valores numéricos muito grandes (2^53 - 1) que não podem ser representados com um `number`.
 
-Um `bigInt` pode ser criado chamando a função integrada `BigInt()` ou adicionando `n` ao final de qualquer literal numérico inteiro:
+Um `bigint` pode ser criado chamando a função integrada `BigInt()` ou adicionando `n` ao final de qualquer literal numérico inteiro:
 
 ```typescript
 const x: bigint = BigInt(9007199254740991);
@@ -57,8 +57,8 @@ const y: bigint = 9007199254740991n;
 
 Notas:
 
-* Valores `bigInt` não podem ser misturados com `number` e não podem ser usados com a função integrada `Math`; eles devem ser coagidos para o mesmo tipo.
-* Valores `bigInt` estão disponíveis apenas se a configuração da meta (target) for ES2020 ou superior.
+* Valores `bigint` não podem ser misturados com `number` e não podem ser usados com a função integrada `Math`; eles devem ser coeridos para o mesmo tipo.
+* Valores `bigint` estão disponíveis apenas se a configuração da meta (target) for ES2020 ou superior.
 
 ### Symbol
 

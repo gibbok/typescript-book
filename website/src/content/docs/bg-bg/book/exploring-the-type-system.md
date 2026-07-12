@@ -503,7 +503,7 @@ npm install --save-dev @types/library-name
 /// <reference path="./library-types.d.ts" />
 ```
 
-Можете да използвате Ambient Declarations дори и в JavaScript файлове, като използвате `// @ts-check`.
+Можете да използвате Ambient Declarations дори в JavaScript файлове, като използвате `// @ts-check`.
 
 Ключовата дума `declare` позволява дефиниране на типове за съществуващ JavaScript код, без да е необходимо да се импортира, като служи като заместител за типове от друг файл или глобално.
 
