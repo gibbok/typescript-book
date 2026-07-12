@@ -57,12 +57,12 @@ else
 fi
 
 # Generate eBooks
-pandoc --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_EN.epub --metadata title="$TITLE_EN" --metadata author="$AUTHOR" --metadata lang="$LANG_EN" -s $INPUT_EN.md
-pandoc --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_CN.epub --metadata title="$TITLE_CN" --metadata author="$AUTHOR" --metadata lang="$LANG_CN" -s $INPUT_CN.md
-pandoc --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_IT.epub --metadata title="$TITLE_IT" --metadata author="$AUTHOR" --metadata lang="$LANG_IT" -s $INPUT_IT.md
-pandoc --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_BR.epub --metadata title="$TITLE_BR" --metadata author="$AUTHOR" --metadata lang="$LANG_BR" -s $INPUT_BR.md
-pandoc --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_SE.epub --metadata title="$TITLE_SE" --metadata author="$AUTHOR" --metadata lang="$LANG_SE" -s $INPUT_SE.md
-pandoc --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_BG.epub --metadata title="$TITLE_BG" --metadata author="$AUTHOR" --metadata lang="$LANG_BG" -s $INPUT_BG.md
+pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_EN.epub --metadata title="$TITLE_EN" --metadata author="$AUTHOR" --metadata lang="$LANG_EN" -s $INPUT_EN.md
+pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_CN.epub --metadata title="$TITLE_CN" --metadata author="$AUTHOR" --metadata lang="$LANG_CN" -s $INPUT_CN.md
+pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_IT.epub --metadata title="$TITLE_IT" --metadata author="$AUTHOR" --metadata lang="$LANG_IT" -s $INPUT_IT.md
+pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_BR.epub --metadata title="$TITLE_BR" --metadata author="$AUTHOR" --metadata lang="$LANG_BR" -s $INPUT_BR.md
+pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_SE.epub --metadata title="$TITLE_SE" --metadata author="$AUTHOR" --metadata lang="$LANG_SE" -s $INPUT_SE.md
+pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_BG.epub --metadata title="$TITLE_BG" --metadata author="$AUTHOR" --metadata lang="$LANG_BG" -s $INPUT_BG.md
 
 # Validate eBooks
 epubcheck $DIR_DOWNLOADS/$OUTPUT_EN.epub
