@@ -150,6 +150,18 @@ gtag('config', 'G-SR2LV8LB90');
 <li><a href="../exploring-the-type-system/#tipizzazione-strutturale">Tipizzazione strutturale</a></li>
 <li><a href="../exploring-the-type-system/#regole-fondamentali-di-confronto-di-typescript">Regole fondamentali di confronto di TypeScript</a></li>
 <li><a href="../exploring-the-type-system/#tipi-come-insiemi">Tipi come insiemi</a></li>
+<li><a href="../exploring-the-type-system/#assegnare-un-tipo-dichiarazioni-di-tipo-e-asserzioni-di-tipo">Assegnare un tipo: Dichiarazioni di tipo e asserzioni di tipo</a>
+<ul>
+<li><a href="../exploring-the-type-system/#dichiarazione-di-tipo">Dichiarazione di tipo</a></li>
+<li><a href="../exploring-the-type-system/#asserzione-di-tipo">Asserzione di tipo</a></li>
+<li><a href="../exploring-the-type-system/#dichiarazioni-ambientali">Dichiarazioni ambientali</a></li>
+</ul>
+</li>
+<li><a href="../exploring-the-type-system/#controllo-delle-propriet%C3%A0-e-controllo-delle-propriet%C3%A0-in-eccesso">Controllo delle proprietà e controllo delle proprietà in eccesso</a></li>
+<li><a href="../exploring-the-type-system/#tipi-deboli">Tipi deboli</a></li>
+<li><a href="../exploring-the-type-system/#controllo-rigoroso-dei-letterali-di-oggetto-freschezza">Controllo rigoroso dei letterali di oggetto (freschezza)</a></li>
+<li><a href="../exploring-the-type-system/#inferenza-di-tipo">Inferenza di tipo</a></li>
+<li><a href="../exploring-the-type-system/#inferenze-pi%C3%B9-avanzate">Inferenze più avanzate</a></li>
 <li><a href="../exploring-the-type-system/#allargamento-di-tipo">Allargamento di tipo</a></li>
 <li><a href="../exploring-the-type-system/#const">Const</a>
 <ul>
@@ -162,7 +174,7 @@ gtag('config', 'G-SR2LV8LB90');
 <ul>
 <li><a href="../exploring-the-type-system/#condizioni">Condizioni</a></li>
 <li><a href="../exploring-the-type-system/#generazione-o-restituzione">Generazione o restituzione</a></li>
-<li><a href="../exploring-the-type-system/#unione-discriminata">Unione Discriminata</a></li>
+<li><a href="../exploring-the-type-system/#unione-discriminata">Unione discriminata</a></li>
 <li><a href="../exploring-the-type-system/#protezioni-di-tipo-definite-dallutente">Protezioni di tipo definite dall’utente</a></li>
 <li><a href="../exploring-the-type-system/#restringimento-switch-true">Restringimento Switch-true</a></li>
 </ul>
@@ -172,8 +184,21 @@ gtag('config', 'G-SR2LV8LB90');
 <li><a href="../primitive-types/">Tipi primitivi</a>
 <ul>
 <li><a href="../primitive-types/#string">string</a></li>
+<li><a href="../primitive-types/#boolean">boolean</a></li>
+<li><a href="../primitive-types/#number">number</a></li>
+<li><a href="../primitive-types/#bigint">bigInt</a></li>
+<li><a href="../primitive-types/#simbolo">Simbolo</a></li>
+<li><a href="../primitive-types/#null-e-undefined">null e undefined</a></li>
+<li><a href="../primitive-types/#array">Array</a></li>
+<li><a href="../primitive-types/#any">any</a></li>
 </ul>
 </li>
+<li><a href="../type-annotations/">Annotazioni di tipo</a></li>
+<li><a href="../optional-properties/">Proprietà facoltative</a></li>
+<li><a href="../readonly-properties/">Proprietà di sola lettura</a></li>
+<li><a href="../index-signatures/">Firme di indice</a></li>
+<li><a href="../extending-types/">Estensione dei tipi</a></li>
+<li><a href="../literal-types/">Tipi letterali</a></li>
 <li><a href="../literal-inference/">Inferenza letterale</a></li>
 <li><a href="../strictnullchecks/">strictNullChecks</a></li>
 <li><a href="../enums/">Enumerazioni</a>
@@ -191,12 +216,23 @@ gtag('config', 'G-SR2LV8LB90');
 <li><a href="../narrowing/#protezioni-di-tipo-typeof">Protezioni di tipo typeof</a></li>
 <li><a href="../narrowing/#restringimento-di-veridicit%C3%A0">Restringimento di veridicità</a></li>
 <li><a href="../narrowing/#restringimento-di-uguaglianza">Restringimento di uguaglianza</a></li>
-<li><a href="../narrowing/#restringimento-delloperatore-in">Restringimento dell’operatore “in”</a></li>
+<li><a href="../narrowing/#restringimento-delloperatore-in">Restringimento dell’operatore <code dir="auto">in</code></a></li>
 <li><a href="../narrowing/#restringimento-instanceof">Restringimento instanceof</a></li>
 </ul>
 </li>
 <li><a href="../assignments/">Assegnazioni</a></li>
 <li><a href="../control-flow-analysis/">Analisi del flusso di controllo</a></li>
+<li><a href="../type-predicates/">Predicati di tipo</a></li>
+<li><a href="../discriminated-unions/">Unioni discriminate</a></li>
+<li><a href="../the-never-type/">Il tipo never</a></li>
+<li><a href="../exhaustiveness-checking/">Controllo di esaustività</a></li>
+<li><a href="../object-types/">Tipi di oggetto</a></li>
+<li><a href="../tuple-type-anonymous/">Tipo di tupla (anonimo)</a></li>
+<li><a href="../named-tuple-type-labeled/">Tipo di tupla denominato (etichettato)</a></li>
+<li><a href="../fixed-length-tuple/">Tupla a lunghezza fissa</a></li>
+<li><a href="../union-type/">Tipo Unione</a></li>
+<li><a href="../intersection-types/">Tipi Intersezione</a></li>
+<li><a href="../type-indexing/">Indicizzazione dei tipi</a></li>
 <li><a href="../type-from-value/">Tipo da Valore</a></li>
 <li><a href="../type-from-func-return/">Tipo da Ritorno Funzione</a></li>
 <li><a href="../type-from-module/">Tipo da modulo</a></li>
@@ -216,6 +252,19 @@ gtag('config', 'G-SR2LV8LB90');
 <li><a href="../interface-and-type/#sintassi-comune">Sintassi comune</a></li>
 <li><a href="../interface-and-type/#tipi-di-base">Tipi di base</a></li>
 <li><a href="../interface-and-type/#oggetti-e-interfacce">Oggetti e interfacce</a></li>
+<li><a href="../interface-and-type/#tipi-di-unione-e-intersezione">Tipi di unione e intersezione</a></li>
+</ul>
+</li>
+<li><a href="../built-in-type-primitives/">Primitive di tipo predefinite</a></li>
+<li><a href="../common-built-in-js-objects/">Oggetti JavaScript predefiniti comuni</a></li>
+<li><a href="../overloads/">Sovraccarichi</a></li>
+<li><a href="../merging-and-extension/">Unione ed estensione</a></li>
+<li><a href="../differences-between-type-and-interface/">Differenze tra tipo e interfaccia</a></li>
+<li><a href="../class/">Classe</a>
+<ul>
+<li><a href="../class/#sintassi-comune-della-classe">Sintassi comune della classe</a></li>
+<li><a href="../class/#costruttore">Costruttore</a></li>
+<li><a href="../class/#costruttori-privati-e-protetti">Costruttori privati e protetti</a></li>
 <li><a href="../class/#modificatori-di-accesso">Modificatori di accesso</a></li>
 <li><a href="../class/#get-e-set">Get e Set</a></li>
 <li><a href="../class/#accessori-automatici-nelle-classi">Accessori automatici nelle classi</a></li>
@@ -227,6 +276,9 @@ gtag('config', 'G-SR2LV8LB90');
 <ul>
 <li><a href="../class/#decoratori-di-classe">Decoratori di classe</a></li>
 <li><a href="../class/#decoratore-di-propriet%C3%A0">Decoratore di proprietà</a></li>
+<li><a href="../class/#decoratore-di-metodo">Decoratore di metodo</a></li>
+<li><a href="../class/#decoratori-getter-e-setter">Decoratori getter e setter</a></li>
+<li><a href="../class/#metadati-del-decoratore">Metadati del decoratore</a></li>
 </ul>
 </li>
 <li><a href="../class/#ereditariet%C3%A0">Ereditarietà</a></li>
@@ -306,7 +358,7 @@ gtag('config', 'G-SR2LV8LB90');
 <li><a href="../others/#funzioni-di-asserzione">Funzioni di asserzione</a></li>
 <li><a href="../others/#tipi-di-tupla-variadici">Tipi di tupla variadici</a></li>
 <li><a href="../others/#tipi-boxed">Tipi boxed</a></li>
-<li><a href="../others/#covarianza-e-controvarianza-in-typescript">Covarianza e Controvarianza in TypeScript</a>
+<li><a href="../others/#covarianza-e-controvarianza-in-typescript">Covarianza e controvarianza in TypeScript</a>
 <ul>
 <li><a href="../others/#annotazioni-di-varianza-opzionali-per-i-parametri-di-tipo">Annotazioni di varianza opzionali per i parametri di tipo</a></li>
 </ul>
@@ -316,7 +368,7 @@ gtag('config', 'G-SR2LV8LB90');
 <li><a href="../others/#importazioni-ed-esportazioni-solo-per-tipo">Importazioni ed esportazioni solo per tipo</a></li>
 <li><a href="../others/#dichiarazione-using-e-gestione-risorse-esplicita">Dichiarazione using e Gestione Risorse Esplicita</a>
 <ul>
-<li><a href="../others/#dichiarazione-await-using">dichiarazione await using</a></li>
+<li><a href="../others/#dichiarazione-await-using">Dichiarazione await using</a></li>
 </ul>
 </li>
 <li><a href="../others/#attributi-di-importazione">Attributi di importazione</a></li>
