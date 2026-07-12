@@ -80,7 +80,7 @@ sidebar:
   - [strictNullChecks](../strictnullchecks/)
   - [Enums](../enums/)
     - [Числови enums](../enums/#числови-enums)
-  - [Низови enums](../enums/#низови-enums)
+    - [Низови enums](../enums/#низови-enums)
     - [Константни enums](../enums/#константни-enums)
     - [Обратни съпоставки](../enums/#обратни-съпоставки)
     - [Ambient enums](../enums/#ambient-enums)
