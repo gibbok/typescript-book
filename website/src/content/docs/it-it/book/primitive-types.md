@@ -55,9 +55,9 @@ const x: bigint = BigInt(9007199254740991);
 const y: bigint = 9007199254740991n;
 ```
 
-Note:
+Nota:
 
-* I valori `bigInt` non possono essere combinati con `number` e non possono essere utilizzati con `Math` integrato, devono essere forzati allo stesso tipo.
+* I valori `bigInt` non possono essere combinati con `number` e non possono essere utilizzati con `Math` integrato; devono essere forzati allo stesso tipo.
 * I valori `bigInt` sono disponibili solo se la configurazione di destinazione è ES2020 o superiore.
 
 ### Simbolo
@@ -116,7 +116,7 @@ const y: readonly [string, number] = ['a', 1];
 
 ### any
 
-Il tipo di dati ``any` rappresenta letteralmente un valore "qualsiasi", ed è il valore predefinito quando TypeScript non può dedurre il tipo o non è specificato.
+Il tipo di dati `any` rappresenta letteralmente un valore "qualsiasi" ed è il valore predefinito quando TypeScript non può dedurre il tipo o non è specificato.
 
 Quando si utilizza `any`, il compilatore TypeScript salta il controllo del tipo, quindi non c'è sicurezza di tipo quando si utilizza `any`. In genere, non utilizzare `any` per silenziare il compilatore quando si verifica un errore, ma concentrarsi sulla correzione dell'errore, poiché utilizzando `any` è possibile interrompere i contratti e perdere i vantaggi del completamento automatico di TypeScript.
 

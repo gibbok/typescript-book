@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Un oggetto può specificare Proprietà facoltative aggiungendo un punto interrogativo `?` alla fine del nome della proprietà:
+Un oggetto può specificare proprietà facoltative aggiungendo un punto interrogativo `?` alla fine del nome della proprietà:
 
 ```typescript
 type X = {
@@ -15,7 +15,7 @@ type X = {
 };
 ```
 
-È possibile specificare un valore predefinito quando una proprietà è facoltativa"
+È possibile specificare un valore predefinito quando una proprietà è facoltativa:
 
 ```typescript
 type X = {

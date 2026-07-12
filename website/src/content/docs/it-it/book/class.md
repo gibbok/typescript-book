@@ -26,13 +26,13 @@ class Person {
 
 La parola chiave `class` viene utilizzata per definire una classe denominata "Person".
 
-La classe ha due proprietà private: name di tipo `string` ed age di tipo `number`.
+La classe ha due proprietà private: name di tipo `string` e age di tipo `number`.
 
 Il costruttore viene definito utilizzando la parola chiave `constructor`. Accetta name ed age come parametri e li assegna alle proprietà corrispondenti.
 
 La classe ha un metodo `public` denominato sayHi che registra un messaggio di saluto.
 
-Per creare un'istanza di una classe in TypeScript, è possibile utilizzare la parola chiave `new` seguita dal nome della classe, seguito da parentesi `()`. Ad esempio:
+Per creare un'istanza di una classe in TypeScript, è possibile utilizzare la parola chiave `new` seguita dal nome della classe e da parentesi `()`. Ad esempio:
 
 <!-- skip -->
 ```typescript
@@ -115,12 +115,12 @@ const person3 = new Person('Jane', 25);
 person3.displayInfo(); // Nome: Jane, Età: 25
 ```
 
-### Costruttori privati ​​e protetti
+### Costruttori privati e protetti
 
-In TypeScript, i costruttori possono essere contrassegnati come privati ​​o protetti, il che ne limita l'accessibilità e l'utilizzo.
+In TypeScript, i costruttori possono essere contrassegnati come privati o protetti, il che ne limita l'accessibilità e l'utilizzo.
 
 Costruttori privati:
-possono essere chiamati solo all'interno della classe stessa. I costruttori privati ​​vengono spesso utilizzati in scenari in cui si desidera applicare un pattern singleton o limitare la creazione di istanze a un metodo factory all'interno della classe.
+possono essere chiamati solo all'interno della classe stessa. I costruttori privati vengono spesso utilizzati in scenari in cui si desidera applicare un pattern singleton o limitare la creazione di istanze a un metodo factory all'interno della classe.
 
 Costruttori protetti:
 I costruttori protetti sono utili quando si desidera creare una classe base che non deve essere istanziata direttamente, ma può essere estesa tramite sottoclassi.
@@ -191,7 +191,7 @@ class Animal {
 }
 ```
 
-Gli auto-accessor vengono "de-sugared" in accessor privati ​​`get` e `set`, che operano su una proprietà inaccessibile.
+Gli auto-accessor vengono "de-sugared" in accessor privati `get` e `set`, che operano su una proprietà inaccessibile.
 
 <!-- skip -->
 ```typescript
@@ -213,7 +213,7 @@ class Animal {
 
 ### this
 
-In TypeScript, la parola chiave `this` si riferisce all'istanza corrente di una classe all'interno dei suoi metodi o costruttori. Permette di accedere e modificare le proprietà e i metodi della classe. dall'interno del proprio ambito.
+In TypeScript, la parola chiave `this` si riferisce all'istanza corrente di una classe all'interno dei suoi metodi o costruttori. Permette di accedere e modificare le proprietà e i metodi della classe dall'interno del proprio ambito.
 Fornisce un modo per accedere e manipolare lo stato interno di un oggetto all'interno dei propri metodi.
 
 ```typescript
@@ -311,7 +311,7 @@ console.log(container2.getItem()); // Mondo
 
 I decoratori forniscono un meccanismo per aggiungere metadati, modificare il comportamento, convalidare o estendere la funzionalità dell'elemento di destinazione. Sono funzioni che vengono eseguite in fase di esecuzione. È possibile applicare più decoratori a una dichiarazione.
 
-I decoratori sono funzionalità sperimentali e gli esempi seguenti sono compatibili solo con TypeScript versione 5 o successive che utilizzano ES6.
+I decoratori sono funzionalità sperimentali e gli esempi seguenti sono compatibili solo con TypeScript versione 5 o versioni successive che utilizzano ES6.
 
 Per le versioni di TypeScript precedenti alla 5, dovrebbero essere abilitati utilizzando la proprietà `experimentalDecorators` nel file `tsconfig.json` o utilizzando `--experimentalDecorators` nella riga di comando (ma l'esempio seguente non funzionerà).
 
@@ -433,9 +433,9 @@ Ciao!
 LOG: Uscita dal metodo 'sayHello'.
 ```
 
-#### Decoratori Getter e Setter
+#### Decoratori getter e setter
 
-I decoratori Getter e Setter consentono di modificare o migliorare il comportamento degli accessor di classe. Sono utili, ad esempio, per convalidare le assegnazioni di proprietà. Ecco un semplice esempio di decoratore getter:
+I decoratori getter e setter consentono di modificare o migliorare il comportamento degli accessor di classe. Sono utili, ad esempio, per convalidare le assegnazioni di proprietà. Ecco un semplice esempio di decoratore getter:
 
 ```typescript
 function range<This, Return extends number>(min: number, max: number) {
@@ -478,7 +478,7 @@ console.log(obj2.getValue); // Throw: Invalid!
 
 #### Metadati del decoratore
 
-I metadati del decoratore semplificano il processo per i decoratori di applicare e utilizzare i metadati in qualsiasi classe. Possono accedere a una nuova proprietà metadati sull'oggetto contesto, che può fungere da chiave sia per le primitive che per gli oggetti.
+I metadati del decoratore semplificano il processo di applicazione e utilizzo dei metadati da parte dei decoratori in qualsiasi classe. Possono accedere a una nuova proprietà di metadati sull'oggetto contesto, che può fungere da chiave sia per le primitive che per gli oggetti.
 Le informazioni sui metadati sono accessibili sulla classe tramite `Symbol.metadata`.
 
 I metadati possono essere utilizzati per vari scopi, come il debug, la serializzazione o l'iniezione di dipendenze con i decoratori.
@@ -602,7 +602,7 @@ console.log(total); // 2
 
 ### Inizializzazione delle proprietà
 
-Esistono diversi modi per Inizializza le proprietà per una classe in TypeScript:
+Esistono diversi modi per inizializzare le proprietà di una classe in TypeScript:
 
 Inline:
 

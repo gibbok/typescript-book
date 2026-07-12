@@ -54,5 +54,5 @@ const f6 = (
 };
 ```
 
-Note: Nelle espressioni condizionali vengono analizzati fino a cinque livelli di indirezione.
+Nota: nelle espressioni condizionali vengono analizzati fino a cinque livelli di indirezione.
 

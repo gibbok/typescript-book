@@ -10,7 +10,7 @@ In TypeScript, i tipi di oggetto descrivono la forma di un oggetto. Specificano 
 
 In TypeScript, è possibile definire i tipi di oggetto in due modi principali:
 
-interface, che definisce la forma di un oggetto specificando i nomi, i tipi e l'opzionalità delle sue proprietà.
+L'interfaccia `interface`, che definisce la forma di un oggetto specificando i nomi, i tipi e l'opzionalità delle sue proprietà.
 
 ```typescript
 interface User {

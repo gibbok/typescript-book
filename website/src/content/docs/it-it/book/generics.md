@@ -67,7 +67,7 @@ printLen({ length: 10 }); // 10
 printLen(123); // Non valido
 ```
 
-Una caratteristica interessante di generic introdotta nella versione 3.4 RC è l'inferenza di tipo di funzione di ordine superiore, che ha introdotto argomenti di tipo generico propagati:
+Una caratteristica interessante dei generici introdotta nella versione 3.4 RC è l'inferenza di tipo di funzione di ordine superiore, che ha introdotto argomenti di tipo generico propagati:
 
 ```typescript
 declare function pipe<A extends any[], B, C>(

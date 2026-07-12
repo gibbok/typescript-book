@@ -18,7 +18,7 @@ Un esempio di plugin personalizzato reale è "TypeScript-styled-plugin", che for
 
 Per ulteriori informazioni e guide rapide, è possibile consultare il Wiki ufficiale di TypeScript su GitHub: [https://github.com/microsoft/TypeScript/wiki/](https://github.com/microsoft/TypeScript/wiki/)
 
-### Tipizzazione Strutturale
+### Tipizzazione strutturale
 
 TypeScript si basa su un sistema di tipi strutturale. Ciò significa che la compatibilità e l'equivalenza dei tipi sono determinate dalla struttura o definizione effettiva del tipo, piuttosto che dal suo nome o dal punto di dichiarazione, come nei sistemi di tipi nominativi come C# o C.
 
@@ -193,7 +193,7 @@ const ya: Y = 0; // Valido
 X.A === Y.A; // Non valido
 ```
 
-Le istanze di una classe sono soggette a un controllo di compatibilità per i loro membri privati ​​e protetti:
+Le istanze di una classe sono soggette a un controllo di compatibilità per i loro membri privati e protetti:
 
 <!-- skip -->
 ```typescript
@@ -375,7 +375,7 @@ const r: XY = { a: 'a' }; // Non valido
 const j: XY = { a: 'a', b: 'b' }; // Valido
 ```
 
-La parola chiave `extends` può essere considerata come "sottoinsieme di" in questo contesto. Imposta un vincolo per un tipo. Quando `extends` viene usato con un generic, vincola il parametro di tipo generic a un tipo più specifico.
+La parola chiave `extends` può essere considerata come "sottoinsieme di" in questo contesto. Imposta un vincolo per un tipo. Quando `extends` viene usato con un generico, vincola il parametro di tipo generico a un tipo più specifico.
 
 Nota che qui `extends` non ha nulla a che fare con l’ereditarietà delle classi in senso OOP.
 
@@ -486,9 +486,9 @@ In questo esempio, il tipo `J<Tipo>` utilizza un tipo mappato con un letterale t
 
 È importante notare che quando si utilizza un'asserzione di tipo, TypeScript non eseguirà controlli di proprietà eccessivi. Pertanto, è generalmente preferibile utilizzare una Dichiarazione di Tipo quando la struttura dell'oggetto è nota in anticipo.
 
-#### Dichiarazioni Ambientali
+#### Dichiarazioni ambientali
 
-Le dichiarazioni Ambientali sono file che descrivono i tipi per il codice JavaScript e hanno un formato di nome file come `.d.ts.`. Di solito vengono importate e utilizzate per annotare librerie JavaScript esistenti o per aggiungere tipi a file JS esistenti nel progetto.
+Le dichiarazioni ambientali sono file che descrivono i tipi per il codice JavaScript e hanno un formato di nome file come `.d.ts`. Di solito vengono importate e utilizzate per annotare librerie JavaScript esistenti o per aggiungere tipi a file JS esistenti nel progetto.
 
 Molti tipi di librerie comuni sono disponibili all'indirizzo:
 [https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
@@ -499,7 +499,7 @@ e possono essere installate tramite:
 npm install --save-dev @types/library-name
 ```
 
-Per le dichiarazioni di ambiente definite, è possibile importarle utilizzando il riferimento "tripla barra":
+Per le dichiarazioni ambientali definite, è possibile importarle utilizzando il riferimento "tripla barra":
 
 <!-- skip -->
 ```typescript
@@ -514,7 +514,7 @@ La parola chiave `declare` abilita le definizioni di tipo per il codice JavaScri
 
 TypeScript si basa su un sistema di tipi strutturale, ma il controllo delle proprietà in eccesso è una proprietà di TypeScript che gli consente di verificare se un oggetto possiede esattamente le proprietà specificate nel tipo.
 
-Il controllo delle proprietà in eccesso viene eseguito, ad esempio, quando si assegnano letterali di oggetto a variabili o quando li si passa come argomenti alla proprietà in eccesso di una funzione.
+Il controllo delle proprietà in eccesso viene eseguito, ad esempio, quando si assegnano letterali di oggetto a variabili o quando li si passa come argomenti a una funzione.
 
 <!-- skip -->
 ```typescript
@@ -579,7 +579,7 @@ fn({ c: 'c' }); // Valido
 
 Il controllo rigoroso dei letterali di oggetto, a volte chiamato "freschezza", è una funzionalità di TypeScript che aiuta a individuare proprietà in eccesso o con errori di ortografia che altrimenti passerebbero inosservate nei normali controlli di tipo strutturale.
 
-Quando si crea un letterale di oggetto, il compilatore TypeScript lo considera "fresco". Se il letterale di oggetto viene assegnato a una variabile o passato come parametro, TypeScript genererà un errore se il letterale di oggetto specifica proprietà che non esistono nel tipo di destinazione.
+Quando si crea un letterale di oggetto, il compilatore TypeScript lo considera "fresco". Se il letterale di oggetto viene assegnato a una variabile o viene passato come parametro, TypeScript genererà un errore se il letterale di oggetto specifica proprietà che non esistono nel tipo di destinazione.
 
 Tuttavia, la "freschezza" scompare quando un letterale di oggetto viene ampliato o viene utilizzata un'asserzione di tipo.
 
@@ -789,7 +789,7 @@ Altri modi per restringere i tipi in TypeScript includono:
 * Operatore `typeof`: utilizzato per verificare il tipo di un valore in fase di esecuzione.
 * Funzioni integrate come `Array.isArray()`: utilizzate per verificare se un valore è un array.
 
-#### Unione Discriminata
+#### Unione discriminata
 
 L'utilizzo di una "Unione Discriminata" è un pattern in TypeScript in cui un "tag" esplicito viene aggiunto agli oggetti per distinguere i diversi tipi all'interno di un'unione. Questo pattern è anche definito "unione con tag". Nell'esempio seguente, il "tag" è rappresentato dalla proprietà "type":
 

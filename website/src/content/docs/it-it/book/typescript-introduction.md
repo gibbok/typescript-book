@@ -16,7 +16,7 @@ Supporta diversi paradigmi di programmazione, come la programmazione funzionale,
 
 ### Perché TypeScript?
 
-TypeScript è un linguaggio fortemente tipizzato che aiuta a prevenire errori di programmazione comuni ed evitare determinati tipi di errori di runtime prima dell'esecuzione del programma.
+TypeScript è un linguaggio fortemente tipizzato che aiuta a prevenire errori di programmazione comuni e a evitare determinati tipi di errori di runtime prima dell'esecuzione del programma.
 
 Un linguaggio fortemente tipizzato consente allo sviluppatore di specificare vari vincoli e comportamenti del programma nelle definizioni dei tipi di dati, facilitando la verifica della correttezza del software e la prevenzione dei difetti. Questo è particolarmente utile nelle applicazioni su larga scala.
 
@@ -211,7 +211,8 @@ Ecco alcune delle funzionalità di JavaScript moderno che possono essere utilizz
 * Dichiarazione di variabili utilizzando "let" o "const" al posto di "var".
 * Ciclo "for-of" o ".forEach" al posto del tradizionale ciclo "for".
 * Funzioni freccia al posto delle espressioni di funzione.
-* Assegnazione destrutturata. \* Nomi abbreviati di proprietà/metodi e nomi di proprietà calcolate.
+* Assegnazione destrutturata.
+* Nomi abbreviati di proprietà/metodi e nomi di proprietà calcolate.
 * Parametri di funzione predefiniti.
 
 Sfruttando queste moderne funzionalità di JavaScript, gli sviluppatori possono scrivere codice più espressivo e conciso in TypeScript.
