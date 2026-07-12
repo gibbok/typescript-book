@@ -17,12 +17,12 @@
     "@types/fs-extra": "^11.0.1",
     "@types/marked": "^5.0.0",
     "@types/node": "^20.3.1",
-    "@types/prettier": "^2.7.3",
+    "@types/prettier": "^3.0.0",
     "fp-ts": "^2.16.0",
     "fs-extra": "^11.1.1",
     "markdownlint-cli": "^0.35.0",
     "marked": "^5.1.0",
-    "prettier": "^3.8.3",
+    "prettier": "^3.9.5",
     "ts-node": "^10.9.1",
     "typescript": "^5.4.5"
   }
