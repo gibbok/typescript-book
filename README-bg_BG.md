@@ -57,7 +57,7 @@
       - [module](#module)
       - [moduleResolution](#moduleresolution)
       - [esModuleInterop](#esmoduleinterop)
-      - [jsx](#jsx)
+      - [JSX option](#jsx-option)
       - [skipLibCheck](#skiplibcheck)
       - [files](#files)
       - [include](#include)
@@ -219,7 +219,7 @@
     - [Итератори и генератори](#итератори-и-генератори)
     - [TsDocs JSDoc Reference](#tsdocs-jsdoc-reference)
     - [@types](#types)
-    - [JSX](#jsx-1)
+    - [JSX](#jsx)
     - [ES6 Modules](#es6-modules)
     - [ES7 Exponentiation Operator](#es7-exponentiation-operator)
     - [The for-await-of Statement](#the-for-await-of-statement)
@@ -293,9 +293,9 @@ TypeScript е строго типизиран език, който помага 
 
 ### TypeScript и JavaScript
 
-TypeScript се пише в файлове с разширение `.ts` или `.tsx`, докато JavaScript файловете се пишат с разширение `.js` или `.jsx`.
+TypeScript се пише във файлове с разширение `.ts` или `.tsx`, докато JavaScript файловете се пишат с разширение `.js` или `.jsx`.
 
-Файловете с разширение `.tsx` или `.jsx` могат да съдържат разширение на синтаксиса на JavaScript JSX, което се използва в React за разработка на потребителски интерфейси.
+Файловете с разширение `.tsx` или `.jsx` могат да съдържат JSX — разширение на синтаксиса на JavaScript, което се използва в React за разработка на потребителски интерфейси.
 
 TypeScript е типизирано разширение на JavaScript (ECMAScript 2015) по отношение на синтаксиса. Всеки JavaScript код е валиден TypeScript код, но обратното не винаги е вярно.
 
@@ -604,7 +604,7 @@ tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts an
 
 Функциите "esModuleInterop" първоначално се активираха по избор, за да се избегнат промени, нарушаващи съвместимостта, но отдавна са препоръчителните настройки по подразбиране. Деактивирането им може да доведе до незабележими проблеми при изпълнението при използване на CommonJS с ESM. Забележка: Началото с TypeScript 6.0 това по-безопасно поведение при взаимодействието е винаги активирано.
 
-#### jsx
+#### JSX option
 
 Свойството "jsx" се прилага само за .tsx файлове, използвани в ReactJS, и контролира как JSX конструкциите се компилират в JavaScript. Често използвана опция е "preserve", която ще компилира в .jsx файл, като запази JSX непроменен, за да може да бъде предаден на различни инструменти като Babel за по-нататъшни трансформации.
 
@@ -1164,7 +1164,7 @@ npm install --save-dev @types/library-name
 /// <reference path="./library-types.d.ts" />
 ```
 
-Можете да използвате Ambient Declarations дори и в JavaScript файлове, като използвате `// @ts-check`.
+Можете да използвате Ambient Declarations дори в JavaScript файлове, като използвате `// @ts-check`.
 
 Ключовата дума `declare` позволява дефиниране на типове за съществуващ JavaScript код, без да е необходимо да се импортира, като служи като заместител за типове от друг файл или глобално.
 
@@ -2168,7 +2168,7 @@ const f6 = (
 };
 ```
 
-Забележки: В условните изрази се анализират до пет нива на индирекция.
+Забележка: В условните изрази TypeScript може да анализира до пет нива на индирекция.
 
 ## Type Predicates
 

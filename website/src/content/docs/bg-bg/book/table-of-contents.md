@@ -29,7 +29,7 @@ sidebar:
       - [module](../getting-started-with-typescript/#module)
       - [moduleResolution](../getting-started-with-typescript/#moduleresolution)
       - [esModuleInterop](../getting-started-with-typescript/#esmoduleinterop)
-      - [jsx](../getting-started-with-typescript/#jsx)
+      - [JSX option](../getting-started-with-typescript/#jsx-option)
       - [skipLibCheck](../getting-started-with-typescript/#skiplibcheck)
       - [files](../getting-started-with-typescript/#files)
       - [include](../getting-started-with-typescript/#include)

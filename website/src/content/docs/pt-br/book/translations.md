@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Este livro foi traduzido para várias versões de idiomas, incluindo:
+Este livro foi traduzido para vários idiomas, incluindo:
 
 [Chinês](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 

@@ -65,7 +65,7 @@ sidebar:
     - [string](../primitive-types/#string)
     - [boolean](../primitive-types/#boolean)
     - [number](../primitive-types/#number)
-    - [bigInt](../primitive-types/#bigint)
+    - [bigint](../primitive-types/#bigint)
     - [Symbol](../primitive-types/#symbol)
     - [null e undefined](../primitive-types/#null-e-undefined)
     - [Array](../primitive-types/#array)
