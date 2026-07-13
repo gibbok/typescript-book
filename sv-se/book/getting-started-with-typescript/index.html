@@ -122,6 +122,8 @@ gtag('config', 'G-SR2LV8LB90');
 <div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre tabindex="0"><code><div class="ec-line"><span style="--0:#82AAFF;--1:#3B61B0">Install-Package</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">Microsoft.TypeScript.MSBuild</span></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="Install-Package Microsoft.TypeScript.MSBuild"><div></div></button></div></figure></div>
 <p>Under TypeScript-installationen installeras två körbara filer: “tsc” som TypeScript-kompilatorn och “tsserver” som den fristående TypeScript-servern. Den fristående servern innehåller kompilatorn och språktjänster som kan användas av redigerare och IDE</p><div></div> för att tillhandahålla intelligent kodkomplettering.<p></p>
 <p>Dessutom finns det flera TypeScript-kompatibla transpilerare tillgängliga, såsom Babel (via ett plugin) eller swc. Dessa transpilerare kan användas för att konvertera TypeScript-kod till andra målspråk eller versioner.</p>
+<p>TypeScript 7.0 skrevs om i Go som en nativ implementation av kompilatorn och språktjänsten. Den använder flertrådning med delat minne och andra optimeringar för att göra fullständiga byggen och redigerarfunktioner snabbare, vilket minskar återkopplingstiden under utveckling.</p>
+<p>Vissa prestandafunktioner i TypeScript 7.0 kan justeras. Typkontroll kan köras i parallella arbetare med <code dir="auto">--checkers</code>; fler arbetare kan snabba upp stora projekt men använder mer minne. Det ombyggda <code dir="auto">--watch</code>-läget förbättrar plattformsoberoende filbevakning. TypeScript 7.0 innehåller ännu inget compiler-API (från och med juli 2026), så verktyg som fortfarande behöver TypeScript 6.0-API</p><div></div> kan köras sida vid sida med TypeScript 7.0 genom att använda <code dir="auto">@typescript/typescript6</code> eller npm-alias.<p></p>
 <h3 id="konfiguration">Konfiguration</h3>
 <p>TypeScript kan konfigureras med hjälp av tsc CLI-alternativ eller genom att använda en dedikerad konfigurationsfil kallad tsconfig.json som placeras i projektets rot.</p>
 <p>För att generera en tsconfig.json-fil förfylld med rekommenderade inställningar kan du använda följande kommando:</p>
@@ -141,7 +143,7 @@ gtag('config', 'G-SR2LV8LB90');
 <p><a href="https://www.typescriptlang.org/tsconfig/">https://www.typescriptlang.org/tsconfig/</a></p>
 <p>Följande representerar en lista över de vanligaste och mest användbara konfigurationerna:</p>
 <h4 id="target">target</h4>
-<p>Egenskapen “target” används för att ange vilken version av JavaScript ECMAScript-version din TypeScript ska generera/kompilera till. För moderna webbläsare är ES6 ett bra alternativ, för äldre webbläsare rekommenderas ES5. Obs: ES5-stödet togs bort i TypeScript 6.0.</p>
+<p>Egenskapen “target” används för att ange vilken ECMAScript-version din TypeScript-kod ska generera/kompilera till. För moderna webbläsare är ES6 ett bra alternativ. Obs: ES5-stöd fasades ut i TypeScript 6.0 och stöds inte längre i TypeScript 7.0.</p>
 <h4 id="lib">lib</h4>
 <p>Egenskapen “lib” används för att ange vilka biblioteksfiler som ska inkluderas vid kompilering. TypeScript inkluderar automatiskt API</p><div></div> för funktioner som anges i “target”-egenskapen, men det är möjligt att utelämna eller välja specifika bibliotek för särskilda behov. Till exempel, om du arbetar med ett serverprojekt kan du exkludera “DOM”-biblioteket, som bara är användbart i en webbläsarmiljö.<p></p>
 <h4 id="strict">strict</h4>
@@ -155,12 +157,28 @@ gtag('config', 'G-SR2LV8LB90');
 <h4 id="module">module</h4>
 <p>Egenskapen “module” anger vilket modulsystem som stöds för det kompilerade programmet. Under körning används en modulladdare för att hitta och köra beroenden baserat på det angivna modulsystemet.</p>
 <p>De vanligaste modulladdarna som används i JavaScript är Node.js CommonJS för serverapplikationer och RequireJS för AMD-moduler i webbläsarbaserade webbapplikationer. TypeScript kan generera kod för olika modulsystem, inklusive UMD, System, ESNext, ES2015/ES6 och ES2020. Modulsystemet bör väljas baserat på målmiljön och den modulladdningsmekanism som är tillgänglig i den miljön.</p>
-<p>Obs: Stöd för äldre modulsystem (AMD, UMD, SystemJS) togs bort i TypeScript 6.0.</p>
+<p>Obs: Stöd för äldre modulsystem (AMD, UMD, SystemJS) fasades ut i TypeScript 6.0 och stöds inte längre i TypeScript 7.0.</p>
 <h4 id="moduleresolution">moduleResolution</h4>
-<p>Egenskapen “moduleResolution” anger strategin för modulupplösning. Använd “node” för modern TypeScript-kod, strategin “classic” används bara för gamla versioner av TypeScript (före 1.6).</p>
+<p>Egenskapen “moduleResolution” anger strategin för modulupplösning. Använd “nodenext” eller “bundler” för modern TypeScript-kod. Strategin “classic” används bara för gamla versioner av TypeScript (före 1.6).</p>
 <h4 id="esmoduleinterop">esModuleInterop</h4>
 <p>Egenskapen “esModuleInterop” gör det möjligt att importera standard från CommonJS-moduler som inte exporterade med “default”-egenskapen. Denna egenskap tillhandahåller en shim för att säkerställa kompatibilitet i den genererade JavaScript-koden. Efter att ha aktiverat detta alternativ kan vi använda <code dir="auto">import MyLibrary from "my-library"</code> istället för <code dir="auto">import * as MyLibrary from "my-library"</code>.</p>
 <p>”esModuleInterop” var ursprungligen ett alternativ för att undvika att ändringar skulle gå fel, men har länge varit rekommenderade standardinställningar. Att inaktivera dem kan orsaka subtila problem under körning när CommonJS används med ESM. Obs: Från och med TypeScript 6.0 är detta säkrare interoperabilitetsbeteende alltid aktiverat.</p>
+<p>I TypeScript 6.0 fasades vissa äldre konfigurationsalternativ och syntaxformer ut eller övergick via gammalt beteende. I TypeScript 7.0 är de hårda fel eller no-op-beteende.</p>
+<p>De utfasningar som har blivit hårda fel med no-op-beteende är:</p>
+<ul>
+<li><code dir="auto">target: es5</code></li>
+<li><code dir="auto">downlevelIteration</code></li>
+<li><code dir="auto">moduleResolution: node/node10</code></li>
+<li><code dir="auto">module: amd/umd/systemjs/none</code></li>
+<li><code dir="auto">baseUrl</code></li>
+<li><code dir="auto">moduleResolution: classic</code></li>
+<li>att inaktivera <code dir="auto">esModuleInterop</code> eller <code dir="auto">allowSyntheticDefaultImports</code></li>
+<li>att inaktivera <code dir="auto">alwaysStrict</code></li>
+<li>nyckelordet <code dir="auto">module</code> i namespace-deklarationer</li>
+<li><code dir="auto">asserts</code> på importer</li>
+<li><code dir="auto">/// &#x3C;reference no-default-lib /></code> under <code dir="auto">skipDefaultLibCheck</code></li>
+<li>CLI-filsökvägar med en lokal <code dir="auto">tsconfig.json</code>, om inte <code dir="auto">--ignoreConfig</code> används</li>
+</ul>
 <h4 id="jsx">jsx</h4>
 <p>Egenskapen “jsx” gäller bara för .tsx-filer som används i ReactJS och styr hur JSX-konstruktioner kompileras till JavaScript. Ett vanligt alternativ är “preserve” som kompilerar till en .jsx-fil och behåller JSX oförändrat så att det kan skickas vidare till olika verktyg som Babel för ytterligare transformationer.</p>
 <h4 id="skiplibcheck">skipLibCheck</h4>

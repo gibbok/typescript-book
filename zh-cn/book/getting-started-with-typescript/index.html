@@ -122,6 +122,8 @@ gtag('config', 'G-SR2LV8LB90');
 <div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre tabindex="0"><code><div class="ec-line"><span style="--0:#82AAFF;--1:#3B61B0">Install-Package</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">Microsoft.TypeScript.MSBuild</span></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="Install-Package Microsoft.TypeScript.MSBuild"><div></div></button></div></figure></div>
 <p>在 TypeScript 安装过程中，会安装两个可执行文件：“tsc”作为 TypeScript 编译器，“tsserver”作为 TypeScript 独立服务器。独立服务器包含编译器和语言服务，编辑器和 IDE 可以利用它们来提供智能代码补全。</p>
 <p>此外，还有几种兼容 TypeScript 的转译器可用，例如 Babel（通过插件）或 swc。这些转译器可用于将 TypeScript 代码转换为其他目标语言或版本。</p>
+<p>TypeScript 7.0 已用 Go 重写，作为编译器和语言服务的原生实现。它使用共享内存多线程和其他优化，使完整构建和编辑器功能更快，从而减少开发期间的反馈时间。</p>
+<p>一些 TypeScript 7.0 性能功能可以调整。类型检查可以通过 <code dir="auto">--checkers</code> 在并行 worker 中运行；更多 worker 可以加快大型项目，但会使用更多内存。重建后的 <code dir="auto">--watch</code> 模式改进了跨平台文件监视。TypeScript 7.0 目前还不包含编译器 API（截至 2026 年 7 月），因此仍需要 TypeScript 6.0 API 的工具可以通过 <code dir="auto">@typescript/typescript6</code> 或 npm 别名与 TypeScript 7.0 并行运行。</p>
 <h3 id="配置">配置</h3>
 <p>可以使用 tsc CLI 选项或利用位于项目根目录中名为 tsconfig.json 的专用配置文件来配置 TypeScript。</p>
 <p>要生成预填充推荐设置的 tsconfig.json 文件，您可以使用以下命令：</p>
@@ -141,7 +143,7 @@ gtag('config', 'G-SR2LV8LB90');
 <p><a href="https://www.typescriptlang.org/tsconfig/">https://www.typescriptlang.org/tsconfig/</a></p>
 <p>以下列出了常见且有用的配置：</p>
 <h4 id="target">target</h4>
-<p><code dir="auto">target</code> 属性用于指定 TypeScript 应输出到哪个 ECMAScript 版本的 JavaScript。对于现代浏览器，ES6 是一个不错的选择；对于较旧的浏览器，建议使用 ES5。注意：TypeScript 6.0 中已移除对 ES5 的支持。</p>
+<p><code dir="auto">target</code> 属性用于指定 TypeScript 代码应输出或编译到哪个 ECMAScript 版本。对于现代浏览器，ES6 是一个不错的选择。注意：ES5 支持已在 TypeScript 6.0 中弃用，并且在 TypeScript 7.0 中不再受支持。</p>
 <h4 id="lib">lib</h4>
 <p><code dir="auto">lib</code> 属性用于指定编译时要包含哪些库文件。TypeScript 会自动包含 <code dir="auto">target</code> 属性所指定功能的 API，但可以根据特定需求省略或选择特定库。例如，如果您正在开发服务器项目，则可以排除 <code dir="auto">DOM</code> 库，因为它只在浏览器环境中有用。</p>
 <h4 id="strict">strict</h4>
@@ -155,12 +157,28 @@ gtag('config', 'G-SR2LV8LB90');
 <h4 id="module">module</h4>
 <p><code dir="auto">module</code> 属性用于设置编译器支持的模块系统。运行时，模块加载器会根据指定的模块系统查找并执行依赖项。</p>
 <p>JavaScript 中最常用的模块加载器是用于服务器端应用程序的 Node.js CommonJS，以及用于基于浏览器的 Web 应用程序的 AMD 模块加载器 RequireJS。TypeScript 可以为各种模块系统生成代码，包括 UMD、SystemJS、ESNext、ES2015/ES6 和 ES2020。应根据目标环境以及该环境中可用的模块加载机制来选择模块系统。</p>
-<p>注意：TypeScript 6.0 已移除对旧版模块系统（AMD、UMD、SystemJS）的支持。</p>
+<p>注意：旧版模块系统（AMD、UMD、SystemJS）支持已在 TypeScript 6.0 中弃用，并且在 TypeScript 7.0 中不再受支持。</p>
 <h4 id="moduleresolution">moduleResolution</h4>
-<p><code dir="auto">moduleResolution</code> 属性指定模块解析策略。对现代 TypeScript 代码使用 <code dir="auto">node</code>，<code dir="auto">classic</code> 仅用于旧版本的 TypeScript（1.6 之前）。</p>
+<p><code dir="auto">moduleResolution</code> 属性指定模块解析策略。对现代 TypeScript 代码使用 <code dir="auto">nodenext</code> 或 <code dir="auto">bundler</code>。<code dir="auto">classic</code> 仅用于旧版本的 TypeScript（1.6 之前）。</p>
 <h4 id="esmoduleinterop">esModuleInterop</h4>
 <p><code dir="auto">esModuleInterop</code> 属性允许从未导出 <code dir="auto">default</code> 属性的 CommonJS 模块导入默认值。此选项提供兼容性，以确保生成的 JavaScript 能正常工作。启用此选项后，我们可以使用 <code dir="auto">import MyLibrary from "my-library"</code>，而不是 <code dir="auto">import * as MyLibrary from "my-library"</code>。</p>
 <p><code dir="auto">esModuleInterop</code> 最初是可选的，以避免破坏性变更，但长期以来一直是推荐的默认设置。禁用它可能会导致在使用 CommonJS 和 ESM 时出现一些不易察觉的运行时问题。注意：从 TypeScript 6.0 开始，这种更安全的互操作行为始终启用。</p>
+<p>在 TypeScript 6.0 中，一些较旧的配置选项和语法形式已被弃用，或经过旧行为的过渡。在 TypeScript 7.0 中，它们会成为硬错误或无操作行为。</p>
+<p>已转变为硬错误或无操作行为的弃用项包括：</p>
+<ul>
+<li><code dir="auto">target: es5</code></li>
+<li><code dir="auto">downlevelIteration</code></li>
+<li><code dir="auto">moduleResolution: node/node10</code></li>
+<li><code dir="auto">module: amd/umd/systemjs/none</code></li>
+<li><code dir="auto">baseUrl</code></li>
+<li><code dir="auto">moduleResolution: classic</code></li>
+<li>禁用 <code dir="auto">esModuleInterop</code> 或 <code dir="auto">allowSyntheticDefaultImports</code></li>
+<li>禁用 <code dir="auto">alwaysStrict</code></li>
+<li>命名空间声明中的 <code dir="auto">module</code> 关键字</li>
+<li>导入上的 <code dir="auto">asserts</code></li>
+<li><code dir="auto">skipDefaultLibCheck</code> 下的 <code dir="auto">/// &#x3C;reference no-default-lib /></code></li>
+<li>带有本地 <code dir="auto">tsconfig.json</code> 的 CLI 文件路径，除非使用 <code dir="auto">--ignoreConfig</code></li>
+</ul>
 <h4 id="jsx">jsx</h4>
 <p><code dir="auto">jsx</code> 属性仅适用于 React 中使用的 <code dir="auto">.tsx</code> 文件，并控制 JSX 构造如何编译为 JavaScript。一个常见的选项是 <code dir="auto">preserve</code>，它会编译为 <code dir="auto">.jsx</code> 文件，保持 JSX 不变，以便可以将其传递给 Babel 等不同工具进行进一步转换。</p>
 <h4 id="skiplibcheck">skipLibCheck</h4>
