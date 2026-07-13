@@ -258,7 +258,7 @@ An online version is available at:
 
 Welcome to The Concise TypeScript Book! This guide equips you with essential knowledge and practical skills for effective TypeScript development. Discover key concepts and techniques to write clean, robust code. Whether you're a beginner or an experienced developer, this book serves as both a comprehensive guide and a handy reference for leveraging TypeScript's power in your projects.
 
-This book covers TypeScript 6.0.
+This book covers TypeScript 7.0.
 
 ## About the Author
 
@@ -538,6 +538,10 @@ During the TypeScript installation, two executables are installed: "tsc" as the 
 
 Additionally, there are several TypeScript-compatible transpilers available, such as Babel (via a plugin) or swc. These transpilers can be used to convert TypeScript code into other target languages or versions.
 
+TypeScript 7.0 was rewritten in Go as a native implementation of the compiler and language service. It uses shared-memory multithreading and other optimizations to make full builds and editor features faster, reducing feedback time during development.
+
+Some TypeScript 7.0 performance features can be tuned. Type checking can run in parallel workers with `--checkers`; more workers can speed up large projects but use more memory. The rebuilt `--watch` mode improves cross-platform file watching. TypeScript 7.0 does not include a compiler API yet (as of July 2026), so tools that still need the TypeScript 6.0 API can run side-by-side with TypeScript 7.0 by using `@typescript/typescript6` or npm aliases.
+
 ### Configuration
 
 TypeScript can be configured using the tsc CLI options or by utilizing a dedicated configuration file called tsconfig.json placed in the root of the project.
@@ -577,7 +581,7 @@ The following represents a list of the common and useful configurations:
 
 #### target
 
-The "target" property is used to specify which version of JavaScript ECMAScript version your TypeScript should emit/compile into. For modern browsers ES6 is a good option, for older browsers, ES5 is recommended. Note: ES5 support was removed in TypeScript 6.0.
+The "target" property is used to specify which ECMAScript version your TypeScript code should emit/compile into. For modern browsers ES6 is a good option. Note: ES5 support was deprecated in TypeScript 6.0 and is no longer supported in TypeScript 7.0.
 
 #### lib
 
@@ -598,17 +602,34 @@ The "module" property sets the module system supported for the compiled program.
 
 The most common module loaders used in JavaScript are Node.js CommonJS for server-side applications and RequireJS for AMD modules in browser-based web applications. TypeScript can emit code for various module systems, including UMD, System, ESNext, ES2015/ES6, and ES2020. The module system should be chosen based on the target environment and the module loading mechanism available in that environment.
 
-Note: Support for older module systems (AMD, UMD, SystemJS) was removed in TypeScript 6.0.
+Note: Support for older module systems (AMD, UMD, SystemJS) was deprecated in TypeScript 6.0 and is no longer supported in TypeScript 7.0.
 
 #### moduleResolution
 
-The "moduleResolution" property specifies the module resolution strategy. Use "node" for modern TypeScript code, the "classic" strategy is used only for old versions of TypeScript (before 1.6).
+The "moduleResolution" property specifies the module resolution strategy. Use "nodenext" or "bundler" for modern TypeScript code. The "classic" strategy is used only for old versions of TypeScript (before 1.6).
 
 #### esModuleInterop
 
 The "esModuleInterop" property allows default imports from CommonJS modules that did not export using the "default" property; this property provides a shim to ensure compatibility in the emitted JavaScript. After enabling this option, we can use `import MyLibrary from "my-library"` instead of `import * as MyLibrary from "my-library"`.
 
 "esModuleInterop" was originally opt-in to avoid breaking changes, but has long been the recommended default. Disabling it can cause subtle runtime issues when using CommonJS with ESM. Note: Starting with TypeScript 6.0, this safer interop behavior is always enabled.
+
+In TypeScript 6.0, some older configuration options and syntax forms were deprecated or transitioned through old behavior. In TypeScript 7.0, they are hard errors or no-op behavior.
+
+The deprecations that have turned into hard errors with no-op behavior are:
+
+* `target: es5`
+* `downlevelIteration`
+* `moduleResolution: node/node10`
+* `module: amd/umd/systemjs/none`
+* `baseUrl`
+* `moduleResolution: classic`
+* disabling `esModuleInterop` or `allowSyntheticDefaultImports`
+* disabling `alwaysStrict`
+* `module` keyword in namespace declarations
+* `asserts` on imports
+* `/// <reference no-default-lib />` under `skipDefaultLibCheck`
+* CLI file paths with a local `tsconfig.json` unless `--ignoreConfig` is used
 
 #### jsx
 
