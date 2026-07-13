@@ -56,6 +56,10 @@ Durante a instalação do TypeScript, dois executáveis são instalados: "tsc" c
 
 Além disso, existem vários transpiladores compatíveis com TypeScript disponíveis, como Babel (via um plugin) ou swc. Esses transpiladores podem ser usados para converter código TypeScript em outras linguagens ou versões de destino.
 
+O TypeScript 7.0 foi reescrito em Go como uma implementação nativa do compilador e do serviço de linguagem. Ele usa multithreading com memória compartilhada e outras otimizações para tornar compilações completas e recursos do editor mais rápidos, reduzindo o tempo de feedback durante o desenvolvimento.
+
+Alguns recursos de desempenho do TypeScript 7.0 podem ser ajustados. A verificação de tipos pode ser executada em workers paralelos com `--checkers`; mais workers podem acelerar projetos grandes, mas usam mais memória. O modo `--watch` reconstruído melhora o monitoramento de arquivos entre plataformas. O TypeScript 7.0 ainda não inclui uma API do compilador (em julho de 2026), portanto ferramentas que ainda precisam da API do TypeScript 6.0 podem ser executadas lado a lado com o TypeScript 7.0 usando `@typescript/typescript6` ou aliases do npm.
+
 ### Configuração
 
 O TypeScript pode ser configurado usando as opções da CLI do tsc ou utilizando um arquivo de configuração dedicado chamado tsconfig.json localizado na raiz do projeto.
@@ -95,7 +99,7 @@ A seguir, apresentamos uma lista das configurações comuns e úteis:
 
 #### target
 
-A propriedade "target" é usada para especificar qual versão do JavaScript ECMAScript seu TypeScript deve emitir/compilar. Para navegadores modernos, o ES6 é uma boa opção; para navegadores mais antigos, o ES5 é recomendado. Observação: o suporte a ES5 foi removido no TypeScript 6.0.
+A propriedade "target" é usada para especificar para qual versão do ECMAScript seu código TypeScript deve emitir/compilar. Para navegadores modernos, o ES6 é uma boa opção. Observação: o suporte a ES5 foi descontinuado no TypeScript 6.0 e não é mais suportado no TypeScript 7.0.
 
 #### lib
 
@@ -116,17 +120,34 @@ A propriedade "module" define o sistema de módulos suportado pelo programa comp
 
 Os carregadores de módulos mais comuns usados em JavaScript são o CommonJS do Node.js para aplicações do lado do servidor e o RequireJS para módulos AMD em aplicações web baseadas em navegador. O TypeScript pode gerar código para vários sistemas de módulos, incluindo UMD, SystemJS, ESNext, ES2015/ES6 e ES2020. O sistema de módulos deve ser escolhido com base no ambiente de destino e no mecanismo de carregamento de módulos disponível nesse ambiente.
 
-Nota: O suporte para sistemas de módulos mais antigos (AMD, UMD, SystemJS) foi removido no TypeScript 6.0.
+Nota: O suporte para sistemas de módulos mais antigos (AMD, UMD, SystemJS) foi descontinuado no TypeScript 6.0 e não é mais suportado no TypeScript 7.0.
 
 #### moduleResolution
 
-A propriedade "moduleResolution" especifica a estratégia de resolução de módulos. Use "node" para código TypeScript moderno; a estratégia "classic" é usada apenas para versões antigas do TypeScript (antes da 1.6).
+A propriedade "moduleResolution" especifica a estratégia de resolução de módulos. Use "nodenext" ou "bundler" para código TypeScript moderno. A estratégia "classic" é usada apenas para versões antigas do TypeScript (antes da 1.6).
 
 #### esModuleInterop
 
 A propriedade "esModuleInterop" permite a importação padrão de módulos CommonJS que não exportaram usando a propriedade "default"; esta propriedade fornece um shim para garantir a compatibilidade no JavaScript emitido. Após habilitar esta opção, podemos usar `import MyLibrary from "my-library"` em vez de `import * as MyLibrary from "my-library"`.
 
 Originalmente, a opção "esModuleInterop" era opcional para evitar alterações que quebrassem a compatibilidade, mas há muito tempo é o padrão recomendado. Desativá-la pode causar problemas sutis em tempo de execução ao usar CommonJS com ESM. Observação: a partir do TypeScript 6.0, esse comportamento de interoperabilidade mais seguro está sempre ativado.
+
+No TypeScript 6.0, algumas opções de configuração e formas de sintaxe mais antigas foram descontinuadas ou passaram por comportamento antigo. No TypeScript 7.0, elas são erros rígidos ou comportamento sem efeito.
+
+As descontinuações que se tornaram erros rígidos com comportamento sem efeito são:
+
+* `target: es5`
+* `downlevelIteration`
+* `moduleResolution: node/node10`
+* `module: amd/umd/systemjs/none`
+* `baseUrl`
+* `moduleResolution: classic`
+* desabilitar `esModuleInterop` ou `allowSyntheticDefaultImports`
+* desabilitar `alwaysStrict`
+* palavra-chave `module` em declarações de namespace
+* `asserts` em imports
+* `/// <reference no-default-lib />` sob `skipDefaultLibCheck`
+* caminhos de arquivos na CLI com um `tsconfig.json` local, a menos que `--ignoreConfig` seja usado
 
 #### jsx
 

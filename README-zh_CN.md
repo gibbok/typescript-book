@@ -256,7 +256,7 @@
 
 欢迎来到简洁的TypeScript之书！本指南为您提供有效 TypeScript 开发的基本知识和实践技能。发现编写干净、健壮的代码的关键概念和技术。无论您是初学者还是经验丰富的开发人员，本书都可以作为在项目中利用 TypeScript 强大功能的综合指南和便捷参考。
 
-本书涵盖了 TypeScript 6.0。
+本书涵盖了 TypeScript 7.0。
 
 ## 关于作者
 
@@ -534,6 +534,10 @@ Install-Package Microsoft.TypeScript.MSBuild
 
 此外，还有几种兼容 TypeScript 的转译器可用，例如 Babel（通过插件）或 swc。这些转译器可用于将 TypeScript 代码转换为其他目标语言或版本。
 
+TypeScript 7.0 已用 Go 重写，作为编译器和语言服务的原生实现。它使用共享内存多线程和其他优化，使完整构建和编辑器功能更快，从而减少开发期间的反馈时间。
+
+一些 TypeScript 7.0 性能功能可以调整。类型检查可以通过 `--checkers` 在并行 worker 中运行；更多 worker 可以加快大型项目，但会使用更多内存。重建后的 `--watch` 模式改进了跨平台文件监视。TypeScript 7.0 目前还不包含编译器 API（截至 2026 年 7 月），因此仍需要 TypeScript 6.0 API 的工具可以通过 `@typescript/typescript6` 或 npm 别名与 TypeScript 7.0 并行运行。
+
 ### 配置
 
 可以使用 tsc CLI 选项或利用位于项目根目录中名为 tsconfig.json 的专用配置文件来配置 TypeScript。
@@ -573,7 +577,7 @@ tsc app.ts util.ts --outfile index.js // 将 2 个 TypeScript 文件 (app.ts 和
 
 #### target
 
-`target` 属性用于指定 TypeScript 应输出到哪个 ECMAScript 版本的 JavaScript。对于现代浏览器，ES6 是一个不错的选择；对于较旧的浏览器，建议使用 ES5。注意：TypeScript 6.0 中已移除对 ES5 的支持。
+`target` 属性用于指定 TypeScript 代码应输出或编译到哪个 ECMAScript 版本。对于现代浏览器，ES6 是一个不错的选择。注意：ES5 支持已在 TypeScript 6.0 中弃用，并且在 TypeScript 7.0 中不再受支持。
 
 #### lib
 
@@ -594,17 +598,34 @@ tsc app.ts util.ts --outfile index.js // 将 2 个 TypeScript 文件 (app.ts 和
 
 JavaScript 中最常用的模块加载器是用于服务器端应用程序的 Node.js CommonJS，以及用于基于浏览器的 Web 应用程序的 AMD 模块加载器 RequireJS。TypeScript 可以为各种模块系统生成代码，包括 UMD、SystemJS、ESNext、ES2015/ES6 和 ES2020。应根据目标环境以及该环境中可用的模块加载机制来选择模块系统。
 
-注意：TypeScript 6.0 已移除对旧版模块系统（AMD、UMD、SystemJS）的支持。
+注意：旧版模块系统（AMD、UMD、SystemJS）支持已在 TypeScript 6.0 中弃用，并且在 TypeScript 7.0 中不再受支持。
 
 #### moduleResolution
 
-`moduleResolution` 属性指定模块解析策略。对现代 TypeScript 代码使用 `node`，`classic` 仅用于旧版本的 TypeScript（1.6 之前）。
+`moduleResolution` 属性指定模块解析策略。对现代 TypeScript 代码使用 `nodenext` 或 `bundler`。`classic` 仅用于旧版本的 TypeScript（1.6 之前）。
 
 #### esModuleInterop
 
 `esModuleInterop` 属性允许从未导出 `default` 属性的 CommonJS 模块导入默认值。此选项提供兼容性，以确保生成的 JavaScript 能正常工作。启用此选项后，我们可以使用 `import MyLibrary from "my-library"`，而不是 `import * as MyLibrary from "my-library"`。
 
 `esModuleInterop` 最初是可选的，以避免破坏性变更，但长期以来一直是推荐的默认设置。禁用它可能会导致在使用 CommonJS 和 ESM 时出现一些不易察觉的运行时问题。注意：从 TypeScript 6.0 开始，这种更安全的互操作行为始终启用。
+
+在 TypeScript 6.0 中，一些较旧的配置选项和语法形式已被弃用，或经过旧行为的过渡。在 TypeScript 7.0 中，它们会成为硬错误或无操作行为。
+
+已转变为硬错误或无操作行为的弃用项包括：
+
+* `target: es5`
+* `downlevelIteration`
+* `moduleResolution: node/node10`
+* `module: amd/umd/systemjs/none`
+* `baseUrl`
+* `moduleResolution: classic`
+* 禁用 `esModuleInterop` 或 `allowSyntheticDefaultImports`
+* 禁用 `alwaysStrict`
+* 命名空间声明中的 `module` 关键字
+* 导入上的 `asserts`
+* `skipDefaultLibCheck` 下的 `/// <reference no-default-lib />`
+* 带有本地 `tsconfig.json` 的 CLI 文件路径，除非使用 `--ignoreConfig`
 
 #### jsx
 
