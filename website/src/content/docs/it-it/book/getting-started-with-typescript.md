@@ -56,6 +56,10 @@ Durante l'installazione di TypeScript, vengono installati due eseguibili: "tsc" 
 
 Inoltre, sono disponibili diversi transpiler compatibili con TypeScript, come Babel (tramite un plugin) o swc. Questi transpiler possono essere utilizzati per convertire il codice TypeScript in altri linguaggi o versioni di destinazione.
 
+TypeScript 7.0 è stato riscritto in Go come implementazione nativa del compilatore e del servizio linguistico. Utilizza il multithreading con memoria condivisa e altre ottimizzazioni per rendere più veloci le build complete e le funzionalità degli editor, riducendo i tempi di feedback durante lo sviluppo.
+
+Alcune funzionalità legate alle prestazioni di TypeScript 7.0 possono essere configurate. Il controllo dei tipi può essere eseguito in worker paralleli con `--checkers`; un numero maggiore di worker può velocizzare i progetti di grandi dimensioni, ma utilizza più memoria. La modalità `--watch` ricostruita migliora il monitoraggio dei file tra piattaforme diverse. TypeScript 7.0 non include ancora una compiler API (a luglio 2026), quindi gli strumenti che hanno ancora bisogno dell'API di TypeScript 6.0 possono essere eseguiti insieme a TypeScript 7.0 usando `@typescript/typescript6` o alias npm.
+
 ### Configurazione
 
 TypeScript può essere configurato utilizzando le opzioni della CLI di tsc o un file di configurazione dedicato chiamato tsconfig.json, posizionato nella radice del progetto.
@@ -95,7 +99,7 @@ Di seguito è riportato un elenco delle configurazioni più comuni e utili:
 
 #### target
 
-La proprietà "target" viene utilizzata per specificare in quale versione di JavaScript ECMAScript TypeScript deve emettere/compilare. Per i browser moderni, ES6 è una buona opzione, mentre per i browser più vecchi si consiglia ES5. Nota: il supporto per ES5 è stato rimosso in TypeScript 6.0.
+La proprietà "target" viene utilizzata per specificare in quale versione ECMAScript il codice TypeScript deve essere emesso/compilato. Per i browser moderni, ES6 è una buona opzione. Nota: il supporto per ES5 è stato deprecato in TypeScript 6.0 e non è più supportato in TypeScript 7.0.
 
 #### lib
 
@@ -116,17 +120,34 @@ La proprietà "module" imposta il sistema di moduli supportato per il programma 
 
 I caricatori di moduli più comuni utilizzati in JavaScript sono CommonJS di Node.js per le applicazioni lato server e RequireJS per i moduli AMD nelle applicazioni web basate su browser. TypeScript può generare codice per diversi sistemi di moduli, tra cui UMD, System, ESNext, ES2015/ES6 e ES2020. Il sistema di moduli deve essere scelto in base all'ambiente di destinazione e al meccanismo di caricamento dei moduli disponibile in tale ambiente.
 
-Nota: il supporto per i sistemi di moduli più vecchi (AMD, UMD, SystemJS) è stato rimosso in TypeScript 6.0.
+Nota: il supporto per i sistemi di moduli più vecchi (AMD, UMD, SystemJS) è stato deprecato in TypeScript 6.0 e non è più supportato in TypeScript 7.0.
 
 #### moduleResolution
 
-La proprietà "moduleResolution" specifica la strategia di risoluzione dei moduli. Utilizzare "node" per il codice TypeScript moderno, la strategia "classic" viene utilizzata solo per le vecchie versioni di TypeScript (precedenti alla 1.6).
+La proprietà "moduleResolution" specifica la strategia di risoluzione dei moduli. Utilizzare "nodenext" o "bundler" per il codice TypeScript moderno. La strategia "classic" viene utilizzata solo per le vecchie versioni di TypeScript (precedenti alla 1.6).
 
 #### esModuleInterop
 
 La proprietà "esModuleInterop" consente l'importazione predefinita dai moduli CommonJS che non sono stati esportati utilizzando la proprietà "default". Questa proprietà fornisce uno shim per garantire la compatibilità nel codice JavaScript emesso. Dopo aver abilitato questa opzione, possiamo usare `import MyLibrary from "my-library"` invece di `import * as MyLibrary from "my-library"`.
 
 "esModuleInterop" era originariamente un'opzione da attivare per evitare modifiche incompatibili con le versioni precedenti, ma da tempo è l'impostazione predefinita consigliata. Disabilitarla può causare problemi di runtime non evidenti quando si utilizza CommonJS con ESM. Nota: a partire da TypeScript 6.0, questo comportamento di interoperabilità più sicuro è sempre abilitato.
+
+In TypeScript 6.0, alcune opzioni di configurazione e forme sintattiche più vecchie sono state deprecate o hanno mantenuto temporaneamente il comportamento precedente. In TypeScript 7.0, sono errori bloccanti o comportamenti senza effetto.
+
+Le deprecazioni che sono diventate errori bloccanti o comportamenti senza effetto sono:
+
+* `target: es5`
+* `downlevelIteration`
+* `moduleResolution: node/node10`
+* `module: amd/umd/systemjs/none`
+* `baseUrl`
+* `moduleResolution: classic`
+* disabilitare `esModuleInterop` o `allowSyntheticDefaultImports`
+* disabilitare `alwaysStrict`
+* parola chiave `module` nelle dichiarazioni di namespace
+* `asserts` negli import
+* `/// <reference no-default-lib />` con `skipDefaultLibCheck`
+* percorsi di file CLI con un `tsconfig.json` locale, a meno che non venga utilizzato `--ignoreConfig`
 
 #### jsx
 

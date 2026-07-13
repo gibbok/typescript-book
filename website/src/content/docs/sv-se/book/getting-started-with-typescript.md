@@ -56,6 +56,10 @@ Under TypeScript-installationen installeras två körbara filer: "tsc" som TypeS
 
 Dessutom finns det flera TypeScript-kompatibla transpilerare tillgängliga, såsom Babel (via ett plugin) eller swc. Dessa transpilerare kan användas för att konvertera TypeScript-kod till andra målspråk eller versioner.
 
+TypeScript 7.0 skrevs om i Go som en nativ implementation av kompilatorn och språktjänsten. Den använder flertrådning med delat minne och andra optimeringar för att göra fullständiga byggen och redigerarfunktioner snabbare, vilket minskar återkopplingstiden under utveckling.
+
+Vissa prestandafunktioner i TypeScript 7.0 kan justeras. Typkontroll kan köras i parallella arbetare med `--checkers`; fler arbetare kan snabba upp stora projekt men använder mer minne. Det ombyggda `--watch`-läget förbättrar plattformsoberoende filbevakning. TypeScript 7.0 innehåller ännu inget compiler-API (från och med juli 2026), så verktyg som fortfarande behöver TypeScript 6.0-API:t kan köras sida vid sida med TypeScript 7.0 genom att använda `@typescript/typescript6` eller npm-alias.
+
 ### Konfiguration
 
 TypeScript kan konfigureras med hjälp av tsc CLI-alternativ eller genom att använda en dedikerad konfigurationsfil kallad tsconfig.json som placeras i projektets rot.
@@ -95,7 +99,7 @@ Följande representerar en lista över de vanligaste och mest användbara konfig
 
 #### target
 
-Egenskapen "target" används för att ange vilken version av JavaScript ECMAScript-version din TypeScript ska generera/kompilera till. För moderna webbläsare är ES6 ett bra alternativ, för äldre webbläsare rekommenderas ES5. Obs: ES5-stödet togs bort i TypeScript 6.0.
+Egenskapen "target" används för att ange vilken ECMAScript-version din TypeScript-kod ska generera/kompilera till. För moderna webbläsare är ES6 ett bra alternativ. Obs: ES5-stöd fasades ut i TypeScript 6.0 och stöds inte längre i TypeScript 7.0.
 
 #### lib
 
@@ -116,17 +120,34 @@ Egenskapen "module" anger vilket modulsystem som stöds för det kompilerade pro
 
 De vanligaste modulladdarna som används i JavaScript är Node.js CommonJS för serverapplikationer och RequireJS för AMD-moduler i webbläsarbaserade webbapplikationer. TypeScript kan generera kod för olika modulsystem, inklusive UMD, System, ESNext, ES2015/ES6 och ES2020. Modulsystemet bör väljas baserat på målmiljön och den modulladdningsmekanism som är tillgänglig i den miljön.
 
-Obs: Stöd för äldre modulsystem (AMD, UMD, SystemJS) togs bort i TypeScript 6.0.
+Obs: Stöd för äldre modulsystem (AMD, UMD, SystemJS) fasades ut i TypeScript 6.0 och stöds inte längre i TypeScript 7.0.
 
 #### moduleResolution
 
-Egenskapen "moduleResolution" anger strategin för modulupplösning. Använd "node" för modern TypeScript-kod, strategin "classic" används bara för gamla versioner av TypeScript (före 1.6).
+Egenskapen "moduleResolution" anger strategin för modulupplösning. Använd "nodenext" eller "bundler" för modern TypeScript-kod. Strategin "classic" används bara för gamla versioner av TypeScript (före 1.6).
 
 #### esModuleInterop
 
 Egenskapen "esModuleInterop" gör det möjligt att importera standard från CommonJS-moduler som inte exporterade med "default"-egenskapen. Denna egenskap tillhandahåller en shim för att säkerställa kompatibilitet i den genererade JavaScript-koden. Efter att ha aktiverat detta alternativ kan vi använda `import MyLibrary from "my-library"` istället för `import * as MyLibrary from "my-library"`.
 
 "esModuleInterop" var ursprungligen ett alternativ för att undvika att ändringar skulle gå fel, men har länge varit rekommenderade standardinställningar. Att inaktivera dem kan orsaka subtila problem under körning när CommonJS används med ESM. Obs: Från och med TypeScript 6.0 är detta säkrare interoperabilitetsbeteende alltid aktiverat.
+
+I TypeScript 6.0 fasades vissa äldre konfigurationsalternativ och syntaxformer ut eller övergick via gammalt beteende. I TypeScript 7.0 är de hårda fel eller no-op-beteende.
+
+De utfasningar som har blivit hårda fel med no-op-beteende är:
+
+* `target: es5`
+* `downlevelIteration`
+* `moduleResolution: node/node10`
+* `module: amd/umd/systemjs/none`
+* `baseUrl`
+* `moduleResolution: classic`
+* att inaktivera `esModuleInterop` eller `allowSyntheticDefaultImports`
+* att inaktivera `alwaysStrict`
+* nyckelordet `module` i namespace-deklarationer
+* `asserts` på importer
+* `/// <reference no-default-lib />` under `skipDefaultLibCheck`
+* CLI-filsökvägar med en lokal `tsconfig.json`, om inte `--ignoreConfig` används
 
 #### jsx
 
