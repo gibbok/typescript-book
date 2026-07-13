@@ -8,7 +8,7 @@
     "compile": "ts-node compile",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "ts-node lint",
-    "lint:md": "markdownlint \"./*.md\" markdownlint \"../*.md\"",
+    "lint:md": "markdownlint --ignore \"../AGENTS.md\" --ignore \"../.agents/**\" \"./*.md\" \"../*.md\"",
     "check": "npm run lint && npm run lint:md && npm run format && npm run compile"
   },
   "author": "",
