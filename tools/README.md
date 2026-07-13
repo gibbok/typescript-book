@@ -88,8 +88,12 @@ After generating the Epub files, thoroughly test them, and once you're satisfied
 
 Use this tag format for TypeScript 7 book releases:
 
-* `typescript-7-book-v1`
-* `typescript-7-book-v2`
+```shell
+git switch main
+git pull origin main
+git tag -a typescript-7-book-v1 -m "TypeScript 7 book, revision 1"
+git push origin typescript-7-book-v1
+```
 
 These tools will assist you in efficiently working with Markdown books and ensure a smooth and organized process. Happy writing!
 
