@@ -1,7 +1,7 @@
 ---
 
 name: typescript-book-review
-description: Review and editing guide for TypeScript book and reference content in the style of The Concise TypeScript Book. Use when reviewing or editing educational prose, code examples, chapters, table-of-contents entries, or Markdown formatting in this repository to identify and fix typos, grammar mistakes, formatting problems, and minor clarity issues without altering the original meaning or the book’s concise, practical, example-driven style.
+description: Review and editing guide for TypeScript book and reference content in the style of The Concise TypeScript Book. Use when reviewing or editing educational prose, translated or non-English content, code examples, chapters, table-of-contents entries, or Markdown formatting in this repository to identify and fix typos, grammar mistakes, formatting problems, and minor clarity issues without altering the original meaning or the book’s concise, practical, example-driven style.
 ---
 
 # TypeScript Book Review
@@ -39,6 +39,18 @@ Maintain a concise technical-reference style:
 * State validity, errors, inference results, and runtime behavior explicitly.
 * Keep examples small and focused on one point.
 * Avoid marketing language, jokes, and lengthy historical context unless they clarify the feature.
+
+## Language and Translation
+
+Use the language requested by the user or already used by the file being edited.
+
+* Preserve the target language of translated content unless the user asks for a different language.
+* Correct grammar, spelling, punctuation, and idiomatic phrasing in the target language.
+* Keep the translation faithful to the original technical meaning.
+* Preserve TypeScript terms, identifiers, literal values, commands, compiler options, code comments, and error text unless a correction is required.
+* Do not replace established technical terms with awkward literal translations.
+* Keep examples and Markdown structure aligned with the source content when reviewing translated files.
+* If a source and translation disagree technically, preserve the TypeScript meaning and make the smallest correction needed.
 
 ## Organization
 
@@ -134,8 +146,10 @@ Treat heading and table-of-contents consistency as a critical review requirement
 
 * Confirm every table-of-contents entry matches its corresponding heading.
 * Confirm heading text, capitalization, punctuation, and anchor generation remain compatible.
-* Check all changed headings against the table of contents at least three times.
-* Check all changed table-of-contents entries against their headings at least three times.
+* Avoid special characters in table-of-contents entries unless the matching heading requires them.
+* Keep table-of-contents entries plain and compatible with generated Markdown anchors.
+* Check all changed headings against the table of contents at least twice.
+* Check all changed table-of-contents entries against their headings at least twice.
 * Confirm renamed, added, moved, or removed sections are reflected correctly.
 * Confirm internal links still point to valid headings.
 * Do not change a heading without checking every related table-of-contents entry and internal reference.
@@ -146,6 +160,7 @@ Before finishing a review:
 
 * Confirm all spelling and typographical errors have been corrected.
 * Confirm grammar, punctuation, and capitalization are correct.
+* Confirm translated or non-English content uses the requested language consistently when applicable.
 * Confirm minor wording changes preserve the original meaning.
 * Confirm no unnecessary rewriting or expansion was introduced.
 * Confirm the heading level fits the surrounding chapter structure.
@@ -156,5 +171,6 @@ Before finishing a review:
 * Confirm Markdown formatting is valid and consistent.
 * Confirm prose is concise, direct, and free of unrelated background.
 * Confirm table-of-contents compatibility when headings were added, removed, moved, or renamed.
-* Confirm headings, table-of-contents entries, anchors, and internal links were checked three times.
+* Confirm table-of-contents entries avoid unnecessary special characters.
+* Confirm headings, table-of-contents entries, anchors, and internal links were checked twice.
 * Review the final diff and remove any change that is unnecessary or alters the original meaning.
