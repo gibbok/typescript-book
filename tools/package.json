@@ -20,7 +20,7 @@
     "@types/prettier": "^2.7.3",
     "fp-ts": "^2.16.11",
     "fs-extra": "^11.3.6",
-    "markdownlint-cli": "^0.35.0",
+    "markdownlint-cli": "^0.49.1",
     "marked": "^5.1.2",
     "prettier": "^3.8.3",
     "ts-node": "^10.9.2",
