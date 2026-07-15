@@ -2036,7 +2036,7 @@ console.log(E.C); //42
 
 ## Restringimento
 
-Il restringimento di TypeScript è il processo di perfezionamento del tipo di una variabile all'interno di un blocco condizionale. Questo è utile quando si lavora con tipi union, in cui una variabile può avere più di un tipo.
+Il restringimento di TypeScript è il processo di perfezionamento del tipo di una variabile all'interno di un blocco condizionale. Questo è utile quando si lavora con tipi di unione, in cui una variabile può avere più di un tipo.
 
 TypeScript riconosce diversi modi per restringere il tipo:
 
@@ -4560,7 +4560,7 @@ console.log(baz2); // 0
 
 ### Tipi letterali di template
 
-I tipi letterali modello consentono di manipolare i valori stringa a livello di tipo e di generare nuovi tipi stringa basati su quelli esistenti. Sono utili per creare tipi più espressivi e precisi da operazioni basate su stringhe.
+I tipi letterali di template consentono di manipolare i valori stringa a livello di tipo e di generare nuovi tipi stringa basati su quelli esistenti. Sono utili per creare tipi più espressivi e precisi da operazioni basate su stringhe.
 
 ```typescript
 type Department = 'engineering' | 'hr';
