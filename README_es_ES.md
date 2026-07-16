@@ -130,11 +130,11 @@ Hay disponible una versión en línea en:
   - [El tipo never](#el-tipo-never)
   - [Comprobación exhaustiva](#comprobación-exhaustiva)
   - [Tipos de objeto](#tipos-de-objeto)
-  - [Tipo tupla (anónima)](#tipo-tupla-anónima)
-  - [Tipo tupla con nombres (etiquetada)](#tipo-tupla-con-nombres-etiquetada)
+  - [Tipo de tupla (anónima)](#tipo-de-tupla-anónima)
+  - [Tipo de tupla con nombres (etiquetada)](#tipo-de-tupla-con-nombres-etiquetada)
   - [Tupla de longitud fija](#tupla-de-longitud-fija)
-  - [Tipo unión](#tipo-unión)
-  - [Tipos intersección](#tipos-intersección)
+  - [Tipo de unión](#tipo-de-unión)
+  - [Tipos de intersección](#tipos-de-intersección)
   - [Indexación de tipos](#indexación-de-tipos)
   - [Tipo a partir de un valor](#tipo-a-partir-de-un-valor)
   - [Tipo a partir del retorno de una función](#tipo-a-partir-del-retorno-de-una-función)
@@ -145,7 +145,7 @@ Hay disponible una versión en línea en:
   - [Tipos condicionales distributivos](#tipos-condicionales-distributivos)
   - [Inferencia de tipos con infer en tipos condicionales](#inferencia-de-tipos-con-infer-en-tipos-condicionales)
   - [Tipos condicionales predefinidos](#tipos-condicionales-predefinidos)
-  - [Tipos unión de plantilla](#tipos-unión-de-plantilla)
+  - [Tipos de unión de plantilla](#tipos-de-unión-de-plantilla)
   - [Tipo any](#tipo-any)
   - [Tipo unknown](#tipo-unknown)
   - [Tipo void](#tipo-void)
@@ -154,8 +154,8 @@ Hay disponible una versión en línea en:
     - [Sintaxis habitual](#sintaxis-habitual)
     - [Tipos básicos](#tipos-básicos)
     - [Objetos e interfaces](#objetos-e-interfaces)
-    - [Tipos unión e intersección](#tipos-unión-e-intersección)
-  - [Primitivos de tipo integrados](#primitivos-de-tipo-integrados)
+    - [Tipos de unión e intersección](#tipos-de-unión-e-intersección)
+  - [Tipos primitivos integrados](#tipos-primitivos-integrados)
   - [Objetos JS integrados habituales](#objetos-js-integrados-habituales)
   - [Sobrecargas](#sobrecargas)
   - [Combinación y extensión](#combinación-y-extensión)
@@ -233,14 +233,14 @@ Hay disponible una versión en línea en:
     - [Operador de aserción no nula](#operador-de-aserción-no-nula)
     - [Declaraciones con valores predeterminados](#declaraciones-con-valores-predeterminados)
     - [Encadenamiento opcional](#encadenamiento-opcional)
-    - [Operador de fusión nula](#operador-de-fusión-nula)
+    - [Operador de fusión de valores nulos](#operador-de-fusión-de-valores-nulos)
     - [Tipos literales de plantilla](#tipos-literales-de-plantilla)
     - [Sobrecarga de funciones](#sobrecarga-de-funciones)
     - [Tipos recursivos](#tipos-recursivos)
     - [Tipos condicionales recursivos](#tipos-condicionales-recursivos)
     - [Compatibilidad con módulos ECMAScript en Node](#compatibilidad-con-módulos-ecmascript-en-node)
     - [Funciones de aserción](#funciones-de-aserción)
-    - [Tipos tupla variádicos](#tipos-tupla-variádicos)
+    - [Tipos de tupla variádicos](#tipos-de-tupla-variádicos)
     - [Tipos envueltos](#tipos-envueltos)
     - [Covarianza y contravarianza en TypeScript](#covarianza-y-contravarianza-en-typescript)
       - [Anotaciones opcionales de varianza para parámetros de tipo](#anotaciones-opcionales-de-varianza-para-parámetros-de-tipo)
@@ -256,7 +256,7 @@ Hay disponible una versión en línea en:
 
 ## Introducción
 
-¡Te damos la bienvenida a El libro conciso de TypeScript! Esta guía te proporciona los conocimientos esenciales y las habilidades prácticas necesarias para desarrollar eficazmente con TypeScript. Descubre conceptos y técnicas fundamentales para escribir código limpio y robusto. Tanto si eres principiante como si tienes experiencia en el desarrollo, este libro sirve a la vez como guía completa y como referencia práctica para aprovechar la potencia de TypeScript en tus proyectos.
+¡Te damos la bienvenida a El libro conciso de TypeScript! Esta guía te proporciona los conocimientos esenciales y las habilidades prácticas necesarias para trabajar eficazmente con TypeScript. Descubre conceptos y técnicas fundamentales para escribir código limpio y robusto. Tanto si eres principiante como si tienes experiencia en el desarrollo, este libro sirve a la vez como guía completa y como referencia práctica para aprovechar la potencia de TypeScript en tus proyectos.
 
 Este libro trata TypeScript 7.0.
 
@@ -279,7 +279,7 @@ Lista completa de colaboradores: [https://github.com/gibbok/typescript-book/grap
 
 TypeScript es un lenguaje de programación con tipado fuerte que se basa en JavaScript. Anders Hejlsberg lo diseñó originalmente en 2012 y Microsoft lo desarrolla y mantiene actualmente como proyecto de código abierto.
 
-TypeScript se compila a JavaScript y puede ejecutarse en cualquier entorno de ejecución de JavaScript (por ejemplo, un navegador o Node.js en un servidor).
+TypeScript se compila en JavaScript y puede ejecutarse en cualquier entorno de ejecución de JavaScript (por ejemplo, un navegador o Node.js en un servidor).
 
 Admite varios paradigmas de programación, como la programación funcional, genérica, imperativa y orientada a objetos, y es un lenguaje compilado (transpilado) que se convierte a JavaScript antes de su ejecución.
 
@@ -301,7 +301,7 @@ Algunas de las ventajas de TypeScript:
 
 TypeScript se escribe en archivos `.ts` o `.tsx`, mientras que JavaScript se escribe en archivos `.js` o `.jsx`.
 
-Los archivos con la extensión `.tsx` o `.jsx` pueden contener la extensión de sintaxis de JavaScript JSX, que se utiliza en React para desarrollar interfaces de usuario.
+Los archivos con la extensión `.tsx` o `.jsx` pueden contener la extensión de sintaxis JSX de JavaScript, que se utiliza en React para desarrollar interfaces de usuario.
 
 En cuanto a la sintaxis, TypeScript es un superconjunto tipado de JavaScript (ECMAScript 2015). Todo código JavaScript es código TypeScript válido, pero lo contrario no siempre es cierto.
 
@@ -312,7 +312,7 @@ Por ejemplo, considera una función en un archivo JavaScript con la extensión `
 const sum = (a, b) => a + b;
 ```
 
-La función puede convertirse y utilizarse en TypeScript cambiando la extensión del archivo a `.ts`. Sin embargo, si la misma función se anota con tipos de TypeScript, no puede ejecutarse en ningún entorno de JavaScript sin compilarla. El siguiente código TypeScript producirá un error de sintaxis si no se compila:
+La función puede convertirse y utilizarse en TypeScript cambiando la extensión del archivo a `.ts`. Sin embargo, si la misma función se anota con tipos de TypeScript, no puede ejecutarse en ningún entorno de ejecución de JavaScript sin compilarla. El siguiente código TypeScript producirá un error de sintaxis si no se compila:
 
 <!-- skip -->
 ```typescript
@@ -356,7 +356,7 @@ Este error se produce porque TypeScript aplica estrictamente la compatibilidad d
 
 ### Generación de código de TypeScript
 
-El compilador de TypeScript tiene dos responsabilidades principales: comprobar si hay errores de tipos y compilar a JavaScript. Estos dos procesos son independientes entre sí. Los tipos no afectan a la ejecución del código en un entorno de JavaScript, ya que se eliminan por completo durante la compilación. TypeScript puede generar JavaScript incluso cuando existen errores de tipos.
+El compilador de TypeScript tiene dos responsabilidades principales: comprobar si hay errores de tipos y compilar en JavaScript. Estos dos procesos son independientes entre sí. Los tipos no afectan a la ejecución del código en un entorno de ejecución de JavaScript, ya que se eliminan por completo durante la compilación. TypeScript puede generar JavaScript incluso cuando existen errores de tipos.
 Este es un ejemplo de código TypeScript con un error de tipos:
 
 <!-- skip -->
@@ -469,7 +469,7 @@ TypeScript no afecta al rendimiento en tiempo de ejecución, ya que todos los ti
 
 ### JavaScript moderno ahora (reducción de nivel)
 
-TypeScript puede compilar código a cualquier versión publicada de JavaScript desde ECMAScript 3 (1999). Esto significa que TypeScript puede transpilar código que utiliza las características más recientes de JavaScript a versiones anteriores, un proceso conocido como reducción de nivel. Esto permite utilizar JavaScript moderno y mantener a la vez la máxima compatibilidad con entornos de ejecución antiguos.
+TypeScript puede compilar código para cualquier versión publicada de JavaScript desde ECMAScript 3 (1999). Esto significa que TypeScript puede transpilar código que utiliza las características más recientes de JavaScript a versiones anteriores, un proceso conocido como reducción de nivel. Esto permite utilizar JavaScript moderno y mantener a la vez la máxima compatibilidad con entornos de ejecución antiguos.
 
 Es importante tener en cuenta que, al transpilar a una versión anterior de JavaScript, TypeScript puede generar código que suponga una sobrecarga de rendimiento en comparación con las implementaciones nativas.
 
@@ -502,7 +502,7 @@ o
 yarn add typescript --dev
 ```
 
-Asegúrate de confirmar en el repositorio el archivo de bloqueo generado para garantizar que todos los miembros del equipo utilicen la misma versión de TypeScript.
+Asegúrate de incluir en el repositorio el archivo de bloqueo generado para garantizar que todos los miembros del equipo utilicen la misma versión de TypeScript.
 
 Para ejecutar el compilador de TypeScript, puedes utilizar los siguientes comandos:
 
@@ -568,7 +568,7 @@ Un archivo tsconfig.json sirve para configurar el compilador de TypeScript (tsc)
 
 Notas:
 
-* tsconfig.json admite comentarios aunque tenga formato json.
+* tsconfig.json admite comentarios aunque tenga formato JSON.
 * Es aconsejable utilizar este archivo de configuración en lugar de las opciones de la línea de comandos.
 
 En los siguientes enlaces encontrarás la documentación completa y su esquema:
@@ -610,7 +610,7 @@ La propiedad "moduleResolution" especifica la estrategia de resolución de módu
 
 #### esModuleInterop
 
-La propiedad "esModuleInterop" permite importaciones predeterminadas desde módulos CommonJS que no exportaron mediante la propiedad "default"; esta propiedad proporciona un adaptador para garantizar la compatibilidad del JavaScript emitido. Tras activar esta opción, podemos utilizar `import MyLibrary from "my-library"` en lugar de `import * as MyLibrary from "my-library"`.
+La propiedad "esModuleInterop" permite importaciones predeterminadas desde módulos CommonJS que no exportan mediante la propiedad "default"; esta propiedad proporciona un adaptador para garantizar la compatibilidad del JavaScript emitido. Tras activar esta opción, podemos utilizar `import MyLibrary from "my-library"` en lugar de `import * as MyLibrary from "my-library"`.
 
 "esModuleInterop" era originalmente opcional para evitar cambios incompatibles, pero desde hace tiempo es el valor predeterminado recomendado. Desactivarlo puede provocar problemas sutiles en tiempo de ejecución al utilizar CommonJS con ESM. Nota: desde TypeScript 6.0, este comportamiento de interoperabilidad más seguro está siempre activado.
 
@@ -660,7 +660,7 @@ TypeScript utiliza código auxiliar al generar código para determinadas caracte
 
 ### Consejos para migrar a TypeScript
 
-En proyectos grandes se recomienda adoptar una transición gradual en la que inicialmente coexistan el código TypeScript y JavaScript. Solo los proyectos pequeños pueden migrarse a TypeScript de una sola vez.
+En proyectos grandes se recomienda adoptar una transición gradual en la que inicialmente coexistan el código TypeScript y el código JavaScript. Solo los proyectos pequeños pueden migrarse a TypeScript de una sola vez.
 
 El primer paso de esta transición consiste en introducir TypeScript en el proceso de la cadena de compilación. Puede hacerse mediante la opción del compilador "allowJs", que permite que los archivos .ts y .tsx coexistan con los archivos JavaScript existentes. Como TypeScript recurrirá al tipo "any" para una variable cuando no pueda inferir su tipo a partir de archivos JavaScript, se recomienda desactivar "noImplicitAny" en las opciones del compilador al principio de la migración.
 
@@ -901,7 +901,7 @@ class Y {
 let x: X = new Y('y'); // Invalid
 ```
 
-La comprobación de comparación no tiene en cuenta las distintas jerarquías de herencia. Por ejemplo:
+La comprobación de compatibilidad no tiene en cuenta las distintas jerarquías de herencia. Por ejemplo:
 
 ```typescript
 class X {
@@ -1317,7 +1317,7 @@ Cuando se utilizan varias expresiones en la inferencia de tipos, TypeScript busc
 let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
 ```
 
-Si el compilador no encuentra los mejores tipos comunes, devuelve un tipo unión. Por ejemplo:
+Si el compilador no encuentra los mejores tipos comunes, devuelve un tipo de unión. Por ejemplo:
 
 ```typescript
 let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
@@ -1528,7 +1528,7 @@ function classify(x: unknown) {
 
 ## Tipos primitivos
 
-TypeScript admite 7 tipos primitivos. Un tipo de dato primitivo es un tipo que no es un objeto y no tiene métodos asociados. En TypeScript, todos los tipos primitivos son inmutables, lo que significa que sus valores no pueden cambiar una vez asignados.
+TypeScript admite 7 tipos primitivos. Un tipo de datos primitivo es un tipo que no es un objeto y no tiene métodos asociados. En TypeScript, todos los tipos primitivos son inmutables, lo que significa que sus valores no pueden cambiar una vez asignados.
 
 ### string
 
@@ -1548,7 +1548,7 @@ let sentence: string = `xxx,
 
 ### boolean
 
-El tipo de dato `boolean` de TypeScript almacena un valor binario: `true` o `false`.
+El tipo de datos `boolean` de TypeScript almacena un valor binario: `true` o `false`.
 
 ```typescript
 const isReady: boolean = true;
@@ -1556,7 +1556,7 @@ const isReady: boolean = true;
 
 ### number
 
-Un tipo de dato `number` de TypeScript se representa mediante un valor de coma flotante de 64 bits. Un tipo `number` puede representar enteros y fracciones.
+Un tipo de datos `number` de TypeScript se representa mediante un valor de coma flotante de 64 bits. Un tipo `number` puede representar enteros y fracciones.
 TypeScript también admite valores hexadecimales, binarios y octales. Por ejemplo:
 
 ```typescript
@@ -1611,7 +1611,7 @@ El tipo `null` significa que sabemos que el campo no tiene valor y, por tanto, e
 
 ### Array
 
-Un `array` es un tipo de dato que puede almacenar varios valores, sean o no del mismo tipo. Puede definirse con la siguiente sintaxis:
+Un `array` es un tipo de datos que puede almacenar varios valores, sean o no del mismo tipo. Puede definirse con la siguiente sintaxis:
 
 ```typescript
 const x: string[] = ['a', 'b'];
@@ -1638,7 +1638,7 @@ const y: readonly [string, number] = ['a', 1];
 
 ### any
 
-El tipo de dato `any` representa literalmente «cualquier» valor y es el predeterminado cuando TypeScript no puede inferir el tipo o este no se especifica.
+El tipo de datos `any` representa literalmente «cualquier» valor y es el predeterminado cuando TypeScript no puede inferir el tipo o este no se especifica.
 
 Al utilizar `any`, el compilador de TypeScript omite la comprobación de tipos, por lo que no hay seguridad de tipos cuando se utiliza `any`. En general, no utilices `any` para silenciar el compilador cuando se produzca un error; céntrate en corregirlo, ya que `any` permite incumplir contratos y perder las ventajas de la finalización automática de TypeScript.
 
@@ -1812,7 +1812,7 @@ const c = true; // Boolean literal type
 ```
 
 Los tipos literales de cadena, numéricos y booleanos se utilizan en uniones, guardas de tipo y alias de tipo.
-En el siguiente ejemplo puedes ver un alias de tipo unión. `O` consta únicamente de los valores especificados; ninguna otra cadena es válida:
+En el siguiente ejemplo puedes ver un alias de tipo de unión. `O` consta únicamente de los valores especificados; ninguna otra cadena es válida:
 
 ```typescript
 type O = 'a' | 'b' | 'c';
@@ -2031,7 +2031,7 @@ console.log(E.C); //42
 
 ## Restricción
 
-La restricción de TypeScript es el proceso de precisar el tipo de una variable dentro de un bloque condicional. Resulta útil al trabajar con tipos unión, donde una variable puede tener más de un tipo.
+La restricción de TypeScript es el proceso de precisar el tipo de una variable dentro de un bloque condicional. Resulta útil al trabajar con tipos de unión, donde una variable puede tener más de un tipo.
 
 TypeScript reconoce varias formas de restringir el tipo:
 
@@ -2222,7 +2222,7 @@ const nums = [1, null, 2].filter(x => x !== null);
 
 ## Uniones discriminadas
 
-Las uniones discriminadas de TypeScript son tipos unión que utilizan una propiedad común, denominada discriminante, para restringir el conjunto de tipos posibles.
+Las uniones discriminadas de TypeScript son tipos de unión que utilizan una propiedad común, denominada discriminante, para restringir el conjunto de tipos posibles.
 
 ```typescript
 type Square = {
@@ -2311,7 +2311,7 @@ interface User {
 }
 ```
 
-Un alias de tipo, al igual que una interfaz, define la forma de un objeto. Sin embargo, también puede crear un tipo personalizado nuevo a partir de un tipo existente o de una combinación de tipos. Esto incluye tipos unión, tipos intersección y otros tipos complejos.
+Un alias de tipo, al igual que una interfaz, define la forma de un objeto. Sin embargo, también puede crear un tipo personalizado nuevo a partir de un tipo existente o de una combinación de tipos. Esto incluye tipos de unión, tipos de intersección y otros tipos complejos.
 
 ```typescript
 type Point = {
@@ -2327,17 +2327,17 @@ const sum = (x: { a: number; b: number }) => x.a + x.b;
 console.log(sum({ a: 5, b: 1 }));
 ```
 
-## Tipo tupla (anónima)
+## Tipo de tupla (anónima)
 
-Un tipo tupla representa un array con un número fijo de elementos y sus tipos correspondientes. Impone una cantidad concreta de elementos y sus respectivos tipos en un orden fijo. Resulta útil para representar una colección de valores con tipos específicos donde la posición de cada elemento tiene un significado concreto.
+Un tipo de tupla representa un array con un número fijo de elementos y sus tipos correspondientes. Impone una cantidad concreta de elementos y sus respectivos tipos en un orden fijo. Resulta útil para representar una colección de valores con tipos específicos donde la posición de cada elemento tiene un significado concreto.
 
 ```typescript
 type Point = [number, number];
 ```
 
-## Tipo tupla con nombres (etiquetada)
+## Tipo de tupla con nombres (etiquetada)
 
-Los tipos tupla pueden incluir etiquetas o nombres opcionales para cada elemento. Estas etiquetas mejoran la legibilidad y la asistencia de las herramientas, pero no afectan a las operaciones que pueden realizarse.
+Los tipos de tupla pueden incluir etiquetas o nombres opcionales para cada elemento. Estas etiquetas mejoran la legibilidad y la asistencia de las herramientas, pero no afectan a las operaciones que pueden realizarse.
 
 ```typescript
 type T = string;
@@ -2358,9 +2358,9 @@ const x = [10, 'hello'] as const;
 x.push(2); // Error
 ```
 
-## Tipo unión
+## Tipo de unión
 
-Un tipo unión representa un valor que puede pertenecer a varios tipos. Se indica mediante el símbolo `|` entre cada tipo posible.
+Un tipo de unión representa un valor que puede pertenecer a varios tipos. Se indica mediante el símbolo `|` entre cada tipo posible.
 
 ```typescript
 let x: string | number;
@@ -2368,9 +2368,9 @@ x = 'hello'; // Valid
 x = 123; // Valid
 ```
 
-## Tipos intersección
+## Tipos de intersección
 
-Un tipo intersección representa un valor que posee todas las propiedades de dos o más tipos. Se indica mediante el símbolo `&` entre cada tipo.
+Un tipo de intersección representa un valor que posee todas las propiedades de dos o más tipos. Se indica mediante el símbolo `&` entre cada tipo.
 
 ```typescript
 type X = {
@@ -2525,9 +2525,9 @@ En TypeScript, los tipos condicionales predefinidos son tipos integrados que pro
 
 `Readonly<Type>`: convierte todas las propiedades de Type en propiedades de solo lectura.
 
-## Tipos unión de plantilla
+## Tipos de unión de plantilla
 
-Los tipos unión de plantilla pueden utilizarse para combinar y manipular texto dentro del sistema de tipos. Por ejemplo:
+Los tipos de unión de plantilla pueden utilizarse para combinar y manipular texto dentro del sistema de tipos. Por ejemplo:
 
 ```typescript
 type Status = 'active' | 'inactive';
@@ -2586,7 +2586,7 @@ const sayHello = (): void => {
 
 ## Tipo never
 
-El tipo `never` representa valores que nunca se producen. Se utiliza para indicar funciones o expresiones que nunca retornan o que lanzan un error.
+El tipo `never` representa valores que nunca se producen. Se utiliza para indicar funciones o expresiones que nunca devuelven un valor o que lanzan un error.
 
 Por ejemplo, un bucle infinito:
 
@@ -2693,7 +2693,7 @@ let myTuple: [string, number] = ['a', 123]; // tuple
 const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ```
 
-### Tipos unión e intersección
+### Tipos de unión e intersección
 
 ```typescript
 type MyType = string | number; // Union type
@@ -2706,9 +2706,9 @@ type CombinedType = TypeA & TypeB; // Intersection type
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
 ```
 
-## Primitivos de tipo integrados
+## Tipos primitivos integrados
 
-TypeScript incluye varios primitivos de tipo que pueden utilizarse para definir variables, parámetros de funciones y tipos de retorno:
+TypeScript incluye varios tipos primitivos integrados que pueden utilizarse para definir variables, parámetros de funciones y tipos de retorno:
 
 * `number`: representa valores numéricos, incluidos enteros y números de coma flotante.
 * `string`: representa datos de texto.
@@ -2895,7 +2895,7 @@ const c: B = {
 };
 ```
 
-Tipos unión e intersección:
+Tipos de unión e intersección:
 
 Los tipos son más flexibles al definir uniones e intersecciones. Con `type` pueden crearse fácilmente uniones mediante `|` e intersecciones mediante `&`. Las interfaces también pueden representar uniones indirectamente, pero no disponen de compatibilidad integrada con las intersecciones.
 
@@ -3239,9 +3239,9 @@ console.log(container2.getItem()); // World
 
 ### Decoradores
 
-Los decoradores proporcionan un mecanismo para añadir metadatos, modificar comportamientos, validar o ampliar la funcionalidad del elemento de destino. Son funciones que se ejecutan en tiempo de ejecución y pueden aplicarse varios a una declaración.
+Los decoradores proporcionan un mecanismo para añadir metadatos, modificar comportamientos, validar o ampliar la funcionalidad del elemento de destino. Son funciones que se ejecutan en tiempo de ejecución y pueden aplicarse varios decoradores a una declaración.
 
-Los decoradores son características experimentales, y los siguientes ejemplos solo son compatibles con TypeScript 5 o superior mediante ES6.
+Los decoradores son una característica experimental, y los siguientes ejemplos solo son compatibles con TypeScript 5 o superior con ES6.
 
 En versiones anteriores a TypeScript 5 deben activarse mediante la propiedad `experimentalDecorators` de `tsconfig.json` o con `--experimentalDecorators` en la línea de comandos (aunque el siguiente ejemplo no funcionará).
 
@@ -3482,7 +3482,7 @@ const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
 
-TypeScript no admite herencia múltiple en el sentido tradicional, sino la herencia desde una única clase base.
+TypeScript no admite herencia múltiple en el sentido tradicional, sino que permite heredar de una única clase base.
 TypeScript admite varias interfaces. Una interfaz puede definir un contrato para la estructura de un objeto y una clase puede implementar varias interfaces, lo que le permite heredar comportamiento y estructura de varias fuentes.
 
 ```typescript
@@ -3624,7 +3624,7 @@ const len = getLen([1, 2, 3]);
 
 ### Clases genéricas
 
-Los genéricos también pueden aplicarse a clases para que trabajen con varios tipos mediante parámetros de tipo. Esto permite crear definiciones de clase reutilizables que operan con datos distintos manteniendo la seguridad de tipos.
+Los genéricos también pueden aplicarse a clases para que trabajen con varios tipos mediante parámetros de tipo. Esto permite crear definiciones de clase reutilizables que operan con tipos de datos distintos manteniendo la seguridad de tipos.
 
 ```typescript
 class Container<T> {
@@ -3744,7 +3744,7 @@ const a: MyNamespace.MyInterface1 = {
 
 ## Símbolos
 
-Los símbolos son un tipo de dato primitivo que representa un valor inmutable cuya unicidad global se garantiza durante toda la vida del programa.
+Los símbolos son un tipo de datos primitivo que representa un valor inmutable cuya unicidad global se garantiza durante toda la vida del programa.
 
 Pueden utilizarse como claves de propiedades de objetos y permiten crear propiedades no enumerables.
 
@@ -3796,7 +3796,7 @@ Activar opciones del compilador; en el siguiente ejemplo, el modo estricto:
 
 Es posible crear tipos nuevos componiendo, manipulando o transformando tipos existentes.
 
-Tipos intersección (`&`):
+Tipos de intersección (`&`):
 
 Permiten combinar varios tipos en uno solo:
 
@@ -3807,7 +3807,7 @@ type C = A & B; // Intersection of A and B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
-Tipos unión (`|`):
+Tipos de unión (`|`):
 
 Permiten definir un tipo que puede ser uno de varios:
 
@@ -4542,9 +4542,9 @@ const person: Person = {
 console.log(person.address?.city); // undefined
 ```
 
-### Operador de fusión nula
+### Operador de fusión de valores nulos
 
-El operador de fusión nula `??` devuelve el valor del lado derecho si el izquierdo es `null` o `undefined`; en caso contrario, devuelve el del lado izquierdo.
+El operador de fusión de valores nulos `??` devuelve el valor del lado derecho si el izquierdo es `null` o `undefined`; en caso contrario, devuelve el del lado izquierdo.
 
 ```typescript
 const foo = null ?? 'foo';
@@ -4657,7 +4657,7 @@ TypeScript también admite declaraciones de tipos en archivos .d.ts. Estos propo
 
 ### Funciones de aserción
 
-En TypeScript, las funciones de aserción indican la verificación de una condición concreta a partir de su valor de retorno. En su forma más sencilla, examinan un predicado y generan un error cuando se evalúa como falso.
+En TypeScript, las funciones de aserción permiten verificar una condición concreta a partir de su valor de retorno. En su forma más sencilla, examinan un predicado y generan un error cuando se evalúa como falso.
 
 ```typescript
 function isNumber(value: unknown): asserts value is number {
@@ -4687,11 +4687,11 @@ Ejemplo de guarda de tipo:
 const isNumber = (value: unknown): value is number => typeof value === 'number';
 ```
 
-### Tipos tupla variádicos
+### Tipos de tupla variádicos
 
-Los tipos tupla variádicos se introdujeron en TypeScript 4.0. Empecemos recordando qué es una tupla:
+Los tipos de tupla variádicos se introdujeron en TypeScript 4.0. Empecemos recordando qué es una tupla:
 
-Un tipo tupla es un array de longitud definida en el que se conoce el tipo de cada elemento:
+Un tipo de tupla es un array de longitud definida en el que se conoce el tipo de cada elemento:
 
 ```typescript
 type Student = [string, number];
@@ -4723,7 +4723,7 @@ type B = Bar<['a', 'b'], [boolean]>; // ["a", "b", boolean, boolean]
 
 Con las nuevas tuplas variádicas podemos utilizar:
 
-* Las expansiones de la sintaxis de tipos tupla ahora pueden ser genéricas, por lo que podemos representar operaciones de orden superior sobre tuplas y arrays aunque no conozcamos los tipos reales.
+* Las expansiones de la sintaxis de tipos de tupla ahora pueden ser genéricas, por lo que podemos representar operaciones de orden superior sobre tuplas y arrays aunque no conozcamos los tipos reales.
 * Los elementos rest pueden aparecer en cualquier posición de una tupla.
 
 Ejemplo:
@@ -4973,7 +4973,7 @@ export type { T } from './mod';
 
 ### Declaración using y gestión explícita de recursos
 
-Una declaración `using` es un enlace inmutable con ámbito de bloque, similar a `const`, que gestiona recursos desechables. Al inicializarse con un valor, se registra su método `Symbol.dispose`, que se ejecuta al salir del bloque contenedor.
+Una declaración `using` es una vinculación inmutable con ámbito de bloque, similar a `const`, que gestiona recursos desechables. Al inicializarse con un valor, se registra su método `Symbol.dispose`, que se ejecuta al salir del bloque contenedor.
 
 Se basa en la gestión de recursos de ECMAScript, útil para realizar tareas de limpieza esenciales después de crear objetos, como cerrar conexiones, eliminar archivos y liberar memoria.
 
@@ -5116,7 +5116,7 @@ Ejemplo:
 import config from './config.json' with { type: 'json' };
 ```
 
-con importación dinámica:
+Con importación dinámica:
 
 <!-- skip -->
 ```typescript
@@ -5125,7 +5125,7 @@ const config = import('./config.json', { with: { type: 'json' } });
 
 ### Comprobación de la sintaxis de expresiones regulares
 
-Desde TypeScript 5.5.4 se comprueban durante la compilación errores habituales en literales de expresiones regulares, como sintaxis no válida, referencias inversas incorrectas o características incompatibles con la versión de JavaScript de destino. Esto permite detectar errores antes, pero no comprueba las cadenas new RegExp("...").
+Desde TypeScript 5.5.4 se comprueban durante la compilación errores habituales en literales de expresiones regulares, como sintaxis no válida, referencias inversas incorrectas o características incompatibles con la versión de JavaScript de destino. Esto permite detectar errores antes, pero no comprueba las cadenas pasadas a new RegExp("...").
 
 <!-- skip -->
 ```typescript
