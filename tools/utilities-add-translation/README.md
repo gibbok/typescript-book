@@ -59,7 +59,7 @@ python3 concatenate_language_files.py es_ES ../../spa
 python3 concatenate_language_files.py fr_FR ../../fra
 ```
 
-**Output:** Creates `README-it_IT.md`, `README-es_ES.md`, etc. containing all parts concatenated.
+**Output:** Creates `README-it_IT.md`, `README_es_ES.md`, etc. containing all parts concatenated.
 
 ---
 
