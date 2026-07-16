@@ -227,7 +227,7 @@ Hay disponible una versión en línea en:
     - [Módulos ES6](#módulos-es6)
     - [Operador de exponenciación de ES7](#operador-de-exponenciación-de-es7)
     - [La sentencia for-await-of](#la-sentencia-for-await-of)
-    - [Nueva metapropiedad target](#nueva-metapropiedad-target)
+    - [Metapropiedad new.target](#metapropiedad-newtarget)
     - [Expresiones de importación dinámica](#expresiones-de-importación-dinámica)
     - ["tsc –watch"](#tsc-watch)
     - [Operador de aserción no nula](#operador-de-aserción-no-nula)
@@ -241,7 +241,7 @@ Hay disponible una versión en línea en:
     - [Compatibilidad con módulos ECMAScript en Node](#compatibilidad-con-módulos-ecmascript-en-node)
     - [Funciones de aserción](#funciones-de-aserción)
     - [Tipos de tupla variádicos](#tipos-de-tupla-variádicos)
-    - [Tipos envueltos](#tipos-envueltos)
+    - [Tipos envoltorio](#tipos-envoltorio)
     - [Covarianza y contravarianza en TypeScript](#covarianza-y-contravarianza-en-typescript)
       - [Anotaciones opcionales de varianza para parámetros de tipo](#anotaciones-opcionales-de-varianza-para-parámetros-de-tipo)
     - [Firmas de índice con patrones de cadenas de plantilla](#firmas-de-índice-con-patrones-de-cadenas-de-plantilla)
@@ -2050,7 +2050,7 @@ const fn = (x: number | string) => {
 
 ### Restricción por veracidad
 
-La restricción por veracidad de TypeScript comprueba si una variable es verdadera o falsa para restringir su tipo en consecuencia.
+La restricción por veracidad de TypeScript comprueba si una variable se evalúa como verdadera o falsa para restringir su tipo en consecuencia.
 
 ```typescript
 const toUpperCase = (name: string | null) => {
@@ -2411,7 +2411,7 @@ const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immuta
 
 ## Tipo a partir del retorno de una función
 
-El tipo a partir del retorno de una función permite inferir automáticamente su tipo de retorno según la implementación, sin anotaciones de tipo explícitas.
+El tipo a partir del retorno de una función permite inferir automáticamente el tipo de retorno según su implementación. De este modo, TypeScript puede determinar el tipo del valor devuelto sin anotaciones de tipo explícitas.
 
 ```typescript
 const add = (x: number, y: number) => x + y; // TypeScript can infer that the return type of the function is a number
@@ -4420,7 +4420,7 @@ Ejemplo de configuración:
 
 ### Operador de exponenciación de ES7
 
-El operador de exponenciación (`**`) calcula el valor obtenido al elevar el primer operando a la potencia del segundo. Funciona de forma similar a `Math.pow()`, pero también acepta BigInt como operandos.
+El operador de exponenciación (`**`) calcula el valor obtenido al elevar el primer operando a la potencia del segundo. Funciona de forma similar a `Math.pow()`, pero también acepta valores `bigint` como operandos.
 TypeScript admite completamente este operador al establecer `target` en `es2016` o una versión superior en tsconfig.json.
 
 ```typescript
@@ -4445,7 +4445,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 })();
 ```
 
-### Nueva metapropiedad target
+### Metapropiedad new.target
 
 La metapropiedad `new.target` permite determinar si una función o un constructor se invocó mediante el operador new. Así se puede detectar si un objeto se creó como resultado de una llamada a un constructor.
 
@@ -4653,7 +4653,7 @@ Node.js admite dos extensiones para módulos: `.mjs` para módulos ES y `.cjs` p
 
 Para utilizar módulos ES puedes establecer la propiedad `type` en "module" en package.json. Esto indica a Node.js que trate el proyecto como un proyecto de módulos ES.
 
-TypeScript también admite declaraciones de tipos en archivos .d.ts. Estos archivos proporcionan información de tipos para bibliotecas o módulos y permiten utilizarlos con la comprobación de tipos y la finalización automática de TypeScript.
+TypeScript también admite declaraciones de tipos en archivos `.d.ts`. Estos archivos proporcionan información de tipos para bibliotecas o módulos escritos en TypeScript y permiten que otros desarrolladores los utilicen con las funciones de comprobación de tipos y finalización automática de TypeScript.
 
 ### Funciones de aserción
 
@@ -4741,9 +4741,9 @@ function concat<T extends Items, U extends Items>(
 concat([1, 2, 3], ['4', '5', '6']); // [1, 2, 3, "4", "5", "6"]
 ```
 
-### Tipos envueltos
+### Tipos envoltorio
 
-Los tipos envueltos son objetos contenedores que representan tipos primitivos como objetos. Proporcionan funcionalidad y métodos adicionales que no están disponibles directamente en los valores primitivos.
+Los tipos envoltorio son objetos contenedores que representan tipos primitivos como objetos. Proporcionan funcionalidad y métodos adicionales que no están disponibles directamente en los valores primitivos.
 
 Al acceder a un método como `charAt` o `normalize` sobre un primitivo `string`, JavaScript lo envuelve en un objeto `String`, llama al método y después descarta el objeto.
 
@@ -4766,7 +4766,7 @@ TypeScript representa esta diferencia proporcionando tipos distintos para los pr
 * symbol => Symbol
 * bigint => BigInt
 
-Los tipos envueltos no suelen ser necesarios. Evítalos y utiliza los tipos primitivos; por ejemplo, `string` en lugar de `String`.
+Los tipos envoltorio no suelen ser necesarios. Evítalos y utiliza los tipos primitivos; por ejemplo, `string` en lugar de `String`.
 
 ### Covarianza y contravarianza en TypeScript
 
