@@ -18,3 +18,5 @@ This book has been translated into several languages, including:
 
 [Bulgarian](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
+[Spanish](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+

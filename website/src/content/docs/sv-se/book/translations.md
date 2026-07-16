@@ -18,3 +18,5 @@ Denna bok har översatts till flera språkversioner, inklusive:
 
 [Bulgariska](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
+[Spanska](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+

@@ -26,6 +26,8 @@ Este libro se ha traducido a varios idiomas, entre ellos:
 
 [Búlgaro](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
+[Español](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
 ## Descargas y sitio web
 
 También puedes descargar la versión EPUB:
