@@ -16,3 +16,5 @@ sidebar:
 
 [瑞典语](https://github.com/gibbok/typescript-book/blob/main/README-sv_SE.md)
 
+[西班牙语](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+

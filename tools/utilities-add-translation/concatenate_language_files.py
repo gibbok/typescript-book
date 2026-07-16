@@ -6,7 +6,7 @@ from pathlib import Path
 def concatenate_language_files(directory, language_ext):
     """
     Find all files ending with '{language_ext}.md', sort them alphabetically,
-    and concatenate them into README-{iso_code}.md
+    and concatenate them into the README file for that locale.
     """
     # Convert to Path object for easier handling
     dir_path = Path(directory)
@@ -33,7 +33,8 @@ def concatenate_language_files(directory, language_ext):
     
     # Use the provided language extension as the ISO code
     iso_code = language_ext
-    output_file = dir_path / f'README-{iso_code}.md'
+    output_filename = 'README_es_ES.md' if iso_code == 'es_ES' else f'README-{iso_code}.md'
+    output_file = dir_path / output_filename
     
     # Concatenate all files
     try:

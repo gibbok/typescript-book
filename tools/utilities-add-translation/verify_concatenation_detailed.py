@@ -26,8 +26,8 @@ def verify_concatenation_detailed(directory, language_ext):
         'ZH': 'zh_CN'
     }
     
-    iso_code = lang_map.get(language_ext, language_ext.lower())
-    concatenated_filename = f'README-{iso_code}.md'
+    iso_code = lang_map.get(language_ext.upper(), language_ext)
+    concatenated_filename = 'README_es_ES.md' if iso_code == 'es_ES' else f'README-{iso_code}.md'
     
     # Find all files ending with '{language_ext}.md' except the concatenated file
     lang_files = [f for f in dir_path.glob(f'*{language_ext}.md') if f.name != concatenated_filename]

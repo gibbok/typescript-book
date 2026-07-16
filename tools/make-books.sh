@@ -10,6 +10,7 @@ INPUT_IT="README-it_IT"
 INPUT_BR="README-pt_BR"
 INPUT_SE="README-sv_SE"
 INPUT_BG="README-bg_BG"
+INPUT_ES="README_es_ES"
 
 OUTPUT_EN="typescript-book"
 OUTPUT_CN="typescript-book-zh_CN"
@@ -17,6 +18,7 @@ OUTPUT_IT="typescript-book-it_IT"
 OUTPUT_BR="typescript-book-pt_BR"
 OUTPUT_SE="typescript-book-sv_SE"
 OUTPUT_BG="typescript-book-bg_BG"
+OUTPUT_ES="typescript-book-es_ES"
 
 AUTHOR="Simone Poggiali"
 TITLE_EN="The Concise TypeScript Book"
@@ -25,12 +27,14 @@ TITLE_IT="The Concise TypeScript Book"
 TITLE_BR="The Concise TypeScript Book"
 TITLE_SE="The Concise TypeScript Book"
 TITLE_BG="The Concise TypeScript Book"
+TITLE_ES="El libro conciso de TypeScript"
 LANG_EN="en-US"
 LANG_CN="zh-CN"
 LANG_IT="it-IT"
 LANG_BR="pt-BR"
 LANG_SE="sv-SE"
 LANG_BG="bg-BG"
+LANG_ES="es-ES"
 
 cd ../
 
@@ -63,6 +67,7 @@ pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/
 pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_BR.epub --metadata title="$TITLE_BR" --metadata author="$AUTHOR" --metadata lang="$LANG_BR" -s $INPUT_BR.md
 pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_SE.epub --metadata title="$TITLE_SE" --metadata author="$AUTHOR" --metadata lang="$LANG_SE" -s $INPUT_SE.md
 pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_BG.epub --metadata title="$TITLE_BG" --metadata author="$AUTHOR" --metadata lang="$LANG_BG" -s $INPUT_BG.md
+pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_ES.epub --metadata title="$TITLE_ES" --metadata author="$AUTHOR" --metadata lang="$LANG_ES" -s $INPUT_ES.md
 
 # Validate eBooks
 epubcheck $DIR_DOWNLOADS/$OUTPUT_EN.epub
@@ -71,6 +76,7 @@ epubcheck $DIR_DOWNLOADS/$OUTPUT_IT.epub
 epubcheck $DIR_DOWNLOADS/$OUTPUT_BR.epub
 epubcheck $DIR_DOWNLOADS/$OUTPUT_SE.epub
 epubcheck $DIR_DOWNLOADS/$OUTPUT_BG.epub
+epubcheck $DIR_DOWNLOADS/$OUTPUT_ES.epub
 
 # Generate PDFs
 ebook-convert $DIR_DOWNLOADS/$OUTPUT_EN.epub $DIR_DOWNLOADS/$OUTPUT_EN.pdf --pdf-page-numbers
@@ -79,5 +85,6 @@ ebook-convert $DIR_DOWNLOADS/$OUTPUT_IT.epub $DIR_DOWNLOADS/$OUTPUT_IT.pdf --pdf
 ebook-convert $DIR_DOWNLOADS/$OUTPUT_BR.epub $DIR_DOWNLOADS/$OUTPUT_BR.pdf --pdf-page-numbers
 ebook-convert $DIR_DOWNLOADS/$OUTPUT_SE.epub $DIR_DOWNLOADS/$OUTPUT_SE.pdf --pdf-page-numbers
 ebook-convert $DIR_DOWNLOADS/$OUTPUT_BG.epub $DIR_DOWNLOADS/$OUTPUT_BG.pdf --pdf-page-numbers
+ebook-convert $DIR_DOWNLOADS/$OUTPUT_ES.epub $DIR_DOWNLOADS/$OUTPUT_ES.pdf --pdf-page-numbers
 
 echo "Books were created. Please commit!"

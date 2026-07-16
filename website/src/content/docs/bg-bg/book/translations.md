@@ -14,3 +14,5 @@ sidebar:
 
 [португалски (Бразилия)](https://github.com/gibbok/typescript-book/blob/main/README-pt_BR.md)
 
+[испански](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+

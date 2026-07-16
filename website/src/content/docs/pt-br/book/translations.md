@@ -16,3 +16,5 @@ Este livro foi traduzido para vários idiomas, incluindo:
 
 [Sueco](https://github.com/gibbok/typescript-book/blob/main/README-sv_SE.md)
 
+[Espanhol](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
