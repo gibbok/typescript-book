@@ -158,7 +158,11 @@ gtag('config', 'G-SR2LV8LB90');
         "bg-bg": {
           label: "Български",
           lang: "bg-BG"
-        }
+        },
+        'es-es': {
+          label: 'Español',
+          lang: 'es-ES',
+        },
       },
       sidebar: [
         {
