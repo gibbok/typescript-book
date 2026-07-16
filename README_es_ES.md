@@ -6,7 +6,7 @@ Este libro es completamente gratuito y de código abierto.
 
 Creo que la formación técnica de alta calidad debe estar al alcance de todo el mundo, por lo que mantengo este libro gratuito y abierto.
 
-Si el libro te ha ayudado a corregir un error, comprender un concepto complicado o avanzar en tu carrera profesional, considera la posibilidad de apoyar mi trabajo pagando lo que quieras (precio sugerido: 15 USD) o invitándome a un café. Tu apoyo me ayuda a mantener el contenido actualizado y ampliarlo con nuevos ejemplos y explicaciones más detalladas.
+Si el libro te ha ayudado a corregir un error, comprender un concepto complicado o avanzar en tu carrera profesional, considera la posibilidad de apoyar mi trabajo pagando lo que quieras (precio sugerido: 15 USD) o invitándome a un café. Tu apoyo me ayuda a mantener el contenido actualizado y a ampliarlo con nuevos ejemplos y explicaciones más detalladas.
 
 [![Buy Me a Coffee](https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/simonepoggiali)
 
@@ -262,7 +262,7 @@ Este libro trata TypeScript 7.0.
 
 ## Sobre el autor
 
-Simone Poggiali es un Staff Engineer experimentado y apasionado por escribir código de calidad profesional desde la década de 1990. A lo largo de su carrera internacional, ha contribuido a numerosos proyectos para una amplia variedad de clientes, desde startups hasta grandes organizaciones. Empresas destacadas como HelloFresh, Siemens, O2, Leroy Merlin y Snowplow se han beneficiado de su experiencia y dedicación.
+Simone Poggiali es un Staff Engineer con experiencia y pasión por escribir código de calidad profesional desde la década de 1990. A lo largo de su carrera internacional, ha contribuido a numerosos proyectos para una amplia variedad de clientes, desde startups hasta grandes organizaciones. Empresas destacadas como HelloFresh, Siemens, O2, Leroy Merlin y Snowplow se han beneficiado de su experiencia y dedicación.
 
 Puedes contactar con Simone Poggiali en las siguientes plataformas:
 
@@ -365,7 +365,7 @@ const add = (a: number, b: number): number => a + b;
 const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
 ```
 
-Sin embargo, aún puede producir una salida JavaScript ejecutable:
+Sin embargo, aún puede producir una salida de JavaScript ejecutable:
 
 <!-- skip -->
 ```typescript
@@ -1173,7 +1173,7 @@ Conviene señalar que TypeScript no ejecuta la comprobación de propiedades adic
 
 #### Declaraciones de ambiente
 
-Las declaraciones de ambiente son archivos que describen tipos para código JavaScript y tienen el formato de nombre `.d.ts.`. Normalmente se importan y utilizan para anotar bibliotecas JavaScript existentes o añadir tipos a archivos JS existentes del proyecto.
+Las declaraciones de ambiente son archivos que describen tipos para código JavaScript y cuyos nombres tienen el formato `.d.ts`. Normalmente se importan y utilizan para anotar bibliotecas JavaScript existentes o añadir tipos a archivos JS existentes del proyecto.
 
 Los tipos de muchas bibliotecas habituales pueden encontrarse en:
 [https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
@@ -1580,7 +1580,7 @@ const y: bigint = 9007199254740991n;
 Notas:
 
 * Los valores `bigint` no pueden mezclarse con `number` ni utilizarse con el objeto integrado `Math`; deben convertirse al mismo tipo.
-* Los valores `bigint` solo están disponibles si la configuración target es ES2020 o superior.
+* Los valores `bigint` solo están disponibles si la configuración de destino es ES2020 o superior.
 
 ### Symbol
 
@@ -1607,7 +1607,7 @@ Los tipos `null` y `undefined` representan la ausencia de un valor.
 
 El tipo `undefined` significa que el valor no se ha asignado o inicializado, o indica una ausencia involuntaria de valor.
 
-El tipo `null` significa que sabemos que el campo no tiene valor y, por tanto, este no está disponible; indica una ausencia intencionada de valor.
+El tipo `null` significa que sabemos que el campo no tiene valor y, por tanto, el valor no está disponible; indica una ausencia intencionada.
 
 ### Array
 
@@ -1937,7 +1937,7 @@ console.log('EN' /* Language.English */);
 ```
 
 Notas:
-Los enums const tienen valores codificados directamente y eliminan el enum, lo que puede resultar más eficiente en bibliotecas autocontenidas, aunque por lo general no es deseable. Además, los enums const no pueden tener miembros calculados.
+Los enums constantes tienen valores codificados directamente y eliminan el enum, lo que puede resultar más eficiente en bibliotecas autocontenidas, aunque por lo general no es deseable. Además, los enums constantes no pueden tener miembros calculados.
 
 ### Mapeo inverso
 
@@ -3241,7 +3241,7 @@ console.log(container2.getItem()); // World
 
 Los decoradores proporcionan un mecanismo para añadir metadatos, modificar comportamientos, validar o ampliar la funcionalidad del elemento de destino. Son funciones que se ejecutan en tiempo de ejecución y pueden aplicarse varios decoradores a una declaración.
 
-Los decoradores son una característica experimental, y los siguientes ejemplos solo son compatibles con TypeScript 5 o superior con ES6.
+Los decoradores son una característica experimental y los siguientes ejemplos solo son compatibles con TypeScript 5 o superior con ES6.
 
 En versiones anteriores a TypeScript 5 deben activarse mediante la propiedad `experimentalDecorators` de `tsconfig.json` o con `--experimentalDecorators` en la línea de comandos (aunque el siguiente ejemplo no funcionará).
 
@@ -5016,7 +5016,7 @@ console.log(1);
 console.log(3);
 ```
 
-El código registrará:
+El código muestra:
 
 ```shell
 1
@@ -5034,7 +5034,7 @@ interface Disposable {
 }
 ```
 
-Las declaraciones `using` registran las operaciones de eliminación en una pila para garantizar que los recursos se desechen en orden inverso al de su declaración:
+Las declaraciones `using` registran las operaciones de liberación en una pila para garantizar que los recursos se liberen en orden inverso al de su declaración:
 
 <!-- skip -->
 ```typescript
@@ -5045,7 +5045,7 @@ Las declaraciones `using` registran las operaciones de eliminación en una pila 
 } // disposes `C`, then `B`, then `A`.
 ```
 
-Se garantiza que los recursos se desechen aunque el código posterior o las excepciones interrumpan la ejecución. La eliminación puede lanzar una excepción y ocultar otra. Para conservar información sobre los errores suprimidos se introduce la excepción nativa `SuppressedError`.
+Se garantiza que los recursos se liberen aunque el código posterior o las excepciones interrumpan la ejecución. La liberación puede lanzar una excepción y ocultar otra. Para conservar información sobre los errores suprimidos se introduce la excepción nativa `SuppressedError`.
 
 #### Declaración await using
 
@@ -5095,7 +5095,7 @@ async function doWork() {
 doWork();
 ```
 
-El código registra:
+El código muestra:
 
 ```shell
 Doing some work...
