@@ -680,7 +680,7 @@ yarn add --dev @types/package-name
 
 El cuarto paso consiste en migrar módulo por módulo con un enfoque ascendente, siguiendo el grafo de dependencias y comenzando por las hojas. La idea es empezar convirtiendo los módulos que no dependen de otros. Para visualizar los grafos de dependencias, puedes utilizar la herramienta "madge".
 
-Las funciones auxiliares y el código relacionado con API o especificaciones externas son buenos módulos candidatos para estas conversiones iniciales. Es posible generar automáticamente definiciones de tipos de TypeScript a partir de contratos de Swagger o esquemas de GraphQL o JSON e incluirlas en el proyecto.
+Las funciones auxiliares y el código relacionado con API o especificaciones externas son buenos candidatos para estas conversiones iniciales. Es posible generar automáticamente definiciones de tipos de TypeScript a partir de contratos de Swagger o esquemas de GraphQL o JSON e incluirlas en el proyecto.
 
 Cuando no haya especificaciones ni esquemas oficiales disponibles, puedes generar tipos a partir de datos sin procesar, como el JSON devuelto por un servidor. Sin embargo, se recomienda generar los tipos a partir de especificaciones y no de datos para evitar omitir casos límite.
 
@@ -1579,7 +1579,7 @@ const y: bigint = 9007199254740991n;
 
 Notas:
 
-* Los valores `bigint` no pueden mezclarse con `number` ni utilizarse con el objeto integrado `Math`; deben convertirse al mismo tipo.
+* Los valores `bigint` no pueden mezclarse con `number`; para operar juntos, ambos valores deben convertirse al mismo tipo. Tampoco pueden utilizarse con el objeto integrado `Math`.
 * Los valores `bigint` solo están disponibles si la configuración de destino es ES2020 o superior.
 
 ### Symbol
@@ -1936,7 +1936,7 @@ Se compilará como:
 console.log('EN' /* Language.English */);
 ```
 
-Notas:
+Nota:
 Los enums constantes tienen valores codificados directamente y eliminan el enum, lo que puede resultar más eficiente en bibliotecas autocontenidas, aunque por lo general no es deseable. Además, los enums constantes no pueden tener miembros calculados.
 
 ### Mapeo inverso
@@ -1993,7 +1993,7 @@ Un enum de ambiente de TypeScript se define en un archivo de declaración (*.d.t
 
 ### Miembros calculados y constantes
 
-En TypeScript, un miembro calculado de un enum tiene un valor calculado en tiempo de ejecución, mientras que el valor de un miembro constante se establece durante la compilación y no puede cambiar en tiempo de ejecución. Los miembros calculados se permiten en enums normales y los constantes tanto en enums normales como const.
+En TypeScript, un miembro calculado de un enum tiene un valor calculado en tiempo de ejecución, mientras que el valor de un miembro constante se establece durante la compilación y no puede cambiar en tiempo de ejecución. Los miembros calculados se permiten en enums normales, mientras que los miembros constantes se permiten tanto en enums normales como en enums constantes.
 
 ```typescript
 // Constant members
@@ -4447,7 +4447,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 
 ### Nueva metapropiedad target
 
-La metapropiedad `new.target` permite determinar si una función o constructor se invocó mediante el operador new. Permite detectar si un objeto se creó como resultado de una llamada a un constructor.
+La metapropiedad `new.target` permite determinar si una función o un constructor se invocó mediante el operador new. Así se puede detectar si un objeto se creó como resultado de una llamada a un constructor.
 
 ```typescript
 class Parent {
@@ -4568,7 +4568,7 @@ type Id = `${Department}-${Language}-id`; // "engineering-english-id" | "enginee
 
 ### Sobrecarga de funciones
 
-La sobrecarga de funciones permite definir varias firmas para un mismo nombre de función, cada una con distintos tipos de parámetros y retorno.
+La sobrecarga de funciones permite definir varias firmas para un mismo nombre de función, cada una con distintos tipos de parámetros y de retorno.
 Al llamar a una función sobrecargada, TypeScript utiliza los argumentos proporcionados para determinar la firma correcta:
 
 ```typescript
@@ -4653,7 +4653,7 @@ Node.js admite dos extensiones para módulos: `.mjs` para módulos ES y `.cjs` p
 
 Para utilizar módulos ES puedes establecer la propiedad `type` en "module" en package.json. Esto indica a Node.js que trate el proyecto como un proyecto de módulos ES.
 
-TypeScript también admite declaraciones de tipos en archivos .d.ts. Estos proporcionan información de tipos para bibliotecas o módulos y permiten utilizarlos con la comprobación de tipos y la finalización automática de TypeScript.
+TypeScript también admite declaraciones de tipos en archivos .d.ts. Estos archivos proporcionan información de tipos para bibliotecas o módulos y permiten utilizarlos con la comprobación de tipos y la finalización automática de TypeScript.
 
 ### Funciones de aserción
 
@@ -4789,7 +4789,7 @@ Ejemplo: imagina un espacio para todos los animales y otro exclusivamente para p
 
 * **Covarianza**:  
   Puedes utilizar un «espacio de perros» donde se espera un «espacio de animales», porque todos los perros son animales.  
-  No puedes utilizar un «espacio de animales» donde se espera uno de perros, porque podría contener otros animales.
+  No puedes utilizar un «espacio de animales» donde se espera un «espacio de perros», porque podría contener otros animales.
 
 * **Contravarianza** (en términos de funciones):  
   Si algo puede gestionar **cualquier animal**, puedes utilizarlo donde se espera algo que gestione **solo perros**.  
