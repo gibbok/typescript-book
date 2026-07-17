@@ -1,12 +1,12 @@
 ---
-title: El libro conciso de TypeScript
+title: The Concise TypeScript Book
 sidebar:
   order: 1
-  label: 1. El libro conciso de TypeScript
+  label: 1. The Concise TypeScript Book
 ---
 
 
-El libro conciso de TypeScript ofrece una visión general completa y breve de las capacidades de TypeScript. Incluye explicaciones claras que abarcan todos los aspectos de la versión más reciente del lenguaje, desde su potente sistema de tipos hasta las características avanzadas. Tanto si eres principiante como si tienes experiencia en el desarrollo, este libro es un recurso de gran valor para mejorar tu comprensión y dominio de TypeScript.
+The Concise TypeScript Book ofrece una visión general completa y breve de las capacidades de TypeScript. Incluye explicaciones claras que abarcan todos los aspectos de la versión más reciente del lenguaje, desde su potente sistema de tipos hasta las características avanzadas. Tanto si eres principiante como si tienes experiencia en el desarrollo, este libro es un recurso de gran valor para mejorar tu comprensión y dominio de TypeScript.
 
 Este libro es completamente gratuito y de código abierto.
 
