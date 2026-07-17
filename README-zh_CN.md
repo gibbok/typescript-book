@@ -1,6 +1,6 @@
-# 简洁的 TypeScript 之书
+# The Concise TypeScript Book
 
-《Concise TypeScript Book》全面而简洁地概述了 TypeScript 的功能。它提供了清晰的解释，涵盖了该语言最新版本中的所有方面，从强大的类型系统到高级功能。无论您是初学者还是经验丰富的开发人员，本书都是增强您对 TypeScript 的理解和熟练程度的宝贵资源。
+《The Concise TypeScript Book》全面而简洁地概述了 TypeScript 的功能。它提供了清晰的解释，涵盖了该语言最新版本中的所有方面，从强大的类型系统到高级功能。无论您是初学者还是经验丰富的开发人员，本书都是增强您对 TypeScript 的理解和熟练程度的宝贵资源。
 
 本书完全免费且开源。
 
@@ -39,7 +39,7 @@
 ## 目录
 
 <!-- markdownlint-disable MD004 -->
-- [简洁的 TypeScript 之书](#简洁的-typescript-之书)
+- [The Concise TypeScript Book](#the-concise-typescript-book)
   - [翻译](#翻译)
   - [下载和网站](#下载和网站)
   - [目录](#目录)

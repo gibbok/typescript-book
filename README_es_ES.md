@@ -1,6 +1,6 @@
-# El libro conciso de TypeScript
+# The Concise TypeScript Book
 
-El libro conciso de TypeScript ofrece una visión general completa y breve de las capacidades de TypeScript. Incluye explicaciones claras que abarcan todos los aspectos de la versión más reciente del lenguaje, desde su potente sistema de tipos hasta las características avanzadas. Tanto si eres principiante como si tienes experiencia en el desarrollo, este libro es un recurso de gran valor para mejorar tu comprensión y dominio de TypeScript.
+The Concise TypeScript Book ofrece una visión general completa y breve de las capacidades de TypeScript. Incluye explicaciones claras que abarcan todos los aspectos de la versión más reciente del lenguaje, desde su potente sistema de tipos hasta las características avanzadas. Tanto si eres principiante como si tienes experiencia en el desarrollo, este libro es un recurso de gran valor para mejorar tu comprensión y dominio de TypeScript.
 
 Este libro es completamente gratuito y de código abierto.
 
@@ -41,7 +41,7 @@ Hay disponible una versión en línea en:
 ## Índice
 
 <!-- markdownlint-disable MD004 -->
-- [El libro conciso de TypeScript](#el-libro-conciso-de-typescript)
+- [The Concise TypeScript Book](#the-concise-typescript-book)
   - [Traducciones](#traducciones)
   - [Descargas y sitio web](#descargas-y-sitio-web)
   - [Índice](#índice)
@@ -258,7 +258,7 @@ Hay disponible una versión en línea en:
 
 ## Introducción
 
-¡Te damos la bienvenida a El libro conciso de TypeScript! Esta guía te proporciona los conocimientos esenciales y las habilidades prácticas necesarias para trabajar eficazmente con TypeScript. Descubre conceptos y técnicas fundamentales para escribir código limpio y robusto. Tanto si eres principiante como si tienes experiencia en el desarrollo, este libro sirve a la vez como guía completa y como referencia práctica para aprovechar la potencia de TypeScript en tus proyectos.
+¡Te damos la bienvenida a The Concise TypeScript Book! Esta guía te proporciona los conocimientos esenciales y las habilidades prácticas necesarias para trabajar eficazmente con TypeScript. Descubre conceptos y técnicas fundamentales para escribir código limpio y robusto. Tanto si eres principiante como si tienes experiencia en el desarrollo, este libro sirve a la vez como guía completa y como referencia práctica para aprovechar la potencia de TypeScript en tus proyectos.
 
 Este libro trata TypeScript 7.0.
 

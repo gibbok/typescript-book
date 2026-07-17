@@ -1,12 +1,12 @@
 ---
-title: Den koncisa TypeScript-boken
+title: The Concise TypeScript Book
 sidebar:
   order: 1
-  label: 1. Den koncisa TypeScript-boken
+  label: 1. The Concise TypeScript Book
 ---
 
 
-Den koncisa TypeScript-boken ger en omfattande och kortfattad översikt över TypeScripts möjligheter. Den erbjuder tydliga förklaringar som täcker alla aspekter i den senaste versionen av språket, från dess kraftfulla typsystem till avancerade funktioner. Oavsett om du är nybörjare eller en erfaren utvecklare är denna bok en ovärderlig resurs för att förbättra din förståelse och skicklighet i TypeScript.
+The Concise TypeScript Book ger en omfattande och kortfattad översikt över TypeScripts möjligheter. Den erbjuder tydliga förklaringar som täcker alla aspekter i den senaste versionen av språket, från dess kraftfulla typsystem till avancerade funktioner. Oavsett om du är nybörjare eller en erfaren utvecklare är denna bok en ovärderlig resurs för att förbättra din förståelse och skicklighet i TypeScript.
 
 Denna bok är helt gratis och har öppen källkod.
 

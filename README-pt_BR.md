@@ -1,6 +1,6 @@
-# O Livro Conciso de TypeScript
+# The Concise TypeScript Book
 
-O Livro Conciso de TypeScript fornece uma visão geral abrangente e concisa dos recursos do TypeScript. Ele oferece explicações claras que abrangem todos os aspectos encontrados na versão mais recente da linguagem, desde o seu poderoso sistema de tipos até recursos avançados. Seja você um iniciante ou um desenvolvedor experiente, este livro é um recurso inestimável para aprimorar sua compreensão e proficiência em TypeScript.
+The Concise TypeScript Book fornece uma visão geral abrangente e concisa dos recursos do TypeScript. Ele oferece explicações claras que abrangem todos os aspectos encontrados na versão mais recente da linguagem, desde o seu poderoso sistema de tipos até recursos avançados. Seja você um iniciante ou um desenvolvedor experiente, este livro é um recurso inestimável para aprimorar sua compreensão e proficiência em TypeScript.
 
 Este livro é completamente gratuito e de código aberto (open source).
 
@@ -39,7 +39,7 @@ Uma versão online está disponível em:
 ## Sumário
 
 <!-- markdownlint-disable MD004 -->
-- [O Livro Conciso de TypeScript](#o-livro-conciso-de-typescript)
+- [The Concise TypeScript Book](#the-concise-typescript-book)
   - [Traduções](#traduções)
   - [Downloads e site](#downloads-e-site)
   - [Sumário](#sumário)

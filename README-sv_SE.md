@@ -1,6 +1,6 @@
-# Den koncisa TypeScript-boken
+# The Concise TypeScript Book
 
-Den koncisa TypeScript-boken ger en omfattande och kortfattad översikt över TypeScripts möjligheter. Den erbjuder tydliga förklaringar som täcker alla aspekter i den senaste versionen av språket, från dess kraftfulla typsystem till avancerade funktioner. Oavsett om du är nybörjare eller en erfaren utvecklare är denna bok en ovärderlig resurs för att förbättra din förståelse och skicklighet i TypeScript.
+The Concise TypeScript Book ger en omfattande och kortfattad översikt över TypeScripts möjligheter. Den erbjuder tydliga förklaringar som täcker alla aspekter i den senaste versionen av språket, från dess kraftfulla typsystem till avancerade funktioner. Oavsett om du är nybörjare eller en erfaren utvecklare är denna bok en ovärderlig resurs för att förbättra din förståelse och skicklighet i TypeScript.
 
 Denna bok är helt gratis och har öppen källkod.
 
@@ -41,7 +41,7 @@ En onlineversion finns tillgänglig på:
 ## Innehållsförteckning
 
 <!-- markdownlint-disable MD004 -->
-- [Den koncisa TypeScript-boken](#den-koncisa-typescript-boken)
+- [The Concise TypeScript Book](#the-concise-typescript-book)
   - [Översättningar](#översättningar)
   - [Nedladdningar och webbplats](#nedladdningar-och-webbplats)
   - [Innehållsförteckning](#innehållsförteckning)
@@ -258,7 +258,7 @@ En onlineversion finns tillgänglig på:
 
 ## Introduktion
 
-Välkommen till Den koncisa TypeScript-boken! Denna guide ger dig viktig kunskap och praktiska färdigheter för effektiv TypeScript-utveckling. Upptäck nyckelkoncept och tekniker för att skriva ren, robust kod. Oavsett om du är nybörjare eller en erfaren utvecklare fungerar denna bok både som en omfattande guide och en praktisk referens för att utnyttja TypeScripts kraft i dina projekt.
+Välkommen till The Concise TypeScript Book! Denna guide ger dig viktig kunskap och praktiska färdigheter för effektiv TypeScript-utveckling. Upptäck nyckelkoncept och tekniker för att skriva ren, robust kod. Oavsett om du är nybörjare eller en erfaren utvecklare fungerar denna bok både som en omfattande guide och en praktisk referens för att utnyttja TypeScripts kraft i dina projekt.
 
 Denna bok täcker TypeScript 7.0.
 
