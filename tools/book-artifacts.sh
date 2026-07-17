@@ -9,6 +9,5 @@ BOOK_ARTIFACTS=(
     "README-pt_BR|typescript-book-pt_BR|The Concise TypeScript Book|pt-BR"
     "README-sv_SE|typescript-book-sv_SE|The Concise TypeScript Book|sv-SE"
     "README-bg_BG|typescript-book-bg_BG|The Concise TypeScript Book|bg-BG"
-    "README_es_ES|typescript-book-es_ES|El libro conciso de TypeScript|es-ES"
+    "README_es_ES|typescript-book-es_ES|The Concise TypeScript Book|es-ES"
 )
-
