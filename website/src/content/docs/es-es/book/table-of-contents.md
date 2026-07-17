@@ -7,7 +7,7 @@ sidebar:
 
 
 <!-- markdownlint-disable MD004 -->
-- [El libro conciso de TypeScript](../the-concise-typescript-book/)
+- [The Concise TypeScript Book](../the-concise-typescript-book/)
   - [Traducciones](../translations/)
   - [Descargas y sitio web](../downloads-and-website/)
   - [Índice](../table-of-contents/)
