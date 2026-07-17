@@ -99,7 +99,7 @@ An online version is available at:
     - [string](#string)
     - [boolean](#boolean)
     - [number](#number)
-    - [bigInt](#bigint)
+    - [bigint](#bigint)
     - [Symbol](#symbol)
     - [null and undefined](#null-and-undefined)
     - [Array](#array)
@@ -1581,7 +1581,7 @@ const y: bigint = 9007199254740991n;
 
 Notes:
 
-* `bigint` values cannot be mixed with `number` and cannot be used with built-in `Math`, they must be coerced to the same type.
+* `bigint` values cannot be mixed with `number` and cannot be used with built-in `Math`; they must be coerced to the same type.
 * `bigint` values are available only if target configuration is ES2020 or higher.
 
 ### Symbol
