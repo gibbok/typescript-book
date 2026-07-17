@@ -304,7 +304,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 })();
 ```
 
-### Metapropiedad new.target
+### Metapropiedad new target
 
 La metapropiedad `new.target` permite determinar si una función o un constructor se invocó mediante el operador new. Así se puede detectar si un objeto se creó como resultado de una llamada a un constructor.
 

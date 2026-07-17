@@ -195,7 +195,7 @@ sidebar:
     - [Módulos ES6](../others/#módulos-es6)
     - [Operador de exponenciación de ES7](../others/#operador-de-exponenciación-de-es7)
     - [La sentencia for-await-of](../others/#la-sentencia-for-await-of)
-    - [Metapropiedad new.target](../others/#metapropiedad-newtarget)
+    - [Metapropiedad new target](../others/#metapropiedad-new-target)
     - [Expresiones de importación dinámica](../others/#expresiones-de-importación-dinámica)
     - ["tsc –watch"](../others/#tsc-watch)
     - [Operador de aserción no nula](../others/#operador-de-aserción-no-nula)
