@@ -1,40 +1,13 @@
 #!/bin/bash
+set -euo pipefail
 
 # This script creates eBooks from the TypeScript Book.
 
 DIR_DOWNLOADS="downloads"
-
-INPUT_EN="README"
-INPUT_CN="README-zh_CN"
-INPUT_IT="README-it_IT"
-INPUT_BR="README-pt_BR"
-INPUT_SE="README-sv_SE"
-INPUT_BG="README-bg_BG"
-INPUT_ES="README_es_ES"
-
-OUTPUT_EN="typescript-book"
-OUTPUT_CN="typescript-book-zh_CN"
-OUTPUT_IT="typescript-book-it_IT"
-OUTPUT_BR="typescript-book-pt_BR"
-OUTPUT_SE="typescript-book-sv_SE"
-OUTPUT_BG="typescript-book-bg_BG"
-OUTPUT_ES="typescript-book-es_ES"
-
 AUTHOR="Simone Poggiali"
-TITLE_EN="The Concise TypeScript Book"
-TITLE_CN="# 简洁的TypeScript之书"
-TITLE_IT="The Concise TypeScript Book"
-TITLE_BR="The Concise TypeScript Book"
-TITLE_SE="The Concise TypeScript Book"
-TITLE_BG="The Concise TypeScript Book"
-TITLE_ES="El libro conciso de TypeScript"
-LANG_EN="en-US"
-LANG_CN="zh-CN"
-LANG_IT="it-IT"
-LANG_BR="pt-BR"
-LANG_SE="sv-SE"
-LANG_BG="bg-BG"
-LANG_ES="es-ES"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+source "$SCRIPT_DIR/book-artifacts.sh"
 
 cd ../
 
@@ -61,30 +34,17 @@ else
 fi
 
 # Generate eBooks
-pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_EN.epub --metadata title="$TITLE_EN" --metadata author="$AUTHOR" --metadata lang="$LANG_EN" -s $INPUT_EN.md
-pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_CN.epub --metadata title="$TITLE_CN" --metadata author="$AUTHOR" --metadata lang="$LANG_CN" -s $INPUT_CN.md
-pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_IT.epub --metadata title="$TITLE_IT" --metadata author="$AUTHOR" --metadata lang="$LANG_IT" -s $INPUT_IT.md
-pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_BR.epub --metadata title="$TITLE_BR" --metadata author="$AUTHOR" --metadata lang="$LANG_BR" -s $INPUT_BR.md
-pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_SE.epub --metadata title="$TITLE_SE" --metadata author="$AUTHOR" --metadata lang="$LANG_SE" -s $INPUT_SE.md
-pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_BG.epub --metadata title="$TITLE_BG" --metadata author="$AUTHOR" --metadata lang="$LANG_BG" -s $INPUT_BG.md
-pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o $DIR_DOWNLOADS/$OUTPUT_ES.epub --metadata title="$TITLE_ES" --metadata author="$AUTHOR" --metadata lang="$LANG_ES" -s $INPUT_ES.md
-
-# Validate eBooks
-epubcheck $DIR_DOWNLOADS/$OUTPUT_EN.epub
-epubcheck $DIR_DOWNLOADS/$OUTPUT_CN.epub
-epubcheck $DIR_DOWNLOADS/$OUTPUT_IT.epub
-epubcheck $DIR_DOWNLOADS/$OUTPUT_BR.epub
-epubcheck $DIR_DOWNLOADS/$OUTPUT_SE.epub
-epubcheck $DIR_DOWNLOADS/$OUTPUT_BG.epub
-epubcheck $DIR_DOWNLOADS/$OUTPUT_ES.epub
+for artifact in "${BOOK_ARTIFACTS[@]}"; do
+    IFS="|" read -r input output title language <<< "$artifact"
+    pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o "$DIR_DOWNLOADS/$output.epub" --metadata title="$title" --metadata author="$AUTHOR" --metadata lang="$language" -s "$input.md"
+done
 
 # Generate PDFs
-ebook-convert $DIR_DOWNLOADS/$OUTPUT_EN.epub $DIR_DOWNLOADS/$OUTPUT_EN.pdf --pdf-page-numbers
-ebook-convert $DIR_DOWNLOADS/$OUTPUT_CN.epub $DIR_DOWNLOADS/$OUTPUT_CN.pdf --pdf-page-numbers
-ebook-convert $DIR_DOWNLOADS/$OUTPUT_IT.epub $DIR_DOWNLOADS/$OUTPUT_IT.pdf --pdf-page-numbers
-ebook-convert $DIR_DOWNLOADS/$OUTPUT_BR.epub $DIR_DOWNLOADS/$OUTPUT_BR.pdf --pdf-page-numbers
-ebook-convert $DIR_DOWNLOADS/$OUTPUT_SE.epub $DIR_DOWNLOADS/$OUTPUT_SE.pdf --pdf-page-numbers
-ebook-convert $DIR_DOWNLOADS/$OUTPUT_BG.epub $DIR_DOWNLOADS/$OUTPUT_BG.pdf --pdf-page-numbers
-ebook-convert $DIR_DOWNLOADS/$OUTPUT_ES.epub $DIR_DOWNLOADS/$OUTPUT_ES.pdf --pdf-page-numbers
+for artifact in "${BOOK_ARTIFACTS[@]}"; do
+    IFS="|" read -r _ output _ _ <<< "$artifact"
+    ebook-convert "$DIR_DOWNLOADS/$output.epub" "$DIR_DOWNLOADS/$output.pdf" --pdf-page-numbers
+done
+
+python3 tools/verify-books.py
 
 echo "Books were created. Please commit!"

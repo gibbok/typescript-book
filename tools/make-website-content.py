@@ -142,6 +142,16 @@ def make_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
     return f"{anchor}-{count}"
 
 
+def make_source_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
+    anchor = re.sub(r"[^\w\s.-]", "", text.lower())
+    anchor = re.sub(r"\s+", "-", anchor).strip("-")
+    count = anchor_counts.get(anchor, 0)
+    anchor_counts[anchor] = count + 1
+    if count == 0:
+        return anchor
+    return f"{anchor}-{count}"
+
+
 def make_page_anchor_links(lines: List[str], master_headers: List[str]) -> Dict[str, str]:
     anchor_links = {}
     global_anchor_counts: Dict[str, int] = {}
@@ -156,7 +166,7 @@ def make_page_anchor_links(lines: List[str], master_headers: List[str]) -> Dict[
 
         header_level = len(header_match.group(1))
         header_text = header_match.group(2).strip()
-        source_anchor = make_anchor_slug(header_text, global_anchor_counts)
+        source_anchor = make_source_anchor_slug(header_text, global_anchor_counts)
 
         if header_level <= 2:
             page_index += 1
