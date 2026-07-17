@@ -7,7 +7,7 @@ sidebar:
 
 
 <!-- markdownlint-disable MD004 -->
-- [简洁的 TypeScript 之书](../the-concise-typescript-book/)
+- [The Concise TypeScript Book](../the-concise-typescript-book/)
   - [翻译](../translations/)
   - [下载和网站](../downloads-and-website/)
   - [目录](../table-of-contents/)
