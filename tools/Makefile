@@ -15,3 +15,6 @@ website-preview:
 
 books:
 	./make-books.sh
+
+verify-books:
+	python3 ./verify-books.py --downloads-dir ../downloads --artifacts-file ./book-artifacts.sh

@@ -229,7 +229,7 @@ Hay disponible una versión en línea en:
     - [Módulos ES6](#módulos-es6)
     - [Operador de exponenciación de ES7](#operador-de-exponenciación-de-es7)
     - [La sentencia for-await-of](#la-sentencia-for-await-of)
-    - [Metapropiedad new.target](#metapropiedad-newtarget)
+    - [Metapropiedad new.target](#metapropiedad-new.target)
     - [Expresiones de importación dinámica](#expresiones-de-importación-dinámica)
     - ["tsc –watch"](#tsc-watch)
     - [Operador de aserción no nula](#operador-de-aserción-no-nula)
