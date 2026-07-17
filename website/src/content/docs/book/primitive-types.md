@@ -57,7 +57,7 @@ const y: bigint = 9007199254740991n;
 
 Notes:
 
-* `bigint` values cannot be mixed with `number` and cannot be used with built-in `Math`, they must be coerced to the same type.
+* `bigint` values cannot be mixed with `number` and cannot be used with built-in `Math`; they must be coerced to the same type.
 * `bigint` values are available only if target configuration is ES2020 or higher.
 
 ### Symbol
