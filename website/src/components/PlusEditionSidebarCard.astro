@@ -1,0 +1,108 @@
+---
+import { PLUS_EDITION, PLUS_EDITION_COVER, PLUS_EDITION_PATH } from '../data/plusEdition';
+---
+
+<aside class="plus-sidebar-card" aria-labelledby="plus-sidebar-title">
+	<a class="plus-sidebar-card__cover" href={PLUS_EDITION_PATH} tabindex="-1" aria-hidden="true">
+		<img src={PLUS_EDITION_COVER} width="640" height="1024" alt="" loading="lazy" decoding="async" />
+	</a>
+	<div class="plus-sidebar-card__copy">
+		<span class="plus-sidebar-card__eyebrow">Plus Edition</span>
+		<h2 id="plus-sidebar-title">Go beyond the free book</h2>
+		<p>Exclusive React guidance and practical, real-world patterns—updated for TypeScript 7.</p>
+		<p class="plus-sidebar-card__formats">Kindle and paperback</p>
+		<a class="plus-sidebar-card__button" href={PLUS_EDITION_PATH} aria-label={`Explore ${PLUS_EDITION.titles.en}`}>
+			Explore the book <span aria-hidden="true">→</span>
+		</a>
+	</div>
+</aside>
+
+<style>
+	.plus-sidebar-card {
+		display: grid;
+		grid-template-columns: 5.3rem 1fr;
+		gap: 0.9rem;
+		margin: 0 1rem 0.75rem;
+		border: 1px solid color-mix(in srgb, #d51d24 55%, var(--sl-color-gray-5));
+		border-radius: 0.75rem;
+		padding: 0.85rem;
+		background:
+			radial-gradient(circle at 0 0, rgb(213 29 36 / 12%), transparent 55%),
+			var(--sl-color-bg-sidebar);
+		box-shadow: 0 7px 24px rgb(23 5 8 / 12%);
+	}
+
+	.plus-sidebar-card__cover {
+		align-self: start;
+	}
+
+	.plus-sidebar-card__cover img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 0.28rem;
+		box-shadow: 0 5px 14px rgb(0 0 0 / 22%);
+		transform: rotate(-1.2deg);
+		transition: transform 180ms ease;
+	}
+
+	.plus-sidebar-card:hover .plus-sidebar-card__cover img {
+		transform: rotate(0deg) translateY(-2px);
+	}
+
+	.plus-sidebar-card__copy {
+		min-width: 0;
+	}
+
+	.plus-sidebar-card__eyebrow {
+		color: #e33b41;
+		font-size: 0.68rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.plus-sidebar-card h2 {
+		margin: 0.2rem 0 0.35rem;
+		color: var(--sl-color-white);
+		font-size: var(--sl-text-base);
+		line-height: 1.25;
+	}
+
+	.plus-sidebar-card p {
+		margin: 0;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-xs);
+		line-height: 1.4;
+	}
+
+	.plus-sidebar-card .plus-sidebar-card__formats {
+		margin-top: 0.45rem;
+		color: var(--sl-color-white);
+		font-weight: 700;
+	}
+
+	.plus-sidebar-card__button {
+		display: inline-block;
+		margin-top: 0.65rem;
+		border-radius: 0.35rem;
+		padding: 0.38rem 0.62rem;
+		background: #c71920;
+		color: #fff;
+		font-size: var(--sl-text-xs);
+		font-weight: 750;
+		line-height: 1.2;
+		text-decoration: none;
+	}
+
+	.plus-sidebar-card__button:hover,
+	.plus-sidebar-card__button:focus-visible {
+		background: #e0272f;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.plus-sidebar-card__cover img {
+			transition: none;
+		}
+	}
+</style>

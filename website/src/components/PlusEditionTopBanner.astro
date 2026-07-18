@@ -1,0 +1,108 @@
+---
+import { PLUS_EDITION_PATH } from '../data/plusEdition';
+---
+
+<aside class="plus-top-banner" aria-label="New Plus Edition announcement">
+	<a href={PLUS_EDITION_PATH}>
+		<span class="plus-top-banner__badge">New paid edition</span>
+		<span class="plus-top-banner__message">
+			<strong>Master TypeScript 7</strong>
+			<span aria-hidden="true">·</span>
+			<span>React + real-world patterns</span>
+		</span>
+		<span class="plus-top-banner__action">Explore the Plus Edition <span aria-hidden="true">→</span></span>
+	</a>
+</aside>
+
+<style>
+	.plus-top-banner {
+		height: var(--plus-banner-height);
+		background: linear-gradient(105deg, #8f1015 0%, #d51d24 45%, #a70e14 100%);
+		background-size: 180% 100%;
+		color: #fff;
+		animation: plus-banner-glow 8s ease-in-out infinite;
+	}
+
+	.plus-top-banner a {
+		display: flex;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+		gap: 0.7rem;
+		padding: 0.45rem 1rem;
+		color: inherit;
+		font-size: var(--sl-text-sm);
+		line-height: 1.2;
+		text-decoration: none;
+	}
+
+	.plus-top-banner__badge {
+		flex: none;
+		border: 1px solid rgb(255 255 255 / 55%);
+		border-radius: 999px;
+		padding: 0.18rem 0.55rem;
+		background: rgb(55 0 0 / 18%);
+		font-size: var(--sl-text-xs);
+		font-weight: 700;
+		letter-spacing: 0.03em;
+		text-transform: uppercase;
+	}
+
+	.plus-top-banner__message {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+
+	.plus-top-banner__action {
+		flex: none;
+		border-radius: 0.35rem;
+		padding: 0.3rem 0.65rem;
+		background: #fff;
+		color: #8f1015;
+		font-weight: 750;
+		transition: transform 160ms ease, box-shadow 160ms ease;
+	}
+
+	.plus-top-banner a:hover .plus-top-banner__action,
+	.plus-top-banner a:focus-visible .plus-top-banner__action {
+		transform: translateY(-1px);
+		box-shadow: 0 3px 12px rgb(49 0 0 / 28%);
+	}
+
+	@keyframes plus-banner-glow {
+		0%,
+		100% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+	}
+
+	@media (max-width: 34rem) {
+		.plus-top-banner a {
+			justify-content: space-between;
+			gap: 0.45rem;
+			padding-inline: 0.65rem;
+		}
+
+		.plus-top-banner__message {
+			display: none;
+		}
+
+		.plus-top-banner__action {
+			font-size: var(--sl-text-xs);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.plus-top-banner {
+			animation: none;
+		}
+
+		.plus-top-banner__action {
+			transition: none;
+		}
+	}
+</style>

@@ -1,0 +1,365 @@
+---
+import { PLUS_EDITION, PLUS_EDITION_COVER } from '../data/plusEdition';
+import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
+---
+
+<article class="plus-landing">
+	<section class="plus-landing__hero" aria-labelledby="_top">
+		<div class="plus-landing__hero-copy">
+			<p class="plus-landing__eyebrow">The paid, expanded edition · Updated for TypeScript 7</p>
+			<h1 id="_top">{PLUS_EDITION.titles.en}</h1>
+			<p class="plus-landing__lead">
+				A concise, practical guide to TypeScript 7—expanded with exclusive chapters that connect the type system to the work you do every day.
+			</p>
+			<div class="plus-landing__quick-links">
+				<a class="plus-landing__primary-button" href="#buy-plus-edition">Choose Kindle or paperback</a>
+				<a href="#whats-new">See what’s new <span aria-hidden="true">↓</span></a>
+			</div>
+			<p class="plus-landing__availability">English and Italian editions · Available worldwide through Amazon</p>
+		</div>
+		<div class="plus-landing__cover">
+			<img src={PLUS_EDITION_COVER} width="640" height="1024" alt={`Cover of ${PLUS_EDITION.titles.en}`} decoding="async" fetchpriority="high" />
+		</div>
+	</section>
+
+	<section id="whats-new" class="plus-landing__section plus-landing__section--intro" aria-labelledby="built-for-real-work">
+		<p class="plus-landing__eyebrow">From understanding TypeScript to using it well</p>
+		<h2 id="built-for-real-work">New content built for real projects</h2>
+		<p>
+			The Plus Edition builds on the widely read, open-source <em>The Concise TypeScript Book</em>. It keeps the direct explanations and focused examples, then goes further with two substantial areas available only in this paid edition.
+		</p>
+	</section>
+
+	<section class="plus-landing__feature-grid" aria-label="Exclusive Plus Edition content">
+		<article class="plus-landing__feature-card plus-landing__feature-card--react">
+			<span class="plus-landing__feature-number">01</span>
+			<p class="plus-landing__eyebrow">Exclusive section</p>
+			<h2>TypeScript with React</h2>
+			<p>Move confidently from basic component types to patterns that remain clear as a React application grows.</p>
+			<ul>
+				<li>Components, props, children, and events</li>
+				<li>Hooks, refs, and reusable abstractions</li>
+				<li>Discriminated unions and generic components</li>
+				<li>Practical patterns for safer component APIs</li>
+			</ul>
+		</article>
+
+		<article class="plus-landing__feature-card plus-landing__feature-card--patterns">
+			<span class="plus-landing__feature-number">02</span>
+			<p class="plus-landing__eyebrow">Exclusive section</p>
+			<h2>Real-world TypeScript patterns</h2>
+			<p>See how TypeScript’s advanced features combine to solve recurring application-design problems.</p>
+			<ul>
+				<li>Expressive, maintainable domain types</li>
+				<li>Safer boundaries and error handling</li>
+				<li>Reusable type maps and factory patterns</li>
+				<li>Techniques you can adapt to production code</li>
+			</ul>
+		</article>
+	</section>
+
+	<section class="plus-landing__section plus-landing__why" aria-labelledby="why-plus">
+		<div>
+			<p class="plus-landing__eyebrow">Concise by design</p>
+			<h2 id="why-plus">More practical depth, without unnecessary detours</h2>
+		</div>
+		<div class="plus-landing__why-grid">
+			<article>
+				<h3>Current</h3>
+				<p>Updated for TypeScript 7, from essential language concepts to advanced type-system techniques.</p>
+			</article>
+			<article>
+				<h3>Practical</h3>
+				<p>Short explanations and focused examples designed to transfer directly to day-to-day development.</p>
+			</article>
+			<article>
+				<h3>Useful at every level</h3>
+				<p>A structured introduction for newer TypeScript developers and a fast reference for experienced engineers.</p>
+			</article>
+		</div>
+	</section>
+
+	<section class="plus-landing__audience" aria-labelledby="who-is-this-for">
+		<div>
+			<p class="plus-landing__eyebrow">Who it’s for</p>
+			<h2 id="who-is-this-for">Developers who want clarity and application</h2>
+		</div>
+		<p>
+			Choose the Plus Edition if you want one focused resource for learning modern TypeScript, typing React effectively, and applying the language to realistic design problems. Familiarity with JavaScript helps, but deep TypeScript experience is not required.
+		</p>
+	</section>
+
+	<RegionalAmazonLinks />
+
+	<section class="plus-landing__italian" aria-labelledby="italian-edition">
+		<div>
+			<p class="plus-landing__eyebrow">Disponibile anche in italiano</p>
+			<h2 id="italian-edition">{PLUS_EDITION.titles.it}</h2>
+		</div>
+		<p>Select <strong>Italiano</strong> in the purchase section above. Your browser language is detected automatically, and you can always switch editions manually.</p>
+	</section>
+</article>
+
+<style>
+	.plus-landing {
+		--plus-red: #d51d24;
+		--plus-red-dark: #a60f15;
+		max-width: 74rem;
+		margin: 0 auto;
+		padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 4vw, 2.5rem) 3rem;
+	}
+
+	.plus-landing__hero {
+		display: grid;
+		gap: clamp(2rem, 7vw, 5rem);
+		align-items: center;
+		min-height: min(44rem, calc(100vh - var(--plus-header-height)));
+		padding-block: clamp(2.5rem, 7vw, 6rem);
+	}
+
+	.plus-landing__hero-copy {
+		max-width: 48rem;
+	}
+
+	.plus-landing__eyebrow {
+		margin: 0 0 0.65rem;
+		color: var(--plus-red);
+		font-size: var(--sl-text-sm);
+		font-weight: 850;
+		letter-spacing: 0.08em;
+		line-height: 1.35;
+		text-transform: uppercase;
+	}
+
+	.plus-landing h1 {
+		margin: 0;
+		color: var(--sl-color-white);
+		font-size: clamp(2.35rem, 6vw, 5rem);
+		letter-spacing: -0.04em;
+		line-height: 0.99;
+	}
+
+	.plus-landing__lead {
+		max-width: 60ch;
+		margin: 1.5rem 0 0;
+		color: var(--sl-color-gray-2);
+		font-size: clamp(var(--sl-text-lg), 2.4vw, var(--sl-text-xl));
+		line-height: 1.55;
+	}
+
+	.plus-landing__quick-links {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.85rem 1.15rem;
+		margin-top: 1.75rem;
+	}
+
+	.plus-landing__quick-links a {
+		color: var(--sl-color-white);
+		font-weight: 750;
+		text-decoration: none;
+	}
+
+	.plus-landing__quick-links .plus-landing__primary-button {
+		border-radius: 0.5rem;
+		padding: 0.78rem 1.1rem;
+		background: linear-gradient(135deg, var(--plus-red-dark), var(--plus-red));
+		color: #fff;
+		box-shadow: 0 8px 22px rgb(159 12 18 / 24%);
+	}
+
+	.plus-landing__availability {
+		margin: 1rem 0 0;
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-xs);
+	}
+
+	.plus-landing__cover {
+		width: min(72%, 21rem);
+		margin-inline: auto;
+		perspective: 1100px;
+	}
+
+	.plus-landing__cover img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 0.5rem;
+		box-shadow: -18px 24px 52px rgb(0 0 0 / 34%);
+		transform: rotateY(7deg) rotateZ(0.6deg);
+		animation: plus-cover-float 5.5s ease-in-out infinite;
+	}
+
+	.plus-landing__section {
+		margin-block: clamp(3.5rem, 10vw, 7rem);
+	}
+
+	.plus-landing__section--intro {
+		max-width: 58rem;
+	}
+
+	.plus-landing h2 {
+		margin: 0;
+		color: var(--sl-color-white);
+		font-size: clamp(var(--sl-text-2xl), 4vw, var(--sl-text-4xl));
+		line-height: 1.1;
+	}
+
+	.plus-landing__section--intro > p:last-child {
+		max-width: 72ch;
+		margin-top: 1.25rem;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-lg);
+		line-height: 1.7;
+	}
+
+	.plus-landing__feature-grid {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.plus-landing__feature-card {
+		position: relative;
+		overflow: hidden;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 1rem;
+		padding: clamp(1.35rem, 4vw, 2.5rem);
+		background: var(--sl-color-bg-nav);
+	}
+
+	.plus-landing__feature-card--react {
+		background:
+			radial-gradient(circle at 100% 0, rgb(63 180 222 / 18%), transparent 45%),
+			var(--sl-color-bg-nav);
+	}
+
+	.plus-landing__feature-card--patterns {
+		background:
+			radial-gradient(circle at 100% 0, rgb(213 29 36 / 18%), transparent 45%),
+			var(--sl-color-bg-nav);
+	}
+
+	.plus-landing__feature-number {
+		position: absolute;
+		inset: -0.45rem 0.8rem auto auto;
+		color: color-mix(in srgb, var(--sl-color-gray-5) 65%, transparent);
+		font-size: 5rem;
+		font-weight: 900;
+		line-height: 1;
+	}
+
+	.plus-landing__feature-card h2 {
+		position: relative;
+		font-size: clamp(var(--sl-text-xl), 3.3vw, var(--sl-text-3xl));
+	}
+
+	.plus-landing__feature-card > p:not(.plus-landing__eyebrow) {
+		position: relative;
+		margin: 1rem 0;
+		color: var(--sl-color-gray-2);
+		line-height: 1.65;
+	}
+
+	.plus-landing__feature-card ul {
+		display: grid;
+		gap: 0.6rem;
+		margin: 0;
+		padding-inline-start: 1.2rem;
+		color: var(--sl-color-gray-2);
+		line-height: 1.5;
+	}
+
+	.plus-landing__feature-card li::marker {
+		color: var(--plus-red);
+	}
+
+	.plus-landing__why {
+		display: grid;
+		gap: 2rem;
+	}
+
+	.plus-landing__why-grid {
+		display: grid;
+		gap: 0.9rem;
+	}
+
+	.plus-landing__why-grid article {
+		border-inline-start: 3px solid var(--plus-red);
+		padding: 0.25rem 0 0.25rem 1rem;
+	}
+
+	.plus-landing__why-grid h3 {
+		margin: 0;
+		color: var(--sl-color-white);
+		font-size: var(--sl-text-lg);
+	}
+
+	.plus-landing__why-grid p {
+		margin: 0.35rem 0 0;
+		color: var(--sl-color-gray-2);
+		line-height: 1.55;
+	}
+
+	.plus-landing__audience,
+	.plus-landing__italian {
+		display: grid;
+		gap: 1.25rem 3rem;
+		margin-block: clamp(3.5rem, 9vw, 6rem);
+		border-block: 1px solid var(--sl-color-gray-5);
+		padding-block: clamp(1.75rem, 5vw, 3rem);
+	}
+
+	.plus-landing__audience > p,
+	.plus-landing__italian > p {
+		margin: 0;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-base);
+		line-height: 1.7;
+	}
+
+	.plus-landing__italian h2 {
+		font-size: clamp(var(--sl-text-xl), 3vw, var(--sl-text-2xl));
+		line-height: 1.25;
+	}
+
+	@keyframes plus-cover-float {
+		0%,
+		100% {
+			transform: rotateY(7deg) rotateZ(0.6deg) translateY(0);
+		}
+		50% {
+			transform: rotateY(5deg) rotateZ(0deg) translateY(-8px);
+		}
+	}
+
+	@media (min-width: 48rem) {
+		.plus-landing__hero {
+			grid-template-columns: minmax(0, 1.65fr) minmax(15rem, 0.75fr);
+		}
+
+		.plus-landing__cover {
+			width: min(100%, 22rem);
+		}
+
+		.plus-landing__feature-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.plus-landing__why {
+			grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.35fr);
+		}
+
+		.plus-landing__audience,
+		.plus-landing__italian {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+			align-items: center;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.plus-landing__cover img {
+			animation: none;
+		}
+	}
+</style>

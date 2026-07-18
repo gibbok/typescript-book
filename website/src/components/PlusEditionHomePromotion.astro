@@ -1,0 +1,153 @@
+---
+import { PLUS_EDITION, PLUS_EDITION_COVER, PLUS_EDITION_PATH } from '../data/plusEdition';
+
+interface Props {
+	lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+const title = lang.toLowerCase().startsWith('it') ? PLUS_EDITION.titles.it : PLUS_EDITION.titles.en;
+---
+
+<section class="plus-home" aria-labelledby="plus-home-title">
+	<div class="plus-home__cover-wrap">
+		<a href={PLUS_EDITION_PATH} aria-label={`Learn more about ${title}`}>
+			<img src={PLUS_EDITION_COVER} width="640" height="1024" alt={`Cover of ${title}`} loading="lazy" decoding="async" />
+		</a>
+	</div>
+	<div class="plus-home__copy">
+		<p class="plus-home__eyebrow">New paid edition · TypeScript 7</p>
+		<h2 id="plus-home-title">Put TypeScript to work in real projects</h2>
+		<p>
+			The Plus Edition expands the free, open-source book with the practical material developers ask for most:
+			<strong>React with TypeScript</strong> and <strong>reusable patterns for production code</strong>.
+		</p>
+		<ul>
+			<li><strong>React with TypeScript:</strong> components, props, hooks, events, refs, and scalable component patterns.</li>
+			<li><strong>Real-world TypeScript patterns:</strong> practical approaches for safer, clearer, maintainable applications.</li>
+			<li><strong>TypeScript 7:</strong> concise coverage from the foundations through advanced type-system techniques.</li>
+		</ul>
+		<div class="plus-home__actions">
+			<a class="plus-home__button" href={PLUS_EDITION_PATH}>See what’s inside <span aria-hidden="true">→</span></a>
+			<span>Available for Kindle and in paperback</span>
+		</div>
+	</div>
+</section>
+
+<style>
+	.plus-home {
+		display: grid;
+		gap: clamp(1.5rem, 4vw, 3.5rem);
+		align-items: center;
+		margin: clamp(2rem, 5vw, 4rem) auto 1.25rem;
+		border: 1px solid color-mix(in srgb, #d51d24 52%, var(--sl-color-gray-5));
+		border-radius: 1rem;
+		padding: clamp(1.25rem, 4vw, 3rem);
+		background:
+			radial-gradient(circle at 9% 13%, rgb(213 29 36 / 18%), transparent 30%),
+			linear-gradient(145deg, var(--sl-color-bg) 0%, color-mix(in srgb, var(--sl-color-bg) 91%, #d51d24) 100%);
+		box-shadow: 0 18px 50px rgb(24 0 4 / 14%);
+		text-align: left;
+	}
+
+	.plus-home__cover-wrap {
+		width: min(66%, 13rem);
+		margin-inline: auto;
+		perspective: 900px;
+	}
+
+	.plus-home__cover-wrap img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 0.38rem;
+		box-shadow: -10px 15px 32px rgb(0 0 0 / 28%);
+		transform: rotateY(5deg) rotateZ(-1deg);
+		transition: transform 240ms ease, box-shadow 240ms ease;
+	}
+
+	.plus-home__cover-wrap a:hover img,
+	.plus-home__cover-wrap a:focus-visible img {
+		box-shadow: -6px 18px 38px rgb(0 0 0 / 34%);
+		transform: rotateY(0deg) rotateZ(0deg) translateY(-4px);
+	}
+
+	.plus-home__eyebrow {
+		margin: 0 0 0.55rem;
+		color: #e1353c;
+		font-size: var(--sl-text-sm);
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.plus-home h2 {
+		margin: 0;
+		color: var(--sl-color-white);
+		font-size: clamp(var(--sl-text-2xl), 4vw, var(--sl-text-4xl));
+		line-height: 1.12;
+	}
+
+	.plus-home__copy > p:not(.plus-home__eyebrow) {
+		max-width: 62ch;
+		margin: 1rem 0;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-base);
+		line-height: 1.65;
+	}
+
+	.plus-home ul {
+		display: grid;
+		gap: 0.65rem;
+		margin: 0;
+		padding-inline-start: 1.2rem;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-sm);
+		line-height: 1.55;
+	}
+
+	.plus-home li::marker {
+		color: #e1353c;
+	}
+
+	.plus-home__actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.85rem 1rem;
+		margin-top: 1.35rem;
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-xs);
+	}
+
+	.plus-home__button {
+		border-radius: 0.45rem;
+		padding: 0.7rem 1rem;
+		background: #c71920;
+		color: #fff;
+		font-size: var(--sl-text-sm);
+		font-weight: 750;
+		text-decoration: none;
+	}
+
+	.plus-home__button:hover,
+	.plus-home__button:focus-visible {
+		background: #e0272f;
+	}
+
+	@media (min-width: 46rem) {
+		.plus-home {
+			grid-template-columns: minmax(10rem, 0.65fr) minmax(0, 2fr);
+		}
+
+		.plus-home__cover-wrap {
+			width: min(100%, 15rem);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.plus-home__cover-wrap img {
+			transition: none;
+		}
+	}
+</style>

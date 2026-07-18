@@ -1,0 +1,22 @@
+---
+import Default from '@astrojs/starlight/components/PageTitle.astro';
+import type { Props } from '@astrojs/starlight/props';
+
+const props = Astro.props as Props;
+const isPlusEditionLanding = props.entry.slug === 'plus-edition' || props.entry.slug.endsWith('/plus-edition');
+---
+
+{
+	isPlusEditionLanding ? (
+		<>
+			<div data-plus-title-placeholder></div>
+			<style is:global>
+				.content-panel:has([data-plus-title-placeholder]) {
+					display: none;
+				}
+			</style>
+		</>
+	) : (
+		<Default {...props} />
+	)
+}

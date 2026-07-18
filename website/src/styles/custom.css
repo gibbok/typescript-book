@@ -37,3 +37,13 @@
 .right-sidebar-panel {
 	padding: 0.5rem var(--sl-sidebar-pad-x);
 }
+
+html {
+	scroll-padding-top: calc(1.5rem + var(--plus-header-height) + var(--sl-mobile-toc-height)) !important;
+}
+
+@media (min-width: 72rem) {
+	html {
+		scroll-padding-top: calc(1.5rem + var(--plus-header-height)) !important;
+	}
+}
