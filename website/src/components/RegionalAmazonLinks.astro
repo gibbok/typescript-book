@@ -137,6 +137,12 @@ const clientConfig = JSON.stringify({
 		transition: border-color 160ms ease, transform 160ms ease;
 	}
 
+	:global(:root:not([data-theme='light'])) .amazon-purchase__button:not(.amazon-purchase__button--primary) {
+		border-color: var(--sl-color-gray-4);
+		background: color-mix(in srgb, var(--sl-color-bg-nav) 86%, var(--sl-color-accent-high));
+		color: var(--sl-color-gray-1) !important;
+	}
+
 	.amazon-purchase__button:hover,
 	.amazon-purchase__button:focus-visible {
 		border-color: #e1353c;
