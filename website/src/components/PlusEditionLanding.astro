@@ -61,7 +61,7 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 	<section class="plus-landing__section plus-landing__why" aria-labelledby="why-plus">
 		<div>
 			<p class="plus-landing__eyebrow">Concise by design</p>
-			<h2 id="why-plus">More practical depth, without unnecessary detours</h2>
+			<h2 id="why-plus">More practical depth, without unnecessary distractions</h2>
 		</div>
 		<div class="plus-landing__why-grid">
 			<article>
@@ -216,7 +216,7 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 
 	.plus-landing__feature-grid {
 		display: grid;
-		gap: 1rem;
+		column-gap: 1rem;
 	}
 
 	.plus-landing__feature-card {
@@ -235,6 +235,7 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 	}
 
 	.plus-landing__feature-card--patterns {
+		margin-top: 1rem;
 		background:
 			radial-gradient(circle at 100% 0, rgb(213 29 36 / 18%), transparent 45%),
 			var(--sl-color-bg-nav);
@@ -344,6 +345,10 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 
 		.plus-landing__feature-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.plus-landing__feature-card--patterns {
+			margin-top: 0;
 		}
 
 		.plus-landing__why {
