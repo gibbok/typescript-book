@@ -36,7 +36,7 @@ export const AMAZON_DOMAINS_BY_REGION: Readonly<Record<string, string>> = {
 	FI: 'amazon.de',
 	FR: 'amazon.fr',
 	GB: 'amazon.co.uk',
-	IE: 'amazon.co.uk',
+	IE: 'amazon.ie',
 	IN: 'amazon.in',
 	IT: 'amazon.it',
 	JP: 'amazon.co.jp',
