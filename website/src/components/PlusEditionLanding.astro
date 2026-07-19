@@ -94,11 +94,11 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 	<section class="plus-landing__trust" aria-labelledby="trusted-by-developers">
 		<div>
 			<p class="plus-landing__eyebrow">Trusted by developers</p>
-			<h2 id="trusted-by-developers">Built from a widely read open-source TypeScript book</h2>
+			<h2 id="trusted-by-developers">Based on a popular open-source TypeScript book</h2>
 		</div>
 		<div>
 			<p>
-				The free edition has <strong>10,000+ GitHub stars</strong> and is used by many TypeScript developers. The Plus Edition is written by Simone Poggiali, bringing <strong>20 years of international work experience</strong> to practical React guidance and real-world TypeScript patterns.
+				The free edition has <strong>10,000+ GitHub stars</strong> and is used by many TypeScript developers. The Plus Edition is written by <strong>Simone Poggiali</strong>, bringing <strong>20 years of international work experience</strong> to practical React guidance and real-world TypeScript patterns.
 			</p>
 		</div>
 	</section>
@@ -316,6 +316,12 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 		padding-block: clamp(1.75rem, 5vw, 3rem);
 	}
 
+	.plus-landing__audience h2,
+	.plus-landing__trust h2 {
+		font-size: clamp(var(--sl-text-2xl), 4vw, var(--sl-text-4xl));
+		line-height: 1.1;
+	}
+
 	.plus-landing__audience > p,
 	.plus-landing__trust-copy p {
 		margin: 0;
@@ -327,11 +333,6 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 	.plus-landing__trust-copy {
 		display: grid;
 		gap: 1rem;
-	}
-
-	.plus-landing__trust h2 {
-		font-size: clamp(var(--sl-text-xl), 3vw, var(--sl-text-2xl));
-		line-height: 1.25;
 	}
 
 	@keyframes plus-cover-float {
