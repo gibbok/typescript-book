@@ -28,6 +28,9 @@ const clientConfig = JSON.stringify({
 		<a
 			class="amazon-purchase__button amazon-purchase__button--primary"
 			data-format-link="kindle"
+			data-plus-edition-event="plus_edition_amazon_click"
+			data-plus-edition-cta-id="amazon_kindle"
+			data-plus-edition-placement="plus_edition_landing_purchase"
 			href={`https://www.amazon.com/dp/${PLUS_EDITION.editions.en.kindleAsin}`}
 			target="_blank"
 			rel="noopener noreferrer"
@@ -38,6 +41,9 @@ const clientConfig = JSON.stringify({
 		<a
 			class="amazon-purchase__button"
 			data-format-link="paperback"
+			data-plus-edition-event="plus_edition_amazon_click"
+			data-plus-edition-cta-id="amazon_paperback"
+			data-plus-edition-placement="plus_edition_landing_purchase"
 			href={`https://www.amazon.com/dp/${PLUS_EDITION.editions.en.paperbackAsin}`}
 			target="_blank"
 			rel="noopener noreferrer"
@@ -53,8 +59,10 @@ const clientConfig = JSON.stringify({
 
 <script>
 	import { initializeAmazonPurchaseOptions } from '../scripts/amazonPurchase';
+	import { initializePlusEditionAnalytics } from '../scripts/plusEditionAnalytics';
 
 	document.querySelectorAll<HTMLElement>('[data-amazon-purchase]').forEach(initializeAmazonPurchaseOptions);
+	initializePlusEditionAnalytics();
 </script>
 
 <style>

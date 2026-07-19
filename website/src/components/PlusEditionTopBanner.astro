@@ -3,7 +3,13 @@ import { PLUS_EDITION_PATH } from '../data/plusEdition';
 ---
 
 <aside class="plus-top-banner" aria-label="New Plus Edition announcement">
-	<a href={PLUS_EDITION_PATH}>
+	<a
+		href={PLUS_EDITION_PATH}
+		data-plus-edition-event="plus_edition_top_banner_click"
+		data-plus-edition-cta-id="top_banner_explore"
+		data-plus-edition-placement="top_announcement_banner"
+		data-plus-edition-cta-text="Explore the Plus Edition"
+	>
 		<span class="plus-top-banner__badge">New paid edition</span>
 		<span class="plus-top-banner__message">
 			<strong>Master TypeScript 7</strong>
@@ -13,6 +19,12 @@ import { PLUS_EDITION_PATH } from '../data/plusEdition';
 		<span class="plus-top-banner__action">Explore the Plus Edition <span aria-hidden="true">→</span></span>
 	</a>
 </aside>
+
+<script>
+	import { initializePlusEditionAnalytics } from '../scripts/plusEditionAnalytics';
+
+	initializePlusEditionAnalytics();
+</script>
 
 <style>
 	.plus-top-banner {

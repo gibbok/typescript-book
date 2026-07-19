@@ -12,7 +12,15 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 				A concise, practical guide to TypeScript 7, expanded with exclusive chapters that connect the type system to the work you do every day.
 			</p>
 			<div class="plus-landing__quick-links">
-				<a class="plus-landing__primary-button" href="#buy-plus-edition">Choose Kindle or paperback</a>
+				<a
+					class="plus-landing__primary-button"
+					href="#buy-plus-edition"
+					data-plus-edition-event="plus_edition_buy_anchor_click"
+					data-plus-edition-cta-id="hero_choose_format"
+					data-plus-edition-placement="plus_edition_landing_hero"
+				>
+					Choose Kindle or paperback
+				</a>
 				<a href="#whats-new">See what’s new <span aria-hidden="true">↓</span></a>
 			</div>
 			<p class="plus-landing__availability">English and Italian editions · Available worldwide through Amazon</p>
@@ -103,6 +111,12 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 		</div>
 	</section>
 </article>
+
+<script>
+	import { initializePlusEditionAnalytics } from '../scripts/plusEditionAnalytics';
+
+	initializePlusEditionAnalytics();
+</script>
 
 <style>
 	.plus-landing {
