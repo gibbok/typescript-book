@@ -33,7 +33,7 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 	<section class="plus-landing__feature-grid" aria-label="Exclusive Plus Edition content">
 		<article class="plus-landing__feature-card plus-landing__feature-card--react">
 			<span class="plus-landing__feature-number">01</span>
-			<p class="plus-landing__eyebrow">Exclusive section</p>
+			<p class="plus-landing__eyebrow">Exclusive Content</p>
 			<h2>TypeScript with React</h2>
 			<p>Move confidently from basic component types to patterns that remain clear as a React application grows.</p>
 			<ul>
@@ -46,7 +46,7 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 
 		<article class="plus-landing__feature-card plus-landing__feature-card--patterns">
 			<span class="plus-landing__feature-number">02</span>
-			<p class="plus-landing__eyebrow">Exclusive section</p>
+			<p class="plus-landing__eyebrow">Exclusive Content</p>
 			<h2>Real-world patterns</h2>
 			<p>See how TypeScript’s advanced features combine to solve recurring application-design problems.</p>
 			<ul>
@@ -82,7 +82,7 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 	<section class="plus-landing__audience" aria-labelledby="who-is-this-for">
 		<div>
 			<p class="plus-landing__eyebrow">Who it’s for</p>
-			<h2 id="who-is-this-for">Developers who want clarity and application</h2>
+			<h2 id="who-is-this-for">Developers seeking clarity and practical use</h2>
 		</div>
 		<p>
 			Choose the Plus Edition if you want one focused resource for learning modern TypeScript, typing React effectively, and applying the language to realistic design problems. Familiarity with JavaScript helps, but deep TypeScript experience is not required.
@@ -221,8 +221,7 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 
 	.plus-landing__feature-grid {
 		display: grid;
-		row-gap: 1rem;
-		column-gap: 1rem;
+		gap: 1rem;
 	}
 
 	.plus-landing__feature-card {
@@ -316,23 +315,12 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 		padding-block: clamp(1.75rem, 5vw, 3rem);
 	}
 
-	.plus-landing__audience h2,
-	.plus-landing__trust h2 {
-		font-size: clamp(var(--sl-text-2xl), 4vw, var(--sl-text-4xl));
-		line-height: 1.1;
-	}
-
 	.plus-landing__audience > p,
-	.plus-landing__trust-copy p {
+	.plus-landing__trust > div:last-child > p {
 		margin: 0;
 		color: var(--sl-color-gray-2);
 		font-size: var(--sl-text-base);
 		line-height: 1.7;
-	}
-
-	.plus-landing__trust-copy {
-		display: grid;
-		gap: 1rem;
 	}
 
 	@keyframes plus-cover-float {
