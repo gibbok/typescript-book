@@ -28,11 +28,26 @@ const title = lang.toLowerCase().startsWith('it') ? PLUS_EDITION.titles.it : PLU
 			<li><strong>TypeScript 7:</strong> concise coverage from the foundations through advanced type-system techniques.</li>
 		</ul>
 		<div class="plus-home__actions">
-			<a class="plus-home__button" href={PLUS_EDITION_PATH}>See what’s inside <span aria-hidden="true">→</span></a>
+			<a
+				class="plus-home__button"
+				href={PLUS_EDITION_PATH}
+				data-plus-edition-event="plus_edition_home_banner_click"
+				data-plus-edition-cta-id="home_banner_see_inside"
+				data-plus-edition-placement="homepage_plus_edition_banner"
+				data-plus-edition-cta-text="See what’s inside"
+			>
+				See what’s inside <span aria-hidden="true">→</span>
+			</a>
 			<span>Available for Kindle and in paperback</span>
 		</div>
 	</div>
 </section>
+
+<script>
+	import { initializePlusEditionAnalytics } from '../scripts/plusEditionAnalytics';
+
+	initializePlusEditionAnalytics();
+</script>
 
 <style>
 	.plus-home {

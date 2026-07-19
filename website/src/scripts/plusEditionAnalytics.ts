@@ -2,7 +2,8 @@ type PlusEditionEventName =
 	| 'plus_edition_buy_anchor_click'
 	| 'plus_edition_amazon_click'
 	| 'plus_edition_sidebar_click'
-	| 'plus_edition_top_banner_click';
+	| 'plus_edition_top_banner_click'
+	| 'plus_edition_home_banner_click';
 
 type GtagParams = Record<string, string>;
 
