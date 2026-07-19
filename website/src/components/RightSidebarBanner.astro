@@ -1,19 +1,22 @@
 ---
 import type { Props } from '@astrojs/starlight/props';
 import Default from '@astrojs/starlight/components/PageSidebar.astro';
+import PlusEditionSidebarCard from './PlusEditionSidebarCard.astro';
 
 const props = Astro.props as Props;
 ---
 
 <style>
     .right-sidebar-banner {
+		max-width: 20.625rem;
+		margin-top: var(--plus-banner-height);
         padding: 1rem 1rem 0 1rem;
     }
 </style>
 
 <div class="right-sidebar-banner">
+    <PlusEditionSidebarCard />
     <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CWBDPK3L&placement=gibbokgithubio&format=cover" id="_carbonads_js" is:inline></script>
 </div>
 
 <Default {...props} />
-

@@ -1,0 +1,188 @@
+---
+import { AMAZON_DOMAINS_BY_REGION, PLUS_EDITION } from '../data/plusEdition';
+
+const clientConfig = JSON.stringify({
+	domains: AMAZON_DOMAINS_BY_REGION,
+	editions: PLUS_EDITION.editions,
+	titles: PLUS_EDITION.titles,
+});
+---
+
+<section class="amazon-purchase" data-amazon-purchase data-config={clientConfig} aria-labelledby="buy-plus-edition">
+	<div class="amazon-purchase__heading">
+		<div>
+			<p class="amazon-purchase__eyebrow">Choose your format</p>
+			<h2 id="buy-plus-edition">Get the Plus Edition on Amazon</h2>
+		</div>
+		<label>
+			<span>Edition</span>
+			<select data-edition-select>
+				<option value="en">English</option>
+				<option value="it">Italiano</option>
+			</select>
+		</label>
+	</div>
+
+	<p class="amazon-purchase__title" data-edition-title>{PLUS_EDITION.titles.en}</p>
+	<div class="amazon-purchase__actions">
+		<a
+			class="amazon-purchase__button amazon-purchase__button--primary"
+			data-format-link="kindle"
+			data-plus-edition-event="plus_edition_amazon_click"
+			data-plus-edition-cta-id="amazon_kindle"
+			data-plus-edition-placement="plus_edition_landing_purchase"
+			href={`https://www.amazon.com/dp/${PLUS_EDITION.editions.en.kindleAsin}`}
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<span class="amazon-purchase__format">Kindle edition</span>
+			<span>Buy on <span data-store-name>Amazon.com</span> <span aria-hidden="true">↗</span></span>
+		</a>
+		<a
+			class="amazon-purchase__button"
+			data-format-link="paperback"
+			data-plus-edition-event="plus_edition_amazon_click"
+			data-plus-edition-cta-id="amazon_paperback"
+			data-plus-edition-placement="plus_edition_landing_purchase"
+			href={`https://www.amazon.com/dp/${PLUS_EDITION.editions.en.paperbackAsin}`}
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<span class="amazon-purchase__format">Paperback</span>
+			<span>Buy on <span data-store-name>Amazon.com</span> <span aria-hidden="true">↗</span></span>
+		</a>
+	</div>
+	<p class="amazon-purchase__detected" aria-live="polite" data-detection-message>
+		We’ll use your browser language and region to open the most relevant edition and Amazon store.
+	</p>
+</section>
+
+<script>
+	import { initializeAmazonPurchaseOptions } from '../scripts/amazonPurchase';
+	import { initializePlusEditionAnalytics } from '../scripts/plusEditionAnalytics';
+
+	document.querySelectorAll<HTMLElement>('[data-amazon-purchase]').forEach(initializeAmazonPurchaseOptions);
+	initializePlusEditionAnalytics();
+</script>
+
+<style>
+	.amazon-purchase {
+		margin-block: clamp(2.5rem, 7vw, 5rem);
+		border: 1px solid #c71920;
+		border-radius: 1rem;
+		padding: clamp(1.25rem, 4vw, 2.5rem);
+		background:
+			radial-gradient(circle at 95% 8%, rgb(213 29 36 / 20%), transparent 34%),
+			color-mix(in srgb, var(--sl-color-bg) 96%, #d51d24);
+		box-shadow: 0 16px 45px rgb(31 0 3 / 14%);
+	}
+
+	.amazon-purchase__heading {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: end;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.amazon-purchase__eyebrow {
+		margin: 0 0 0.35rem;
+		color: #e1353c;
+		font-size: var(--sl-text-sm);
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.amazon-purchase h2 {
+		margin: 0;
+		font-size: clamp(var(--sl-text-xl), 4vw, var(--sl-text-3xl));
+	}
+
+	.amazon-purchase label {
+		display: grid;
+		gap: 0.3rem;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-xs);
+		font-weight: 700;
+	}
+
+	.amazon-purchase select {
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.4rem;
+		padding: 0.55rem 2.1rem 0.55rem 0.7rem;
+		background: var(--sl-color-bg-nav);
+		color: var(--sl-color-white);
+		font: inherit;
+	}
+
+	.amazon-purchase__title {
+		max-width: 75ch;
+		margin: 1.15rem 0 0;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-sm);
+		line-height: 1.5;
+	}
+
+	.amazon-purchase__actions {
+		display: grid;
+		gap: 0.85rem;
+		margin-top: 1.25rem;
+	}
+
+	.amazon-purchase__button {
+		display: grid;
+		gap: 0.25rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.65rem;
+		padding: 0.9rem 1rem;
+		background: var(--sl-color-bg-nav);
+		color: #211827 !important;
+		font-size: var(--sl-text-sm);
+		font-weight: 700;
+		line-height: 1.25;
+		text-decoration: none;
+		transition: border-color 160ms ease, transform 160ms ease;
+	}
+
+	:global(:root:not([data-theme='light'])) .amazon-purchase__button:not(.amazon-purchase__button--primary) {
+		border-color: var(--sl-color-gray-4);
+		background: color-mix(in srgb, var(--sl-color-bg-nav) 86%, var(--sl-color-accent-high));
+		color: var(--sl-color-gray-1) !important;
+	}
+
+	.amazon-purchase__button:hover,
+	.amazon-purchase__button:focus-visible {
+		border-color: #e1353c;
+		transform: translateY(-2px);
+	}
+
+	.amazon-purchase__button--primary {
+		border-color: #b4141a;
+		background: linear-gradient(135deg, #b4141a, #db252c);
+		color: #fff !important;
+	}
+
+	.amazon-purchase__format {
+		font-size: var(--sl-text-lg);
+		font-weight: 800;
+	}
+
+	.amazon-purchase__detected {
+		margin: 0.85rem 0 0;
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-xs);
+	}
+
+	@media (min-width: 34rem) {
+		.amazon-purchase__actions {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.amazon-purchase__button {
+			transition: none;
+		}
+	}
+</style>

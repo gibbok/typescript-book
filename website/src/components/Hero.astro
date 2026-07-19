@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import CallToAction from '@astrojs/starlight/components/CallToAction.astro';
 import type { Props } from '@astrojs/starlight/props';
+import PlusEditionHomePromotion from './PlusEditionHomePromotion.astro';
 
 const { entry } = Astro.props;
 const { data } = entry;
@@ -53,10 +54,15 @@ if (image) {
 			</div>
 		)}
 	</div>
-	<div class="home-banner">
-		<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CWBDPK3L&placement=gibbokgithubio&format=cover" id="_carbonads_js" is:inline></script>
-	</div>
 </div>
+
+<PlusEditionHomePromotion lang={Astro.props.lang} />
+
+<!-- Carbon ADS
+<div class="home-banner">
+	<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CWBDPK3L&placement=gibbokgithubio&format=cover" id="_carbonads_js" is:inline></script>
+</div>
+-->
 
 <style>
 	@layer starlight.core {
@@ -111,7 +117,8 @@ if (image) {
 		}
 
 		.home-banner {
-			margin-top: 1rem !important;
+			margin-top: 1.5rem !important;
+			text-align: center;
 		}
 
 		@media (min-width: 50rem) {
