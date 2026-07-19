@@ -91,12 +91,16 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 
 	<RegionalAmazonLinks />
 
-	<section class="plus-landing__italian" aria-labelledby="italian-edition">
+	<section class="plus-landing__trust" aria-labelledby="trusted-by-developers">
 		<div>
-			<p class="plus-landing__eyebrow">Disponibile anche in italiano</p>
-			<h2 id="italian-edition">{PLUS_EDITION.titles.it}</h2>
+			<p class="plus-landing__eyebrow">Trusted by developers</p>
+			<h2 id="trusted-by-developers">Built from a widely read open-source TypeScript book</h2>
 		</div>
-		<p>Select <strong>Italiano</strong> in the purchase section above. Your browser language is detected automatically, and you can always switch editions manually.</p>
+		<div>
+			<p>
+				The free edition has <strong>10,000+ GitHub stars</strong> and is used by many TypeScript developers. The Plus Edition, by creator Simone Poggiali, expands it with React guidance and real-world TypeScript patterns.
+			</p>
+		</div>
 	</section>
 </article>
 
@@ -304,7 +308,7 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 	}
 
 	.plus-landing__audience,
-	.plus-landing__italian {
+	.plus-landing__trust {
 		display: grid;
 		gap: 1.25rem 3rem;
 		margin-block: clamp(3.5rem, 9vw, 6rem);
@@ -313,14 +317,19 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 	}
 
 	.plus-landing__audience > p,
-	.plus-landing__italian > p {
+	.plus-landing__trust-copy p {
 		margin: 0;
 		color: var(--sl-color-gray-2);
 		font-size: var(--sl-text-base);
 		line-height: 1.7;
 	}
 
-	.plus-landing__italian h2 {
+	.plus-landing__trust-copy {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.plus-landing__trust h2 {
 		font-size: clamp(var(--sl-text-xl), 3vw, var(--sl-text-2xl));
 		line-height: 1.25;
 	}
@@ -355,7 +364,7 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 		}
 
 		.plus-landing__audience,
-		.plus-landing__italian {
+		.plus-landing__trust {
 			grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
 			align-items: center;
 		}
