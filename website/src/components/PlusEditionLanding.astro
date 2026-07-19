@@ -3,7 +3,7 @@ import { PLUS_EDITION, PLUS_EDITION_COVER } from '../data/plusEdition';
 import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 ---
 
-<article class="plus-landing">
+<article class="plus-landing not-content">
 	<section class="plus-landing__hero" aria-labelledby="_top">
 		<div class="plus-landing__hero-copy">
 			<p class="plus-landing__eyebrow">The paid, expanded edition · Updated for TypeScript 7</p>
@@ -104,6 +104,7 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 	.plus-landing {
 		--plus-red: #d51d24;
 		--plus-red-dark: #a60f15;
+		container-type: inline-size;
 		max-width: 74rem;
 		margin: 0 auto;
 		padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 4vw, 2.5rem) 3rem;
@@ -216,6 +217,7 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 
 	.plus-landing__feature-grid {
 		display: grid;
+		row-gap: 1rem;
 		column-gap: 1rem;
 	}
 
@@ -235,7 +237,6 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 	}
 
 	.plus-landing__feature-card--patterns {
-		margin-top: 1rem;
 		background:
 			radial-gradient(circle at 100% 0, rgb(213 29 36 / 18%), transparent 45%),
 			var(--sl-color-bg-nav);
@@ -334,6 +335,12 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 		}
 	}
 
+	@container (min-width: 48rem) {
+		.plus-landing__feature-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
 	@media (min-width: 48rem) {
 		.plus-landing__hero {
 			grid-template-columns: minmax(0, 1.65fr) minmax(15rem, 0.75fr);
@@ -341,14 +348,6 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 
 		.plus-landing__cover {
 			width: min(100%, 22rem);
-		}
-
-		.plus-landing__feature-grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-
-		.plus-landing__feature-card--patterns {
-			margin-top: 0;
 		}
 
 		.plus-landing__why {
