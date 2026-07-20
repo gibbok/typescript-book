@@ -341,7 +341,7 @@ export const PLUS_EDITION_COPY = {
 			audienceText:
 				'Scegli la Plus Edition se vuoi una risorsa mirata per imparare TypeScript moderno, tipizzare React in modo efficace e applicare il linguaggio a problemi realistici di progettazione. La familiarità con JavaScript aiuta, ma non serve una esperienza profonda con TypeScript.',
 			trustEyebrow: 'Scelto dagli sviluppatori',
-			trustTitle: 'Basato su un popolare libro TypeScript open source',
+			trustTitle: 'Dal popolare libro TypeScript open source',
 			trustText:
 				'La versione gratuita ha 10.000+ star su GitHub ed è usata da molti sviluppatori TypeScript. La Plus Edition è scritta da Simone Poggiali, che porta 20 anni di esperienza internazionale in contenuti pratici su React e pattern TypeScript reali.',
 		},
@@ -413,7 +413,7 @@ export const PLUS_EDITION_COPY = {
 						'Componentes, props, children e eventos',
 						'Hooks, refs e abstrações reutilizáveis',
 						'Uniões discriminadas e componentes genéricos',
-						'Padrões práticos para APIs de componentes mais seguras',
+						'Padrões para APIs de componentes seguras',
 					],
 				},
 				{
@@ -436,11 +436,11 @@ export const PLUS_EDITION_COPY = {
 				['Útil em todos os níveis', 'Uma introdução estruturada para novos desenvolvedores TypeScript e uma referência rápida para engenheiros experientes.'],
 			],
 			audienceEyebrow: 'Para quem é',
-			audienceTitle: 'Desenvolvedores que buscam clareza e uso prático',
+			audienceTitle: 'Para quem busca clareza prática',
 			audienceText:
 				'Escolha a Plus Edition se você quer uma única fonte focada para aprender TypeScript moderno, tipar React de forma eficaz e aplicar a linguagem a problemas realistas de design. Conhecimento de JavaScript ajuda, mas experiência profunda em TypeScript não é necessária.',
 			trustEyebrow: 'Confiado por desenvolvedores',
-			trustTitle: 'Baseado em um livro TypeScript open source popular',
+			trustTitle: 'Baseado no livro TypeScript open source',
 			trustText:
 				'A edição gratuita tem mais de 10.000 stars no GitHub e é usada por muitos desenvolvedores TypeScript. A Plus Edition é escrita por Simone Poggiali, trazendo 20 anos de experiência internacional para orientação prática em React e padrões reais de TypeScript.',
 		},
@@ -535,11 +535,11 @@ export const PLUS_EDITION_COPY = {
 				['Användbar på alla nivåer', 'En strukturerad introduktion för nya TypeScript-utvecklare och en snabb referens för erfarna ingenjörer.'],
 			],
 			audienceEyebrow: 'Vem den är för',
-			audienceTitle: 'Utvecklare som söker klarhet och praktisk användning',
+			audienceTitle: 'För utvecklare som vill ha klarhet och praktik',
 			audienceText:
 				'Välj Plus Edition om du vill ha en fokuserad resurs för att lära dig modern TypeScript, typa React effektivt och använda språket på realistiska designproblem. JavaScript-kunskap hjälper, men djup TypeScript-erfarenhet krävs inte.',
 			trustEyebrow: 'Betrodd av utvecklare',
-			trustTitle: 'Baserad på en populär open source-bok om TypeScript',
+			trustTitle: 'Bygger på en populär open source-bok',
 			trustText:
 				'Den fria utgåvan har över 10 000 GitHub-stjärnor och används av många TypeScript-utvecklare. Plus Edition är skriven av Simone Poggiali, som bidrar med 20 års internationell arbetslivserfarenhet till praktisk React-vägledning och verklighetsnära TypeScript-mönster.',
 		},
@@ -585,7 +585,7 @@ export const PLUS_EDITION_COPY = {
 			title: 'Продължи отвъд безплатната книга',
 			description: 'Ексклузивни насоки за React и практични реални модели, актуализирани за TypeScript 7.',
 			formats: 'Kindle и меки корици',
-			action: 'Разгледай книгата',
+			action: 'Виж книгата',
 			ariaLabel: 'Разгледай The Concise TypeScript Book Plus Edition',
 		},
 		landing: {
@@ -611,7 +611,7 @@ export const PLUS_EDITION_COPY = {
 						'Компоненти, props, children и събития',
 						'Hooks, refs и преизползваеми абстракции',
 						'Дискриминирани обединения и generic компоненти',
-						'Практични модели за по-сигурни компонентни API',
+						'Практични модели за по-сигурни компонентни API в реални приложения',
 					],
 				},
 				{
@@ -634,11 +634,11 @@ export const PLUS_EDITION_COPY = {
 				['Полезно на всяко ниво', 'Структурирано въведение за нови TypeScript разработчици и бърз справочник за опитни инженери.'],
 			],
 			audienceEyebrow: 'За кого е',
-			audienceTitle: 'Разработчици, които търсят яснота и практична употреба',
+			audienceTitle: 'За търсещи яснота и практика',
 			audienceText:
 				'Избери Plus Edition, ако искаш един фокусиран ресурс за изучаване на съвременен TypeScript, ефективно типизиране на React и прилагане на езика към реалистични дизайн проблеми. Познаването на JavaScript помага, но не е нужна дълбока TypeScript експертиза.',
 			trustEyebrow: 'Доверено от разработчици',
-			trustTitle: 'Базирано на популярна open source TypeScript книга',
+			trustTitle: 'Базирано на популярна TypeScript книга',
 			trustText:
 				'Безплатното издание има над 10 000 GitHub звезди и се използва от много TypeScript разработчици. Plus Edition е написана от Simone Poggiali, който влага 20 години международен професионален опит в практични React насоки и реални TypeScript модели.',
 		},
@@ -710,7 +710,7 @@ export const PLUS_EDITION_COPY = {
 						'Componentes, props, children y eventos',
 						'Hooks, refs y abstracciones reutilizables',
 						'Uniones discriminadas y componentes genéricos',
-						'Patrones prácticos para API de componentes más seguras',
+						'Patrones para API de componentes más seguras',
 					],
 				},
 				{
@@ -733,11 +733,11 @@ export const PLUS_EDITION_COPY = {
 				['Útil en todos los niveles', 'Una introducción estructurada para nuevos desarrolladores TypeScript y una referencia rápida para ingenieros con experiencia.'],
 			],
 			audienceEyebrow: 'Para quién es',
-			audienceTitle: 'Desarrolladores que buscan claridad y uso práctico',
+			audienceTitle: 'Desarrolladores que buscan claridad práctica',
 			audienceText:
 				'Elige la Plus Edition si quieres un recurso enfocado para aprender TypeScript moderno, tipar React de forma efectiva y aplicar el lenguaje a problemas de diseño realistas. Conocer JavaScript ayuda, pero no se requiere experiencia profunda con TypeScript.',
 			trustEyebrow: 'Con la confianza de desarrolladores',
-			trustTitle: 'Basado en un libro open source popular sobre TypeScript',
+			trustTitle: 'Basado en un libro open source de TypeScript',
 			trustText:
 				'La edición gratuita tiene más de 10.000 estrellas en GitHub y la usan muchos desarrolladores TypeScript. La Plus Edition está escrita por Simone Poggiali, que aporta 20 años de experiencia internacional a una guía práctica de React y patrones reales de TypeScript.',
 		},
