@@ -1,34 +1,43 @@
 ---
-import { PLUS_EDITION, PLUS_EDITION_COVER, PLUS_EDITION_PATH } from '../data/plusEdition';
+import { getPlusEditionCopy, getPlusEditionCover, getPlusEditionPath } from '../data/plusEdition';
+
+interface Props {
+	lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+const copy = getPlusEditionCopy(lang).sidebar;
+const cover = getPlusEditionCover(lang);
+const plusEditionPath = getPlusEditionPath(lang);
 ---
 
 <aside class="plus-sidebar-card" aria-labelledby="plus-sidebar-title">
 	<a
 		class="plus-sidebar-card__cover"
-		href={PLUS_EDITION_PATH}
+		href={plusEditionPath}
 		tabindex="-1"
 		aria-hidden="true"
 		data-plus-edition-event="plus_edition_sidebar_click"
 		data-plus-edition-cta-id="sidebar_cover"
 		data-plus-edition-placement="right_sidebar"
-		data-plus-edition-cta-text="Plus Edition cover"
+		data-plus-edition-cta-text={copy.coverCta}
 	>
-		<img src={PLUS_EDITION_COVER} width="640" height="1024" alt="" loading="lazy" decoding="async" />
+		<img src={cover} width="640" height="1024" alt="" loading="lazy" decoding="async" />
 	</a>
 	<div class="plus-sidebar-card__copy">
-		<span class="plus-sidebar-card__eyebrow">Plus Edition</span>
-		<h2 id="plus-sidebar-title">Go beyond the free book</h2>
-		<p>Exclusive React guidance and practical, real-world patterns—updated for TypeScript 7.</p>
-		<p class="plus-sidebar-card__formats">Kindle and paperback</p>
+		<span class="plus-sidebar-card__eyebrow">{copy.eyebrow}</span>
+		<h2 id="plus-sidebar-title">{copy.title}</h2>
+		<p>{copy.description}</p>
+		<p class="plus-sidebar-card__formats">{copy.formats}</p>
 		<a
 			class="plus-sidebar-card__button"
-			href={PLUS_EDITION_PATH}
-			aria-label={`Explore ${PLUS_EDITION.titles.en}`}
+			href={plusEditionPath}
+			aria-label={copy.ariaLabel}
 			data-plus-edition-event="plus_edition_sidebar_click"
 			data-plus-edition-cta-id="sidebar_explore_button"
 			data-plus-edition-placement="right_sidebar"
 		>
-			Explore the book <span aria-hidden="true">→</span>
+			{copy.action} <span aria-hidden="true">→</span>
 		</a>
 	</div>
 </aside>

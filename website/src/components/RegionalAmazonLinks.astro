@@ -1,5 +1,12 @@
 ---
-import { AMAZON_DOMAINS_BY_REGION, PLUS_EDITION } from '../data/plusEdition';
+import { AMAZON_DOMAINS_BY_REGION, PLUS_EDITION, getPlusEditionCopy } from '../data/plusEdition';
+
+interface Props {
+	lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+const copy = getPlusEditionCopy(lang).amazon;
 
 const clientConfig = JSON.stringify({
 	domains: AMAZON_DOMAINS_BY_REGION,
@@ -11,11 +18,11 @@ const clientConfig = JSON.stringify({
 <section class="amazon-purchase" data-amazon-purchase data-config={clientConfig} aria-labelledby="buy-plus-edition">
 	<div class="amazon-purchase__heading">
 		<div>
-			<p class="amazon-purchase__eyebrow">Choose your format</p>
-			<h2 id="buy-plus-edition">Get the Plus Edition on Amazon</h2>
+			<p class="amazon-purchase__eyebrow">{copy.eyebrow}</p>
+			<h2 id="buy-plus-edition">{copy.title}</h2>
 		</div>
 		<label>
-			<span>Edition</span>
+			<span>{copy.editionLabel}</span>
 			<select data-edition-select>
 				<option value="en">English</option>
 				<option value="it">Italiano</option>
@@ -35,8 +42,8 @@ const clientConfig = JSON.stringify({
 			target="_blank"
 			rel="noopener noreferrer"
 		>
-			<span class="amazon-purchase__format">Kindle edition</span>
-			<span>Buy on <span data-store-name>Amazon.com</span> <span aria-hidden="true">↗</span></span>
+			<span class="amazon-purchase__format">{copy.kindle}</span>
+			<span>{copy.buyOn} <span data-store-name>Amazon.com</span> <span aria-hidden="true">↗</span></span>
 		</a>
 		<a
 			class="amazon-purchase__button"
@@ -48,12 +55,12 @@ const clientConfig = JSON.stringify({
 			target="_blank"
 			rel="noopener noreferrer"
 		>
-			<span class="amazon-purchase__format">Paperback</span>
-			<span>Buy on <span data-store-name>Amazon.com</span> <span aria-hidden="true">↗</span></span>
+			<span class="amazon-purchase__format">{copy.paperback}</span>
+			<span>{copy.buyOn} <span data-store-name>Amazon.com</span> <span aria-hidden="true">↗</span></span>
 		</a>
 	</div>
 	<p class="amazon-purchase__detected" aria-live="polite" data-detection-message>
-		We’ll use your browser language and region to open the most relevant edition and Amazon store.
+		{copy.detected}
 	</p>
 </section>
 

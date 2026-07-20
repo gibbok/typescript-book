@@ -8,7 +8,7 @@ const { hasSidebar, labels } = Astro.props as Props;
 
 <div class="page sl-flex">
 	<header class="header">
-		<PlusEditionTopBanner />
+		<PlusEditionTopBanner lang={Astro.props.lang} />
 		<div class="navbar"><slot name="header" /></div>
 	</header>
 	{

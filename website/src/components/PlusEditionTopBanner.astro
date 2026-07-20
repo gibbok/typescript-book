@@ -1,22 +1,30 @@
 ---
-import { PLUS_EDITION_PATH } from '../data/plusEdition';
+import { getPlusEditionCopy, getPlusEditionPath } from '../data/plusEdition';
+
+interface Props {
+	lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+const copy = getPlusEditionCopy(lang).topBanner;
+const plusEditionPath = getPlusEditionPath(lang);
 ---
 
-<aside class="plus-top-banner" aria-label="New Plus Edition announcement">
+<aside class="plus-top-banner" aria-label={copy.ariaLabel}>
 	<a
-		href={PLUS_EDITION_PATH}
+		href={plusEditionPath}
 		data-plus-edition-event="plus_edition_top_banner_click"
 		data-plus-edition-cta-id="top_banner_explore"
 		data-plus-edition-placement="top_announcement_banner"
-		data-plus-edition-cta-text="Explore the Plus Edition"
+		data-plus-edition-cta-text={copy.action}
 	>
-		<span class="plus-top-banner__badge">New paid edition</span>
+		<span class="plus-top-banner__badge">{copy.badge}</span>
 		<span class="plus-top-banner__message">
-			<strong>Master TypeScript 7</strong>
+			<strong>{copy.strong}</strong>
 			<span aria-hidden="true">·</span>
-			<span>React + real-world patterns</span>
+			<span>{copy.message}</span>
 		</span>
-		<span class="plus-top-banner__action">Explore the Plus Edition <span aria-hidden="true">→</span></span>
+		<span class="plus-top-banner__action">{copy.action} <span aria-hidden="true">→</span></span>
 	</a>
 </aside>
 

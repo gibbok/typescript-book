@@ -1,44 +1,43 @@
 ---
-import { PLUS_EDITION, PLUS_EDITION_COVER, PLUS_EDITION_PATH } from '../data/plusEdition';
+import { getPlusEditionCopy, getPlusEditionCover, getPlusEditionPath } from '../data/plusEdition';
 
 interface Props {
 	lang?: string;
 }
 
 const { lang = 'en' } = Astro.props;
-const title = lang.toLowerCase().startsWith('it') ? PLUS_EDITION.titles.it : PLUS_EDITION.titles.en;
+const copy = getPlusEditionCopy(lang).home;
+const cover = getPlusEditionCover(lang);
+const plusEditionPath = getPlusEditionPath(lang);
 ---
 
 <section class="plus-home" aria-labelledby="plus-home-title">
 	<div class="plus-home__cover-wrap">
-		<a href={PLUS_EDITION_PATH} aria-label={`Learn more about ${title}`}>
-			<img src={PLUS_EDITION_COVER} width="640" height="1024" alt={`Cover of ${title}`} loading="lazy" decoding="async" />
+		<a href={plusEditionPath} aria-label={copy.ariaLabel}>
+			<img src={cover} width="640" height="1024" alt={copy.ariaLabel} loading="lazy" decoding="async" />
 		</a>
 	</div>
 	<div class="plus-home__copy">
-		<p class="plus-home__eyebrow">New paid edition · TypeScript 7</p>
-		<h2 id="plus-home-title">Put TypeScript to work in real projects</h2>
+		<p class="plus-home__eyebrow">{copy.eyebrow}</p>
+		<h2 id="plus-home-title">{copy.title}</h2>
 		<p>
-			The Plus Edition expands the free, open-source book with the practical material developers ask for most:
-			<strong>React with TypeScript</strong> and <strong>reusable patterns for production code</strong>.
+			{copy.description}
 		</p>
 		<ul>
-			<li><strong>React with TypeScript:</strong> components, props, hooks, events, refs, and scalable component patterns.</li>
-			<li><strong>Real-world TypeScript patterns:</strong> practical approaches for safer, clearer, maintainable applications.</li>
-			<li><strong>TypeScript 7:</strong> concise coverage from the foundations through advanced type-system techniques.</li>
+			{copy.items.map(([label, text]) => <li><strong>{label}</strong> {text}</li>)}
 		</ul>
 		<div class="plus-home__actions">
 			<a
 				class="plus-home__button"
-				href={PLUS_EDITION_PATH}
+				href={plusEditionPath}
 				data-plus-edition-event="plus_edition_home_banner_click"
 				data-plus-edition-cta-id="home_banner_see_inside"
 				data-plus-edition-placement="homepage_plus_edition_banner"
-				data-plus-edition-cta-text="See what’s inside"
+				data-plus-edition-cta-text={copy.action}
 			>
-				See what’s inside <span aria-hidden="true">→</span>
+				{copy.action} <span aria-hidden="true">→</span>
 			</a>
-			<span>Available for Kindle and in paperback</span>
+			<span>{copy.availability}</span>
 		</div>
 	</div>
 </section>
