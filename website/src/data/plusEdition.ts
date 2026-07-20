@@ -436,7 +436,7 @@ export const PLUS_EDITION_COPY = {
 				['Útil em todos os níveis', 'Uma introdução estruturada para novos desenvolvedores TypeScript e uma referência rápida para engenheiros experientes.'],
 			],
 			audienceEyebrow: 'Para quem é',
-			audienceTitle: 'Desenvolvedores que buscam clareza e uso prático',
+			audienceTitle: 'Para quem busca clareza prática',
 			audienceText:
 				'Escolha a Plus Edition se você quer uma única fonte focada para aprender TypeScript moderno, tipar React de forma eficaz e aplicar a linguagem a problemas realistas de design. Conhecimento de JavaScript ajuda, mas experiência profunda em TypeScript não é necessária.',
 			trustEyebrow: 'Confiado por desenvolvedores',
@@ -585,7 +585,7 @@ export const PLUS_EDITION_COPY = {
 			title: 'Продължи отвъд безплатната книга',
 			description: 'Ексклузивни насоки за React и практични реални модели, актуализирани за TypeScript 7.',
 			formats: 'Kindle и меки корици',
-			action: 'Разгледай книгата',
+			action: 'Виж книгата',
 			ariaLabel: 'Разгледай The Concise TypeScript Book Plus Edition',
 		},
 		landing: {
@@ -634,7 +634,7 @@ export const PLUS_EDITION_COPY = {
 				['Полезно на всяко ниво', 'Структурирано въведение за нови TypeScript разработчици и бърз справочник за опитни инженери.'],
 			],
 			audienceEyebrow: 'За кого е',
-			audienceTitle: 'За разработчици, които търсят яснота и практика',
+			audienceTitle: 'За търсещи яснота и практика',
 			audienceText:
 				'Избери Plus Edition, ако искаш един фокусиран ресурс за изучаване на съвременен TypeScript, ефективно типизиране на React и прилагане на езика към реалистични дизайн проблеми. Познаването на JavaScript помага, но не е нужна дълбока TypeScript експертиза.',
 			trustEyebrow: 'Доверено от разработчици',
