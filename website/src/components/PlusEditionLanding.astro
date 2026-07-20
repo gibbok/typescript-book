@@ -1,15 +1,24 @@
 ---
-import { PLUS_EDITION, PLUS_EDITION_COVER } from '../data/plusEdition';
+import { getPlusEditionCopy, getPlusEditionCover } from '../data/plusEdition';
 import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
+
+interface Props {
+	lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+const copy = getPlusEditionCopy(lang);
+const landing = copy.landing;
+const cover = getPlusEditionCover(lang);
 ---
 
 <article class="plus-landing not-content">
 	<section class="plus-landing__hero" aria-labelledby="_top">
 		<div class="plus-landing__hero-copy">
-			<p class="plus-landing__eyebrow">The paid, expanded edition · Updated for TypeScript 7</p>
-			<h1 id="_top">{PLUS_EDITION.titles.en}</h1>
+			<p class="plus-landing__eyebrow">{landing.heroEyebrow}</p>
+			<h1 id="_top">{landing.title}</h1>
 			<p class="plus-landing__lead">
-				A concise, practical guide to TypeScript 7, expanded with exclusive chapters that connect the type system to the work you do every day.
+				{landing.lead}
 			</p>
 			<div class="plus-landing__quick-links">
 				<a
@@ -19,94 +28,82 @@ import RegionalAmazonLinks from './RegionalAmazonLinks.astro';
 					data-plus-edition-cta-id="hero_choose_format"
 					data-plus-edition-placement="plus_edition_landing_hero"
 				>
-					Choose Kindle or paperback
+					{landing.primaryAction}
 				</a>
-				<a href="#whats-new">See what’s new <span aria-hidden="true">↓</span></a>
+				<a href="#whats-new">{landing.secondaryAction} <span aria-hidden="true">↓</span></a>
 			</div>
-			<p class="plus-landing__availability">English and Italian editions · Available worldwide through Amazon</p>
+			<p class="plus-landing__availability">{landing.availability}</p>
 		</div>
 		<div class="plus-landing__cover">
-			<img src={PLUS_EDITION_COVER} width="640" height="1024" alt={`Cover of ${PLUS_EDITION.titles.en}`} decoding="async" fetchpriority="high" />
+			<img src={cover} width="640" height="1024" alt={copy.coverAlt} decoding="async" fetchpriority="high" />
 		</div>
 	</section>
 
 	<section id="whats-new" class="plus-landing__section plus-landing__section--intro" aria-labelledby="built-for-real-work">
-		<p class="plus-landing__eyebrow">From understanding TypeScript to using it well</p>
-		<h2 id="built-for-real-work">New content built for real projects</h2>
+		<p class="plus-landing__eyebrow">{landing.introEyebrow}</p>
+		<h2 id="built-for-real-work">{landing.introTitle}</h2>
 		<p>
-			The Plus Edition builds on the widely read, open-source <em>The Concise TypeScript Book</em>. It keeps the direct explanations and focused examples, then goes further with two substantial areas available only in this paid edition.
+			{landing.introText}
 		</p>
 	</section>
 
-	<section class="plus-landing__feature-grid" aria-label="Exclusive Plus Edition content">
+	<section class="plus-landing__feature-grid" aria-label={landing.featureAriaLabel}>
 		<article class="plus-landing__feature-card plus-landing__feature-card--react">
 			<span class="plus-landing__feature-number">01</span>
-			<p class="plus-landing__eyebrow">Exclusive Content</p>
-			<h2>TypeScript with React</h2>
-			<p>Move confidently from basic component types to patterns that remain clear as a React application grows.</p>
+			<p class="plus-landing__eyebrow">{landing.exclusiveContent}</p>
+			<h2>{landing.features[0].title}</h2>
+			<p>{landing.features[0].description}</p>
 			<ul>
-				<li>Components, props, children, and events</li>
-				<li>Hooks, refs, and reusable abstractions</li>
-				<li>Discriminated unions and generic components</li>
-				<li>Practical patterns for safer component APIs</li>
+				{landing.features[0].items.map((item) => <li>{item}</li>)}
 			</ul>
 		</article>
 
 		<article class="plus-landing__feature-card plus-landing__feature-card--patterns">
 			<span class="plus-landing__feature-number">02</span>
-			<p class="plus-landing__eyebrow">Exclusive Content</p>
-			<h2>Real-world patterns</h2>
-			<p>See how TypeScript’s advanced features combine to solve recurring application-design problems.</p>
+			<p class="plus-landing__eyebrow">{landing.exclusiveContent}</p>
+			<h2>{landing.features[1].title}</h2>
+			<p>{landing.features[1].description}</p>
 			<ul>
-				<li>Expressive, maintainable domain types</li>
-				<li>Safer boundaries and error handling</li>
-				<li>Reusable type maps and factory patterns</li>
-				<li>Techniques you can adapt to production code</li>
+				{landing.features[1].items.map((item) => <li>{item}</li>)}
 			</ul>
 		</article>
 	</section>
 
 	<section class="plus-landing__section plus-landing__why" aria-labelledby="why-plus">
 		<div>
-			<p class="plus-landing__eyebrow">Concise by design</p>
-			<h2 id="why-plus">More practical depth, without the fluff</h2>
+			<p class="plus-landing__eyebrow">{landing.whyEyebrow}</p>
+			<h2 id="why-plus">{landing.whyTitle}</h2>
 		</div>
 		<div class="plus-landing__why-grid">
-			<article>
-				<h3>Current</h3>
-				<p>Updated for TypeScript 7, from essential language concepts to advanced type-system techniques.</p>
-			</article>
-			<article>
-				<h3>Practical</h3>
-				<p>Short explanations and focused examples designed to transfer directly to day-to-day development.</p>
-			</article>
-			<article>
-				<h3>Useful at every level</h3>
-				<p>A structured introduction for newer TypeScript developers and a fast reference for experienced engineers.</p>
-			</article>
+			{landing.whyItems.map(([title, text]) => (
+				<article>
+					<h3>{title}</h3>
+					<p>{text}</p>
+				</article>
+			))}
 		</div>
 	</section>
 
 	<section class="plus-landing__audience" aria-labelledby="who-is-this-for">
 		<div>
-			<p class="plus-landing__eyebrow">Who it’s for</p>
-			<h2 id="who-is-this-for">Developers seeking clarity and practical use</h2>
+			<p class="plus-landing__eyebrow">{landing.audienceEyebrow}</p>
+			<h2 id="who-is-this-for">{landing.audienceTitle}</h2>
 		</div>
 		<p>
-			Choose the Plus Edition if you want one focused resource for learning modern TypeScript, typing React effectively, and applying the language to realistic design problems. Familiarity with JavaScript helps, but deep TypeScript experience is not required.
+			{landing.audienceText}
 		</p>
 	</section>
 
-	<RegionalAmazonLinks />
+	<RegionalAmazonLinks lang={lang} />
 
 	<section class="plus-landing__trust" aria-labelledby="trusted-by-developers">
 		<div>
-			<p class="plus-landing__eyebrow">Trusted by developers</p>
-			<h2 id="trusted-by-developers">Based on a popular open-source TypeScript book</h2>
+			<p class="plus-landing__eyebrow">{landing.trustEyebrow}</p>
+			<h2 id="trusted-by-developers">{landing.trustTitle}</h2>
 		</div>
 		<div>
 			<p>
-				The free edition has <strong>10,000+ GitHub stars</strong> and is used by many TypeScript developers. The Plus Edition is written by <strong>Simone Poggiali</strong>, bringing <strong>20 years of international work experience</strong> to practical React guidance and real-world TypeScript patterns.
+				{landing.trustText}
 			</p>
 		</div>
 	</section>
