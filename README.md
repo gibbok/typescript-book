@@ -12,6 +12,8 @@ I believe that high-quality technical education should be accessible to everyone
 
 ## The Concise TypeScript Book Plus Edition
 
+<img src="website/public/images/plus-edition-cover_en.webp" alt="The Concise TypeScript Book Plus Edition cover" width="320">
+
 For readers who want to go beyond the open-source edition, **The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** includes additional and exclusive content focused on practical application.
 
 The Plus Edition includes:
@@ -21,6 +23,8 @@ The Plus Edition includes:
 * **TypeScript Recipes for Real-World Projects** — focused examples that address practical problems developers encounter when building and maintaining TypeScript applications.
 
 By purchasing the Plus Edition, you also directly support the continued development and maintenance of the free and open-source book.
+
+The Plus Edition is available in English and Italian on Amazon worldwide. [Read more about it here](https://gibbok.github.io/typescript-book/plus-edition/).
 
 ## Support the Project
 
