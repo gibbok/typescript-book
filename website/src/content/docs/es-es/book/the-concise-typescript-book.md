@@ -14,7 +14,7 @@ Este libro es completamente gratuito y de código abierto.
 
 Creo que la formación técnica de alta calidad debe estar al alcance de todo el mundo. Por esta razón, mantengo el libro disponible gratuitamente y lo actualizo periódicamente con mejoras y nuevos ejemplos.
 
-The Concise TypeScript Book Plus Edition
+Descubre **The Concise TypeScript Book Plus Edition**.
 
 [![Portada de The Concise TypeScript Book Plus Edition](https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp)](https://gibbok.github.io/typescript-book/es-es/plus-edition/?utm_source=github&utm_medium=readme)
 
