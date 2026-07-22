@@ -10,7 +10,7 @@
 
 **《The Concise TypeScript Book》Plus 版**
 
-<a href="https://gibbok.github.io/typescript-book/zh-cn/plus-edition/"><img src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp" alt="《The Concise TypeScript Book》Plus 版封面" width="320" /></a>
+<a href="https://gibbok.github.io/typescript-book/zh-cn/plus-edition/?utm_source=github&utm_medium=readme"><img src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp" alt="《The Concise TypeScript Book》Plus 版封面" width="320" /></a>
 
 对于希望深入学习开源版之外内容的读者，**The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** 提供了更多专注于实际应用的独家内容。
 

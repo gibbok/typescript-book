@@ -16,7 +16,7 @@ Jag anser att teknisk utbildning av hög kvalitet ska vara tillgänglig för all
 
 **Plus-utgåvan av The Concise TypeScript Book**
 
-<a href="https://gibbok.github.io/typescript-book/sv-se/plus-edition/"><img src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp" alt="Omslaget till Plus-utgåvan av The Concise TypeScript Book" width="320" /></a>
+<a href="https://gibbok.github.io/typescript-book/sv-se/plus-edition/?utm_source=github&utm_medium=readme"><img src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp" alt="Omslaget till Plus-utgåvan av The Concise TypeScript Book" width="320" /></a>
 
 För läsare som vill gå längre än utgåvan med öppen källkod innehåller **The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** ytterligare och exklusivt innehåll med fokus på praktisk tillämpning.
 
