@@ -1,12 +1,32 @@
 # The Concise TypeScript Book
 
-The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects of the latest version of the language, from its powerful type system to advanced features. Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.
+The Concise TypeScript Book provides a comprehensive and succinct overview of TypeScript's capabilities. It offers clear explanations covering all aspects of the latest version of the language, from its powerful type system to advanced features.
 
-This book is completely Free and Open Source.
+Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.
 
-I believe that high-quality technical education should be accessible to everyone, which is why I keep this book free and open.
+## Free and Open Source
 
-If the book helped you squash a bug, understand a tricky concept, or advance in your career, please consider supporting my work by paying what you want (suggested price: 15 USD) or sponsoring a coffee. Your support helps me keep the content up to date and expand it with new examples and deeper explanations.
+This book is completely free and open source.
+
+I believe that high-quality technical education should be accessible to everyone. For this reason, I keep the book freely available and regularly update it with improvements, and new examples.
+
+## The Concise TypeScript Book Plus Edition
+
+For readers who want to go beyond the open-source edition, **The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** includes additional and exclusive content focused on practical application.
+
+The Plus Edition includes:
+
+* **Updated for TypeScript 7** — coverage of the latest TypeScript 7 features and language improvements.
+* **TypeScript with React** — practical guidance for typing components, props, hooks, events, children, refs, and common React patterns.
+* **TypeScript Recipes for Real-World Projects** — focused examples that address practical problems developers encounter when building and maintaining TypeScript applications.
+
+By purchasing the Plus Edition, you also directly support the continued development and maintenance of the free and open-source book.
+
+## Support the Project
+
+If the free book helped you fix a bug, understand a difficult concept, or advance in your career, please consider supporting my work by paying what you want, with a suggested contribution of **$5**, or by sponsoring a coffee.
+
+Your support helps me keep the content up to date and expand it with new examples, clearer explanations, and additional practical guidance.
 
 [![Buy Me a Coffee](https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/simonepoggiali)
 
