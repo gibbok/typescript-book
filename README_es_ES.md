@@ -10,7 +10,7 @@ Creo que la formación técnica de alta calidad debe estar al alcance de todo el
 
 **Edición Plus de The Concise TypeScript Book**
 
-<a href="https://gibbok.github.io/typescript-book/es-es/plus-edition/"><img src="website/public/images/plus-edition-cover_en.webp" alt="Portada de la Edición Plus de The Concise TypeScript Book" width="320" /></a>
+<a href="https://gibbok.github.io/typescript-book/es-es/plus-edition/"><img src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp" alt="Portada de la Edición Plus de The Concise TypeScript Book" width="320" /></a>
 
 Para quienes deseen ir más allá de la edición de código abierto, **The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** incluye contenido adicional y exclusivo centrado en la aplicación práctica.
 
