@@ -8,7 +8,7 @@ Den här boken är helt gratis och har öppen källkod.
 
 Jag anser att teknisk utbildning av hög kvalitet ska vara tillgänglig för alla. Därför håller jag boken fritt tillgänglig och uppdaterar den regelbundet med förbättringar och nya exempel.
 
-The Concise TypeScript Book Plus Edition
+Upptäck **The Concise TypeScript Book Plus Edition**.
 
 [![Omslaget till The Concise TypeScript Book Plus Edition](https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp)](https://gibbok.github.io/typescript-book/sv-se/plus-edition/?utm_source=github&utm_medium=readme)
 

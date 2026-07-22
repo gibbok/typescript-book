@@ -8,7 +8,7 @@
 
 我相信高质量的技术教育应该惠及所有人。因此，我始终免费提供本书，并定期更新改进内容和新示例。
 
-The Concise TypeScript Book Plus Edition
+了解 **The Concise TypeScript Book Plus Edition**。
 
 [![The Concise TypeScript Book Plus Edition 封面](https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp)](https://gibbok.github.io/typescript-book/zh-cn/plus-edition/?utm_source=github&utm_medium=readme)
 
