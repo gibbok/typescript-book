@@ -1,8 +1,8 @@
 ---
 title: Template Union Types
 sidebar:
-  order: 43
-  label: 43. Template Union Types
+  order: 46
+  label: 46. Template Union Types
 ---
 
 

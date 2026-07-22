@@ -1,8 +1,8 @@
 ---
 title: 枚举
 sidebar:
-  order: 19
-  label: 19. 枚举
+  order: 22
+  label: 22. 枚举
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: За автора
 sidebar:
-  order: 6
-  label: 6. За автора
+  order: 9
+  label: 9. За автора
 ---
 
 

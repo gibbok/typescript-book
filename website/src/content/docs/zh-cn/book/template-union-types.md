@@ -1,8 +1,8 @@
 ---
 title: 模板联合类型
 sidebar:
-  order: 43
-  label: 43. 模板联合类型
+  order: 46
+  label: 46. 模板联合类型
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Дистрибутивни Conditional типове
 sidebar:
-  order: 40
-  label: 40. Дистрибутивни Conditional типове
+  order: 43
+  label: 43. Дистрибутивни Conditional типове
 ---
 
 

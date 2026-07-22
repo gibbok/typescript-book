@@ -1,8 +1,8 @@
 ---
 title: Tipo de tupla con nombres (etiquetada)
 sidebar:
-  order: 29
-  label: 29. Tipo de tupla con nombres (etiquetada)
+  order: 32
+  label: 32. Tipo de tupla con nombres (etiquetada)
 ---
 
 

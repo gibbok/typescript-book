@@ -1,8 +1,8 @@
 ---
 title: Tipos primitivos integrados
 sidebar:
-  order: 49
-  label: 49. Tipos primitivos integrados
+  order: 52
+  label: 52. Tipos primitivos integrados
 ---
 
 

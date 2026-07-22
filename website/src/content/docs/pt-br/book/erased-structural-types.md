@@ -1,8 +1,8 @@
 ---
 title: Tipos Estruturais Apagados
 sidebar:
-  order: 56
-  label: 56. Tipos Estruturais Apagados
+  order: 59
+  label: 59. Tipos Estruturais Apagados
 ---
 
 

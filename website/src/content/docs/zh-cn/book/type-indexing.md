@@ -1,8 +1,8 @@
 ---
 title: 类型索引
 sidebar:
-  order: 33
-  label: 33. 类型索引
+  order: 36
+  label: 36. 类型索引
 ---
 
 

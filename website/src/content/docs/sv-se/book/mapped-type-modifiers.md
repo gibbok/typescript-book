@@ -1,8 +1,8 @@
 ---
 title: Modifierare för mappade typer
 sidebar:
-  order: 38
-  label: 38. Modifierare för mappade typer
+  order: 41
+  label: 41. Modifierare för mappade typer
 ---
 
 

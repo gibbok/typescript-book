@@ -1,8 +1,8 @@
 ---
 title: 探索类型系统
 sidebar:
-  order: 9
-  label: 9. 探索类型系统
+  order: 12
+  label: 12. 探索类型系统
 ---
 
 

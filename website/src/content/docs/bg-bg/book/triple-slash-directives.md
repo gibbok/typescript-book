@@ -1,8 +1,8 @@
 ---
 title: Triple-Slash директиви
 sidebar:
-  order: 59
-  label: 59. Triple-Slash директиви
+  order: 62
+  label: 62. Triple-Slash директиви
 ---
 
 

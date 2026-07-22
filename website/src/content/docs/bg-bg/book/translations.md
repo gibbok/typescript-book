@@ -1,8 +1,8 @@
 ---
 title: Преводи
 sidebar:
-  order: 2
-  label: 2. Преводи
+  order: 5
+  label: 5. Преводи
 ---
 
 

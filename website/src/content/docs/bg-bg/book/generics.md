@@ -1,8 +1,8 @@
 ---
 title: Generics
 sidebar:
-  order: 55
-  label: 55. Generics
+  order: 58
+  label: 58. Generics
 ---
 
 

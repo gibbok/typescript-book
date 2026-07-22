@@ -1,8 +1,8 @@
 ---
 title: Primitiva typer
 sidebar:
-  order: 10
-  label: 10. Primitiva typer
+  order: 13
+  label: 13. Primitiva typer
 ---
 
 

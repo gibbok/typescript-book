@@ -1,8 +1,8 @@
 ---
 title: 映射类型
 sidebar:
-  order: 37
-  label: 37. 映射类型
+  order: 40
+  label: 40. 映射类型
 ---
 
 

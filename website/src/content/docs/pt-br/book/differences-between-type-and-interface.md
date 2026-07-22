@@ -1,8 +1,8 @@
 ---
 title: Diferenças entre Type e Interface
 sidebar:
-  order: 53
-  label: 53. Diferenças entre Type e Interface
+  order: 56
+  label: 56. Diferenças entre Type e Interface
 ---
 
 

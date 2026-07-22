@@ -1,8 +1,8 @@
 ---
 title: Tipo da Ritorno Funzione
 sidebar:
-  order: 35
-  label: 35. Tipo da Ritorno Funzione
+  order: 38
+  label: 38. Tipo da Ritorno Funzione
 ---
 
 

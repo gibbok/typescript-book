@@ -1,12 +1,36 @@
 # The Concise TypeScript Book
 
-The Concise TypeScript Book fornece uma visão geral abrangente e concisa dos recursos do TypeScript. Ele oferece explicações claras que abrangem todos os aspectos encontrados na versão mais recente da linguagem, desde o seu poderoso sistema de tipos até recursos avançados. Seja você um iniciante ou um desenvolvedor experiente, este livro é um recurso inestimável para aprimorar sua compreensão e proficiência em TypeScript.
+The Concise TypeScript Book oferece uma visão geral abrangente e concisa dos recursos do TypeScript. Ele apresenta explicações claras que abrangem todos os aspectos da versão mais recente da linguagem, desde seu poderoso sistema de tipos até recursos avançados.
 
-Este livro é completamente gratuito e de código aberto (open source).
+Seja você iniciante ou um desenvolvedor experiente, este livro é um recurso inestimável para aprimorar sua compreensão e proficiência em TypeScript.
 
-Acredito que a educação técnica de alta qualidade deve ser acessível a todos, por isso mantenho este livro gratuito e aberto.
+## Gratuito e de código aberto
 
-Se o livro ajudou você a resolver um bug, entender um conceito difícil ou avançar em sua carreira, considere apoiar meu trabalho pagando quanto quiser (preço sugerido: 15 USD) ou patrocinando um café. Seu apoio me ajuda a manter o conteúdo atualizado e a expandi-lo com novos exemplos e explicações mais profundas.
+Este livro é totalmente gratuito e de código aberto.
+
+Acredito que a educação técnica de alta qualidade deve ser acessível a todos. Por isso, mantenho o livro disponível gratuitamente e o atualizo regularmente com melhorias e novos exemplos.
+
+## Edição Plus de The Concise TypeScript Book
+
+<a href="https://gibbok.github.io/typescript-book/pt-br/plus-edition/"><img src="website/public/images/plus-edition-cover_en.webp" alt="Capa da Edição Plus de The Concise TypeScript Book" width="320" /></a>
+
+Para os leitores que desejam ir além da edição de código aberto, **The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** inclui conteúdo adicional e exclusivo voltado à aplicação prática.
+
+A Edição Plus inclui:
+
+* **Atualizada para o TypeScript 7** — cobertura dos recursos e aprimoramentos mais recentes da linguagem no TypeScript 7.
+* **TypeScript com React** — orientações práticas para tipar componentes, props, hooks, eventos, children, refs e padrões comuns do React.
+* **Receitas de TypeScript para projetos reais** — exemplos focados em problemas práticos que os desenvolvedores encontram ao criar e manter aplicações TypeScript.
+
+Ao comprar a Edição Plus, você também apoia diretamente o desenvolvimento e a manutenção contínuos do livro gratuito e de código aberto.
+
+A Edição Plus está disponível em inglês e italiano na Amazon em todo o mundo. [Conheça a Edição Plus e compre na Amazon](https://gibbok.github.io/typescript-book/pt-br/plus-edition/).
+
+## Apoie o projeto
+
+Se o livro gratuito ajudou você a corrigir um bug, entender um conceito difícil ou avançar na carreira, considere apoiar meu trabalho pagando quanto quiser, com uma contribuição sugerida de **$5**, ou oferecendo um café.
+
+Seu apoio me ajuda a manter o conteúdo atualizado e a expandi-lo com novos exemplos, explicações mais claras e outras orientações práticas.
 
 [![Buy Me a Coffee](https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/simonepoggiali)
 
@@ -40,6 +64,9 @@ Uma versão online está disponível em:
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](#the-concise-typescript-book)
+  - [Gratuito e de código aberto](#gratuito-e-de-código-aberto)
+  - [Edição Plus de The Concise TypeScript Book](#edição-plus-de-the-concise-typescript-book)
+  - [Apoie o projeto](#apoie-o-projeto)
   - [Traduções](#traduções)
   - [Downloads e site](#downloads-e-site)
   - [Sumário](#sumário)

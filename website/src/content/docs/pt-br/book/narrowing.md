@@ -1,8 +1,8 @@
 ---
 title: Estreitamento (Narrowing)
 sidebar:
-  order: 20
-  label: 20. Estreitamento (Narrowing)
+  order: 23
+  label: 23. Estreitamento (Narrowing)
 ---
 
 

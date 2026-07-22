@@ -1,8 +1,8 @@
 ---
 title: Built-in Type Primitives
 sidebar:
-  order: 49
-  label: 49. Built-in Type Primitives
+  order: 52
+  label: 52. Built-in Type Primitives
 ---
 
 

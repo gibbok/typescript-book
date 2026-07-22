@@ -1,8 +1,8 @@
 ---
 title: Void type
 sidebar:
-  order: 46
-  label: 46. Void type
+  order: 49
+  label: 49. Void type
 ---
 
 

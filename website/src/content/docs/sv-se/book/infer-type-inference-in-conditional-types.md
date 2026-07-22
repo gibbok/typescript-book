@@ -1,8 +1,8 @@
 ---
 title: infer-typinferens i villkorliga typer
 sidebar:
-  order: 41
-  label: 41. infer-typinferens i villkorliga typer
+  order: 44
+  label: 44. infer-typinferens i villkorliga typer
 ---
 
 

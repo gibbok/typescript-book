@@ -1,8 +1,8 @@
 ---
 title: Typ från funktionsreturvärde
 sidebar:
-  order: 35
-  label: 35. Typ från funktionsreturvärde
+  order: 38
+  label: 38. Typ från funktionsreturvärde
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Clase
 sidebar:
-  order: 54
-  label: 54. Clase
+  order: 57
+  label: 57. Clase
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Tipos de União de Template (Template Union Types)
 sidebar:
-  order: 43
-  label: 43. Tipos de União de Template (Template Union Types)
+  order: 46
+  label: 46. Tipos de União de Template (Template Union Types)
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Tipos estructurales eliminados
 sidebar:
-  order: 56
-  label: 56. Tipos estructurales eliminados
+  order: 59
+  label: 59. Tipos estructurales eliminados
 ---
 
 

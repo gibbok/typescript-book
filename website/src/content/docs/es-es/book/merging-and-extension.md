@@ -1,8 +1,8 @@
 ---
 title: Combinación y extensión
 sidebar:
-  order: 52
-  label: 52. Combinación y extensión
+  order: 55
+  label: 55. Combinación y extensión
 ---
 
 

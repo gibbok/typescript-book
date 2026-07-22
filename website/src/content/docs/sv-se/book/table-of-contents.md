@@ -1,13 +1,16 @@
 ---
 title: Innehållsförteckning
 sidebar:
-  order: 4
-  label: 4. Innehållsförteckning
+  order: 7
+  label: 7. Innehållsförteckning
 ---
 
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
+  - [Gratis och öppen källkod](../free-and-open-source/)
+  - [Plus-utgåvan av The Concise TypeScript Book](../the-concise-typescript-book-plus-edition/)
+  - [Stöd projektet](../support-the-project/)
   - [Översättningar](../translations/)
   - [Nedladdningar och webbplats](../downloads-and-website/)
   - [Innehållsförteckning](../table-of-contents/)

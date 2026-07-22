@@ -1,8 +1,8 @@
 ---
 title: El tipo never
 sidebar:
-  order: 25
-  label: 25. El tipo never
+  order: 28
+  label: 28. El tipo never
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Restringimento
 sidebar:
-  order: 20
-  label: 20. Restringimento
+  order: 23
+  label: 23. Restringimento
 ---
 
 

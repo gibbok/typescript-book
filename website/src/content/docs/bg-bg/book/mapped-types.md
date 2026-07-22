@@ -1,8 +1,8 @@
 ---
 title: Mapped типове
 sidebar:
-  order: 37
-  label: 37. Mapped типове
+  order: 40
+  label: 40. Mapped типове
 ---
 
 

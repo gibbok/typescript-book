@@ -1,8 +1,8 @@
 ---
 title: Indicizzazione dei tipi
 sidebar:
-  order: 33
-  label: 33. Indicizzazione dei tipi
+  order: 36
+  label: 36. Indicizzazione dei tipi
 ---
 
 

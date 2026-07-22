@@ -1,8 +1,8 @@
 ---
 title: Tuple с фиксирана дължина
 sidebar:
-  order: 30
-  label: 30. Tuple с фиксирана дължина
+  order: 33
+  label: 33. Tuple с фиксирана дължина
 ---
 
 

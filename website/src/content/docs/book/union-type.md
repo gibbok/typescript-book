@@ -1,8 +1,8 @@
 ---
 title: Union Type
 sidebar:
-  order: 31
-  label: 31. Union Type
+  order: 34
+  label: 34. Union Type
 ---
 
 

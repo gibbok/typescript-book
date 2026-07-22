@@ -1,8 +1,8 @@
 ---
 title: Sammanslagning och utökning
 sidebar:
-  order: 52
-  label: 52. Sammanslagning och utökning
+  order: 55
+  label: 55. Sammanslagning och utökning
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Never-typen
 sidebar:
-  order: 25
-  label: 25. Never-typen
+  order: 28
+  label: 28. Never-typen
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Type from Module
 sidebar:
-  order: 36
-  label: 36. Type from Module
+  order: 39
+  label: 39. Type from Module
 ---
 
 

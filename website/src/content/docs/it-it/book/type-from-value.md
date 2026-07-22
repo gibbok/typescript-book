@@ -1,8 +1,8 @@
 ---
 title: Tipo da Valore
 sidebar:
-  order: 34
-  label: 34. Tipo da Valore
+  order: 37
+  label: 37. Tipo da Valore
 ---
 
 

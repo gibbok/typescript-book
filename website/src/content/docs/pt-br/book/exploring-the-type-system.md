@@ -1,8 +1,8 @@
 ---
 title: Explorando o Sistema de Tipos
 sidebar:
-  order: 9
-  label: 9. Explorando o Sistema de Tipos
+  order: 12
+  label: 12. Explorando o Sistema de Tipos
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Type Indexing
 sidebar:
-  order: 33
-  label: 33. Type Indexing
+  order: 36
+  label: 36. Type Indexing
 ---
 
 

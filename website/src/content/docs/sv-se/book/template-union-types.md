@@ -1,8 +1,8 @@
 ---
 title: Mall-unionstyper
 sidebar:
-  order: 43
-  label: 43. Mall-unionstyper
+  order: 46
+  label: 46. Mall-unionstyper
 ---
 
 

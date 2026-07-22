@@ -1,8 +1,8 @@
 ---
 title: Distributiva villkorliga typer
 sidebar:
-  order: 40
-  label: 40. Distributiva villkorliga typer
+  order: 43
+  label: 43. Distributiva villkorliga typer
 ---
 
 

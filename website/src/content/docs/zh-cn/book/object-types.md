@@ -1,8 +1,8 @@
 ---
 title: 对象类型
 sidebar:
-  order: 27
-  label: 27. 对象类型
+  order: 30
+  label: 30. 对象类型
 ---
 
 

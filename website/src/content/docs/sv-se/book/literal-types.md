@@ -1,8 +1,8 @@
 ---
 title: Literaltyper
 sidebar:
-  order: 16
-  label: 16. Literaltyper
+  order: 19
+  label: 19. Literaltyper
 ---
 
 

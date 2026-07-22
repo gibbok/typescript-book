@@ -1,8 +1,8 @@
 ---
 title: Tipo a partir del retorno de una función
 sidebar:
-  order: 35
-  label: 35. Tipo a partir del retorno de una función
+  order: 38
+  label: 38. Tipo a partir del retorno de una función
 ---
 
 

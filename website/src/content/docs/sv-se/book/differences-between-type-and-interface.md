@@ -1,8 +1,8 @@
 ---
 title: Skillnader mellan Type och Interface
 sidebar:
-  order: 53
-  label: 53. Skillnader mellan Type och Interface
+  order: 56
+  label: 56. Skillnader mellan Type och Interface
 ---
 
 

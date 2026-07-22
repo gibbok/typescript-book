@@ -1,8 +1,8 @@
 ---
 title: Namngiven tuppeltyp (Märkt)
 sidebar:
-  order: 29
-  label: 29. Namngiven tuppeltyp (Märkt)
+  order: 32
+  label: 32. Namngiven tuppeltyp (Märkt)
 ---
 
 

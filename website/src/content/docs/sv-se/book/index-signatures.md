@@ -1,8 +1,8 @@
 ---
 title: Indexsignaturer
 sidebar:
-  order: 14
-  label: 14. Indexsignaturer
+  order: 17
+  label: 17. Indexsignaturer
 ---
 
 

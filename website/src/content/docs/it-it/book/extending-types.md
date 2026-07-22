@@ -1,8 +1,8 @@
 ---
 title: Estensione dei tipi
 sidebar:
-  order: 15
-  label: 15. Estensione dei tipi
+  order: 18
+  label: 18. Estensione dei tipi
 ---
 
 

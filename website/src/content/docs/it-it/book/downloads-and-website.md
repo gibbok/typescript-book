@@ -1,8 +1,8 @@
 ---
 title: Download e sito web
 sidebar:
-  order: 3
-  label: 3. Download e sito web
+  order: 6
+  label: 6. Download e sito web
 ---
 
 

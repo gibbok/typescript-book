@@ -1,8 +1,8 @@
 ---
 title: 类型注释
 sidebar:
-  order: 11
-  label: 11. 类型注释
+  order: 14
+  label: 14. 类型注释
 ---
 
 

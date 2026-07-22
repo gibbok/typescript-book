@@ -1,8 +1,8 @@
 ---
 title: Om författaren
 sidebar:
-  order: 6
-  label: 6. Om författaren
+  order: 9
+  label: 9. Om författaren
 ---
 
 

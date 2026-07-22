@@ -1,8 +1,8 @@
 ---
 title: Tupla de Comprimento Fixo
 sidebar:
-  order: 30
-  label: 30. Tupla de Comprimento Fixo
+  order: 33
+  label: 33. Tupla de Comprimento Fixo
 ---
 
 

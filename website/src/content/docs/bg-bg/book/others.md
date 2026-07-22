@@ -1,8 +1,8 @@
 ---
 title: Други
 sidebar:
-  order: 61
-  label: 61. Други
+  order: 64
+  label: 64. Други
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Модификатори на Mapped типове
 sidebar:
-  order: 38
-  label: 38. Модификатори на Mapped типове
+  order: 41
+  label: 41. Модификатори на Mapped типове
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Named Tuple Type (Labeled)
 sidebar:
-  order: 29
-  label: 29. Named Tuple Type (Labeled)
+  order: 32
+  label: 32. Named Tuple Type (Labeled)
 ---
 
 

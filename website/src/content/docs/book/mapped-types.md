@@ -1,8 +1,8 @@
 ---
 title: Mapped Types
 sidebar:
-  order: 37
-  label: 37. Mapped Types
+  order: 40
+  label: 40. Mapped Types
 ---
 
 

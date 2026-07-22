@@ -1,8 +1,8 @@
 ---
 title: Предефинирани Conditional типове
 sidebar:
-  order: 42
-  label: 42. Предефинирани Conditional типове
+  order: 45
+  label: 45. Предефинирани Conditional типове
 ---
 
 

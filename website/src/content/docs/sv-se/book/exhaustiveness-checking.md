@@ -1,8 +1,8 @@
 ---
 title: Uttömmande kontroll
 sidebar:
-  order: 26
-  label: 26. Uttömmande kontroll
+  order: 29
+  label: 29. Uttömmande kontroll
 ---
 
 

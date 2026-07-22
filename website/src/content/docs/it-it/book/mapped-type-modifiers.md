@@ -1,8 +1,8 @@
 ---
 title: Modificatori di tipo mappati
 sidebar:
-  order: 38
-  label: 38. Modificatori di tipo mappati
+  order: 41
+  label: 41. Modificatori di tipo mappati
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Tipo de unión
 sidebar:
-  order: 31
-  label: 31. Tipo de unión
+  order: 34
+  label: 34. Tipo de unión
 ---
 
 

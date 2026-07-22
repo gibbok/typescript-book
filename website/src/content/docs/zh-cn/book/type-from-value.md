@@ -1,8 +1,8 @@
 ---
 title: 值的类型
 sidebar:
-  order: 34
-  label: 34. 值的类型
+  order: 37
+  label: 37. 值的类型
 ---
 
 

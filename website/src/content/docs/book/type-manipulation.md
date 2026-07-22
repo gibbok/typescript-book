@@ -1,8 +1,8 @@
 ---
 title: Type Manipulation
 sidebar:
-  order: 60
-  label: 60. Type Manipulation
+  order: 63
+  label: 63. Type Manipulation
 ---
 
 

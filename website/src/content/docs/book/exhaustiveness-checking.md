@@ -1,8 +1,8 @@
 ---
 title: Exhaustiveness checking
 sidebar:
-  order: 26
-  label: 26. Exhaustiveness checking
+  order: 29
+  label: 29. Exhaustiveness checking
 ---
 
 

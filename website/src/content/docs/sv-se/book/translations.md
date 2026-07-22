@@ -1,8 +1,8 @@
 ---
 title: Översättningar
 sidebar:
-  order: 2
-  label: 2. Översättningar
+  order: 5
+  label: 5. Översättningar
 ---
 
 

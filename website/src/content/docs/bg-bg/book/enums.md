@@ -1,8 +1,8 @@
 ---
 title: Enums
 sidebar:
-  order: 19
-  label: 19. Enums
+  order: 22
+  label: 22. Enums
 ---
 
 

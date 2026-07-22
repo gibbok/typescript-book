@@ -1,8 +1,8 @@
 ---
 title: Literal Types
 sidebar:
-  order: 16
-  label: 16. Literal Types
+  order: 19
+  label: 19. Literal Types
 ---
 
 
