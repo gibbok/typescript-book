@@ -8,9 +8,9 @@ Den här boken är helt gratis och har öppen källkod.
 
 Jag anser att teknisk utbildning av hög kvalitet ska vara tillgänglig för alla. Därför håller jag boken fritt tillgänglig och uppdaterar den regelbundet med förbättringar och nya exempel.
 
-**Plus-utgåvan av The Concise TypeScript Book**
+The Concise TypeScript Book Plus Edition
 
-<a href="https://gibbok.github.io/typescript-book/sv-se/plus-edition/?utm_source=github&utm_medium=readme"><img src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp" alt="Omslaget till Plus-utgåvan av The Concise TypeScript Book" width="320" /></a>
+[![Omslaget till The Concise TypeScript Book Plus Edition](https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp)](https://gibbok.github.io/typescript-book/sv-se/plus-edition/?utm_source=github&utm_medium=readme)
 
 För läsare som vill gå längre än utgåvan med öppen källkod innehåller **The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** ytterligare och exklusivt innehåll med fokus på praktisk tillämpning.
 

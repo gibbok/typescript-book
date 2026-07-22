@@ -14,9 +14,9 @@ Este livro é totalmente gratuito e de código aberto.
 
 Acredito que a educação técnica de alta qualidade deve ser acessível a todos. Por isso, mantenho o livro disponível gratuitamente e o atualizo regularmente com melhorias e novos exemplos.
 
-**Edição Plus de The Concise TypeScript Book**
+The Concise TypeScript Book Plus Edition
 
-<a href="https://gibbok.github.io/typescript-book/pt-br/plus-edition/?utm_source=github&utm_medium=readme"><img src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp" alt="Capa da Edição Plus de The Concise TypeScript Book" width="320" /></a>
+[![Capa de The Concise TypeScript Book Plus Edition](https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp)](https://gibbok.github.io/typescript-book/pt-br/plus-edition/?utm_source=github&utm_medium=readme)
 
 Para os leitores que desejam ir além da edição de código aberto, **The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** inclui conteúdo adicional e exclusivo voltado à aplicação prática.
 
