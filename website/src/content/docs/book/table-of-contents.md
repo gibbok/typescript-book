@@ -8,6 +8,7 @@ sidebar:
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
+  - [Support the Project](../support-the-project/)
   - [Translations](../translations/)
   - [Downloads and website](../downloads-and-website/)
   - [Table of Contents](../table-of-contents/)
