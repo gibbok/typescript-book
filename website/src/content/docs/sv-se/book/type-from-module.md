@@ -1,8 +1,8 @@
 ---
 title: Typ från modul
 sidebar:
-  order: 38
-  label: 38. Typ från modul
+  order: 37
+  label: 37. Typ från modul
 ---
 
 

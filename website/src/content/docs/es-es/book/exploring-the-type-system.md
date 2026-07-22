@@ -1,8 +1,8 @@
 ---
 title: Exploración del sistema de tipos
 sidebar:
-  order: 11
-  label: 11. Exploración del sistema de tipos
+  order: 10
+  label: 10. Exploración del sistema de tipos
 ---
 
 

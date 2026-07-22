@@ -1,8 +1,8 @@
 ---
 title: Type from Func Return
 sidebar:
-  order: 37
-  label: 37. Type from Func Return
+  order: 36
+  label: 36. Type from Func Return
 ---
 
 

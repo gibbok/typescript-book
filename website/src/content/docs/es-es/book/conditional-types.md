@@ -1,8 +1,8 @@
 ---
 title: Tipos condicionales
 sidebar:
-  order: 41
-  label: 41. Tipos condicionales
+  order: 40
+  label: 40. Tipos condicionales
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: 合并与扩展
 sidebar:
-  order: 54
-  label: 54. 合并与扩展
+  order: 53
+  label: 53. 合并与扩展
 ---
 
 

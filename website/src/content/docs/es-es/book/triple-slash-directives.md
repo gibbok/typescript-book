@@ -1,8 +1,8 @@
 ---
 title: Directivas de triple barra
 sidebar:
-  order: 61
-  label: 61. Directivas de triple barra
+  order: 60
+  label: 60. Directivas de triple barra
 ---
 
 

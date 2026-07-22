@@ -1,8 +1,8 @@
 ---
 title: Objetos JS integrados habituales
 sidebar:
-  order: 52
-  label: 52. Objetos JS integrados habituales
+  order: 51
+  label: 51. Objetos JS integrados habituales
 ---
 
 

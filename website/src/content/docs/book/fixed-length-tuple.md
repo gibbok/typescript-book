@@ -1,8 +1,8 @@
 ---
 title: Fixed Length Tuple
 sidebar:
-  order: 32
-  label: 32. Fixed Length Tuple
+  order: 31
+  label: 31. Fixed Length Tuple
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Controllo di esaustività
 sidebar:
-  order: 28
-  label: 28. Controllo di esaustività
+  order: 27
+  label: 27. Controllo di esaustività
 ---
 
 

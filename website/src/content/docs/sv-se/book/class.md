@@ -1,8 +1,8 @@
 ---
 title: Klass
 sidebar:
-  order: 56
-  label: 56. Klass
+  order: 55
+  label: 55. Klass
 ---
 
 

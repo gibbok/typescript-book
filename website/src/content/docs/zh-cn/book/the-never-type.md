@@ -1,8 +1,8 @@
 ---
 title: never 类型缩小
 sidebar:
-  order: 27
-  label: 27. never 类型缩小
+  order: 26
+  label: 26. never 类型缩小
 ---
 
 

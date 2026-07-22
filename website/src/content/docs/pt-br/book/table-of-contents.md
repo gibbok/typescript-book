@@ -1,14 +1,13 @@
 ---
 title: Sumário
 sidebar:
-  order: 6
-  label: 6. Sumário
+  order: 5
+  label: 5. Sumário
 ---
 
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
-  - [Edição Plus de The Concise TypeScript Book](../the-concise-typescript-book-plus-edition/)
   - [Apoie o projeto](../support-the-project/)
   - [Traduções](../translations/)
   - [Downloads e site](../downloads-and-website/)

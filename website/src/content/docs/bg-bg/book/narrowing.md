@@ -1,8 +1,8 @@
 ---
 title: Narrowing
 sidebar:
-  order: 22
-  label: 22. Narrowing
+  order: 21
+  label: 21. Narrowing
 ---
 
 

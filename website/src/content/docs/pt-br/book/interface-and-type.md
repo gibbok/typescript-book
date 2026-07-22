@@ -1,8 +1,8 @@
 ---
 title: Interface e Type
 sidebar:
-  order: 50
-  label: 50. Interface e Type
+  order: 49
+  label: 49. Interface e Type
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Union тип
 sidebar:
-  order: 33
-  label: 33. Union тип
+  order: 32
+  label: 32. Union тип
 ---
 
 

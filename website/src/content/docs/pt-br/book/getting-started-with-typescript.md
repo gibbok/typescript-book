@@ -1,8 +1,8 @@
 ---
 title: Começando com TypeScript
 sidebar:
-  order: 10
-  label: 10. Começando com TypeScript
+  order: 9
+  label: 9. Começando com TypeScript
 ---
 
 

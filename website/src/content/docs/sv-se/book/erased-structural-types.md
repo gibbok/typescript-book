@@ -1,8 +1,8 @@
 ---
 title: Raderade strukturella typer
 sidebar:
-  order: 58
-  label: 58. Raderade strukturella typer
+  order: 57
+  label: 57. Raderade strukturella typer
 ---
 
 

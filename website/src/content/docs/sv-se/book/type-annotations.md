@@ -1,8 +1,8 @@
 ---
 title: Typannoteringar
 sidebar:
-  order: 13
-  label: 13. Typannoteringar
+  order: 12
+  label: 12. Typannoteringar
 ---
 
 

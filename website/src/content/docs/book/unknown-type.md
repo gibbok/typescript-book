@@ -1,8 +1,8 @@
 ---
 title: Unknown type
 sidebar:
-  order: 47
-  label: 47. Unknown type
+  order: 46
+  label: 46. Unknown type
 ---
 
 

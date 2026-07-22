@@ -1,8 +1,8 @@
 ---
 title: Tipo di tupla (anonimo)
 sidebar:
-  order: 30
-  label: 30. Tipo di tupla (anonimo)
+  order: 29
+  label: 29. Tipo di tupla (anonimo)
 ---
 
 

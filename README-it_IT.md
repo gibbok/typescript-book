@@ -63,7 +63,6 @@ Puoi anche scaricare la versione Epub:
 <!-- markdownlint-disable MD004 -->
 
 - [The Concise TypeScript Book](#the-concise-typescript-book)
-- [Edizione Plus di The Concise TypeScript Book](#edizione-plus-di-the-concise-typescript-book)
 - [Sostieni il progetto](#sostieni-il-progetto)
 - [Traduzioni](#traduzioni)
 - [Download e sito web](#download-e-sito-web)

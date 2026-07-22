@@ -1,8 +1,8 @@
 ---
 title: Skrivskyddade egenskaper
 sidebar:
-  order: 15
-  label: 15. Skrivskyddade egenskaper
+  order: 14
+  label: 14. Skrivskyddade egenskaper
 ---
 
 

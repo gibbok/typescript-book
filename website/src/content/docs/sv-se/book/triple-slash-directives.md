@@ -1,8 +1,8 @@
 ---
 title: Trippelsnedstreck-direktiv
 sidebar:
-  order: 61
-  label: 61. Trippelsnedstreck-direktiv
+  order: 60
+  label: 60. Trippelsnedstreck-direktiv
 ---
 
 

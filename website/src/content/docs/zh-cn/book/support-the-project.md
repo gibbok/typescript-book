@@ -1,8 +1,8 @@
 ---
 title: 支持本项目
 sidebar:
-  order: 3
-  label: 3. 支持本项目
+  order: 2
+  label: 2. 支持本项目
 ---
 
 

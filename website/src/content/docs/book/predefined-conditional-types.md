@@ -1,8 +1,8 @@
 ---
 title: Predefined Conditional Types
 sidebar:
-  order: 44
-  label: 44. Predefined Conditional Types
+  order: 43
+  label: 43. Predefined Conditional Types
 ---
 
 

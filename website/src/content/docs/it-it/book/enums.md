@@ -1,8 +1,8 @@
 ---
 title: Enumerazioni
 sidebar:
-  order: 21
-  label: 21. Enumerazioni
+  order: 20
+  label: 20. Enumerazioni
 ---
 
 

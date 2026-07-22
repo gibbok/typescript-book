@@ -1,8 +1,8 @@
 ---
 title: 命名空间
 sidebar:
-  order: 59
-  label: 59. 命名空间
+  order: 58
+  label: 58. 命名空间
 ---
 
 

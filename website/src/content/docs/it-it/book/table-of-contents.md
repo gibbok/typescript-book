@@ -1,15 +1,14 @@
 ---
 title: Indice
 sidebar:
-  order: 6
-  label: 6. Indice
+  order: 5
+  label: 5. Indice
 ---
 
 
 <!-- markdownlint-disable MD004 -->
 
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
-- [Edizione Plus di The Concise TypeScript Book](../the-concise-typescript-book-plus-edition/)
 - [Sostieni il progetto](../support-the-project/)
 - [Traduzioni](../translations/)
 - [Download e sito web](../downloads-and-website/)

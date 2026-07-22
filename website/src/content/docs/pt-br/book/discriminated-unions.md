@@ -1,8 +1,8 @@
 ---
 title: Uniões Discriminadas
 sidebar:
-  order: 26
-  label: 26. Uniões Discriminadas
+  order: 25
+  label: 25. Uniões Discriminadas
 ---
 
 

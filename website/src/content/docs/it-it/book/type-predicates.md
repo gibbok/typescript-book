@@ -1,8 +1,8 @@
 ---
 title: Predicati di tipo
 sidebar:
-  order: 25
-  label: 25. Predicati di tipo
+  order: 24
+  label: 24. Predicati di tipo
 ---
 
 

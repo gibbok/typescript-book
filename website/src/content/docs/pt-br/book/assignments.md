@@ -1,8 +1,8 @@
 ---
 title: Atribuições
 sidebar:
-  order: 23
-  label: 23. Atribuições
+  order: 22
+  label: 22. Atribuições
 ---
 
 

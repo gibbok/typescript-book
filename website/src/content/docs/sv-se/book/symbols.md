@@ -1,8 +1,8 @@
 ---
 title: Symboler
 sidebar:
-  order: 60
-  label: 60. Symboler
+  order: 59
+  label: 59. Symboler
 ---
 
 

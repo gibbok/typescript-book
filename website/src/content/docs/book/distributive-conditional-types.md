@@ -1,8 +1,8 @@
 ---
 title: Distributive Conditional Types
 sidebar:
-  order: 42
-  label: 42. Distributive Conditional Types
+  order: 41
+  label: 41. Distributive Conditional Types
 ---
 
 

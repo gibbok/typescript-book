@@ -1,8 +1,8 @@
 ---
 title: Func 返回值的类型
 sidebar:
-  order: 37
-  label: 37. Func 返回值的类型
+  order: 36
+  label: 36. Func 返回值的类型
 ---
 
 

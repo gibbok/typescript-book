@@ -1,8 +1,8 @@
 ---
 title: Namespacing
 sidebar:
-  order: 59
-  label: 59. Namespacing
+  order: 58
+  label: 58. Namespacing
 ---
 
 

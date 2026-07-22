@@ -1,8 +1,8 @@
 ---
 title: Unionstyp
 sidebar:
-  order: 33
-  label: 33. Unionstyp
+  order: 32
+  label: 32. Unionstyp
 ---
 
 

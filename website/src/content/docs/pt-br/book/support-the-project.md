@@ -1,8 +1,8 @@
 ---
 title: Apoie o projeto
 sidebar:
-  order: 3
-  label: 3. Apoie o projeto
+  order: 2
+  label: 2. Apoie o projeto
 ---
 
 

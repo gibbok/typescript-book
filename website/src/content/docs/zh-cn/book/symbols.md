@@ -1,8 +1,8 @@
 ---
 title: Symbols
 sidebar:
-  order: 60
-  label: 60. Symbols
+  order: 59
+  label: 59. Symbols
 ---
 
 

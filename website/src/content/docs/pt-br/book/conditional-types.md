@@ -1,8 +1,8 @@
 ---
 title: Tipos Condicionais (Conditional Types)
 sidebar:
-  order: 41
-  label: 41. Tipos Condicionais (Conditional Types)
+  order: 40
+  label: 40. Tipos Condicionais (Conditional Types)
 ---
 
 

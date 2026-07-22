@@ -1,8 +1,8 @@
 ---
 title: Readonly свойства
 sidebar:
-  order: 15
-  label: 15. Readonly свойства
+  order: 14
+  label: 14. Readonly свойства
 ---
 
 

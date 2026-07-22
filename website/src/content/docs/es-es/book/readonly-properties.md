@@ -1,8 +1,8 @@
 ---
 title: Propiedades de solo lectura
 sidebar:
-  order: 15
-  label: 15. Propiedades de solo lectura
+  order: 14
+  label: 14. Propiedades de solo lectura
 ---
 
 

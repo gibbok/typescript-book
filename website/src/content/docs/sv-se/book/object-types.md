@@ -1,8 +1,8 @@
 ---
 title: Objekttyper
 sidebar:
-  order: 29
-  label: 29. Objekttyper
+  order: 28
+  label: 28. Objekttyper
 ---
 
 

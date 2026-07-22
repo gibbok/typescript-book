@@ -1,8 +1,8 @@
 ---
 title: 接口及类型
 sidebar:
-  order: 50
-  label: 50. 接口及类型
+  order: 49
+  label: 49. 接口及类型
 ---
 
 

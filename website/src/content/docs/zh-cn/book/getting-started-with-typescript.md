@@ -1,8 +1,8 @@
 ---
 title: TypeScript 入门
 sidebar:
-  order: 10
-  label: 10. TypeScript 入门
+  order: 9
+  label: 9. TypeScript 入门
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Tipo Unione
 sidebar:
-  order: 33
-  label: 33. Tipo Unione
+  order: 32
+  label: 32. Tipo Unione
 ---
 
 

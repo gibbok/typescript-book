@@ -1,8 +1,8 @@
 ---
 title: Void тип
 sidebar:
-  order: 48
-  label: 48. Void тип
+  order: 47
+  label: 47. Void тип
 ---
 
 

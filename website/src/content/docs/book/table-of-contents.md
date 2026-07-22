@@ -1,8 +1,8 @@
 ---
 title: Table of Contents
 sidebar:
-  order: 6
-  label: 6. Table of Contents
+  order: 5
+  label: 5. Table of Contents
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: 命名元组类型（已标记）
 sidebar:
-  order: 31
-  label: 31. 命名元组类型（已标记）
+  order: 30
+  label: 30. 命名元组类型（已标记）
 ---
 
 

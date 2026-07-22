@@ -1,8 +1,8 @@
 ---
 title: Any тип
 sidebar:
-  order: 46
-  label: 46. Any тип
+  order: 45
+  label: 45. Any тип
 ---
 
 

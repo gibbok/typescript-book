@@ -1,8 +1,8 @@
 ---
 title: Typmanipulation
 sidebar:
-  order: 62
-  label: 62. Typmanipulation
+  order: 61
+  label: 61. Typmanipulation
 ---
 
 

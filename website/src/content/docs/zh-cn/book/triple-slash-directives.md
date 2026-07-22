@@ -1,8 +1,8 @@
 ---
 title: 三斜杠指令
 sidebar:
-  order: 61
-  label: 61. 三斜杠指令
+  order: 60
+  label: 60. 三斜杠指令
 ---
 
 

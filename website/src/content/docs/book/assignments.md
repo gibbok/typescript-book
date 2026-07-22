@@ -1,8 +1,8 @@
 ---
 title: Assignments
 sidebar:
-  order: 23
-  label: 23. Assignments
+  order: 22
+  label: 22. Assignments
 ---
 
 

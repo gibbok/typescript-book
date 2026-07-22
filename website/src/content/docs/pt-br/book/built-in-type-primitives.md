@@ -1,8 +1,8 @@
 ---
 title: Tipos Primitivos Integrados
 sidebar:
-  order: 51
-  label: 51. Tipos Primitivos Integrados
+  order: 50
+  label: 50. Tipos Primitivos Integrados
 ---
 
 

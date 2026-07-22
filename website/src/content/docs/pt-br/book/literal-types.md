@@ -1,8 +1,8 @@
 ---
 title: Tipos Literais
 sidebar:
-  order: 18
-  label: 18. Tipos Literais
+  order: 17
+  label: 17. Tipos Literais
 ---
 
 

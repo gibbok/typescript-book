@@ -1,8 +1,8 @@
 ---
 title: Tipi Intersezione
 sidebar:
-  order: 34
-  label: 34. Tipi Intersezione
+  order: 33
+  label: 33. Tipi Intersezione
 ---
 
 

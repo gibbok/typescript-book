@@ -1,8 +1,8 @@
 ---
 title: 字面量推断
 sidebar:
-  order: 19
-  label: 19. 字面量推断
+  order: 18
+  label: 18. 字面量推断
 ---
 
 

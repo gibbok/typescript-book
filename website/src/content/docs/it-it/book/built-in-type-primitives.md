@@ -1,8 +1,8 @@
 ---
 title: Primitive di tipo predefinite
 sidebar:
-  order: 51
-  label: 51. Primitive di tipo predefinite
+  order: 50
+  label: 50. Primitive di tipo predefinite
 ---
 
 

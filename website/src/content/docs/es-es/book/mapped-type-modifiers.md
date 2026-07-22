@@ -1,8 +1,8 @@
 ---
 title: Modificadores de tipos mapeados
 sidebar:
-  order: 40
-  label: 40. Modificadores de tipos mapeados
+  order: 39
+  label: 39. Modificadores de tipos mapeados
 ---
 
 

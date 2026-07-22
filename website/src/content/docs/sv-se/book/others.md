@@ -1,8 +1,8 @@
 ---
 title: Övrigt
 sidebar:
-  order: 63
-  label: 63. Övrigt
+  order: 62
+  label: 62. Övrigt
 ---
 
 

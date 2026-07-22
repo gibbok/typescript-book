@@ -1,8 +1,8 @@
 ---
 title: Objetos JS Integrados Comuns
 sidebar:
-  order: 52
-  label: 52. Objetos JS Integrados Comuns
+  order: 51
+  label: 51. Objetos JS Integrados Comuns
 ---
 
 

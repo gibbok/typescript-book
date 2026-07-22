@@ -1,8 +1,8 @@
 ---
 title: Överlagringar
 sidebar:
-  order: 53
-  label: 53. Överlagringar
+  order: 52
+  label: 52. Överlagringar
 ---
 
 

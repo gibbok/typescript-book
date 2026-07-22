@@ -1,8 +1,8 @@
 ---
 title: Extending Types
 sidebar:
-  order: 17
-  label: 17. Extending Types
+  order: 16
+  label: 16. Extending Types
 ---
 
 

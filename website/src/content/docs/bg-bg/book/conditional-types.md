@@ -1,8 +1,8 @@
 ---
 title: Conditional типове
 sidebar:
-  order: 41
-  label: 41. Conditional типове
+  order: 40
+  label: 40. Conditional типове
 ---
 
 

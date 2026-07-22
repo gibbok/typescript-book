@@ -1,8 +1,8 @@
 ---
 title: 扩展类型
 sidebar:
-  order: 17
-  label: 17. 扩展类型
+  order: 16
+  label: 16. 扩展类型
 ---
 
 

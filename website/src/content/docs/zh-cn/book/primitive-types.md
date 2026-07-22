@@ -1,8 +1,8 @@
 ---
 title: 原始类型
 sidebar:
-  order: 12
-  label: 12. 原始类型
+  order: 11
+  label: 11. 原始类型
 ---
 
 

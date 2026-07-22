@@ -1,8 +1,8 @@
 ---
 title: Stöd projektet
 sidebar:
-  order: 3
-  label: 3. Stöd projektet
+  order: 2
+  label: 2. Stöd projektet
 ---
 
 

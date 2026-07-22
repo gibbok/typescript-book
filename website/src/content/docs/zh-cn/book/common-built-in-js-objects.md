@@ -1,8 +1,8 @@
 ---
 title: 常见的内置 JS 对象
 sidebar:
-  order: 52
-  label: 52. 常见的内置 JS 对象
+  order: 51
+  label: 51. 常见的内置 JS 对象
 ---
 
 

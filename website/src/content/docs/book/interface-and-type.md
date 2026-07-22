@@ -1,8 +1,8 @@
 ---
 title: Interface and Type
 sidebar:
-  order: 50
-  label: 50. Interface and Type
+  order: 49
+  label: 49. Interface and Type
 ---
 
 

@@ -62,7 +62,6 @@ Plus 版在全球亚马逊平台提供英文版和意大利文版。[了解 Plus
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](#the-concise-typescript-book)
-  - [《The Concise TypeScript Book》Plus 版](#the-concise-typescript-bookplus-版)
   - [支持本项目](#支持本项目)
   - [翻译](#翻译)
   - [下载和网站](#下载和网站)

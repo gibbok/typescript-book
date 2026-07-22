@@ -1,8 +1,8 @@
 ---
 title: Comprobación exhaustiva
 sidebar:
-  order: 28
-  label: 28. Comprobación exhaustiva
+  order: 27
+  label: 27. Comprobación exhaustiva
 ---
 
 

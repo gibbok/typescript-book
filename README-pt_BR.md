@@ -62,7 +62,6 @@ Uma versão online está disponível em:
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](#the-concise-typescript-book)
-  - [Edição Plus de The Concise TypeScript Book](#edição-plus-de-the-concise-typescript-book)
   - [Apoie o projeto](#apoie-o-projeto)
   - [Traduções](#traduções)
   - [Downloads e site](#downloads-e-site)

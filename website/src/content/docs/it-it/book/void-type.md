@@ -1,8 +1,8 @@
 ---
 title: Tipo Void
 sidebar:
-  order: 48
-  label: 48. Tipo Void
+  order: 47
+  label: 47. Tipo Void
 ---
 
 

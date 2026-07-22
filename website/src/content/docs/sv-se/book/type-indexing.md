@@ -1,8 +1,8 @@
 ---
 title: Typindexering
 sidebar:
-  order: 35
-  label: 35. Typindexering
+  order: 34
+  label: 34. Typindexering
 ---
 
 

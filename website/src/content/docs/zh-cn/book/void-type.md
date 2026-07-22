@@ -1,8 +1,8 @@
 ---
 title: 空类型
 sidebar:
-  order: 48
-  label: 48. 空类型
+  order: 47
+  label: 47. 空类型
 ---
 
 

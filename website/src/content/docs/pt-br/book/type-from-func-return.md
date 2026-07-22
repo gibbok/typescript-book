@@ -1,8 +1,8 @@
 ---
 title: Tipo a partir de Retorno de Função
 sidebar:
-  order: 37
-  label: 37. Tipo a partir de Retorno de Função
+  order: 36
+  label: 36. Tipo a partir de Retorno de Função
 ---
 
 

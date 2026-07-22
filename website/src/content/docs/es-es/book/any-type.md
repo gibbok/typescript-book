@@ -1,8 +1,8 @@
 ---
 title: Tipo any
 sidebar:
-  order: 46
-  label: 46. Tipo any
+  order: 45
+  label: 45. Tipo any
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Merging and Extension
 sidebar:
-  order: 54
-  label: 54. Merging and Extension
+  order: 53
+  label: 53. Merging and Extension
 ---
 
 

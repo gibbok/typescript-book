@@ -1,8 +1,8 @@
 ---
 title: Mapped Type Modifiers
 sidebar:
-  order: 40
-  label: 40. Mapped Type Modifiers
+  order: 39
+  label: 39. Mapped Type Modifiers
 ---
 
 
