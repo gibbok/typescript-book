@@ -1,8 +1,8 @@
 ---
 title: Fördefinierade villkorliga typer
 sidebar:
-  order: 45
-  label: 45. Fördefinierade villkorliga typer
+  order: 44
+  label: 44. Fördefinierade villkorliga typer
 ---
 
 

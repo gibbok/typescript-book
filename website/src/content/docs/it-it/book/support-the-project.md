@@ -1,8 +1,8 @@
 ---
 title: Sostieni il progetto
 sidebar:
-  order: 4
-  label: 4. Sostieni il progetto
+  order: 3
+  label: 3. Sostieni il progetto
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: infer Type Inference in Conditional Types
 sidebar:
-  order: 44
-  label: 44. infer Type Inference in Conditional Types
+  order: 43
+  label: 43. infer Type Inference in Conditional Types
 ---
 
 

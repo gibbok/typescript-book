@@ -1,8 +1,8 @@
 ---
 title: Mesclagem e Extensão
 sidebar:
-  order: 55
-  label: 55. Mesclagem e Extensão
+  order: 54
+  label: 54. Mesclagem e Extensão
 ---
 
 

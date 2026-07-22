@@ -1,8 +1,8 @@
 ---
 title: Downloads and website
 sidebar:
-  order: 6
-  label: 6. Downloads and website
+  order: 5
+  label: 5. Downloads and website
 ---
 
 

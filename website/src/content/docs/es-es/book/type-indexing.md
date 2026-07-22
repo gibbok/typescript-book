@@ -1,8 +1,8 @@
 ---
 title: Indexación de tipos
 sidebar:
-  order: 36
-  label: 36. Indexación de tipos
+  order: 35
+  label: 35. Indexación de tipos
 ---
 
 

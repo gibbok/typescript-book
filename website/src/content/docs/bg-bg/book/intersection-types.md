@@ -1,8 +1,8 @@
 ---
 title: Intersection типове
 sidebar:
-  order: 35
-  label: 35. Intersection типове
+  order: 34
+  label: 34. Intersection типове
 ---
 
 

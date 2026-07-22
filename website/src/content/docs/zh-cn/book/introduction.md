@@ -1,8 +1,8 @@
 ---
 title: 介绍
 sidebar:
-  order: 8
-  label: 8. 介绍
+  order: 7
+  label: 7. 介绍
 ---
 
 

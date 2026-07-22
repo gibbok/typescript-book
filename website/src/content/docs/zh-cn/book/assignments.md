@@ -1,8 +1,8 @@
 ---
 title: 赋值
 sidebar:
-  order: 24
-  label: 24. 赋值
+  order: 23
+  label: 23. 赋值
 ---
 
 

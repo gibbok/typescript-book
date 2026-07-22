@@ -1,8 +1,8 @@
 ---
 title: Extensión de tipos
 sidebar:
-  order: 18
-  label: 18. Extensión de tipos
+  order: 17
+  label: 17. Extensión de tipos
 ---
 
 

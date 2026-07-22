@@ -1,8 +1,8 @@
 ---
 title: Tipos primitivos
 sidebar:
-  order: 13
-  label: 13. Tipos primitivos
+  order: 12
+  label: 12. Tipos primitivos
 ---
 
 

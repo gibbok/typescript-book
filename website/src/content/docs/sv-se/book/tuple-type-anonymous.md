@@ -1,8 +1,8 @@
 ---
 title: Tuppeltyp (Anonym)
 sidebar:
-  order: 31
-  label: 31. Tuppeltyp (Anonym)
+  order: 30
+  label: 30. Tuppeltyp (Anonym)
 ---
 
 

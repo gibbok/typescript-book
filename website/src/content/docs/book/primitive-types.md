@@ -1,8 +1,8 @@
 ---
 title: Primitive Types
 sidebar:
-  order: 13
-  label: 13. Primitive Types
+  order: 12
+  label: 12. Primitive Types
 ---
 
 

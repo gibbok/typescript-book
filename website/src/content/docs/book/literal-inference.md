@@ -1,8 +1,8 @@
 ---
 title: Literal Inference
 sidebar:
-  order: 20
-  label: 20. Literal Inference
+  order: 19
+  label: 19. Literal Inference
 ---
 
 

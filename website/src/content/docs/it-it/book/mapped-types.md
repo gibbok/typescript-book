@@ -1,8 +1,8 @@
 ---
 title: Tipi mappati
 sidebar:
-  order: 40
-  label: 40. Tipi mappati
+  order: 39
+  label: 39. Tipi mappati
 ---
 
 

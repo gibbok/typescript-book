@@ -1,8 +1,8 @@
 ---
 title: Propriedades Somente Leitura (Readonly)
 sidebar:
-  order: 16
-  label: 16. Propriedades Somente Leitura (Readonly)
+  order: 15
+  label: 15. Propriedades Somente Leitura (Readonly)
 ---
 
 

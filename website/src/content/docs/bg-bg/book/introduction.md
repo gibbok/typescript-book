@@ -1,8 +1,8 @@
 ---
 title: Въведение
 sidebar:
-  order: 8
-  label: 8. Въведение
+  order: 7
+  label: 7. Въведение
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: 任意类型
 sidebar:
-  order: 47
-  label: 47. 任意类型
+  order: 46
+  label: 46. 任意类型
 ---
 
 

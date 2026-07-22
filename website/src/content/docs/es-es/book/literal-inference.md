@@ -1,8 +1,8 @@
 ---
 title: Inferencia de literales
 sidebar:
-  order: 20
-  label: 20. Inferencia de literales
+  order: 19
+  label: 19. Inferencia de literales
 ---
 
 

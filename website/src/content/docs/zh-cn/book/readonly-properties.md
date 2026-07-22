@@ -1,8 +1,8 @@
 ---
 title: 只读属性
 sidebar:
-  order: 16
-  label: 16. 只读属性
+  order: 15
+  label: 15. 只读属性
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Разширеното издание на The Concise TypeScript Book
 sidebar:
-  order: 3
-  label: 3. Разширеното издание на The Concise TypeScript Book
+  order: 2
+  label: 2. Разширеното издание на The Concise TypeScript Book
 ---
 
 

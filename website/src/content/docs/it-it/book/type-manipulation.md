@@ -1,8 +1,8 @@
 ---
 title: Manipolazione dei tipi
 sidebar:
-  order: 63
-  label: 63. Manipolazione dei tipi
+  order: 62
+  label: 62. Manipolazione dei tipi
 ---
 
 

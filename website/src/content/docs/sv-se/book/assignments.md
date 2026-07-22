@@ -1,8 +1,8 @@
 ---
 title: Tilldelningar
 sidebar:
-  order: 24
-  label: 24. Tilldelningar
+  order: 23
+  label: 23. Tilldelningar
 ---
 
 

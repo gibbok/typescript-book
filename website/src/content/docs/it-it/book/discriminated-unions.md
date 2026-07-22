@@ -1,8 +1,8 @@
 ---
 title: Unioni discriminate
 sidebar:
-  order: 27
-  label: 27. Unioni discriminate
+  order: 26
+  label: 26. Unioni discriminate
 ---
 
 

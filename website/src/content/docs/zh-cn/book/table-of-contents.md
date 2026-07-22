@@ -1,14 +1,13 @@
 ---
 title: 目录
 sidebar:
-  order: 7
-  label: 7. 目录
+  order: 6
+  label: 6. 目录
 ---
 
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
-  - [免费开源](../free-and-open-source/)
   - [《The Concise TypeScript Book》Plus 版](../the-concise-typescript-book-plus-edition/)
   - [支持本项目](../support-the-project/)
   - [翻译](../translations/)

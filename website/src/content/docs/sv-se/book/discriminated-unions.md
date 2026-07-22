@@ -1,8 +1,8 @@
 ---
 title: Diskriminerade unioner
 sidebar:
-  order: 27
-  label: 27. Diskriminerade unioner
+  order: 26
+  label: 26. Diskriminerade unioner
 ---
 
 

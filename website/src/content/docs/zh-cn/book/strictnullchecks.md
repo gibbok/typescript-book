@@ -1,8 +1,8 @@
 ---
 title: 严格空检查
 sidebar:
-  order: 21
-  label: 21. 严格空检查
+  order: 20
+  label: 20. 严格空检查
 ---
 
 

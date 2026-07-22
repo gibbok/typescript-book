@@ -1,8 +1,8 @@
 ---
 title: Valfria egenskaper
 sidebar:
-  order: 15
-  label: 15. Valfria egenskaper
+  order: 14
+  label: 14. Valfria egenskaper
 ---
 
 

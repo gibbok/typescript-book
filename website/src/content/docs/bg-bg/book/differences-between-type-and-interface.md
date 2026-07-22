@@ -1,8 +1,8 @@
 ---
 title: Разлики между Type и Interface
 sidebar:
-  order: 56
-  label: 56. Разлики между Type и Interface
+  order: 55
+  label: 55. Разлики между Type и Interface
 ---
 
 

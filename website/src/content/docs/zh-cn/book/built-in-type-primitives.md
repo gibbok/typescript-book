@@ -1,8 +1,8 @@
 ---
 title: 内置原始数据类型
 sidebar:
-  order: 52
-  label: 52. 内置原始数据类型
+  order: 51
+  label: 51. 内置原始数据类型
 ---
 
 

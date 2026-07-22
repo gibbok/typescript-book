@@ -1,8 +1,8 @@
 ---
 title: Tupla de longitud fija
 sidebar:
-  order: 33
-  label: 33. Tupla de longitud fija
+  order: 32
+  label: 32. Tupla de longitud fija
 ---
 
 

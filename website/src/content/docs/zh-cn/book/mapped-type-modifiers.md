@@ -1,8 +1,8 @@
 ---
 title: 映射类型修饰符
 sidebar:
-  order: 41
-  label: 41. 映射类型修饰符
+  order: 40
+  label: 40. 映射类型修饰符
 ---
 
 

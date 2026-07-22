@@ -1,8 +1,8 @@
 ---
 title: 分配条件类型
 sidebar:
-  order: 43
-  label: 43. 分配条件类型
+  order: 42
+  label: 42. 分配条件类型
 ---
 
 

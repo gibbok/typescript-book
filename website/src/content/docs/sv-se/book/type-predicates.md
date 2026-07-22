@@ -1,8 +1,8 @@
 ---
 title: Typpredikat
 sidebar:
-  order: 26
-  label: 26. Typpredikat
+  order: 25
+  label: 25. Typpredikat
 ---
 
 

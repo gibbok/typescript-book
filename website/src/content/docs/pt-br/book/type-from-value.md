@@ -1,8 +1,8 @@
 ---
 title: Tipo a partir de Valor
 sidebar:
-  order: 37
-  label: 37. Tipo a partir de Valor
+  order: 36
+  label: 36. Tipo a partir de Valor
 ---
 
 

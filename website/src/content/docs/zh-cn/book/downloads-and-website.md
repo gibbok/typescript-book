@@ -1,8 +1,8 @@
 ---
 title: 下载和网站
 sidebar:
-  order: 6
-  label: 6. 下载和网站
+  order: 5
+  label: 5. 下载和网站
 ---
 
 

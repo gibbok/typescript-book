@@ -1,8 +1,8 @@
 ---
 title: 其他
 sidebar:
-  order: 64
-  label: 64. 其他
+  order: 63
+  label: 63. 其他
 ---
 
 

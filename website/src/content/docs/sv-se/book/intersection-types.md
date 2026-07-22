@@ -1,8 +1,8 @@
 ---
 title: Intersektionstyper
 sidebar:
-  order: 35
-  label: 35. Intersektionstyper
+  order: 34
+  label: 34. Intersektionstyper
 ---
 
 

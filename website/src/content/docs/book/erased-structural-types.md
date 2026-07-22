@@ -1,8 +1,8 @@
 ---
 title: Erased Structural Types
 sidebar:
-  order: 59
-  label: 59. Erased Structural Types
+  order: 58
+  label: 58. Erased Structural Types
 ---
 
 

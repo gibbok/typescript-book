@@ -1,8 +1,8 @@
 ---
 title: Mappade typer
 sidebar:
-  order: 40
-  label: 40. Mappade typer
+  order: 39
+  label: 39. Mappade typer
 ---
 
 

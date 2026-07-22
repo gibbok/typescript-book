@@ -1,8 +1,8 @@
 ---
 title: Utforska typsystemet
 sidebar:
-  order: 12
-  label: 12. Utforska typsystemet
+  order: 11
+  label: 11. Utforska typsystemet
 ---
 
 

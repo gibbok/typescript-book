@@ -4,13 +4,11 @@
 
 无论您是初学者还是经验丰富的开发人员，本书都是加深 TypeScript 理解和提升运用能力的宝贵资源。
 
-## 免费开源
-
 本书完全免费且开源。
 
 我相信高质量的技术教育应该惠及所有人。因此，我始终免费提供本书，并定期更新改进内容和新示例。
 
-## 《The Concise TypeScript Book》Plus 版
+**《The Concise TypeScript Book》Plus 版**
 
 <a href="https://gibbok.github.io/typescript-book/zh-cn/plus-edition/"><img src="website/public/images/plus-edition-cover_en.webp" alt="《The Concise TypeScript Book》Plus 版封面" width="320" /></a>
 
@@ -64,7 +62,6 @@ Plus 版在全球亚马逊平台提供英文版和意大利文版。[了解 Plus
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](#the-concise-typescript-book)
-  - [免费开源](#免费开源)
   - [《The Concise TypeScript Book》Plus 版](#the-concise-typescript-bookplus-版)
   - [支持本项目](#支持本项目)
   - [翻译](#翻译)

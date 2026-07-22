@@ -1,8 +1,8 @@
 ---
 title: Тип от модул
 sidebar:
-  order: 39
-  label: 39. Тип от модул
+  order: 38
+  label: 38. Тип от модул
 ---
 
 

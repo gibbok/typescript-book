@@ -4,13 +4,11 @@ The Concise TypeScript Book offre una panoramica completa e concisa delle funzio
 
 Che tu sia principiante o sviluppatore esperto, questo libro è una risorsa preziosa per migliorare la tua comprensione e competenza in TypeScript.
 
-## Gratuito e open source
-
 Questo libro è completamente gratuito e open source.
 
 Credo che un'istruzione tecnica di alta qualità debba essere accessibile a tutti. Per questo motivo, mantengo il libro disponibile gratuitamente e lo aggiorno regolarmente con miglioramenti e nuovi esempi.
 
-## Edizione Plus di The Concise TypeScript Book
+**Edizione Plus di The Concise TypeScript Book**
 
 <a href="https://gibbok.github.io/typescript-book/it-it/plus-edition/"><img src="website/public/images/plus-edition-cover_it_IT.webp" alt="Copertina dell'Edizione Plus di The Concise TypeScript Book" width="320" /></a>
 
@@ -65,7 +63,6 @@ Puoi anche scaricare la versione Epub:
 <!-- markdownlint-disable MD004 -->
 
 - [The Concise TypeScript Book](#the-concise-typescript-book)
-- [Gratuito e open source](#gratuito-e-open-source)
 - [Edizione Plus di The Concise TypeScript Book](#edizione-plus-di-the-concise-typescript-book)
 - [Sostieni il progetto](#sostieni-il-progetto)
 - [Traduzioni](#traduzioni)

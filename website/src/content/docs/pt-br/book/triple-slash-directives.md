@@ -1,8 +1,8 @@
 ---
 title: Diretivas Triple-Slash
 sidebar:
-  order: 62
-  label: 62. Diretivas Triple-Slash
+  order: 61
+  label: 61. Diretivas Triple-Slash
 ---
 
 

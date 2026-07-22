@@ -1,8 +1,8 @@
 ---
 title: Verificação de exaustividade
 sidebar:
-  order: 29
-  label: 29. Verificação de exaustividade
+  order: 28
+  label: 28. Verificação de exaustividade
 ---
 
 

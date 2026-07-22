@@ -1,8 +1,8 @@
 ---
 title: Tuple тип (анонимен)
 sidebar:
-  order: 31
-  label: 31. Tuple тип (анонимен)
+  order: 30
+  label: 30. Tuple тип (анонимен)
 ---
 
 

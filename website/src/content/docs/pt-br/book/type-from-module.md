@@ -1,8 +1,8 @@
 ---
 title: Tipo a partir de Módulo
 sidebar:
-  order: 39
-  label: 39. Tipo a partir de Módulo
+  order: 38
+  label: 38. Tipo a partir de Módulo
 ---
 
 

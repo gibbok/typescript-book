@@ -1,8 +1,8 @@
 ---
 title: Kontrollflödesanalys
 sidebar:
-  order: 25
-  label: 25. Kontrollflödesanalys
+  order: 24
+  label: 24. Kontrollflödesanalys
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Anotações de Tipo
 sidebar:
-  order: 14
-  label: 14. Anotações de Tipo
+  order: 13
+  label: 13. Anotações de Tipo
 ---
 
 

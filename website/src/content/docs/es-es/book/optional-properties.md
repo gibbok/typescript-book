@@ -1,8 +1,8 @@
 ---
 title: Propiedades opcionales
 sidebar:
-  order: 15
-  label: 15. Propiedades opcionales
+  order: 14
+  label: 14. Propiedades opcionales
 ---
 
 

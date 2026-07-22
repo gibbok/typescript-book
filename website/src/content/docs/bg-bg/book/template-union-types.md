@@ -1,8 +1,8 @@
 ---
 title: Template Union типове
 sidebar:
-  order: 46
-  label: 46. Template Union типове
+  order: 45
+  label: 45. Template Union типове
 ---
 
 

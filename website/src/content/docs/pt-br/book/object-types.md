@@ -1,8 +1,8 @@
 ---
 title: Tipos de Objeto
 sidebar:
-  order: 30
-  label: 30. Tipos de Objeto
+  order: 29
+  label: 29. Tipos de Objeto
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Traduções
 sidebar:
-  order: 5
-  label: 5. Traduções
+  order: 4
+  label: 4. Traduções
 ---
 
 

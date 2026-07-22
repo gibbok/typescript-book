@@ -1,8 +1,8 @@
 ---
 title: Tipo Tupla Nomeado (Rotulado)
 sidebar:
-  order: 32
-  label: 32. Tipo Tupla Nomeado (Rotulado)
+  order: 31
+  label: 31. Tipo Tupla Nomeado (Rotulado)
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Object Types
 sidebar:
-  order: 30
-  label: 30. Object Types
+  order: 29
+  label: 29. Object Types
 ---
 
 

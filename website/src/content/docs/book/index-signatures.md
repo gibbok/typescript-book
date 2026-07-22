@@ -1,8 +1,8 @@
 ---
 title: Index Signatures
 sidebar:
-  order: 17
-  label: 17. Index Signatures
+  order: 16
+  label: 16. Index Signatures
 ---
 
 

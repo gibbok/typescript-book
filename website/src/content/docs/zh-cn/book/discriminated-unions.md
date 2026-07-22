@@ -1,8 +1,8 @@
 ---
 title: 可区分联合
 sidebar:
-  order: 27
-  label: 27. 可区分联合
+  order: 26
+  label: 26. 可区分联合
 ---
 
 

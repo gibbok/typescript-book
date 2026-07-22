@@ -1,8 +1,8 @@
 ---
 title: Informazioni sull'autore
 sidebar:
-  order: 9
-  label: 9. Informazioni sull'autore
+  order: 8
+  label: 8. Informazioni sull'autore
 ---
 
 

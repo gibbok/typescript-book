@@ -1,8 +1,8 @@
 ---
 title: 泛型
 sidebar:
-  order: 58
-  label: 58. 泛型
+  order: 57
+  label: 57. 泛型
 ---
 
 

@@ -4,13 +4,11 @@ The Concise TypeScript Book provides a comprehensive and succinct overview of Ty
 
 Whether you're a beginner or an experienced developer, this book is an invaluable resource to enhance your understanding and proficiency in TypeScript.
 
-## Free and Open Source
-
 This book is completely free and open source.
 
 I believe that high-quality technical education should be accessible to everyone. For this reason, I keep the book freely available and regularly update it with improvements, and new examples.
 
-## The Concise TypeScript Book Plus Edition
+**The Concise TypeScript Book Plus Edition**
 
 <a href="https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme"><img src="website/public/images/plus-edition-cover_en.webp" alt="The Concise TypeScript Book Plus Edition cover" width="320" /></a>
 

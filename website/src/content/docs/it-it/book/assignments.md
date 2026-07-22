@@ -1,8 +1,8 @@
 ---
 title: Assegnazioni
 sidebar:
-  order: 24
-  label: 24. Assegnazioni
+  order: 23
+  label: 23. Assegnazioni
 ---
 
 

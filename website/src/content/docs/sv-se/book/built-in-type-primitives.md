@@ -1,8 +1,8 @@
 ---
 title: Inbyggda primitiva typer
 sidebar:
-  order: 52
-  label: 52. Inbyggda primitiva typer
+  order: 51
+  label: 51. Inbyggda primitiva typer
 ---
 
 

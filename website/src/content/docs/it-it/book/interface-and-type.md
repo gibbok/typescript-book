@@ -1,8 +1,8 @@
 ---
 title: Interfaccia e tipo
 sidebar:
-  order: 51
-  label: 51. Interfaccia e tipo
+  order: 50
+  label: 50. Interfaccia e tipo
 ---
 
 

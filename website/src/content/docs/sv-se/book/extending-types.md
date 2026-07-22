@@ -1,8 +1,8 @@
 ---
 title: Utöka typer
 sidebar:
-  order: 18
-  label: 18. Utöka typer
+  order: 17
+  label: 17. Utöka typer
 ---
 
 

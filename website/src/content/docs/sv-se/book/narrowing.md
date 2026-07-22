@@ -1,8 +1,8 @@
 ---
 title: Avsmalning
 sidebar:
-  order: 23
-  label: 23. Avsmalning
+  order: 22
+  label: 22. Avsmalning
 ---
 
 

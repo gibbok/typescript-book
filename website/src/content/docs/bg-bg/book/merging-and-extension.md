@@ -1,8 +1,8 @@
 ---
 title: Merging и Extension
 sidebar:
-  order: 55
-  label: 55. Merging и Extension
+  order: 54
+  label: 54. Merging и Extension
 ---
 
 

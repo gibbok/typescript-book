@@ -1,8 +1,8 @@
 ---
 title: 固定长度元组
 sidebar:
-  order: 33
-  label: 33. 固定长度元组
+  order: 32
+  label: 32. 固定长度元组
 ---
 
 

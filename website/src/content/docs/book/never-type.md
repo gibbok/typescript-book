@@ -1,8 +1,8 @@
 ---
 title: Never type
 sidebar:
-  order: 50
-  label: 50. Never type
+  order: 49
+  label: 49. Never type
 ---
 
 

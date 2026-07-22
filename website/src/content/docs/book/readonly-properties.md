@@ -1,8 +1,8 @@
 ---
 title: Readonly Properties
 sidebar:
-  order: 16
-  label: 16. Readonly Properties
+  order: 15
+  label: 15. Readonly Properties
 ---
 
 

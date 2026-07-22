@@ -1,8 +1,8 @@
 ---
 title: Tuple Type (Anonymous)
 sidebar:
-  order: 31
-  label: 31. Tuple Type (Anonymous)
+  order: 30
+  label: 30. Tuple Type (Anonymous)
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: 条件类型
 sidebar:
-  order: 42
-  label: 42. 条件类型
+  order: 41
+  label: 41. 条件类型
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Unknown тип
 sidebar:
-  order: 48
-  label: 48. Unknown тип
+  order: 47
+  label: 47. Unknown тип
 ---
 
 

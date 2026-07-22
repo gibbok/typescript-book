@@ -1,8 +1,8 @@
 ---
 title: Type Annotations
 sidebar:
-  order: 14
-  label: 14. Type Annotations
+  order: 13
+  label: 13. Type Annotations
 ---
 
 

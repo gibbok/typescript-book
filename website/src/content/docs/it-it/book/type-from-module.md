@@ -1,8 +1,8 @@
 ---
 title: Tipo da modulo
 sidebar:
-  order: 39
-  label: 39. Tipo da modulo
+  order: 38
+  label: 38. Tipo da modulo
 ---
 
 

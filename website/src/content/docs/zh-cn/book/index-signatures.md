@@ -1,8 +1,8 @@
 ---
 title: 索引签名
 sidebar:
-  order: 17
-  label: 17. 索引签名
+  order: 16
+  label: 16. 索引签名
 ---
 
 

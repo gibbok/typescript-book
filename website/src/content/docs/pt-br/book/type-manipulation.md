@@ -1,8 +1,8 @@
 ---
 title: Manipulação de Tipos
 sidebar:
-  order: 63
-  label: 63. Manipulação de Tipos
+  order: 62
+  label: 62. Manipulação de Tipos
 ---
 
 

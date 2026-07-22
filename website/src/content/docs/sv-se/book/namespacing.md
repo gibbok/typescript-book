@@ -1,8 +1,8 @@
 ---
 title: Namnrymder
 sidebar:
-  order: 60
-  label: 60. Namnrymder
+  order: 59
+  label: 59. Namnrymder
 ---
 
 

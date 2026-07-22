@@ -1,8 +1,8 @@
 ---
 title: About the Author
 sidebar:
-  order: 9
-  label: 9. About the Author
+  order: 8
+  label: 8. About the Author
 ---
 
 

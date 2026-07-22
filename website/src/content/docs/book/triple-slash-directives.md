@@ -1,8 +1,8 @@
 ---
 title: Triple-Slash Directives
 sidebar:
-  order: 62
-  label: 62. Triple-Slash Directives
+  order: 61
+  label: 61. Triple-Slash Directives
 ---
 
 

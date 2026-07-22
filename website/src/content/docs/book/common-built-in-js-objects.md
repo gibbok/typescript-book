@@ -1,8 +1,8 @@
 ---
 title: Common Built-in JS Objects
 sidebar:
-  order: 53
-  label: 53. Common Built-in JS Objects
+  order: 52
+  label: 52. Common Built-in JS Objects
 ---
 
 

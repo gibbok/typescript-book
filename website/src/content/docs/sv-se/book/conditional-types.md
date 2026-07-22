@@ -1,8 +1,8 @@
 ---
 title: Villkorliga typer
 sidebar:
-  order: 42
-  label: 42. Villkorliga typer
+  order: 41
+  label: 41. Villkorliga typer
 ---
 
 

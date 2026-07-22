@@ -1,8 +1,8 @@
 ---
 title: Espacios de nombres
 sidebar:
-  order: 60
-  label: 60. Espacios de nombres
+  order: 59
+  label: 59. Espacios de nombres
 ---
 
 

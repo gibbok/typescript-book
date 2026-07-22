@@ -1,8 +1,8 @@
 ---
 title: Tipi di unione di template
 sidebar:
-  order: 46
-  label: 46. Tipi di unione di template
+  order: 45
+  label: 45. Tipi di unione di template
 ---
 
 

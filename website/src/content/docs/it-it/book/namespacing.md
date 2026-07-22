@@ -1,8 +1,8 @@
 ---
 title: Namespace
 sidebar:
-  order: 60
-  label: 60. Namespace
+  order: 59
+  label: 59. Namespace
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Tipo Never
 sidebar:
-  order: 50
-  label: 50. Tipo Never
+  order: 49
+  label: 49. Tipo Never
 ---
 
 

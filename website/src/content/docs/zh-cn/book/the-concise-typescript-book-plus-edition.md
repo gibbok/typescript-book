@@ -1,8 +1,8 @@
 ---
 title: 《The Concise TypeScript Book》Plus 版
 sidebar:
-  order: 3
-  label: 3. 《The Concise TypeScript Book》Plus 版
+  order: 2
+  label: 2. 《The Concise TypeScript Book》Plus 版
 ---
 
 

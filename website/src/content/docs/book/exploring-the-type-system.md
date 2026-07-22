@@ -1,8 +1,8 @@
 ---
 title: Exploring the Type System
 sidebar:
-  order: 12
-  label: 12. Exploring the Type System
+  order: 11
+  label: 11. Exploring the Type System
 ---
 
 

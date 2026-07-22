@@ -1,8 +1,8 @@
 ---
 title: Именуван Tuple тип (с етикети)
 sidebar:
-  order: 32
-  label: 32. Именуван Tuple тип (с етикети)
+  order: 31
+  label: 31. Именуван Tuple тип (с етикети)
 ---
 
 

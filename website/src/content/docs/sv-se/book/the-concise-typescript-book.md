@@ -10,3 +10,7 @@ The Concise TypeScript Book ger en omfattande och kortfattad översikt över Typ
 
 Oavsett om du är nybörjare eller erfaren utvecklare är den här boken en ovärderlig resurs för att förbättra din förståelse för och dina färdigheter i TypeScript.
 
+Den här boken är helt gratis och har öppen källkod.
+
+Jag anser att teknisk utbildning av hög kvalitet ska vara tillgänglig för alla. Därför håller jag boken fritt tillgänglig och uppdaterar den regelbundet med förbättringar och nya exempel.
+

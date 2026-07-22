@@ -1,8 +1,8 @@
 ---
 title: The never Type
 sidebar:
-  order: 28
-  label: 28. The never Type
+  order: 27
+  label: 27. The never Type
 ---
 
 

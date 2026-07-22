@@ -1,8 +1,8 @@
 ---
 title: 元组类型（匿名）
 sidebar:
-  order: 31
-  label: 31. 元组类型（匿名）
+  order: 30
+  label: 30. 元组类型（匿名）
 ---
 
 

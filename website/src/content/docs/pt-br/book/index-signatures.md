@@ -1,8 +1,8 @@
 ---
 title: Assinaturas de Índice (Index Signatures)
 sidebar:
-  order: 17
-  label: 17. Assinaturas de Índice (Index Signatures)
+  order: 16
+  label: 16. Assinaturas de Índice (Index Signatures)
 ---
 
 

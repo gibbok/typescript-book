@@ -1,8 +1,8 @@
 ---
 title: Nedladdningar och webbplats
 sidebar:
-  order: 6
-  label: 6. Nedladdningar och webbplats
+  order: 5
+  label: 5. Nedladdningar och webbplats
 ---
 
 

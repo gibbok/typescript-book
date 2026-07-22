@@ -1,8 +1,8 @@
 ---
 title: 联合类型
 sidebar:
-  order: 34
-  label: 34. 联合类型
+  order: 33
+  label: 33. 联合类型
 ---
 
 
