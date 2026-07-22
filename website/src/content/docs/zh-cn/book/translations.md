@@ -1,8 +1,8 @@
 ---
 title: 翻译
 sidebar:
-  order: 2
-  label: 2. 翻译
+  order: 3
+  label: 3. 翻译
 ---
 
 

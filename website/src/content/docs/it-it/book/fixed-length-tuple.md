@@ -1,8 +1,8 @@
 ---
 title: Tupla a lunghezza fissa
 sidebar:
-  order: 30
-  label: 30. Tupla a lunghezza fissa
+  order: 31
+  label: 31. Tupla a lunghezza fissa
 ---
 
 

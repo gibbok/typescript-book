@@ -1,8 +1,8 @@
 ---
 title: Tipos Condicionais Distributivos
 sidebar:
-  order: 40
-  label: 40. Tipos Condicionais Distributivos
+  order: 41
+  label: 41. Tipos Condicionais Distributivos
 ---
 
 

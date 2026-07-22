@@ -1,8 +1,8 @@
 ---
 title: Komma igång med TypeScript
 sidebar:
-  order: 8
-  label: 8. Komma igång med TypeScript
+  order: 9
+  label: 9. Komma igång med TypeScript
 ---
 
 

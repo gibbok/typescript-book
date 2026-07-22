@@ -1,8 +1,8 @@
 ---
 title: Tipi letterali
 sidebar:
-  order: 16
-  label: 16. Tipi letterali
+  order: 17
+  label: 17. Tipi letterali
 ---
 
 

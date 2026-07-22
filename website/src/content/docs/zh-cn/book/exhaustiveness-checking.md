@@ -1,8 +1,8 @@
 ---
 title: 详尽性检查
 sidebar:
-  order: 26
-  label: 26. 详尽性检查
+  order: 27
+  label: 27. 详尽性检查
 ---
 
 

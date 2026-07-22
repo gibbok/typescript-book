@@ -1,8 +1,8 @@
 ---
 title: Discriminated Unions
 sidebar:
-  order: 24
-  label: 24. Discriminated Unions
+  order: 25
+  label: 25. Discriminated Unions
 ---
 
 

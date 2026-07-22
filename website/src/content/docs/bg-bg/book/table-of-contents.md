@@ -1,13 +1,14 @@
 ---
 title: Съдържание
 sidebar:
-  order: 4
-  label: 4. Съдържание
+  order: 5
+  label: 5. Съдържание
 ---
 
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
+  - [Подкрепете проекта](../support-the-project/)
   - [Преводи](../translations/)
   - [Изтегляния и уебсайт](../downloads-and-website/)
   - [Съдържание](../table-of-contents/)

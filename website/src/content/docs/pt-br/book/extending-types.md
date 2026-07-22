@@ -1,8 +1,8 @@
 ---
 title: Estendendo Tipos
 sidebar:
-  order: 15
-  label: 15. Estendendo Tipos
+  order: 16
+  label: 16. Estendendo Tipos
 ---
 
 

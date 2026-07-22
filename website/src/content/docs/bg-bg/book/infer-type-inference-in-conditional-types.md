@@ -1,8 +1,8 @@
 ---
 title: infer извеждане на тип в Conditional типове
 sidebar:
-  order: 41
-  label: 41. infer извеждане на тип в Conditional типове
+  order: 42
+  label: 42. infer извеждане на тип в Conditional типове
 ---
 
 

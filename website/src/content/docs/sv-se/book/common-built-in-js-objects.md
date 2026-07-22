@@ -1,8 +1,8 @@
 ---
 title: Vanliga inbyggda JS-objekt
 sidebar:
-  order: 50
-  label: 50. Vanliga inbyggda JS-objekt
+  order: 51
+  label: 51. Vanliga inbyggda JS-objekt
 ---
 
 

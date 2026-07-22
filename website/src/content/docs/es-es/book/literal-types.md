@@ -1,8 +1,8 @@
 ---
 title: Tipos literales
 sidebar:
-  order: 16
-  label: 16. Tipos literales
+  order: 17
+  label: 17. Tipos literales
 ---
 
 

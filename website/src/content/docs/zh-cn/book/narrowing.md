@@ -1,8 +1,8 @@
 ---
 title: 缩小范围
 sidebar:
-  order: 20
-  label: 20. 缩小范围
+  order: 21
+  label: 21. 缩小范围
 ---
 
 

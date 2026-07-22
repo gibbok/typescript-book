@@ -1,8 +1,8 @@
 ---
 title: 类型和接口之间的差异
 sidebar:
-  order: 53
-  label: 53. 类型和接口之间的差异
+  order: 54
+  label: 54. 类型和接口之间的差异
 ---
 
 

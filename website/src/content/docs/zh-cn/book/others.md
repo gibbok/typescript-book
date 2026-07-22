@@ -1,8 +1,8 @@
 ---
 title: 其他
 sidebar:
-  order: 61
-  label: 61. 其他
+  order: 62
+  label: 62. 其他
 ---
 
 
@@ -351,6 +351,15 @@ tsc --watch
 ```
 
 从 TypeScript 4.9 版本开始，文件监控主要依赖于文件系统事件，如果无法建立基于事件的观察程序，则会自动诉诸轮询。
+
+### 非空断言操作符
+
+此断言是使用后缀表达式!运算符应用的，它告诉 TypeScript 值不能为 null 或未定义。
+
+```typescript
+let x: null | number;
+let y = x!; // number
+```
 
 ### 默认声明
 

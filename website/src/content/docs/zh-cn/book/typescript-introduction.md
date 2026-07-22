@@ -1,8 +1,8 @@
 ---
 title: TypeScript 简介
 sidebar:
-  order: 7
-  label: 7. TypeScript 简介
+  order: 8
+  label: 8. TypeScript 简介
 ---
 
 

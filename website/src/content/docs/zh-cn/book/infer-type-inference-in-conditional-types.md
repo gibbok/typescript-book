@@ -1,8 +1,8 @@
 ---
 title: infer 条件类型中的类型推断
 sidebar:
-  order: 41
-  label: 41. infer 条件类型中的类型推断
+  order: 42
+  label: 42. infer 条件类型中的类型推断
 ---
 
 

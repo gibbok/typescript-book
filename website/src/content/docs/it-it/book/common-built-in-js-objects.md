@@ -1,8 +1,8 @@
 ---
 title: Oggetti JavaScript predefiniti comuni
 sidebar:
-  order: 50
-  label: 50. Oggetti JavaScript predefiniti comuni
+  order: 51
+  label: 51. Oggetti JavaScript predefiniti comuni
 ---
 
 

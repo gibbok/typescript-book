@@ -1,8 +1,8 @@
 ---
 title: Inferência Literal
 sidebar:
-  order: 17
-  label: 17. Inferência Literal
+  order: 18
+  label: 18. Inferência Literal
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Inferencia de tipos con infer en tipos condicionales
 sidebar:
-  order: 41
-  label: 41. Inferencia de tipos con infer en tipos condicionales
+  order: 42
+  label: 42. Inferencia de tipos con infer en tipos condicionales
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Tipos Mapeados
 sidebar:
-  order: 37
-  label: 37. Tipos Mapeados
+  order: 38
+  label: 38. Tipos Mapeados
 ---
 
 

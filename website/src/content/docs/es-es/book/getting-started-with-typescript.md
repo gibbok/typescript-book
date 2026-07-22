@@ -1,8 +1,8 @@
 ---
 title: Primeros pasos con TypeScript
 sidebar:
-  order: 8
-  label: 8. Primeros pasos con TypeScript
+  order: 9
+  label: 9. Primeros pasos con TypeScript
 ---
 
 

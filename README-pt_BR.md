@@ -1,12 +1,34 @@
 # The Concise TypeScript Book
 
-The Concise TypeScript Book fornece uma visão geral abrangente e concisa dos recursos do TypeScript. Ele oferece explicações claras que abrangem todos os aspectos encontrados na versão mais recente da linguagem, desde o seu poderoso sistema de tipos até recursos avançados. Seja você um iniciante ou um desenvolvedor experiente, este livro é um recurso inestimável para aprimorar sua compreensão e proficiência em TypeScript.
+The Concise TypeScript Book oferece uma visão geral abrangente e concisa dos recursos do TypeScript. Ele apresenta explicações claras que abrangem todos os aspectos da versão mais recente da linguagem, desde seu poderoso sistema de tipos até recursos avançados.
 
-Este livro é completamente gratuito e de código aberto (open source).
+Seja você iniciante ou um desenvolvedor experiente, este livro é um recurso inestimável para aprimorar sua compreensão e proficiência em TypeScript.
 
-Acredito que a educação técnica de alta qualidade deve ser acessível a todos, por isso mantenho este livro gratuito e aberto.
+Este livro é totalmente gratuito e de código aberto.
 
-Se o livro ajudou você a resolver um bug, entender um conceito difícil ou avançar em sua carreira, considere apoiar meu trabalho pagando quanto quiser (preço sugerido: 15 USD) ou patrocinando um café. Seu apoio me ajuda a manter o conteúdo atualizado e a expandi-lo com novos exemplos e explicações mais profundas.
+Acredito que a educação técnica de alta qualidade deve ser acessível a todos. Por isso, mantenho o livro disponível gratuitamente e o atualizo regularmente com melhorias e novos exemplos.
+
+Conheça **The Concise TypeScript Book Plus Edition**.
+
+[![Capa de The Concise TypeScript Book Plus Edition](https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp)](https://gibbok.github.io/typescript-book/pt-br/plus-edition/?utm_source=github&utm_medium=readme)
+
+Para os leitores que desejam ir além da edição de código aberto, **The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** inclui conteúdo adicional e exclusivo voltado à aplicação prática.
+
+A Edição Plus inclui:
+
+* **Atualizada para o TypeScript 7** — cobertura dos recursos e aprimoramentos mais recentes da linguagem no TypeScript 7.
+* **TypeScript com React** — orientações práticas para tipar componentes, props, hooks, eventos, children, refs e padrões comuns do React.
+* **Receitas de TypeScript para projetos reais** — exemplos focados em problemas práticos que os desenvolvedores encontram ao criar e manter aplicações TypeScript.
+
+Ao comprar a Edição Plus, você também apoia diretamente o desenvolvimento e a manutenção contínuos do livro gratuito e de código aberto.
+
+A Edição Plus está disponível em inglês e italiano na Amazon em todo o mundo. [Conheça a Edição Plus e compre na Amazon](https://gibbok.github.io/typescript-book/pt-br/plus-edition/).
+
+## Apoie o projeto
+
+Se o livro gratuito ajudou você a corrigir um bug, entender um conceito difícil ou avançar na carreira, considere apoiar meu trabalho pagando quanto quiser, com uma contribuição sugerida de **$5**, ou oferecendo um café.
+
+Seu apoio me ajuda a manter o conteúdo atualizado e a expandi-lo com novos exemplos, explicações mais claras e outras orientações práticas.
 
 [![Buy Me a Coffee](https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/simonepoggiali)
 
@@ -40,6 +62,7 @@ Uma versão online está disponível em:
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](#the-concise-typescript-book)
+  - [Apoie o projeto](#apoie-o-projeto)
   - [Traduções](#traduções)
   - [Downloads e site](#downloads-e-site)
   - [Sumário](#sumário)
@@ -85,7 +108,7 @@ Uma versão online está disponível em:
     - [Alargamento de Tipo (Type Widening)](#alargamento-de-tipo-type-widening)
     - [Const](#const)
       - [Modificador Const em Parâmetros de Tipo](#modificador-const-em-parâmetros-de-tipo)
-      - [Asserção Const](#asserção-const-const-assertion)
+      - [Asserção Const (Const assertion)](#asserção-const-const-assertion)
     - [Anotação de Tipo Explícita](#anotação-de-tipo-explícita)
     - [Estreitamento de Tipo (Type Narrowing)](#estreitamento-de-tipo-type-narrowing)
       - [Condições](#condições)
@@ -141,59 +164,59 @@ Uma versão online está disponível em:
   - [Tipo a partir de Módulo](#tipo-a-partir-de-módulo)
   - [Tipos Mapeados](#tipos-mapeados)
   - [Modificadores de Tipos Mapeados](#modificadores-de-tipos-mapeados)
-  - [Tipos Condicionais](#tipos-condicionais-conditional-types)
+  - [Tipos Condicionais (Conditional Types)](#tipos-condicionais-conditional-types)
   - [Tipos Condicionais Distributivos](#tipos-condicionais-distributivos)
-  - [Inferência de tipo infer em Tipos Condicionais](#infer-inferência-de-tipo-em-tipos-condicionais)
+  - [infer Inferência de Tipo em Tipos Condicionais](#infer-inferência-de-tipo-em-tipos-condicionais)
   - [Tipos Condicionais Predefinidos](#tipos-condicionais-predefinidos)
-  - [Tipos de União de Template](#tipos-de-união-de-template-template-union-types)
-  - [Tipo Any](#tipo-any)
-  - [Tipo Unknown](#tipo-unknown)
-  - [Tipo Void](#tipo-void)
-  - [Tipo Never](#tipo-never)
-  - [Interface e Tipo](#interface-e-type)
+  - [Tipos de União de Template (Template Union Types)](#tipos-de-união-de-template-template-union-types)
+  - [Tipo any](#tipo-any)
+  - [Tipo unknown](#tipo-unknown)
+  - [Tipo void](#tipo-void)
+  - [Tipo never](#tipo-never)
+  - [Interface e Type](#interface-e-type)
     - [Sintaxe Comum](#sintaxe-comum)
     - [Tipos Básicos](#tipos-básicos)
     - [Objetos e Interfaces](#objetos-e-interfaces)
     - [Tipos União e Interseção](#tipos-união-e-interseção)
-  - [Primitivos de Tipo Integrados](#tipos-primitivos-integrados)
+  - [Tipos Primitivos Integrados](#tipos-primitivos-integrados)
   - [Objetos JS Integrados Comuns](#objetos-js-integrados-comuns)
-  - [Sobrecargas](#sobrecargas-overloads)
+  - [Sobrecargas (Overloads)](#sobrecargas-overloads)
   - [Mesclagem e Extensão](#mesclagem-e-extensão)
   - [Diferenças entre Type e Interface](#diferenças-entre-type-e-interface)
-    - [Classe](#classes)
-    - [Sintaxe Comum de Classe](#sintaxe-comum-de-classes)
+  - [Classes](#classes)
+    - [Sintaxe Comum de Classes](#sintaxe-comum-de-classes)
     - [Construtor](#construtor)
     - [Construtores Privados e Protegidos](#construtores-privados-e-protegidos)
     - [Modificadores de Acesso](#modificadores-de-acesso)
     - [Get e Set](#get-e-set)
-    - [Auto-Accessors em Classes](#auto-acessores-em-classes)
+    - [Auto-acessores em Classes](#auto-acessores-em-classes)
     - [this](#this)
     - [Propriedades de Parâmetro](#propriedades-de-parâmetro)
     - [Classes Abstratas](#classes-abstratas)
     - [Com Genéricos](#com-genéricos)
-    - [Decoradores](#decoradores-decorators)
-      - [Decoradores de Classe](#decoradores-de-classe-class-decorators)
-      - [Decorador de Propriedade](#decorador-de-propriedade-property-decorator)
-      - [Decorador de Método](#decorador-de-método-method-decorator)
+    - [Decoradores (Decorators)](#decoradores-decorators)
+      - [Decoradores de Classe (Class Decorators)](#decoradores-de-classe-class-decorators)
+      - [Decorador de Propriedade (Property Decorator)](#decorador-de-propriedade-property-decorator)
+      - [Decorador de Método (Method Decorator)](#decorador-de-método-method-decorator)
       - [Decoradores de Getter e Setter](#decoradores-de-getter-e-setter)
-      - [Metadados de Decorador](#metadados-de-decorador-decorator-metadata)
+      - [Metadados de Decorador (Decorator Metadata)](#metadados-de-decorador-decorator-metadata)
     - [Herança](#herança)
-    - [Estáticos](#estáticos-statics)
-    - [Inicialização de propriedade](#inicialização-de-propriedade)
-    - [Sobrecarga de método](#sobrecarga-de-método)
-  - [Genéricos](#genéricos-generics)
+    - [Estáticos (Statics)](#estáticos-statics)
+    - [Inicialização de Propriedade](#inicialização-de-propriedade)
+    - [Sobrecarga de Método](#sobrecarga-de-método)
+  - [Genéricos (Generics)](#genéricos-generics)
     - [Tipo Genérico](#tipo-genérico)
     - [Classes Genéricas](#classes-genéricas)
-    - [Restrições Genéricas](#restrições-genéricas-generic-constraints)
-    - [Estreitamento contextual genérico](#estreitamento-contextual-genérico)
-  - [Tipos Estruturais Apagados (Erased Structural Types)](#tipos-estruturais-apagados)
+    - [Restrições Genéricas (Generic Constraints)](#restrições-genéricas-generic-constraints)
+    - [Estreitamento Contextual Genérico](#estreitamento-contextual-genérico)
+  - [Tipos Estruturais Apagados](#tipos-estruturais-apagados)
   - [Namespacing](#namespacing)
-  - [Símbolos](#símbolos-symbols)
-  - [Diretivas de Barra Tripla](#diretivas-triple-slash)
+  - [Símbolos (Symbols)](#símbolos-symbols)
+  - [Diretivas Triple-Slash](#diretivas-triple-slash)
   - [Manipulação de Tipos](#manipulação-de-tipos)
     - [Criando Tipos a partir de Tipos](#criando-tipos-a-partir-de-tipos)
-    - [Tipos de Acesso Indexado](#tipos-de-acesso-indexado-indexed-access-types)
-    - [Tipos Utilitários](#tipos-utilitários-utility-types)
+    - [Tipos de Acesso Indexado (Indexed Access Types)](#tipos-de-acesso-indexado-indexed-access-types)
+    - [Tipos Utilitários (Utility Types)](#tipos-utilitários-utility-types)
       - [Awaited\<T\>](#awaitedt)
       - [Partial\<T\>](#partialt)
       - [Required\<T\>](#requiredt)
@@ -217,8 +240,8 @@ Uma versão online está disponível em:
       - [Uncapitalize\<T\>](#uncapitalizet)
       - [NoInfer\<T\>](#noinfert)
   - [Outros](#outros)
-    - [Tratamento de Erros e Exceções](#erros-e-tratamento-de-exceções)
-    - [Classes Mixin](#classes-mixin-mixin-classes)
+    - [Erros e Tratamento de Exceções](#erros-e-tratamento-de-exceções)
+    - [Classes Mixin (Mixin classes)](#classes-mixin-mixin-classes)
     - [Recursos de Linguagem Assíncronos](#recursos-de-linguagem-assíncronos)
     - [Iteradores e Geradores](#iteradores-e-geradores)
     - [Referência JSDoc TsDocs](#referência-jsdoc-tsdocs)
@@ -226,30 +249,30 @@ Uma versão online está disponível em:
     - [JSX](#jsx-1)
     - [Módulos ES6](#módulos-es6)
     - [Operador de Exponenciação ES7](#operador-de-exponenciação-es7)
-    - [A instrução for-await-of](#a-instrução-for-await-of)
+    - [A Instrução for-await-of](#a-instrução-for-await-of)
     - [Nova meta-propriedade target](#nova-meta-propriedade-target)
     - [Expressões de Importação Dinâmica](#expressões-de-importação-dinâmica)
     - ["tsc –watch"](#tsc-watch)
-    - [Operador de Asserção Não-nula](#operador-de-asserção-não-nulo-non-null-assertion-operator)
-    - [Declarações padronizadas](#declarações-com-valor-padrão-defaulted-declarations)
+    - [Operador de Asserção Não-Nulo (Non-null Assertion Operator)](#operador-de-asserção-não-nulo-non-null-assertion-operator)
+    - [Declarações com Valor Padrão (Defaulted declarations)](#declarações-com-valor-padrão-defaulted-declarations)
     - [Encadeamento Opcional (Optional Chaining)](#encadeamento-opcional-optional-chaining)
-    - [Operador de coalescência nula](#operador-de-coalescência-nula-nullish-coalescing-operator)
-    - [Tipos de Literais de Template](#tipos-de-literal-de-template-template-literal-types)
-    - [Sobrecarga de função](#sobrecarga-de-função-function-overloading)
+    - [Operador de Coalescência Nula (Nullish coalescing operator)](#operador-de-coalescência-nula-nullish-coalescing-operator)
+    - [Tipos de Literal de Template (Template Literal Types)](#tipos-de-literal-de-template-template-literal-types)
+    - [Sobrecarga de Função (Function overloading)](#sobrecarga-de-função-function-overloading)
     - [Tipos Recursivos](#tipos-recursivos)
     - [Tipos Condicionais Recursivos](#tipos-condicionais-recursivos)
-    - [Suporte a Módulo ECMAScript no Node](#suporte-a-módulos-ecmascript-no-node)
-    - [Funções de Asserção](#funções-de-asserção-assertion-functions)
-    - [Tipos de Tupla Variádicos](#tipos-de-tupla-variádicos-variadic-tuple-types)
-    - [Tipos Boxed](#tipos-boxed-boxed-types)
+    - [Suporte a Módulos ECMAScript no Node](#suporte-a-módulos-ecmascript-no-node)
+    - [Funções de Asserção (Assertion Functions)](#funções-de-asserção-assertion-functions)
+    - [Tipos de Tupla Variádicos (Variadic Tuple Types)](#tipos-de-tupla-variádicos-variadic-tuple-types)
+    - [Tipos Boxed (Boxed types)](#tipos-boxed-boxed-types)
     - [Covariância e Contravariância no TypeScript](#covariância-e-contravariância-no-typescript)
       - [Anotações de Variância Opcionais para Parâmetros de Tipo](#anotações-de-variância-opcionais-para-parâmetros-de-tipo)
-    - [Assinaturas de Índice de Padrão de String de Template](#assinaturas-de-índice-de-padrão-de-string-de-template-template-string-pattern-index-signatures)
+    - [Assinaturas de Índice de Padrão de String de Template (Template String Pattern Index Signatures)](#assinaturas-de-índice-de-padrão-de-string-de-template-template-string-pattern-index-signatures)
     - [O Operador satisfies](#o-operador-satisfies)
-    - [Importações e Exportações Apenas de Tipo](#importações-e-exportações-apenas-de-tipo-type-only-imports-and-export)
-    - [Declaração using e Gerenciamento Explícito de Recursos](#declaração-using-e-gerenciamento-explícito-de-recursos-explicit-resource-management)
-      - [Declaração await using](#declaração-await-using)
-    - [Atributos de Importação](#atributos-de-importação-import-attributes)
+    - [Importações e Exportações Apenas de Tipo (Type-Only Imports and Export)](#importações-e-exportações-apenas-de-tipo-type-only-imports-and-export)
+    - [declaração using e Gerenciamento Explícito de Recursos (Explicit Resource Management)](#declaração-using-e-gerenciamento-explícito-de-recursos-explicit-resource-management)
+      - [declaração await using](#declaração-await-using)
+    - [Atributos de Importação (Import Attributes)](#atributos-de-importação-import-attributes)
     - [Verificação de Sintaxe de Expressões Regulares](#verificação-de-sintaxe-de-expressões-regulares)
     - [import defer](#import-defer)
 <!-- markdownlint-enable MD004 -->

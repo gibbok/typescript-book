@@ -1,8 +1,8 @@
 ---
 title: 模块的类型
 sidebar:
-  order: 36
-  label: 36. 模块的类型
+  order: 37
+  label: 37. 模块的类型
 ---
 
 

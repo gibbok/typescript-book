@@ -1,12 +1,34 @@
 # The Concise TypeScript Book
 
-《The Concise TypeScript Book》全面而简洁地概述了 TypeScript 的功能。它提供了清晰的解释，涵盖了该语言最新版本中的所有方面，从强大的类型系统到高级功能。无论您是初学者还是经验丰富的开发人员，本书都是增强您对 TypeScript 的理解和熟练程度的宝贵资源。
+《The Concise TypeScript Book》全面而简洁地概述了 TypeScript 的功能。它提供清晰的讲解，涵盖该语言最新版本的各个方面，从强大的类型系统到高级功能。
+
+无论您是初学者还是经验丰富的开发人员，本书都是加深 TypeScript 理解和提升运用能力的宝贵资源。
 
 本书完全免费且开源。
 
-我相信高质量的技术教育应该惠及所有人，因此我坚持本书免费开源。
+我相信高质量的技术教育应该惠及所有人。因此，我始终免费提供本书，并定期更新改进内容和新示例。
 
-如果本书帮助您解决了 bug、理解了棘手的概念或提升了您的职业发展，请考虑以您认为合适的金额（建议价格：15 美元）或请我喝杯咖啡来支持我的工作。您的支持将帮助我保持内容更新，并添加新的示例和更深入的解释。
+了解 **The Concise TypeScript Book Plus Edition**。
+
+[![The Concise TypeScript Book Plus Edition 封面](https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp)](https://gibbok.github.io/typescript-book/zh-cn/plus-edition/?utm_source=github&utm_medium=readme)
+
+对于希望深入学习开源版之外内容的读者，**The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** 提供了更多专注于实际应用的独家内容。
+
+Plus 版包括：
+
+* **针对 TypeScript 7 更新** — 涵盖最新的 TypeScript 7 功能和语言改进。
+* **TypeScript 与 React** — 提供有关组件、props、hooks、事件、children、refs 以及常见 React 模式类型标注的实用指导。
+* **面向实际项目的 TypeScript 实用方案** — 通过针对性示例解决开发人员在构建和维护 TypeScript 应用程序时遇到的实际问题。
+
+购买 Plus 版也会直接支持免费开源版图书的持续开发和维护。
+
+Plus 版在全球亚马逊平台提供英文版和意大利文版。[了解 Plus 版并在亚马逊购买](https://gibbok.github.io/typescript-book/zh-cn/plus-edition/)。
+
+## 支持本项目
+
+如果这本免费图书帮助您修复了 bug、理解了棘手的概念或推动了职业发展，请考虑以您认为合适的金额支持我的工作，建议捐助 **$5**，也可以请我喝杯咖啡。
+
+您的支持能帮助我及时更新内容，并通过新示例、更清晰的讲解和更多实用指导来扩充本书。
 
 [![Buy Me a Coffee](https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/simonepoggiali)
 
@@ -40,6 +62,7 @@
 
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](#the-concise-typescript-book)
+  - [支持本项目](#支持本项目)
   - [翻译](#翻译)
   - [下载和网站](#下载和网站)
   - [目录](#目录)
@@ -76,7 +99,6 @@
     - [赋值类型：类型声明和类型断言](#赋值类型类型声明和类型断言)
       - [类型声明](#类型声明)
       - [类型断言](#类型断言)
-      - [非空断言](#非空断言)
       - [环境声明](#环境声明)
     - [属性检测和多余属性检测](#属性检测和多余属性检测)
     - [弱类型](#弱类型)
@@ -86,7 +108,7 @@
     - [类型加宽](#类型加宽)
     - [常量](#常量)
       - [类型参数的 const 修饰符](#类型参数的-const-修饰符)
-    - [常量断言](#常量断言)
+      - [常量断言](#常量断言)
     - [显式类型注释](#显式类型注释)
     - [类型缩小](#类型缩小)
       - [条件](#条件)
@@ -177,7 +199,7 @@
       - [属性装饰器](#属性装饰器)
       - [方法装饰器](#方法装饰器)
       - [Getter 和 Setter 装饰器](#getter-和-setter-装饰器)
-    - [装饰器元数据](#装饰器元数据)
+      - [装饰器元数据](#装饰器元数据)
     - [继承](#继承)
     - [静态成员](#静态成员)
     - [属性初始化](#属性初始化)
@@ -231,6 +253,7 @@
     - [new target 元属性](#new-target-元属性)
     - [动态导入表达式](#动态导入表达式)
     - [tsc --watch](#tsc---watch)
+    - [非空断言操作符](#非空断言操作符)
     - [默认声明](#默认声明)
     - [可选链](#可选链)
     - [空合并运算符](#空合并运算符)
@@ -1167,15 +1190,6 @@ type Y = J<X>;
 
 值得注意的是，当使用类型断言时，TypeScript 不会执行多余的属性检查。因此，当预先知道对象的结构时，通常最好使用类型声明。
 
-#### 非空断言
-
-此断言是使用后缀表达式!运算符应用的，它告诉 TypeScript 值不能为 null 或未定义。
-
-```typescript
-let x: null | number;
-let y = x!; // number
-```
-
 #### 环境声明
 
 环境声明是描述 JavaScript 代码类型的文件，它们的文件名格式为.d.ts.. 它们通常被导入并用于注释现有的 JavaScript 库或向项目中的现有 JS 文件添加类型。
@@ -1387,7 +1401,7 @@ const values = identity({ a: 'a', b: 'b' }); // 类型推断为: { a: "a"; b: "b
 
 现在我们可以看到属性 `a` 和 `b` 被推断为const，因此 `a` 和 `b`被视为字符串文字而不仅仅是 `string` 类型。
 
-### 常量断言
+#### 常量断言
 
 此功能允许您根据变量的初始化值声明具有更精确的文字类型的变量，这向编译器表明该值应被视为不可变文字。 这里有一些例子：
 
@@ -3384,7 +3398,7 @@ const obj2 = new MyClass(999);
 console.log(obj2.getValue); // 抛出异常: Invalid!
 ```
 
-### 装饰器元数据
+#### 装饰器元数据
 
 装饰器元数据简化了装饰器在任何类中应用和利用元数据的过程。 他们可以访问上下文对象上的新元数据属性，该属性可以充当基元和对象的密钥。
 可以通过"Symbol.metadata"在类上访问元数据信息。
@@ -4467,6 +4481,15 @@ tsc --watch
 ```
 
 从 TypeScript 4.9 版本开始，文件监控主要依赖于文件系统事件，如果无法建立基于事件的观察程序，则会自动诉诸轮询。
+
+### 非空断言操作符
+
+此断言是使用后缀表达式!运算符应用的，它告诉 TypeScript 值不能为 null 或未定义。
+
+```typescript
+let x: null | number;
+let y = x!; // number
+```
 
 ### 默认声明
 

@@ -1,8 +1,8 @@
 ---
 title: 类型谓词
 sidebar:
-  order: 23
-  label: 23. 类型谓词
+  order: 24
+  label: 24. 类型谓词
 ---
 
 

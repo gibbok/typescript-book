@@ -1,8 +1,8 @@
 ---
 title: Conditional Types
 sidebar:
-  order: 39
-  label: 39. Conditional Types
+  order: 40
+  label: 40. Conditional Types
 ---
 
 

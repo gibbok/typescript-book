@@ -1,8 +1,8 @@
 ---
 title: Tipo di tupla denominato (etichettato)
 sidebar:
-  order: 29
-  label: 29. Tipo di tupla denominato (etichettato)
+  order: 30
+  label: 30. Tipo di tupla denominato (etichettato)
 ---
 
 

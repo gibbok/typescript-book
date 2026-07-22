@@ -1,8 +1,8 @@
 ---
 title: Type from Value
 sidebar:
-  order: 34
-  label: 34. Type from Value
+  order: 35
+  label: 35. Type from Value
 ---
 
 

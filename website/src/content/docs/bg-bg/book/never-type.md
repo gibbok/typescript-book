@@ -1,8 +1,8 @@
 ---
 title: Never тип
 sidebar:
-  order: 47
-  label: 47. Never тип
+  order: 48
+  label: 48. Never тип
 ---
 
 

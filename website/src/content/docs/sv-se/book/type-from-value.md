@@ -1,8 +1,8 @@
 ---
 title: Typ från värde
 sidebar:
-  order: 34
-  label: 34. Typ från värde
+  order: 35
+  label: 35. Typ från värde
 ---
 
 

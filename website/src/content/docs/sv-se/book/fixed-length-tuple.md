@@ -1,8 +1,8 @@
 ---
 title: Tuppel med fast längd
 sidebar:
-  order: 30
-  label: 30. Tuppel med fast längd
+  order: 31
+  label: 31. Tuppel med fast längd
 ---
 
 

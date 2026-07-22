@@ -1,8 +1,8 @@
 ---
 title: Getting Started With TypeScript
 sidebar:
-  order: 8
-  label: 8. Getting Started With TypeScript
+  order: 9
+  label: 9. Getting Started With TypeScript
 ---
 
 

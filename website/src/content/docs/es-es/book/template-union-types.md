@@ -1,8 +1,8 @@
 ---
 title: Tipos de unión de plantilla
 sidebar:
-  order: 43
-  label: 43. Tipos de unión de plantilla
+  order: 44
+  label: 44. Tipos de unión de plantilla
 ---
 
 

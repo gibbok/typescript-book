@@ -1,8 +1,8 @@
 ---
 title: Type Predicates
 sidebar:
-  order: 23
-  label: 23. Type Predicates
+  order: 24
+  label: 24. Type Predicates
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: 交集类型
 sidebar:
-  order: 32
-  label: 32. 交集类型
+  order: 33
+  label: 33. 交集类型
 ---
 
 

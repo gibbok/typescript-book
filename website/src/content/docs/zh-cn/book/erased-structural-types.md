@@ -1,8 +1,8 @@
 ---
 title: 擦除的结构类型
 sidebar:
-  order: 56
-  label: 56. 擦除的结构类型
+  order: 57
+  label: 57. 擦除的结构类型
 ---
 
 

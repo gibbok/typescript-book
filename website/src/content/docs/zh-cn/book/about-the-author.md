@@ -1,8 +1,8 @@
 ---
 title: 关于作者
 sidebar:
-  order: 6
-  label: 6. 关于作者
+  order: 7
+  label: 7. 关于作者
 ---
 
 

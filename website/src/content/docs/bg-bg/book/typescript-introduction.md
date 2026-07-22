@@ -1,8 +1,8 @@
 ---
 title: Въведение в TypeScript
 sidebar:
-  order: 7
-  label: 7. Въведение в TypeScript
+  order: 8
+  label: 8. Въведение в TypeScript
 ---
 
 

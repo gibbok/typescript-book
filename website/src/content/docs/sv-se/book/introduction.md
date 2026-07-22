@@ -1,8 +1,8 @@
 ---
 title: Introduktion
 sidebar:
-  order: 5
-  label: 5. Introduktion
+  order: 6
+  label: 6. Introduktion
 ---
 
 

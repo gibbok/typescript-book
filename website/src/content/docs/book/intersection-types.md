@@ -1,8 +1,8 @@
 ---
 title: Intersection Types
 sidebar:
-  order: 32
-  label: 32. Intersection Types
+  order: 33
+  label: 33. Intersection Types
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: Tipi di oggetto
 sidebar:
-  order: 27
-  label: 27. Tipi di oggetto
+  order: 28
+  label: 28. Tipi di oggetto
 ---
 
 

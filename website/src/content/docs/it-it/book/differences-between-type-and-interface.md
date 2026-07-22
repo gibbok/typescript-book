@@ -1,8 +1,8 @@
 ---
 title: Differenze tra tipo e interfaccia
 sidebar:
-  order: 53
-  label: 53. Differenze tra tipo e interfaccia
+  order: 54
+  label: 54. Differenze tra tipo e interfaccia
 ---
 
 

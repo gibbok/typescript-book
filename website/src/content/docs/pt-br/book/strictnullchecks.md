@@ -1,8 +1,8 @@
 ---
 title: strictNullChecks
 sidebar:
-  order: 18
-  label: 18. strictNullChecks
+  order: 19
+  label: 19. strictNullChecks
 ---
 
 

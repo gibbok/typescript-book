@@ -1,8 +1,8 @@
 ---
 title: Literalhärledning
 sidebar:
-  order: 17
-  label: 17. Literalhärledning
+  order: 18
+  label: 18. Literalhärledning
 ---
 
 

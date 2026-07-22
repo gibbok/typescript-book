@@ -1,8 +1,8 @@
 ---
 title: 字面量类型
 sidebar:
-  order: 16
-  label: 16. 字面量类型
+  order: 17
+  label: 17. 字面量类型
 ---
 
 
