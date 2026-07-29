@@ -14,15 +14,15 @@ Before researching, drafting, or editing files, confirm that the user supplied t
 If the content is missing, ask for:
 
 * the source content or announcement text;
-* the original source URL;
+* the original source URL, if the user wants to provide it;
 * the publication date;
 * an optional preferred title or slug.
 
 Stop after asking. Do not search for a topic, select news independently, or draft an article without the user-provided source content.
 
-If content is present but the publication date is missing, ask for it because the date determines the year directory and sidebar order. Ask for a missing original URL when the article is expected to cite a public source.
+If content is present but the publication date is missing, ask for it because the date determines the year directory and sidebar order. The original source URL is optional; do not block creation when the user does not provide one.
 
-For a translation audit, language addition, or removal, the existing English articles and their cited sources are the supplied content. Ask the user only when the canonical content or intended change is missing or ambiguous.
+For a translation audit, language addition, or removal, the existing English articles and any cited sources are the supplied content. Ask the user only when the master content or intended change is missing or ambiguous.
 
 ## Inspect the current structure
 
@@ -35,7 +35,7 @@ Before writing:
 
 ## Keep every language synchronized
 
-Treat the English `website/src/content/docs/typescript-news/` tree as the canonical news inventory. Compare article paths relative to that directory with the corresponding tree for every non-root locale configured in `website/astro.config.mjs`.
+Treat the English `website/src/content/docs/typescript-news/` tree as the master and canonical news inventory. All translations must follow the English version's factual content, structure, metadata, year, and slug. Compare article paths relative to the English directory with the corresponding tree for every non-root locale configured in `website/astro.config.mjs`.
 
 Every English news article must have one translated article at the same relative year and slug path in every configured non-root locale. Do not rely on Starlight's content fallback to display English in place of a missing translation.
 
@@ -53,14 +53,14 @@ Keep the set of relative article paths identical across English and every config
 
 ## Verify the source
 
-Treat the supplied content as the authoritative source.
+Treat the supplied content as the authoritative original source. A provided URL is supplementary verification, not a requirement.
 
 * Compare every date, version, feature, compatibility note, command, package name, option, number, and performance claim with the original source.
-* Open the supplied source URL when available and accessible, giving preference to the official TypeScript announcement.
+* Open the supplied source URL when the user provides one and it is accessible, giving preference to the official TypeScript announcement.
 * Do not add claims from memory or infer unannounced behavior.
 * Remove details that cannot be supported by the source.
 * If the supplied content conflicts with the original source or remains ambiguous, ask the user before publishing the disputed claim.
-* Link the original source in the article's `Source` section.
+* Link the original source in the article's `Source` section when the user provides a URL. Omit that section when no URL is available.
 
 ## Write the English article
 
@@ -121,7 +121,7 @@ website/src/content/docs/LOCALE/typescript-news/YYYY/article-slug.md
 Also update that locale's `typescript-news/index.md`.
 
 * Translate the title, description, publication label, headings, and prose naturally.
-* Keep the same slug, publication date, frontmatter structure, Markdown structure, factual scope, and source URL as the English article.
+* Keep the same slug, publication date, frontmatter structure, Markdown structure, factual scope, and source URL, when present, as the English article.
 * Preserve commands, code, packages, options, identifiers, version numbers, and product names.
 * Do not translate official announcement titles inside source links unless the linked page itself uses that title.
 * Keep each translation faithful to the reviewed English article and the original source.
