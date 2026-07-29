@@ -1,6 +1,6 @@
 ---
 name: create-typescript-news
-description: Create concise, source-faithful TypeScript news pages for every language configured in this repository's Astro/Starlight website. Use when asked to add, publish, translate, or update an item in website/src/content/docs/typescript-news. Require user-provided source content before doing any news research or writing.
+description: Create and synchronize concise, source-faithful TypeScript news pages for every language configured in this repository's Astro/Starlight website. Use when asked to add, publish, translate, edit, remove, audit, or synchronize news in website/src/content/docs/typescript-news, or when a website language is added. Require user-provided source content before researching, creating, or materially editing a news item.
 ---
 
 # Create TypeScript News
@@ -22,6 +22,8 @@ Stop after asking. Do not search for a topic, select news independently, or draf
 
 If content is present but the publication date is missing, ask for it because the date determines the year directory and sidebar order. Ask for a missing original URL when the article is expected to cite a public source.
 
+For a translation audit, language addition, or removal, the existing English articles and their cited sources are the supplied content. Ask the user only when the canonical content or intended change is missing or ambiguous.
+
 ## Inspect the current structure
 
 Before writing:
@@ -30,6 +32,24 @@ Before writing:
 2. Read the latest English and translated files under `website/src/content/docs/typescript-news/`.
 3. Read `.agents/skills/typescript-book-review/SKILL.md` completely and apply its review, style, translation, and Markdown rules.
 4. Preserve the existing Astro/Starlight content and sidebar conventions instead of introducing custom routing or components.
+
+## Keep every language synchronized
+
+Treat the English `website/src/content/docs/typescript-news/` tree as the canonical news inventory. Compare article paths relative to that directory with the corresponding tree for every non-root locale configured in `website/astro.config.mjs`.
+
+Every English news article must have one translated article at the same relative year and slug path in every configured non-root locale. Do not rely on Starlight's content fallback to display English in place of a missing translation.
+
+Apply changes across the entire language set:
+
+* When adding an article, create it and its index entry in English and every configured non-root locale.
+* When materially editing an article, apply the same factual change to every translation and update affected index entries.
+* When changing a title, description, publication date, year, slug, source, or frontmatter field, make the corresponding change in every language.
+* When intentionally removing an English article, delete its translated file and index entry from every non-root locale.
+* When a localized article has no canonical English article, remove the orphaned file and its index entry as part of synchronization.
+* When a new locale is added to `website/astro.config.mjs`, create its localized news index and translate the complete existing English news archive, including every year and article, before considering the locale complete.
+* When a locale is removed from `website/astro.config.mjs`, do not treat its former files as a supported translation. Follow the scope of the locale-removal request for deleting the obsolete locale tree.
+
+Keep the set of relative article paths identical across English and every configured non-root locale. Preserve localized prose, but keep factual meaning, dates, slugs, commands, source URLs, and frontmatter synchronized.
 
 ## Verify the source
 
@@ -119,6 +139,9 @@ Review the completed English article and every translation before building:
 5. Confirm all configured locales have the article and an updated index entry.
 6. Confirm paths, slugs, dates, links, frontmatter, and newest-first ordering match across languages.
 7. Confirm Markdown follows `.agents/skills/typescript-book-review/SKILL.md`.
+8. Compare the complete English article inventory with every configured locale and confirm the relative path sets are identical.
+9. Confirm every added or edited English fact is reflected accurately in every translation.
+10. Confirm removed articles and their index entries no longer exist in any configured language.
 
 Correct any issue found, then perform this accuracy comparison once more.
 
@@ -137,6 +160,9 @@ Verify:
 * the `TypeScript News` sidebar groups the article under that year;
 * the article is present in the generated sitemap;
 * canonical URL, description, and `article:published_time` metadata are correct;
-* no TypeScript News link is added to the book homepage.
+* no TypeScript News link is added to the book homepage;
+* every configured locale generates the same set of news routes as English;
+* removed routes are absent from the generated output and sitemap;
+* edited pages contain no stale pre-edit text in any language.
 
 Report the created paths, source used, accuracy review, and build result. Commit or publish changes only when the user requests it.
