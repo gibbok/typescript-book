@@ -173,7 +173,7 @@ gtag('config', 'G-SR2LV8LB90');
         },
         {
           label: 'TypeScript News',
-          autogenerate: { directory: 'typescript-news' },
+          autogenerate: { directory: 'typescript-news', collapsed: true },
         },
       ],
     }),
