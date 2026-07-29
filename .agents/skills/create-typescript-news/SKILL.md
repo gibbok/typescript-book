@@ -81,7 +81,7 @@ title: Article title
 description: A concise, source-supported description.
 lastUpdated: YYYY-MM-DD
 sidebar:
-    order: -YYYYMMDD
+    order: N
 head:
     - tag: meta
       attrs:
@@ -90,7 +90,24 @@ head:
 ---
 ```
 
-The negative `YYYYMMDD` sidebar order keeps the newest years and articles first.
+## Maintain contiguous news order
+
+Use one global sequence across all publication years:
+
+* assign `sidebar.order: 1` to the newest English article;
+* increase the order by one for each older article;
+* keep orders unique and contiguous from `1` through the total number of English articles, with no duplicates or gaps;
+* use the same order for every translated version of the same article;
+* when adding, removing, moving, or changing the publication date of an article, renumber every affected English and translated article;
+* when articles share a publication date, keep them adjacent and use the English slug as a stable alphabetical tie-breaker.
+
+Run the bundled verifier from the repository root after every news or locale change:
+
+```shell
+python3 .agents/skills/create-typescript-news/scripts/verify_news_order.py
+```
+
+The command must pass before building or publishing. It verifies the configured locale inventory, unique gapless orders, chronological ordering, and matching order values across translations. Correct the content files rather than weakening or bypassing the verifier.
 
 ## Save by publication year
 
@@ -142,6 +159,7 @@ Review the completed English article and every translation before building:
 8. Compare the complete English article inventory with every configured locale and confirm the relative path sets are identical.
 9. Confirm every added or edited English fact is reflected accurately in every translation.
 10. Confirm removed articles and their index entries no longer exist in any configured language.
+11. Run `scripts/verify_news_order.py` and confirm orders are unique, contiguous, newest-first, and identical across translations.
 
 Correct any issue found, then perform this accuracy comparison once more.
 
@@ -155,6 +173,7 @@ npm run build
 
 Verify:
 
+* `scripts/verify_news_order.py` passes;
 * Astro reports no content or build errors;
 * the English and every localized route are generated under the correct year;
 * the `TypeScript News` sidebar groups the article under that year;
