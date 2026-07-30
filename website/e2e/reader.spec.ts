@@ -5,6 +5,9 @@ const gettingStartedPath = 'book/getting-started-with-typescript/';
 test.describe('core reader journeys', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(gettingStartedPath);
+    await page
+      .getByRole('button', { name: 'Reject non-essential' })
+      .click();
   });
 
   test('renders readable book content', async ({ page }) => {

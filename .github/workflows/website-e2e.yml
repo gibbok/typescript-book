@@ -2,7 +2,7 @@ name: website-e2e
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, closed]
+    types: [ready_for_review, synchronize, closed]
 
 permissions:
   actions: write
@@ -12,7 +12,9 @@ permissions:
 
 jobs:
   test:
-    if: github.event.action != 'closed'
+    if: >-
+      github.event.action == 'ready_for_review' ||
+      (github.event.action == 'synchronize' && github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
     timeout-minutes: 15
     defaults:
@@ -55,13 +57,13 @@ jobs:
             const marker = '<!-- website-e2e-evidence -->';
             const status = process.env.TEST_STATUS === 'success' ? '✅ Passed' : '❌ Failed';
             const body = `${marker}
-            ## Website end-to-end evidence
+            ## Website E2E report
 
             **Status:** ${status}
 
             [Download the Playwright HTML report, screenshots, and videos](${process.env.ARTIFACT_URL})
 
-            This comment is updated by each run. The uploaded evidence is deleted when the pull request is merged.`;
+            This comment is updated when the pull request is marked ready for review and after each new push. The uploaded evidence is deleted when the pull request is merged.`;
 
             const comments = await github.paginate(github.rest.issues.listComments, {
               owner: context.repo.owner,
