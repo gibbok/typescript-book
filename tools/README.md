@@ -27,8 +27,30 @@ Use `make` to run the main commands:
 * `make check`: Run several checks to ensure the Markdown files are valid.
 * `make website`: Create different Markdown pages for the website.
 * `make website-preview`: Build and preview website locally.
+* `make website-e2e`: Build the production website and run its core Playwright end-to-end tests.
 * `make website-deploy`: Build and deploy website to GitHub Pages.
 * `make books`: Create .epub books.
+
+### Website End-to-End Tests
+
+The Playwright suite covers only the website's main reader journeys: loading readable
+book content, using the right-side page navigation, and finding content with search.
+
+Install the browser once from the `website` folder:
+
+```shell
+npx playwright install chromium
+```
+
+Then run the production build and tests from the `tools` folder:
+
+```shell
+make website-e2e
+```
+
+Playwright saves an HTML report, screenshots, and videos for each run. In pull
+requests, CI uploads this evidence, links it from a single updated PR comment, and
+deletes the uploaded artifacts after the PR is merged.
 
 ### Formatting
 
