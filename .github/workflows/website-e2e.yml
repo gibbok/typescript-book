@@ -2,7 +2,7 @@ name: website-e2e
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, closed]
+    types: [ready_for_review, closed]
 
 permissions:
   actions: write
@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   test:
-    if: github.event.action != 'closed'
+    if: github.event.action == 'ready_for_review'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     defaults:
