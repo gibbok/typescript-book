@@ -13,6 +13,9 @@ website-deploy:
 website-preview:
 	cd ../website && npm run build && npm run preview
 
+website-e2e:
+	cd ../website && npm run build && npm run e2e
+
 books:
 	./make-books.sh
 

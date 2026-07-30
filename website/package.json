@@ -7,6 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "e2e": "playwright test",
+    "e2e:report": "playwright show-report",
     "astro": "astro",
     "deploy": "npm run build && npx gh-pages -d dist"
   },
@@ -18,6 +20,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.0",
     "gh-pages": "^6.1.1"
   }
 }
