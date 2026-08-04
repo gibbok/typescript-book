@@ -1,8 +1,11 @@
 import type { CollectionEntry } from 'astro:content';
+import { defaultLocale, locales, type Locale } from '../config/locales';
 
 type DocsEntry = CollectionEntry<'docs'>;
 
 const siteBaseUrl = 'https://gibbok.github.io/typescript-book';
+
+export const utf8Bom = '\uFEFF';
 
 const removeMarkdownSyntax = (value: string) =>
   value
@@ -57,3 +60,14 @@ export const getMarkdownUrl = (entry: DocsEntry) =>
 export const getPublishedDocs = (entries: DocsEntry[]) =>
   entries
     .sort((first, second) => getMarkdownPath(first).localeCompare(getMarkdownPath(second)));
+
+export const getDocsForLocale = (entries: DocsEntry[], locale: Locale) =>
+  getPublishedDocs(entries).filter((entry) => {
+    const isLocalized = Object.keys(locales)
+      .filter((configuredLocale) => configuredLocale !== defaultLocale)
+      .some((configuredLocale) => entry.id.startsWith(`${configuredLocale}/`));
+
+    return locale === defaultLocale
+      ? !isLocalized
+      : entry.id.startsWith(`${locale}/`);
+  });
