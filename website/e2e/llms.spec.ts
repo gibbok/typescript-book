@@ -13,11 +13,11 @@ test('exposes an llms.txt index for the documentation', async ({ page }) => {
 });
 
 test('exposes a documentation page as Markdown', async ({ page }) => {
-  const response = await page.goto('book/readonly-properties/index.md');
+  const response = await page.goto('book/type-annotations/index.md');
 
   expect(response?.headers()['content-type']).toContain('text/markdown');
   await expect(page.locator('body')).toContainText(
-    'Is it possible to prevent writing to a property by using the modifier',
+    '# Type Annotations',
   );
 });
 
