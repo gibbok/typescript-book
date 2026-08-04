@@ -27,3 +27,10 @@ test('exposes correctly encoded indexes for configured locales', async ({ page }
   await expect(page.locator('body')).toContainText('За автора');
   await expect(page.locator('body')).toContainText('/bg-bg/book/about-the-author/index.md');
 });
+
+test('exposes a correctly encoded Chinese index', async ({ page }) => {
+  await page.goto('zh-cn/llms.txt');
+
+  await expect(page.locator('body')).toContainText('关于作者');
+  await expect(page.locator('body')).toContainText('/zh-cn/book/about-the-author/index.md');
+});
