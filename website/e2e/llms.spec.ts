@@ -17,3 +17,10 @@ test('exposes a documentation page as Markdown', async ({ page }) => {
     'Is it possible to prevent writing to a property by using the modifier',
   );
 });
+
+test('exposes correctly encoded indexes for configured locales', async ({ page }) => {
+  await page.goto('bg-bg/llms.txt');
+
+  await expect(page.locator('body')).toContainText('За автора');
+  await expect(page.locator('body')).toContainText('/bg-bg/book/about-the-author/index.md');
+});
