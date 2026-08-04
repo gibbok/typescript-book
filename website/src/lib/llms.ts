@@ -38,6 +38,10 @@ export const getPageTitle = (entry: DocsEntry) =>
   entry.data.title ?? titleFromId(entry.id);
 
 export const getPageDescription = (entry: DocsEntry) => {
+  if (entry.id.endsWith('/table-of-contents.md')) {
+    return getPageTitle(entry);
+  }
+
   const description = entry.data.description ?? firstParagraph(entry.body);
 
   return removeMarkdownSyntax(description);
