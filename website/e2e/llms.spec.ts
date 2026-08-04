@@ -1,0 +1,19 @@
+import { expect, test } from '@playwright/test';
+
+test('exposes an llms.txt index for the documentation', async ({ page }) => {
+  await page.goto('llms.txt');
+
+  await expect(page.locator('body')).toContainText('# TypeScript Book');
+  await expect(page.locator('body')).toContainText(
+    '[Readonly Properties](https://gibbok.github.io/typescript-book/book/readonly-properties/index.md)',
+  );
+});
+
+test('exposes a documentation page as Markdown', async ({ page }) => {
+  const response = await page.goto('book/readonly-properties/index.md');
+
+  expect(response?.headers()['content-type']).toContain('text/markdown');
+  await expect(page.locator('body')).toContainText(
+    'Is it possible to prevent writing to a property by using the modifier',
+  );
+});
