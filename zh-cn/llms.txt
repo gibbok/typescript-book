@@ -1,0 +1,73 @@
+﻿# TypeScript Book
+
+> The Concise TypeScript Book
+
+## Documentation
+
+- [关于作者](https://gibbok.github.io/typescript-book/zh-cn/book/about-the-author/index.md): Simone Poggiali 是一位经验丰富的资深工程师，自 90 年代以来便对编写专业级代码充满热情。在他的国际职业生涯中，他曾为众多客户（从初创公司到大型企业）参与过各种项目。HelloFresh、西门子、O2、Leroy Merlin 和 Snowplow 等知名公司都曾受益于他的专业知识和敬业精神。
+- [任意类型](https://gibbok.github.io/typescript-book/zh-cn/book/any-type/index.md): any 类型是一种特殊类型（通用超类型），可用于表示任何类型的值（基元、对象、数组、函数、错误、符号）。它通常用于编译时未知值类型的情况，或者使用来自没有 TypeScript 类型的外部 API 或库的值时。
+- [赋值](https://gibbok.github.io/typescript-book/zh-cn/book/assignments/index.md): 使用赋值缩小 TypeScript 是一种根据分配给变量的值来缩小变量类型的方法。当为变量分配值时，TypeScript 会根据分配的值推断其类型，并缩小变量的类型以匹配推断的类型。
+- [内置原始数据类型](https://gibbok.github.io/typescript-book/zh-cn/book/built-in-type-primitives/index.md): TypeScript 有几个内置的原属数据类型，可用于定义变量、函数参数和返回类型：
+- [Class](https://gibbok.github.io/typescript-book/zh-cn/book/class/index.md): 通用语法
+- [常见的内置 JS 对象](https://gibbok.github.io/typescript-book/zh-cn/book/common-built-in-js-objects/index.md): TypeScript 是 JavaScript 的超集，它包含所有常用的内置 JavaScript 对象。您可以在 Mozilla 开发者网络 (MDN) 文档网站上找到这些对象的详细列表： $1
+- [条件类型](https://gibbok.github.io/typescript-book/zh-cn/book/conditional-types/index.md): 条件类型是一种创建依赖于条件的类型的方法，其中要创建的类型是根据条件的结果确定的。它们是使用 extends 关键字和三元运算符来定义的，以便有条件地在两种类型之间进行选择。
+- [控制流分析](https://gibbok.github.io/typescript-book/zh-cn/book/control-flow-analysis/index.md): TypeScript 中的控制流分析是一种静态分析代码流以推断变量类型的方法，允许编译器根据分析结果根据需要缩小这些变量的类型。
+- [类型和接口之间的差异](https://gibbok.github.io/typescript-book/zh-cn/book/differences-between-type-and-interface/index.md): 声明合并（增强）：
+- [可区分联合](https://gibbok.github.io/typescript-book/zh-cn/book/discriminated-unions/index.md): TypeScript 中的可区分联合是一种联合类型，它使用称为判别式的公共属性来缩小联合的可能类型集。
+- [分配条件类型](https://gibbok.github.io/typescript-book/zh-cn/book/distributive-conditional-types/index.md): 分布式条件类型是一种功能，通过单独对联合的每个成员应用转换，允许类型分布在类型的联合上。当使用映射类型或高阶类型时，这尤其有用。
+- [下载和网站](https://gibbok.github.io/typescript-book/zh-cn/book/downloads-and-website/index.md): 您还可以下载 Epub 版本：
+- [枚举](https://gibbok.github.io/typescript-book/zh-cn/book/enums/index.md): 在 TypeScript 中，枚举是一组命名常量值。
+- [擦除的结构类型](https://gibbok.github.io/typescript-book/zh-cn/book/erased-structural-types/index.md): 在 TypeScript 中，对象不必匹配特定的、精确的类型。例如，如果我们创建一个满足接口要求的对象，我们就可以在需要该接口的地方使用该对象，即使它们之间没有显式连接。例子：
+- [详尽性检查](https://gibbok.github.io/typescript-book/zh-cn/book/exhaustiveness-checking/index.md): 详尽性检查是 TypeScript 中的一项功能，可确保在 switch 语句或 if 语句中处理可区分联合的所有可能情况。
+- [探索类型系统](https://gibbok.github.io/typescript-book/zh-cn/book/exploring-the-type-system/index.md): TypeScript 的语言服务
+- [扩展类型](https://gibbok.github.io/typescript-book/zh-cn/book/extending-types/index.md): 可以扩展 interface（从另一种类型复制成员）：
+- [固定长度元组](https://gibbok.github.io/typescript-book/zh-cn/book/fixed-length-tuple/index.md): 固定长度元组是一种特定类型的元组，它强制执行特定类型的固定数量的元素，并且一旦定义元组就不允许对其长度进行任何修改。
+- [泛型](https://gibbok.github.io/typescript-book/zh-cn/book/generics/index.md): 泛型允许您创建可与多种类型一起使用的可重用组件和函数。使用泛型，您可以参数化类型、函数和接口，从而允许它们对不同类型进行操作，而无需事先显式指定它们。
+- [TypeScript 入门](https://gibbok.github.io/typescript-book/zh-cn/book/getting-started-with-typescript/index.md): 安装
+- [索引签名](https://gibbok.github.io/typescript-book/zh-cn/book/index-signatures/index.md): 在 TypeScript 中，我们可以使用 string 、number 和 symbol 作为索引签名：
+- [infer 条件类型中的类型推断](https://gibbok.github.io/typescript-book/zh-cn/book/infer-type-inference-in-conditional-types/index.md): infer 关键字在条件类型中使用，用于从依赖于泛型参数的类型中推断（提取）泛型参数的类型。这允许您编写更灵活且可重用的类型定义。
+- [接口及类型](https://gibbok.github.io/typescript-book/zh-cn/book/interface-and-type/index.md): 通用语法
+- [交集类型](https://gibbok.github.io/typescript-book/zh-cn/book/intersection-types/index.md): 交集类型是表示具有两种或多种类型的所有属性的值的类型。交叉类型在每种类型之间使用 & 符号表示。
+- [介绍](https://gibbok.github.io/typescript-book/zh-cn/book/introduction/index.md): 欢迎来到简洁的TypeScript之书！本指南为您提供有效 TypeScript 开发的基本知识和实践技能。发现编写干净、健壮的代码的关键概念和技术。无论您是初学者还是经验丰富的开发人员，本书都可以作为在项目中利用 TypeScript 强大功能的综合指南和便捷参考。
+- [字面量推断](https://gibbok.github.io/typescript-book/zh-cn/book/literal-inference/index.md): 字面量推断是 TypeScript 中的一项功能，允许根据变量或参数的值推断其类型。
+- [字面量类型](https://gibbok.github.io/typescript-book/zh-cn/book/literal-types/index.md): 文字类型是来自集体类型的单个元素集，它定义了一个非常精确的值，即 JavaScript 原始数据。
+- [映射类型修饰符](https://gibbok.github.io/typescript-book/zh-cn/book/mapped-type-modifiers/index.md): TypeScript 中的映射类型修饰符支持对现有类型中的属性进行转换：
+- [映射类型](https://gibbok.github.io/typescript-book/zh-cn/book/mapped-types/index.md): TypeScript 中的映射类型允许您通过使用映射函数转换每个属性来基于现有类型创建新类型。通过映射现有类型，您可以创建以不同格式表示相同信息的新类型。要创建映射类型，您可以使用运算符访问现有类型的属性 keyof ，然后更改它们以生成新类型。在以下示例中：
+- [合并与扩展](https://gibbok.github.io/typescript-book/zh-cn/book/merging-and-extension/index.md): 合并和扩展是指与使用类型和接口相关的两个不同概念。
+- [命名元组类型（已标记）](https://gibbok.github.io/typescript-book/zh-cn/book/named-tuple-type-labeled/index.md): 元组类型可以包含每个元素的可选标签或名称。 这些标签用于提高可读性和工具帮助，不会影响您可以使用它们执行的操作。
+- [命名空间](https://gibbok.github.io/typescript-book/zh-cn/book/namespacing/index.md): 在 TypeScript 中，命名空间用于将代码组织到逻辑容器中，防止命名冲突并提供一种将相关代码分组在一起的方法。使用关键字 export 允许在"外部"模块中访问名称空间。
+- [缩小范围](https://gibbok.github.io/typescript-book/zh-cn/book/narrowing/index.md): TypeScript 缩小范围是细化条件块内变量类型的过程。这在使用联合类型时很有用，其中一个变量可以有多个类型。
+- [never 类型](https://gibbok.github.io/typescript-book/zh-cn/book/never-type/index.md): never 类型表示从未出现过的值。它用于表示从不返回或抛出错误的函数或表达式。
+- [对象类型](https://gibbok.github.io/typescript-book/zh-cn/book/object-types/index.md): 在 TypeScript 中，对象类型描述对象的形状。它们指定对象属性的名称和类型，以及这些属性是必需的还是可选的。
+- [可选属性](https://gibbok.github.io/typescript-book/zh-cn/book/optional-properties/index.md): 对象可以通过在属性名称末尾添加问号 ? 来指定可选属性：
+- [其他](https://gibbok.github.io/typescript-book/zh-cn/book/others/index.md): 错误和异常处理
+- [重载](https://gibbok.github.io/typescript-book/zh-cn/book/overloads/index.md): TypeScript 中的函数重载允许您为单个函数名称定义多个函数签名，从而使您能够定义可以多种方式调用的函数。这是一个例子：
+- [预定义条件类型](https://gibbok.github.io/typescript-book/zh-cn/book/predefined-conditional-types/index.md): 在 TypeScript 中，预定义的条件类型是语言提供的内置条件类型。它们旨在根据给定类型的特征执行常见的类型转换。
+- [原始类型](https://gibbok.github.io/typescript-book/zh-cn/book/primitive-types/index.md): TypeScript 支持 7 种基本类型。原始数据类型是指不是对象并且没有任何与其关联的方法的类型。在 TypeScript 中，所有原始类型都是不可变的，这意味着它们的值一旦分配就无法更改。
+- [只读属性](https://gibbok.github.io/typescript-book/zh-cn/book/readonly-properties/index.md): 是否可以通过使用修饰符来防止对属性进行写入，readonly 以确保该属性不能被重写，但不提供任何完全不变性的保证：
+- [严格空检查](https://gibbok.github.io/typescript-book/zh-cn/book/strictnullchecks/index.md): strictNullChecks 是一个 TypeScript 编译器选项，强制执行严格的 null 检查。启用此选项后，只有在变量和参数已使用联合类型 null | undefined 显式声明为该类型时，才可以对其进行赋值null 或者 undefined。如果变量或参数未显式声明为可为空，TypeScript 将生成错误以防止潜在的运行时错误。
+- [支持本项目](https://gibbok.github.io/typescript-book/zh-cn/book/support-the-project/index.md): 如果这本免费图书帮助您修复了 bug、理解了棘手的概念或推动了职业发展，请考虑以您认为合适的金额支持我的工作，建议捐助 $5 ，也可以请我喝杯咖啡。
+- [Symbols](https://gibbok.github.io/typescript-book/zh-cn/book/symbols/index.md): 符号是一种原始数据类型，表示不可变值，保证在程序的整个生命周期中全局唯一。
+- [目录](https://gibbok.github.io/typescript-book/zh-cn/book/table-of-contents/index.md): 目录
+- [模板联合类型](https://gibbok.github.io/typescript-book/zh-cn/book/template-union-types/index.md): 模板联合类型可用于合并和操作类型系统内的文本，例如：
+- [The Concise TypeScript Book](https://gibbok.github.io/typescript-book/zh-cn/book/the-concise-typescript-book/index.md): 《The Concise TypeScript Book》全面而简洁地概述了 TypeScript 的功能。它提供清晰的讲解，涵盖该语言最新版本的各个方面，从强大的类型系统到高级功能。
+- [never 类型缩小](https://gibbok.github.io/typescript-book/zh-cn/book/the-never-type/index.md): 当变量缩小为不能包含任何值的类型时，TypeScript 编译器将推断该变量必须属于该never类型。这是因为 never 类型代表永远无法生成的值。
+- [翻译](https://gibbok.github.io/typescript-book/zh-cn/book/translations/index.md): 本书已被翻译成多种语言版本，包括：
+- [三斜杠指令](https://gibbok.github.io/typescript-book/zh-cn/book/triple-slash-directives/index.md): 三斜杠指令是特殊注释，为编译器提供有关如何处理文件的说明。这些指令以三个连续斜杠 (///) 开头，通常放置在 TypeScript 文件的顶部，对运行时行为没有影响。
+- [元组类型（匿名）](https://gibbok.github.io/typescript-book/zh-cn/book/tuple-type-anonymous/index.md): 元组类型是一种表示具有固定数量的元素及其相应类型的数组的类型。元组类型以固定顺序强制执行特定数量的元素及其各自的类型。当您想要表示具有特定类型的值的集合时，元组类型非常有用，其中数组中每个元素的位置都有特定的含义。
+- [类型注释](https://gibbok.github.io/typescript-book/zh-cn/book/type-annotations/index.md): 在使用 var 、 let 和 const 声明变量时，可以选择添加类型：
+- [Func 返回值的类型](https://gibbok.github.io/typescript-book/zh-cn/book/type-from-func-return/index.md): Func Return 中的类型是指根据函数的实现自动推断函数的返回类型的能力。这允许 TypeScript 无需显式类型注释即可确定函数返回值的类型。
+- [模块的类型](https://gibbok.github.io/typescript-book/zh-cn/book/type-from-module/index.md): 模块的类型是指使用模块的导出值自动推断其类型的能力。当模块导出特定类型的值时，TypeScript 可以使用该信息在将该值导入到另一个模块时自动推断该值的类型。
+- [值的类型](https://gibbok.github.io/typescript-book/zh-cn/book/type-from-value/index.md): TypeScript 中的"Type from Value"是指通过类型推断从值或表达式自动推断出类型。
+- [类型索引](https://gibbok.github.io/typescript-book/zh-cn/book/type-indexing/index.md): 类型索引是指能够通过预先未知的键来定义可以索引的类型，使用索引签名来指定未显式声明的属性的类型。
+- [类型操作](https://gibbok.github.io/typescript-book/zh-cn/book/type-manipulation/index.md): 从类型创建类型
+- [类型谓词](https://gibbok.github.io/typescript-book/zh-cn/book/type-predicates/index.md): TypeScript 中的类型谓词是返回布尔值的函数，用于将变量的类型缩小为更具体的类型。
+- [TypeScript 简介](https://gibbok.github.io/typescript-book/zh-cn/book/typescript-introduction/index.md): 什么是 TypeScript？
+- [联合类型](https://gibbok.github.io/typescript-book/zh-cn/book/union-type/index.md): 联合类型是一种表示值的类型，该值可以是多种类型之一。联合类型使用 | 表示 每种可能类型之间的符号。
+- [未知类型](https://gibbok.github.io/typescript-book/zh-cn/book/unknown-type/index.md): 在 TypeScript 中，未知类型表示未知类型的值。与允许任何类型值的 any 类型不同，unknown 需要在以特定方式使用它之前进行类型检查或断言，因此在未首先断言或缩小到更具体的类型的情况下，不允许对 unknown 进行任何操作 。
+- [空类型](https://gibbok.github.io/typescript-book/zh-cn/book/void-type/index.md): void 类型用于指示函数不返回值。
+- [TypeScript Book](https://gibbok.github.io/typescript-book/zh-cn/index.md): The Concise TypeScript Book
+- [The Concise TypeScript Book Plus Edition — React 与 TypeScript 7 实战模式](https://gibbok.github.io/typescript-book/zh-cn/plus-edition/index.md): The Concise TypeScript Book 的付费扩展版，包含 React 指导、真实项目中的 TypeScript 模式，并更新到 TypeScript 7。提供 Kindle 和平装版。
+- [TypeScript 7.0 发布候选版已公布](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-7-release-candidate/index.md): TypeScript 7.0 发布候选版预览了原生编译器、并行构建、兼容性变化和扩展的编辑器支持。
+- [TypeScript 7.0 现已发布](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-7-released/index.md): TypeScript 7.0 引入基于 Go 的原生编译器和语言服务，大幅提升构建和编辑器的性能。
+- [TypeScript 新闻](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/index.md): 为 TypeScript 开发者简明介绍最新的官方 TypeScript 版本、公告和变化。

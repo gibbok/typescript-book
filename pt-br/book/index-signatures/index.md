@@ -1,0 +1,18 @@
+﻿# Assinaturas de Índice (Index Signatures)
+
+
+
+No TypeScript, podemos usar como assinatura de índice `string`, `number` e `symbol`:
+
+```typescript
+type K = {
+    [name: string | number]: string;
+};
+const k: K = { x: 'x', 1: 'b' };
+console.log(k['x']);
+console.log(k[1]);
+console.log(k['1']); // Mesmo resultado que k[1]
+```
+
+Observe que o JavaScript converte automaticamente um índice com `number` em um índice com `string`, portanto `k[1]` ou `k["1"]` retornam o mesmo valor.
+

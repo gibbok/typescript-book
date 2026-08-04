@@ -1,0 +1,16 @@
+﻿# Traduções
+
+
+
+Este livro foi traduzido para vários idiomas, incluindo:
+
+[Chinês](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
+
+[Italiano](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
+
+[Português (Brasil)](https://github.com/gibbok/typescript-book/blob/main/README-pt_BR.md)
+
+[Sueco](https://github.com/gibbok/typescript-book/blob/main/README-sv_SE.md)
+
+[Espanhol](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
