@@ -1,6 +1,6 @@
 import { getCollection } from 'astro:content';
 import type { APIRoute } from 'astro';
-import { getMarkdownPath, getPublishedDocs } from '../lib/llms';
+import { getMarkdownPath, getPublishedDocs, utf8Bom } from '../lib/llms';
 
 export async function getStaticPaths() {
   const entries = getPublishedDocs(await getCollection('docs'));
@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 export const GET: APIRoute = ({ props }) =>
-  new Response(props.body, {
+  new Response(`${utf8Bom}${props.body}`, {
     headers: {
       'Content-Type': 'text/markdown; charset=utf-8',
     },
