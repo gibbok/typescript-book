@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import { defaultLocale, locales } from './src/config/locales';
 
 // https://astro.build/config
 export default defineConfig({
@@ -135,37 +136,8 @@ gtag('config', 'G-SR2LV8LB90');
         github: 'https://github.com/gibbok/typescript-book',
         'x.com': 'https://twitter.com/gibbok_coding',
       },
-      defaultLocale: 'root',
-      locales: {
-        root: {
-          label: 'English',
-          lang: 'en',
-        },
-        'zh-cn': {
-          label: '简体中文',
-          lang: 'zh-CN',
-        },
-        'it-it': {
-          label: 'Italiano',
-          lang: 'it-IT',
-        },
-        'pt-br': {
-          label: 'Português (Brasil)',
-          lang: 'pt-BR',
-        },
-        'sv-se': {
-          label: 'Svenska',
-          lang: 'sv-SE',
-        },
-        "bg-bg": {
-          label: "Български",
-          lang: "bg-BG"
-        },
-        'es-es': {
-          label: 'Español',
-          lang: 'es-ES',
-        },
-      },
+      defaultLocale,
+      locales,
       sidebar: [
         {
           label: 'TypeScript Book',
