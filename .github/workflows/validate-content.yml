@@ -14,5 +14,9 @@ jobs:
       - uses: actions/checkout@v7
       - name: Run compile script
         run: bash ${GITHUB_WORKSPACE}/.github/workflows/compile.sh
-
-      
+  test-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Test GitHub Actions scripts
+        run: node --test tools/github-actions/*.test.js

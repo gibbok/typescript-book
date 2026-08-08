@@ -1,4 +1,12 @@
-module.exports = async ({ github, context, core }) => {
+module.exports = async ({
+  github,
+  context,
+  core,
+  maxPollAttempts = 90,
+  pollIntervalMs = 10000,
+  sleep = milliseconds =>
+    new Promise(resolve => setTimeout(resolve, milliseconds)),
+}) => {
   const pullRequest = context.payload.pull_request;
   const files = await github.paginate(github.rest.pulls.listFiles, {
     owner: context.repo.owner,
@@ -22,7 +30,7 @@ module.exports = async ({ github, context, core }) => {
   }
   const approved = [...latestReviewByUser.values()].includes('APPROVED');
 
-  const latestRun = async (workflowId) => {
+  const latestRunStartedBeforeMerge = async (workflowId) => {
     const runs = await github.paginate(github.rest.actions.listWorkflowRuns, {
       owner: context.repo.owner,
       repo: context.repo.repo,
@@ -31,22 +39,47 @@ module.exports = async ({ github, context, core }) => {
       head_sha: pullRequest.head.sha,
       per_page: 100,
     });
-    return runs.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))[0];
+    const mergedAt = new Date(pullRequest.merged_at);
+    return runs
+      .filter(
+        ({ run_started_at, created_at }) =>
+          new Date(run_started_at ?? created_at) < mergedAt,
+      )
+      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))[0];
   };
-  const latestValidationRun = await latestRun('validate-content.yml');
-  const validationPassed = latestValidationRun?.status === 'completed' &&
-    latestValidationRun.conclusion === 'success';
+  let latestValidationRun;
+  let latestE2ERun;
+  for (let attempt = 1; attempt <= maxPollAttempts; attempt += 1) {
+    [latestValidationRun, latestE2ERun] = await Promise.all([
+      latestRunStartedBeforeMerge('validate-content.yml'),
+      latestRunStartedBeforeMerge('website-e2e.yml'),
+    ]);
+    const runs = [latestValidationRun, latestE2ERun];
+    const failed = runs.some(
+      run => run?.status === 'completed' && run.conclusion !== 'success',
+    );
+    const completed = runs.every(run => run?.status === 'completed');
+    if (failed || completed || attempt === maxPollAttempts) {
+      break;
+    }
+    core.info(
+      `Waiting for prerequisite workflows (${attempt}/${maxPollAttempts})`,
+    );
+    await sleep(pollIntervalMs);
+  }
 
-  const latestE2ERun = await latestRun('website-e2e.yml');
-  const e2ePassed = latestE2ERun?.status === 'completed' &&
-    latestE2ERun.conclusion === 'success';
+  const runPassed = run =>
+    run?.status === 'completed' && run.conclusion === 'success';
+  const validationPassed = runPassed(latestValidationRun);
+  const e2ePassed = runPassed(latestE2ERun);
+  const ready = websiteChanged && approved && validationPassed && e2ePassed;
 
   core.info(`Website changed: ${websiteChanged}`);
   core.info(`Pull request approved: ${approved}`);
-  core.info(`Latest content validation run passed: ${validationPassed}`);
-  core.info(`Latest website E2E run passed: ${e2ePassed}`);
-  core.setOutput('website_changed', websiteChanged);
-  core.setOutput('approved', approved);
-  core.setOutput('validation_passed', validationPassed);
-  core.setOutput('e2e_passed', e2ePassed);
+  core.info(
+    `Latest pre-merge content validation run passed: ${validationPassed}`,
+  );
+  core.info(`Latest pre-merge website E2E run passed: ${e2ePassed}`);
+  core.info(`Website deployment ready: ${ready}`);
+  core.setOutput('ready', ready);
 };
