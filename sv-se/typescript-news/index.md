@@ -5,6 +5,12 @@ Följ viktiga TypeScript-versioner och projektuppdateringar genom kortfattade sa
 
 ## Senaste nytt
 
+### [TypeScript 7 förbättrar minnesanvändningen för Gå till implementering](./2026/typescript-7-go-to-implementation-memory-fix/)
+
+**Publicerad:** 30 juli 2026
+
+Den inbyggda språktjänsten undviker nu kvadratisk minnesökning när den hittar många implementeringar i stora projekt med komplexa typer.
+
 ### [TypeScript 7.0 är nu tillgängligt](./2026/typescript-7-released/)
 
 **Publicerad:** 8 juli 2026
