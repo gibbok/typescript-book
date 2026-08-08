@@ -5,11 +5,23 @@ Acompanhe lançamentos importantes e atualizações do projeto TypeScript por me
 
 ## Últimas notícias
 
+### [TypeScript 7 adiciona um escopo de busca para símbolos do espaço de trabalho](./2026/typescript-7-workspace-symbol-search-scope/)
+
+**Publicado:** 7 de agosto de 2026
+
+O serviço de linguagem nativo adiciona uma configuração que pode limitar a busca de símbolos do espaço de trabalho ao projeto atual, em vez de a todos os projetos abertos.
+
 ### [TypeScript 7 melhora o uso de memória de Ir para Implementação](./2026/typescript-7-go-to-implementation-memory-fix/)
 
 **Publicado:** 30 de julho de 2026
 
 O serviço de linguagem nativo agora evita o crescimento quadrático da memória ao localizar muitas implementações em projetos grandes e com tipos complexos.
+
+### [TypeScript 7 atualiza os diagnósticos de configuração após alterações nos arquivos](./2026/typescript-7-refreshes-config-diagnostics/)
+
+**Publicado:** 30 de julho de 2026
+
+O serviço de linguagem nativo agora republica erros de `tsconfig.json` e `jsconfig.json` após alterações em arquivos de configuração monitorados.
 
 ### [TypeScript 7.0 já está disponível](./2026/typescript-7-released/)
 

@@ -5,11 +5,23 @@
 
 ## 最新消息
 
+### [TypeScript 7 新增工作区符号搜索范围](./2026/typescript-7-workspace-symbol-search-scope/)
+
+**发布日期：** 2026 年 8 月 7 日
+
+原生语言服务新增了一项设置，可将工作区符号搜索限制在当前项目中，而不是所有已打开的项目中。
+
 ### [TypeScript 7 改进“转到实现”的内存使用](./2026/typescript-7-go-to-implementation-memory-fix/)
 
 **发布日期：** 2026 年 7 月 30 日
 
 在大型、类型结构复杂的项目中查找大量实现时，原生语言服务现在可避免内存使用量平方级增长。
+
+### [TypeScript 7 在配置文件更改后刷新诊断信息](./2026/typescript-7-refreshes-config-diagnostics/)
+
+**发布日期：** 2026 年 7 月 30 日
+
+原生语言服务现在会在受监视的配置文件更改后重新发布 `tsconfig.json` 和 `jsconfig.json` 错误。
 
 ### [TypeScript 7.0 现已发布](./2026/typescript-7-released/)
 

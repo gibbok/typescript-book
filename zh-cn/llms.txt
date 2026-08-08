@@ -69,6 +69,8 @@
 - [TypeScript Book](https://gibbok.github.io/typescript-book/zh-cn/index.md): The Concise TypeScript Book
 - [The Concise TypeScript Book Plus Edition — React 与 TypeScript 7 实战模式](https://gibbok.github.io/typescript-book/zh-cn/plus-edition/index.md): The Concise TypeScript Book 的付费扩展版，包含 React 指导、真实项目中的 TypeScript 模式，并更新到 TypeScript 7。提供 Kindle 和平装版。
 - [TypeScript 7 改进“转到实现”的内存使用](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-7-go-to-implementation-memory-fix/index.md): 原生语言服务中的一项修复避免了在大型、类型结构复杂的项目中查找实现时出现内存使用量平方级增长。
+- [TypeScript 7 在配置文件更改后刷新诊断信息](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-7-refreshes-config-diagnostics/index.md): 原生语言服务现在会在受监视的配置文件更改后重新发布 tsconfig.json 和 jsconfig.json 错误。
 - [TypeScript 7.0 发布候选版已公布](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-7-release-candidate/index.md): TypeScript 7.0 发布候选版预览了原生编译器、并行构建、兼容性变化和扩展的编辑器支持。
 - [TypeScript 7.0 现已发布](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-7-released/index.md): TypeScript 7.0 引入基于 Go 的原生编译器和语言服务，大幅提升构建和编辑器的性能。
+- [TypeScript 7 新增工作区符号搜索范围](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-7-workspace-symbol-search-scope/index.md): 原生语言服务新增了一项设置，可将工作区符号搜索限制在当前项目中。
 - [TypeScript 新闻](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/index.md): 为 TypeScript 开发者简明介绍最新的官方 TypeScript 版本、公告和变化。
