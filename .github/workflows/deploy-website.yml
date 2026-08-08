@@ -1,0 +1,102 @@
+name: deploy-website
+
+on:
+  pull_request:
+    types: [closed]
+    paths:
+      - 'website/**'
+
+permissions:
+  actions: read
+  contents: write
+  pull-requests: read
+
+concurrency:
+  group: website-deploy
+  cancel-in-progress: false
+
+jobs:
+  verify-deployment-conditions:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    outputs:
+      website_changed: ${{ steps.verify.outputs.website_changed }}
+      approved: ${{ steps.verify.outputs.approved }}
+      e2e_passed: ${{ steps.verify.outputs.e2e_passed }}
+    steps:
+      - name: Verify merged pull request conditions
+        id: verify
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const pullRequest = context.payload.pull_request;
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pullRequest.number,
+              per_page: 100,
+            });
+            const websiteChanged = files.some(({ filename }) => filename.startsWith('website/'));
+
+            const reviews = await github.paginate(github.rest.pulls.listReviews, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pullRequest.number,
+              per_page: 100,
+            });
+            const latestReviewByUser = new Map();
+            for (const review of reviews
+              .filter(({ user, submitted_at }) => user && submitted_at)
+              .sort((a, b) => new Date(a.submitted_at) - new Date(b.submitted_at))) {
+              latestReviewByUser.set(review.user.login, review.state);
+            }
+            const approved = [...latestReviewByUser.values()].includes('APPROVED');
+
+            const runs = await github.paginate(github.rest.actions.listWorkflowRuns, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'website-e2e.yml',
+              event: 'pull_request',
+              head_sha: pullRequest.head.sha,
+              per_page: 100,
+            });
+            const latestE2ERun = runs.sort(
+              (a, b) => new Date(b.updated_at) - new Date(a.updated_at),
+            )[0];
+            const e2ePassed = latestE2ERun?.status === 'completed' &&
+              latestE2ERun.conclusion === 'success';
+
+            core.info(`Website changed: ${websiteChanged}`);
+            core.info(`Pull request approved: ${approved}`);
+            core.info(`Latest website E2E run passed: ${e2ePassed}`);
+            core.setOutput('website_changed', websiteChanged);
+            core.setOutput('approved', approved);
+            core.setOutput('e2e_passed', e2ePassed);
+
+  deploy:
+    needs: verify-deployment-conditions
+    if: >-
+      needs.verify-deployment-conditions.outputs.website_changed == 'true' &&
+      needs.verify-deployment-conditions.outputs.approved == 'true' &&
+      needs.verify-deployment-conditions.outputs.e2e_passed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - name: Install website dependencies
+        working-directory: website
+        run: npm ci
+      - name: Deploy website
+        working-directory: tools
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git remote set-url origin "https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          make website-deploy
