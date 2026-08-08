@@ -27,7 +27,21 @@ def parse_locales(config_path: Path) -> list[str]:
         config,
     )
     if not block:
-        raise ValueError(f"Could not find the locales block in {config_path}")
+        imported = re.search(
+            r"import\s*\{[^}]*\blocales\b[^}]*\}\s*from\s*['\"]([^'\"]+)['\"]",
+            config,
+        )
+        if imported:
+            locales_path = (config_path.parent / imported.group(1)).with_suffix(".ts")
+            locales_config = locales_path.read_text(encoding="utf-8")
+            block = re.search(
+                r"(?ms)^\s*export\s+const\s+locales\s*=\s*\{\s*$"
+                r"(.*?)"
+                r"^\s*\}\s+as\s+const;\s*$",
+                locales_config,
+            )
+    if not block:
+        raise ValueError(f"Could not resolve the locales block from {config_path}")
 
     locales: list[str] = []
     for line in block.group(1).splitlines():

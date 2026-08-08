@@ -9,6 +9,12 @@ Follow important TypeScript releases and project updates through concise summari
 
 ## Latest news
 
+### [TypeScript 7 improves Go to Implementation memory use](./2026/typescript-7-go-to-implementation-memory-fix/)
+
+**Published:** July 30, 2026
+
+The native language service now avoids quadratic memory growth when finding many implementations in large, deeply typed projects.
+
 ### [TypeScript 7.0 is now available](./2026/typescript-7-released/)
 
 **Published:** July 8, 2026

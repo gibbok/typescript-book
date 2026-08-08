@@ -3,7 +3,7 @@ title: TypeScript 7.0 is now available
 description: TypeScript 7.0 introduces a native Go-based compiler and language service, delivering major performance improvements for builds and editors.
 lastUpdated: 2026-07-08
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

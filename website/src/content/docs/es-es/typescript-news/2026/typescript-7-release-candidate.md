@@ -3,7 +3,7 @@ title: Se anuncia la versión candidata de TypeScript 7.0
 description: La versión candidata de TypeScript 7.0 presentó el compilador nativo, las compilaciones paralelas, los cambios de compatibilidad y la compatibilidad ampliada con editores.
 lastUpdated: 2026-06-18
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:
