@@ -5,6 +5,7 @@ on:
     types: [closed]
     paths:
       - 'website/**'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -15,13 +16,15 @@ concurrency:
 
 jobs:
   deploy:
-    if: github.event.pull_request.merged == true
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.pull_request.base.ref }}
+          ref: ${{ github.event_name == 'workflow_dispatch' && 'main' || github.event.pull_request.base.ref }}
       - uses: actions/setup-node@v6
         with:
           node-version: 22
