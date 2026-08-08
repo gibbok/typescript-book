@@ -1,12 +1,10 @@
 name: deploy-website
 
 on:
-  workflow_call:
-    inputs:
-      ref:
-        description: Git ref containing the merged website changes
-        required: true
-        type: string
+  pull_request:
+    types: [closed]
+    paths:
+      - 'website/**'
 
 permissions:
   contents: write
@@ -17,12 +15,13 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: ${{ inputs.ref }}
+          ref: ${{ github.event.pull_request.base.ref }}
       - uses: actions/setup-node@v6
         with:
           node-version: 22
