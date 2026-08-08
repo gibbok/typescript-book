@@ -21,6 +21,12 @@ Den inbyggda språktjänsten lägger till en inställning som kan begränsa sök
 
 Den inbyggda språktjänsten undviker nu kvadratisk minnesökning när den hittar många implementeringar i stora projekt med komplexa typer.
 
+### [TypeScript 7 uppdaterar konfigurationsdiagnostiken efter filändringar](./2026/typescript-7-refreshes-config-diagnostics/)
+
+**Publicerad:** 30 juli 2026
+
+Den inbyggda språktjänsten publicerar nu fel i `tsconfig.json` och `jsconfig.json` på nytt när bevakade konfigurationsfiler ändras.
+
 ### [TypeScript 7.0 är nu tillgängligt](./2026/typescript-7-released/)
 
 **Publicerad:** 8 juli 2026

@@ -21,6 +21,12 @@ O serviço de linguagem nativo adiciona uma configuração que pode limitar a bu
 
 O serviço de linguagem nativo agora evita o crescimento quadrático da memória ao localizar muitas implementações em projetos grandes e com tipos complexos.
 
+### [TypeScript 7 atualiza os diagnósticos de configuração após alterações nos arquivos](./2026/typescript-7-refreshes-config-diagnostics/)
+
+**Publicado:** 30 de julho de 2026
+
+O serviço de linguagem nativo agora republica erros de `tsconfig.json` e `jsconfig.json` após alterações em arquivos de configuração monitorados.
+
 ### [TypeScript 7.0 já está disponível](./2026/typescript-7-released/)
 
 **Publicado:** 8 de julho de 2026
