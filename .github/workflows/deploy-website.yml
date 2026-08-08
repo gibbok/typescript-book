@@ -22,6 +22,7 @@ jobs:
     outputs:
       website_changed: ${{ steps.verify.outputs.website_changed }}
       approved: ${{ steps.verify.outputs.approved }}
+      validation_passed: ${{ steps.verify.outputs.validation_passed }}
       e2e_passed: ${{ steps.verify.outputs.e2e_passed }}
     steps:
       - name: Verify merged pull request conditions
@@ -52,25 +53,32 @@ jobs:
             }
             const approved = [...latestReviewByUser.values()].includes('APPROVED');
 
-            const runs = await github.paginate(github.rest.actions.listWorkflowRuns, {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'website-e2e.yml',
-              event: 'pull_request',
-              head_sha: pullRequest.head.sha,
-              per_page: 100,
-            });
-            const latestE2ERun = runs.sort(
-              (a, b) => new Date(b.updated_at) - new Date(a.updated_at),
-            )[0];
+            const latestRun = async (workflowId) => {
+              const runs = await github.paginate(github.rest.actions.listWorkflowRuns, {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: workflowId,
+                event: 'pull_request',
+                head_sha: pullRequest.head.sha,
+                per_page: 100,
+              });
+              return runs.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))[0];
+            };
+            const latestValidationRun = await latestRun('validate-content.yml');
+            const validationPassed = latestValidationRun?.status === 'completed' &&
+              latestValidationRun.conclusion === 'success';
+
+            const latestE2ERun = await latestRun('website-e2e.yml');
             const e2ePassed = latestE2ERun?.status === 'completed' &&
               latestE2ERun.conclusion === 'success';
 
             core.info(`Website changed: ${websiteChanged}`);
             core.info(`Pull request approved: ${approved}`);
+            core.info(`Latest content validation run passed: ${validationPassed}`);
             core.info(`Latest website E2E run passed: ${e2ePassed}`);
             core.setOutput('website_changed', websiteChanged);
             core.setOutput('approved', approved);
+            core.setOutput('validation_passed', validationPassed);
             core.setOutput('e2e_passed', e2ePassed);
 
   deploy:
@@ -78,6 +86,7 @@ jobs:
     if: >-
       needs.verify-deployment-conditions.outputs.website_changed == 'true' &&
       needs.verify-deployment-conditions.outputs.approved == 'true' &&
+      needs.verify-deployment-conditions.outputs.validation_passed == 'true' &&
       needs.verify-deployment-conditions.outputs.e2e_passed == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
