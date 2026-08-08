@@ -1,49 +1,28 @@
 name: deploy-website
 
 on:
-  pull_request:
-    types: [closed]
-    paths:
-      - 'website/**'
+  workflow_call:
+    inputs:
+      ref:
+        description: Git ref containing the merged website changes
+        required: true
+        type: string
 
 permissions:
-  actions: read
   contents: write
-  pull-requests: read
 
 concurrency:
   group: website-deploy
   cancel-in-progress: false
 
 jobs:
-  verify-deployment-conditions:
-    if: github.event.pull_request.merged == true
-    runs-on: ubuntu-latest
-    outputs:
-      website_changed: ${{ steps.verify.outputs.website_changed }}
-      approved: ${{ steps.verify.outputs.approved }}
-      validation_passed: ${{ steps.verify.outputs.validation_passed }}
-      e2e_passed: ${{ steps.verify.outputs.e2e_passed }}
-    steps:
-      - name: Verify merged pull request conditions
-        id: verify
-        uses: actions/github-script@v8
-        with:
-          script: await require('./tools/github-actions/verify-website-deployment-conditions.js')({ github, context, core });
-
   deploy:
-    needs: verify-deployment-conditions
-    if: >-
-      needs.verify-deployment-conditions.outputs.website_changed == 'true' &&
-      needs.verify-deployment-conditions.outputs.approved == 'true' &&
-      needs.verify-deployment-conditions.outputs.validation_passed == 'true' &&
-      needs.verify-deployment-conditions.outputs.e2e_passed == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.pull_request.base.ref }}
+          ref: ${{ inputs.ref }}
       - uses: actions/setup-node@v6
         with:
           node-version: 22
