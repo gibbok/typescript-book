@@ -3,7 +3,7 @@ title: TypeScript 7 改进“转到实现”的内存使用
 description: 原生语言服务中的一项修复避免了在大型、类型结构复杂的项目中查找实现时出现内存使用量平方级增长。
 lastUpdated: 2026-07-30
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

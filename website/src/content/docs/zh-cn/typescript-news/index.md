@@ -9,6 +9,12 @@ sidebar:
 
 ## 最新消息
 
+### [TypeScript 7 新增工作区符号搜索范围](./2026/typescript-7-workspace-symbol-search-scope/)
+
+**发布日期：** 2026 年 8 月 7 日
+
+原生语言服务新增了一项设置，可将工作区符号搜索限制在当前项目中，而不是所有已打开的项目中。
+
 ### [TypeScript 7 改进“转到实现”的内存使用](./2026/typescript-7-go-to-implementation-memory-fix/)
 
 **发布日期：** 2026 年 7 月 30 日

@@ -9,6 +9,12 @@ Follow important TypeScript releases and project updates through concise summari
 
 ## Latest news
 
+### [TypeScript 7 adds a workspace-symbol search scope](./2026/typescript-7-workspace-symbol-search-scope/)
+
+**Published:** August 7, 2026
+
+The native language service adds a setting that can limit workspace-symbol searches to the current project instead of every open project.
+
 ### [TypeScript 7 improves Go to Implementation memory use](./2026/typescript-7-go-to-implementation-memory-fix/)
 
 **Published:** July 30, 2026
