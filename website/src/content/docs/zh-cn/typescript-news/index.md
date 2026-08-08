@@ -9,6 +9,12 @@ sidebar:
 
 ## 最新消息
 
+### [TypeScript 7 改进“转到实现”的内存使用](./2026/typescript-7-go-to-implementation-memory-fix/)
+
+**发布日期：** 2026 年 7 月 30 日
+
+在大型、类型结构复杂的项目中查找大量实现时，原生语言服务现在可避免内存使用量平方级增长。
+
 ### [TypeScript 7.0 现已发布](./2026/typescript-7-released/)
 
 **发布日期：** 2026 年 7 月 8 日

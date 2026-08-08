@@ -9,6 +9,12 @@ Acompanhe lançamentos importantes e atualizações do projeto TypeScript por me
 
 ## Últimas notícias
 
+### [TypeScript 7 melhora o uso de memória de Ir para Implementação](./2026/typescript-7-go-to-implementation-memory-fix/)
+
+**Publicado:** 30 de julho de 2026
+
+O serviço de linguagem nativo agora evita o crescimento quadrático da memória ao localizar muitas implementações em projetos grandes e com tipos complexos.
+
 ### [TypeScript 7.0 já está disponível](./2026/typescript-7-released/)
 
 **Publicado:** 8 de julho de 2026

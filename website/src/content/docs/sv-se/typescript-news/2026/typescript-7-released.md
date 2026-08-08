@@ -3,7 +3,7 @@ title: TypeScript 7.0 är nu tillgängligt
 description: TypeScript 7.0 introducerar en Go-baserad inbyggd kompilator och språktjänst, vilket ger stora prestandaförbättringar för byggen och redigerare.
 lastUpdated: 2026-07-08
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:
