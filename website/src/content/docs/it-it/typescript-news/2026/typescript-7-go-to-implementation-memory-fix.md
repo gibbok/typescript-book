@@ -3,7 +3,7 @@ title: TypeScript 7 migliora l'uso della memoria di Vai all'implementazione
 description: Una correzione nel language service nativo evita una crescita quadratica della memoria durante la ricerca delle implementazioni in progetti grandi e con tipi complessi.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

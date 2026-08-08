@@ -9,6 +9,12 @@ Följ viktiga TypeScript-versioner och projektuppdateringar genom kortfattade sa
 
 ## Senaste nytt
 
+### [TypeScript 7 lägger till ett sökomfång för arbetsytans symboler](./2026/typescript-7-workspace-symbol-search-scope/)
+
+**Publicerad:** 7 augusti 2026
+
+Den inbyggda språktjänsten lägger till en inställning som kan begränsa sökningen efter arbetsytans symboler till det aktuella projektet i stället för alla öppna projekt.
+
 ### [TypeScript 7 förbättrar minnesanvändningen för Gå till implementering](./2026/typescript-7-go-to-implementation-memory-fix/)
 
 **Publicerad:** 30 juli 2026

@@ -9,6 +9,12 @@ Acompanhe lançamentos importantes e atualizações do projeto TypeScript por me
 
 ## Últimas notícias
 
+### [TypeScript 7 adiciona um escopo de busca para símbolos do espaço de trabalho](./2026/typescript-7-workspace-symbol-search-scope/)
+
+**Publicado:** 7 de agosto de 2026
+
+O serviço de linguagem nativo adiciona uma configuração que pode limitar a busca de símbolos do espaço de trabalho ao projeto atual, em vez de a todos os projetos abertos.
+
 ### [TypeScript 7 melhora o uso de memória de Ir para Implementação](./2026/typescript-7-go-to-implementation-memory-fix/)
 
 **Publicado:** 30 de julho de 2026

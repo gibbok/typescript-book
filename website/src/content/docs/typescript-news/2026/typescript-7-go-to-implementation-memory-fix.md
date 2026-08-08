@@ -3,7 +3,7 @@ title: TypeScript 7 improves Go to Implementation memory use
 description: A native language service fix prevents quadratic memory growth when finding implementations in large, deeply typed projects.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:
