@@ -21,6 +21,12 @@ Il language service nativo aggiunge un'impostazione che può limitare la ricerca
 
 Il language service nativo ora evita una crescita quadratica della memoria quando cerca molte implementazioni in progetti grandi e con tipi complessi.
 
+### [TypeScript 7 aggiorna la diagnostica dei file di configurazione dopo le modifiche](./2026/typescript-7-refreshes-config-diagnostics/)
+
+**Pubblicato:** 30 luglio 2026
+
+Il language service nativo ora ripubblica gli errori di `tsconfig.json` e `jsconfig.json` quando cambiano i file di configurazione monitorati.
+
 ### [TypeScript 7.0 è ora disponibile](./2026/typescript-7-released/)
 
 **Pubblicato:** 8 luglio 2026

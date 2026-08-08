@@ -21,6 +21,12 @@ The native language service adds a setting that can limit workspace-symbol searc
 
 The native language service now avoids quadratic memory growth when finding many implementations in large, deeply typed projects.
 
+### [TypeScript 7 refreshes config diagnostics after file changes](./2026/typescript-7-refreshes-config-diagnostics/)
+
+**Published:** July 30, 2026
+
+The native language service now republishes `tsconfig.json` and `jsconfig.json` errors after watched config files change.
+
 ### [TypeScript 7.0 is now available](./2026/typescript-7-released/)
 
 **Published:** July 8, 2026

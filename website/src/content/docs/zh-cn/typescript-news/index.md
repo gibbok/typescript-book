@@ -21,6 +21,12 @@ sidebar:
 
 在大型、类型结构复杂的项目中查找大量实现时，原生语言服务现在可避免内存使用量平方级增长。
 
+### [TypeScript 7 在配置文件更改后刷新诊断信息](./2026/typescript-7-refreshes-config-diagnostics/)
+
+**发布日期：** 2026 年 7 月 30 日
+
+原生语言服务现在会在受监视的配置文件更改后重新发布 `tsconfig.json` 和 `jsconfig.json` 错误。
+
 ### [TypeScript 7.0 现已发布](./2026/typescript-7-released/)
 
 **发布日期：** 2026 年 7 月 8 日
