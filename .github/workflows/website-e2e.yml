@@ -2,7 +2,9 @@ name: website-e2e
 
 on:
   pull_request:
-    types: [ready_for_review, synchronize, closed]
+    types: [opened, reopened, ready_for_review, synchronize, closed]
+    paths:
+      - 'website/**'
 
 permissions:
   actions: write
@@ -14,7 +16,14 @@ jobs:
   test:
     if: >-
       github.event.action == 'ready_for_review' ||
-      (github.event.action == 'synchronize' && github.event.pull_request.draft == false)
+      (
+        (
+          github.event.action == 'opened' ||
+          github.event.action == 'reopened' ||
+          github.event.action == 'synchronize'
+        ) &&
+        github.event.pull_request.draft == false
+      )
     runs-on: ubuntu-latest
     timeout-minutes: 15
     defaults:
