@@ -1,0 +1,109 @@
+name: Weekly TypeScript news
+
+on:
+  schedule:
+    - cron: '0 9 * * 5'
+      timezone: Europe/Prague
+  workflow_dispatch:
+
+concurrency:
+  group: weekly-typescript-news
+  cancel-in-progress: false
+
+jobs:
+  generate-news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    outputs:
+      has_patch: ${{ steps.diff.outputs.has_patch }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+
+      - name: Install website dependencies
+        working-directory: website
+        run: npm ci
+
+      - name: Research and create TypeScript news
+        uses: openai/codex-action@v1
+        with:
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          prompt-file: .github/codex/prompts/weekly-typescript-news.md
+          output-file: ${{ runner.temp }}/typescript-news-pr-body.md
+          sandbox: workspace-write
+          safety-strategy: drop-sudo
+          codex-args: '["--search", "--ephemeral"]'
+
+      - name: Create patch artifact
+        id: diff
+        run: |
+          git add -N .
+          git diff --binary HEAD > "${RUNNER_TEMP}/typescript-news.patch"
+          if [ -s "${RUNNER_TEMP}/typescript-news.patch" ]; then
+            test -s "${RUNNER_TEMP}/typescript-news-pr-body.md"
+            echo 'has_patch=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'has_patch=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload generated changes
+        if: steps.diff.outputs.has_patch == 'true'
+        uses: actions/upload-artifact@v6
+        with:
+          name: weekly-typescript-news-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/typescript-news.patch
+            ${{ runner.temp }}/typescript-news-pr-body.md
+          if-no-files-found: error
+          retention-days: 7
+
+  open-draft-pr:
+    needs: generate-news
+    if: needs.generate-news.outputs.has_patch == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - uses: actions/download-artifact@v6
+        with:
+          name: weekly-typescript-news-${{ github.run_id }}
+          path: ${{ runner.temp }}/weekly-typescript-news
+
+      - name: Commit changes and open draft pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          artifact_dir="${RUNNER_TEMP}/weekly-typescript-news"
+          branch="automation/typescript-news-${RUN_ID}"
+
+          git apply --index "${artifact_dir}/typescript-news.patch"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c "$branch"
+          git commit -m 'Add weekly TypeScript news'
+          git push origin "$branch"
+
+          gh pr create \
+            --base main \
+            --head "$branch" \
+            --title 'Add weekly TypeScript news' \
+            --body-file "${artifact_dir}/typescript-news-pr-body.md" \
+            --draft
