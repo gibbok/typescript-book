@@ -27,6 +27,12 @@ sidebar:
 
 原生语言服务现在会在受监视的配置文件更改后重新发布 `tsconfig.json` 和 `jsconfig.json` 错误。
 
+### [TypeScript 7 原生工具正在整合](./2026/typescript-7-native-tooling-consolidates/)
+
+**发布日期：** 2026 年 7 月 27 日
+
+维护者澄清，`tsgo` 名称将不再使用，原生代码库将回归主 TypeScript 仓库，原生 VS Code 扩展也将被内置。
+
 ### [TypeScript 7.0 现已发布](./2026/typescript-7-released/)
 
 **发布日期：** 2026 年 7 月 8 日

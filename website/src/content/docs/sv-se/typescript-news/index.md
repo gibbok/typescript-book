@@ -27,6 +27,12 @@ Den inbyggda språktjänsten undviker nu kvadratisk minnesökning när den hitta
 
 Den inbyggda språktjänsten publicerar nu fel i `tsconfig.json` och `jsconfig.json` på nytt när bevakade konfigurationsfiler ändras.
 
+### [TypeScript 7:s inbyggda verktyg konsolideras](./2026/typescript-7-native-tooling-consolidates/)
+
+**Publicerad:** 27 juli 2026
+
+Underhållarna har klargjort att namnet `tsgo` försvinner, den inbyggda kodbasen återgår till TypeScripts huvudrepository och det inbyggda VS Code-tillägget kommer att paketeras med editorn.
+
 ### [TypeScript 7.0 är nu tillgängligt](./2026/typescript-7-released/)
 
 **Publicerad:** 8 juli 2026
