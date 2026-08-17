@@ -1,26 +1,31 @@
 ---
 name: create-typescript-news
-description: Create and synchronize concise, source-faithful TypeScript news pages for every language configured in this repository's Astro/Starlight website. Use when asked to add, publish, translate, edit, remove, audit, or synchronize news in website/src/content/docs/typescript-news, or when a website language is added. Require user-provided source content before researching, creating, or materially editing a news item.
+description: Create and synchronize concise, source-faithful TypeScript news pages for every language configured in this repository's Astro/Starlight website. Use when asked to add, publish, translate, edit, remove, audit, or synchronize news in website/src/content/docs/typescript-news, or when a website language is added. Require an explicit source/context handoff before creating or materially editing a news item; the handoff may come from the user or from a preceding research workflow requested by the user.
 ---
 
 # Create TypeScript News
 
-Create a TypeScript news article only from source content supplied by the user, then translate and file it consistently across every configured website language.
+Create a TypeScript news article only from explicit source/context input, then translate and file it consistently across every configured website language.
 
-## Require source content
+## Require source/context input
 
-Before researching, drafting, or editing files, confirm that the user supplied the news source content.
+Before drafting or editing files, confirm that explicit source/context input is available. It may be either:
 
-If the content is missing, ask for:
+* source content or announcement text supplied directly by the user; or
+* a research handoff produced by a preceding research step that the user explicitly requested, containing the selected topic, original authoritative source URL(s), publication date(s), and the factual findings to use.
+
+A research handoff is valid source/context input only when it identifies the original authoritative source and preserves enough factual detail to verify the article. Prefer official TypeScript, Microsoft, TC39, GitHub, and maintainer sources. Do not treat general model memory or an uncited topic suggestion as source/context input.
+
+If neither form of source/context input is available, ask for:
 
 * the source content or announcement text;
 * the original source URL, if the user wants to provide it;
 * the publication date;
 * an optional preferred title or slug.
 
-Stop after asking. Do not search for a topic, select news independently, or draft an article without the user-provided source content.
+Stop after asking. Do not independently select a topic unless the user's workflow explicitly includes a preceding research-and-handoff step.
 
-If content is present but the publication date is missing, ask for it because the date determines the year directory and sidebar order. The original source URL is optional; do not block creation when the user does not provide one.
+If source/context input is present but the publication date is missing and cannot be verified from the authoritative source, ask for it because the date determines the year directory and sidebar order. The original source URL is optional only for directly user-supplied source content; a research handoff must include its original authoritative source URL(s).
 
 For a translation audit, language addition, or removal, the existing English articles and any cited sources are the supplied content. Ask the user only when the master content or intended change is missing or ambiguous.
 
@@ -53,14 +58,14 @@ Keep the set of relative article paths identical across English and every config
 
 ## Verify the source
 
-Treat the supplied content as the authoritative original source. A provided URL is supplementary verification, not a requirement.
+Treat the explicit source/context input as the authoritative basis for the article. When a research handoff is used, reopen and verify its original authoritative source URL(s) before publication.
 
 * Compare every date, version, feature, compatibility note, command, package name, option, number, and performance claim with the original source.
-* Open the supplied source URL when the user provides one and it is accessible, giving preference to the official TypeScript announcement.
+* Open the supplied or handed-off source URL when accessible, giving preference to official TypeScript, Microsoft, TC39, GitHub, and maintainer sources.
 * Do not add claims from memory or infer unannounced behavior.
 * Remove details that cannot be supported by the source.
-* If the supplied content conflicts with the original source or remains ambiguous, ask the user before publishing the disputed claim.
-* Link the original source in the article's `Source` section when the user provides a URL. Omit that section when no URL is available.
+* If the source/context conflicts with the original source or remains ambiguous, ask the user before publishing the disputed claim.
+* Link the original source in the article's `Source` section when a URL is available. Omit that section only when directly user-supplied source content has no URL.
 
 ## Write the English article
 
@@ -71,7 +76,7 @@ Write a useful, concise summary rather than reproducing the source.
 * Include only sections supported by the source. Use headings such as `## What changed`, `## Compatibility`, and `## Source` when they add value.
 * Preserve commands, package names, identifiers, compiler options, code, version numbers, and URLs exactly.
 * Avoid marketing language, speculation, filler, and lengthy history.
-* Use the publication date for both `lastUpdated` and `article:published_time` unless the user supplies a distinct verified update date.
+* Use the publication date for both `lastUpdated` and `article:published_time` unless the source/context supplies a distinct verified update date.
 
 Use the established frontmatter pattern:
 
@@ -149,7 +154,7 @@ If a locale news index does not exist, create it using the existing English inde
 
 Review the completed English article and every translation before building:
 
-1. Recheck each factual statement against the supplied content and original source.
+1. Recheck each factual statement against the explicit source/context input and original source.
 2. Confirm no unsupported claim, date, number, command, package, or compatibility statement was introduced.
 3. Confirm the summary is useful and as concise as the subject permits.
 4. Confirm every translation preserves the English article's technical meaning.
