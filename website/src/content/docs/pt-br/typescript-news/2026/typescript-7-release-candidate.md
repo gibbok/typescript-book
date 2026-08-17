@@ -3,7 +3,7 @@ title: Release candidate do TypeScript 7.0 anunciada
 description: A release candidate do TypeScript 7.0 apresentou o compilador nativo, builds paralelos, mudanças de compatibilidade e suporte ampliado a editores.
 lastUpdated: 2026-06-18
 sidebar:
-    order: 5
+    order: 6
 head:
     - tag: meta
       attrs:
