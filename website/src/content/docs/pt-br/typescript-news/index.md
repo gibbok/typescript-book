@@ -27,6 +27,12 @@ O serviço de linguagem nativo agora evita o crescimento quadrático da memória
 
 O serviço de linguagem nativo agora republica erros de `tsconfig.json` e `jsconfig.json` após alterações em arquivos de configuração monitorados.
 
+### [As ferramentas nativas do TypeScript 7 estão sendo consolidadas](./2026/typescript-7-native-tooling-consolidates/)
+
+**Publicado:** 27 de julho de 2026
+
+Os mantenedores esclareceram que o nome `tsgo` será abandonado, o código nativo voltará ao repositório principal do TypeScript e a extensão nativa do VS Code será incorporada.
+
 ### [TypeScript 7.0 já está disponível](./2026/typescript-7-released/)
 
 **Publicado:** 8 de julho de 2026

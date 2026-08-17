@@ -27,6 +27,12 @@ The native language service now avoids quadratic memory growth when finding many
 
 The native language service now republishes `tsconfig.json` and `jsconfig.json` errors after watched config files change.
 
+### [TypeScript 7 native tooling is consolidating](./2026/typescript-7-native-tooling-consolidates/)
+
+**Published:** July 27, 2026
+
+Maintainers clarified that the `tsgo` name is going away, the native codebase will return to the main TypeScript repository, and the native VS Code extension will be bundled.
+
 ### [TypeScript 7.0 is now available](./2026/typescript-7-released/)
 
 **Published:** July 8, 2026
