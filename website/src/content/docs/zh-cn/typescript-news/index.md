@@ -33,6 +33,12 @@ sidebar:
 
 维护者澄清，`tsgo` 名称将不再使用，原生代码库将回归主 TypeScript 仓库，原生 VS Code 扩展也将被内置。
 
+### [TypeScript 7 原生 API 新增 emit 方法](./2026/typescript-7-native-api-adds-emit-methods/)
+
+**发布日期：** 2026 年 7 月 24 日
+
+TypeScript 原生 API 新增面向整个程序和选定 JavaScript 或声明输出的文件系统与内存 emit 方法。
+
 ### [TypeScript 7.0 现已发布](./2026/typescript-7-released/)
 
 **发布日期：** 2026 年 7 月 8 日

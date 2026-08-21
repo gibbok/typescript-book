@@ -33,6 +33,12 @@ El servicio de lenguaje nativo ahora vuelve a publicar los errores de `tsconfig.
 
 Los mantenedores aclararon que el nombre `tsgo` desaparecerá, el código nativo volverá al repositorio principal de TypeScript y la extensión nativa de VS Code se integrará.
 
+### [La API nativa de TypeScript 7 añade métodos de emit](./2026/typescript-7-native-api-adds-emit-methods/)
+
+**Publicado:** 24 de julio de 2026
+
+La API nativa de TypeScript añade métodos de emit al sistema de archivos y en memoria para programas completos y salidas JavaScript o de declaraciones seleccionadas.
+
 ### [TypeScript 7.0 ya está disponible](./2026/typescript-7-released/)
 
 **Publicado:** 8 de julio de 2026
