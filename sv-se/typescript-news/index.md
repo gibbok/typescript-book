@@ -29,6 +29,12 @@ Den inbyggda språktjänsten publicerar nu fel i `tsconfig.json` och `jsconfig.j
 
 Underhållarna har klargjort att namnet `tsgo` försvinner, den inbyggda kodbasen återgår till TypeScripts huvudrepository och det inbyggda VS Code-tillägget kommer att paketeras med editorn.
 
+### [TypeScript 7:s inbyggda API får emit-metoder](./2026/typescript-7-native-api-adds-emit-methods/)
+
+**Publicerad:** 24 juli 2026
+
+TypeScripts inbyggda API får emit-metoder för filsystem och minne, både för hela program och valda JavaScript- eller deklarationsutdata.
+
 ### [TypeScript 7.0 är nu tillgängligt](./2026/typescript-7-released/)
 
 **Publicerad:** 8 juli 2026
