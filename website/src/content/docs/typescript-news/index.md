@@ -33,6 +33,12 @@ The native language service now republishes `tsconfig.json` and `jsconfig.json` 
 
 Maintainers clarified that the `tsgo` name is going away, the native codebase will return to the main TypeScript repository, and the native VS Code extension will be bundled.
 
+### [TypeScript 7 native API adds emit methods](./2026/typescript-7-native-api-adds-emit-methods/)
+
+**Published:** July 24, 2026
+
+The native TypeScript API adds filesystem and in-memory emit methods for whole programs and selected JavaScript or declaration outputs.
+
 ### [TypeScript 7.0 is now available](./2026/typescript-7-released/)
 
 **Published:** July 8, 2026
