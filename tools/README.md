@@ -17,8 +17,10 @@ written directly to the local `downloads` folder. The Docker image is built on t
 first command and reused on subsequent commands. Its Node.js dependencies stay
 inside the container. It includes EPUBCheck 5.3.0 and invokes it through a Java
 wrapper, so EPUB validation works when invoked by Python without leaving cache files
-in the checkout. To run the Markdown checks or regenerate the website book pages in
-the container, use:
+in the checkout. On macOS, the Docker targets also stage the system Georgia, Verdana,
+and Menlo fonts into an ignored local directory and mount them read-only, matching
+the fonts used by local book generation. To run the Markdown checks or regenerate the
+website book pages in the container, use:
 
 ```shell
 make docker-check
