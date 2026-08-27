@@ -4,7 +4,29 @@ If you're working with Markdown books, here are some essential tools and command
 
 ## Installation
 
-Before you begin, ensure you have Node.js installed. To set up the required dependencies, use the following commands:
+The Docker workflow provides all dependencies required to format, check, generate,
+and verify the books. With Docker running, use these commands from `tools`:
+
+```shell
+make docker-books
+make docker-verify-books
+```
+
+The repository is mounted into the container, so generated EPUB and PDF files are
+written directly to the local `downloads` folder. The Docker image is built on the
+first command and reused on subsequent commands. Its Node.js dependencies stay
+inside the container. To run the Markdown checks or
+regenerate the website book pages in the container, use:
+
+```shell
+make docker-check
+make docker-website
+```
+
+### Local installation
+
+To run the tools without Docker, ensure Node.js is installed. Then set up the
+required dependencies with the following commands:
 
 In folder `tools` and `website`:
 
@@ -29,7 +51,10 @@ Use `make` to run the main commands:
 * `make website-preview`: Build and preview website locally.
 * `make website-e2e`: Build the production website and run its core Playwright end-to-end tests.
 * `make website-deploy`: Build and deploy website to GitHub Pages.
-* `make books`: Create .epub books.
+* `make books`: Create EPUB and PDF books.
+* `make verify-books`: Verify the generated EPUB and PDF files.
+* `make docker-books`: Build the Docker image and create EPUB and PDF books in the local `downloads` folder.
+* `make docker-verify-books`: Verify local book artifacts in the Docker container.
 
 ### Website End-to-End Tests
 
@@ -96,15 +121,15 @@ code --install-extension yzhang.markdown-all-in-one
 
 If you have specific snippets in the Markdown files that you don't want to compile, simply add `<!-- skip -->` just before the TypeScript demarcation for those snippets.
 
-### Epub Generation
+### EPUB and PDF Generation
 
-To generate Epub files from your Markdown books, navigate to the `tools` folder and run the following command:
+To generate EPUB and PDF files from your Markdown books, navigate to the `tools` folder and run the following command:
 
 ```shell
-make-books.sh
+make books
 ```
 
-After generating the Epub files, thoroughly test them, and once you're satisfied with the results, commit the changes.
+After generating the EPUB and PDF files, thoroughly test them, and once you're satisfied with the results, commit the changes.
 
 ### Tagging
 
