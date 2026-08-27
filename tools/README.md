@@ -15,7 +15,8 @@ make docker-verify-books
 The repository is mounted into the container, so generated EPUB and PDF files are
 written directly to the local `downloads` folder. The Docker image is built on the
 first command and reused on subsequent commands. Its Node.js dependencies stay
-inside the container. To run the Markdown checks or
+inside the container. It also uses a Java wrapper for Debian's EPUBCheck package,
+which makes EPUB validation work when invoked by Python. To run the Markdown checks or
 regenerate the website book pages in the container, use:
 
 ```shell

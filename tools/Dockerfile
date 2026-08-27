@@ -18,6 +18,9 @@ RUN npm ci && npm cache clean --force
 COPY docker-entrypoint.sh /usr/local/bin/typescript-book-tools
 RUN chmod +x /usr/local/bin/typescript-book-tools
 
+COPY epubcheck-wrapper.sh /usr/local/bin/epubcheck
+RUN chmod +x /usr/local/bin/epubcheck && epubcheck --version
+
 ENV PATH="/opt/typescript-book-tools/node_modules/.bin:${PATH}" \
     NODE_PATH="/opt/typescript-book-tools/node_modules" \
     HOME="/tmp" \
