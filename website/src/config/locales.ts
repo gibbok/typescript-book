@@ -29,6 +29,10 @@ export const locales = {
     label: 'Español',
     lang: 'es-ES',
   },
+  'ja-jp': {
+    label: '日本語',
+    lang: 'ja-JP',
+  },
 } as const;
 
 export type Locale = keyof typeof locales;

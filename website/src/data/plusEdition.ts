@@ -1,4 +1,4 @@
-export type PlusEditionLocale = 'en' | 'zh-cn' | 'it-it' | 'pt-br' | 'sv-se' | 'bg-bg' | 'es-es';
+export type PlusEditionLocale = 'en' | 'zh-cn' | 'it-it' | 'pt-br' | 'sv-se' | 'bg-bg' | 'es-es' | 'ja-jp';
 
 const DEFAULT_LOCALE: PlusEditionLocale = 'en';
 
@@ -18,6 +18,8 @@ const LOCALE_BY_LANG: Readonly<Record<string, PlusEditionLocale>> = {
 	'bg-bg': 'bg-bg',
 	es: 'es-es',
 	'es-es': 'es-es',
+	ja: 'ja-jp',
+	'ja-jp': 'ja-jp',
 };
 
 export const PLUS_EDITION_BASE_PATH = '/typescript-book';
@@ -31,6 +33,7 @@ export const PLUS_EDITION_COVERS: Readonly<Record<PlusEditionLocale, string>> = 
 	'sv-se': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_sv_SE.webp`,
 	'bg-bg': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_bg_BG.webp`,
 	'es-es': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_es_ES.webp`,
+	'ja-jp': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 };
 
 export const PLUS_EDITION_COVER = PLUS_EDITION_COVERS.en;
@@ -168,6 +171,105 @@ export const PLUS_EDITION_COPY = {
 			paperback: 'Paperback',
 			buyOn: 'Buy on',
 			detected: 'We’ll use your browser language and region to open the most relevant edition and Amazon store.',
+		},
+	},
+	'ja-jp': {
+		pageTitle: 'The Concise TypeScript Book Plus Edition — TypeScript 7 向け React と実践的なパターン',
+		pageDescription:
+			'The Concise TypeScript Book の有料拡張版です。本書限定の React ガイド、実際の開発で役立つ TypeScript パターン、TypeScript 7 に対応した最新内容を収録しています。Kindle 版とペーパーバック版があります。',
+		coverAlt: 'The Concise TypeScript Book Plus Edition の表紙',
+		topBanner: {
+			ariaLabel: '新しい Plus Edition のお知らせ',
+			badge: '新しい有料版',
+			strong: 'TypeScript 7 をマスター',
+			message: 'React + 実践的なパターン',
+			action: 'Plus Edition の詳細を見る',
+		},
+		home: {
+			ariaLabel: 'The Concise TypeScript Book Plus Edition の詳細を見る',
+			eyebrow: '新しい有料版 · TypeScript 7',
+			title: '実際のプロジェクトで TypeScript を活用する',
+			description:
+				'Plus Edition は、無料のオープンソース書籍に、開発者から特に求められている実践的な内容を追加しています。React と TypeScript、本番コードで再利用できるパターンを学べます。',
+			items: [
+				['React と TypeScript：', 'コンポーネント、props、hooks、イベント、refs、スケーラブルなコンポーネントパターン。'],
+				['実践的な TypeScript パターン：', 'より安全で明確、かつ保守しやすいアプリケーションを実現する実践的なアプローチ。'],
+				['TypeScript 7：', '基礎から高度な型システムのテクニックまでを簡潔に解説。'],
+			],
+			action: '収録内容を見る',
+			availability: 'Kindle 版とペーパーバック版を提供',
+		},
+		sidebar: {
+			coverCta: 'Plus Edition の表紙',
+			eyebrow: 'Plus Edition',
+			title: '無料版のその先へ',
+			description: '本書限定の React ガイドと実際の開発で役立つパターンを収録し、TypeScript 7 に対応しています。',
+			formats: 'Kindle 版とペーパーバック版',
+			action: '本の詳細を見る',
+			ariaLabel: 'The Concise TypeScript Book Plus Edition の詳細を見る',
+		},
+		landing: {
+			heroEyebrow: '有料拡張版 · TypeScript 7 に対応',
+			title: PLUS_EDITION.titles.en,
+			lead:
+				'TypeScript 7 を簡潔かつ実践的に学べるガイドです。型システムと日々の開発を結び付ける本書限定の章を追加しています。',
+			primaryAction: 'Kindle またはペーパーバックを選ぶ',
+			secondaryAction: '新しい内容を見る',
+			availability: '英語版とイタリア語版 · Amazon を通じて世界中で購入可能',
+			introEyebrow: 'TypeScript の理解から効果的な活用へ',
+			introTitle: '実際のプロジェクト向けの新しい内容',
+			introText:
+				'Plus Edition は、広く読まれているオープンソースの The Concise TypeScript Book を基にしています。端的な説明と焦点を絞った例はそのままに、この有料版だけで読める二つの充実した分野を追加しています。',
+			featureAriaLabel: 'Plus Edition の限定コンテンツ',
+			exclusiveContent: '限定コンテンツ',
+			features: [
+				{
+					title: 'React と TypeScript',
+					description:
+						'基本的なコンポーネントの型から、React アプリケーションが成長しても明確さを保てるパターンまで、着実に学べます。',
+					items: [
+						'コンポーネント、props、children、イベント',
+						'Hooks、refs、再利用可能な抽象化',
+						'判別可能なユニオン型とジェネリックコンポーネント',
+						'より安全なコンポーネント API のための実践パターン',
+					],
+				},
+				{
+					title: '実践的なパターン',
+					description:
+						'TypeScript の高度な機能を組み合わせ、繰り返し発生するアプリケーション設計の問題を解決する方法を学びます。',
+					items: [
+						'表現力が高く保守しやすいドメイン型',
+						'より安全な境界とエラー処理',
+						'再利用可能な型マップとファクトリーパターン',
+						'本番コードに応用できるテクニック',
+					],
+				},
+			],
+			whyEyebrow: '簡潔さを重視した設計',
+			whyTitle: '余計な説明を省き、実践的な内容をさらに深く',
+			whyItems: [
+				['最新', '基本的な言語概念から高度な型システムのテクニックまで、TypeScript 7 に対応。'],
+				['実践的', '日々の開発に直接活用できるように設計された、短い説明と焦点を絞った例。'],
+				['あらゆるレベルで有用', 'TypeScript を始めたばかりの開発者向けの体系的な入門書であり、経験豊富なエンジニア向けの素早いリファレンスでもあります。'],
+			],
+			audienceEyebrow: '対象読者',
+			audienceTitle: '明確さと実践的な活用方法を求める開発者',
+			audienceText:
+				'モダンな TypeScript を学び、React に効果的に型を付け、現実的な設計上の問題に言語を適用するための、焦点を絞った一冊を求める方には Plus Edition が適しています。JavaScript の知識は役立ちますが、TypeScript の深い経験は必要ありません。',
+			trustEyebrow: '開発者からの信頼',
+			trustTitle: '人気のオープンソースの TypeScript 書籍を基に構成',
+			trustText:
+				'無料版は GitHub で 10,000 以上のスターを獲得し、多くの TypeScript 開発者に利用されています。Plus Edition は Simone Poggiali が執筆し、20 年にわたる国際的な実務経験を、実践的な React ガイドと実際の開発で役立つ TypeScript パターンに反映しています。',
+		},
+		amazon: {
+			eyebrow: '形式を選択',
+			title: 'Amazon で Plus Edition を購入',
+			editionLabel: '版',
+			kindle: 'Kindle 版',
+			paperback: 'ペーパーバック',
+			buyOn: '購入先',
+			detected: 'ブラウザーの言語と地域に基づいて、最も適切な版と Amazon ストアを開きます。',
 		},
 	},
 	'zh-cn': {
