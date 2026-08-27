@@ -8,7 +8,7 @@ sidebar:
 
 ### TypeScript とは？
 
-TypeScript は、JavaScript を基盤とする強い型付けのプログラミング言語です。元々は 2012 年に Anders Hejlsberg によって設計され、現在は Microsoft がオープンソースプロジェクトとして開発および保守しています。
+TypeScript は、JavaScript を基盤とする強く型付けされたプログラミング言語です。元々は 2012 年に Anders Hejlsberg によって設計され、現在は Microsoft がオープンソースプロジェクトとして開発および保守しています。
 
 TypeScript は JavaScript にコンパイルされ、あらゆる JavaScript ランタイム（たとえばブラウザーやサーバー上の Node.js）で実行できます。
 
