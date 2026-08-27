@@ -25,7 +25,7 @@ jobs:
         working-directory: website
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -41,7 +41,7 @@ jobs:
       - name: Upload Playwright evidence
         if: always()
         id: evidence
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: playwright-evidence-pr-${{ github.event.pull_request.number }}
           path: |
@@ -51,7 +51,7 @@ jobs:
           retention-days: 14
       - name: Add evidence to pull request
         if: always() && steps.evidence.outputs.artifact-url != ''
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         env:
           ARTIFACT_URL: ${{ steps.evidence.outputs.artifact-url }}
           TEST_STATUS: ${{ job.status }}
@@ -97,7 +97,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Delete merged pull request evidence
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const artifactName = `playwright-evidence-pr-${context.issue.number}`;
