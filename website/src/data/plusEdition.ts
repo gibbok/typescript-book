@@ -33,7 +33,7 @@ export const PLUS_EDITION_COVERS: Readonly<Record<PlusEditionLocale, string>> = 
 	'sv-se': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_sv_SE.webp`,
 	'bg-bg': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_bg_BG.webp`,
 	'es-es': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_es_ES.webp`,
-	'ja-jp': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
+	'ja-jp': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_ja_JP.webp`,
 };
 
 export const PLUS_EDITION_COVER = PLUS_EDITION_COVERS.en;
