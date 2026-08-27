@@ -1,7 +1,8 @@
 DOCKER_IMAGE ?= typescript-book-tools:local
-DOCKER_RUN = docker run --rm --user "$$(id -u):$$(id -g)" --tmpfs /workspace/tools/node_modules:uid=$$(id -u),gid=$$(id -g),mode=755 --volume "$$(cd .. && pwd):/workspace" --workdir /workspace $(DOCKER_IMAGE)
+DOCKER_FONT_DIR ?= .docker-fonts
+DOCKER_RUN = docker run --rm --user "$$(id -u):$$(id -g)" --tmpfs /workspace/tools/node_modules:uid=$$(id -u),gid=$$(id -g),mode=755 --volume "$$(pwd)/$(DOCKER_FONT_DIR):/usr/local/share/fonts/macos:ro" --volume "$$(cd .. && pwd):/workspace" --workdir /workspace $(DOCKER_IMAGE)
 
-.PHONY: format check website website-deploy website-preview website-e2e books verify-books docker-build docker-format docker-check docker-website docker-books docker-verify-books
+.PHONY: format check website website-deploy website-preview website-e2e books verify-books docker-build docker-fonts docker-format docker-check docker-website docker-books docker-verify-books
 
 format:
 	npm run format
@@ -30,17 +31,20 @@ verify-books:
 docker-build:
 	docker build --tag $(DOCKER_IMAGE) --file Dockerfile .
 
-docker-format: docker-build
+docker-fonts:
+	./prepare-docker-fonts.sh "$(DOCKER_FONT_DIR)"
+
+docker-format: docker-build docker-fonts
 	$(DOCKER_RUN) make -C tools format
 
-docker-check: docker-build
+docker-check: docker-build docker-fonts
 	$(DOCKER_RUN) make -C tools check
 
-docker-website: docker-build
+docker-website: docker-build docker-fonts
 	$(DOCKER_RUN) make -C tools website
 
-docker-books: docker-build
+docker-books: docker-build docker-fonts
 	$(DOCKER_RUN) make -C tools books
 
-docker-verify-books: docker-build
+docker-verify-books: docker-build docker-fonts
 	$(DOCKER_RUN) make -C tools verify-books

@@ -42,7 +42,12 @@ done
 # Generate PDFs
 for artifact in "${BOOK_ARTIFACTS[@]}"; do
     IFS="|" read -r _ output _ _ <<< "$artifact"
-    ebook-convert "$DIR_DOWNLOADS/$output.epub" "$DIR_DOWNLOADS/$output.pdf" --pdf-page-numbers
+    ebook-convert "$DIR_DOWNLOADS/$output.epub" "$DIR_DOWNLOADS/$output.pdf" \
+        --pdf-page-numbers \
+        --pdf-serif-family=Georgia \
+        --pdf-sans-family=Verdana \
+        --pdf-mono-family=Menlo \
+        --pdf-standard-font=serif
 done
 
 python3 tools/verify-books.py
