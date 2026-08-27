@@ -1,0 +1,78 @@
+﻿# TypeScript Book
+
+> The Concise TypeScript Book
+
+## Documentation
+
+- [著者について](https://gibbok.github.io/typescript-book/ja-jp/book/about-the-author/index.md): Simone Poggiali は、90 年代からプロフェッショナル品質のコードを書くことに情熱を注いできた、経験豊富な Staff Engineer です。国際的なキャリアを通じて、スタートアップから大規模組織まで、幅広いクライアントの数多くのプロジェクトに貢献してきました。HelloFresh、Siemens、O2、Leroy Merlin、Snowplow などの著名な企業が、彼の専門知識と献身から恩恵を受けています。
+- [any 型](https://gibbok.github.io/typescript-book/ja-jp/book/any-type/index.md): any 型は、あらゆる種類の値（プリミティブ、オブジェクト、配列、関数、エラー、シンボル）を表すために使用できる特殊な型（普遍上位型）です。コンパイル時に値の型が不明な場合や、TypeScript の型定義がない外部 API またはライブラリの値を扱う場合によく使用されます。
+- [代入](https://gibbok.github.io/typescript-book/ja-jp/book/assignments/index.md): TypeScript で代入を使用した型の絞り込みは、変数に代入された値に基づいて、その変数の型を絞り込む方法です。変数に値が代入されると、TypeScript は代入された値に基づいて型を推論し、推論された型に一致するように変数の型を絞り込みます。
+- [組み込みのプリミティブ型](https://gibbok.github.io/typescript-book/ja-jp/book/built-in-type-primitives/index.md): TypeScript には、変数、関数パラメーター、戻り値の型を定義するために使用できる、いくつかの組み込みプリミティブ型があります。
+- [クラス](https://gibbok.github.io/typescript-book/ja-jp/book/class/index.md): クラスの一般的な構文
+- [一般的な組み込み JavaScript オブジェクト](https://gibbok.github.io/typescript-book/ja-jp/book/common-built-in-js-objects/index.md): TypeScript は JavaScript のスーパーセットであり、一般的に使用されるすべての組み込み JavaScript オブジェクトが含まれます。これらのオブジェクトの詳細な一覧は、Mozilla Developer Network（MDN）のドキュメントサイトで確認できます。 $1
+- [条件型](https://gibbok.github.io/typescript-book/ja-jp/book/conditional-types/index.md): 条件型は条件に依存する型を作成する方法で、作成する型は条件の結果に基づいて決まります。extends キーワードと三項演算子を使用して定義し、2 つの型から条件に応じて 1 つを選択します。
+- [制御フロー解析](https://gibbok.github.io/typescript-book/ja-jp/book/control-flow-analysis/index.md): TypeScript の制御フロー解析は、コードの流れを静的に解析して変数の型を推論する方法です。これにより、コンパイラは解析結果に基づいて必要に応じてそれらの変数の型を絞り込めます。
+- [型とインターフェースの違い](https://gibbok.github.io/typescript-book/ja-jp/book/differences-between-type-and-interface/index.md): 宣言のマージ（拡張）:
+- [判別可能なユニオン](https://gibbok.github.io/typescript-book/ja-jp/book/discriminated-unions/index.md): TypeScript の判別可能なユニオンは、判別子と呼ばれる共通のプロパティを使用して、ユニオンで取り得る型の集合を絞り込むユニオン型の一種です。
+- [分配条件型](https://gibbok.github.io/typescript-book/ja-jp/book/distributive-conditional-types/index.md): 分配条件型は、ユニオンの各メンバーに個別に変換を適用することで、型のユニオン全体に型を分配できる機能です。 これは、マップ型や高階型を扱う際に特に便利です。
+- [ダウンロードとウェブサイト](https://gibbok.github.io/typescript-book/ja-jp/book/downloads-and-website/index.md): EPUB 版もダウンロードできます。
+- [列挙型](https://gibbok.github.io/typescript-book/ja-jp/book/enums/index.md): TypeScript の enum は、名前付き定数値の集合です。
+- [消去される構造的型](https://gibbok.github.io/typescript-book/ja-jp/book/erased-structural-types/index.md): TypeScript では、オブジェクトが特定の厳密な型と一致する必要はありません。たとえば、あるインターフェースの要件を満たすオブジェクトを作成した場合、それらの間に明示的な関連付けがなくても、そのインターフェースが必要な場所でそのオブジェクトを使用できます。 例:
+- [網羅性チェック](https://gibbok.github.io/typescript-book/ja-jp/book/exhaustiveness-checking/index.md): 網羅性チェックは、判別可能なユニオンで取り得るすべてのケースが switch 文または if 文で処理されていることを保証する TypeScript の機能です。
+- [型システムを探る](https://gibbok.github.io/typescript-book/ja-jp/book/exploring-the-type-system/index.md): TypeScript Language Service
+- [型の拡張](https://gibbok.github.io/typescript-book/ja-jp/book/extending-types/index.md): interface を拡張して、別の型からメンバーをコピーできます。
+- [固定長タプル](https://gibbok.github.io/typescript-book/ja-jp/book/fixed-length-tuple/index.md): 固定長タプルは、特定の型を持つ固定された数の要素を強制し、定義後にタプルの長さを変更できないようにする、特別な種類のタプルです。
+- [ジェネリクス](https://gibbok.github.io/typescript-book/ja-jp/book/generics/index.md): ジェネリクスを使用すると、複数の型を扱える再利用可能なコンポーネントや関数を作成できます。ジェネリクスでは、型、関数、インターフェースを型パラメーター化できるため、事前に明示的に指定することなく、さまざまな型を扱えるようになります。
+- [TypeScript を始める](https://gibbok.github.io/typescript-book/ja-jp/book/getting-started-with-typescript/index.md): インストール
+- [インデックスシグネチャ](https://gibbok.github.io/typescript-book/ja-jp/book/index-signatures/index.md): TypeScript では、インデックスシグネチャとして string、number、symbol を使用できます。
+- [条件型における infer 型推論](https://gibbok.github.io/typescript-book/ja-jp/book/infer-type-inference-in-conditional-types/index.md): infer キーワードは、条件型において、依存する型からジェネリックパラメーターの型を推論（抽出）するために使用されます。これにより、より柔軟で再利用可能な型定義を記述できます。
+- [インターフェースと型](https://gibbok.github.io/typescript-book/ja-jp/book/interface-and-type/index.md): 共通の構文
+- [交差型](https://gibbok.github.io/typescript-book/ja-jp/book/intersection-types/index.md): 交差型は、2 つ以上の型のすべてのプロパティを持つ値を表す型です。交差型は、各型の間に & 記号を使用して表します。
+- [はじめに](https://gibbok.github.io/typescript-book/ja-jp/book/introduction/index.md): 『The Concise TypeScript Book』へようこそ！このガイドでは、TypeScript を使って効果的に開発するために不可欠な知識と実践的なスキルを身につけられます。クリーンで堅牢なコードを書くための主要な概念とテクニックを学びましょう。初心者にも経験豊富な開発者にも、本書はプロジェクトで TypeScript の力を活用するための包括的なガイドであると同時に、手軽なリファレンスとしても役立ちます。
+- [リテラル推論](https://gibbok.github.io/typescript-book/ja-jp/book/literal-inference/index.md): リテラル推論は、変数またはパラメーターの型を、その値に基づいて推論できる TypeScript の機能です。
+- [リテラル型](https://gibbok.github.io/typescript-book/ja-jp/book/literal-types/index.md): リテラル型は、集合型の中にある要素が 1 つだけの集合です。JavaScript のプリミティブである、非常に限定された値を定義します。
+- [マップ型の修飾子](https://gibbok.github.io/typescript-book/ja-jp/book/mapped-type-modifiers/index.md): TypeScript のマップ型の修飾子を使用すると、既存の型内のプロパティを変換できます。
+- [マップ型](https://gibbok.github.io/typescript-book/ja-jp/book/mapped-types/index.md): TypeScript のマップ型を使用すると、マッピング関数で各プロパティを変換することにより、既存の型に基づいて新しい型を作成できます。既存の型をマッピングすることで、同じ情報を異なる形式で表す新しい型を作成できます。マップ型を作成するには、keyof 演算子を使用して既存の型のプロパティにアクセスし、それらを変更して新しい型を生成します。 次の例では、
+- [マージと拡張](https://gibbok.github.io/typescript-book/ja-jp/book/merging-and-extension/index.md): マージと拡張は、型とインターフェースを扱う際の 2 つの異なる概念を指します。
+- [名前付きタプル型（ラベル付き）](https://gibbok.github.io/typescript-book/ja-jp/book/named-tuple-type-labeled/index.md): タプル型には、各要素にオプショナルなラベルまたは名前を含めることができます。これらのラベルは可読性とツールによる支援のためのものであり、タプルに対して実行できる操作には影響しません。
+- [名前空間](https://gibbok.github.io/typescript-book/ja-jp/book/namespacing/index.md): TypeScript では、名前空間はコードを論理的なコンテナーに整理するために使用され、名前の衝突を防ぎ、関連するコードをまとめる方法を提供します。 export キーワードを使用すると、モジュールの外部から名前空間にアクセスできます。
+- [型の絞り込み](https://gibbok.github.io/typescript-book/ja-jp/book/narrowing/index.md): TypeScript の型の絞り込みは、条件ブロック内で変数の型をより具体的にするプロセスです。これは、変数が複数の型を持つ可能性があるユニオン型を扱う際に役立ちます。
+- [never 型](https://gibbok.github.io/typescript-book/ja-jp/book/never-type/index.md): never 型は、決して発生しない値を表します。決して戻らない関数や式、またはエラーをスローする関数や式を表すために使用されます。
+- [オブジェクト型](https://gibbok.github.io/typescript-book/ja-jp/book/object-types/index.md): TypeScript のオブジェクト型は、オブジェクトの構造を記述します。オブジェクトのプロパティの名前と型に加えて、それらのプロパティが必須かオプショナルかを指定します。
+- [オプショナルプロパティ](https://gibbok.github.io/typescript-book/ja-jp/book/optional-properties/index.md): オブジェクトでは、プロパティ名の末尾に疑問符 ? を追加することで、オプショナルプロパティを指定できます。
+- [その他](https://gibbok.github.io/typescript-book/ja-jp/book/others/index.md): エラーと例外処理
+- [オーバーロード](https://gibbok.github.io/typescript-book/ja-jp/book/overloads/index.md): TypeScript の関数オーバーロードを使用すると、1 つの関数名に対して複数の関数シグネチャを定義でき、複数の方法で呼び出せる関数を定義できます。例を次に示します。
+- [定義済み条件型](https://gibbok.github.io/typescript-book/ja-jp/book/predefined-conditional-types/index.md): TypeScript の定義済み条件型は、言語によって提供される組み込みの条件型です。指定された型の特性に基づいて、一般的な型変換を実行するよう設計されています。
+- [プリミティブ型](https://gibbok.github.io/typescript-book/ja-jp/book/primitive-types/index.md): TypeScript は 7 種類のプリミティブ型をサポートしています。プリミティブデータ型とは、オブジェクトではなく、関連付けられたメソッドを持たない型を指します。TypeScript では、すべてのプリミティブ型は不変です。つまり、一度代入された値は変更できません。
+- [読み取り専用プロパティ](https://gibbok.github.io/typescript-book/ja-jp/book/readonly-properties/index.md): 修飾子 readonly を使用すると、プロパティへの書き込みを防止できます。これにより、そのプロパティが再度書き換えられないことは保証されますが、完全な不変性が保証されるわけではありません。
+- [strictNullChecks](https://gibbok.github.io/typescript-book/ja-jp/book/strictnullchecks/index.md): strictNullChecks は、厳密な null チェックを強制する TypeScript のコンパイラオプションです。このオプションを有効にすると、変数とパラメーターには、ユニオン型 null | undefined を使用して明示的にその型として宣言されている場合にのみ、null または undefined を代入できます。変数またはパラメーターが null 許容として明示的に宣言されていない場合、潜在的なランタイムエラーを防ぐために TypeScript がエラーを生成します。
+- [プロジェクトを支援する](https://gibbok.github.io/typescript-book/ja-jp/book/support-the-project/index.md): 無料版がバグの修正、難しい概念の理解、キャリアの前進に役立ったなら、希望する金額（推奨額は $5 ）をお支払いいただくか、コーヒー 1 杯分のご支援をご検討ください。
+- [シンボル](https://gibbok.github.io/typescript-book/ja-jp/book/symbols/index.md): シンボルは、プログラムの存続期間全体にわたってグローバルに一意であることが保証された不変の値を表すプリミティブデータ型です。
+- [目次](https://gibbok.github.io/typescript-book/ja-jp/book/table-of-contents/index.md): 目次
+- [テンプレートユニオン型](https://gibbok.github.io/typescript-book/ja-jp/book/template-union-types/index.md): テンプレートユニオン型は、たとえば次のように、型システム内でテキストを結合および操作するために使用できます。
+- [The Concise TypeScript Book](https://gibbok.github.io/typescript-book/ja-jp/book/the-concise-typescript-book/index.md): 『The Concise TypeScript Book』は、TypeScript の機能を包括的かつ簡潔に解説します。強力な型システムから高度な機能まで、最新バージョンの言語に関するあらゆる側面を明快に説明します。
+- [never 型について](https://gibbok.github.io/typescript-book/ja-jp/book/the-never-type/index.md): 変数が値をまったく含められない型まで絞り込まれると、TypeScript コンパイラはその変数が never 型でなければならないと推論します。これは、never 型が決して生成されることのない値を表すためです。
+- [翻訳](https://gibbok.github.io/typescript-book/ja-jp/book/translations/index.md): 本書は、以下を含む複数の言語に翻訳されています。
+- [トリプルスラッシュディレクティブ](https://gibbok.github.io/typescript-book/ja-jp/book/triple-slash-directives/index.md): トリプルスラッシュディレクティブは、ファイルの処理方法についてコンパイラに指示を与える特別なコメントです。これらのディレクティブは 3 つの連続するスラッシュ（///）で始まり、通常は TypeScript ファイルの先頭に配置され、実行時の動作には影響しません。
+- [タプル型（匿名）](https://gibbok.github.io/typescript-book/ja-jp/book/tuple-type-anonymous/index.md): タプル型は、固定された数の要素と、それぞれに対応する型を持つ配列を表す型です。タプル型は、特定の数の要素と、それぞれの型を固定された順序で強制します。タプル型は、特定の型を持つ値のコレクションを表し、配列内の各要素の位置に特定の意味がある場合に便利です。
+- [型アノテーション](https://gibbok.github.io/typescript-book/ja-jp/book/type-annotations/index.md): var、let、const を使用して宣言した変数には、必要に応じて型を追加できます。
+- [関数の戻り値から型を取得する](https://gibbok.github.io/typescript-book/ja-jp/book/type-from-func-return/index.md): 関数の戻り値から型を取得するとは、実装に基づいて関数の戻り値の型を自動的に推論する機能を指します。これにより TypeScript は、明示的な型注釈がなくても、関数が返す値の型を判断できます。
+- [モジュールから型を取得する](https://gibbok.github.io/typescript-book/ja-jp/book/type-from-module/index.md): モジュールから型を取得するとは、モジュールがエクスポートした値を使用して、その型を自動的に推論する機能を指します。モジュールが特定の型を持つ値をエクスポートすると、TypeScript はその情報を使用して、別のモジュールへインポートされた際に、その値の型を自動的に推論できます。
+- [値から型を取得する](https://gibbok.github.io/typescript-book/ja-jp/book/type-from-value/index.md): TypeScript で値から型を取得するとは、型推論を通じて値または式から型が自動的に推論されることを指します。
+- [型のインデックスアクセス](https://gibbok.github.io/typescript-book/ja-jp/book/type-indexing/index.md): 型のインデックスアクセスとは、明示的に宣言されていないプロパティの型を指定するインデックスシグネチャを使用して、事前には分からないキーでインデックスアクセスできる型を定義する機能を指します。
+- [型の操作](https://gibbok.github.io/typescript-book/ja-jp/book/type-manipulation/index.md): 型から型を作成する
+- [型述語](https://gibbok.github.io/typescript-book/ja-jp/book/type-predicates/index.md): TypeScript の型述語は、真偽値を返す関数で、変数の型をより具体的な型へ絞り込むために使用されます。
+- [TypeScript 入門](https://gibbok.github.io/typescript-book/ja-jp/book/typescript-introduction/index.md): TypeScript とは？
+- [ユニオン型](https://gibbok.github.io/typescript-book/ja-jp/book/union-type/index.md): ユニオン型は、複数の型のうちいずれか 1 つになり得る値を表す型です。ユニオン型は、取り得る各型の間に | 記号を使用して表します。
+- [unknown 型](https://gibbok.github.io/typescript-book/ja-jp/book/unknown-type/index.md): TypeScript の unknown 型は、型が不明な値を表します。あらゆる型の値を許可する any 型とは異なり、unknown を特定の方法で使用する前には型チェックまたはアサーションが必要です。そのため、より具体的な型を最初にアサーションするか絞り込まない限り、unknown に対する操作は許可されません。
+- [void 型](https://gibbok.github.io/typescript-book/ja-jp/book/void-type/index.md): void 型は、関数が値を返さないことを示すために使用されます。
+- [TypeScript Book](https://gibbok.github.io/typescript-book/ja-jp/index.md): The Concise TypeScript Book
+- [The Concise TypeScript Book Plus Edition — TypeScript 7 向け React と実践的なパターン](https://gibbok.github.io/typescript-book/ja-jp/plus-edition/index.md): The Concise TypeScript Book の有料拡張版です。本書限定の React ガイド、実際の開発で役立つ TypeScript パターン、TypeScript 7 に対応した最新内容を収録しています。Kindle 版とペーパーバック版があります。
+- [TypeScript 7 で Go to Implementation のメモリ使用量が改善](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-7-go-to-implementation-memory-fix/index.md): ネイティブ言語サービスの修正により、大規模で型が深くネストしたプロジェクトにおいて、実装の検索時にメモリ使用量が二次関数的に増加する問題を防ぎます。
+- [TypeScript 7 のネイティブ API に emit メソッドが追加](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-7-native-api-adds-emit-methods/index.md): ネイティブ TypeScript API に、プログラム全体、および選択した JavaScript または宣言の出力を生成するための、ファイルシステム向けとインメモリ向けの emit メソッドが追加されました。
+- [TypeScript 7 のネイティブツール群を統合へ](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-7-native-tooling-consolidates/index.md): TypeScript のメンテナーは、tsgo という名称を廃止し、ネイティブコードベースを TypeScript のメインリポジトリに戻し、ネイティブ VS Code 拡張機能をバンドルする方針を明らかにしました。
+- [TypeScript 7 でファイル変更後に設定ファイルの診断情報を更新](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-7-refreshes-config-diagnostics/index.md): ネイティブ言語サービスは、監視対象の設定ファイルが変更された後に、tsconfig.json と jsconfig.json のエラーを再公開するようになりました。
+- [TypeScript 7.0 リリース候補版を発表](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-7-release-candidate/index.md): TypeScript 7.0 リリース候補版では、ネイティブコンパイラ、並列ビルド、互換性の変更、拡張されたエディタサポートがプレビューされました。
+- [TypeScript 7.0 が利用可能に](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-7-released/index.md): TypeScript 7.0 では、Go で実装されたネイティブコンパイラと言語サービスが導入され、ビルドとエディタのパフォーマンスが大幅に向上しています。
+- [TypeScript 7 にワークスペースシンボル検索のスコープが追加](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-7-workspace-symbol-search-scope/index.md): ネイティブ言語サービスに、ワークスペースシンボルの検索範囲を現在のプロジェクトに制限できる設定が追加されました。
+- [TypeScript ニュース](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/index.md): TypeScript 開発者向けに、TypeScript の最新の公式リリース、発表、変更点を簡潔にまとめています。
