@@ -1,5 +1,5 @@
 DOCKER_IMAGE ?= typescript-book-tools:local
-DOCKER_RUN = docker run --rm --user "$$(id -u):$$(id -g)" --tmpfs /workspace/tools/node_modules --volume "$$(cd .. && pwd):/workspace" --workdir /workspace $(DOCKER_IMAGE)
+DOCKER_RUN = docker run --rm --user "$$(id -u):$$(id -g)" --tmpfs /workspace/tools/node_modules:uid=$$(id -u),gid=$$(id -g),mode=755 --volume "$$(cd .. && pwd):/workspace" --workdir /workspace $(DOCKER_IMAGE)
 
 .PHONY: format check website website-deploy website-preview website-e2e books verify-books docker-build docker-format docker-check docker-website docker-books docker-verify-books
 
