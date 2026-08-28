@@ -10,7 +10,12 @@ local function source_slug(text)
   text = pandoc.text.lower(text)
   text = text:gsub("–", "--")
   text = text:gsub("—", "---")
-  text = text:gsub("[!\"#$%%&'()*+,./:;<=>?@[\\]^_`{|}~]", "")
+  text = text:gsub("%p", function(character)
+    if character == "-" then
+      return character
+    end
+    return ""
+  end)
   text = text:gsub("%s+", "-")
   text = text:gsub("^%-+", "")
   text = text:gsub("%-+$", "")
@@ -57,6 +62,9 @@ local function rewrite_links(doc, anchor_map)
       if el.target and el.target:sub(1, 1) == "#" then
         local target = el.target:sub(2)
         local mapped = anchor_map[target]
+        if not mapped then
+          mapped = anchor_map[source_slug(target)]
+        end
         if mapped then
           el.target = "#" .. mapped
         end
