@@ -1,8 +1,7 @@
 DOCKER_IMAGE ?= typescript-book-tools:local
-PUBLISHED_REPOSITORY ?= gibbok/typescript-book
 DOCKER_RUN = docker run --rm --user "$$(id -u):$$(id -g)" --tmpfs /workspace/tools/node_modules:uid=$$(id -u),gid=$$(id -g),mode=755 --volume "$$(cd .. && pwd):/workspace" --workdir /workspace $(DOCKER_IMAGE)
 
-.PHONY: format check website website-deploy website-preview website-e2e books verify-books docker-build docker-fonts docker-format docker-check docker-website docker-books docker-verify-books
+.PHONY: format check website website-deploy website-preview website-e2e books verify-books docker-books
 
 format:
 	npm run format
@@ -28,23 +27,6 @@ books:
 verify-books:
 	python3 ./verify-books.py --downloads-dir ../downloads --artifacts-file ./book-artifacts.sh
 
-docker-build: docker-fonts
+docker-books:
 	docker build --tag $(DOCKER_IMAGE) --file Dockerfile .
-
-docker-fonts:
-	./install-noto-fonts.sh --prepare
-
-docker-format: docker-build
-	$(DOCKER_RUN) make -C tools format
-
-docker-check: docker-build
-	$(DOCKER_RUN) make -C tools check
-
-docker-website: docker-build
-	$(DOCKER_RUN) make -C tools website
-
-docker-books: docker-build
 	$(DOCKER_RUN) make -C tools books
-
-docker-verify-books: docker-build
-	$(DOCKER_RUN) make -C tools verify-books

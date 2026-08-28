@@ -22,7 +22,7 @@ RUN apt-get update \
     && rm /tmp/epubcheck.zip \
     && rm -rf /var/lib/apt/lists/*
 
-COPY .noto-fonts/*.ttf .noto-fonts/*.otf /usr/local/share/fonts/noto/
+COPY fonts/*.ttf fonts/*.otf /usr/local/share/fonts/noto/
 RUN fc-cache --force \
     && for family in \
         "Noto Serif" \
