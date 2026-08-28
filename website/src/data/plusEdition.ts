@@ -244,7 +244,7 @@ export const PLUS_EDITION_COPY = {
 					items: [
 						'Types de domaine expressifs et faciles à maintenir',
 						'Frontières plus sûres et gestion des erreurs',
-						'Mappings de types et patterns de fabrique réutilisables',
+						'Mappages de types et patterns de fabrique réutilisables',
 						'Techniques adaptables au code de production',
 					],
 				},
