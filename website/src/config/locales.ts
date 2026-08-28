@@ -33,6 +33,10 @@ export const locales = {
     label: '日本語',
     lang: 'ja-JP',
   },
+  'fr-fr': {
+    label: 'Français',
+    lang: 'fr-FR',
+  },
 } as const;
 
 export type Locale = keyof typeof locales;

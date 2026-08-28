@@ -39,6 +39,9 @@ OUTPUT_DIR_PATH_ES = "../website/src/content/docs/es-es/book"
 INPUT_FILE_PATH_JA = "../README-ja_JP.md"
 OUTPUT_DIR_PATH_JA = "../website/src/content/docs/ja-jp/book"
 
+INPUT_FILE_PATH_FR = "../README-fr_FR.md"
+OUTPUT_DIR_PATH_FR = "../website/src/content/docs/fr-fr/book"
+
 
 def manage_output_dir(path: str) -> None:
     if os.path.exists(path):
@@ -146,8 +149,8 @@ def make_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
 
 
 def make_source_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
-    anchor = re.sub(r"[^\w\s.-]", "", text.lower())
-    anchor = re.sub(r"\s+", "-", anchor).strip("-")
+    anchor = re.sub(r"[^\w\s-]", "", text.lower())
+    anchor = re.sub(r"\s+", "-", anchor).lstrip("-")
     count = anchor_counts.get(anchor, 0)
     anchor_counts[anchor] = count + 1
     if count == 0:
@@ -263,3 +266,5 @@ process(INPUT_FILE_PATH, INPUT_FILE_PATH_BG, OUTPUT_DIR_PATH_BG)
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_ES, OUTPUT_DIR_PATH_ES)
 
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_JA, OUTPUT_DIR_PATH_JA)
+
+process(INPUT_FILE_PATH, INPUT_FILE_PATH_FR, OUTPUT_DIR_PATH_FR)
