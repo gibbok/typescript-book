@@ -27,7 +27,7 @@ const len = getLen([1, 2, 3]);
 
 ### Classes génériques
 
-Les génériques peuvent également être appliqués aux classes. Celles-ci peuvent ainsi fonctionner avec plusieurs types à l'aide de paramètres de type. C'est utile pour créer des définitions de classes réutilisables capables d'opérer sur différents types de données tout en préservant la sûreté du typage.
+Les génériques peuvent également être appliqués aux classes. Celles-ci peuvent ainsi fonctionner avec plusieurs types à l'aide de paramètres de type. C'est utile pour créer des définitions de classes réutilisables capables d'opérer sur différents types de données tout en préservant la sécurité du typage.
 
 ```typescript
 class Container<T> {
