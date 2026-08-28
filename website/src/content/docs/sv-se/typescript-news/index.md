@@ -9,6 +9,12 @@ Följ viktiga TypeScript-versioner och projektuppdateringar genom kortfattade sa
 
 ## Senaste nytt
 
+### [TypeScript 7 rättar setter-åtkomst i unions- och intersection-typer](./2026/typescript-7-fixes-setter-accessibility/)
+
+**Publicerad:** 24 augusti 2026
+
+Den inbyggda typkontrollen respekterar nu setter-åtkomst separat från getter-åtkomst för egenskaper i unions- och intersection-typer.
+
 ### [TypeScript 7 lägger till ett sökomfång för arbetsytans symboler](./2026/typescript-7-workspace-symbol-search-scope/)
 
 **Publicerad:** 7 augusti 2026

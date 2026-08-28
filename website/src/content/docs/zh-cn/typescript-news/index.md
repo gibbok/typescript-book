@@ -9,6 +9,12 @@ sidebar:
 
 ## 最新消息
 
+### [TypeScript 7 修复联合类型和交叉类型中的 setter 可访问性](./2026/typescript-7-fixes-setter-accessibility/)
+
+**发布日期：** 2026 年 8 月 24 日
+
+原生类型检查器现在会在联合类型和交叉类型属性上分别处理 setter 与 getter 的可访问性。
+
 ### [TypeScript 7 新增工作区符号搜索范围](./2026/typescript-7-workspace-symbol-search-scope/)
 
 **发布日期：** 2026 年 8 月 7 日

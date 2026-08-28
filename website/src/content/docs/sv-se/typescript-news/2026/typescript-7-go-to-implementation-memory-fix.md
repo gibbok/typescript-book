@@ -3,7 +3,7 @@ title: TypeScript 7 förbättrar minnesanvändningen för Gå till implementerin
 description: En korrigering i den inbyggda språktjänsten förhindrar kvadratisk minnesökning när implementeringar söks i stora projekt med komplexa typer.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

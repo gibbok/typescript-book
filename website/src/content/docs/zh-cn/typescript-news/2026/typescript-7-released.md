@@ -3,7 +3,7 @@ title: TypeScript 7.0 现已发布
 description: TypeScript 7.0 引入基于 Go 的原生编译器和语言服务，大幅提升构建和编辑器的性能。
 lastUpdated: 2026-07-08
 sidebar:
-    order: 6
+    order: 7
 head:
     - tag: meta
       attrs:

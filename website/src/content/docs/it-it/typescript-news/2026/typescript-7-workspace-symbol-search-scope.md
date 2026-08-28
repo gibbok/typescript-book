@@ -3,7 +3,7 @@ title: TypeScript 7 aggiunge un ambito di ricerca per i simboli dell'area di lav
 description: Il language service nativo aggiunge un'impostazione che può limitare la ricerca dei simboli dell'area di lavoro al progetto corrente.
 lastUpdated: 2026-08-07
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

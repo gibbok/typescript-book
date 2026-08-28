@@ -3,7 +3,7 @@ title: TypeScript 7:s inbyggda API får emit-metoder
 description: TypeScripts inbyggda API får emit-metoder för filsystem och minne, både för hela program och valda JavaScript- eller deklarationsutdata.
 lastUpdated: 2026-07-24
 sidebar:
-    order: 5
+    order: 6
 head:
     - tag: meta
       attrs:

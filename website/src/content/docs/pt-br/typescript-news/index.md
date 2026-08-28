@@ -9,6 +9,12 @@ Acompanhe lançamentos importantes e atualizações do projeto TypeScript por me
 
 ## Últimas notícias
 
+### [TypeScript 7 corrige a acessibilidade de setters em unions e intersections](./2026/typescript-7-fixes-setter-accessibility/)
+
+**Publicado:** 24 de agosto de 2026
+
+O verificador nativo agora respeita separadamente a acessibilidade de setters e getters em propriedades de unions e intersections.
+
 ### [TypeScript 7 adiciona um escopo de busca para símbolos do espaço de trabalho](./2026/typescript-7-workspace-symbol-search-scope/)
 
 **Publicado:** 7 de agosto de 2026

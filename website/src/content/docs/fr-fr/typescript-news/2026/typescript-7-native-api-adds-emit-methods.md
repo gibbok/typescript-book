@@ -3,7 +3,7 @@ title: L'API native de TypeScript 7 ajoute des méthodes d'émission
 description: L'API native de TypeScript ajoute des méthodes d'émission vers le système de fichiers et en mémoire pour des programmes complets ainsi que pour certaines sorties JavaScript ou de déclarations.
 lastUpdated: 2026-07-24
 sidebar:
-    order: 5
+    order: 6
 head:
     - tag: meta
       attrs:

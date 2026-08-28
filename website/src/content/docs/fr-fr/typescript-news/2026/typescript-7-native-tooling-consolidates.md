@@ -3,7 +3,7 @@ title: L'outillage natif de TypeScript 7 est en cours de consolidation
 description: Les mainteneurs de TypeScript ont précisé que le nom tsgo allait disparaître, que la base de code native retournerait dans le dépôt TypeScript principal et que l'extension native pour VS Code serait intégrée.
 lastUpdated: 2026-07-27
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:
