@@ -39,10 +39,31 @@ for artifact in "${BOOK_ARTIFACTS[@]}"; do
     pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o "$DIR_DOWNLOADS/$output.epub" --metadata title="$title" --metadata author="$AUTHOR" --metadata lang="$language" -s "$input.md"
 done
 
-# Generate PDFs
+# Generate PDFs. Calibre selects these fonts while converting EPUB to PDF; the
+# book CSS is intentionally not the source of PDF typography.
 for artifact in "${BOOK_ARTIFACTS[@]}"; do
-    IFS="|" read -r _ output _ _ <<< "$artifact"
-    ebook-convert "$DIR_DOWNLOADS/$output.epub" "$DIR_DOWNLOADS/$output.pdf" --pdf-page-numbers
+    IFS="|" read -r _ output _ language <<< "$artifact"
+    serif_family="Noto Serif"
+    sans_family="Noto Sans"
+    mono_family="Noto Sans Mono"
+    case "$language" in
+        zh-CN)
+            serif_family="Noto Serif CJK SC"
+            sans_family="Noto Sans CJK SC"
+            mono_family="Noto Sans Mono CJK SC"
+            ;;
+        ja-JP)
+            serif_family="Noto Serif CJK JP"
+            sans_family="Noto Sans CJK JP"
+            mono_family="Noto Sans Mono CJK JP"
+            ;;
+    esac
+    ebook-convert "$DIR_DOWNLOADS/$output.epub" "$DIR_DOWNLOADS/$output.pdf" \
+        --pdf-page-numbers \
+        --pdf-serif-family="$serif_family" \
+        --pdf-sans-family="$sans_family" \
+        --pdf-mono-family="$mono_family" \
+        --pdf-standard-font=serif
 done
 
 python3 tools/verify-books.py
