@@ -149,8 +149,8 @@ def make_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
 
 
 def make_source_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
-    anchor = re.sub(r"[^\w\s-]", "", text.lower())
-    anchor = re.sub(r"\s+", "-", anchor).lstrip("-")
+    anchor = re.sub(r"[^\w\s.-]", "", text.lower())
+    anchor = re.sub(r"\s+", "-", anchor).strip("-")
     count = anchor_counts.get(anchor, 0)
     anchor_counts[anchor] = count + 1
     if count == 0:
