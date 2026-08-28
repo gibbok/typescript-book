@@ -10,6 +10,7 @@ I believe that high-quality technical education should be accessible to everyone
 
 Discover **The Concise TypeScript Book Plus Edition**.
 
+<!-- markdownlint-disable MD033 MD044 -->
 <a href="https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme">
   <img
     src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp"
@@ -17,6 +18,7 @@ Discover **The Concise TypeScript Book Plus Edition**.
     style="width: 50%;"
   ></img>
 </a>
+<!-- markdownlint-enable MD033 MD044 -->
 
 For readers who want to go beyond the open-source edition, **The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** includes additional and exclusive content focused on practical application.
 

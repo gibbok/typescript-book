@@ -10,6 +10,7 @@ The Concise TypeScript Book предоставя изчерпателен и к�
 
 Открийте **The Concise TypeScript Book Plus Edition**.
 
+<!-- markdownlint-disable MD033 MD044 -->
 <a href="https://gibbok.github.io/typescript-book/bg-bg/plus-edition/?utm_source=github&utm_medium=readme">
   <img
     src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp"
@@ -17,6 +18,7 @@ The Concise TypeScript Book предоставя изчерпателен и к�
     style="width: 50%;"
   ></img>
 </a>
+<!-- markdownlint-enable MD033 MD044 -->
 
 За читателите, които искат да надградят над изданието с отворен код, **The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** включва допълнително и ексклузивно съдържание, насочено към практическото приложение.
 

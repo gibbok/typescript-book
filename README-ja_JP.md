@@ -10,6 +10,7 @@
 
 **The Concise TypeScript Book Plus Edition** をご覧ください。
 
+<!-- markdownlint-disable MD033 MD044 -->
 <a href="https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme">
   <img
     src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp"
@@ -17,6 +18,7 @@
     style="width: 50%;"
   ></img>
 </a>
+<!-- markdownlint-enable MD033 MD044 -->
 
 オープンソース版の先へ進みたい読者に向けて、**The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** には、実践的な活用に焦点を当てた追加の限定コンテンツが収録されています。
 
