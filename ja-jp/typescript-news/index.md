@@ -5,6 +5,12 @@ TypeScript の公式情報源に基づく簡潔な要約を通じて、重要な
 
 ## 最新ニュース
 
+### [TypeScript 7 が union と intersection の setter アクセス制御を修正](./2026/typescript-7-fixes-setter-accessibility/)
+
+**公開日:** 2026年8月24日
+
+ネイティブ型チェッカーが、union と intersection のプロパティで setter と getter のアクセス制御を個別に扱うようになりました。
+
 ### [TypeScript 7 にワークスペースシンボル検索のスコープが追加](./2026/typescript-7-workspace-symbol-search-scope/)
 
 **公開日:** 2026年8月7日

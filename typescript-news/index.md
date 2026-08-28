@@ -5,6 +5,12 @@ Follow important TypeScript releases and project updates through concise summari
 
 ## Latest news
 
+### [TypeScript 7 fixes setter accessibility in unions and intersections](./2026/typescript-7-fixes-setter-accessibility/)
+
+**Published:** August 24, 2026
+
+The native checker now respects setter accessibility separately from getter accessibility on union and intersection properties.
+
 ### [TypeScript 7 adds a workspace-symbol search scope](./2026/typescript-7-workspace-symbol-search-scope/)
 
 **Published:** August 7, 2026
