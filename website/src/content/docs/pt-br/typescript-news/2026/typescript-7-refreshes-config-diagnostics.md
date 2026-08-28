@@ -3,7 +3,7 @@ title: TypeScript 7 atualiza os diagnósticos de configuração após alteraçõ
 description: O serviço de linguagem nativo agora republica erros de tsconfig.json e jsconfig.json após alterações em arquivos de configuração monitorados.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 3
+    order: 4
 head:
     - tag: meta
       attrs:

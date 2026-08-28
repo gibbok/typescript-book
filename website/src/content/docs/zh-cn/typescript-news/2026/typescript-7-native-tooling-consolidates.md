@@ -3,7 +3,7 @@ title: TypeScript 7 原生工具正在整合
 description: TypeScript 维护者澄清，tsgo 名称将被弃用，原生代码库将回归主 TypeScript 仓库，原生 VS Code 扩展也将被内置。
 lastUpdated: 2026-07-27
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:

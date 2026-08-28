@@ -3,7 +3,7 @@ title: Обявена е release candidate версията на TypeScript 7.0
 description: Release candidate версията на TypeScript 7.0 представи нативния компилатор, паралелните компилации, промените в съвместимостта и разширената поддръжка за редактори.
 lastUpdated: 2026-06-18
 sidebar:
-    order: 7
+    order: 8
 head:
     - tag: meta
       attrs:

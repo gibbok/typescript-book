@@ -3,7 +3,7 @@ title: TypeScript 7 にワークスペースシンボル検索のスコープが
 description: ネイティブ言語サービスに、ワークスペースシンボルの検索範囲を現在のプロジェクトに制限できる設定が追加されました。
 lastUpdated: 2026-08-07
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

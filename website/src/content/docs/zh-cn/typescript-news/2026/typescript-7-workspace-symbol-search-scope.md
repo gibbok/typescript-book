@@ -3,7 +3,7 @@ title: TypeScript 7 新增工作区符号搜索范围
 description: 原生语言服务新增了一项设置，可将工作区符号搜索限制在当前项目中。
 lastUpdated: 2026-08-07
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

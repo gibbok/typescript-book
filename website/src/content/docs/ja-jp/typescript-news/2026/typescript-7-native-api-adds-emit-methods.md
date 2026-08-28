@@ -3,7 +3,7 @@ title: TypeScript 7 のネイティブ API に emit メソッドが追加
 description: ネイティブ TypeScript API に、プログラム全体、および選択した JavaScript または宣言の出力を生成するための、ファイルシステム向けとインメモリ向けの emit メソッドが追加されました。
 lastUpdated: 2026-07-24
 sidebar:
-    order: 5
+    order: 6
 head:
     - tag: meta
       attrs:

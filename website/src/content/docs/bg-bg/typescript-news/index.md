@@ -9,6 +9,12 @@ sidebar:
 
 ## Последни новини
 
+### [TypeScript 7 коригира достъпа до setter-и в union и intersection типове](./2026/typescript-7-fixes-setter-accessibility/)
+
+**Публикувано:** 24 август 2026 г.
+
+Нативната проверка на типовете вече спазва отделно достъпа до setter и getter при свойства на union и intersection типове.
+
 ### [TypeScript 7 добавя обхват на търсене за символите в работната област](./2026/typescript-7-workspace-symbol-search-scope/)
 
 **Публикувано:** 7 август 2026 г.

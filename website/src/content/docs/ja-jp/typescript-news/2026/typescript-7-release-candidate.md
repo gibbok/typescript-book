@@ -3,7 +3,7 @@ title: TypeScript 7.0 リリース候補版を発表
 description: TypeScript 7.0 リリース候補版では、ネイティブコンパイラ、並列ビルド、互換性の変更、拡張されたエディタサポートがプレビューされました。
 lastUpdated: 2026-06-18
 sidebar:
-    order: 7
+    order: 8
 head:
     - tag: meta
       attrs:

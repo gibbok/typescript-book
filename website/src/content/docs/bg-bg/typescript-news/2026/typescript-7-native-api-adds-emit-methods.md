@@ -3,7 +3,7 @@ title: Нативният API на TypeScript 7 добавя emit методи
 description: Нативният API на TypeScript добавя emit методи за файлова система и памет за цели програми и избрани JavaScript или декларационни изходи.
 lastUpdated: 2026-07-24
 sidebar:
-    order: 5
+    order: 6
 head:
     - tag: meta
       attrs:

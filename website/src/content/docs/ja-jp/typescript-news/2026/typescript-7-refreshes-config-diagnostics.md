@@ -3,7 +3,7 @@ title: TypeScript 7 でファイル変更後に設定ファイルの診断情報
 description: ネイティブ言語サービスは、監視対象の設定ファイルが変更された後に、tsconfig.json と jsconfig.json のエラーを再公開するようになりました。
 lastUpdated: 2026-07-30
 sidebar:
-    order: 3
+    order: 4
 head:
     - tag: meta
       attrs:

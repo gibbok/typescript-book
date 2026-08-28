@@ -3,7 +3,7 @@ title: TypeScript 7 で Go to Implementation のメモリ使用量が改善
 description: ネイティブ言語サービスの修正により、大規模で型が深くネストしたプロジェクトにおいて、実装の検索時にメモリ使用量が二次関数的に増加する問題を防ぎます。
 lastUpdated: 2026-07-30
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

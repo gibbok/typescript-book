@@ -3,7 +3,7 @@ title: TypeScript 7 のネイティブツール群を統合へ
 description: TypeScript のメンテナーは、tsgo という名称を廃止し、ネイティブコードベースを TypeScript のメインリポジトリに戻し、ネイティブ VS Code 拡張機能をバンドルする方針を明らかにしました。
 lastUpdated: 2026-07-27
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:

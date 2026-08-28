@@ -3,7 +3,7 @@ title: TypeScript 7.0 が利用可能に
 description: TypeScript 7.0 では、Go で実装されたネイティブコンパイラと言語サービスが導入され、ビルドとエディタのパフォーマンスが大幅に向上しています。
 lastUpdated: 2026-07-08
 sidebar:
-    order: 6
+    order: 7
 head:
     - tag: meta
       attrs:

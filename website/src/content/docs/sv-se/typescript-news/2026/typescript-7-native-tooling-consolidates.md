@@ -3,7 +3,7 @@ title: TypeScript 7:s inbyggda verktyg konsolideras
 description: TypeScript-underhållarna har klargjort att namnet tsgo försvinner, den inbyggda kodbasen återgår till TypeScripts huvudrepository och det inbyggda VS Code-tillägget kommer att paketeras med editorn.
 lastUpdated: 2026-07-27
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:
