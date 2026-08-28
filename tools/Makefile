@@ -2,7 +2,7 @@ DOCKER_IMAGE ?= typescript-book-tools:local
 PUBLISHED_REPOSITORY ?= gibbok/typescript-book
 DOCKER_RUN = docker run --rm --user "$$(id -u):$$(id -g)" --tmpfs /workspace/tools/node_modules:uid=$$(id -u),gid=$$(id -g),mode=755 --volume "$$(cd .. && pwd):/workspace" --workdir /workspace $(DOCKER_IMAGE)
 
-.PHONY: format check website website-deploy website-preview website-e2e books verify-books compare-published-pages docker-build docker-fonts docker-format docker-check docker-website docker-books docker-verify-books docker-compare-published-pages
+.PHONY: format check website website-deploy website-preview website-e2e books verify-books docker-build docker-fonts docker-format docker-check docker-website docker-books docker-verify-books
 
 format:
 	npm run format
@@ -28,9 +28,6 @@ books:
 verify-books:
 	python3 ./verify-books.py --downloads-dir ../downloads --artifacts-file ./book-artifacts.sh
 
-compare-published-pages:
-	python3 ./compare-published-pages.py --downloads-dir ../downloads --artifacts-file ./book-artifacts.sh --repository $(PUBLISHED_REPOSITORY)
-
 docker-build: docker-fonts
 	docker build --tag $(DOCKER_IMAGE) --file Dockerfile .
 
@@ -51,6 +48,3 @@ docker-books: docker-build
 
 docker-verify-books: docker-build
 	$(DOCKER_RUN) make -C tools verify-books
-
-docker-compare-published-pages: docker-build
-	$(DOCKER_RUN) make -C tools compare-published-pages PUBLISHED_REPOSITORY=$(PUBLISHED_REPOSITORY)

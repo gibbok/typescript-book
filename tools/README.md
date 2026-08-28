@@ -79,7 +79,6 @@ Use `make` to run the main commands:
 * `make verify-books`: Verify the generated EPUB and PDF files.
 * `make docker-books`: Build the Docker image and create EPUB and PDF books in the local `downloads` folder.
 * `make docker-verify-books`: Verify local book artifacts in the Docker container.
-* `make docker-compare-published-pages`: Compare local PDF page totals with the immutable commit currently at GitHub `main`. Page deltas are informational.
 
 ### Website End-to-End Tests
 
@@ -164,7 +163,6 @@ counts with the published GitHub baseline, run:
 ```shell
 make docker-books
 make docker-verify-books
-make docker-compare-published-pages
 ```
 
 The comparison resolves `main` once to a commit SHA before downloading the eight
