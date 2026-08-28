@@ -23,7 +23,7 @@ Pour les lecteurs qui souhaitent aller au-delà de l'édition open source, **The
 La Plus Edition comprend :
 
 * **Mise à jour pour TypeScript 7** — présentation des dernières fonctionnalités et améliorations du langage TypeScript 7.
-* **TypeScript avec React** — conseils pratiques pour typer les composants, les props, les hooks, les événements, les enfants, les refs et les modèles React courants.
+* **TypeScript avec React** — conseils pratiques pour typer les composants, les props, les hooks, les événements, les enfants, les refs et les patterns React courants.
 * **Recettes TypeScript pour des projets concrets** — exemples ciblés qui répondent aux problèmes pratiques rencontrés par les développeurs lors de la création et de la maintenance d'applications TypeScript.
 
 En achetant la Plus Edition, vous soutenez aussi directement la poursuite du développement et de la maintenance du livre gratuit et open source.
