@@ -8,10 +8,10 @@ RUN apt-get update \
         ca-certificates \
         curl \
         default-jre-headless \
-        fonts-dejavu-core \
-        fonts-noto-cjk \
+        fontconfig \
         make \
         pandoc \
+        poppler-utils \
         python3 \
         unzip \
     && curl --fail --location --retry 3 \
@@ -21,6 +21,21 @@ RUN apt-get update \
     && mv "/opt/epubcheck-${EPUBCHECK_VERSION}" /opt/epubcheck \
     && rm /tmp/epubcheck.zip \
     && rm -rf /var/lib/apt/lists/*
+
+COPY .noto-fonts/*.ttf .noto-fonts/*.otf /usr/local/share/fonts/noto/
+RUN fc-cache --force \
+    && for family in \
+        "Noto Serif" \
+        "Noto Sans" \
+        "Noto Sans Mono" \
+        "Noto Serif CJK SC" \
+        "Noto Sans CJK SC" \
+        "Noto Sans Mono CJK SC" \
+        "Noto Serif CJK JP" \
+        "Noto Sans CJK JP" \
+        "Noto Sans Mono CJK JP"; do \
+        fc-match --format '%{family}\n' "$family" | head -1 | grep --fixed-strings --line-regexp "$family"; \
+    done
 
 WORKDIR /opt/typescript-book-tools
 COPY package.json package-lock.json ./

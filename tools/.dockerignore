@@ -2,3 +2,4 @@ node_modules
 temp
 __pycache__/
 npm-debug.log*
+.noto-fonts/.archives

@@ -17,10 +17,10 @@ written directly to the local `downloads` folder. The Docker image is built on t
 first command and reused on subsequent commands. Its Node.js dependencies stay
 inside the container. It includes EPUBCheck 5.3.0 and invokes it through a Java
 wrapper, so EPUB validation works when invoked by Python without leaving cache files
-in the checkout. On macOS, the Docker targets also stage the system Georgia, Verdana,
-and Menlo fonts into an ignored local directory and mount them read-only, matching
-the fonts used by local book generation. To run the Markdown checks or regenerate the
-website book pages in the container, use:
+in the checkout. Before building, Docker downloads and verifies the pinned Noto bundle
+in `tools/.noto-fonts`, then copies that bundle into the image. This makes PDF font
+selection independent of macOS system fonts and Debian's changing font packages. To run
+the Markdown checks or regenerate the website book pages in the container, use:
 
 ```shell
 make docker-check
@@ -42,8 +42,28 @@ npm install
 ```shell
 brew install pandoc
 brew install epubcheck
+brew install poppler
 brew install --cask calibre
 ```
+
+### Pinned PDF fonts
+
+PDF generation uses the static Noto releases recorded in
+`tools/noto-fonts.lock`: Noto Serif and Sans 2.015, Noto Sans Mono 2.014,
+Noto Serif CJK 2.003, and Noto Sans CJK 2.004. The lock file records the official
+release URLs, archive SHA-256 checksums, and each extracted font file.
+
+Install the verified bundle for local Calibre builds:
+
+```shell
+./install-noto-fonts.sh
+```
+
+The command downloads only into ignored `tools/.noto-fonts`, verifies every archive,
+checks the registered family names when Fontconfig is available, and installs the
+selected files in your user font directory. Use `./install-noto-fonts.sh --prepare` to
+prepare only the Docker bundle, or `./install-noto-fonts.sh --verify` to check an
+existing bundle. Docker commands run `--prepare` automatically.
 
 ## Commands
 
@@ -59,6 +79,7 @@ Use `make` to run the main commands:
 * `make verify-books`: Verify the generated EPUB and PDF files.
 * `make docker-books`: Build the Docker image and create EPUB and PDF books in the local `downloads` folder.
 * `make docker-verify-books`: Verify local book artifacts in the Docker container.
+* `make docker-compare-published-pages`: Compare local PDF page totals with the immutable commit currently at GitHub `main`. Page deltas are informational.
 
 ### Website End-to-End Tests
 
@@ -133,7 +154,23 @@ To generate EPUB and PDF files from your Markdown books, navigate to the `tools`
 make books
 ```
 
-After generating the EPUB and PDF files, thoroughly test them, and once you're satisfied with the results, commit the changes.
+The verification step uses `pdfinfo` for page totals and `pdffonts` to require the
+appropriate embedded Noto families for every locale. It rejects legacy Georgia,
+Verdana, Menlo, Apple, Times New Roman, and STSongti embeddings.
+
+To regenerate every artifact with the pinned container toolchain and compare page
+counts with the published GitHub baseline, run:
+
+```shell
+make docker-books
+make docker-verify-books
+make docker-compare-published-pages
+```
+
+The comparison resolves `main` once to a commit SHA before downloading the eight
+published PDFs. Its page-count differences are a report, not a compatibility failure.
+After checking representative English, Chinese, and Japanese pages for readable text,
+code, and missing-glyph boxes, commit the updated artifacts.
 
 ### Tagging
 

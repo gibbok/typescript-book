@@ -17,6 +17,14 @@ from xml.etree import ElementTree
 MIN_EPUB_BYTES = 50 * 1024
 MIN_PDF_BYTES = 100 * 1024
 MIN_PDF_PAGES = 2
+LEGACY_PDF_FONTS = (
+    "Georgia",
+    "Verdana",
+    "Menlo",
+    "Apple",
+    "Times New Roman",
+    "STSongti",
+)
 
 
 @dataclass(frozen=True)
@@ -134,11 +142,86 @@ def validate_epub(path: Path, expected: BookArtifact) -> list[str]:
     return errors
 
 
-def pdf_page_count(data: bytes) -> int:
-    return len(re.findall(rb"/Type\s*/Page\b", data))
+def run_pdf_tool(command: str, path: Path) -> tuple[str | None, list[str]]:
+    if not shutil_which(command):
+        return None, [f"{command} is not installed"]
+
+    result = subprocess.run(
+        [command, str(path)],
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+    )
+    if result.returncode != 0:
+        return None, [f"{path}: {command} failed\n{result.stdout.strip()}"]
+    return result.stdout, []
 
 
-def validate_pdf(path: Path) -> list[str]:
+def pdf_page_count(path: Path) -> tuple[int | None, list[str]]:
+    output, errors = run_pdf_tool("pdfinfo", path)
+    if errors or output is None:
+        return None, errors
+
+    match = re.search(r"^Pages:\s+(\d+)$", output, flags=re.MULTILINE)
+    if match is None:
+        return None, [f"{path}: pdfinfo did not report a page count"]
+    return int(match.group(1)), []
+
+
+def expected_pdf_fonts(artifact: BookArtifact) -> tuple[str, ...]:
+    if artifact.language == "zh-CN":
+        return ("Noto Serif CJK SC", "Noto Sans CJK SC", "Noto Sans Mono CJK SC")
+    if artifact.language == "ja-JP":
+        return ("Noto Serif CJK JP", "Noto Sans CJK JP", "Noto Sans Mono CJK JP")
+    return ("Noto Serif", "Noto Sans", "Noto Sans Mono")
+
+
+def normalized_font_name(value: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", value.lower())
+
+
+def validate_pdf_fonts(path: Path, artifact: BookArtifact) -> list[str]:
+    output, errors = run_pdf_tool("pdffonts", path)
+    if errors or output is None:
+        return errors
+
+    embedded_fonts: list[str] = []
+    embedded_type3_fonts = 0
+    for line in output.splitlines()[2:]:
+        fields = line.split()
+        if len(fields) < 6:
+            continue
+        match = re.search(r"\s(yes|no)\s+(yes|no)\s+(yes|no)\s+\d+\s+\d+\s*$", line)
+        if match is None:
+            continue
+        if match.group(1) != "yes":
+            errors.append(f"{path}: PDF font is not embedded: {fields[0]}")
+        embedded_fonts.append(fields[0])
+        if len(fields) >= 3 and fields[1:3] == ["Type", "3"] and match.group(1) == "yes":
+            embedded_type3_fonts += 1
+
+    if not embedded_fonts:
+        errors.append(f"{path}: pdffonts found no embedded fonts")
+        return errors
+
+    normalized_embedded = [normalized_font_name(name) for name in embedded_fonts]
+    cjk_pdf = artifact.language in {"zh-CN", "ja-JP"}
+    for family in expected_pdf_fonts(artifact):
+        normalized_family = normalized_font_name(family)
+        if not any(normalized_family in name for name in normalized_embedded) and not (
+            cjk_pdf and embedded_type3_fonts
+        ):
+            errors.append(f"{path}: required embedded Noto family is missing: {family}")
+
+    for family in LEGACY_PDF_FONTS:
+        normalized_family = normalized_font_name(family)
+        if any(normalized_family in name for name in normalized_embedded):
+            errors.append(f"{path}: legacy font is embedded: {family}")
+    return errors
+
+
+def validate_pdf(path: Path, artifact: BookArtifact) -> list[str]:
     errors = check_file(path, MIN_PDF_BYTES)
     if errors:
         return errors
@@ -152,12 +235,15 @@ def validate_pdf(path: Path) -> list[str]:
     if b"startxref" not in data[-4096:]:
         errors.append(f"{path}: missing PDF startxref marker")
 
-    pages = pdf_page_count(data)
-    if pages < MIN_PDF_PAGES:
+    pages, page_errors = pdf_page_count(path)
+    errors.extend(page_errors)
+    if pages is not None and pages < MIN_PDF_PAGES:
         errors.append(f"{path}: expected at least {MIN_PDF_PAGES} pages, found {pages}")
 
     if b"/Title" not in data and b"<dc:title" not in data:
         errors.append(f"{path}: missing PDF title metadata")
+
+    errors.extend(validate_pdf_fonts(path, artifact))
 
     return errors
 
@@ -220,7 +306,7 @@ def main() -> int:
         all_errors.extend(validate_epub(epub_path, artifact))
 
         print(f"Checking {artifact.output}.pdf", flush=True)
-        all_errors.extend(validate_pdf(pdf_path))
+        all_errors.extend(validate_pdf(pdf_path, artifact))
 
     if all_errors:
         print("\nBook artifact verification failed:", file=sys.stderr)
