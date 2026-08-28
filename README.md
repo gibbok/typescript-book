@@ -14,8 +14,8 @@ Discover **The Concise TypeScript Book Plus Edition**.
   <img
     src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp"
     alt="The Concise TypeScript Book Plus Edition cover"
-    width="30%"
-  >
+    style="width: 50%;"
+  ></img>
 </a>
 
 For readers who want to go beyond the open-source edition, **The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** includes additional and exclusive content focused on practical application.
