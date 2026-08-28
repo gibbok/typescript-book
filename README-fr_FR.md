@@ -17,7 +17,7 @@ Pour les lecteurs qui souhaitent aller au-delà de l'édition open source, **The
 La Plus Edition comprend :
 
 * **Mise à jour pour TypeScript 7** — présentation des dernières fonctionnalités et améliorations du langage TypeScript 7.
-* **TypeScript avec React** — conseils pratiques pour typer les composants, les props, les hooks, les événements, les enfants, les refs et les modèles React courants.
+* **TypeScript avec React** — conseils pratiques pour typer les composants, les props, les hooks, les événements, les enfants, les refs et les patterns React courants.
 * **Recettes TypeScript pour des projets concrets** — exemples ciblés qui répondent aux problèmes pratiques rencontrés par les développeurs lors de la création et de la maintenance d'applications TypeScript.
 
 En achetant la Plus Edition, vous soutenez aussi directement la poursuite du développement et de la maintenance du livre gratuit et open source.
@@ -49,6 +49,8 @@ Ce livre a été traduit dans plusieurs langues, notamment :
 [Bulgare](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
 [Espagnol](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
+[Français](https://github.com/gibbok/typescript-book/blob/main/README-fr_FR.md)
 
 ## Téléchargements et site web
 
@@ -2564,10 +2566,10 @@ type ProductId = `id-${Products}-${Status}`; // "id-p1-active" | "id-p1-inactive
 
 Le type `any` est un type spécial (supertype universel) qui peut représenter tout type de valeur (primitives, objets, tableaux, fonctions, erreurs, symboles). Il est souvent utilisé lorsque le type d'une valeur n'est pas connu au moment de la compilation, ou lorsque vous travaillez avec des valeurs provenant d'API ou de bibliothèques externes dépourvues de typages TypeScript.
 
-En utilisant le type `any`, vous indiquez au compilateur TypeScript que les valeurs doivent être représentées sans aucune restriction. Pour optimiser la sûreté des types dans votre code, tenez compte des recommandations suivantes :
+En utilisant le type `any`, vous indiquez au compilateur TypeScript que les valeurs doivent être représentées sans aucune restriction. Pour améliorer la sécurité du typage dans votre code, tenez compte des recommandations suivantes :
 
 * Limitez l'utilisation de `any` aux cas précis où le type est réellement inconnu.
-* Ne renvoyez pas de types `any` depuis une fonction, car cela réduit la sûreté des types dans le code qui l'utilise.
+* Ne renvoyez pas de types `any` depuis une fonction, car cela réduit la sécurité du typage dans le code qui l'utilise.
 * À la place de `any`, utilisez `@ts-ignore` si vous devez faire taire le compilateur.
 
 ```typescript
@@ -2580,7 +2582,7 @@ value = 7; // Valid
 
 En TypeScript, le type `unknown` représente une valeur dont le type est inconnu. Contrairement au type `any`, qui autorise tout type de valeur, `unknown` exige une vérification ou une assertion de type avant de pouvoir être utilisé d'une manière précise. Ainsi, aucune opération n'est autorisée sur un type `unknown` sans assertion ou restriction préalable vers un type plus précis.
 
-Le type `unknown` est uniquement assignable à `any` et à `unknown` lui-même, et constitue une alternative à `any` qui préserve la sûreté des types.
+Le type `unknown` est uniquement assignable à `any` et à `unknown` lui-même, et constitue une alternative à `any` qui préserve la sécurité du typage.
 
 <!-- skip -->
 ```typescript
@@ -3649,7 +3651,7 @@ const len = getLen([1, 2, 3]);
 
 ### Classes génériques
 
-Les génériques peuvent également être appliqués aux classes. Celles-ci peuvent ainsi fonctionner avec plusieurs types à l'aide de paramètres de type. C'est utile pour créer des définitions de classes réutilisables capables d'opérer sur différents types de données tout en préservant la sûreté du typage.
+Les génériques peuvent également être appliqués aux classes. Celles-ci peuvent ainsi fonctionner avec plusieurs types à l'aide de paramètres de type. C'est utile pour créer des définitions de classes réutilisables capables d'opérer sur différents types de données tout en préservant la sécurité du typage.
 
 ```typescript
 class Container<T> {
