@@ -258,7 +258,7 @@ Toutes les options sont disponibles ici :
 
 ### Modules ES6
 
-TypeScript prend en charge ES6 (ECMAScript 2015) ainsi que de nombreuses versions ultérieures. Cela signifie que vous pouvez utiliser la syntaxe ES6, comme les fonctions fléchées, les littéraux de gabarit, les classes, les modules, la déstructuration, et bien plus encore.
+TypeScript prend en charge ES6 (ECMAScript 2015) ainsi que de nombreuses versions ultérieures. Cela signifie que vous pouvez utiliser la syntaxe ES6, comme les fonctions fléchées, les littéraux de gabarit, les classes, les modules, la déstructuration et bien plus encore.
 
 Pour activer les fonctionnalités ES6 dans votre projet, vous pouvez spécifier la propriété `target` dans le tsconfig.json.
 

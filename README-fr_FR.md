@@ -529,7 +529,7 @@ yarn add typescript --dev
 
 Veillez à versionner le fichier de verrouillage généré afin que chaque membre de l'équipe utilise la même version de TypeScript.
 
-Pour exécuter le compilateur TypeScript, vous pouvez utiliser les commandes suivantes
+Pour exécuter le compilateur TypeScript, vous pouvez utiliser les commandes suivantes :
 
 ```shell
 npx tsc
@@ -563,9 +563,9 @@ Lors de l'installation de TypeScript, deux exécutables sont installés : « tsc
 
 Par ailleurs, plusieurs transpileurs compatibles avec TypeScript sont disponibles, comme Babel (au moyen d'un plugin) ou swc. Ces transpileurs peuvent être utilisés pour convertir du code TypeScript vers d'autres langages ou versions cibles.
 
-TypeScript 7.0 a été réécrit en Go sous la forme d'une implémentation native du compilateur et du service de langage. Il utilise le multithreading à mémoire partagée et d'autres optimisations pour accélérer les générations complètes et les fonctionnalités des éditeurs, réduisant ainsi le temps de retour pendant le développement.
+TypeScript 7.0 a été réécrit en Go sous la forme d'une implémentation native du compilateur et du service de langage. Il utilise le multithreading à mémoire partagée et d'autres optimisations pour accélérer les générations complètes et les fonctionnalités des éditeurs, réduisant ainsi le temps de réponse pendant le développement.
 
-Certaines fonctionnalités de TypeScript 7.0 liées aux performances peuvent être ajustées. La vérification des types peut s'exécuter dans des workers parallèles avec `--checkers` ; un plus grand nombre de workers peut accélérer les grands projets, mais consomme davantage de mémoire. Le mode `--watch`, réécrit, améliore la surveillance multiplateforme des fichiers. TypeScript 7.0 ne comprend pas encore d'API du compilateur (en juillet 2026), de sorte que les outils qui ont toujours besoin de l'API TypeScript 6.0 peuvent s'exécuter en parallèle avec TypeScript 7.0 en utilisant `@typescript/typescript6` ou des alias npm.
+Certaines fonctionnalités de TypeScript 7.0 liées aux performances peuvent être ajustées. La vérification des types peut s'exécuter dans des workers parallèles avec `--checkers` ; un plus grand nombre de workers peut accélérer les grands projets, mais consomme davantage de mémoire. Le mode `--watch` réécrit améliore la surveillance multiplateforme des fichiers. TypeScript 7.0 ne comprend pas encore d'API du compilateur (en juillet 2026), de sorte que les outils qui ont toujours besoin de l'API TypeScript 6.0 peuvent s'exécuter en parallèle avec TypeScript 7.0 en utilisant `@typescript/typescript6` ou des alias npm.
 
 ### Configuration
 
@@ -635,11 +635,11 @@ La propriété « moduleResolution » spécifie la stratégie de résolution des
 
 #### esModuleInterop
 
-La propriété « esModuleInterop » autorise les imports par défaut depuis des modules CommonJS qui n'ont pas exporté à l'aide de la propriété « default » ; cette propriété fournit une couche de compatibilité dans le code JavaScript émis. Après avoir activé cette option, nous pouvons utiliser `import MyLibrary from "my-library"` au lieu de `import * as MyLibrary from "my-library"`.
+La propriété « esModuleInterop » autorise les imports par défaut depuis des modules CommonJS qui n'ont pas exporté de valeur à l'aide de la propriété « default » ; cette propriété fournit une couche de compatibilité dans le code JavaScript émis. Après avoir activé cette option, nous pouvons utiliser `import MyLibrary from "my-library"` au lieu de `import * as MyLibrary from "my-library"`.
 
 À l'origine, « esModuleInterop » était facultative afin d'éviter les changements incompatibles, mais elle constitue depuis longtemps la valeur par défaut recommandée. Sa désactivation peut provoquer de subtils problèmes d'exécution lors de l'utilisation de CommonJS avec ESM. Remarque : à partir de TypeScript 6.0, ce comportement d'interopérabilité plus sûr est toujours activé.
 
-Dans TypeScript 6.0, certaines anciennes options de configuration et formes syntaxiques ont été dépréciées ou sont passées par une phase de comportement hérité. Dans TypeScript 7.0, elles produisent des erreurs bloquantes ou n'ont aucun effet.
+Dans TypeScript 6.0, certaines anciennes options de configuration et formes syntaxiques ont été dépréciées ou sont désormais traitées comme du comportement hérité. Dans TypeScript 7.0, elles produisent des erreurs bloquantes ou n'ont aucun effet.
 
 Les éléments dépréciés qui produisent désormais des erreurs bloquantes et n'ont aucun effet sont :
 
@@ -705,7 +705,7 @@ yarn add --dev @types/package-name
 
 La quatrième étape consiste à migrer module par module selon une approche ascendante, en suivant votre graphe de dépendances et en commençant par ses feuilles. L'idée est de commencer par convertir les modules qui ne dépendent pas d'autres modules. Pour visualiser les graphes de dépendances, vous pouvez utiliser l'outil « madge ».
 
-Les fonctions utilitaires et le code lié à des API ou à des spécifications externes constituent de bons modules candidats pour ces premières conversions. Il est possible de générer automatiquement des définitions de type TypeScript à partir de contrats Swagger, de schémas GraphQL ou de schémas JSON afin de les inclure dans votre projet.
+Les fonctions utilitaires et le code lié à des API ou à des spécifications externes constituent de bons candidats pour ces premières conversions. Il est possible de générer automatiquement des définitions de type TypeScript à partir de contrats Swagger, de schémas GraphQL ou de schémas JSON afin de les inclure dans votre projet.
 
 Lorsqu'aucune spécification ni aucun schéma officiel ne sont disponibles, vous pouvez générer des types à partir de données brutes, telles que du JSON renvoyé par un serveur. Il est toutefois recommandé de générer les types à partir de spécifications plutôt que de données afin d'éviter d'omettre des cas limites.
 
@@ -721,7 +721,7 @@ Envisagez de conserver la valeur par défaut de `noEmitOnError` dans votre tscon
 
 ### Le service de langage TypeScript
 
-Le service de langage TypeScript, également appelé tsserver, offre diverses fonctionnalités telles que le signalement des erreurs, les diagnostics, la compilation lors de l'enregistrement, le renommage, l'accès à la définition, les listes de complétion, l'aide sur les signatures, et bien plus encore. Il est principalement utilisé par les environnements de développement intégrés (IDE) pour assurer la prise en charge d'IntelliSense. Il s'intègre parfaitement à Visual Studio Code et est utilisé par des outils tels que Conquer of Completion (Coc).
+Le service de langage TypeScript, également appelé tsserver, offre diverses fonctionnalités telles que le signalement des erreurs, les diagnostics, la compilation lors de l'enregistrement, le renommage, l'accès à la définition, les listes de complétion, l'aide sur les signatures et bien plus encore. Il est principalement utilisé par les environnements de développement intégrés (IDE) pour assurer la prise en charge d'IntelliSense. Il s'intègre parfaitement à Visual Studio Code et est utilisé par des outils tels que Conquer of Completion (Coc).
 
 Les développeurs peuvent exploiter une API dédiée et créer leurs propres plugins personnalisés pour le service de langage afin d'améliorer l'expérience d'édition de TypeScript. Cela peut être particulièrement utile pour mettre en œuvre des fonctionnalités spécifiques de linting ou activer l'autocomplétion pour un langage de gabarits personnalisé.
 
@@ -735,7 +735,7 @@ Pour obtenir davantage d'informations et consulter des guides de démarrage rapi
 
 TypeScript repose sur un système de types structurel. Cela signifie que la compatibilité et l'équivalence des types sont déterminées par leur structure ou leur définition réelle, plutôt que par leur nom ou leur lieu de déclaration, comme c'est le cas dans les systèmes de types nominaux tels que ceux de C# ou C.
 
-Le système de types structurel de TypeScript a été conçu d'après le fonctionnement à l'exécution du typage canard dynamique de JavaScript.
+Le système de types structurel de TypeScript a été conçu d'après le fonctionnement du typage canard dynamique de JavaScript lors de l'exécution.
 
 L'exemple suivant est du code TypeScript valide. Comme vous pouvez le constater, « X » et « Y » possèdent le même membre « a », bien qu'ils aient des noms de déclaration distincts. Les types sont déterminés par leurs structures et, dans ce cas, puisque celles-ci sont identiques, ils sont compatibles et valides.
 
@@ -1057,7 +1057,7 @@ Voici quelques exemples :
 |                       |                        |
 | unknown               | Ensemble universel     | const x: unknown = 1                                                            |
 
-Une union, (T1 | T2), crée un ensemble plus large (les deux) :
+Une union (T1 | T2) crée un ensemble plus large (les deux) :
 
 ```typescript
 type X = {
@@ -1070,7 +1070,7 @@ type XY = X | Y;
 const r: XY = { a: 'a', b: 'x' }; // Valid
 ```
 
-Une intersection, (T1 & T2), crée un ensemble plus restreint (uniquement ce qui est partagé) :
+Une intersection (T1 & T2) crée un ensemble plus restreint (uniquement ce qui est partagé) :
 
 <!-- skip -->
 ```typescript
@@ -1397,7 +1397,7 @@ function identity<T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
 ```
 
-Comme vous pouvez le constater, les propriétés `a` et `b` sont inférées avec un type `string`   .
+Comme vous pouvez le constater, les propriétés `a` et `b` sont inférées avec un type `string`.
 
 Voyons maintenant la différence avec la version utilisant `const` :
 
@@ -4424,7 +4424,7 @@ Toutes les options sont disponibles ici :
 
 ### Modules ES6
 
-TypeScript prend en charge ES6 (ECMAScript 2015) ainsi que de nombreuses versions ultérieures. Cela signifie que vous pouvez utiliser la syntaxe ES6, comme les fonctions fléchées, les littéraux de gabarit, les classes, les modules, la déstructuration, et bien plus encore.
+TypeScript prend en charge ES6 (ECMAScript 2015) ainsi que de nombreuses versions ultérieures. Cela signifie que vous pouvez utiliser la syntaxe ES6, comme les fonctions fléchées, les littéraux de gabarit, les classes, les modules, la déstructuration et bien plus encore.
 
 Pour activer les fonctionnalités ES6 dans votre projet, vous pouvez spécifier la propriété `target` dans le tsconfig.json.
 

@@ -22,7 +22,7 @@ yarn add typescript --dev
 
 Veillez à versionner le fichier de verrouillage généré afin que chaque membre de l'équipe utilise la même version de TypeScript.
 
-Pour exécuter le compilateur TypeScript, vous pouvez utiliser les commandes suivantes
+Pour exécuter le compilateur TypeScript, vous pouvez utiliser les commandes suivantes :
 
 ```shell
 npx tsc
@@ -56,9 +56,9 @@ Lors de l'installation de TypeScript, deux exécutables sont installés : « tsc
 
 Par ailleurs, plusieurs transpileurs compatibles avec TypeScript sont disponibles, comme Babel (au moyen d'un plugin) ou swc. Ces transpileurs peuvent être utilisés pour convertir du code TypeScript vers d'autres langages ou versions cibles.
 
-TypeScript 7.0 a été réécrit en Go sous la forme d'une implémentation native du compilateur et du service de langage. Il utilise le multithreading à mémoire partagée et d'autres optimisations pour accélérer les générations complètes et les fonctionnalités des éditeurs, réduisant ainsi le temps de retour pendant le développement.
+TypeScript 7.0 a été réécrit en Go sous la forme d'une implémentation native du compilateur et du service de langage. Il utilise le multithreading à mémoire partagée et d'autres optimisations pour accélérer les générations complètes et les fonctionnalités des éditeurs, réduisant ainsi le temps de réponse pendant le développement.
 
-Certaines fonctionnalités de TypeScript 7.0 liées aux performances peuvent être ajustées. La vérification des types peut s'exécuter dans des workers parallèles avec `--checkers` ; un plus grand nombre de workers peut accélérer les grands projets, mais consomme davantage de mémoire. Le mode `--watch`, réécrit, améliore la surveillance multiplateforme des fichiers. TypeScript 7.0 ne comprend pas encore d'API du compilateur (en juillet 2026), de sorte que les outils qui ont toujours besoin de l'API TypeScript 6.0 peuvent s'exécuter en parallèle avec TypeScript 7.0 en utilisant `@typescript/typescript6` ou des alias npm.
+Certaines fonctionnalités de TypeScript 7.0 liées aux performances peuvent être ajustées. La vérification des types peut s'exécuter dans des workers parallèles avec `--checkers` ; un plus grand nombre de workers peut accélérer les grands projets, mais consomme davantage de mémoire. Le mode `--watch` réécrit améliore la surveillance multiplateforme des fichiers. TypeScript 7.0 ne comprend pas encore d'API du compilateur (en juillet 2026), de sorte que les outils qui ont toujours besoin de l'API TypeScript 6.0 peuvent s'exécuter en parallèle avec TypeScript 7.0 en utilisant `@typescript/typescript6` ou des alias npm.
 
 ### Configuration
 
@@ -128,11 +128,11 @@ La propriété « moduleResolution » spécifie la stratégie de résolution des
 
 #### esModuleInterop
 
-La propriété « esModuleInterop » autorise les imports par défaut depuis des modules CommonJS qui n'ont pas exporté à l'aide de la propriété « default » ; cette propriété fournit une couche de compatibilité dans le code JavaScript émis. Après avoir activé cette option, nous pouvons utiliser `import MyLibrary from "my-library"` au lieu de `import * as MyLibrary from "my-library"`.
+La propriété « esModuleInterop » autorise les imports par défaut depuis des modules CommonJS qui n'ont pas exporté de valeur à l'aide de la propriété « default » ; cette propriété fournit une couche de compatibilité dans le code JavaScript émis. Après avoir activé cette option, nous pouvons utiliser `import MyLibrary from "my-library"` au lieu de `import * as MyLibrary from "my-library"`.
 
 À l'origine, « esModuleInterop » était facultative afin d'éviter les changements incompatibles, mais elle constitue depuis longtemps la valeur par défaut recommandée. Sa désactivation peut provoquer de subtils problèmes d'exécution lors de l'utilisation de CommonJS avec ESM. Remarque : à partir de TypeScript 6.0, ce comportement d'interopérabilité plus sûr est toujours activé.
 
-Dans TypeScript 6.0, certaines anciennes options de configuration et formes syntaxiques ont été dépréciées ou sont passées par une phase de comportement hérité. Dans TypeScript 7.0, elles produisent des erreurs bloquantes ou n'ont aucun effet.
+Dans TypeScript 6.0, certaines anciennes options de configuration et formes syntaxiques ont été dépréciées ou sont désormais traitées comme du comportement hérité. Dans TypeScript 7.0, elles produisent des erreurs bloquantes ou n'ont aucun effet.
 
 Les éléments dépréciés qui produisent désormais des erreurs bloquantes et n'ont aucun effet sont :
 
@@ -198,7 +198,7 @@ yarn add --dev @types/package-name
 
 La quatrième étape consiste à migrer module par module selon une approche ascendante, en suivant votre graphe de dépendances et en commençant par ses feuilles. L'idée est de commencer par convertir les modules qui ne dépendent pas d'autres modules. Pour visualiser les graphes de dépendances, vous pouvez utiliser l'outil « madge ».
 
-Les fonctions utilitaires et le code lié à des API ou à des spécifications externes constituent de bons modules candidats pour ces premières conversions. Il est possible de générer automatiquement des définitions de type TypeScript à partir de contrats Swagger, de schémas GraphQL ou de schémas JSON afin de les inclure dans votre projet.
+Les fonctions utilitaires et le code lié à des API ou à des spécifications externes constituent de bons candidats pour ces premières conversions. Il est possible de générer automatiquement des définitions de type TypeScript à partir de contrats Swagger, de schémas GraphQL ou de schémas JSON afin de les inclure dans votre projet.
 
 Lorsqu'aucune spécification ni aucun schéma officiel ne sont disponibles, vous pouvez générer des types à partir de données brutes, telles que du JSON renvoyé par un serveur. Il est toutefois recommandé de générer les types à partir de spécifications plutôt que de données afin d'éviter d'omettre des cas limites.
 

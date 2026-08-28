@@ -8,7 +8,7 @@ sidebar:
 
 ### Le service de langage TypeScript
 
-Le service de langage TypeScript, également appelé tsserver, offre diverses fonctionnalités telles que le signalement des erreurs, les diagnostics, la compilation lors de l'enregistrement, le renommage, l'accès à la définition, les listes de complétion, l'aide sur les signatures, et bien plus encore. Il est principalement utilisé par les environnements de développement intégrés (IDE) pour assurer la prise en charge d'IntelliSense. Il s'intègre parfaitement à Visual Studio Code et est utilisé par des outils tels que Conquer of Completion (Coc).
+Le service de langage TypeScript, également appelé tsserver, offre diverses fonctionnalités telles que le signalement des erreurs, les diagnostics, la compilation lors de l'enregistrement, le renommage, l'accès à la définition, les listes de complétion, l'aide sur les signatures et bien plus encore. Il est principalement utilisé par les environnements de développement intégrés (IDE) pour assurer la prise en charge d'IntelliSense. Il s'intègre parfaitement à Visual Studio Code et est utilisé par des outils tels que Conquer of Completion (Coc).
 
 Les développeurs peuvent exploiter une API dédiée et créer leurs propres plugins personnalisés pour le service de langage afin d'améliorer l'expérience d'édition de TypeScript. Cela peut être particulièrement utile pour mettre en œuvre des fonctionnalités spécifiques de linting ou activer l'autocomplétion pour un langage de gabarits personnalisé.
 
@@ -22,7 +22,7 @@ Pour obtenir davantage d'informations et consulter des guides de démarrage rapi
 
 TypeScript repose sur un système de types structurel. Cela signifie que la compatibilité et l'équivalence des types sont déterminées par leur structure ou leur définition réelle, plutôt que par leur nom ou leur lieu de déclaration, comme c'est le cas dans les systèmes de types nominaux tels que ceux de C# ou C.
 
-Le système de types structurel de TypeScript a été conçu d'après le fonctionnement à l'exécution du typage canard dynamique de JavaScript.
+Le système de types structurel de TypeScript a été conçu d'après le fonctionnement du typage canard dynamique de JavaScript lors de l'exécution.
 
 L'exemple suivant est du code TypeScript valide. Comme vous pouvez le constater, « X » et « Y » possèdent le même membre « a », bien qu'ils aient des noms de déclaration distincts. Les types sont déterminés par leurs structures et, dans ce cas, puisque celles-ci sont identiques, ils sont compatibles et valides.
 
@@ -344,7 +344,7 @@ Voici quelques exemples :
 |                       |                        |
 | unknown               | Ensemble universel     | const x: unknown = 1                                                            |
 
-Une union, (T1 | T2), crée un ensemble plus large (les deux) :
+Une union (T1 | T2) crée un ensemble plus large (les deux) :
 
 ```typescript
 type X = {
@@ -357,7 +357,7 @@ type XY = X | Y;
 const r: XY = { a: 'a', b: 'x' }; // Valid
 ```
 
-Une intersection, (T1 & T2), crée un ensemble plus restreint (uniquement ce qui est partagé) :
+Une intersection (T1 & T2) crée un ensemble plus restreint (uniquement ce qui est partagé) :
 
 <!-- skip -->
 ```typescript
@@ -684,7 +684,7 @@ function identity<T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
 ```
 
-Comme vous pouvez le constater, les propriétés `a` et `b` sont inférées avec un type `string`   .
+Comme vous pouvez le constater, les propriétés `a` et `b` sont inférées avec un type `string`.
 
 Voyons maintenant la différence avec la version utilisant `const` :
 
