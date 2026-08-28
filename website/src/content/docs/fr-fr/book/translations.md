@@ -20,3 +20,5 @@ Ce livre a été traduit dans plusieurs langues, notamment :
 
 [Espagnol](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
 
+[Français](https://github.com/gibbok/typescript-book/blob/main/README-fr_FR.md)
+
