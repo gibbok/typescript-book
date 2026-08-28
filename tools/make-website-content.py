@@ -148,6 +148,8 @@ def make_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
     return f"{anchor}-{count}"
 
 
+# Source anchors mirror the anchors authored in translated README TOCs. GitHub keeps a
+# trailing hyphen when punctuation follows whitespace; page anchors normalize it away.
 def make_source_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
     anchor = re.sub(r"[^\w\s-]", "", text.lower())
     anchor = re.sub(r"\s+", "-", anchor).lstrip("-")
@@ -156,6 +158,20 @@ def make_source_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
     if count == 0:
         return anchor
     return f"{anchor}-{count}"
+
+
+def validate_source_anchor_slug() -> None:
+    cases = {
+        "Qu'est-ce que TypeScript ?": "quest-ce-que-typescript-",
+        "TypeScript 7.0": "typescript-70",
+        "  !Section": "section",
+    }
+    for header, expected in cases.items():
+        actual = make_source_anchor_slug(header, {})
+        if actual != expected:
+            raise ValueError(
+                f"Unexpected source anchor for {header!r}: {actual!r}"
+            )
 
 
 def make_page_anchor_links(lines: List[str], master_headers: List[str]) -> Dict[str, str]:
@@ -266,5 +282,7 @@ process(INPUT_FILE_PATH, INPUT_FILE_PATH_BG, OUTPUT_DIR_PATH_BG)
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_ES, OUTPUT_DIR_PATH_ES)
 
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_JA, OUTPUT_DIR_PATH_JA)
+
+validate_source_anchor_slug()
 
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_FR, OUTPUT_DIR_PATH_FR)
