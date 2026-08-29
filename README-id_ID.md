@@ -64,6 +64,8 @@ Buku ini telah diterjemahkan ke dalam beberapa bahasa, termasuk:
 
 [Bahasa Korea](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
 
+[Bahasa Indonesia](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
+
 ## Unduhan dan situs web
 
 Anda juga dapat mengunduh versi EPUB:
@@ -338,9 +340,9 @@ Beberapa manfaat TypeScript:
 
 ### TypeScript dan JavaScript
 
-TypeScript ditulis dalam berkas `.ts` atau `.tsx`, sedangkan berkas JavaScript ditulis dalam `.js` atau `.jsx`.
+TypeScript ditulis dalam berkas berekstensi `.ts` atau `.tsx`, sedangkan JavaScript ditulis dalam berkas berekstensi `.js` atau `.jsx`.
 
-Berkas dengan ekstensi `.tsx` atau `.jsx` dapat berisi Ekstensi Sintaks JavaScript JSX, yang digunakan dalam React untuk pengembangan UI.
+Berkas dengan ekstensi `.tsx` atau `.jsx` dapat berisi sintaks JSX untuk JavaScript, yang digunakan dalam React untuk pengembangan UI.
 
 TypeScript adalah superset bertipe dari JavaScript (ECMAScript 2015) dalam hal sintaks. Semua kode JavaScript merupakan kode TypeScript yang valid, tetapi kebalikannya tidak selalu berlaku.
 
@@ -633,7 +635,7 @@ Opsi "strict" meningkatkan keamanan tipe dengan mengaktifkan pemeriksaan yang le
 * Menghasilkan kode menggunakan "use strict" untuk setiap berkas sumber.
 * Mempertimbangkan "null" dan "undefined" dalam proses pemeriksaan tipe.
 * Menonaktifkan penggunaan tipe "any" ketika tidak ada anotasi tipe.
-* Menghasilkan error saat ekspresi "this" digunakan, yang jika tidak akan menyiratkan tipe "any".
+* Menghasilkan error saat ekspresi "this" digunakan, yang jika tidak, akan menyiratkan tipe "any".
 
 #### module
 
@@ -669,11 +671,11 @@ Opsi dan bentuk yang dihentikan secara bertahap serta telah berubah menjadi hard
 * kata kunci `module` dalam deklarasi namespace
 * `asserts` pada impor
 * `/// <reference no-default-lib />` di bawah `skipDefaultLibCheck`
-* jalur file CLI dengan `tsconfig.json` lokal, kecuali jika `--ignoreConfig` digunakan
+* jalur berkas CLI dengan `tsconfig.json` lokal, kecuali jika `--ignoreConfig` digunakan
 
 #### jsx
 
-Properti "jsx" hanya berlaku untuk file .tsx yang digunakan dalam ReactJS dan mengendalikan cara konstruksi JSX dikompilasi menjadi JavaScript. Opsi yang umum adalah "preserve", yang akan mengompilasi menjadi file .jsx dengan mempertahankan JSX tanpa perubahan sehingga dapat diteruskan ke alat lain seperti Babel untuk transformasi lebih lanjut.
+Properti "jsx" hanya berlaku untuk berkas `.tsx` yang digunakan dalam ReactJS dan mengendalikan cara konstruksi JSX dikompilasi menjadi JavaScript. Opsi yang umum adalah "preserve", yang akan mengompilasi menjadi berkas `.jsx` dengan mempertahankan JSX tanpa perubahan sehingga dapat diteruskan ke alat lain seperti Babel untuk transformasi lebih lanjut.
 
 #### skipLibCheck
 
@@ -702,9 +704,9 @@ TypeScript menggunakan kode bantuan saat menghasilkan kode untuk fitur JavaScrip
 
 Untuk proyek besar, disarankan untuk menerapkan transisi bertahap, dengan kode TypeScript dan JavaScript pada awalnya digunakan secara berdampingan. Hanya proyek kecil yang dapat dimigrasikan ke TypeScript sekaligus.
 
-Langkah pertama dalam transisi ini adalah memperkenalkan TypeScript ke dalam proses rantai build. Hal ini dapat dilakukan dengan menggunakan opsi compiler "allowJs", yang memungkinkan file .ts dan .tsx digunakan secara berdampingan dengan file JavaScript yang sudah ada. Karena TypeScript akan menggunakan tipe "any" sebagai pilihan terakhir untuk suatu variabel ketika tidak dapat menyimpulkan tipenya dari file JavaScript, disarankan untuk menonaktifkan "noImplicitAny" dalam opsi compiler Anda pada awal migrasi.
+Langkah pertama dalam transisi ini adalah memperkenalkan TypeScript ke dalam proses rantai build. Hal ini dapat dilakukan dengan menggunakan opsi compiler "allowJs", yang memungkinkan berkas `.ts` dan `.tsx` digunakan secara berdampingan dengan berkas JavaScript yang sudah ada. Karena TypeScript akan menggunakan tipe "any" sebagai pilihan terakhir untuk suatu variabel ketika tidak dapat menyimpulkan tipenya dari berkas JavaScript, disarankan untuk menonaktifkan "noImplicitAny" dalam opsi compiler Anda pada awal migrasi.
 
-Langkah kedua adalah memastikan bahwa pengujian JavaScript Anda dapat berjalan bersama file TypeScript sehingga Anda dapat menjalankan pengujian saat mengonversi setiap modul. Jika Anda menggunakan Jest, pertimbangkan untuk menggunakan `ts-jest`, yang memungkinkan Anda menguji proyek TypeScript dengan Jest.
+Langkah kedua adalah memastikan bahwa pengujian JavaScript Anda dapat berjalan bersama berkas TypeScript sehingga Anda dapat menjalankan pengujian saat mengonversi setiap modul. Jika Anda menggunakan Jest, pertimbangkan untuk menggunakan `ts-jest`, yang memungkinkan Anda menguji proyek TypeScript dengan Jest.
 
 Langkah ketiga adalah menyertakan deklarasi tipe untuk pustaka pihak ketiga dalam proyek Anda. Deklarasi ini dapat ditemukan dalam paket pustaka atau di DefinitelyTyped. Anda dapat mencarinya melalui [https://www.typescriptlang.org/dt/search](https://www.typescriptlang.org/dt/search) dan menginstalnya dengan:
 
@@ -730,7 +732,7 @@ Langkah kelima adalah mengaktifkan "noImplicitAny", yang akan memastikan bahwa s
 
 Selama migrasi, Anda dapat menggunakan direktif `@ts-check`, yang mengaktifkan pemeriksaan tipe TypeScript dalam file JavaScript. Direktif ini menyediakan pemeriksaan tipe yang lebih longgar dan pada tahap awal dapat digunakan untuk mengidentifikasi masalah dalam file JavaScript. Ketika `@ts-check` disertakan dalam suatu file, TypeScript akan mencoba menyimpulkan definisi menggunakan komentar bergaya JSDoc. Namun, pertimbangkan untuk menggunakan anotasi JSDoc hanya pada tahap yang sangat awal dalam migrasi.
 
-Pertimbangkan untuk mempertahankan nilai default `noEmitOnError` dalam tsconfig.json sebagai false. Ini akan memungkinkan Anda menghasilkan kode sumber JavaScript meskipun terdapat error yang dilaporkan.
+Pertimbangkan untuk mempertahankan nilai default `noEmitOnError` dalam `tsconfig.json` sebagai `false`. Ini akan memungkinkan Anda menghasilkan kode sumber JavaScript meskipun terdapat error yang dilaporkan.
 
 ## Menjelajahi Sistem Tipe
 
@@ -1439,7 +1441,7 @@ const v = {
 v.x = 3;
 ```
 
-Pada keseluruhan object:
+Pada keseluruhan objek:
 
 ```typescript
 const v = {
@@ -1518,7 +1520,7 @@ Cara lain untuk mempersempit tipe dalam TypeScript meliputi:
 
 #### Union Terdiskriminasi
 
-Menggunakan "Union Terdiskriminasi" adalah sebuah pola dalam TypeScript ketika sebuah "tag" eksplisit ditambahkan ke objek untuk membedakan berbagai tipe di dalam sebuah union. Pola ini juga disebut sebagai "tagged union". Dalam contoh berikut, "tag" direpresentasikan oleh properti "type":
+"Union Terdiskriminasi" merupakan pola dalam TypeScript ketika sebuah "tag" eksplisit ditambahkan ke objek untuk membedakan berbagai tipe di dalam sebuah union. Pola ini juga disebut sebagai "tagged union". Dalam contoh berikut, "tag" direpresentasikan oleh properti "type":
 
 ```typescript
 type A = { type: 'type_a'; value: number };
@@ -1625,7 +1627,7 @@ Catatan:
 
 ### Symbol
 
-Symbol adalah pengidentifikasi unik yang dapat digunakan sebagai key properti dalam objek untuk mencegah konflik penamaan.
+Symbol adalah pengidentifikasi unik yang dapat digunakan sebagai kunci properti dalam objek untuk mencegah konflik penamaan.
 
 ```typescript
 type Obj = {
@@ -1852,7 +1854,7 @@ const b = 1; // Numeric literal type
 const c = true; // Boolean literal type
 ```
 
-Tipe Literal String, Numerik, dan Boolean digunakan dalam union, type guard, dan type alias.
+Tipe literal string, numerik, dan boolean digunakan dalam union, type guard, dan type alias.
 Dalam contoh berikut, Anda dapat melihat sebuah type alias union. `O` hanya terdiri dari nilai-nilai yang ditentukan; string lain tidak valid:
 
 ```typescript
@@ -1978,7 +1980,7 @@ console.log('EN' /* Language.English */);
 ```
 
 Catatan:
-Const Enum memiliki nilai hardcoded, yang menghapus Enum, sehingga dapat lebih efisien dalam library mandiri tetapi secara umum tidak diinginkan. Selain itu, const enum tidak dapat memiliki member yang dihitung.
+Const enum memiliki nilai hardcoded, yang menghapus enum, sehingga dapat lebih efisien dalam library mandiri tetapi secara umum tidak diinginkan. Selain itu, const enum tidak dapat memiliki member yang dihitung.
 
 ### Pemetaan balik
 
@@ -2030,7 +2032,7 @@ console.log(Grade[failGrade]); // Element implicitly has an 'any' type because i
 
 ### Enum ambient
 
-Enum ambient dalam TypeScript adalah jenis Enum yang didefinisikan dalam file deklarasi (*.d.ts) tanpa implementasi terkait. Enum ini memungkinkan Anda menentukan sekumpulan konstanta bernama yang dapat digunakan secara type-safe di berbagai file tanpa harus mengimpor detail implementasi di setiap file.
+Enum ambient dalam TypeScript adalah jenis enum yang didefinisikan dalam berkas deklarasi (`*.d.ts`) tanpa implementasi terkait. Enum ini memungkinkan Anda menentukan sekumpulan konstanta bernama yang dapat digunakan dengan aman secara tipe di berbagai berkas tanpa harus mengimpor detail implementasi di setiap berkas.
 
 ### Anggota terkomputasi dan konstan
 
@@ -2255,7 +2257,7 @@ const foo = (bar: unknown) => {
 };
 ```
 
-TypeScript 5.5 secara otomatis menginferensi predikat tipe (seperti `x is T`) dalam fungsi seperti `.filter`, sehingga TypeScript mengetahui ketika nilai seperti `undefined` dihapus—menghasilkan tipe yang lebih presisi dan lebih sedikit error; ini berlaku untuk pemeriksaan yang jelas (misalnya, `x !== undefined`), tetapi tidak untuk pemeriksaan ambigu seperti `!!x`.
+TypeScript 5.5 secara otomatis menginferensi predikat tipe (seperti `x is T`) dalam fungsi seperti `.filter`, sehingga TypeScript mengetahui ketika nilai seperti `undefined` dihapus—menghasilkan tipe yang lebih presisi dan lebih sedikit error. Ini berlaku untuk pemeriksaan yang jelas (misalnya, `x !== undefined`), tetapi tidak untuk pemeriksaan ambigu seperti `!!x`.
 
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
@@ -2491,7 +2493,7 @@ const x: MyNewType = {
 };
 ```
 
-kita mendefinisikan `MyMappedType` untuk memetakan properti-properti `T`, sehingga menghasilkan tipe baru dengan setiap properti berupa array dari tipe aslinya. Dengan menggunakan ini, kita membuat `MyNewType` untuk merepresentasikan informasi yang sama seperti `MyType`, tetapi setiap propertinya berupa array.
+Kita mendefinisikan `MyMappedType` untuk memetakan properti-properti `T`, sehingga menghasilkan tipe baru dengan setiap properti berupa array dari tipe aslinya. Dengan menggunakan ini, kita membuat `MyNewType` untuk merepresentasikan informasi yang sama seperti `MyType`, tetapi setiap propertinya berupa array.
 
 ## Modifier Mapped Type
 
@@ -3644,7 +3646,7 @@ console.log(r.add(10, 5)); // Logs 15
 
 ## Generic
 
-Generik memungkinkan Anda membuat komponen dan fungsi yang dapat digunakan kembali dan bekerja dengan berbagai tipe. Dengan generik, Anda dapat memparameterisasi tipe, fungsi, dan antarmuka, sehingga semuanya dapat beroperasi pada tipe yang berbeda tanpa perlu menentukannya secara eksplisit terlebih dahulu.
+Generik memungkinkan Anda membuat komponen dan fungsi yang dapat digunakan kembali dan bekerja dengan berbagai tipe. Dengan generik, Anda dapat memparametrisasi tipe, fungsi, dan antarmuka, sehingga semuanya dapat beroperasi pada tipe yang berbeda tanpa perlu menentukannya secara eksplisit terlebih dahulu.
 
 Generik memungkinkan Anda membuat kode yang lebih fleksibel dan dapat digunakan kembali.
 
@@ -4237,7 +4239,7 @@ throw new CustomError('This is a custom error.');
 
 ### Class Mixin
 
-Kelas mixin memungkinkan Anda menggabungkan dan menyusun perilaku dari beberapa kelas ke dalam satu kelas. Kelas ini menyediakan cara untuk menggunakan kembali dan memperluas fungsionalitas tanpa memerlukan rantai pewarisan yang mendalam.
+Class mixin memungkinkan Anda menggabungkan dan menyusun perilaku dari beberapa class ke dalam satu class. Class ini menyediakan cara untuk menggunakan kembali dan memperluas fungsionalitas tanpa memerlukan rantai pewarisan yang mendalam.
 
 ```typescript
 abstract class Identifiable {
