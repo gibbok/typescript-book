@@ -20,3 +20,9 @@ Este libro se ha traducido a varios idiomas, entre ellos:
 
 [Español](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
 
+[Francés](https://github.com/gibbok/typescript-book/blob/main/README-fr_FR.md)
+
+[Japonés](https://github.com/gibbok/typescript-book/blob/main/README-ja_JP.md)
+
+[Coreano](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
+

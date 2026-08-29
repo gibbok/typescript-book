@@ -22,3 +22,7 @@ sidebar:
 
 [프랑스어](https://github.com/gibbok/typescript-book/blob/main/README-fr_FR.md)
 
+[일본어](https://github.com/gibbok/typescript-book/blob/main/README-ja_JP.md)
+
+[한국어](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
+
