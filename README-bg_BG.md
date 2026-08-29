@@ -64,6 +64,8 @@ The Concise TypeScript Book предоставя изчерпателен и к�
 
 [корейски](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
 
+[индонезийски](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
+
 ## Изтегляния и уебсайт
 
 Можете също да изтеглите версията в Epub формат:
