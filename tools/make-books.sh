@@ -52,7 +52,7 @@ for artifact in "${BOOK_ARTIFACTS[@]}"; do
             sans_family="Noto Sans CJK SC"
             mono_family="Noto Sans Mono CJK SC"
             ;;
-        ja-JP)
+        ja-JP|ko-KR)
             serif_family="Noto Serif CJK JP"
             sans_family="Noto Sans CJK JP"
             mono_family="Noto Sans Mono CJK JP"

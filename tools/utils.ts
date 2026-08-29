@@ -12,6 +12,7 @@ const languageFilePaths: Record<Language, string> = {
     [Language.es_ES]: '../README_es_ES.md',
     [Language.ja_JP]: '../README-ja_JP.md',
     [Language.fr_FR]: '../README-fr_FR.md',
+    [Language.ko_KR]: '../README-ko_KR.md',
 }
 
 export const makeFilePath = (item: Language) => languageFilePaths[item]

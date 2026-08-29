@@ -42,6 +42,9 @@ OUTPUT_DIR_PATH_JA = "../website/src/content/docs/ja-jp/book"
 INPUT_FILE_PATH_FR = "../README-fr_FR.md"
 OUTPUT_DIR_PATH_FR = "../website/src/content/docs/fr-fr/book"
 
+INPUT_FILE_PATH_KO = "../README-ko_KR.md"
+OUTPUT_DIR_PATH_KO = "../website/src/content/docs/ko-kr/book"
+
 
 def manage_output_dir(path: str) -> None:
     if os.path.exists(path):
@@ -195,7 +198,16 @@ def rewrite_markdown_anchor_links(
         text = match.group(1)
         anchor = match.group(2)
         if anchor not in anchor_links:
-            raise ValueError(f"Cannot map Markdown anchor link: {match.group(0)}")
+            normalized_anchor = re.sub(r"[^\w-]", "", anchor).strip("-")
+            matching_anchors = [
+                candidate
+                for candidate in anchor_links
+                if re.sub(r"[^\w-]", "", candidate).strip("-")
+                == normalized_anchor
+            ]
+            if len(matching_anchors) != 1:
+                raise ValueError(f"Cannot map Markdown anchor link: {match.group(0)}")
+            anchor = matching_anchors[0]
         return f"[{text}]({anchor_links[anchor]})"
 
     return re.sub(pattern, replace_anchor_link, markdown_text)
@@ -268,3 +280,5 @@ process(INPUT_FILE_PATH, INPUT_FILE_PATH_ES, OUTPUT_DIR_PATH_ES)
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_JA, OUTPUT_DIR_PATH_JA)
 
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_FR, OUTPUT_DIR_PATH_FR)
+
+process(INPUT_FILE_PATH, INPUT_FILE_PATH_KO, OUTPUT_DIR_PATH_KO)

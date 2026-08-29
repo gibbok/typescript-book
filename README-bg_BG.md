@@ -52,7 +52,17 @@ The Concise TypeScript Book предоставя изчерпателен и к�
 
 [португалски (Бразилия)](https://github.com/gibbok/typescript-book/blob/main/README-pt_BR.md)
 
+[шведски](https://github.com/gibbok/typescript-book/blob/main/README-sv_SE.md)
+
+[български](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
+
 [испански](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
+[френски](https://github.com/gibbok/typescript-book/blob/main/README-fr_FR.md)
+
+[японски](https://github.com/gibbok/typescript-book/blob/main/README-ja_JP.md)
+
+[корейски](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
 
 ## Изтегляния и уебсайт
 

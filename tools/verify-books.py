@@ -172,7 +172,7 @@ def pdf_page_count(path: Path) -> tuple[int | None, list[str]]:
 def expected_pdf_fonts(artifact: BookArtifact) -> tuple[str, ...]:
     if artifact.language == "zh-CN":
         return ("Noto Serif CJK SC", "Noto Sans CJK SC", "Noto Sans Mono CJK SC")
-    if artifact.language == "ja-JP":
+    if artifact.language in {"ja-JP", "ko-KR"}:
         return ("Noto Serif CJK JP", "Noto Sans CJK JP", "Noto Sans Mono CJK JP")
     return ("Noto Serif", "Noto Sans", "Noto Sans Mono")
 
@@ -206,7 +206,7 @@ def validate_pdf_fonts(path: Path, artifact: BookArtifact) -> list[str]:
         return errors
 
     normalized_embedded = [normalized_font_name(name) for name in embedded_fonts]
-    cjk_pdf = artifact.language in {"zh-CN", "ja-JP"}
+    cjk_pdf = artifact.language in {"zh-CN", "ja-JP", "ko-KR"}
     for family in expected_pdf_fonts(artifact):
         normalized_family = normalized_font_name(family)
         if not any(normalized_family in name for name in normalized_embedded) and not (

@@ -16,7 +16,15 @@ Credo che un'istruzione tecnica di alta qualità debba essere accessibile a tutt
 
 Scopri **The Concise TypeScript Book Plus Edition**.
 
-[![Copertina di The Concise TypeScript Book Plus Edition](https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_it_IT.webp)](https://gibbok.github.io/typescript-book/it-it/plus-edition/?utm_source=github&utm_medium=readme)
+<!-- markdownlint-disable MD033 MD044 -->
+<a href="https://gibbok.github.io/typescript-book/it-it/plus-edition/?utm_source=github&utm_medium=readme">
+  <img
+    src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_it_IT.webp"
+    alt="Copertina di The Concise TypeScript Book Plus Edition"
+    style="width: 50%;"
+  ></img>
+</a>
+<!-- markdownlint-enable MD033 MD044 -->
 
 Per i lettori che vogliono andare oltre l'edizione open source, **The Concise TypeScript Book Plus Edition: React and Real-World Patterns for TypeScript 7** include contenuti aggiuntivi ed esclusivi incentrati sull'applicazione pratica.
 

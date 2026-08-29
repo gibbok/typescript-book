@@ -16,5 +16,13 @@ sidebar:
 
 [瑞典语](https://github.com/gibbok/typescript-book/blob/main/README-sv_SE.md)
 
+[保加利亚语](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
+
 [西班牙语](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
+[法语](https://github.com/gibbok/typescript-book/blob/main/README-fr_FR.md)
+
+[日语](https://github.com/gibbok/typescript-book/blob/main/README-ja_JP.md)
+
+[韩语](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
 
