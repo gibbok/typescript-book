@@ -1,4 +1,4 @@
-export type PlusEditionLocale = 'en' | 'zh-cn' | 'it-it' | 'pt-br' | 'sv-se' | 'bg-bg' | 'es-es' | 'ja-jp' | 'fr-fr' | 'ko-kr';
+export type PlusEditionLocale = 'en' | 'zh-cn' | 'it-it' | 'pt-br' | 'sv-se' | 'bg-bg' | 'es-es' | 'ja-jp' | 'fr-fr' | 'ko-kr' | 'id-id';
 
 const DEFAULT_LOCALE: PlusEditionLocale = 'en';
 
@@ -24,6 +24,8 @@ const LOCALE_BY_LANG: Readonly<Record<string, PlusEditionLocale>> = {
 	'fr-fr': 'fr-fr',
 	ko: 'ko-kr',
 	'ko-kr': 'ko-kr',
+	id: 'id-id',
+	'id-id': 'id-id',
 };
 
 export const PLUS_EDITION_BASE_PATH = '/typescript-book';
@@ -40,6 +42,7 @@ export const PLUS_EDITION_COVERS: Readonly<Record<PlusEditionLocale, string>> = 
 	'ja-jp': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_ja_JP.webp`,
 	'fr-fr': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 	'ko-kr': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
+	'id-id': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 };
 
 export const PLUS_EDITION_COVER = PLUS_EDITION_COVERS.en;
@@ -1055,6 +1058,105 @@ export const PLUS_EDITION_COPY = {
 			paperback: '종이책',
 			buyOn: '구매처',
 			detected: '브라우저 언어와 지역을 사용하여 가장 적합한 에디션과 Amazon 스토어를 엽니다.',
+		},
+	},
+	'id-id': {
+		pageTitle: 'The Concise TypeScript Book Plus Edition — React dan Pola Dunia Nyata untuk TypeScript 7',
+		pageDescription:
+			'Edisi berbayar dan diperluas dari The Concise TypeScript Book, dengan panduan React eksklusif, pola TypeScript dunia nyata, dan pembaruan untuk TypeScript 7. Tersedia untuk Kindle dan dalam bentuk buku cetak.',
+		coverAlt: 'Sampul The Concise TypeScript Book Plus Edition',
+		topBanner: {
+			ariaLabel: 'Pengumuman Plus Edition baru',
+			badge: 'Edisi berbayar baru',
+			strong: 'Kuasai TypeScript 7',
+			message: 'React + pola dunia nyata',
+			action: 'Jelajahi Plus Edition',
+		},
+		home: {
+			ariaLabel: 'Pelajari lebih lanjut tentang The Concise TypeScript Book Plus Edition',
+			eyebrow: 'Edisi berbayar baru · TypeScript 7',
+			title: 'Terapkan TypeScript dalam proyek nyata',
+			description:
+				'Plus Edition memperluas buku gratis dan sumber terbuka ini dengan materi praktis yang paling banyak diminta pengembang: React dengan TypeScript dan pola yang dapat digunakan kembali untuk kode produksi.',
+			items: [
+				['React dengan TypeScript:', 'komponen, props, hooks, event, refs, dan pola komponen yang dapat diskalakan.'],
+				['Pola TypeScript dunia nyata:', 'pendekatan praktis untuk aplikasi yang lebih aman, lebih jelas, dan mudah dipelihara.'],
+				['TypeScript 7:', 'pembahasan ringkas dari dasar hingga teknik sistem tipe tingkat lanjut.'],
+			],
+			action: 'Lihat isinya',
+			availability: 'Tersedia untuk Kindle dan dalam bentuk buku cetak',
+		},
+		sidebar: {
+			coverCta: 'Sampul Plus Edition',
+			eyebrow: 'Plus Edition',
+			title: 'Melangkah lebih jauh dari buku gratis',
+			description: 'Panduan React eksklusif dan pola praktis dunia nyata, diperbarui untuk TypeScript 7.',
+			formats: 'Kindle dan buku cetak',
+			action: 'Jelajahi buku',
+			ariaLabel: 'Jelajahi The Concise TypeScript Book Plus Edition',
+		},
+		landing: {
+			heroEyebrow: 'Edisi berbayar dan diperluas · Diperbarui untuk TypeScript 7',
+			title: PLUS_EDITION.titles.en,
+			lead:
+				'Panduan TypeScript 7 yang ringkas dan praktis, diperluas dengan bab eksklusif yang menghubungkan sistem tipe dengan pekerjaan Anda sehari-hari.',
+			primaryAction: 'Pilih Kindle atau buku cetak',
+			secondaryAction: 'Lihat yang baru',
+			availability: 'Edisi bahasa Inggris dan Italia · Tersedia di seluruh dunia melalui Amazon',
+			introEyebrow: 'Dari memahami TypeScript hingga menggunakannya dengan baik',
+			introTitle: 'Konten baru yang dibuat untuk proyek nyata',
+			introText:
+				'Plus Edition dikembangkan dari The Concise TypeScript Book, buku sumber terbuka yang banyak dibaca. Edisi ini mempertahankan penjelasan langsung dan contoh yang terfokus, lalu membahas lebih jauh dua bidang penting yang hanya tersedia dalam edisi berbayar ini.',
+			featureAriaLabel: 'Konten eksklusif Plus Edition',
+			exclusiveContent: 'Konten Eksklusif',
+			features: [
+				{
+					title: 'TypeScript dengan React',
+					description:
+						'Beralihlah dengan percaya diri dari tipe komponen dasar ke pola yang tetap jelas seiring berkembangnya aplikasi React.',
+					items: [
+						'Komponen, props, children, dan event',
+						'Hooks, refs, dan abstraksi yang dapat digunakan kembali',
+						'Discriminated union dan komponen generik',
+						'Pola praktis untuk API komponen yang lebih aman',
+					],
+				},
+				{
+					title: 'Pola dunia nyata',
+					description:
+						'Lihat bagaimana fitur lanjutan TypeScript dipadukan untuk menyelesaikan masalah desain aplikasi yang berulang.',
+					items: [
+						'Tipe domain yang ekspresif dan mudah dipelihara',
+						'Batas yang lebih aman dan penanganan kesalahan',
+						'Peta tipe dan pola factory yang dapat digunakan kembali',
+						'Teknik yang dapat Anda adaptasi untuk kode produksi',
+					],
+				},
+			],
+			whyEyebrow: 'Ringkas secara sengaja',
+			whyTitle: 'Lebih mendalam secara praktis, tanpa basa-basi',
+			whyItems: [
+				['Terkini', 'Diperbarui untuk TypeScript 7, dari konsep bahasa yang penting hingga teknik sistem tipe tingkat lanjut.'],
+				['Praktis', 'Penjelasan singkat dan contoh terfokus yang dirancang agar dapat langsung diterapkan dalam pengembangan sehari-hari.'],
+				['Berguna untuk semua tingkat', 'Pengantar terstruktur bagi pengembang TypeScript baru dan referensi cepat bagi engineer berpengalaman.'],
+			],
+			audienceEyebrow: 'Untuk siapa buku ini',
+			audienceTitle: 'Pengembang yang mencari kejelasan dan penerapan praktis',
+			audienceText:
+				'Pilih Plus Edition jika Anda menginginkan satu sumber terfokus untuk mempelajari TypeScript modern, memberi tipe pada React secara efektif, dan menerapkan bahasa ini pada masalah desain yang realistis. Pemahaman tentang JavaScript akan membantu, tetapi pengalaman TypeScript yang mendalam tidak diperlukan.',
+			trustEyebrow: 'Dipercaya oleh pengembang',
+			trustTitle: 'Dikembangkan dari buku TypeScript sumber terbuka yang populer',
+			trustText:
+				'Edisi gratis ini memiliki lebih dari 10.000 bintang di GitHub dan digunakan oleh banyak pengembang TypeScript. Plus Edition ditulis oleh Simone Poggiali, yang membawa 20 tahun pengalaman kerja internasional ke dalam panduan React praktis dan pola TypeScript dunia nyata.',
+		},
+		amazon: {
+			eyebrow: 'Pilih format Anda',
+			title: 'Dapatkan Plus Edition di Amazon',
+			editionLabel: 'Edisi',
+			kindle: 'Edisi Kindle',
+			paperback: 'Buku cetak',
+			buyOn: 'Beli di',
+			detected: 'Kami akan menggunakan bahasa dan wilayah browser Anda untuk membuka edisi dan toko Amazon yang paling sesuai.',
 		},
 	},
 } as const;

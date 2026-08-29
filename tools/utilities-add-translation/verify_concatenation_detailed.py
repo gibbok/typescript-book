@@ -23,7 +23,8 @@ def verify_concatenation_detailed(directory, language_ext):
         'RU': 'ru_RU',
         'JA': 'ja_JP',
         'KO': 'ko_KR',
-        'ZH': 'zh_CN'
+        'ZH': 'zh_CN',
+        'ID': 'id_ID'
     }
     
     iso_code = lang_map.get(language_ext.upper(), language_ext)

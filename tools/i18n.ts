@@ -9,7 +9,8 @@ export enum Language {
     ja_JP = 'ja_JP',
     fr_FR = 'fr_FR',
     ko_KR = 'ko_KR',
+    id_ID = 'id_ID',
 }
-export type Languages = [Language.en_EN, Language.zh_CN, Language.it_IT, Language.pt_BR, Language.sv_SE, Language.bg_BG, Language.es_ES, Language.ja_JP, Language.fr_FR, Language.ko_KR]
+export type Languages = [Language.en_EN, Language.zh_CN, Language.it_IT, Language.pt_BR, Language.sv_SE, Language.bg_BG, Language.es_ES, Language.ja_JP, Language.fr_FR, Language.ko_KR, Language.id_ID]
 
-export const languages: Languages = [Language.en_EN, Language.zh_CN, Language.it_IT, Language.pt_BR, Language.sv_SE, Language.bg_BG, Language.es_ES, Language.ja_JP, Language.fr_FR, Language.ko_KR]
+export const languages: Languages = [Language.en_EN, Language.zh_CN, Language.it_IT, Language.pt_BR, Language.sv_SE, Language.bg_BG, Language.es_ES, Language.ja_JP, Language.fr_FR, Language.ko_KR, Language.id_ID]

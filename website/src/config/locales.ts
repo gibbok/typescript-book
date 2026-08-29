@@ -41,6 +41,10 @@ export const locales = {
     label: '한국어',
     lang: 'ko-KR',
   },
+  'id-id': {
+    label: 'Bahasa Indonesia',
+    lang: 'id-ID',
+  },
 } as const;
 
 export type Locale = keyof typeof locales;
