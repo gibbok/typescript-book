@@ -22,3 +22,5 @@
 
 [한국어](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
 
+[인도네시아어](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
+
