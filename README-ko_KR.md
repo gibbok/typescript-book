@@ -1,6 +1,6 @@
 # The Concise TypeScript Book
 
-The Concise TypeScript Book은 TypeScript의 기능을 포괄적이면서도 간결하게 설명합니다. 강력한 타입 시스템부터 고급 기능까지 최신 버전 언어의 모든 측면을 명확하게 다룹니다.
+The Concise TypeScript Book은 TypeScript의 기능을 포괄적이면서도 간결하게 설명합니다. 강력한 타입 시스템부터 고급 기능까지 최신 버전의 언어의 모든 측면을 명확하게 다룹니다.
 
 초보자든 숙련된 개발자든, 이 책은 TypeScript에 대한 이해와 숙련도를 높이는 데 매우 유용한 자료입니다.
 
@@ -539,7 +539,7 @@ yarn add typescript --dev
 
 모든 팀원이 같은 TypeScript 버전을 사용하도록 생성된 lockfile을 커밋해야 합니다.
 
-TypeScript 컴파일러를 실행하려면 다음 명령을 사용할 수 있습니다
+TypeScript 컴파일러를 실행하려면 다음 명령을 사용할 수 있습니다.
 
 ```shell
 npx tsc
@@ -603,7 +603,7 @@ tsconfig.json 파일은 TypeScript 컴파일러(tsc)를 구성하는 데 사용�
 
 참고:
 
-* tsconfig.json은 json 형식이지만 주석을 허용합니다.
+* tsconfig.json은 JSON 형식이지만 주석을 허용합니다.
 * 명령줄 옵션 대신 이 구성 파일을 사용하는 것이 좋습니다.
 
 다음 링크에서 전체 문서와 해당 스키마를 확인할 수 있습니다.
