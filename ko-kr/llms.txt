@@ -1,0 +1,79 @@
+﻿# TypeScript Book
+
+> The Concise TypeScript Book
+
+## Documentation
+
+- [저자 소개](https://gibbok.github.io/typescript-book/ko-kr/book/about-the-author/index.md): Simone Poggiali는 90년대부터 전문가 수준의 코드 작성에 열정을 쏟아 온 숙련된 Staff Engineer입니다. 그는 국제적인 경력을 쌓는 동안 스타트업부터 대규모 조직까지 다양한 고객을 위한 수많은 프로젝트에 기여했습니다. HelloFresh, Siemens, O2, Leroy Merlin, Snowplow와 같은 유명 기업들이 그의 전문성과 헌신 덕분에 많은 도움을 받았습니다.
+- [Any 타입](https://gibbok.github.io/typescript-book/ko-kr/book/any-type/index.md): any 타입은 모든 종류의 값(원시 값, 객체, 배열, 함수, 오류, 심볼)을 나타내는 데 사용할 수 있는 특수 타입(범용 슈퍼타입)입니다. 값의 타입을 컴파일 시점에 알 수 없거나 TypeScript 타입 정의가 없는 외부 API 또는 라이브러리의 값을 다룰 때 자주 사용됩니다.
+- [할당](https://gibbok.github.io/typescript-book/ko-kr/book/assignments/index.md): 할당을 통한 TypeScript 좁히기는 변수에 할당된 값을 바탕으로 변수의 타입을 좁히는 방법입니다. 변수에 값이 할당되면 TypeScript는 할당된 값을 바탕으로 타입을 추론하고 추론된 타입과 일치하도록 변수의 타입을 좁힙니다.
+- [내장 원시 타입](https://gibbok.github.io/typescript-book/ko-kr/book/built-in-type-primitives/index.md): TypeScript에는 변수, 함수 매개변수, 반환 타입을 정의하는 데 사용할 수 있는 여러 기본 제공 원시 타입이 있습니다.
+- [클래스](https://gibbok.github.io/typescript-book/ko-kr/book/class/index.md): 클래스 공통 구문
+- [일반적인 내장 JS 객체](https://gibbok.github.io/typescript-book/ko-kr/book/common-built-in-js-objects/index.md): TypeScript는 JavaScript의 상위 집합이며 일반적으로 사용되는 모든 기본 제공 JavaScript 객체를 포함합니다. Mozilla Developer Network(MDN) 문서 웹사이트에서 이러한 객체의 전체 목록을 확인할 수 있습니다. $1
+- [조건부 타입](https://gibbok.github.io/typescript-book/ko-kr/book/conditional-types/index.md): 조건부 타입은 조건에 따라 타입을 만드는 방법으로, 조건의 결과에 따라 생성할 타입이 결정됩니다. extends 키워드와 삼항 연산자를 사용하여 두 타입 중 하나를 조건부로 선택하도록 정의합니다.
+- [제어 흐름 분석](https://gibbok.github.io/typescript-book/ko-kr/book/control-flow-analysis/index.md): TypeScript의 제어 흐름 분석은 변수의 타입을 추론하기 위해 코드 흐름을 정적으로 분석하는 방법으로, 컴파일러가 분석 결과를 바탕으로 필요에 따라 해당 변수의 타입을 좁힐 수 있게 해줍니다.
+- [타입과 인터페이스의 차이점](https://gibbok.github.io/typescript-book/ko-kr/book/differences-between-type-and-interface/index.md): 선언 병합(보강):
+- [판별 유니온](https://gibbok.github.io/typescript-book/ko-kr/book/discriminated-unions/index.md): TypeScript의 판별 유니온은 판별자라고 하는 공통 프로퍼티를 사용하여 유니온에서 가능한 타입의 집합을 좁히는 유니온 타입입니다.
+- [분배 조건부 타입](https://gibbok.github.io/typescript-book/ko-kr/book/distributive-conditional-types/index.md): 분배 조건부 타입은 유니온의 각 멤버에 변환을 개별적으로 적용하여 타입을 타입 유니온 전체에 분배할 수 있게 하는 기능입니다. 이는 매핑된 타입이나 고차 타입을 다룰 때 특히 유용할 수 있습니다.
+- [다운로드 및 웹사이트](https://gibbok.github.io/typescript-book/ko-kr/book/downloads-and-website/index.md): EPUB 버전도 다운로드할 수 있습니다.
+- [열거형](https://gibbok.github.io/typescript-book/ko-kr/book/enums/index.md): TypeScript에서 enum은 이름이 지정된 상숫값의 집합입니다.
+- [소거된 구조적 타입](https://gibbok.github.io/typescript-book/ko-kr/book/erased-structural-types/index.md): TypeScript에서 객체가 특정 타입과 정확히 일치할 필요는 없습니다. 예를 들어 인터페이스의 요구 사항을 충족하는 객체를 만들면, 객체와 해당 인터페이스 사이에 명시적인 연결이 없더라도 그 인터페이스가 필요한 곳에서 해당 객체를 사용할 수 있습니다. 예제:
+- [완전성 검사](https://gibbok.github.io/typescript-book/ko-kr/book/exhaustiveness-checking/index.md): 완전성 검사는 판별 유니온에서 가능한 모든 경우가 switch 문이나 if 문에서 처리되도록 보장하는 TypeScript 기능입니다.
+- [타입 시스템 살펴보기](https://gibbok.github.io/typescript-book/ko-kr/book/exploring-the-type-system/index.md): TypeScript 언어 서비스
+- [타입 확장](https://gibbok.github.io/typescript-book/ko-kr/book/extending-types/index.md): interface를 확장할 수 있습니다(다른 타입에서 멤버를 복사합니다).
+- [고정 길이 튜플](https://gibbok.github.io/typescript-book/ko-kr/book/fixed-length-tuple/index.md): 고정 길이 튜플은 특정 타입을 가진 요소의 개수를 고정하고, 한 번 정의한 후에는 튜플의 길이를 수정하지 못하게 하는 특정 종류의 튜플입니다.
+- [제네릭](https://gibbok.github.io/typescript-book/ko-kr/book/generics/index.md): 제네릭을 사용하면 여러 타입과 함께 동작할 수 있는 재사용 가능한 컴포넌트와 함수를 만들 수 있습니다. 제네릭을 사용하면 타입, 함수, 인터페이스를 매개변수화하여 사전에 타입을 명시적으로 지정하지 않고도 여러 타입을 대상으로 동작하게 할 수 있습니다.
+- [TypeScript 시작하기](https://gibbok.github.io/typescript-book/ko-kr/book/getting-started-with-typescript/index.md): 설치
+- [인덱스 시그니처](https://gibbok.github.io/typescript-book/ko-kr/book/index-signatures/index.md): TypeScript에서는 string, number, symbol을 인덱스 시그니처로 사용할 수 있습니다.
+- [조건부 타입의 infer 타입 추론](https://gibbok.github.io/typescript-book/ko-kr/book/infer-type-inference-in-conditional-types/index.md): infer 키워드는 조건부 타입에서 해당 타입에 의존하는 제네릭 매개변수의 타입을 추론(추출)하는 데 사용됩니다. 이를 통해 더 유연하고 재사용 가능한 타입 정의를 작성할 수 있습니다.
+- [인터페이스와 타입](https://gibbok.github.io/typescript-book/ko-kr/book/interface-and-type/index.md): 공통 구문
+- [인터섹션 타입](https://gibbok.github.io/typescript-book/ko-kr/book/intersection-types/index.md): 인터섹션 타입은 둘 이상의 타입이 가진 모든 프로퍼티를 포함하는 값을 나타내는 타입입니다. 인터섹션 타입은 각 타입 사이에 & 기호를 사용하여 표기합니다.
+- [소개](https://gibbok.github.io/typescript-book/ko-kr/book/introduction/index.md): The Concise TypeScript Book에 오신 것을 환영합니다! 이 가이드는 효과적인 TypeScript 개발에 필요한 필수 지식과 실무 기술을 제공합니다. 깔끔하고 견고한 코드를 작성하기 위한 핵심 개념과 기법을 알아보세요. 초보자든 숙련된 개발자든, 이 책은 프로젝트에서 TypeScript의 강력한 기능을 활용하는 데 도움이 되는 종합 안내서이자 편리한 참고 자료입니다.
+- [리터럴 추론](https://gibbok.github.io/typescript-book/ko-kr/book/literal-inference/index.md): 리터럴 추론은 변수나 매개변수의 값을 바탕으로 타입을 추론할 수 있게 해주는 TypeScript 기능입니다.
+- [리터럴 타입](https://gibbok.github.io/typescript-book/ko-kr/book/literal-types/index.md): 리터럴 타입은 집합 타입 내에서 하나의 요소만 포함하는 집합으로, JavaScript 원시 값 하나를 정확하게 정의합니다.
+- [매핑된 타입 수정자](https://gibbok.github.io/typescript-book/ko-kr/book/mapped-type-modifiers/index.md): TypeScript의 매핑된 타입 수정자를 사용하면 기존 타입 내의 프로퍼티를 변환할 수 있습니다.
+- [매핑된 타입](https://gibbok.github.io/typescript-book/ko-kr/book/mapped-types/index.md): TypeScript의 매핑된 타입을 사용하면 매핑 함수를 통해 각 프로퍼티를 변환하여 기존 타입을 기반으로 새 타입을 만들 수 있습니다. 기존 타입을 매핑하면 같은 정보를 다른 형식으로 나타내는 새 타입을 만들 수 있습니다. 매핑된 타입을 만들려면 keyof 연산자를 사용하여 기존 타입의 프로퍼티에 접근한 다음 이를 변경해 새 타입을 생성합니다. 다음 예제에서는:
+- [병합과 확장](https://gibbok.github.io/typescript-book/ko-kr/book/merging-and-extension/index.md): 병합과 확장은 타입 및 인터페이스 작업과 관련된 서로 다른 두 개념을 가리킵니다.
+- [명명된 튜플 타입(레이블 지정)](https://gibbok.github.io/typescript-book/ko-kr/book/named-tuple-type-labeled/index.md): 튜플 타입은 각 요소에 선택적인 레이블이나 이름을 포함할 수 있습니다. 이러한 레이블은 가독성과 도구 지원을 위한 것이며, 튜플로 수행할 수 있는 연산에는 영향을 주지 않습니다.
+- [네임스페이스 지정](https://gibbok.github.io/typescript-book/ko-kr/book/namespacing/index.md): TypeScript에서 네임스페이스는 코드를 논리적 컨테이너로 구성하는 데 사용되며, 이름 충돌을 방지하고 관련 코드를 함께 그룹화할 수 있게 합니다. export 키워드를 사용하면 모듈 외부에서 네임스페이스에 접근할 수 있습니다.
+- [좁히기](https://gibbok.github.io/typescript-book/ko-kr/book/narrowing/index.md): TypeScript 좁히기는 조건부 블록 내에서 변수의 타입을 구체화하는 과정입니다. 변수가 둘 이상의 타입을 가질 수 있는 유니온 타입을 다룰 때 유용합니다.
+- [Never 타입](https://gibbok.github.io/typescript-book/ko-kr/book/never-type/index.md): never 타입은 절대 발생하지 않는 값을 나타냅니다. 절대 반환하지 않거나 오류를 던지는 함수 또는 표현식을 나타내는 데 사용됩니다.
+- [객체 타입](https://gibbok.github.io/typescript-book/ko-kr/book/object-types/index.md): TypeScript에서 객체 타입은 객체의 형태를 설명합니다. 객체 프로퍼티의 이름과 타입뿐만 아니라 해당 프로퍼티가 필수인지 선택 사항인지도 지정합니다.
+- [선택적 프로퍼티](https://gibbok.github.io/typescript-book/ko-kr/book/optional-properties/index.md): 객체는 프로퍼티 이름 끝에 물음표 ?를 추가하여 선택적 프로퍼티를 지정할 수 있습니다.
+- [기타](https://gibbok.github.io/typescript-book/ko-kr/book/others/index.md): 오류 및 예외 처리
+- [오버로드](https://gibbok.github.io/typescript-book/ko-kr/book/overloads/index.md): TypeScript의 함수 오버로드를 사용하면 하나의 함수 이름에 여러 함수 시그니처를 정의할 수 있어, 여러 방식으로 호출할 수 있는 함수를 정의할 수 있습니다. 다음은 예제입니다.
+- [미리 정의된 조건부 타입](https://gibbok.github.io/typescript-book/ko-kr/book/predefined-conditional-types/index.md): TypeScript에서 미리 정의된 조건부 타입은 언어에서 제공하는 기본 제공 조건부 타입입니다. 주어진 타입의 특성에 따라 일반적인 타입 변환을 수행하도록 설계되었습니다.
+- [원시 타입](https://gibbok.github.io/typescript-book/ko-kr/book/primitive-types/index.md): TypeScript는 7가지 원시 타입을 지원합니다. 원시 데이터 타입은 객체가 아니며 관련된 메서드가 없는 타입을 의미합니다. TypeScript에서 모든 원시 타입은 불변이므로 값이 할당된 후에는 변경할 수 없습니다.
+- [읽기 전용 프로퍼티](https://gibbok.github.io/typescript-book/ko-kr/book/readonly-properties/index.md): readonly 수정자를 사용하면 프로퍼티에 값을 쓰지 못하게 할 수 있습니다. 이 수정자는 프로퍼티를 다시 쓸 수 없도록 보장하지만 완전한 불변성을 보장하지는 않습니다.
+- [strictNullChecks](https://gibbok.github.io/typescript-book/ko-kr/book/strictnullchecks/index.md): strictNullChecks는 엄격한 null 검사를 적용하는 TypeScript 컴파일러 옵션입니다. 이 옵션을 활성화하면 유니온 타입 null | undefined를 사용해 해당 타입으로 명시적으로 선언한 변수와 매개변수에만 null 또는 undefined를 할당할 수 있습니다. 변수나 매개변수를 nullable로 명시적으로 선언하지 않으면 잠재적인 런타임 오류를 방지하기 위해 TypeScript가 오류를 생성합니다.
+- [프로젝트 후원하기](https://gibbok.github.io/typescript-book/ko-kr/book/support-the-project/index.md): 무료 도서가 버그를 수정하거나 어려운 개념을 이해하거나 경력을 발전시키는 데 도움이 되었다면, 권장 후원 금액인 $5 를 참고해 원하는 금액을 후원하거나 커피 한 잔을 사 주는 방식으로 제 작업을 지원해 주세요.
+- [심볼](https://gibbok.github.io/typescript-book/ko-kr/book/symbols/index.md): 심볼은 프로그램이 실행되는 동안 전역적으로 고유함이 보장되는 불변 값을 나타내는 원시 데이터 타입입니다.
+- [목차](https://gibbok.github.io/typescript-book/ko-kr/book/table-of-contents/index.md): 목차
+- [템플릿 유니온 타입](https://gibbok.github.io/typescript-book/ko-kr/book/template-union-types/index.md): 템플릿 유니온 타입을 사용하면 타입 시스템 안에서 텍스트를 병합하고 조작할 수 있습니다. 예를 들면 다음과 같습니다.
+- [The Concise TypeScript Book](https://gibbok.github.io/typescript-book/ko-kr/book/the-concise-typescript-book/index.md): The Concise TypeScript Book은 TypeScript의 기능을 포괄적이면서도 간결하게 설명합니다. 강력한 타입 시스템부터 고급 기능까지 최신 버전의 언어가 제공하는 모든 측면을 명확하게 다룹니다.
+- [never 타입에 대하여](https://gibbok.github.io/typescript-book/ko-kr/book/the-never-type/index.md): 변수의 타입이 어떤 값도 포함할 수 없는 타입으로 좁혀지면 TypeScript 컴파일러는 해당 변수가 never 타입이어야 한다고 추론합니다. never 타입은 절대 생성될 수 없는 값을 나타내기 때문입니다.
+- [번역](https://gibbok.github.io/typescript-book/ko-kr/book/translations/index.md): 이 책은 다음을 포함한 여러 언어로 번역되었습니다.
+- [트리플 슬래시 지시문](https://gibbok.github.io/typescript-book/ko-kr/book/triple-slash-directives/index.md): 트리플 슬래시 지시문은 컴파일러에 파일 처리 방법을 지시하는 특별한 주석입니다. 이러한 지시문은 연속된 세 개의 슬래시(///)로 시작하며 일반적으로 TypeScript 파일의 맨 위에 배치되고 런타임 동작에는 영향을 주지 않습니다.
+- [튜플 타입(익명)](https://gibbok.github.io/typescript-book/ko-kr/book/tuple-type-anonymous/index.md): 튜플 타입은 고정된 개수의 요소와 각 요소에 해당하는 타입을 나타내는 배열 타입입니다. 튜플 타입은 특정 개수의 요소와 각 요소의 타입을 고정된 순서로 강제합니다. 튜플 타입은 각 배열 요소의 위치에 특정 의미가 있는, 특정 타입의 값 모음을 나타내고자 할 때 유용합니다.
+- [타입 어노테이션](https://gibbok.github.io/typescript-book/ko-kr/book/type-annotations/index.md): var, let, const를 사용하여 선언한 변수에는 선택적으로 타입을 추가할 수 있습니다.
+- [함수 반환값에서 타입 얻기](https://gibbok.github.io/typescript-book/ko-kr/book/type-from-func-return/index.md): 함수 반환값으로부터 타입 얻기란 함수의 구현을 바탕으로 반환 타입을 자동으로 추론하는 기능을 의미합니다. 이를 통해 TypeScript는 명시적인 타입 어노테이션 없이 함수가 반환하는 값의 타입을 결정할 수 있습니다.
+- [모듈에서 타입 얻기](https://gibbok.github.io/typescript-book/ko-kr/book/type-from-module/index.md): 모듈로부터 타입 얻기란 모듈에서 내보낸 값을 사용하여 해당 타입을 자동으로 추론하는 기능을 의미합니다. 모듈이 특정 타입의 값을 내보내면 TypeScript는 그 정보를 사용하여 해당 값을 다른 모듈로 가져올 때 값의 타입을 자동으로 추론할 수 있습니다.
+- [값에서 타입 얻기](https://gibbok.github.io/typescript-book/ko-kr/book/type-from-value/index.md): TypeScript에서 값으로부터 타입 얻기란 타입 추론을 통해 값이나 표현식에서 타입을 자동으로 추론하는 것을 의미합니다.
+- [타입 인덱싱](https://gibbok.github.io/typescript-book/ko-kr/book/type-indexing/index.md): 타입 인덱싱은 명시적으로 선언되지 않은 프로퍼티의 타입을 지정하는 인덱스 시그니처를 사용하여 미리 알 수 없는 키로 인덱싱할 수 있는 타입을 정의하는 기능을 의미합니다.
+- [타입 조작](https://gibbok.github.io/typescript-book/ko-kr/book/type-manipulation/index.md): 타입에서 타입 생성하기
+- [타입 술어](https://gibbok.github.io/typescript-book/ko-kr/book/type-predicates/index.md): TypeScript의 타입 술어는 불리언 값을 반환하고 변수의 타입을 더 구체적인 타입으로 좁히는 데 사용되는 함수입니다.
+- [TypeScript 소개](https://gibbok.github.io/typescript-book/ko-kr/book/typescript-introduction/index.md): TypeScript란?
+- [유니온 타입](https://gibbok.github.io/typescript-book/ko-kr/book/union-type/index.md): 유니온 타입은 여러 타입 중 하나일 수 있는 값을 나타내는 타입입니다. 유니온 타입은 가능한 각 타입 사이에 | 기호를 사용하여 표기합니다.
+- [Unknown 타입](https://gibbok.github.io/typescript-book/ko-kr/book/unknown-type/index.md): TypeScript에서 unknown 타입은 타입을 알 수 없는 값을 나타냅니다. 모든 타입의 값을 허용하는 any 타입과 달리, unknown은 특정 방식으로 사용하기 전에 타입 검사 또는 단언이 필요하므로, 더 구체적인 타입으로 먼저 단언하거나 좁히지 않으면 unknown에 어떠한 연산도 수행할 수 없습니다.
+- [Void 타입](https://gibbok.github.io/typescript-book/ko-kr/book/void-type/index.md): void 타입은 함수가 값을 반환하지 않음을 나타내는 데 사용됩니다.
+- [TypeScript Book](https://gibbok.github.io/typescript-book/ko-kr/index.md): The Concise TypeScript Book
+- [The Concise TypeScript Book Plus Edition — TypeScript 7을 위한 React와 실전 패턴](https://gibbok.github.io/typescript-book/ko-kr/plus-edition/index.md): The Concise TypeScript Book의 유료 확장판으로, 독점 React 가이드, 실전 TypeScript 패턴, TypeScript 7에 맞게 업데이트된 내용을 담았습니다. Kindle과 종이책으로 제공됩니다.
+- [TypeScript 7이 유니언과 인터섹션에서 setter 접근성을 수정했습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-fixes-setter-accessibility/index.md): 네이티브 검사기는 이제 유니언과 인터섹션 속성에서 setter 접근성을 getter 접근성과 별도로 준수합니다.
+- [TypeScript 7이 Go to Implementation의 메모리 사용을 개선했습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-go-to-implementation-memory-fix/index.md): 네이티브 언어 서비스 수정으로 규모가 크고 타입이 깊게 중첩된 프로젝트에서 구현을 찾을 때 메모리 사용량이 이차적으로 증가하는 것을 방지합니다.
+- [TypeScript 7 네이티브 API에 emit 메서드가 추가되었습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-native-api-adds-emit-methods/index.md): 네이티브 TypeScript API에 전체 프로그램과 선택한 JavaScript 또는 선언 출력을 위한 파일 시스템 및 인메모리 emit 메서드가 추가되었습니다.
+- [TypeScript 7 네이티브 도구가 통합되고 있습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-native-tooling-consolidates/index.md): TypeScript 유지관리자들은 tsgo 이름이 사라지고, 네이티브 코드베이스가 기본 TypeScript 저장소로 돌아가며, 네이티브 VS Code 확장 프로그램이 번들로 제공될 것이라고 설명했습니다.
+- [TypeScript 7이 파일 변경 후 구성 진단을 새로 고칩니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-refreshes-config-diagnostics/index.md): 이제 네이티브 언어 서비스는 감시 중인 구성 파일이 변경된 후 tsconfig.json 및 jsconfig.json 오류를 다시 게시합니다.
+- [TypeScript 7.0 릴리스 후보가 발표되었습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-release-candidate/index.md): TypeScript 7.0 릴리스 후보는 네이티브 컴파일러, 병렬 빌드, 호환성 변경 사항, 확장된 편집기 지원을 미리 선보였습니다.
+- [TypeScript 7.0을 사용할 수 있습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-released/index.md): TypeScript 7.0에는 네이티브 Go 기반 컴파일러와 언어 서비스가 도입되어 빌드와 편집기의 성능이 크게 향상되었습니다.
+- [TypeScript 7에 워크스페이스 심볼 검색 범위가 추가되었습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-workspace-symbol-search-scope/index.md): 네이티브 언어 서비스에 워크스페이스 심볼 검색을 현재 프로젝트로 제한할 수 있는 설정이 추가되었습니다.
+- [TypeScript 뉴스](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/index.md): TypeScript 개발자를 위한 최신 공식 TypeScript 릴리스, 발표, 변경 사항의 간결한 요약입니다.
