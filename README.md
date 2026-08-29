@@ -60,6 +60,10 @@ This book has been translated into several languages, including:
 
 [French](https://github.com/gibbok/typescript-book/blob/main/README-fr_FR.md)
 
+[Japanese](https://github.com/gibbok/typescript-book/blob/main/README-ja_JP.md)
+
+[Korean](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
+
 ## Downloads and website
 
 You can also download the EPUB version:

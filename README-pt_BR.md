@@ -54,7 +54,15 @@ Este livro foi traduzido para vários idiomas, incluindo:
 
 [Sueco](https://github.com/gibbok/typescript-book/blob/main/README-sv_SE.md)
 
+[Búlgaro](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
+
 [Espanhol](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
+[Francês](https://github.com/gibbok/typescript-book/blob/main/README-fr_FR.md)
+
+[Japonês](https://github.com/gibbok/typescript-book/blob/main/README-ja_JP.md)
+
+[Coreano](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
 
 ## Downloads e site
 

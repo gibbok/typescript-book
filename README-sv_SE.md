@@ -58,6 +58,12 @@ Denna bok har översatts till flera språkversioner, inklusive:
 
 [Spanska](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
 
+[Franska](https://github.com/gibbok/typescript-book/blob/main/README-fr_FR.md)
+
+[Japanska](https://github.com/gibbok/typescript-book/blob/main/README-ja_JP.md)
+
+[Koreanska](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
+
 ## Nedladdningar och webbplats
 
 Du kan också ladda ner EPUB-versionen:
