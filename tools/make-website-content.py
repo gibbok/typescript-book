@@ -45,6 +45,9 @@ OUTPUT_DIR_PATH_FR = "../website/src/content/docs/fr-fr/book"
 INPUT_FILE_PATH_KO = "../README-ko_KR.md"
 OUTPUT_DIR_PATH_KO = "../website/src/content/docs/ko-kr/book"
 
+INPUT_FILE_PATH_ID = "../README-id_ID.md"
+OUTPUT_DIR_PATH_ID = "../website/src/content/docs/id-id/book"
+
 
 def manage_output_dir(path: str) -> None:
     if os.path.exists(path):
@@ -282,3 +285,5 @@ process(INPUT_FILE_PATH, INPUT_FILE_PATH_JA, OUTPUT_DIR_PATH_JA)
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_FR, OUTPUT_DIR_PATH_FR)
 
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_KO, OUTPUT_DIR_PATH_KO)
+
+process(INPUT_FILE_PATH, INPUT_FILE_PATH_ID, OUTPUT_DIR_PATH_ID)
