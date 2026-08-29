@@ -43,7 +43,7 @@ TypeScript는 구문 측면에서 JavaScript(ECMAScript 2015)의 타입이 지�
 const sum = (a, b) => a + b;
 ```
 
-파일 확장자를 `.ts`로 변경하면 이 함수를 TypeScript로 변환하여 사용할 수 있습니다. 그러나 같은 함수에 TypeScript 타입을 어노테이션하면 컴파일하지 않고는 어떤 JavaScript 런타임에서도 실행할 수 없습니다. 다음 TypeScript 코드는 컴파일하지 않으면 구문 오류가 발생합니다.
+파일 확장자를 `.ts`로 변경하면 이 함수를 TypeScript로 변환하여 사용할 수 있습니다. 그러나 같은 함수에 TypeScript 타입 어노테이션을 추가하면 컴파일하지 않고는 어떤 JavaScript 런타임에서도 실행할 수 없습니다. 다음 TypeScript 코드는 컴파일하지 않으면 구문 오류가 발생합니다.
 
 <!-- skip -->
 ```typescript

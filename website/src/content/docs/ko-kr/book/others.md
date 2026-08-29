@@ -55,7 +55,7 @@ throw new CustomError('This is a custom error.');
 
 ### 믹스인 클래스
 
-믹스인 클래스를 사용하면 여러 클래스의 동작을 하나의 클래스로 결합하고 구성할 수 있습니다. 깊은 상속 체인 없이 기능을 재사용하고 확장하는 방법을 제공합니다.
+믹스인 클래스를 사용하면 여러 클래스의 동작을 하나의 클래스로 결합하고 구성할 수 있습니다. 깊은 상속 체인 없이 기능을 재사용하고 확장할 수 있습니다.
 
 ```typescript
 abstract class Identifiable {
@@ -232,7 +232,7 @@ power(10, 2); // function power(base: number, exponent: number): number
 
 ### @types
 
-@types 조직 아래의 패키지는 기존 JavaScript 라이브러리나 모듈의 타입 정의를 제공하기 위한 특별한 패키지 명명 규칙을 사용합니다. 예를 들어 다음을 사용하면:
+@types 조직 아래의 패키지는 기존 JavaScript 라이브러리나 모듈의 타입 정의를 제공하기 위한 특별한 패키지 이름 지정 규칙을 따릅니다. 예를 들어 다음을 사용하면:
 
 ```shell
 npm install --save-dev @types/lodash
@@ -640,7 +640,7 @@ TypeScript에서는 다음과 같습니다.
 
 공변성은 관계가 유지되는 것을 의미합니다. 타입 A가 타입 B의 하위 타입이면 `F<A>`도 `F<B>`의 하위 타입입니다. TypeScript에서는 반환 타입과 배열에서 흔히 나타납니다(다만 배열의 공변성은 완전히 타입 안전하지는 않습니다).
 
-반공변성은 관계가 반대로 바뀌는 것을 의미합니다. 타입 A가 타입 B의 하위 타입이면 `F<B>`가 `F<A>`의 하위 타입입니다. TypeScript에서 함수 매개변수 타입은 반공변적이도록 의도되어 있습니다. 즉, 더 넓은 타입을 허용하는 함수를 더 좁은 타입이 필요한 위치에서 사용할 수 있습니다.
+반공변성은 관계가 반대로 바뀌는 것을 의미합니다. 타입 A가 타입 B의 하위 타입이면 `F<B>`가 `F<A>`의 하위 타입입니다. TypeScript에서 함수 매개변수 타입은 반공변적으로 동작하도록 설계되어 있습니다. 즉, 더 넓은 타입을 허용하는 함수를 더 좁은 타입이 필요한 위치에서 사용할 수 있습니다.
 
 하지만 실제로 TypeScript는 함수 매개변수에 이변성을 허용하는 경우가 많습니다(`strictFunctionTypes`가 활성화된 경우는 제외). 따라서 엄격하게 타입 안전하지 않은 경우에도 양방향이 모두 허용될 수 있습니다.
 
@@ -838,7 +838,7 @@ export type { T } from './mod';
 
 참고:
 
-* TypeScript 버전 5.2에 최근 도입되었기 때문에 대부분의 런타임은 네이티브로 지원하지 않습니다. `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`에는 폴리필이 필요합니다.
+* TypeScript 5.2에 최근 도입된 기능이므로 대부분의 런타임은 네이티브로 지원하지 않습니다. `Symbol.dispose`, `Symbol.asyncDispose`, `DisposableStack`, `AsyncDisposableStack`, `SuppressedError`에는 폴리필이 필요합니다.
 * 또한 tsconfig.json을 다음과 같이 구성해야 합니다.
 
 ```json
