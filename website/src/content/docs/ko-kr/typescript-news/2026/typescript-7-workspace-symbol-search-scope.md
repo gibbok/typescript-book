@@ -1,0 +1,30 @@
+---
+title: TypeScript 7에 워크스페이스 심볼 검색 범위가 추가되었습니다
+description: 네이티브 언어 서비스에 워크스페이스 심볼 검색을 현재 프로젝트로 제한할 수 있는 설정이 추가되었습니다.
+lastUpdated: 2026-08-07
+sidebar:
+    order: 2
+head:
+    - tag: meta
+      attrs:
+          property: article:published_time
+          content: '2026-08-07'
+---
+
+**게시일:** 2026년 8월 7일
+
+Microsoft는 TypeScript의 네이티브 언어 서비스에 워크스페이스 심볼 검색 범위 기능을 병합했습니다.
+
+## 변경 사항
+
+새로운 `workspaceSymbols.scope` 기본 설정에는 두 가지 값이 있습니다. `allOpenProjects`가 기본값이며 모든 열린 프로젝트에서 심볼을 검색합니다. `currentProject`는 제공된 문서를 포함하는 프로젝트로 검색을 제한합니다.
+
+이제 네이티브 VS Code 확장 프로그램은 지원되는 TypeScript 또는 JavaScript 문서를 `workspace/symbol` 요청에 추가합니다. 활성 문서를 우선하며, 활성 문서가 없으면 열려 있는 지원 문서를 사용합니다. 언어 서비스는 `workspaceSymbols.scope`가 `currentProject`일 때만 해당 문서를 사용하고, 그 외에는 열린 모든 프로젝트 검색을 유지합니다.
+
+## 중요한 이유
+
+이름이 비슷한 심볼이 있는 여러 프로젝트를 포함하는 워크스페이스에서는 `currentProject`를 사용하여 결과 집합을 관련 프로젝트로 제한할 수 있습니다. 기본값은 기존 동작을 유지하므로 이 변경 사항은 명시적으로 선택해야 합니다.
+
+## 제공 시점
+
+이 변경 사항은 TypeScript 7.0 이후 네이티브 TypeScript 코드베이스에 병합되었습니다. 소스에는 이를 포함하는 안정적인 npm 버전이 명시되어 있지 않으므로, 이 설정을 사용하기 전에 설치된 버전의 릴리스 노트를 확인하세요.
