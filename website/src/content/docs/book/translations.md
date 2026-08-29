@@ -26,3 +26,5 @@ This book has been translated into several languages, including:
 
 [Korean](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
 
+[Indonesian](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
+

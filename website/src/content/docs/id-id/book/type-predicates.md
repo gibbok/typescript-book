@@ -20,7 +20,7 @@ const foo = (bar: unknown) => {
 };
 ```
 
-TypeScript 5.5 secara otomatis menginferensi predikat tipe (seperti `x is T`) dalam fungsi seperti `.filter`, sehingga TypeScript mengetahui ketika nilai seperti `undefined` dihapus—menghasilkan tipe yang lebih presisi dan lebih sedikit error; ini berlaku untuk pemeriksaan yang jelas (misalnya, `x !== undefined`), tetapi tidak untuk pemeriksaan ambigu seperti `!!x`.
+TypeScript 5.5 secara otomatis menginferensi predikat tipe (seperti `x is T`) dalam fungsi seperti `.filter`, sehingga TypeScript mengetahui ketika nilai seperti `undefined` dihapus—menghasilkan tipe yang lebih presisi dan lebih sedikit error. Ini berlaku untuk pemeriksaan yang jelas (misalnya, `x !== undefined`), tetapi tidak untuk pemeriksaan ambigu seperti `!!x`.
 
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);

@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Pengindeksan tipe mengacu pada kemampuan untuk mendefinisikan tipe yang dapat diindeks oleh key yang tidak diketahui sebelumnya, dengan menggunakan index signature untuk menentukan tipe bagi properti yang tidak dideklarasikan secara eksplisit.
+Pengindeksan tipe mengacu pada kemampuan untuk mendefinisikan tipe yang dapat diindeks oleh kunci yang tidak diketahui sebelumnya, dengan menggunakan index signature untuk menentukan tipe bagi properti yang tidak dideklarasikan secara eksplisit.
 
 ```typescript
 type Dictionary<T> = {

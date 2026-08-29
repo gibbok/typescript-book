@@ -24,5 +24,5 @@ const x: MyNewType = {
 };
 ```
 
-kita mendefinisikan `MyMappedType` untuk memetakan properti-properti `T`, sehingga menghasilkan tipe baru dengan setiap properti berupa array dari tipe aslinya. Dengan menggunakan ini, kita membuat `MyNewType` untuk merepresentasikan informasi yang sama seperti `MyType`, tetapi setiap propertinya berupa array.
+Kita mendefinisikan `MyMappedType` untuk memetakan properti-properti `T`, sehingga menghasilkan tipe baru dengan setiap properti berupa array dari tipe aslinya. Dengan menggunakan ini, kita membuat `MyNewType` untuk merepresentasikan informasi yang sama seperti `MyType`, tetapi setiap propertinya berupa array.
 

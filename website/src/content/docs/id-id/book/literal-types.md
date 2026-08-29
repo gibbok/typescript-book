@@ -18,7 +18,7 @@ const b = 1; // Numeric literal type
 const c = true; // Boolean literal type
 ```
 
-Tipe Literal String, Numerik, dan Boolean digunakan dalam union, type guard, dan type alias.
+Tipe literal string, numerik, dan boolean digunakan dalam union, type guard, dan type alias.
 Dalam contoh berikut, Anda dapat melihat sebuah type alias union. `O` hanya terdiri dari nilai-nilai yang ditentukan; string lain tidak valid:
 
 ```typescript

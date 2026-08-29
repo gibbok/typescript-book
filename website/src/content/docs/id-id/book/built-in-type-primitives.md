@@ -13,7 +13,7 @@ TypeScript memiliki beberapa tipe primitif bawaan yang dapat digunakan untuk men
 * `boolean`: Merepresentasikan nilai logika, yang dapat berupa true atau false.
 * `null`: Merepresentasikan ketiadaan nilai.
 * `undefined`: Merepresentasikan nilai yang belum ditetapkan atau belum didefinisikan.
-* `symbol`: Merepresentasikan pengidentifikasi unik. Symbol biasanya digunakan sebagai key untuk properti objek.
+* `symbol`: Merepresentasikan pengidentifikasi unik. Symbol biasanya digunakan sebagai kunci untuk properti objek.
 * `bigint`: Merepresentasikan bilangan bulat dengan presisi arbitrer.
 * `any`: Merepresentasikan tipe dinamis atau tidak diketahui. Variabel bertipe any dapat menampung nilai dari tipe apa pun dan melewati pemeriksaan tipe.
 * `void`: Merepresentasikan ketiadaan tipe apa pun. Tipe ini umumnya digunakan sebagai tipe kembalian fungsi yang tidak mengembalikan nilai.

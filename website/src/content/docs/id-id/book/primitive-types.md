@@ -62,7 +62,7 @@ Catatan:
 
 ### Symbol
 
-Symbol adalah pengidentifikasi unik yang dapat digunakan sebagai key properti dalam objek untuk mencegah konflik penamaan.
+Symbol adalah pengidentifikasi unik yang dapat digunakan sebagai kunci properti dalam objek untuk mencegah konflik penamaan.
 
 ```typescript
 type Obj = {

@@ -456,7 +456,7 @@ const x = {
 } as X;
 ```
 
-Dalam contoh di atas, object x diasersikan memiliki tipe X menggunakan kata kunci as. Ini memberi tahu compiler TypeScript bahwa object tersebut sesuai dengan tipe yang ditentukan meskipun memiliki properti tambahan b yang tidak terdapat dalam definisi tipe.
+Dalam contoh di atas, objek x diasersikan memiliki tipe X menggunakan kata kunci as. Ini memberi tahu compiler TypeScript bahwa objek tersebut sesuai dengan tipe yang ditentukan meskipun memiliki properti tambahan b yang tidak terdapat dalam definisi tipe.
 
 Asersi tipe berguna dalam situasi ketika tipe yang lebih spesifik perlu ditentukan, terutama saat bekerja dengan DOM. Misalnya:
 
@@ -465,7 +465,7 @@ const myInput = document.getElementById('my_input') as HTMLInputElement;
 ```
 
 Di sini, asersi tipe as HTMLInputElement digunakan untuk memberi tahu TypeScript bahwa hasil getElementById harus diperlakukan sebagai HTMLInputElement.
-Asersi tipe juga dapat digunakan untuk memetakan ulang key, seperti yang ditunjukkan dalam contoh di bawah dengan template literal:
+Asersi tipe juga dapat digunakan untuk memetakan ulang kunci, seperti yang ditunjukkan dalam contoh di bawah dengan template literal:
 
 ```typescript
 type J<Type> = {
@@ -479,13 +479,13 @@ type X = {
 type Y = J<X>;
 ```
 
-Dalam contoh ini, tipe `J<Type>` menggunakan mapped type dengan template literal untuk memetakan ulang key dari Type. Tipe tersebut membuat properti baru dengan "prefix_" yang ditambahkan ke setiap key, dan nilai terkaitnya adalah fungsi yang mengembalikan nilai properti asli.
+Dalam contoh ini, tipe `J<Type>` menggunakan mapped type dengan template literal untuk memetakan ulang kunci dari Type. Tipe tersebut membuat properti baru dengan "prefix_" yang ditambahkan ke setiap kunci, dan nilai terkaitnya adalah fungsi yang mengembalikan nilai properti asli.
 
-Perlu diperhatikan bahwa saat menggunakan asersi tipe, TypeScript tidak akan menjalankan pemeriksaan properti berlebih. Oleh karena itu, umumnya lebih baik menggunakan deklarasi tipe ketika struktur object telah diketahui sebelumnya.
+Perlu diperhatikan bahwa saat menggunakan asersi tipe, TypeScript tidak akan menjalankan pemeriksaan properti berlebih. Oleh karena itu, umumnya lebih baik menggunakan deklarasi tipe ketika struktur objek telah diketahui sebelumnya.
 
 #### Deklarasi Ambient
 
-Deklarasi ambient adalah file yang mendeskripsikan tipe untuk kode JavaScript; file tersebut memiliki format nama file `.d.ts.`. Deklarasi ini biasanya diimpor dan digunakan untuk memberikan anotasi pada pustaka JavaScript yang sudah ada atau untuk menambahkan tipe ke file JS yang sudah ada dalam proyek Anda.
+Deklarasi ambient adalah berkas yang mendeskripsikan tipe untuk kode JavaScript; berkas tersebut memiliki format nama berkas `.d.ts.`. Deklarasi ini biasanya diimpor dan digunakan untuk memberikan anotasi pada pustaka JavaScript yang sudah ada atau untuk menambahkan tipe ke berkas JS yang sudah ada dalam proyek Anda.
 
 Tipe untuk banyak pustaka umum dapat ditemukan di:
 [https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
@@ -509,9 +509,9 @@ Kata kunci `declare` memungkinkan definisi tipe untuk kode JavaScript yang sudah
 
 ### Pemeriksaan Properti dan Pemeriksaan Properti Berlebih
 
-TypeScript didasarkan pada sistem tipe struktural, tetapi pemeriksaan properti berlebih merupakan fitur TypeScript yang memungkinkannya memeriksa apakah suatu object memiliki properti persis seperti yang ditentukan dalam tipe.
+TypeScript didasarkan pada sistem tipe struktural, tetapi pemeriksaan properti berlebih merupakan fitur TypeScript yang memungkinkannya memeriksa apakah suatu objek memiliki properti persis seperti yang ditentukan dalam tipe.
 
-Pemeriksaan Properti Berlebih dilakukan ketika menetapkan object literal ke variabel atau ketika meneruskannya sebagai argumen ke properti berlebih fungsi, misalnya.
+Pemeriksaan Properti Berlebih dilakukan ketika menetapkan objek literal ke variabel atau ketika meneruskannya sebagai argumen ke properti berlebih fungsi, misalnya.
 
 <!-- skip -->
 ```typescript
@@ -574,11 +574,11 @@ fn({ c: 'c' }); // Valid
 
 ### Pemeriksaan Ketat Object Literal (Freshness)
 
-Pemeriksaan ketat object literal, yang terkadang disebut sebagai "freshness", adalah fitur dalam TypeScript yang membantu menemukan properti berlebih atau salah eja yang mungkin tidak terdeteksi dalam pemeriksaan tipe struktural biasa.
+Pemeriksaan ketat objek literal, yang terkadang disebut sebagai "freshness", adalah fitur dalam TypeScript yang membantu menemukan properti berlebih atau salah eja yang mungkin tidak terdeteksi dalam pemeriksaan tipe struktural biasa.
 
-Saat membuat object literal, compiler TypeScript menganggapnya "fresh". Jika object literal tersebut ditetapkan ke variabel atau diteruskan sebagai parameter, TypeScript akan menghasilkan error jika object literal menentukan properti yang tidak ada dalam tipe target.
+Saat membuat objek literal, compiler TypeScript menganggapnya "fresh". Jika objek literal tersebut ditetapkan ke variabel atau diteruskan sebagai parameter, TypeScript akan menghasilkan error jika objek literal menentukan properti yang tidak ada dalam tipe target.
 
-Namun, "freshness" hilang ketika object literal diperlebar atau asersi tipe digunakan.
+Namun, "freshness" hilang ketika objek literal diperlebar atau asersi tipe digunakan.
 
 Berikut beberapa contoh untuk menggambarkannya:
 
@@ -635,7 +635,7 @@ Jika compiler tidak dapat menemukan tipe umum terbaik, compiler mengembalikan un
 let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
 ```
 
-TypeScript menggunakan "contextual typing" berdasarkan lokasi variabel untuk menyimpulkan tipe. Dalam contoh berikut, compiler mengetahui bahwa `e` bertipe `MouseEvent` karena tipe event `click` didefinisikan dalam file lib.d.ts, yang berisi deklarasi ambient untuk berbagai konstruksi umum JavaScript dan DOM:
+TypeScript menggunakan "contextual typing" berdasarkan lokasi variabel untuk menyimpulkan tipe. Dalam contoh berikut, compiler mengetahui bahwa `e` bertipe `MouseEvent` karena tipe event `click` didefinisikan dalam berkas lib.d.ts, yang berisi deklarasi ambient untuk berbagai konstruksi umum JavaScript dan DOM:
 
 ```typescript
 window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
@@ -711,7 +711,7 @@ const v = {
 v.x = 3;
 ```
 
-Pada keseluruhan object:
+Pada keseluruhan objek:
 
 ```typescript
 const v = {
@@ -790,7 +790,7 @@ Cara lain untuk mempersempit tipe dalam TypeScript meliputi:
 
 #### Union Terdiskriminasi
 
-Menggunakan "Union Terdiskriminasi" adalah sebuah pola dalam TypeScript ketika sebuah "tag" eksplisit ditambahkan ke objek untuk membedakan berbagai tipe di dalam sebuah union. Pola ini juga disebut sebagai "tagged union". Dalam contoh berikut, "tag" direpresentasikan oleh properti "type":
+"Union Terdiskriminasi" merupakan pola dalam TypeScript ketika sebuah "tag" eksplisit ditambahkan ke objek untuk membedakan berbagai tipe di dalam sebuah union. Pola ini juga disebut sebagai "tagged union". Dalam contoh berikut, "tag" direpresentasikan oleh properti "type":
 
 ```typescript
 type A = { type: 'type_a'; value: number };

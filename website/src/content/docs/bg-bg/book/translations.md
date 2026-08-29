@@ -26,3 +26,5 @@ sidebar:
 
 [корейски](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
 
+[индонезийски](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
+

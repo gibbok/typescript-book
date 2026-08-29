@@ -55,7 +55,7 @@ throw new CustomError('This is a custom error.');
 
 ### Class Mixin
 
-Kelas mixin memungkinkan Anda menggabungkan dan menyusun perilaku dari beberapa kelas ke dalam satu kelas. Kelas ini menyediakan cara untuk menggunakan kembali dan memperluas fungsionalitas tanpa memerlukan rantai pewarisan yang mendalam.
+Class mixin memungkinkan Anda menggabungkan dan menyusun perilaku dari beberapa class ke dalam satu class. Class ini menyediakan cara untuk menggunakan kembali dan memperluas fungsionalitas tanpa memerlukan rantai pewarisan yang mendalam.
 
 ```typescript
 abstract class Identifiable {
@@ -904,7 +904,7 @@ Deklarasi `using` mencatat operasi disposal sumber daya dalam sebuah stack, sehi
 } // disposes `C`, then `B`, then `A`.
 ```
 
-Sumber daya dijamin akan di-dispose, bahkan jika kode berikutnya dijalankan atau terjadi exception. Hal ini dapat menyebabkan proses disposal memunculkan exception yang mungkin menekan exception lainnya. Untuk mempertahankan informasi tentang galat yang ditekan, exception bawaan baru, `SuppressedError`, diperkenalkan.
+Sumber daya dijamin akan di-dispose, bahkan jika kode berikutnya dijalankan atau terjadi exception. Hal ini dapat menyebabkan proses disposal memunculkan exception yang mungkin menyembunyikan exception lainnya. Untuk mempertahankan informasi tentang galat yang ditekan, exception bawaan baru, `SuppressedError`, diperkenalkan.
 
 #### Deklarasi await using
 

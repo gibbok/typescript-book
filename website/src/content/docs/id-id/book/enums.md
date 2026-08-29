@@ -73,7 +73,7 @@ console.log('EN' /* Language.English */);
 ```
 
 Catatan:
-Const Enum memiliki nilai hardcoded, yang menghapus Enum, sehingga dapat lebih efisien dalam library mandiri tetapi secara umum tidak diinginkan. Selain itu, const enum tidak dapat memiliki member yang dihitung.
+Const enum memiliki nilai hardcoded, yang menghapus enum, sehingga dapat lebih efisien dalam library mandiri tetapi secara umum tidak diinginkan. Selain itu, const enum tidak dapat memiliki member yang dihitung.
 
 ### Pemetaan balik
 
@@ -104,7 +104,7 @@ var Grade;
 })(Grade || (Grade = {}));
 ```
 
-Oleh karena itu, pemetaan nilai ke key berfungsi untuk anggota enum numerik, tetapi tidak untuk anggota enum string:
+Oleh karena itu, pemetaan nilai ke kunci berfungsi untuk anggota enum numerik, tetapi tidak untuk anggota enum string:
 
 <!-- skip -->
 ```typescript
@@ -125,7 +125,7 @@ console.log(Grade[failGrade]); // Element implicitly has an 'any' type because i
 
 ### Enum ambient
 
-Enum ambient dalam TypeScript adalah jenis Enum yang didefinisikan dalam file deklarasi (*.d.ts) tanpa implementasi terkait. Enum ini memungkinkan Anda menentukan sekumpulan konstanta bernama yang dapat digunakan secara type-safe di berbagai file tanpa harus mengimpor detail implementasi di setiap file.
+Enum ambient dalam TypeScript adalah jenis enum yang didefinisikan dalam berkas deklarasi (`*.d.ts`) tanpa implementasi terkait. Enum ini memungkinkan Anda menentukan sekumpulan konstanta bernama yang dapat digunakan dengan aman secara tipe di berbagai berkas tanpa harus mengimpor detail implementasi di setiap berkas.
 
 ### Anggota terkomputasi dan konstan
 

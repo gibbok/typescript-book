@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Generik memungkinkan Anda membuat komponen dan fungsi yang dapat digunakan kembali dan bekerja dengan berbagai tipe. Dengan generik, Anda dapat memparameterisasi tipe, fungsi, dan antarmuka, sehingga semuanya dapat beroperasi pada tipe yang berbeda tanpa perlu menentukannya secara eksplisit terlebih dahulu.
+Generik memungkinkan Anda membuat komponen dan fungsi yang dapat digunakan kembali dan bekerja dengan berbagai tipe. Dengan generik, Anda dapat memparametrisasi tipe, fungsi, dan antarmuka, sehingga semuanya dapat beroperasi pada tipe yang berbeda tanpa perlu menentukannya secara eksplisit terlebih dahulu.
 
 Generik memungkinkan Anda membuat kode yang lebih fleksibel dan dapat digunakan kembali.
 

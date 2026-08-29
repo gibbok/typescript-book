@@ -10,7 +10,7 @@ sidebar:
 
 TypeScript adalah bahasa pemrograman bertipe kuat yang dikembangkan berdasarkan JavaScript. Bahasa ini awalnya dirancang oleh Anders Hejlsberg pada tahun 2012 dan saat ini dikembangkan serta dipelihara oleh Microsoft sebagai proyek sumber terbuka.
 
-TypeScript dikompilasi menjadi JavaScript dan dapat dijalankan di runtime JavaScript apa pun (misalnya, browser atau Node.js pada server).
+TypeScript dikompilasi menjadi JavaScript dan dapat dijalankan dalam lingkungan runtime JavaScript apa pun (misalnya, browser atau Node.js pada server).
 
 TypeScript mendukung berbagai paradigma pemrograman seperti pemrograman fungsional, generic, imperatif, dan berorientasi objek, serta merupakan bahasa terkompilasi (ditranspilasi) yang dikonversi menjadi JavaScript sebelum dijalankan.
 
@@ -30,9 +30,9 @@ Beberapa manfaat TypeScript:
 
 ### TypeScript dan JavaScript
 
-TypeScript ditulis dalam berkas `.ts` atau `.tsx`, sedangkan berkas JavaScript ditulis dalam `.js` atau `.jsx`.
+TypeScript ditulis dalam berkas berekstensi `.ts` atau `.tsx`, sedangkan JavaScript ditulis dalam berkas berekstensi `.js` atau `.jsx`.
 
-Berkas dengan ekstensi `.tsx` atau `.jsx` dapat berisi Ekstensi Sintaks JavaScript JSX, yang digunakan dalam React untuk pengembangan UI.
+Berkas dengan ekstensi `.tsx` atau `.jsx` dapat berisi sintaks JSX untuk JavaScript, yang digunakan dalam React untuk pengembangan UI.
 
 TypeScript adalah superset bertipe dari JavaScript (ECMAScript 2015) dalam hal sintaks. Semua kode JavaScript merupakan kode TypeScript yang valid, tetapi kebalikannya tidak selalu berlaku.
 
@@ -43,7 +43,7 @@ Sebagai contoh, perhatikan sebuah fungsi dalam berkas JavaScript dengan ekstensi
 const sum = (a, b) => a + b;
 ```
 
-Fungsi tersebut dapat dikonversi dan digunakan dalam TypeScript dengan mengubah ekstensi berkas menjadi `.ts`. Namun, jika fungsi yang sama diberi anotasi tipe TypeScript, fungsi tersebut tidak dapat dijalankan di runtime JavaScript apa pun tanpa kompilasi. Kode TypeScript berikut akan menghasilkan error sintaks jika tidak dikompilasi:
+Fungsi tersebut dapat dikonversi dan digunakan dalam TypeScript dengan mengubah ekstensi berkas menjadi `.ts`. Namun, jika fungsi yang sama diberi anotasi tipe TypeScript, fungsi tersebut tidak dapat dijalankan dalam lingkungan runtime JavaScript apa pun tanpa kompilasi. Kode TypeScript berikut akan menghasilkan error sintaks jika tidak dikompilasi:
 
 <!-- skip -->
 ```typescript
@@ -83,11 +83,12 @@ Namun, TypeScript menghasilkan error:
 Operator '+' cannot be applied to types 'number' and 'boolean'.
 ```
 
-Error ini terjadi karena TypeScript memberlakukan kompatibilitas tipe secara ketat, dan dalam kasus ini, TypeScript mengidentifikasi operasi yang tidak valid antara number dan boolean.
+Error ini terjadi karena TypeScript memberlakukan kompatibilitas tipe secara ketat, dan dalam kasus ini, TypeScript mengidentifikasi operasi yang tidak valid antara `number` dan `boolean`.
 
 ### Pembuatan Kode TypeScript
 
-Compiler TypeScript memiliki dua tanggung jawab utama: memeriksa error tipe dan mengompilasi menjadi JavaScript. Kedua proses ini tidak bergantung satu sama lain. Tipe tidak memengaruhi eksekusi kode dalam runtime JavaScript karena tipe dihapus sepenuhnya selama kompilasi. TypeScript tetap dapat menghasilkan JavaScript meskipun terdapat error tipe.
+Compiler TypeScript memiliki dua tanggung jawab utama: memeriksa error tipe dan mengompilasi menjadi JavaScript. Kedua proses ini tidak bergantung satu sama lain. Tipe tidak memengaruhi eksekusi kode dalam lingkungan runtime JavaScript karena tipe dihapus sepenuhnya selama kompilasi. TypeScript tetap dapat menghasilkan JavaScript meskipun terdapat error tipe.
+
 Berikut adalah contoh kode TypeScript dengan error tipe:
 
 <!-- skip -->
@@ -156,7 +157,7 @@ makeNoise(dog);
 
 Properti "kind" adalah nilai yang dapat digunakan pada saat runtime untuk membedakan objek dalam JavaScript.
 
-Sebuah nilai pada saat runtime juga dapat memiliki tipe yang berbeda dari tipe yang dinyatakan dalam deklarasi tipe. Misalnya, jika pengembang salah menafsirkan tipe API dan memberikan anotasi yang keliru.
+Sebuah nilai pada saat runtime juga dapat memiliki tipe yang berbeda dari tipe yang dinyatakan dalam deklarasi tipe. Misalnya, pengembang dapat salah menafsirkan tipe API dan memberikan anotasi yang keliru.
 
 TypeScript adalah superset dari JavaScript, sehingga kata kunci "class" dapat digunakan sebagai tipe dan nilai pada saat runtime.
 
