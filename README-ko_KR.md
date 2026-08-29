@@ -1,6 +1,6 @@
 # The Concise TypeScript Book
 
-The Concise TypeScript Book은 TypeScript의 기능을 포괄적이면서도 간결하게 설명합니다. 강력한 타입 시스템부터 고급 기능까지 최신 버전의 언어의 모든 측면을 명확하게 다룹니다.
+The Concise TypeScript Book은 TypeScript의 기능을 포괄적이면서도 간결하게 설명합니다. 강력한 타입 시스템부터 고급 기능까지 최신 버전의 언어가 제공하는 모든 측면을 명확하게 다룹니다.
 
 초보자든 숙련된 개발자든, 이 책은 TypeScript에 대한 이해와 숙련도를 높이는 데 매우 유용한 자료입니다.
 
