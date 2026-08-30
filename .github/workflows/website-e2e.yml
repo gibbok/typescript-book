@@ -48,7 +48,7 @@ jobs:
             website/playwright-report
             website/test-results
           if-no-files-found: error
-          retention-days: 14
+          retention-days: 3
       - name: Add evidence to pull request
         if: always() && steps.evidence.outputs.artifact-url != ''
         uses: actions/github-script@v9
@@ -93,7 +93,7 @@ jobs:
             }
 
   cleanup:
-    if: github.event.action == 'closed' && github.event.pull_request.merged == true
+    if: github.event.action == 'closed'
     runs-on: ubuntu-latest
     steps:
       - name: Delete merged pull request evidence
