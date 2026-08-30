@@ -2596,7 +2596,7 @@ value = 7; // Valid
 
 In TypeScript stellt der Typ `unknown` einen Wert unbekannten Typs dar. Im Gegensatz zum Typ `any`, der jeden Werttyp zulässt, erfordert `unknown` eine Typprüfung oder Typassertion, bevor er auf bestimmte Weise verwendet werden kann. Daher sind für einen Wert vom Typ `unknown` keine Operationen zulässig, ohne dass er zuvor zugesichert oder auf einen spezifischeren Typ eingegrenzt wurde.
 
-Der Typ `unknown` ist nur `any` und `unknown` selbst zuweisbar und ist eine typsichere Alternative zu `any`.
+Der Typ `unknown` kann nur `any` und `unknown` selbst zugewiesen werden und ist eine typsichere Alternative zu `any`.
 
 <!-- skip -->
 ```typescript
@@ -3720,7 +3720,7 @@ const listBox = pipe(list, box); // <T>(a: T) => { value: T[] }
 const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```
 
-Diese Funktionalität erleichtert die typsichere Programmierung im pointfree-Stil, die in der funktionalen Programmierung üblich ist.
+Diese Funktionalität erleichtert die typsichere Programmierung im Point-free-Stil, die in der funktionalen Programmierung üblich ist.
 
 ### Kontextbezogenes Narrowing für Generics
 
@@ -4299,7 +4299,7 @@ Weitere Informationen: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 
 Async/await:
 
-Die Schlüsselwörter Async/await ermöglichen bei der Arbeit mit Promises eine Syntax, die eher wie synchroner Code aussieht. Mit dem Schlüsselwort `async` wird eine asynchrone Funktion definiert. Das Schlüsselwort `await` wird innerhalb einer asynchronen Funktion verwendet, um die Ausführung anzuhalten, bis ein Promise erfüllt oder abgelehnt wird.
+Die Schlüsselwörter `async` und `await` ermöglichen bei der Arbeit mit Promises eine Syntax, die eher wie synchroner Code aussieht. Mit dem Schlüsselwort `async` wird eine asynchrone Funktion definiert. Das Schlüsselwort `await` wird innerhalb einer asynchronen Funktion verwendet, um die Ausführung anzuhalten, bis ein Promise erfüllt oder abgelehnt wird.
 
 Weitere Informationen:
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)

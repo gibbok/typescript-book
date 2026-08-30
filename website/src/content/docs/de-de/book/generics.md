@@ -82,7 +82,7 @@ const listBox = pipe(list, box); // <T>(a: T) => { value: T[] }
 const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```
 
-Diese Funktionalität erleichtert die typsichere Programmierung im pointfree-Stil, die in der funktionalen Programmierung üblich ist.
+Diese Funktionalität erleichtert die typsichere Programmierung im Point-free-Stil, die in der funktionalen Programmierung üblich ist.
 
 ### Kontextbezogenes Narrowing für Generics
 

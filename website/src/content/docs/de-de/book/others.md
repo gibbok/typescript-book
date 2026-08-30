@@ -117,7 +117,7 @@ Weitere Informationen: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 
 Async/await:
 
-Die Schlüsselwörter Async/await ermöglichen bei der Arbeit mit Promises eine Syntax, die eher wie synchroner Code aussieht. Mit dem Schlüsselwort `async` wird eine asynchrone Funktion definiert. Das Schlüsselwort `await` wird innerhalb einer asynchronen Funktion verwendet, um die Ausführung anzuhalten, bis ein Promise erfüllt oder abgelehnt wird.
+Die Schlüsselwörter `async` und `await` ermöglichen bei der Arbeit mit Promises eine Syntax, die eher wie synchroner Code aussieht. Mit dem Schlüsselwort `async` wird eine asynchrone Funktion definiert. Das Schlüsselwort `await` wird innerhalb einer asynchronen Funktion verwendet, um die Ausführung anzuhalten, bis ein Promise erfüllt oder abgelehnt wird.
 
 Weitere Informationen:
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
