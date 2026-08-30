@@ -66,6 +66,8 @@ This book has been translated into several languages, including:
 
 [Indonesian](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
 
+[German](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
+
 ## Downloads and website
 
 You can also download the EPUB version:

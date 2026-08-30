@@ -28,3 +28,5 @@ sidebar:
 
 [インドネシア語](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
 
+[ドイツ語](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
+

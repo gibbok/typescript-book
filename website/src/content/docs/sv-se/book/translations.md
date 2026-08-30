@@ -28,3 +28,5 @@ Denna bok har översatts till flera språkversioner, inklusive:
 
 [Indonesiska](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
 
+[Tyska](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
+
