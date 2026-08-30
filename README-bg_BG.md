@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 62194)
+Total output lines: 5180
+
 # The Concise TypeScript Book
 
 The Concise TypeScript Book предоставя изчерпателен и кратък преглед на възможностите на TypeScript. Книгата предлага ясни обяснения, които обхващат всички аспекти на най-новата версия на езика — от мощната му типова система до разширените функции.
@@ -65,6 +68,8 @@ The Concise TypeScript Book предоставя изчерпателен и к�
 [корейски](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
 
 [индонезийски](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
+
+[немски](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
 
 ## Изтегляния и уебсайт
 
@@ -2050,217 +2055,7 @@ enum Color {
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // случайно число, генерирано по време на изпълнение
-```
-
-Enums се означават чрез unions, съставени от типовете на техните членове. Стойностите на всеки член могат да се определят чрез константни или неконстантни изрази, като членовете с константни стойности се присвояват на литерални типове. За илюстрация, разгледайте декларацията на type E и неговите подтипове E.A, E.B и E.C. В този случай E представлява union E.A | E.B | E.C.
-
-```typescript
-const identity = (value: number) => value;
-
-enum E {
-    A = 2 * 5, // Числов литерал
-    B = 'bar', // Низов литерал
-    C = identity(42), // Изчисляем член
-}
-
-console.log(E.C); //42
-```
-
-## Narrowing
-
-TypeScript narrowing е процес на уточняване на типа на променлива в рамките на условен блок. Това е полезно при работа с union типове, където променлива може да има повече от един тип.
-
-TypeScript поддържа няколко начина за стесняване на типа:
-
-### Проверки за типа "typeof"
-
-Проверката за типа "typeof" е специфична проверка в TypeScript, която проверява типа на променлива въз основа на нейния вграден тип в JavaScript.
-
-```typescript
-const fn = (x: number | string) => {
-    if (typeof x === 'number') {
-        return x + 1; // x е число
-    }
-    return -1;
-};
-```
-
-### Свиване на тип чрез truthiness
-
-Свиването на тип чрез truthiness в TypeScript работи като проверява дали променлива е truthy или falsy, за да стесни съответно нейния тип.
-
-```typescript
-const toUpperCase = (name: string | null) => {
-    if (name) {
-        return name.toUpperCase();
-    } else {
-        return null;
-    }
-};
-```
-
-### Свиване на тип чрез равенство
-
-Свиването на тип чрез равенство в TypeScript работи чрез проверка дали променлива е равна на конкретна стойност или не, за да се стесни съответно нейният тип.
-
-Използва се в комбинация с `switch` изрази и оператори за равенство като `===`, `!==`, `==` и `!=`, за да се стесни типът.
-
-```typescript
-const checkStatus = (status: 'success' | 'error') => {
-    switch (status) {
-        case 'success':
-            return true;
-        case 'error':
-            return null;
-    }
-};
-```
-
-### Свиване на тип чрез оператора "in"
-
-Свиването на тип чрез оператора `in` в TypeScript е начин да се стесни типът на променлива, базирайки се на това дали дадено свойство съществува в типа на променливата.
-
-```typescript
-type Dog = {
-    name: string;
-    breed: string;
-};
-
-type Cat = {
-    name: string;
-    likesCream: boolean;
-};
-
-const getAnimalType = (pet: Dog | Cat) => {
-    if ('breed' in pet) {
-        return 'dog';
-    } else {
-        return 'cat';
-    }
-};
-```
-
-### Свиване на тип чрез `instanceof`
-
-Свиването на тип чрез оператора `instanceof` в TypeScript е начин да се стесни типът на променлива, базирайки се на нейната конструкторска функция, чрез проверка дали обектът е инстанция на определен клас или interface.
-
-```typescript
-class Square {
-    constructor(public width: number) {}
-}
-class Rectangle {
-    constructor(
-        public width: number,
-        public height: number
-    ) {}
-}
-function area(shape: Square | Rectangle) {
-    if (shape instanceof Square) {
-        return shape.width * shape.width;
-    } else {
-        return shape.width * shape.height;
-    }
-}
-const square = new Square(5);
-const rectangle = new Rectangle(5, 10);
-console.log(area(square)); // 25
-console.log(area(rectangle)); // 50
-```
-
-## Присвоявания
-
-Свиването на типове в TypeScript чрез присвоявания е начин да се стесни типът на променлива въз основа на стойността, която ѝ е присвоена. Когато на променлива се присвои стойност, TypeScript извежда нейния тип въз основа на присвоената стойност и стеснява типа на променливата, за да съответства на изведения тип.
-
-```typescript
-let value: string | number;
-value = 'hello';
-if (typeof value === 'string') {
-    console.log(value.toUpperCase());
-}
-value = 42;
-if (typeof value === 'number') {
-    console.log(value.toFixed(2));
-}
-```
-
-## Анализ на потока на управление
-
-Анализът на потока на управление в TypeScript е начин за статичен анализ на потока на кода с цел извеждане на типовете на променливите, което позволява на компилатора да стеснява типовете на тези променливи при необходимост, базирайки се на резултатите от анализа.
-
-Преди TypeScript 4.4, анализът на потока на кода се прилагаше само за код в рамките на if изрази, но от TypeScript 4.4 нататък той може да се прилага и за условни изрази и достъпи до дискриминантни свойства, косвено реферирани чрез const променливи.
-
-Например:
-
-```typescript
-const f1 = (x: unknown) => {
-    const isString = typeof x === 'string';
-    if (isString) {
-        x.length;
-    }
-};
-
-const f2 = (
-    obj: { kind: 'foo'; foo: string } | { kind: 'bar'; bar: number }
-) => {
-    const isFoo = obj.kind === 'foo';
-    if (isFoo) {
-        obj.foo;
-    } else {
-        obj.bar;
-    }
-};
-```
-
-Някои примери, при които не се наблюдава стесняване:
-
-<!-- skip -->
-```typescript
-const f1 = (x: unknown) => {
-    let isString = typeof x === 'string';
-    if (isString) {
-        x.length; // Грешка, няма стесняване, защото isString не е const
-    }
-};
-
-const f6 = (
-    obj: { kind: 'foo'; foo: string } | { kind: 'bar'; bar: number }
-) => {
-    const isFoo = obj.kind === 'foo';
-    obj = obj;
-    if (isFoo) {
-        obj.foo; // Грешка: няма стесняване, тъй като obj се присвоява в тялото на функцията
-    }
-};
-```
-
-Забележка: В условните изрази TypeScript може да анализира до пет нива на индирекция.
-
-## Type Predicates
-
-Type Predicates в TypeScript са функции, които връщат boolean стойност и се използват за стесняване на типа на променлива до по-специфичен тип.
-
-```typescript
-const isString = (value: unknown): value is string => typeof value === 'string';
-
-const foo = (bar: unknown) => {
-    if (isString(bar)) {
-        console.log(bar.toUpperCase());
-    } else {
-        console.log('не е низ');
-    }
-};
-```
-
-TypeScript 5.5 автоматично извежда type predicates (като `x is T`) във функции като `.filter`, така че знае кога стойности като undefined са премахнати—давайки по-точни типове и по-малко грешки; това работи за ясни проверки (например `x !== undefined`), но не и за двусмислени като `!!x`.
-
-```typescript
-const nums = [1, null, 2].filter(x => x !== null);
-```
-
-## Discriminated Unions
-
-Discriminated Unions в TypeScript са тип на обединение, който използва общо свойство, известно като дискриминант, за да стесни набора от възможни типове за обединението.
+console.log(Color.Blue); // случайно число, генери…2194 tokens truncated…а обединението.
 
 ```typescript
 type Square = {
