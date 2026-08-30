@@ -2493,7 +2493,7 @@ const x: MyNewType = {
 };
 ```
 
-definiujemy `MyMappedType`, aby mapował właściwości typu `T`, tworząc nowy typ, w którym każda właściwość jest tablicą swojego pierwotnego typu. Za jego pomocą tworzymy `MyNewType`, aby reprezentował te same informacje co `MyType`, ale z każdą właściwością w postaci tablicy.
+Definiujemy `MyMappedType`, aby mapował właściwości typu `T`, tworząc nowy typ, w którym każda właściwość jest tablicą swojego pierwotnego typu. Za jego pomocą tworzymy `MyNewType`, aby reprezentował te same informacje co `MyType`, ale z każdą właściwością w postaci tablicy.
 
 ## Modyfikatory typów mapowanych
 
