@@ -30,3 +30,5 @@ sidebar:
 
 [немски](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
 
+[полски](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
+
