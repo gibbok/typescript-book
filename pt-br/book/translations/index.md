@@ -26,3 +26,5 @@ Este livro foi traduzido para vários idiomas, incluindo:
 
 [Alemão](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
 
+[Polonês](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
+
