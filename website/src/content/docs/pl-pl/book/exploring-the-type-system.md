@@ -22,7 +22,7 @@ Więcej informacji i przewodniki szybkiego startu można znaleźć w oficjalnej 
 
 TypeScript opiera się na strukturalnym systemie typów. Oznacza to, że zgodność i równoważność typów są określane na podstawie rzeczywistej struktury lub definicji typu, a nie jego nazwy czy miejsca deklaracji, jak w nominalnych systemach typów, takich jak C# lub C.
 
-Strukturalny system typów TypeScript został zaprojektowany na podstawie sposobu, w jaki dynamiczne typowanie kacze JavaScript działa w czasie wykonywania.
+Strukturalny system typów TypeScript został zaprojektowany na podstawie sposobu, w jaki działa dynamiczne kacze typowanie w JavaScript w czasie wykonywania.
 
 Poniższy przykład jest poprawnym kodem TypeScript. Jak widać, „X” i „Y” mają ten sam element składowy „a”, mimo że ich deklaracje mają różne nazwy. Typy są określane na podstawie ich struktur, a ponieważ w tym przypadku struktury są takie same, typy są zgodne i poprawne.
 
@@ -442,7 +442,7 @@ const x: X = {
 
 #### Asercja typu
 
-Asercję można dodać za pomocą słowa kluczowego `as`. Informuje to kompilator, że programista ma więcej informacji o typie, i wycisza wszelkie błędy, które mogą wystąpić.
+Asercję można dodać za pomocą słowa kluczowego `as`. Informuje to kompilator, że programista ma więcej informacji o typie i wycisza wszelkie błędy, które mogą wystąpić.
 
 Na przykład:
 
@@ -485,7 +485,7 @@ Warto zauważyć, że podczas używania asercji typu TypeScript nie przeprowadza
 
 #### Deklaracje otoczenia
 
-Deklaracje otoczenia to pliki opisujące typy kodu JavaScript; ich nazwy mają format `.d.ts.`. Zazwyczaj są importowane i używane do opisywania typami istniejących bibliotek JavaScript lub do dodawania typów do istniejących plików JS w projekcie.
+Deklaracje otoczenia to pliki opisujące typy kodu JavaScript; ich nazwy mają format `.d.ts`. Zazwyczaj są importowane i używane do opisywania typami istniejących bibliotek JavaScript lub do dodawania typów do istniejących plików JS w projekcie.
 
 Typy dla wielu popularnych bibliotek można znaleźć pod adresem:
 [https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
@@ -669,7 +669,7 @@ let y: 'y' | 'x' = 'y';
 y = x; // Valid: The type of x is inferred as 'x'
 ```
 
-Dzięki użyciu `const` do zadeklarowania zmiennej x jej typ zostaje zawężony do konkretnej wartości literałowej 'x'. Ponieważ typ x jest zawężony, można przypisać ją do zmiennej y bez żadnego błędu.
+Dzięki użyciu `const` do zadeklarowania zmiennej x jej typ zostaje zawężony do konkretnej wartości literałowej 'x'. Ponieważ typ x jest zawężony, można przypisać go do zmiennej y bez żadnego błędu.
 Typ może zostać wywnioskowany w ten sposób, ponieważ zmiennym `const` nie można ponownie przypisać wartości, a więc ich typ można zawęzić do konkretnego typu literałowego, w tym przypadku do typu literałowego 'x'.
 
 #### Modyfikator Const parametrów typu

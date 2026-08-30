@@ -30,3 +30,5 @@ Ta książka została przetłumaczona na kilka języków, w tym:
 
 [niemiecki](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
 
+[polski](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
+

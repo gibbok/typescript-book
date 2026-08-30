@@ -42,5 +42,5 @@ const sum = (a = 10, b: number): number => a + b;
 
 Jest to szczególnie przydatne w przypadku bardziej złożonych funkcji, ponieważ zapisanie typu zwracanego przed implementacją może pomóc w przemyśleniu funkcji.
 
-Zasadniczo warto dodawać adnotacje do sygnatur typów, ale nie do zmiennych lokalnych w ciele funkcji, oraz zawsze dodawać typy do literałów obiektowych.
+Zasadniczo warto dodawać adnotacje do sygnatur typów, ale nie do zmiennych lokalnych w ciele funkcji oraz zawsze dodawać typy do literałów obiektowych.
 

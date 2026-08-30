@@ -12,7 +12,7 @@ TypeScript jest językiem programowania z silnym typowaniem, zbudowanym na bazie
 
 TypeScript jest kompilowany do JavaScript i może być wykonywany w dowolnym środowisku uruchomieniowym JavaScript (np. w przeglądarce lub w środowisku Node.js na serwerze).
 
-Obsługuje wiele paradygmatów programowania, takich jak programowanie funkcyjne, generyczne, imperatywne i obiektowe, oraz jest językiem kompilowanym (transpilowanym), który przed wykonaniem jest przekształcany w JavaScript.
+Obsługuje wiele paradygmatów programowania, takich jak programowanie funkcyjne, generyczne, imperatywne i obiektowe oraz jest językiem kompilowanym (transpilowanym), który przed wykonaniem jest przekształcany w JavaScript.
 
 ### Dlaczego TypeScript?
 

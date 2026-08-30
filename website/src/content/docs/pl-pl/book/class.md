@@ -156,7 +156,7 @@ Modyfikatory dostępu `private`, `protected` i `public` służą do kontrolowani
 
 Modyfikator `private` ogranicza dostęp do elementu klasy wyłącznie do klasy, w której się on znajduje.
 
-Modyfikator `protected` umożliwia dostęp do elementu klasy wewnątrz klasy, w której się on znajduje, oraz w jej klasach pochodnych.
+Modyfikator `protected` umożliwia dostęp do elementu klasy wewnątrz klasy, w której się on znajduje oraz w jej klasach pochodnych.
 
 Modyfikator `public` zapewnia nieograniczony dostęp do elementu klasy, umożliwiając dostęp do niego z dowolnego miejsca.
 

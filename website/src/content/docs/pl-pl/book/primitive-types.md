@@ -83,9 +83,9 @@ console.log(obj[b]); // 456
 
 Typy `null` i `undefined` reprezentują brak wartości.
 
-Typ `undefined` oznacza, że wartość nie została przypisana ani zainicjalizowana, lub wskazuje na niezamierzony brak wartości.
+Typ `undefined` oznacza, że wartość nie została przypisana ani zainicjalizowana lub wskazuje na niezamierzony brak wartości.
 
-Typ `null` oznacza, że wiemy, iż pole nie ma wartości, więc wartość jest niedostępna, i wskazuje na zamierzony brak wartości.
+Typ `null` oznacza, że wiemy, iż pole nie ma wartości, więc wartość jest niedostępna i wskazuje na zamierzony brak wartości.
 
 ### Tablica
 

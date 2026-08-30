@@ -24,7 +24,7 @@ Wskazanie formatu modułu:
 /// <amd|commonjs|system|umd|es6|es2015|none>
 ```
 
-Włączenie opcji kompilatora, w poniższym przykładzie trybu ścisłego:
+Włączenie opcji kompilatora — w poniższym przykładzie trybu ścisłego:
 
 <!-- skip -->
 ```typescript
