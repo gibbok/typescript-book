@@ -753,7 +753,7 @@ Więcej informacji i przewodniki szybkiego startu można znaleźć w oficjalnej 
 
 TypeScript opiera się na strukturalnym systemie typów. Oznacza to, że zgodność i równoważność typów są określane na podstawie rzeczywistej struktury lub definicji typu, a nie jego nazwy czy miejsca deklaracji, jak w nominalnych systemach typów, takich jak C# lub C.
 
-Strukturalny system typów TypeScript został zaprojektowany na podstawie sposobu, w jaki dynamiczne typowanie kacze JavaScript działa w czasie wykonywania.
+Strukturalny system typów TypeScript został zaprojektowany na podstawie sposobu, w jaki działa dynamiczne kacze typowanie w JavaScript w czasie wykonywania.
 
 Poniższy przykład jest poprawnym kodem TypeScript. Jak widać, „X” i „Y” mają ten sam element składowy „a”, mimo że ich deklaracje mają różne nazwy. Typy są określane na podstawie ich struktur, a ponieważ w tym przypadku struktury są takie same, typy są zgodne i poprawne.
 
@@ -1216,7 +1216,7 @@ Warto zauważyć, że podczas używania asercji typu TypeScript nie przeprowadza
 
 #### Deklaracje otoczenia
 
-Deklaracje otoczenia to pliki opisujące typy kodu JavaScript; ich nazwy mają format `.d.ts.`. Zazwyczaj są importowane i używane do opisywania typami istniejących bibliotek JavaScript lub do dodawania typów do istniejących plików JS w projekcie.
+Deklaracje otoczenia to pliki opisujące typy kodu JavaScript; ich nazwy mają format `.d.ts`. Zazwyczaj są importowane i używane do opisywania typami istniejących bibliotek JavaScript lub do dodawania typów do istniejących plików JS w projekcie.
 
 Typy dla wielu popularnych bibliotek można znaleźć pod adresem:
 [https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
@@ -1400,7 +1400,7 @@ let y: 'y' | 'x' = 'y';
 y = x; // Valid: The type of x is inferred as 'x'
 ```
 
-Dzięki użyciu `const` do zadeklarowania zmiennej x jej typ zostaje zawężony do konkretnej wartości literałowej 'x'. Ponieważ typ x jest zawężony, można przypisać ją do zmiennej y bez żadnego błędu.
+Dzięki użyciu `const` do zadeklarowania zmiennej x jej typ zostaje zawężony do konkretnej wartości literałowej 'x'. Ponieważ typ x jest zawężony, można przypisać go do zmiennej y bez żadnego błędu.
 Typ może zostać wywnioskowany w ten sposób, ponieważ zmiennym `const` nie można ponownie przypisać wartości, a więc ich typ można zawęzić do konkretnego typu literałowego, w tym przypadku do typu literałowego 'x'.
 
 #### Modyfikator Const parametrów typu
@@ -1648,9 +1648,9 @@ console.log(obj[b]); // 456
 
 Typy `null` i `undefined` reprezentują brak wartości.
 
-Typ `undefined` oznacza, że wartość nie została przypisana ani zainicjalizowana, lub wskazuje na niezamierzony brak wartości.
+Typ `undefined` oznacza, że wartość nie została przypisana ani zainicjalizowana lub wskazuje na niezamierzony brak wartości.
 
-Typ `null` oznacza, że wiemy, iż pole nie ma wartości, więc wartość jest niedostępna, i wskazuje na zamierzony brak wartości.
+Typ `null` oznacza, że wiemy, iż pole nie ma wartości, więc wartość jest niedostępna i wskazuje na zamierzony brak wartości.
 
 ### Tablica
 
@@ -1729,7 +1729,7 @@ const sum = (a = 10, b: number): number => a + b;
 
 Jest to szczególnie przydatne w przypadku bardziej złożonych funkcji, ponieważ zapisanie typu zwracanego przed implementacją może pomóc w przemyśleniu funkcji.
 
-Zasadniczo warto dodawać adnotacje do sygnatur typów, ale nie do zmiennych lokalnych w ciele funkcji, oraz zawsze dodawać typy do literałów obiektowych.
+Zasadniczo warto dodawać adnotacje do sygnatur typów, ale nie do zmiennych lokalnych w ciele funkcji oraz zawsze dodawać typy do literałów obiektowych.
 
 ## Właściwości opcjonalne
 
@@ -3826,7 +3826,7 @@ Wskazanie formatu modułu:
 /// <amd|commonjs|system|umd|es6|es2015|none>
 ```
 
-Włączenie opcji kompilatora, w poniższym przykładzie trybu ścisłego:
+Włączenie opcji kompilatora — w poniższym przykładzie trybu ścisłego:
 
 <!-- skip -->
 ```typescript
@@ -5088,7 +5088,7 @@ Deklaracje `using` rejestrują operacje zwalniania zasobów na stosie, zapewniaj
 } // disposes `C`, then `B`, then `A`.
 ```
 
-Zasoby zostaną zwolnione nawet wtedy, gdy późniejszy kod spowoduje wystąpienie wyjątków. Może to spowodować, że zwalnianie zasobu zgłosi wyjątek, potencjalnie tłumiąc inny. W celu zachowania informacji o stłumionych błędach wprowadzono nowy natywny wyjątek `SuppressedError`.
+Zasoby zostaną zwolnione nawet wtedy, gdy późniejszy kod spowoduje wystąpienie wyjątków. Może to spowodować, że zwalnianie zasobu zgłosi wyjątek, potencjalnie tłumiąc inny wyjątek. W celu zachowania informacji o stłumionych błędach wprowadzono nowy natywny wyjątek `SuppressedError`.
 
 #### Deklaracja await using
 
