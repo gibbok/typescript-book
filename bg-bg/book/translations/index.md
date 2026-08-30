@@ -24,3 +24,5 @@
 
 [индонезийски](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
 
+[немски](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
+

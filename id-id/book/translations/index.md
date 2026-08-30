@@ -24,3 +24,5 @@ Buku ini telah diterjemahkan ke dalam beberapa bahasa, termasuk:
 
 [Bahasa Indonesia](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
 
+[Bahasa Jerman](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
+
