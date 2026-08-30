@@ -484,7 +484,7 @@ console.log(obj2.getValue); // Throw: Invalid!
 
 #### Decorator-Metadaten
 
-Decorator-Metadaten vereinfachen es Decorators, Metadaten in einer beliebigen Klasse anzuwenden und zu verwenden. Decorators können auf eine neue Metadateneigenschaft des Kontextobjekts zugreifen, die sowohl für primitive Werte als auch für Objekte als Schlüssel dienen kann.
+Decorator-Metadaten erleichtern es Decorators, Metadaten in einer beliebigen Klasse anzuwenden und zu verwenden. Decorators können auf eine neue Metadateneigenschaft des Kontextobjekts zugreifen, die sowohl für primitive Werte als auch für Objekte als Schlüssel dienen kann.
 Auf Metadateninformationen kann in der Klasse über `Symbol.metadata` zugegriffen werden.
 
 Metadaten können für verschiedene Zwecke verwendet werden, etwa für Debugging, Serialisierung oder Dependency Injection mit Decorators.

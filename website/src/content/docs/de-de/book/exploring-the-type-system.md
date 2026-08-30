@@ -442,7 +442,7 @@ const x: X = {
 
 #### Typassertion
 
-Mit dem Schlüsselwort `as` kann eine Assertion hinzugefügt werden. Dadurch wird dem Compiler mitgeteilt, dass der Entwickler über zusätzliche Informationen zu einem Typ verfügt, und eventuell auftretende Fehler werden unterdrückt.
+Mit dem Schlüsselwort `as` kann eine Typassertion hinzugefügt werden. Dadurch wird dem Compiler mitgeteilt, dass der Entwickler über zusätzliche Informationen zu einem Typ verfügt, und eventuell auftretende Fehler werden unterdrückt.
 
 Zum Beispiel:
 

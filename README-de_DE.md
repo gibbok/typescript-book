@@ -1171,7 +1171,7 @@ const x: X = {
 
 #### Typassertion
 
-Mit dem Schlüsselwort `as` kann eine Assertion hinzugefügt werden. Dadurch wird dem Compiler mitgeteilt, dass der Entwickler über zusätzliche Informationen zu einem Typ verfügt, und eventuell auftretende Fehler werden unterdrückt.
+Mit dem Schlüsselwort `as` kann eine Typassertion hinzugefügt werden. Dadurch wird dem Compiler mitgeteilt, dass der Entwickler über zusätzliche Informationen zu einem Typ verfügt, und eventuell auftretende Fehler werden unterdrückt.
 
 Zum Beispiel:
 
@@ -2594,7 +2594,7 @@ value = 7; // Valid
 
 ## Typ unknown
 
-In TypeScript stellt der Typ `unknown` einen Wert unbekannten Typs dar. Im Gegensatz zum Typ `any`, der jeden Werttyp zulässt, erfordert `unknown` eine Typprüfung oder Zusicherung, bevor er auf bestimmte Weise verwendet werden kann. Daher sind für einen Wert vom Typ `unknown` keine Operationen zulässig, ohne dass er zuvor zugesichert oder auf einen spezifischeren Typ eingegrenzt wurde.
+In TypeScript stellt der Typ `unknown` einen Wert unbekannten Typs dar. Im Gegensatz zum Typ `any`, der jeden Werttyp zulässt, erfordert `unknown` eine Typprüfung oder Typassertion, bevor er auf bestimmte Weise verwendet werden kann. Daher sind für einen Wert vom Typ `unknown` keine Operationen zulässig, ohne dass er zuvor zugesichert oder auf einen spezifischeren Typ eingegrenzt wurde.
 
 Der Typ `unknown` ist nur `any` und `unknown` selbst zuweisbar und ist eine typsichere Alternative zu `any`.
 
@@ -3449,7 +3449,7 @@ console.log(obj2.getValue); // Throw: Invalid!
 
 #### Decorator-Metadaten
 
-Decorator-Metadaten vereinfachen es Decorators, Metadaten in einer beliebigen Klasse anzuwenden und zu verwenden. Decorators können auf eine neue Metadateneigenschaft des Kontextobjekts zugreifen, die sowohl für primitive Werte als auch für Objekte als Schlüssel dienen kann.
+Decorator-Metadaten erleichtern es Decorators, Metadaten in einer beliebigen Klasse anzuwenden und zu verwenden. Decorators können auf eine neue Metadateneigenschaft des Kontextobjekts zugreifen, die sowohl für primitive Werte als auch für Objekte als Schlüssel dienen kann.
 Auf Metadateninformationen kann in der Klasse über `Symbol.metadata` zugegriffen werden.
 
 Metadaten können für verschiedene Zwecke verwendet werden, etwa für Debugging, Serialisierung oder Dependency Injection mit Decorators.
