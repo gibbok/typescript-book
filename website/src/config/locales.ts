@@ -45,6 +45,10 @@ export const locales = {
     label: 'Bahasa Indonesia',
     lang: 'id-ID',
   },
+  'de-de': {
+    label: 'Deutsch',
+    lang: 'de-DE',
+  },
 } as const;
 
 export type Locale = keyof typeof locales;
