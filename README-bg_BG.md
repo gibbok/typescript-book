@@ -64,7 +64,9 @@ The Concise TypeScript Book предоставя изчерпателен и к�
 
 [корейски](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
 
-[индонезийски](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)\n\n[немски](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
+[индонезийски](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
+
+[немски](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
 
 ## Изтегляния и уебсайт
 
