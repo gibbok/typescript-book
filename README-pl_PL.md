@@ -326,7 +326,7 @@ TypeScript jest językiem programowania z silnym typowaniem, zbudowanym na bazie
 
 TypeScript jest kompilowany do JavaScript i może być wykonywany w dowolnym środowisku uruchomieniowym JavaScript (np. w przeglądarce lub w środowisku Node.js na serwerze).
 
-Obsługuje wiele paradygmatów programowania, takich jak programowanie funkcyjne, generyczne, imperatywne i obiektowe, oraz jest językiem kompilowanym (transpilowanym), który przed wykonaniem jest przekształcany w JavaScript.
+Obsługuje wiele paradygmatów programowania, takich jak programowanie funkcyjne, generyczne, imperatywne i obiektowe oraz jest językiem kompilowanym (transpilowanym), który przed wykonaniem jest przekształcany w JavaScript.
 
 ### Dlaczego TypeScript?
 
@@ -1175,7 +1175,7 @@ const x: X = {
 
 #### Asercja typu
 
-Asercję można dodać za pomocą słowa kluczowego `as`. Informuje to kompilator, że programista ma więcej informacji o typie, i wycisza wszelkie błędy, które mogą wystąpić.
+Asercję można dodać za pomocą słowa kluczowego `as`. Informuje to kompilator, że programista ma więcej informacji o typie i wycisza wszelkie błędy, które mogą wystąpić.
 
 Na przykład:
 
@@ -3125,7 +3125,7 @@ Modyfikatory dostępu `private`, `protected` i `public` służą do kontrolowani
 
 Modyfikator `private` ogranicza dostęp do elementu klasy wyłącznie do klasy, w której się on znajduje.
 
-Modyfikator `protected` umożliwia dostęp do elementu klasy wewnątrz klasy, w której się on znajduje, oraz w jej klasach pochodnych.
+Modyfikator `protected` umożliwia dostęp do elementu klasy wewnątrz klasy, w której się on znajduje oraz w jej klasach pochodnych.
 
 Modyfikator `public` zapewnia nieograniczony dostęp do elementu klasy, umożliwiając dostęp do niego z dowolnego miejsca.
 
