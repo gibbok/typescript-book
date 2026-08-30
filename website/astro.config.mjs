@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import { defaultLocale, locales } from './src/config/locales';
+import { defaultLocale, locales } from './src/config/locales.ts';
 
 // https://astro.build/config
 export default defineConfig({
