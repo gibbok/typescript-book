@@ -68,6 +68,8 @@ Dieses Buch wurde in mehrere Sprachen übersetzt, darunter:
 
 [Deutsch](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
 
+[Polnisch](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
+
 ## Downloads und Website
 
 Sie können außerdem die EPUB-Version herunterladen:

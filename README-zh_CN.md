@@ -68,6 +68,8 @@ Plus 版在全球亚马逊平台提供英文版和意大利文版。[了解 Plus
 
 [德语](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
 
+[波兰语](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
+
 ## 下载和网站
 
 您还可以下载 Epub 版本：
