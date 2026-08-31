@@ -1,4 +1,4 @@
-export type PlusEditionLocale = 'en' | 'zh-cn' | 'it-it' | 'pt-br' | 'sv-se' | 'bg-bg' | 'es-es' | 'ja-jp' | 'fr-fr' | 'ko-kr' | 'id-id' | 'de-de' | 'pl-pl';
+export type PlusEditionLocale = 'en' | 'zh-cn' | 'it-it' | 'pt-br' | 'sv-se' | 'bg-bg' | 'es-es' | 'ja-jp' | 'fr-fr' | 'ko-kr' | 'id-id' | 'de-de' | 'pl-pl' | 'tr-tr';
 
 const DEFAULT_LOCALE: PlusEditionLocale = 'en';
 
@@ -30,6 +30,8 @@ const LOCALE_BY_LANG: Readonly<Record<string, PlusEditionLocale>> = {
 	'de-de': 'de-de',
 	pl: 'pl-pl',
 	'pl-pl': 'pl-pl',
+	tr: 'tr-tr',
+	'tr-tr': 'tr-tr',
 };
 
 export const PLUS_EDITION_BASE_PATH = '/typescript-book';
@@ -49,6 +51,7 @@ export const PLUS_EDITION_COVERS: Readonly<Record<PlusEditionLocale, string>> = 
 	'id-id': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 	'de-de': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 	'pl-pl': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
+	'tr-tr': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 };
 
 export const PLUS_EDITION_COVER = PLUS_EDITION_COVERS.en;
@@ -1361,6 +1364,105 @@ export const PLUS_EDITION_COPY = {
 			paperback: 'Miękka oprawa',
 			buyOn: 'Kup na',
 			detected: 'Użyjemy języka i regionu przeglądarki, aby otworzyć najlepiej dopasowane wydanie i sklep Amazon.',
+		},
+	},
+	'tr-tr': {
+		pageTitle: 'The Concise TypeScript Book Plus Edition — React ve TypeScript 7 için gerçek dünya kalıpları',
+		pageDescription:
+			'The Concise TypeScript Book\'un yalnızca bu sürüme özel React rehberliği, gerçek dünya TypeScript kalıpları ve TypeScript 7 için güncellenmiş içerik sunan ücretli ve genişletilmiş sürümü. Kindle ve ciltsiz olarak sunulur.',
+		coverAlt: 'The Concise TypeScript Book Plus Edition kapağı',
+		topBanner: {
+			ariaLabel: 'Yeni Plus Edition duyurusu',
+			badge: 'Yeni ücretli sürüm',
+			strong: 'TypeScript 7\'de uzmanlaşın',
+			message: 'React + gerçek dünya kalıpları',
+			action: 'Plus Edition\'ı keşfedin',
+		},
+		home: {
+			ariaLabel: 'The Concise TypeScript Book Plus Edition hakkında daha fazla bilgi edinin',
+			eyebrow: 'Yeni ücretli sürüm · TypeScript 7',
+			title: 'TypeScript\'i gerçek projelerde kullanın',
+			description:
+				'Plus Edition, ücretsiz ve açık kaynaklı kitabı geliştiricilerin en çok istediği pratik içerikle genişletir: React ile TypeScript ve üretim kodu için yeniden kullanılabilir kalıplar.',
+			items: [
+				['React ile TypeScript:', 'bileşenler, props, hook\'lar, olaylar, ref\'ler ve ölçeklenebilir bileşen kalıpları.'],
+				['Gerçek dünya TypeScript kalıpları:', 'daha güvenli, daha anlaşılır ve bakımı kolay uygulamalar için pratik yaklaşımlar.'],
+				['TypeScript 7:', 'temellerden ileri düzey tür sistemi tekniklerine kadar özlü anlatım.'],
+			],
+			action: 'Neler içerdiğini görün',
+			availability: 'Kindle ve ciltsiz olarak sunulur',
+		},
+		sidebar: {
+			coverCta: 'Plus Edition kapağı',
+			eyebrow: 'Plus Edition',
+			title: 'Ücretsiz kitabın ötesine geçin',
+			description: 'TypeScript 7 için güncellenmiş, yalnızca bu sürüme özel React rehberliği ve pratik gerçek dünya kalıpları.',
+			formats: 'Kindle ve ciltsiz',
+			action: 'Kitabı keşfedin',
+			ariaLabel: 'The Concise TypeScript Book Plus Edition\'ı keşfedin',
+		},
+		landing: {
+			heroEyebrow: 'Ücretli ve genişletilmiş sürüm · TypeScript 7 için güncellendi',
+			title: PLUS_EDITION.titles.en,
+			lead:
+				'Tür sistemini her gün yaptığınız işlerle buluşturan, yalnızca bu sürüme özel bölümlerle genişletilmiş, TypeScript 7 için özlü ve pratik bir rehber.',
+			primaryAction: 'Kindle veya ciltsiz sürümü seçin',
+			secondaryAction: 'Yenilikleri görün',
+			availability: 'İngilizce ve İtalyanca sürümler · Amazon üzerinden dünya çapında sunulur',
+			introEyebrow: 'TypeScript\'i anlamaktan doğru kullanmaya',
+			introTitle: 'Gerçek projeler için hazırlanmış yeni içerik',
+			introText:
+				'Plus Edition, geniş bir okuyucu kitlesine ulaşan açık kaynaklı The Concise TypeScript Book\'u temel alır. Doğrudan anlatımını ve odaklı örneklerini korur, ardından yalnızca bu ücretli sürümde sunulan iki kapsamlı alanla daha ileri gider.',
+			featureAriaLabel: 'Plus Edition\'a özel içerik',
+			exclusiveContent: 'Özel içerik',
+			features: [
+				{
+					title: 'React ile TypeScript',
+					description:
+						'Temel bileşen türlerinden, bir React uygulaması büyüdükçe anlaşılır kalmaya devam eden kalıplara güvenle ilerleyin.',
+					items: [
+						'Bileşenler, props, children ve olaylar',
+						'Hook\'lar, ref\'ler ve yeniden kullanılabilir soyutlamalar',
+						'Ayırt edici birleşimler ve jenerik bileşenler',
+						'Daha güvenli bileşen API\'leri için pratik kalıplar',
+					],
+				},
+				{
+					title: 'Gerçek dünya kalıpları',
+					description:
+						'TypeScript\'in gelişmiş özelliklerinin, yinelenen uygulama tasarımı sorunlarını çözmek için nasıl bir araya geldiğini görün.',
+					items: [
+						'Anlamlı ve bakımı kolay etki alanı türleri',
+						'Daha güvenli sınırlar ve hata yönetimi',
+						'Yeniden kullanılabilir tür eşlemeleri ve fabrika kalıpları',
+						'Üretim koduna uyarlayabileceğiniz teknikler',
+					],
+				},
+			],
+			whyEyebrow: 'Tasarım gereği özlü',
+			whyTitle: 'Gereksiz ayrıntılar olmadan daha fazla pratik derinlik',
+			whyItems: [
+				['Güncel', 'Temel dil kavramlarından ileri düzey tür sistemi tekniklerine kadar TypeScript 7 için güncellendi.'],
+				['Pratik', 'Günlük geliştirme çalışmalarına doğrudan aktarılmak üzere tasarlanmış kısa açıklamalar ve odaklı örnekler.'],
+				['Her düzeyde yararlı', 'TypeScript\'e yeni başlayan geliştiriciler için yapılandırılmış bir giriş ve deneyimli mühendisler için hızlı bir başvuru kaynağı.'],
+			],
+			audienceEyebrow: 'Kimler için',
+			audienceTitle: 'Açıklık ve pratik kullanım arayan geliştiriciler',
+			audienceText:
+				'Modern TypeScript öğrenmek, React\'i etkili bir şekilde türlendirmek ve dili gerçekçi tasarım sorunlarına uygulamak için tek ve odaklı bir kaynak istiyorsanız Plus Edition\'ı seçin. JavaScript bilgisi yardımcı olur ancak derin TypeScript deneyimi gerekli değildir.',
+			trustEyebrow: 'Geliştiricilerin güvendiği',
+			trustTitle: 'Popüler bir açık kaynaklı TypeScript kitabını temel alır',
+			trustText:
+				'Ücretsiz sürüm GitHub\'da 10.000\'den fazla yıldıza sahiptir ve birçok TypeScript geliştiricisi tarafından kullanılır. Plus Edition, Simone Poggiali tarafından yazılmıştır ve 20 yıllık uluslararası iş deneyimini pratik React rehberliği ile gerçek dünya TypeScript kalıplarıyla buluşturur.',
+		},
+		amazon: {
+			eyebrow: 'Biçiminizi seçin',
+			title: 'Plus Edition\'ı Amazon\'dan edinin',
+			editionLabel: 'Sürüm',
+			kindle: 'Kindle sürümü',
+			paperback: 'Ciltsiz',
+			buyOn: 'Satın alın:',
+			detected: 'En uygun sürümü ve Amazon mağazasını açmak için tarayıcınızın dilini ve bölgesini kullanacağız.',
 		},
 	},
 } as const;
