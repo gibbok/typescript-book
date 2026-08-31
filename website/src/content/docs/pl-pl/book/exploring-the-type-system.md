@@ -485,7 +485,7 @@ Warto zauważyć, że podczas używania asercji typu TypeScript nie przeprowadza
 
 #### Deklaracje otoczenia
 
-Deklaracje otoczenia to pliki opisujące typy kodu JavaScript; ich nazwy mają format `.d.ts`. Zazwyczaj są importowane i używane do opisywania typami istniejących bibliotek JavaScript lub do dodawania typów do istniejących plików JS w projekcie.
+Deklaracje otoczenia to pliki opisujące typy kodu JavaScript; ich nazwy mają format `.d.ts.`. Zazwyczaj są importowane i używane do opisywania typami istniejących bibliotek JavaScript lub do dodawania typów do istniejących plików JS w projekcie.
 
 Typy dla wielu popularnych bibliotek można znaleźć pod adresem:
 [https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
