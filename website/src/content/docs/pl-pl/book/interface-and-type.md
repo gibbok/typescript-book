@@ -33,7 +33,7 @@ type TypeName = {
 ```
 
 `interface InterfaceName` lub `type TypeName`: definiuje nazwę interfejsu lub typu.
-`property1: Type1`: określa właściwości interfejsu wraz z odpowiadającymi im typami. Można zdefiniować wiele właściwości, oddzielając każdą z nich średnikiem.
+`property1`: `Type1`: określa właściwości interfejsu wraz z odpowiadającymi im typami. Można zdefiniować wiele właściwości, oddzielając każdą z nich średnikiem.
 `method1(arg1: ArgType1, arg2: ArgType2): ReturnType;`: określa metody interfejsu. Metody definiuje się za pomocą ich nazw, po których następuje ujęta w nawiasy lista parametrów oraz typ zwracany. Można zdefiniować wiele metod, oddzielając każdą z nich średnikiem.
 
 Przykład interfejsu:
