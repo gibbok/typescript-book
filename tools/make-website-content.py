@@ -154,7 +154,7 @@ def validate_page_headings(
 
 
 def make_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
-    anchor = re.sub(r"[^\w\s-]", "", text.lower())
+    anchor = re.sub(r"[^\w\s\u0300-\u036f-]", "", text.lower())
     anchor = re.sub(r"\s+", "-", anchor).strip("-")
     count = anchor_counts.get(anchor, 0)
     anchor_counts[anchor] = count + 1
@@ -164,7 +164,7 @@ def make_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
 
 
 def make_source_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
-    anchor = re.sub(r"[^\w\s.-]", "", text.lower())
+    anchor = re.sub(r"[^\w\s.\u0300-\u036f-]", "", text.lower())
     anchor = re.sub(r"\s+", "-", anchor).strip("-")
     count = anchor_counts.get(anchor, 0)
     anchor_counts[anchor] = count + 1
@@ -210,11 +210,13 @@ def rewrite_markdown_anchor_links(
         text = match.group(1)
         anchor = match.group(2)
         if anchor not in anchor_links:
-            normalized_anchor = re.sub(r"[^\w-]", "", anchor).strip("-")
+            normalized_anchor = re.sub(
+                r"[^\w\u0300-\u036f-]", "", anchor
+            ).strip("-")
             matching_anchors = [
                 candidate
                 for candidate in anchor_links
-                if re.sub(r"[^\w-]", "", candidate).strip("-")
+                if re.sub(r"[^\w\u0300-\u036f-]", "", candidate).strip("-")
                 == normalized_anchor
             ]
             if len(matching_anchors) != 1:
