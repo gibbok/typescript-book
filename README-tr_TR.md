@@ -348,7 +348,7 @@ TypeScript, `.ts` veya `.tsx` dosyalarına yazılırken JavaScript dosyaları `.
 
 `.tsx` veya `.jsx` uzantılı dosyalar, React'te kullanıcı arayüzü geliştirmek için kullanılan JavaScript Sözdizimi Uzantısı JSX'i içerebilir.
 
-TypeScript, sözdizimi açısından JavaScript'in (ECMAScript 2015) türlendirilmiş bir üst kümesidir. Tüm JavaScript kodları geçerli TypeScript kodudur ancak bunun tersi her zaman doğru değildir.
+TypeScript, sözdizimi açısından JavaScript'in (ECMAScript 2015) türlendirilmiş bir üst kümesidir. Tüm JavaScript kodları geçerli TypeScript kodudur, ancak bunun tersi her zaman doğru değildir.
 
 Örneğin, aşağıdaki gibi `.js` uzantılı bir JavaScript dosyasındaki fonksiyonu ele alalım:
 
@@ -535,7 +535,7 @@ Geliştiriciler bu modern JavaScript özelliklerinden yararlanarak TypeScript'te
 
 ### Kurulum
 
-Visual Studio Code, TypeScript dili için mükemmel destek sunar ancak TypeScript derleyicisini içermez. TypeScript derleyicisini kurmak için npm veya yarn gibi bir paket yöneticisi kullanabilirsiniz:
+Visual Studio Code, TypeScript dili için mükemmel destek sunar, ancak TypeScript derleyicisini içermez. TypeScript derleyicisini kurmak için npm veya yarn gibi bir paket yöneticisi kullanabilirsiniz:
 
 ```shell
 npm install typescript --save-dev
@@ -549,7 +549,7 @@ yarn add typescript --dev
 
 Her ekip üyesinin aynı TypeScript sürümünü kullanmasını sağlamak için oluşturulan kilit dosyasını kaynak denetimine eklediğinizden emin olun.
 
-TypeScript derleyicisini çalıştırmak için aşağıdaki komutları kullanabilirsiniz
+TypeScript derleyicisini çalıştırmak için aşağıdaki komutları kullanabilirsiniz.
 
 ```shell
 npx tsc
@@ -585,7 +585,7 @@ Ayrıca Babel (bir eklenti aracılığıyla) veya swc gibi TypeScript uyumlu çe
 
 TypeScript 7.0, derleyicinin ve dil hizmetinin yerel bir uygulaması olarak Go ile yeniden yazıldı. Tam derlemeleri ve editör özelliklerini hızlandırmak için paylaşımlı bellekli çoklu iş parçacığı ve diğer optimizasyonları kullanarak geliştirme sırasındaki geri bildirim süresini kısaltır.
 
-Bazı TypeScript 7.0 performans özellikleri ayarlanabilir. Tür denetimi `--checkers` ile paralel işçilerde çalışabilir; daha fazla işçi büyük projeleri hızlandırabilir ancak daha fazla bellek kullanır. Yeniden oluşturulan `--watch` modu, platformlar arası dosya izlemeyi iyileştirir. TypeScript 7.0 henüz (Temmuz 2026 itibarıyla) bir derleyici API'si içermez; bu nedenle hâlâ TypeScript 6.0 API'sine ihtiyaç duyan araçlar, `@typescript/typescript6` veya npm alias'ları kullanılarak TypeScript 7.0 ile yan yana çalıştırılabilir.
+Bazı TypeScript 7.0 performans özellikleri ayarlanabilir. Tür denetimi `--checkers` ile paralel işçilerde çalışabilir; daha fazla işçi büyük projeleri hızlandırabilir, ancak daha fazla bellek kullanır. Yeniden oluşturulan `--watch` modu, platformlar arası dosya izlemeyi iyileştirir. TypeScript 7.0 henüz (Temmuz 2026 itibarıyla) bir derleyici API'si içermez; bu nedenle hâlâ TypeScript 6.0 API'sine ihtiyaç duyan araçlar, `@typescript/typescript6` veya npm alias'ları kullanılarak TypeScript 7.0 ile yan yana çalıştırılabilir.
 
 ### Yapılandırma
 
@@ -630,7 +630,7 @@ Aşağıda yaygın ve kullanışlı yapılandırmaların bir listesi yer almakta
 
 #### lib
 
-"lib" özelliği, derleme sırasında hangi kütüphane dosyalarının dâhil edileceğini belirtmek için kullanılır. TypeScript, "target" özelliğinde belirtilen özelliklere yönelik API'leri otomatik olarak dâhil eder ancak belirli ihtiyaçlar için belirli kütüphaneleri hariç tutmak veya seçmek mümkündür. Örneğin bir sunucu projesi üzerinde çalışıyorsanız yalnızca tarayıcı ortamında kullanışlı olan "DOM" kütüphanesini hariç tutabilirsiniz.
+"lib" özelliği, derleme sırasında hangi kütüphane dosyalarının dâhil edileceğini belirtmek için kullanılır. TypeScript, "target" özelliğinde belirtilen özelliklere yönelik API'leri otomatik olarak dâhil eder, ancak belirli ihtiyaçlar için belirli kütüphaneleri hariç tutmak veya seçmek mümkündür. Örneğin bir sunucu projesi üzerinde çalışıyorsanız yalnızca tarayıcı ortamında kullanışlı olan "DOM" kütüphanesini hariç tutabilirsiniz.
 
 #### strict
 
@@ -1982,7 +1982,7 @@ console.log('EN' /* Language.English */);
 ```
 
 Notlar:
-Const Enum'lar sabit kodlanmış değerlere sahiptir ve Enum'u siler; bu, kendi içinde bağımsız kitaplıklarda daha verimli olabilir ancak genellikle tercih edilmez. Ayrıca Const enum'lar hesaplanmış üyelere sahip olamaz.
+Const Enum'lar sabit kodlanmış değerlere sahiptir ve Enum'u siler; bu, kendi içinde bağımsız kitaplıklarda daha verimli olabilir, ancak genellikle tercih edilmez. Ayrıca Const enum'lar hesaplanmış üyelere sahip olamaz.
 
 ### Ters eşleme
 
@@ -2756,7 +2756,7 @@ let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both na
 TypeScript, değişkenleri, fonksiyon parametrelerini ve dönüş türlerini tanımlamak için kullanılabilecek çeşitli yerleşik ilkel türlere sahiptir:
 
 * `number`: Tam sayılar ve kayan noktalı sayılar dâhil olmak üzere sayısal değerleri temsil eder.
-* `string`: Metinsel verileri temsil eder
+* `string`: Metinsel verileri temsil eder.
 * `boolean`: Doğru veya yanlış olabilen mantıksal değerleri temsil eder.
 * `null`: Bir değerin yokluğunu temsil eder.
 * `undefined`: Atanmamış veya tanımlanmamış bir değeri temsil eder.
@@ -3747,7 +3747,7 @@ process(3.14159); // 3.14
 
 ## Silinen Yapısal Türler
 
-TypeScript'te nesnelerin belirli ve tam bir türle eşleşmesi gerekmez. Örneğin, bir arayüzün gereksinimlerini karşılayan bir nesne oluşturursak aralarında açık bir bağlantı kurulmamış olsa bile bu nesneyi söz konusu arayüzün gerekli olduğu yerlerde kullanabiliriz.
+TypeScript'te nesnelerin belirli ve tam bir türle eşleşmesi gerekmez. Örneğin, bir arayüzün gereksinimlerini karşılayan bir nesne oluşturursak, aralarında açık bir bağlantı kurulmamış olsa bile, bu nesneyi söz konusu arayüzün gerekli olduğu yerlerde kullanabiliriz.
 Örnek:
 
 ```typescript
@@ -4241,7 +4241,7 @@ throw new CustomError('This is a custom error.');
 
 ### Mixin Sınıfları
 
-Mixin sınıfları, birden çok sınıfın davranışını tek bir sınıfta bir araya getirip bileştirmenize olanak tanır. Derin kalıtım zincirlerine gerek kalmadan işlevselliği yeniden kullanmanın ve genişletmenin bir yolunu sağlarlar.
+Mixin sınıfları, birden çok sınıfın davranışını tek bir sınıfta bir araya getirip birleştirmenize olanak tanır. Derin kalıtım zincirlerine gerek kalmadan işlevselliği yeniden kullanmanın ve genişletmenin bir yolunu sağlarlar.
 
 ```typescript
 abstract class Identifiable {
@@ -4295,15 +4295,15 @@ o.select();
 
 TypeScript, JavaScript'in bir üst kümesi olduğundan JavaScript'in şu yerleşik eşzamansız dil özelliklerine sahiptir:
 
-Promise'lar:
+Promise'ler:
 
-Promise'lar, başarı ve hata koşullarını işlemek için `.then()` ve `.catch()` gibi yöntemleri kullanarak eşzamansız işlemleri ve bunların sonuçlarını işlemenin bir yoludur.
+Promise'ler, başarı ve hata koşullarını işlemek için `.then()` ve `.catch()` gibi yöntemleri kullanarak eşzamansız işlemleri ve bunların sonuçlarını işlemenin bir yoludur.
 
 Daha fazla bilgi için: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 Async/await:
 
-Async/await anahtar sözcükleri, Promise'larla çalışmak için daha eşzamanlı görünen bir sözdizimi sağlamanın bir yoludur. `async` anahtar sözcüğü eşzamansız bir işlev tanımlamak için, `await` anahtar sözcüğü ise bir Promise çözümlenene veya reddedilene kadar yürütmeyi duraklatmak için async işlev içinde kullanılır.
+Async/await anahtar sözcükleri, Promise'lerle çalışmak için daha eşzamanlı görünen bir sözdizimi sağlamanın bir yoludur. `async` anahtar sözcüğü eşzamansız bir işlev tanımlamak için, `await` anahtar sözcüğü ise bir Promise çözümlenene veya reddedilene kadar yürütmeyi duraklatmak için async işlev içinde kullanılır.
 
 Daha fazla bilgi için:
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
@@ -5170,7 +5170,7 @@ const config = import('./config.json', { with: { type: 'json' } });
 
 ### Düzenli İfade Sözdizimi Denetimi
 
-TypeScript, 5.5.4 sürümünden itibaren düzenli ifade değişmezlerini derleme zamanında yaygın hatalara karşı denetler (ör. geçersiz sözdizimi, yanlış geriye başvurular, hedef JavaScript sürümünüz tarafından desteklenmeyen özellikler). Bu, hataları daha erken yakalamaya yardımcı olur ancak new RegExp("...") dizelerini denetlemez.
+TypeScript, 5.5.4 sürümünden itibaren düzenli ifade değişmezlerini derleme zamanında yaygın hatalara karşı denetler (ör. geçersiz sözdizimi, yanlış geriye başvurular, hedef JavaScript sürümünüz tarafından desteklenmeyen özellikler). Bu, hataları daha erken yakalamaya yardımcı olur, ancak new RegExp("...") dizelerini denetlemez.
 
 <!-- skip -->
 ```typescript
