@@ -57,6 +57,10 @@ export const locales = {
     label: 'Türkçe',
     lang: 'tr-TR',
   },
+  'vi-vn': {
+    label: 'Tiếng Việt',
+    lang: 'vi-VN',
+  },
 } as const;
 
 export type Locale = keyof typeof locales;
