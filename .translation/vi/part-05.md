@@ -47,7 +47,7 @@ const x = {
 } as X;
 ```
 
-Trong ví dụ trên, đối tượng x được assertion là có kiểu X bằng từ khóa as. Điều này cho trình biên dịch TypeScript biết rằng đối tượng tuân theo kiểu đã chỉ định, mặc dù nó có thêm thuộc tính b không có trong định nghĩa kiểu.
+Trong ví dụ trên, đối tượng x được xác nhận là có kiểu X bằng từ khóa as. Điều này cho trình biên dịch TypeScript biết rằng đối tượng tuân theo kiểu đã chỉ định, mặc dù nó có thêm thuộc tính b không có trong định nghĩa kiểu.
 
 Type assertion hữu ích trong những tình huống cần chỉ định một kiểu cụ thể hơn, đặc biệt khi làm việc với DOM. Ví dụ:
 
