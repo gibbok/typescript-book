@@ -42,5 +42,5 @@ const sum = (a = 10, b: number): number => a + b;
 
 Bu, özellikle daha karmaşık fonksiyonlar için faydalıdır; çünkü uygulamadan önce dönüş türünü yazmak fonksiyon üzerinde düşünmenize yardımcı olabilir.
 
-Genel olarak, tür imzalarına ek açıklama eklemeyi değerlendirin ancak fonksiyon gövdesindeki yerel değişkenlere eklemeyin ve nesne sabitlerine her zaman tür ekleyin.
+Genel olarak, tür imzalarına ek açıklama eklemeyi değerlendirin, ancak fonksiyon gövdesindeki yerel değişkenlere eklemeyin ve nesne sabitlerine her zaman tür ekleyin.
 

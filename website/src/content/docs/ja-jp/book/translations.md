@@ -32,3 +32,5 @@ sidebar:
 
 [ポーランド語](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
 
+[トルコ語](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
+

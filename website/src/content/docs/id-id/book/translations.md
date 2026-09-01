@@ -32,3 +32,5 @@ Buku ini telah diterjemahkan ke dalam beberapa bahasa, termasuk:
 
 [Bahasa Polandia](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
 
+[Bahasa Turki](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
+

@@ -73,7 +73,7 @@ console.log('EN' /* Language.English */);
 ```
 
 Notlar:
-Const Enum'lar sabit kodlanmış değerlere sahiptir ve Enum'u siler; bu, kendi içinde bağımsız kitaplıklarda daha verimli olabilir ancak genellikle tercih edilmez. Ayrıca Const enum'lar hesaplanmış üyelere sahip olamaz.
+Const Enum'lar sabit kodlanmış değerlere sahiptir ve Enum'u siler; bu, kendi içinde bağımsız kitaplıklarda daha verimli olabilir, ancak genellikle tercih edilmez. Ayrıca Const enum'lar hesaplanmış üyelere sahip olamaz.
 
 ### Ters eşleme
 

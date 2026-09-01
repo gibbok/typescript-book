@@ -684,7 +684,7 @@ function identity<T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
 ```
 
-Gördüğünüz gibi `a` ve `b` özelliklerinin türü `string` olarak çıkarılır   .
+Gördüğünüz gibi `a` ve `b` özelliklerinin türü `string` olarak çıkarılır.
 
 Şimdi `const` sürümüyle arasındaki farkı görelim:
 
@@ -696,7 +696,7 @@ function identity<const T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
 ```
 
-Artık `a` ve `b` özelliklerinin yalnızca `string` türleri yerine dizge değişmezleri olarak çıkarıldığını görebiliriz.
+Artık `a` ve `b` özelliklerinin yalnızca `string` türleri yerine dize değişmezleri olarak çıkarıldığını görebiliriz.
 
 #### Const Onaylaması
 

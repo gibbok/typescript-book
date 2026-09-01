@@ -55,7 +55,7 @@ throw new CustomError('This is a custom error.');
 
 ### Mixin Sınıfları
 
-Mixin sınıfları, birden çok sınıfın davranışını tek bir sınıfta bir araya getirip bileştirmenize olanak tanır. Derin kalıtım zincirlerine gerek kalmadan işlevselliği yeniden kullanmanın ve genişletmenin bir yolunu sağlarlar.
+Mixin sınıfları, birden çok sınıfın davranışını tek bir sınıfta bir araya getirip birleştirmenize olanak tanır. Derin kalıtım zincirlerine gerek kalmadan işlevselliği yeniden kullanmanın ve genişletmenin bir yolunu sağlarlar.
 
 ```typescript
 abstract class Identifiable {
@@ -109,15 +109,15 @@ o.select();
 
 TypeScript, JavaScript'in bir üst kümesi olduğundan JavaScript'in şu yerleşik eşzamansız dil özelliklerine sahiptir:
 
-Promise'lar:
+Promise'ler:
 
-Promise'lar, başarı ve hata koşullarını işlemek için `.then()` ve `.catch()` gibi yöntemleri kullanarak eşzamansız işlemleri ve bunların sonuçlarını işlemenin bir yoludur.
+Promise'ler, başarı ve hata koşullarını işlemek için `.then()` ve `.catch()` gibi yöntemleri kullanarak eşzamansız işlemleri ve bunların sonuçlarını işlemenin bir yoludur.
 
 Daha fazla bilgi için: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 Async/await:
 
-Async/await anahtar sözcükleri, Promise'larla çalışmak için daha eşzamanlı görünen bir sözdizimi sağlamanın bir yoludur. `async` anahtar sözcüğü eşzamansız bir işlev tanımlamak için, `await` anahtar sözcüğü ise bir Promise çözümlenene veya reddedilene kadar yürütmeyi duraklatmak için async işlev içinde kullanılır.
+Async/await anahtar sözcükleri, Promise'lerle çalışmak için daha eşzamanlı görünen bir sözdizimi sağlamanın bir yoludur. `async` anahtar sözcüğü eşzamansız bir işlev tanımlamak için, `await` anahtar sözcüğü ise bir Promise çözümlenene veya reddedilene kadar yürütmeyi duraklatmak için async işlev içinde kullanılır.
 
 Daha fazla bilgi için:
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
@@ -984,7 +984,7 @@ const config = import('./config.json', { with: { type: 'json' } });
 
 ### Düzenli İfade Sözdizimi Denetimi
 
-TypeScript, 5.5.4 sürümünden itibaren düzenli ifade değişmezlerini derleme zamanında yaygın hatalara karşı denetler (ör. geçersiz sözdizimi, yanlış geriye başvurular, hedef JavaScript sürümünüz tarafından desteklenmeyen özellikler). Bu, hataları daha erken yakalamaya yardımcı olur ancak new RegExp("...") dizelerini denetlemez.
+TypeScript, 5.5.4 sürümünden itibaren düzenli ifade değişmezlerini derleme zamanında yaygın hatalara karşı denetler (ör. geçersiz sözdizimi, yanlış geriye başvurular, hedef JavaScript sürümünüz tarafından desteklenmeyen özellikler). Bu, hataları daha erken yakalamaya yardımcı olur, ancak new RegExp("...") dizelerini denetlemez.
 
 <!-- skip -->
 ```typescript

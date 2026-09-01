@@ -34,7 +34,7 @@ TypeScript, `.ts` veya `.tsx` dosyalarına yazılırken JavaScript dosyaları `.
 
 `.tsx` veya `.jsx` uzantılı dosyalar, React'te kullanıcı arayüzü geliştirmek için kullanılan JavaScript Sözdizimi Uzantısı JSX'i içerebilir.
 
-TypeScript, sözdizimi açısından JavaScript'in (ECMAScript 2015) türlendirilmiş bir üst kümesidir. Tüm JavaScript kodları geçerli TypeScript kodudur ancak bunun tersi her zaman doğru değildir.
+TypeScript, sözdizimi açısından JavaScript'in (ECMAScript 2015) türlendirilmiş bir üst kümesidir. Tüm JavaScript kodları geçerli TypeScript kodudur, ancak bunun tersi her zaman doğru değildir.
 
 Örneğin, aşağıdaki gibi `.js` uzantılı bir JavaScript dosyasındaki fonksiyonu ele alalım:
 

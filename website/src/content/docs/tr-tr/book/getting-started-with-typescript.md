@@ -8,7 +8,7 @@ sidebar:
 
 ### Kurulum
 
-Visual Studio Code, TypeScript dili için mükemmel destek sunar ancak TypeScript derleyicisini içermez. TypeScript derleyicisini kurmak için npm veya yarn gibi bir paket yöneticisi kullanabilirsiniz:
+Visual Studio Code, TypeScript dili için mükemmel destek sunar, ancak TypeScript derleyicisini içermez. TypeScript derleyicisini kurmak için npm veya yarn gibi bir paket yöneticisi kullanabilirsiniz:
 
 ```shell
 npm install typescript --save-dev
@@ -22,7 +22,7 @@ yarn add typescript --dev
 
 Her ekip üyesinin aynı TypeScript sürümünü kullanmasını sağlamak için oluşturulan kilit dosyasını kaynak denetimine eklediğinizden emin olun.
 
-TypeScript derleyicisini çalıştırmak için aşağıdaki komutları kullanabilirsiniz
+TypeScript derleyicisini çalıştırmak için aşağıdaki komutları kullanabilirsiniz.
 
 ```shell
 npx tsc
@@ -58,7 +58,7 @@ Ayrıca Babel (bir eklenti aracılığıyla) veya swc gibi TypeScript uyumlu çe
 
 TypeScript 7.0, derleyicinin ve dil hizmetinin yerel bir uygulaması olarak Go ile yeniden yazıldı. Tam derlemeleri ve editör özelliklerini hızlandırmak için paylaşımlı bellekli çoklu iş parçacığı ve diğer optimizasyonları kullanarak geliştirme sırasındaki geri bildirim süresini kısaltır.
 
-Bazı TypeScript 7.0 performans özellikleri ayarlanabilir. Tür denetimi `--checkers` ile paralel işçilerde çalışabilir; daha fazla işçi büyük projeleri hızlandırabilir ancak daha fazla bellek kullanır. Yeniden oluşturulan `--watch` modu, platformlar arası dosya izlemeyi iyileştirir. TypeScript 7.0 henüz (Temmuz 2026 itibarıyla) bir derleyici API'si içermez; bu nedenle hâlâ TypeScript 6.0 API'sine ihtiyaç duyan araçlar, `@typescript/typescript6` veya npm alias'ları kullanılarak TypeScript 7.0 ile yan yana çalıştırılabilir.
+Bazı TypeScript 7.0 performans özellikleri ayarlanabilir. Tür denetimi `--checkers` ile paralel işçilerde çalışabilir; daha fazla işçi büyük projeleri hızlandırabilir, ancak daha fazla bellek kullanır. Yeniden oluşturulan `--watch` modu, platformlar arası dosya izlemeyi iyileştirir. TypeScript 7.0 henüz (Temmuz 2026 itibarıyla) bir derleyici API'si içermez; bu nedenle hâlâ TypeScript 6.0 API'sine ihtiyaç duyan araçlar, `@typescript/typescript6` veya npm alias'ları kullanılarak TypeScript 7.0 ile yan yana çalıştırılabilir.
 
 ### Yapılandırma
 
@@ -103,7 +103,7 @@ Aşağıda yaygın ve kullanışlı yapılandırmaların bir listesi yer almakta
 
 #### lib
 
-"lib" özelliği, derleme sırasında hangi kütüphane dosyalarının dâhil edileceğini belirtmek için kullanılır. TypeScript, "target" özelliğinde belirtilen özelliklere yönelik API'leri otomatik olarak dâhil eder ancak belirli ihtiyaçlar için belirli kütüphaneleri hariç tutmak veya seçmek mümkündür. Örneğin bir sunucu projesi üzerinde çalışıyorsanız yalnızca tarayıcı ortamında kullanışlı olan "DOM" kütüphanesini hariç tutabilirsiniz.
+"lib" özelliği, derleme sırasında hangi kütüphane dosyalarının dâhil edileceğini belirtmek için kullanılır. TypeScript, "target" özelliğinde belirtilen özelliklere yönelik API'leri otomatik olarak dâhil eder, ancak belirli ihtiyaçlar için belirli kütüphaneleri hariç tutmak veya seçmek mümkündür. Örneğin bir sunucu projesi üzerinde çalışıyorsanız yalnızca tarayıcı ortamında kullanışlı olan "DOM" kütüphanesini hariç tutabilirsiniz.
 
 #### strict
 
@@ -130,7 +130,7 @@ Not: Eski modül sistemleri (AMD, UMD, SystemJS) desteği TypeScript 6.0'da kull
 
 "esModuleInterop" özelliği, "default" özelliğini kullanarak dışa aktarım yapmayan CommonJS modüllerinden varsayılan içe aktarmalara izin verir; bu özellik, üretilen JavaScript'te uyumluluk sağlamak için bir shim sunar. Bu seçeneği etkinleştirdikten sonra `import * as MyLibrary from "my-library"` yerine `import MyLibrary from "my-library"` kullanabiliriz.
 
-"esModuleInterop", bozucu değişikliklerden kaçınmak için başlangıçta isteğe bağlıydı ancak uzun süredir önerilen varsayılan ayardır. Devre dışı bırakılması, CommonJS ile ESM kullanılırken belli belirsiz çalışma zamanı sorunlarına yol açabilir. Not: TypeScript 6.0'dan itibaren bu daha güvenli birlikte çalışabilirlik davranışı her zaman etkindir.
+"esModuleInterop", bozucu değişikliklerden kaçınmak için başlangıçta isteğe bağlıydı, ancak uzun süredir önerilen varsayılan ayardır. Devre dışı bırakılması, CommonJS ile ESM kullanılırken belli belirsiz çalışma zamanı sorunlarına yol açabilir. Not: TypeScript 6.0'dan itibaren bu daha güvenli birlikte çalışabilirlik davranışı her zaman etkindir.
 
 TypeScript 6.0'da bazı eski yapılandırma seçenekleri ve sözdizimi biçimleri kullanımdan kaldırılmış veya eski davranış üzerinden geçiş yapmıştır. TypeScript 7.0'da bunlar kesin hatalara veya işlem yapmayan davranışlara dönüşmüştür.
 

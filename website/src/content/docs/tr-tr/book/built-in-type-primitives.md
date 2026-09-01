@@ -9,7 +9,7 @@ sidebar:
 TypeScript, değişkenleri, fonksiyon parametrelerini ve dönüş türlerini tanımlamak için kullanılabilecek çeşitli yerleşik ilkel türlere sahiptir:
 
 * `number`: Tam sayılar ve kayan noktalı sayılar dâhil olmak üzere sayısal değerleri temsil eder.
-* `string`: Metinsel verileri temsil eder
+* `string`: Metinsel verileri temsil eder.
 * `boolean`: Doğru veya yanlış olabilen mantıksal değerleri temsil eder.
 * `null`: Bir değerin yokluğunu temsil eder.
 * `undefined`: Atanmamış veya tanımlanmamış bir değeri temsil eder.
