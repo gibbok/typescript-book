@@ -2,7 +2,7 @@
 
 Cuốn sách TypeScript súc tích cung cấp cái nhìn tổng quan toàn diện và ngắn gọn về các khả năng của TypeScript. Sách đưa ra những giải thích rõ ràng bao quát mọi khía cạnh của phiên bản ngôn ngữ mới nhất, từ hệ thống kiểu mạnh mẽ đến các tính năng nâng cao.
 
-Dù bạn là người mới bắt đầu hay một lập trình viên giàu kinh nghiệm, cuốn sách này là một tài liệu hữu ích giúp nâng cao hiểu biết và kỹ năng sử dụng TypeScript.
+Dù bạn là người mới bắt đầu hay một lập trình viên giàu kinh nghiệm, cuốn sách này là một tài liệu vô cùng giá trị giúp nâng cao hiểu biết và kỹ năng sử dụng TypeScript.
 
 Cuốn sách này hoàn toàn miễn phí và mã nguồn mở.
 
