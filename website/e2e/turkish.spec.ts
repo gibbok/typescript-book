@@ -16,7 +16,7 @@ test.describe('Turkish reader', () => {
     ).toBeVisible();
 
     await expect(page.locator('main[data-pagefind-body]')).toContainText(
-      'Visual Studio Code, TypeScript dili için mükemmel destek sunar ancak TypeScript derleyicisini içermez.',
+      'Visual Studio Code, TypeScript dili için mükemmel destek sunar, ancak TypeScript derleyicisini içermez.',
     );
   });
 
