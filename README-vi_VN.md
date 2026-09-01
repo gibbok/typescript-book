@@ -3005,7 +3005,7 @@ Constructor được định nghĩa bằng từ khóa `constructor`. Nó nhận 
 
 Class có một phương thức `public` tên là sayHi, phương thức này ghi ra một lời chào.
 
-Để tạo một instance của class trong TypeScript, bạn có thể dùng từ khóa `new` theo sau bởi tên class, rồi dấu ngoặc đơn `()`. Ví dụ:
+Để tạo một instance của class trong TypeScript, bạn có thể dùng từ khóa `new`, theo sau là tên class rồi dấu ngoặc đơn `()`. Ví dụ:
 
 <!-- skip -->
 ```typescript
@@ -3231,7 +3231,7 @@ person.introduce();
 
 ### Abstract Class
 
-Abstract Class được sử dụng trong TypeScript chủ yếu cho kế thừa. Chúng cung cấp cách định nghĩa các thuộc tính và phương thức chung có thể được các subclass kế thừa.
+Abstract Class được sử dụng trong TypeScript chủ yếu cho kế thừa. Nó cung cấp cách định nghĩa các thuộc tính và phương thức chung có thể được các subclass kế thừa.
 Điều này hữu ích khi bạn muốn định nghĩa hành vi chung và bắt buộc các subclass triển khai một số phương thức nhất định. Chúng cung cấp cách tạo một hệ phân cấp class, trong đó abstract base class cung cấp interface dùng chung và chức năng chung cho các subclass.
 
 ```typescript
@@ -3303,7 +3303,7 @@ Một số trường hợp sử dụng decorator phổ biến gồm:
 * Authorization và authentication.
 * Bảo vệ khỏi lỗi.
 
-Lưu ý: Decorator của phiên bản 5 không cho phép decorate tham số.
+Lưu ý: Decorator của phiên bản 5 không cho phép trang trí tham số.
 
 Các loại decorator:
 
@@ -3913,7 +3913,7 @@ Có thể dùng một số utility type tích hợp để thao tác kiểu; dư�
 
 #### Awaited\<T\>
 
-Tạo một kiểu đệ quy unwrap các kiểu Promise.
+Tạo một kiểu gỡ bọc đệ quy các kiểu Promise.
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
@@ -4136,7 +4136,7 @@ let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
 
 #### Uppercase\<T\>
 
-Chuyển tên của input type T thành chữ hoa.
+Chuyển tên của kiểu đầu vào T thành chữ hoa.
 
 ```typescript
 type MyType = Uppercase<'abc'>; // "ABC"
@@ -4144,7 +4144,7 @@ type MyType = Uppercase<'abc'>; // "ABC"
 
 #### Lowercase\<T\>
 
-Chuyển tên của input type T thành chữ thường.
+Chuyển tên của kiểu đầu vào T thành chữ thường.
 
 ```typescript
 type MyType = Lowercase<'ABC'>; // "abc"
@@ -4152,7 +4152,7 @@ type MyType = Lowercase<'ABC'>; // "abc"
 
 #### Capitalize\<T\>
 
-Viết hoa chữ cái đầu tên của input type T.
+Viết hoa chữ cái đầu trong tên của kiểu đầu vào T.
 
 ```typescript
 type MyType = Capitalize<'abc'>; // "Abc"
@@ -4160,7 +4160,7 @@ type MyType = Capitalize<'abc'>; // "Abc"
 
 #### Uncapitalize\<T\>
 
-Chuyển chữ cái đầu tên của input type T thành chữ thường.
+Chuyển chữ cái đầu trong tên của kiểu đầu vào T thành chữ thường.
 
 ```typescript
 type MyType = Uncapitalize<'Abc'>; // "abc"
