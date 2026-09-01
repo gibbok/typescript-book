@@ -324,7 +324,7 @@ Danh sách đầy đủ những người đóng góp: [https://github.com/gibbok
 
 ### TypeScript là gì?
 
-TypeScript là một ngôn ngữ lập trình có hệ thống kiểu mạnh, được xây dựng dựa trên JavaScript. Ban đầu ngôn ngữ này được Anders Hejlsberg thiết kế vào năm 2012 và hiện được Microsoft phát triển, duy trì như một dự án mã nguồn mở.
+TypeScript là một ngôn ngữ lập trình có hệ thống kiểu mạnh, được xây dựng dựa trên JavaScript. Ban đầu ngôn ngữ này do Anders Hejlsberg thiết kế vào năm 2012 và hiện được Microsoft phát triển và duy trì như một dự án mã nguồn mở.
 
 TypeScript được biên dịch thành JavaScript và có thể chạy trong bất kỳ môi trường thực thi JavaScript nào (ví dụ: trình duyệt hoặc Node.js trên máy chủ).
 
@@ -549,9 +549,9 @@ hoặc
 yarn add typescript --dev
 ```
 
-Hãy bảo đảm commit lockfile được tạo để mọi thành viên trong nhóm đều sử dụng cùng một phiên bản TypeScript.
+Hãy bảo đảm lockfile đã tạo được commit để mọi thành viên trong nhóm đều sử dụng cùng một phiên bản TypeScript.
 
-Để chạy trình biên dịch TypeScript, bạn có thể sử dụng các lệnh sau
+Để chạy trình biên dịch TypeScript, bạn có thể sử dụng các lệnh sau:
 
 ```shell
 npx tsc
@@ -615,7 +615,7 @@ Tệp tsconfig.json được dùng để cấu hình TypeScript Compiler (tsc). 
 
 Ghi chú:
 
-* tsconfig.json chấp nhận comment dù ở định dạng json.
+* tsconfig.json chấp nhận comment dù có định dạng JSON.
 * Nên sử dụng tệp cấu hình này thay cho các tùy chọn dòng lệnh.
 
 Tại các liên kết sau, bạn có thể tìm thấy tài liệu đầy đủ và schema của nó:
@@ -1214,13 +1214,13 @@ type X = {
 type Y = J<X>;
 ```
 
-Trong ví dụ này, kiểu `J<Type>` sử dụng mapped type với template literal để ánh xạ lại các key của Type. Nó tạo các thuộc tính mới với "prefix_" được thêm vào mỗi key và các giá trị tương ứng là các hàm trả về giá trị thuộc tính ban đầu.
+Trong ví dụ này, kiểu `J<Type>` sử dụng mapped type với template literal để ánh xạ lại các key của `Type`. Nó tạo các thuộc tính mới với "prefix_" được thêm vào mỗi key và các giá trị tương ứng là các hàm trả về giá trị thuộc tính ban đầu.
 
 Cần lưu ý rằng khi sử dụng type assertion, TypeScript sẽ không thực hiện excess property checking. Vì vậy, nói chung nên sử dụng Khai báo kiểu khi cấu trúc của đối tượng đã được biết trước.
 
 #### Khai báo ambient
 
-Khai báo ambient là các tệp mô tả kiểu cho mã JavaScript, chúng có định dạng tên tệp là `.d.ts.`. Chúng thường được import và dùng để chú thích các thư viện JavaScript hiện có hoặc thêm kiểu vào các tệp JS hiện có trong dự án của bạn.
+Khai báo ambient là các tệp mô tả kiểu cho mã JavaScript, chúng có định dạng tên tệp là `.d.ts`. Chúng thường được import và dùng để chú thích các thư viện JavaScript hiện có hoặc thêm kiểu vào các tệp JS hiện có trong dự án của bạn.
 
 Có thể tìm thấy kiểu cho nhiều thư viện phổ biến tại:
 [https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
@@ -1246,7 +1246,7 @@ Từ khóa `declare` cho phép định nghĩa kiểu cho mã JavaScript hiện c
 
 TypeScript dựa trên hệ thống kiểu cấu trúc nhưng excess property checking là một đặc tính của TypeScript cho phép kiểm tra liệu một đối tượng có đúng các thuộc tính được chỉ định trong kiểu hay không.
 
-Excess Property Checking được thực hiện khi gán object literal cho biến hoặc khi truyền chúng làm đối số cho thuộc tính dư thừa của hàm, chẳng hạn.
+Excess Property Checking được thực hiện khi gán object literal cho biến hoặc khi truyền chúng làm đối số cho tham số của hàm, chẳng hạn.
 
 <!-- skip -->
 ```typescript
@@ -1405,7 +1405,7 @@ y = x; // Valid: The type of x is inferred as 'x'
 ```
 
 Bằng cách dùng `const` để khai báo biến x, kiểu của nó được thu hẹp thành giá trị literal cụ thể 'x'. Vì kiểu của x được thu hẹp, nó có thể được gán cho biến y mà không có lỗi.
-Lý do kiểu có thể được suy luận như vậy là vì biến `const` không thể được gán lại, nên kiểu của chúng có thể được thu hẹp xuống một literal type cụ thể, trong trường hợp này là literal type 'x'.
+Lý do kiểu có thể được suy luận như vậy là vì biến `const` không thể được gán lại, nên kiểu của nó có thể được thu hẹp xuống một literal type cụ thể, trong trường hợp này là literal type 'x'.
 
 #### Modifier Const trên tham số kiểu
 
@@ -1419,7 +1419,7 @@ function identity<T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
 ```
 
-Như bạn có thể thấy, các thuộc tính `a` và `b` được suy luận có kiểu `string`   .
+Như bạn có thể thấy, các thuộc tính `a` và `b` được suy luận có kiểu `string`.
 
 Bây giờ, hãy xem sự khác biệt với phiên bản `const`:
 
@@ -1687,7 +1687,7 @@ const y: readonly [string, number] = ['a', 1];
 
 Kiểu dữ liệu `any` biểu diễn đúng nghĩa "bất kỳ" giá trị nào và là mặc định khi TypeScript không thể suy luận kiểu hoặc kiểu không được chỉ định.
 
-Khi sử dụng `any`, trình biên dịch TypeScript bỏ qua kiểm tra kiểu, vì vậy không có an toàn kiểu khi `any` được dùng. Nói chung, đừng sử dụng `any` để làm im trình biên dịch khi xảy ra lỗi; thay vào đó, hãy tập trung sửa lỗi, vì dùng `any` có thể phá vỡ các hợp đồng và làm mất lợi ích của tính năng tự động hoàn thành của TypeScript.
+Khi sử dụng `any`, trình biên dịch TypeScript bỏ qua kiểm tra kiểu, vì vậy không còn an toàn kiểu khi `any` được dùng. Nói chung, đừng sử dụng `any` để làm im trình biên dịch khi xảy ra lỗi; thay vào đó, hãy tập trung sửa lỗi, vì dùng `any` có thể phá vỡ các hợp đồng và làm mất lợi ích của tính năng tự động hoàn thành của TypeScript.
 
 Kiểu `any` có thể hữu ích trong quá trình chuyển đổi dần từ JavaScript sang TypeScript vì nó có thể làm im trình biên dịch.
 
