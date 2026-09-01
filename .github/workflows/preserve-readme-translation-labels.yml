@@ -1,0 +1,90 @@
+name: Preserve localized README translation labels
+
+on:
+  push:
+    branches:
+      - agent/vietnamese-translation
+    paths:
+      - '.github/workflows/preserve-readme-translation-labels.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+
+      - name: Restore localized labels and keep complete links
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, subprocess
+
+          readmes = sorted(p for p in Path('.').iterdir() if p.is_file() and p.name.startswith('README') and p.suffix == '.md')
+          translated = [p for p in readmes if p.name != 'README.md']
+          expected = [p.name for p in translated]
+          fallback = {
+              'README-zh_CN.md': 'Chinese', 'README-it_IT.md': 'Italian', 'README-pt_BR.md': 'Portuguese (Brazil)',
+              'README-sv_SE.md': 'Swedish', 'README-bg_BG.md': 'Bulgarian', 'README_es_ES.md': 'Spanish',
+              'README-fr_FR.md': 'French', 'README-ja_JP.md': 'Japanese', 'README-ko_KR.md': 'Korean',
+              'README-id_ID.md': 'Indonesian', 'README-de_DE.md': 'German', 'README-pl_PL.md': 'Polish',
+              'README-tr_TR.md': 'Turkish', 'README-vi_VN.md': 'Vietnamese',
+          }
+          link_re = re.compile(r'^\[([^\]]+)\]\(https://github\.com/gibbok/typescript-book/blob/main/(README[^)]+\.md)\)$', re.M)
+
+          # HEAD^ is the temporary workflow commit; HEAD^^ is the state immediately before the normalization commit.
+          base_ref = 'HEAD^^'
+          changed = []
+
+          for path in readmes:
+              current = path.read_text(encoding='utf-8')
+              try:
+                  original = subprocess.check_output(['git', 'show', f'{base_ref}:{path.name}'], text=True)
+              except subprocess.CalledProcessError:
+                  original = current
+
+              original_labels = {target: label for label, target in link_re.findall(original)}
+              matches = list(link_re.finditer(current))
+              if not matches:
+                  raise SystemExit(f'No translation links in {path.name}')
+
+              first = matches[0]
+              block_start = first.start()
+              last = first
+              for m in matches[1:]:
+                  if current[last.end():m.start()].strip() == '':
+                      last = m
+                  else:
+                      break
+              block_end = last.end()
+
+              block = '\n\n'.join(
+                  f'[{original_labels.get(target, fallback[target])}](https://github.com/gibbok/typescript-book/blob/main/{target})'
+                  for target in expected
+              )
+              updated = current[:block_start] + block + current[block_end:]
+              if updated != current:
+                  path.write_text(updated, encoding='utf-8')
+                  changed.append(path.name)
+
+          print('Updated while preserving localized labels:', ', '.join(changed) if changed else 'none')
+          PY
+
+      - name: Validate Markdown
+        run: |
+          cd tools
+          npm ci
+          npm run lint:md
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm .github/workflows/preserve-readme-translation-labels.yml
+          git add README*.md .github/workflows/preserve-readme-translation-labels.yml
+          git commit -m "Preserve localized README translation labels" || exit 0
+          git push
