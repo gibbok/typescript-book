@@ -29,11 +29,14 @@ jobs:
 
       - name: Assemble Vietnamese README and validate parity
         run: |
-          : > README-vi_VN.md
-          for part in .translation/vi/part-*.md; do
-            cat "$part" >> README-vi_VN.md
-            printf '\n' >> README-vi_VN.md
-          done
+          python3 <<'PY_ASSEMBLE'
+          from pathlib import Path
+          parts = sorted(Path('.translation/vi').glob('part-*.md'))
+          text = '\n\n'.join(
+              part.read_text(encoding='utf-8').rstrip('\n') for part in parts
+          ) + '\n'
+          Path('README-vi_VN.md').write_text(text, encoding='utf-8')
+          PY_ASSEMBLE
           python3 <<'PY'
           import re
           from pathlib import Path
