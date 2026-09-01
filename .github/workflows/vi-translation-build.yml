@@ -1,5 +1,5 @@
 name: vi-translation-build
-# Retry after Vietnamese tooling integration fix
+# Retry after Vietnamese website locale completion
 
 on:
   push:
