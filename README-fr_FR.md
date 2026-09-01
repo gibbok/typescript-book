@@ -46,33 +46,33 @@ Votre soutien m'aide à maintenir le contenu à jour et à l'enrichir de nouveau
 
 Ce livre a été traduit dans plusieurs langues, notamment :
 
-[Bulgarian](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
+[Bulgare](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
-[German](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
+[Allemand](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
 
-[French](https://github.com/gibbok/typescript-book/blob/main/README-fr_FR.md)
+[Français](https://github.com/gibbok/typescript-book/blob/main/README-fr_FR.md)
 
-[Indonesian](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
+[Indonésien](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
 
-[Italian](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
+[Italien](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
 
-[Japanese](https://github.com/gibbok/typescript-book/blob/main/README-ja_JP.md)
+[Japonais](https://github.com/gibbok/typescript-book/blob/main/README-ja_JP.md)
 
-[Korean](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
+[Coréen](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
 
-[Polish](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
+[Polonais](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
 
-[Portuguese (Brazil)](https://github.com/gibbok/typescript-book/blob/main/README-pt_BR.md)
+[Portugais (Brésil)](https://github.com/gibbok/typescript-book/blob/main/README-pt_BR.md)
 
-[Swedish](https://github.com/gibbok/typescript-book/blob/main/README-sv_SE.md)
+[Suédois](https://github.com/gibbok/typescript-book/blob/main/README-sv_SE.md)
 
-[Turkish](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
+[Turc](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
 
 [Vietnamese](https://github.com/gibbok/typescript-book/blob/main/README-vi_VN.md)
 
-[Chinese](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
+[Chinois](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
-[Spanish](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+[Espagnol](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
 
 ## Téléchargements et site web
 
