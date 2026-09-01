@@ -1,0 +1,27 @@
+name: Validate Vietnamese TypeScript news translations
+
+on:
+  push:
+    paths:
+      - '.github/workflows/validate-vietnamese-news-translations.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: agent/vietnamese-translation
+
+      - name: Verify news order
+        run: python3 .agents/skills/create-typescript-news/scripts/verify_news_order.py
+
+      - name: Build website
+        run: |
+          cd website
+          npm ci
+          npm run build
