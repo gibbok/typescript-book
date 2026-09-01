@@ -28,3 +28,5 @@ Ta książka została przetłumaczona na kilka języków, w tym:
 
 [polski](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
 
+[turecki](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
+

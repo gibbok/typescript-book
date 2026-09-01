@@ -28,3 +28,5 @@
 
 [폴란드어](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
 
+[터키어](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
+
