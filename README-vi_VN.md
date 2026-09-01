@@ -68,7 +68,7 @@ Cuốn sách này đã được dịch sang một số ngôn ngữ, bao gồm:
 
 [Tiếng Thổ Nhĩ Kỳ](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
 
-[Vietnamese](https://github.com/gibbok/typescript-book/blob/main/README-vi_VN.md)
+[Tiếng Việt](https://github.com/gibbok/typescript-book/blob/main/README-vi_VN.md)
 
 [Tiếng Trung](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
