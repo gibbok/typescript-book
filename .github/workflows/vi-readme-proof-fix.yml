@@ -1,0 +1,85 @@
+name: Vietnamese README proof fixes
+
+on:
+  push:
+    branches:
+      - agent/vietnamese-translation
+    paths:
+      - '.github/workflows/vi-readme-proof-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  proof-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Apply safe Vietnamese README copy fixes
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('README-vi_VN.md')
+          text = path.read_text(encoding='utf-8')
+          before = text
+
+          replacements = {
+              'Ban đầu ngôn ngữ này được Anders Hejlsberg thiết kế vào năm 2012 và hiện được Microsoft phát triển, duy trì như một dự án mã nguồn mở.':
+                  'Ban đầu ngôn ngữ này do Anders Hejlsberg thiết kế vào năm 2012 và hiện được Microsoft phát triển và duy trì như một dự án mã nguồn mở.',
+              'Hãy bảo đảm commit lockfile được tạo để mọi thành viên trong nhóm đều sử dụng cùng một phiên bản TypeScript.':
+                  'Hãy bảo đảm lockfile đã tạo được commit để mọi thành viên trong nhóm đều sử dụng cùng một phiên bản TypeScript.',
+              'Để chạy trình biên dịch TypeScript, bạn có thể sử dụng các lệnh sau\n\n```shell':
+                  'Để chạy trình biên dịch TypeScript, bạn có thể sử dụng các lệnh sau:\n\n```shell',
+              '* tsconfig.json chấp nhận comment dù ở định dạng json.':
+                  '* tsconfig.json chấp nhận comment dù có định dạng JSON.',
+              'Trong ví dụ này, kiểu `J<Type>` sử dụng mapped type với template literal để ánh xạ lại các key của Type.':
+                  'Trong ví dụ này, kiểu `J<Type>` sử dụng mapped type với template literal để ánh xạ lại các key của `Type`.',
+              'Khai báo ambient là các tệp mô tả kiểu cho mã JavaScript, chúng có định dạng tên tệp là `.d.ts.`.':
+                  'Khai báo ambient là các tệp mô tả kiểu cho mã JavaScript, chúng có định dạng tên tệp là `.d.ts`.',
+              'Excess Property Checking được thực hiện khi gán object literal cho biến hoặc khi truyền chúng làm đối số cho thuộc tính dư thừa của hàm, chẳng hạn.':
+                  'Excess Property Checking được thực hiện khi gán object literal cho biến hoặc khi truyền chúng làm đối số cho tham số của hàm, chẳng hạn.',
+              'Như bạn có thể thấy, các thuộc tính `a` và `b` được suy luận có kiểu `string`   .':
+                  'Như bạn có thể thấy, các thuộc tính `a` và `b` được suy luận có kiểu `string`.',
+              'Lý do kiểu có thể được suy luận như vậy là vì biến `const` không thể được gán lại, nên kiểu của chúng có thể được thu hẹp xuống một literal type cụ thể, trong trường hợp này là literal type \'x\'.':
+                  'Lý do kiểu có thể được suy luận như vậy là vì biến `const` không thể được gán lại, nên kiểu của nó có thể được thu hẹp xuống một literal type cụ thể, trong trường hợp này là literal type \'x\'.',
+              'Khi sử dụng `any`, trình biên dịch TypeScript bỏ qua kiểm tra kiểu, vì vậy không có an toàn kiểu khi `any` được dùng.':
+                  'Khi sử dụng `any`, trình biên dịch TypeScript bỏ qua kiểm tra kiểu, vì vậy không còn an toàn kiểu khi `any` được dùng.',
+          }
+
+          applied = []
+          for old, new in replacements.items():
+              if old not in text:
+                  raise SystemExit(f'Missing expected text for replacement: {old[:120]!r}')
+              text = text.replace(old, new, 1)
+              applied.append(old[:80])
+
+          path.write_text(text, encoding='utf-8')
+
+          def fences(value: str):
+              return re.findall(r'```[^\n]*\n.*?```', value, flags=re.S)
+
+          en = Path('README.md').read_text(encoding='utf-8')
+          if fences(en) != fences(text):
+              raise SystemExit('Code fence parity changed unexpectedly')
+
+          print(f'Applied {len(applied)} safe Vietnamese README proof fixes.')
+          if text == before:
+              print('No content changes produced.')
+          PY
+      - name: Validate Markdown
+        run: |
+          cd tools
+          npm ci
+          npm run lint:md
+      - name: Commit and push fixes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm .github/workflows/vi-readme-proof-fix.yml
+          git add README-vi_VN.md .github/workflows/vi-readme-proof-fix.yml
+          git commit -m "Proofread Vietnamese README copy" || exit 0
+          git push
