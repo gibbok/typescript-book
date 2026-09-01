@@ -70,7 +70,7 @@ Bu kitap aşağıdakiler de dâhil olmak üzere birçok dile çevrilmiştir:
 
 [Lehçe](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
 
-[Turkish](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
+[Türkçe](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
 
 ## İndirmeler ve web sitesi
 
