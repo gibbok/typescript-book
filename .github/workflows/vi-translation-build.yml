@@ -1,0 +1,163 @@
+name: vi-translation-build
+
+on:
+  push:
+    branches:
+      - agent/vietnamese-translation
+    paths:
+      - '.github/workflows/vi-translation-build.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  assemble-validate-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            tools/package-lock.json
+            website/package-lock.json
+
+      - name: Assemble Vietnamese README and validate parity
+        run: |
+          cat .translation/vi/part-*.md > README-vi_VN.md
+          python3 <<'PY'
+          import re
+          from pathlib import Path
+
+          en_path = Path('README.md')
+          vi_path = Path('README-vi_VN.md')
+          en = en_path.read_text(encoding='utf-8')
+          vi = vi_path.read_text(encoding='utf-8')
+
+          fence_re = re.compile(r'```[\s\S]*?```')
+
+          def fences(text):
+              return fence_re.findall(text)
+
+          def without_fences(text):
+              return fence_re.sub('', text)
+
+          def headings(text):
+              result = []
+              for line in without_fences(text).splitlines():
+                  match = re.match(r'^(#{1,6})\s+(.+?)\s*$', line)
+                  if match:
+                      result.append((len(match.group(1)), match.group(2)))
+              return result
+
+          en_fences = fences(en)
+          vi_fences = fences(vi)
+          if en_fences != vi_fences:
+              mismatches = [
+                  i for i, (a, b) in enumerate(zip(en_fences, vi_fences))
+                  if a != b
+              ]
+              raise SystemExit(
+                  f'Code fence mismatch: EN={len(en_fences)} VI={len(vi_fences)} '
+                  f'indices={mismatches[:20]}'
+              )
+
+          en_headings = headings(en)
+          vi_headings = headings(vi)
+          if len(en_headings) != len(vi_headings):
+              raise SystemExit(
+                  f'Heading count mismatch: EN={len(en_headings)} VI={len(vi_headings)}'
+              )
+          level_mismatches = [
+              i for i, (a, b) in enumerate(zip(en_headings, vi_headings))
+              if a[0] != b[0]
+          ]
+          if level_mismatches:
+              raise SystemExit(f'Heading level mismatches: {level_mismatches[:20]}')
+
+          marker_start = '<!-- markdownlint-disable MD004 -->'
+          marker_end = '<!-- markdownlint-enable MD004 -->'
+          en_a = en.index(marker_start) + len(marker_start)
+          en_b = en.index(marker_end, en_a)
+          source_toc = [
+              line for line in en[en_a:en_b].splitlines()
+              if re.match(r'^\s*-\s+\[', line)
+          ]
+          if len(source_toc) != len(vi_headings):
+              raise SystemExit(
+                  f'TOC/heading mismatch: TOC={len(source_toc)} headings={len(vi_headings)}'
+              )
+
+          def base_slug(text):
+              text = re.sub(r'\\([<>])', r'\1', text)
+              text = re.sub(r'`([^`]*)`', r'\1', text)
+              text = text.lower().strip()
+              return ''.join(
+                  '-' if ch.isspace() else ch
+                  for ch in text
+                  if ch.isalnum() or ch in {' ', '_', '-'}
+              )
+
+          seen = {}
+          toc = []
+          for source_line, (_, title) in zip(source_toc, vi_headings):
+              base = base_slug(title)
+              count = seen.get(base, 0)
+              seen[base] = count + 1
+              slug = base if count == 0 else f'{base}-{count}'
+              prefix = re.match(r'^(\s*-\s*)', source_line).group(1)
+              toc.append(f'{prefix}[{title}](#{slug})')
+
+          vi_a = vi.index(marker_start) + len(marker_start)
+          vi_b = vi.index(marker_end, vi_a)
+          vi = vi[:vi_a] + '\n' + '\n'.join(toc) + '\n' + vi[vi_b:]
+          vi_path.write_text(vi, encoding='utf-8')
+
+          final_fences = fences(vi)
+          if final_fences != en_fences:
+              raise SystemExit('Code fences changed while generating TOC')
+
+          final_headings = headings(vi)
+          if [level for level, _ in final_headings] != [level for level, _ in en_headings]:
+              raise SystemExit('Heading hierarchy changed while generating TOC')
+
+          print(f'Validated {len(final_headings)} headings and {len(final_fences)} code fences.')
+          PY
+
+      - name: Generate Vietnamese website content
+        working-directory: tools
+        run: python3 make-website-content.py
+
+      - name: Validate snippets and Markdown
+        working-directory: tools
+        run: |
+          npm ci
+          npm run lint
+          npm run lint:md
+          npm run compile
+
+      - name: Build Astro website
+        working-directory: website
+        run: |
+          npm ci
+          npm run build
+
+      - name: Verify English README is untouched
+        run: git diff --exit-code HEAD -- README.md
+
+      - name: Commit assembled Vietnamese artifacts
+        run: |
+          git restore website/src/content/docs || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -rf .translation/vi
+          rm .github/workflows/vi-translation-build.yml
+          git add README-vi_VN.md
+          git add website/src/content/docs/vi-vn
+          git add -A .translation/vi .github/workflows/vi-translation-build.yml
+          git commit -m "Assemble Vietnamese translation and website content"
+          git push
