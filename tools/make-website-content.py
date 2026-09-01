@@ -54,6 +54,9 @@ OUTPUT_DIR_PATH_DE = "../website/src/content/docs/de-de/book"
 INPUT_FILE_PATH_PL = "../README-pl_PL.md"
 OUTPUT_DIR_PATH_PL = "../website/src/content/docs/pl-pl/book"
 
+INPUT_FILE_PATH_TR = "../README-tr_TR.md"
+OUTPUT_DIR_PATH_TR = "../website/src/content/docs/tr-tr/book"
+
 
 def manage_output_dir(path: str) -> None:
     if os.path.exists(path):
@@ -151,7 +154,7 @@ def validate_page_headings(
 
 
 def make_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
-    anchor = re.sub(r"[^\w\s-]", "", text.lower())
+    anchor = re.sub(r"[^\w\s\u0300-\u036f-]", "", text.lower())
     anchor = re.sub(r"\s+", "-", anchor).strip("-")
     count = anchor_counts.get(anchor, 0)
     anchor_counts[anchor] = count + 1
@@ -161,7 +164,7 @@ def make_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
 
 
 def make_source_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
-    anchor = re.sub(r"[^\w\s.-]", "", text.lower())
+    anchor = re.sub(r"[^\w\s.\u0300-\u036f-]", "", text.lower())
     anchor = re.sub(r"\s+", "-", anchor).strip("-")
     count = anchor_counts.get(anchor, 0)
     anchor_counts[anchor] = count + 1
@@ -207,11 +210,13 @@ def rewrite_markdown_anchor_links(
         text = match.group(1)
         anchor = match.group(2)
         if anchor not in anchor_links:
-            normalized_anchor = re.sub(r"[^\w-]", "", anchor).strip("-")
+            normalized_anchor = re.sub(
+                r"[^\w\u0300-\u036f-]", "", anchor
+            ).strip("-")
             matching_anchors = [
                 candidate
                 for candidate in anchor_links
-                if re.sub(r"[^\w-]", "", candidate).strip("-")
+                if re.sub(r"[^\w\u0300-\u036f-]", "", candidate).strip("-")
                 == normalized_anchor
             ]
             if len(matching_anchors) != 1:
@@ -297,3 +302,5 @@ process(INPUT_FILE_PATH, INPUT_FILE_PATH_ID, OUTPUT_DIR_PATH_ID)
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_DE, OUTPUT_DIR_PATH_DE)
 
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_PL, OUTPUT_DIR_PATH_PL)
+
+process(INPUT_FILE_PATH, INPUT_FILE_PATH_TR, OUTPUT_DIR_PATH_TR)

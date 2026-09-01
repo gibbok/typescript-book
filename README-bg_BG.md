@@ -70,6 +70,8 @@ The Concise TypeScript Book предоставя изчерпателен и к�
 
 [полски](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
 
+[турски](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
+
 ## Изтегляния и уебсайт
 
 Можете също да изтеглите версията в Epub формат:

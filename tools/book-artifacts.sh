@@ -16,4 +16,5 @@ BOOK_ARTIFACTS=(
     "README-id_ID|typescript-book-id_ID|The Concise TypeScript Book|id-ID"
     "README-de_DE|typescript-book-de_DE|The Concise TypeScript Book|de-DE"
     "README-pl_PL|typescript-book-pl_PL|The Concise TypeScript Book|pl-PL"
+    "README-tr_TR|typescript-book-tr_TR|The Concise TypeScript Book|tr-TR"
 )
