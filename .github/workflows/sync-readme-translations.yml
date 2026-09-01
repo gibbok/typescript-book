@@ -1,0 +1,111 @@
+name: Sync README translation links
+
+on:
+  push:
+    branches:
+      - agent/vietnamese-translation
+    paths:
+      - '.github/workflows/sync-readme-translations.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Synchronize root README translation links
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path('.')
+          readmes = sorted(p for p in root.iterdir() if p.is_file() and p.name.startswith('README') and p.suffix == '.md')
+          translated = [p for p in readmes if p.name != 'README.md']
+
+          # Native/display labels used consistently in all translation blocks.
+          labels = {
+              'README-zh_CN.md': 'Chinese',
+              'README-it_IT.md': 'Italian',
+              'README-pt_BR.md': 'Portuguese (Brazil)',
+              'README-sv_SE.md': 'Swedish',
+              'README-bg_BG.md': 'Bulgarian',
+              'README_es_ES.md': 'Spanish',
+              'README-fr_FR.md': 'French',
+              'README-ja_JP.md': 'Japanese',
+              'README-ko_KR.md': 'Korean',
+              'README-id_ID.md': 'Indonesian',
+              'README-de_DE.md': 'German',
+              'README-pl_PL.md': 'Polish',
+              'README-tr_TR.md': 'Turkish',
+              'README-vi_VN.md': 'Vietnamese',
+          }
+
+          missing_labels = [p.name for p in translated if p.name not in labels]
+          if missing_labels:
+              raise SystemExit(f'Missing labels for: {missing_labels}')
+
+          link_re = re.compile(r'^\[[^\]]+\]\(https://github\.com/gibbok/typescript-book/blob/main/(README[^)]+\.md)\)$', re.M)
+          changed = []
+          report = []
+
+          expected_targets = {p.name for p in translated}
+
+          for path in readmes:
+              text = path.read_text(encoding='utf-8')
+              matches = list(link_re.finditer(text))
+              if not matches:
+                  raise SystemExit(f'Could not locate translation links in {path.name}')
+
+              # The Translations section uses a contiguous sequence of README links separated by blank lines.
+              first = matches[0]
+              block_start = first.start()
+              last = first
+              for m in matches[1:]:
+                  between = text[last.end():m.start()]
+                  if between.strip() == '':
+                      last = m
+                      continue
+                  break
+              block_end = last.end()
+
+              existing = {m.group(1) for m in matches if block_start <= m.start() <= block_end}
+              missing = sorted(expected_targets - existing)
+              report.append((path.name, len(existing), missing))
+
+              new_block = '\n\n'.join(
+                  f'[{labels[p.name]}](https://github.com/gibbok/typescript-book/blob/main/{p.name})'
+                  for p in translated
+              )
+              new_text = text[:block_start] + new_block + text[block_end:]
+
+              if new_text != text:
+                  path.write_text(new_text, encoding='utf-8')
+                  changed.append(path.name)
+
+          print(f'Root README files: {len(readmes)}')
+          print(f'Translated README files: {len(translated)}')
+          for name, count, missing in report:
+              print(f'{name}: had {count}/{len(translated)} links; missing={missing}')
+          print('Changed:', ', '.join(changed) if changed else 'none')
+          PY
+
+      - name: Validate Markdown
+        run: |
+          cd tools
+          npm ci
+          npm run lint:md
+
+      - name: Commit and push synchronized lists
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm .github/workflows/sync-readme-translations.yml
+          git add README*.md .github/workflows/sync-readme-translations.yml
+          git commit -m "Sync README translation links" || exit 0
+          git push
