@@ -70,7 +70,7 @@ Ce livre a été traduit dans plusieurs langues, notamment :
 
 [Polonais](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
 
-[Turkish](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
+[Turc](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
 
 ## Téléchargements et site web
 
