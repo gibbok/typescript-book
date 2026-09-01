@@ -70,7 +70,7 @@ Plus Edition は、世界各国の Amazon で英語版とイタリア語版を�
 
 [ポーランド語](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
 
-[Turkish](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
+[トルコ語](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
 
 ## ダウンロードとウェブサイト
 
