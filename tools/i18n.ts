@@ -13,7 +13,8 @@ export enum Language {
     de_DE = 'de_DE',
     pl_PL = 'pl_PL',
     tr_TR = 'tr_TR',
+    vi_VN = 'vi_VN',
 }
-export type Languages = [Language.en_EN, Language.zh_CN, Language.it_IT, Language.pt_BR, Language.sv_SE, Language.bg_BG, Language.es_ES, Language.ja_JP, Language.fr_FR, Language.ko_KR, Language.id_ID, Language.de_DE, Language.pl_PL, Language.tr_TR]
+export type Languages = [Language.en_EN, Language.zh_CN, Language.it_IT, Language.pt_BR, Language.sv_SE, Language.bg_BG, Language.es_ES, Language.ja_JP, Language.fr_FR, Language.ko_KR, Language.id_ID, Language.de_DE, Language.pl_PL, Language.tr_TR, Language.vi_VN]
 
-export const languages: Languages = [Language.en_EN, Language.zh_CN, Language.it_IT, Language.pt_BR, Language.sv_SE, Language.bg_BG, Language.es_ES, Language.ja_JP, Language.fr_FR, Language.ko_KR, Language.id_ID, Language.de_DE, Language.pl_PL, Language.tr_TR]
+export const languages: Languages = [Language.en_EN, Language.zh_CN, Language.it_IT, Language.pt_BR, Language.sv_SE, Language.bg_BG, Language.es_ES, Language.ja_JP, Language.fr_FR, Language.ko_KR, Language.id_ID, Language.de_DE, Language.pl_PL, Language.tr_TR, Language.vi_VN]
