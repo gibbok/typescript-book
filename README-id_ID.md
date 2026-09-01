@@ -46,31 +46,33 @@ Dukungan Anda membantu saya menjaga konten tetap mutakhir dan memperluasnya deng
 
 Buku ini telah diterjemahkan ke dalam beberapa bahasa, termasuk:
 
-[Bahasa Tionghoa](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
-
-[Bahasa Italia](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
-
-[Bahasa Portugis (Brasil)](https://github.com/gibbok/typescript-book/blob/main/README-pt_BR.md)
-
-[Bahasa Swedia](https://github.com/gibbok/typescript-book/blob/main/README-sv_SE.md)
-
 [Bahasa Bulgaria](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
-[Bahasa Spanyol](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+[Bahasa Jerman](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
 
 [Bahasa Prancis](https://github.com/gibbok/typescript-book/blob/main/README-fr_FR.md)
+
+[Bahasa Indonesia](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
+
+[Bahasa Italia](https://github.com/gibbok/typescript-book/blob/main/README-it_IT.md)
 
 [Bahasa Jepang](https://github.com/gibbok/typescript-book/blob/main/README-ja_JP.md)
 
 [Bahasa Korea](https://github.com/gibbok/typescript-book/blob/main/README-ko_KR.md)
 
-[Bahasa Indonesia](https://github.com/gibbok/typescript-book/blob/main/README-id_ID.md)
-
-[Bahasa Jerman](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
-
 [Bahasa Polandia](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
 
+[Bahasa Portugis (Brasil)](https://github.com/gibbok/typescript-book/blob/main/README-pt_BR.md)
+
+[Bahasa Swedia](https://github.com/gibbok/typescript-book/blob/main/README-sv_SE.md)
+
 [Bahasa Turki](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
+
+[Vietnamese](https://github.com/gibbok/typescript-book/blob/main/README-vi_VN.md)
+
+[Bahasa Tionghoa](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
+
+[Bahasa Spanyol](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
 
 ## Unduhan dan situs web
 
