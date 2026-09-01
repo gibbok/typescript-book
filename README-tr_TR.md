@@ -657,7 +657,7 @@ Not: Eski modül sistemleri (AMD, UMD, SystemJS) desteği TypeScript 6.0'da kull
 
 "esModuleInterop" özelliği, "default" özelliğini kullanarak dışa aktarım yapmayan CommonJS modüllerinden varsayılan içe aktarmalara izin verir; bu özellik, üretilen JavaScript'te uyumluluk sağlamak için bir shim sunar. Bu seçeneği etkinleştirdikten sonra `import * as MyLibrary from "my-library"` yerine `import MyLibrary from "my-library"` kullanabiliriz.
 
-"esModuleInterop", bozucu değişikliklerden kaçınmak için başlangıçta isteğe bağlıydı ancak uzun süredir önerilen varsayılan ayardır. Devre dışı bırakılması, CommonJS ile ESM kullanılırken belli belirsiz çalışma zamanı sorunlarına yol açabilir. Not: TypeScript 6.0'dan itibaren bu daha güvenli birlikte çalışabilirlik davranışı her zaman etkindir.
+"esModuleInterop", bozucu değişikliklerden kaçınmak için başlangıçta isteğe bağlıydı, ancak uzun süredir önerilen varsayılan ayardır. Devre dışı bırakılması, CommonJS ile ESM kullanılırken belli belirsiz çalışma zamanı sorunlarına yol açabilir. Not: TypeScript 6.0'dan itibaren bu daha güvenli birlikte çalışabilirlik davranışı her zaman etkindir.
 
 TypeScript 6.0'da bazı eski yapılandırma seçenekleri ve sözdizimi biçimleri kullanımdan kaldırılmış veya eski davranış üzerinden geçiş yapmıştır. TypeScript 7.0'da bunlar kesin hatalara veya işlem yapmayan davranışlara dönüşmüştür.
 
@@ -1731,7 +1731,7 @@ const sum = (a = 10, b: number): number => a + b;
 
 Bu, özellikle daha karmaşık fonksiyonlar için faydalıdır; çünkü uygulamadan önce dönüş türünü yazmak fonksiyon üzerinde düşünmenize yardımcı olabilir.
 
-Genel olarak, tür imzalarına ek açıklama eklemeyi değerlendirin ancak fonksiyon gövdesindeki yerel değişkenlere eklemeyin ve nesne sabitlerine her zaman tür ekleyin.
+Genel olarak, tür imzalarına ek açıklama eklemeyi değerlendirin, ancak fonksiyon gövdesindeki yerel değişkenlere eklemeyin ve nesne sabitlerine her zaman tür ekleyin.
 
 ## İsteğe Bağlı Özellikler
 
