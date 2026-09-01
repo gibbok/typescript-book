@@ -1,4 +1,4 @@
-export type PlusEditionLocale = 'en' | 'zh-cn' | 'it-it' | 'pt-br' | 'sv-se' | 'bg-bg' | 'es-es' | 'ja-jp' | 'fr-fr' | 'ko-kr' | 'id-id' | 'de-de' | 'pl-pl' | 'tr-tr' | 'vi-vn';
+export type PlusEditionLocale = 'en' | 'zh-cn' | 'it-it' | 'pt-br' | 'sv-se' | 'bg-bg' | 'es-es' | 'ja-jp' | 'fr-fr' | 'ko-kr' | 'id-id' | 'de-de' | 'pl-pl' | 'tr-tr' | 'vi-vn' | 'th-th';
 
 const DEFAULT_LOCALE: PlusEditionLocale = 'en';
 
@@ -34,6 +34,8 @@ const LOCALE_BY_LANG: Readonly<Record<string, PlusEditionLocale>> = {
 	'tr-tr': 'tr-tr',
 	vi: 'vi-vn',
 	'vi-vn': 'vi-vn',
+	th: 'th-th',
+	'th-th': 'th-th',
 };
 
 export const PLUS_EDITION_BASE_PATH = '/typescript-book';
@@ -55,6 +57,7 @@ export const PLUS_EDITION_COVERS: Readonly<Record<PlusEditionLocale, string>> = 
 	'pl-pl': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 	'tr-tr': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 	'vi-vn': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
+	'th-th': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 };
 
 export const PLUS_EDITION_COVER = PLUS_EDITION_COVERS.en;
@@ -1466,6 +1469,105 @@ export const PLUS_EDITION_COPY = {
 			paperback: 'Bìa mềm',
 			buyOn: 'Mua trên',
 			detected: 'Chúng tôi sẽ dùng ngôn ngữ và khu vực của trình duyệt để mở phiên bản và cửa hàng Amazon phù hợp nhất.',
+		},
+	},
+	'th-th': {
+		pageTitle: 'The Concise TypeScript Book Plus Edition — React และรูปแบบการใช้งานจริงสำหรับ TypeScript 7',
+		pageDescription:
+			'The Concise TypeScript Book ฉบับขยายแบบมีค่าใช้จ่าย พร้อมคู่มือ React เฉพาะฉบับ รูปแบบ TypeScript สำหรับการใช้งานจริง และเนื้อหาที่อัปเดตสำหรับ TypeScript 7 มีทั้งฉบับ Kindle และปกอ่อน',
+		coverAlt: 'ปก The Concise TypeScript Book Plus Edition',
+		topBanner: {
+			ariaLabel: 'ประกาศเปิดตัว Plus Edition ใหม่',
+			badge: 'ฉบับใหม่แบบมีค่าใช้จ่าย',
+			strong: 'เชี่ยวชาญ TypeScript 7',
+			message: 'React + รูปแบบสำหรับการใช้งานจริง',
+			action: 'สำรวจ Plus Edition',
+		},
+		home: {
+			ariaLabel: 'เรียนรู้เพิ่มเติมเกี่ยวกับ The Concise TypeScript Book Plus Edition',
+			eyebrow: 'ฉบับใหม่แบบมีค่าใช้จ่าย · TypeScript 7',
+			title: 'นำ TypeScript ไปใช้ในโปรเจกต์จริง',
+			description:
+				'Plus Edition ต่อยอดจากหนังสือโอเพนซอร์สที่เปิดให้อ่านฟรีด้วยเนื้อหาเชิงปฏิบัติที่นักพัฒนาต้องการมากที่สุด ได้แก่ React กับ TypeScript และรูปแบบที่นำกลับมาใช้ซ้ำได้สำหรับโค้ดที่ใช้งานจริง',
+			items: [
+				['React กับ TypeScript:', 'คอมโพเนนต์, props, hooks, events, refs และรูปแบบคอมโพเนนต์ที่รองรับการขยายตัว'],
+				['รูปแบบ TypeScript สำหรับการใช้งานจริง:', 'แนวทางเชิงปฏิบัติสำหรับแอปพลิเคชันที่ปลอดภัย ชัดเจน และดูแลรักษาง่ายขึ้น'],
+				['TypeScript 7:', 'เนื้อหากระชับตั้งแต่พื้นฐานไปจนถึงเทคนิคขั้นสูงของระบบชนิดข้อมูล'],
+			],
+			action: 'ดูเนื้อหาภายใน',
+			availability: 'มีทั้งฉบับ Kindle และปกอ่อน',
+		},
+		sidebar: {
+			coverCta: 'ปก Plus Edition',
+			eyebrow: 'Plus Edition',
+			title: 'ก้าวไปไกลกว่าหนังสือฉบับฟรี',
+			description: 'คู่มือ React เฉพาะฉบับและรูปแบบเชิงปฏิบัติสำหรับการใช้งานจริง อัปเดตสำหรับ TypeScript 7',
+			formats: 'Kindle และปกอ่อน',
+			action: 'สำรวจหนังสือ',
+			ariaLabel: 'สำรวจ The Concise TypeScript Book Plus Edition',
+		},
+		landing: {
+			heroEyebrow: 'ฉบับขยายแบบมีค่าใช้จ่าย · อัปเดตสำหรับ TypeScript 7',
+			title: PLUS_EDITION.titles.en,
+			lead:
+				'คู่มือ TypeScript 7 ที่กระชับและนำไปใช้ได้จริง เพิ่มเติมด้วยบทเฉพาะฉบับที่เชื่อมโยงระบบชนิดข้อมูลเข้ากับงานที่คุณทำทุกวัน',
+			primaryAction: 'เลือก Kindle หรือปกอ่อน',
+			secondaryAction: 'ดูว่ามีอะไรใหม่',
+			availability: 'ฉบับภาษาอังกฤษและภาษาอิตาลี · วางจำหน่ายทั่วโลกผ่าน Amazon',
+			introEyebrow: 'จากการเข้าใจ TypeScript สู่การใช้งานอย่างมีประสิทธิภาพ',
+			introTitle: 'เนื้อหาใหม่ที่สร้างขึ้นสำหรับโปรเจกต์จริง',
+			introText:
+				'Plus Edition ต่อยอดจาก The Concise TypeScript Book หนังสือโอเพนซอร์สที่มีผู้อ่านอย่างแพร่หลาย โดยยังคงคำอธิบายที่ตรงประเด็นและตัวอย่างที่มุ่งเน้น แล้วเพิ่มเนื้อหาสำคัญสองส่วนที่มีเฉพาะในฉบับแบบมีค่าใช้จ่ายนี้',
+			featureAriaLabel: 'เนื้อหาเฉพาะของ Plus Edition',
+			exclusiveContent: 'เนื้อหาเฉพาะฉบับ',
+			features: [
+				{
+					title: 'TypeScript กับ React',
+					description:
+						'พัฒนาจากชนิดข้อมูลพื้นฐานของคอมโพเนนต์ไปสู่รูปแบบที่ยังคงชัดเจนเมื่อแอปพลิเคชัน React เติบโตขึ้นได้อย่างมั่นใจ',
+					items: [
+						'คอมโพเนนต์, props, children และ events',
+						'Hooks, refs และ abstraction ที่นำกลับมาใช้ซ้ำได้',
+						'Discriminated unions และคอมโพเนนต์แบบ generic',
+						'รูปแบบเชิงปฏิบัติสำหรับ API ของคอมโพเนนต์ที่ปลอดภัยขึ้น',
+					],
+				},
+				{
+					title: 'รูปแบบสำหรับการใช้งานจริง',
+					description:
+						'ดูว่าคุณสมบัติขั้นสูงของ TypeScript ทำงานร่วมกันเพื่อแก้ปัญหาการออกแบบแอปพลิเคชันที่เกิดขึ้นซ้ำ ๆ ได้อย่างไร',
+					items: [
+						'ชนิดข้อมูลของโดเมนที่สื่อความหมายและดูแลรักษาง่าย',
+						'ขอบเขตที่ปลอดภัยขึ้นและการจัดการข้อผิดพลาด',
+						'Type maps และ factory patterns ที่นำกลับมาใช้ซ้ำได้',
+						'เทคนิคที่คุณสามารถปรับใช้กับโค้ด production',
+					],
+				},
+			],
+			whyEyebrow: 'ออกแบบมาให้กระชับ',
+			whyTitle: 'เจาะลึกการใช้งานจริงมากขึ้นโดยไม่มีเนื้อหาฟุ่มเฟือย',
+			whyItems: [
+				['เป็นปัจจุบัน', 'อัปเดตสำหรับ TypeScript 7 ตั้งแต่แนวคิดพื้นฐานของภาษาไปจนถึงเทคนิคขั้นสูงของระบบชนิดข้อมูล'],
+				['นำไปใช้ได้จริง', 'คำอธิบายสั้น ๆ และตัวอย่างที่มุ่งเน้น ออกแบบมาให้นำไปใช้กับงานพัฒนาในแต่ละวันได้โดยตรง'],
+				['มีประโยชน์สำหรับทุกระดับ', 'บทนำที่เป็นระบบสำหรับนักพัฒนา TypeScript มือใหม่ และแหล่งอ้างอิงฉบับย่อสำหรับวิศวกรที่มีประสบการณ์'],
+			],
+			audienceEyebrow: 'เหมาะสำหรับใคร',
+			audienceTitle: 'นักพัฒนาที่ต้องการความชัดเจนและการใช้งานจริง',
+			audienceText:
+				'เลือก Plus Edition หากคุณต้องการแหล่งข้อมูลที่มุ่งเน้นเพียงแห่งเดียวสำหรับเรียนรู้ TypeScript สมัยใหม่ กำหนดชนิดข้อมูลให้ React อย่างมีประสิทธิภาพ และนำภาษาไปใช้กับปัญหาการออกแบบที่สมจริง ความคุ้นเคยกับ JavaScript จะช่วยให้เรียนรู้ได้ง่ายขึ้น แต่ไม่จำเป็นต้องมีประสบการณ์ TypeScript เชิงลึก',
+			trustEyebrow: 'ได้รับความไว้วางใจจากนักพัฒนา',
+			trustTitle: 'ต่อยอดจากหนังสือ TypeScript โอเพนซอร์สยอดนิยม',
+			trustText:
+				'ฉบับฟรีมีดาวบน GitHub มากกว่า 10,000 ดวงและมีนักพัฒนา TypeScript จำนวนมากใช้งาน Plus Edition เขียนโดย Simone Poggiali โดยนำประสบการณ์การทำงานระดับนานาชาติ 20 ปีมาถ่ายทอดเป็นคู่มือ React เชิงปฏิบัติและรูปแบบ TypeScript สำหรับการใช้งานจริง',
+		},
+		amazon: {
+			eyebrow: 'เลือกรูปแบบที่ต้องการ',
+			title: 'ซื้อ Plus Edition บน Amazon',
+			editionLabel: 'ฉบับ',
+			kindle: 'ฉบับ Kindle',
+			paperback: 'ปกอ่อน',
+			buyOn: 'ซื้อบน',
+			detected: 'เราจะใช้ภาษาและภูมิภาคของเบราว์เซอร์เพื่อเปิดฉบับและร้าน Amazon ที่เหมาะสมที่สุด',
 		},
 	},
 
