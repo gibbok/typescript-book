@@ -70,7 +70,7 @@ The Concise TypeScript Book предоставя изчерпателен и к�
 
 [полски](https://github.com/gibbok/typescript-book/blob/main/README-pl_PL.md)
 
-[Turkish](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
+[турски](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
 
 ## Изтегляния и уебсайт
 
