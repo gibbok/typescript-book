@@ -118,7 +118,7 @@ const y: readonly [string, number] = ['a', 1];
 
 Kiểu dữ liệu `any` biểu diễn đúng nghĩa "bất kỳ" giá trị nào và là mặc định khi TypeScript không thể suy luận kiểu hoặc kiểu không được chỉ định.
 
-Khi sử dụng `any`, trình biên dịch TypeScript bỏ qua kiểm tra kiểu, vì vậy không có an toàn kiểu khi `any` được dùng. Nói chung, đừng sử dụng `any` để làm im trình biên dịch khi xảy ra lỗi; thay vào đó, hãy tập trung sửa lỗi, vì dùng `any` có thể phá vỡ các hợp đồng và làm mất lợi ích của tính năng tự động hoàn thành của TypeScript.
+Khi sử dụng `any`, trình biên dịch TypeScript bỏ qua kiểm tra kiểu, vì vậy không còn an toàn kiểu khi `any` được dùng. Nói chung, đừng sử dụng `any` để làm im trình biên dịch khi xảy ra lỗi; thay vào đó, hãy tập trung sửa lỗi, vì dùng `any` có thể phá vỡ các hợp đồng và làm mất lợi ích của tính năng tự động hoàn thành của TypeScript.
 
 Kiểu `any` có thể hữu ích trong quá trình chuyển đổi dần từ JavaScript sang TypeScript vì nó có thể làm im trình biên dịch.
 

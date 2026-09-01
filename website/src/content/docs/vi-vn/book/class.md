@@ -34,7 +34,7 @@ Constructor được định nghĩa bằng từ khóa `constructor`. Nó nhận 
 
 Class có một phương thức `public` tên là sayHi, phương thức này ghi ra một lời chào.
 
-Để tạo một instance của class trong TypeScript, bạn có thể dùng từ khóa `new` theo sau bởi tên class, rồi dấu ngoặc đơn `()`. Ví dụ:
+Để tạo một instance của class trong TypeScript, bạn có thể dùng từ khóa `new`, theo sau là tên class rồi dấu ngoặc đơn `()`. Ví dụ:
 
 <!-- skip -->
 ```typescript
@@ -260,7 +260,7 @@ person.introduce();
 
 ### Abstract Class
 
-Abstract Class được sử dụng trong TypeScript chủ yếu cho kế thừa. Chúng cung cấp cách định nghĩa các thuộc tính và phương thức chung có thể được các subclass kế thừa.
+Abstract Class được sử dụng trong TypeScript chủ yếu cho kế thừa. Nó cung cấp cách định nghĩa các thuộc tính và phương thức chung có thể được các subclass kế thừa.
 Điều này hữu ích khi bạn muốn định nghĩa hành vi chung và bắt buộc các subclass triển khai một số phương thức nhất định. Chúng cung cấp cách tạo một hệ phân cấp class, trong đó abstract base class cung cấp interface dùng chung và chức năng chung cho các subclass.
 
 ```typescript
@@ -332,7 +332,7 @@ Một số trường hợp sử dụng decorator phổ biến gồm:
 * Authorization và authentication.
 * Bảo vệ khỏi lỗi.
 
-Lưu ý: Decorator của phiên bản 5 không cho phép decorate tham số.
+Lưu ý: Decorator của phiên bản 5 không cho phép trang trí tham số.
 
 Các loại decorator:
 

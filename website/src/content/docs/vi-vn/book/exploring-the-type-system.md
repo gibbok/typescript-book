@@ -479,13 +479,13 @@ type X = {
 type Y = J<X>;
 ```
 
-Trong ví dụ này, kiểu `J<Type>` sử dụng mapped type với template literal để ánh xạ lại các key của Type. Nó tạo các thuộc tính mới với "prefix_" được thêm vào mỗi key và các giá trị tương ứng là các hàm trả về giá trị thuộc tính ban đầu.
+Trong ví dụ này, kiểu `J<Type>` sử dụng mapped type với template literal để ánh xạ lại các key của `Type`. Nó tạo các thuộc tính mới với "prefix_" được thêm vào mỗi key và các giá trị tương ứng là các hàm trả về giá trị thuộc tính ban đầu.
 
 Cần lưu ý rằng khi sử dụng type assertion, TypeScript sẽ không thực hiện excess property checking. Vì vậy, nói chung nên sử dụng Khai báo kiểu khi cấu trúc của đối tượng đã được biết trước.
 
 #### Khai báo ambient
 
-Khai báo ambient là các tệp mô tả kiểu cho mã JavaScript, chúng có định dạng tên tệp là `.d.ts.`. Chúng thường được import và dùng để chú thích các thư viện JavaScript hiện có hoặc thêm kiểu vào các tệp JS hiện có trong dự án của bạn.
+Khai báo ambient là các tệp mô tả kiểu cho mã JavaScript, chúng có định dạng tên tệp là `.d.ts`. Chúng thường được import và dùng để chú thích các thư viện JavaScript hiện có hoặc thêm kiểu vào các tệp JS hiện có trong dự án của bạn.
 
 Có thể tìm thấy kiểu cho nhiều thư viện phổ biến tại:
 [https://github.com/DefinitelyTyped/DefinitelyTyped/](https://github.com/DefinitelyTyped/DefinitelyTyped/)
@@ -511,7 +511,7 @@ Từ khóa `declare` cho phép định nghĩa kiểu cho mã JavaScript hiện c
 
 TypeScript dựa trên hệ thống kiểu cấu trúc nhưng excess property checking là một đặc tính của TypeScript cho phép kiểm tra liệu một đối tượng có đúng các thuộc tính được chỉ định trong kiểu hay không.
 
-Excess Property Checking được thực hiện khi gán object literal cho biến hoặc khi truyền chúng làm đối số cho thuộc tính dư thừa của hàm, chẳng hạn.
+Excess Property Checking được thực hiện khi gán object literal cho biến hoặc khi truyền chúng làm đối số cho tham số của hàm, chẳng hạn.
 
 <!-- skip -->
 ```typescript
@@ -670,7 +670,7 @@ y = x; // Valid: The type of x is inferred as 'x'
 ```
 
 Bằng cách dùng `const` để khai báo biến x, kiểu của nó được thu hẹp thành giá trị literal cụ thể 'x'. Vì kiểu của x được thu hẹp, nó có thể được gán cho biến y mà không có lỗi.
-Lý do kiểu có thể được suy luận như vậy là vì biến `const` không thể được gán lại, nên kiểu của chúng có thể được thu hẹp xuống một literal type cụ thể, trong trường hợp này là literal type 'x'.
+Lý do kiểu có thể được suy luận như vậy là vì biến `const` không thể được gán lại, nên kiểu của nó có thể được thu hẹp xuống một literal type cụ thể, trong trường hợp này là literal type 'x'.
 
 #### Modifier Const trên tham số kiểu
 
@@ -684,7 +684,7 @@ function identity<T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
 ```
 
-Như bạn có thể thấy, các thuộc tính `a` và `b` được suy luận có kiểu `string`   .
+Như bạn có thể thấy, các thuộc tính `a` và `b` được suy luận có kiểu `string`.
 
 Bây giờ, hãy xem sự khác biệt với phiên bản `const`:
 

@@ -80,7 +80,7 @@ Có thể dùng một số utility type tích hợp để thao tác kiểu; dư�
 
 #### Awaited\<T\>
 
-Tạo một kiểu đệ quy unwrap các kiểu Promise.
+Tạo một kiểu gỡ bọc đệ quy các kiểu Promise.
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
@@ -303,7 +303,7 @@ let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
 
 #### Uppercase\<T\>
 
-Chuyển tên của input type T thành chữ hoa.
+Chuyển tên của kiểu đầu vào T thành chữ hoa.
 
 ```typescript
 type MyType = Uppercase<'abc'>; // "ABC"
@@ -311,7 +311,7 @@ type MyType = Uppercase<'abc'>; // "ABC"
 
 #### Lowercase\<T\>
 
-Chuyển tên của input type T thành chữ thường.
+Chuyển tên của kiểu đầu vào T thành chữ thường.
 
 ```typescript
 type MyType = Lowercase<'ABC'>; // "abc"
@@ -319,7 +319,7 @@ type MyType = Lowercase<'ABC'>; // "abc"
 
 #### Capitalize\<T\>
 
-Viết hoa chữ cái đầu tên của input type T.
+Viết hoa chữ cái đầu trong tên của kiểu đầu vào T.
 
 ```typescript
 type MyType = Capitalize<'abc'>; // "Abc"
@@ -327,7 +327,7 @@ type MyType = Capitalize<'abc'>; // "Abc"
 
 #### Uncapitalize\<T\>
 
-Chuyển chữ cái đầu tên của input type T thành chữ thường.
+Chuyển chữ cái đầu trong tên của kiểu đầu vào T thành chữ thường.
 
 ```typescript
 type MyType = Uncapitalize<'Abc'>; // "abc"

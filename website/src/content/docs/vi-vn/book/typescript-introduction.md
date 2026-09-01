@@ -8,7 +8,7 @@ sidebar:
 
 ### TypeScript là gì?
 
-TypeScript là một ngôn ngữ lập trình có hệ thống kiểu mạnh, được xây dựng dựa trên JavaScript. Ban đầu ngôn ngữ này được Anders Hejlsberg thiết kế vào năm 2012 và hiện được Microsoft phát triển, duy trì như một dự án mã nguồn mở.
+TypeScript là một ngôn ngữ lập trình có hệ thống kiểu mạnh, được xây dựng dựa trên JavaScript. Ban đầu ngôn ngữ này do Anders Hejlsberg thiết kế vào năm 2012 và hiện được Microsoft phát triển và duy trì như một dự án mã nguồn mở.
 
 TypeScript được biên dịch thành JavaScript và có thể chạy trong bất kỳ môi trường thực thi JavaScript nào (ví dụ: trình duyệt hoặc Node.js trên máy chủ).
 

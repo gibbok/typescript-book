@@ -20,9 +20,9 @@ hoặc
 yarn add typescript --dev
 ```
 
-Hãy bảo đảm commit lockfile được tạo để mọi thành viên trong nhóm đều sử dụng cùng một phiên bản TypeScript.
+Hãy bảo đảm lockfile đã tạo được commit để mọi thành viên trong nhóm đều sử dụng cùng một phiên bản TypeScript.
 
-Để chạy trình biên dịch TypeScript, bạn có thể sử dụng các lệnh sau
+Để chạy trình biên dịch TypeScript, bạn có thể sử dụng các lệnh sau:
 
 ```shell
 npx tsc
@@ -86,7 +86,7 @@ Tệp tsconfig.json được dùng để cấu hình TypeScript Compiler (tsc). 
 
 Ghi chú:
 
-* tsconfig.json chấp nhận comment dù ở định dạng json.
+* tsconfig.json chấp nhận comment dù có định dạng JSON.
 * Nên sử dụng tệp cấu hình này thay cho các tùy chọn dòng lệnh.
 
 Tại các liên kết sau, bạn có thể tìm thấy tài liệu đầy đủ và schema của nó:
