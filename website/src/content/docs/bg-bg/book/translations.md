@@ -40,3 +40,5 @@ sidebar:
 
 [тайландски](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 
+[руски](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
+
