@@ -36,3 +36,5 @@
 
 [タイ語](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 
+[ロシア語](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
+

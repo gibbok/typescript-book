@@ -36,3 +36,5 @@ This book has been translated into several languages, including:
 
 [Thai](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 
+[Russian](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
+
