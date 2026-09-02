@@ -1,4 +1,4 @@
-export type PlusEditionLocale = 'en' | 'zh-cn' | 'it-it' | 'pt-br' | 'sv-se' | 'bg-bg' | 'es-es' | 'ja-jp' | 'fr-fr' | 'ko-kr' | 'id-id' | 'de-de' | 'pl-pl' | 'tr-tr' | 'vi-vn' | 'th-th';
+export type PlusEditionLocale = 'en' | 'zh-cn' | 'it-it' | 'pt-br' | 'sv-se' | 'bg-bg' | 'es-es' | 'ja-jp' | 'fr-fr' | 'ko-kr' | 'id-id' | 'de-de' | 'pl-pl' | 'tr-tr' | 'vi-vn' | 'th-th' | 'ru-ru';
 
 const DEFAULT_LOCALE: PlusEditionLocale = 'en';
 
@@ -36,6 +36,8 @@ const LOCALE_BY_LANG: Readonly<Record<string, PlusEditionLocale>> = {
 	'vi-vn': 'vi-vn',
 	th: 'th-th',
 	'th-th': 'th-th',
+	ru: 'ru-ru',
+	'ru-ru': 'ru-ru',
 };
 
 export const PLUS_EDITION_BASE_PATH = '/typescript-book';
@@ -58,6 +60,7 @@ export const PLUS_EDITION_COVERS: Readonly<Record<PlusEditionLocale, string>> = 
 	'tr-tr': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 	'vi-vn': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 	'th-th': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
+	'ru-ru': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 };
 
 export const PLUS_EDITION_COVER = PLUS_EDITION_COVERS.en;
@@ -195,6 +198,105 @@ export const PLUS_EDITION_COPY = {
 			paperback: 'Paperback',
 			buyOn: 'Buy on',
 			detected: 'We’ll use your browser language and region to open the most relevant edition and Amazon store.',
+		},
+	},
+	'ru-ru': {
+		pageTitle: 'The Concise TypeScript Book Plus Edition — React и практические паттерны для TypeScript 7',
+		pageDescription:
+			'Платное расширенное издание The Concise TypeScript Book с эксклюзивным руководством по React, практическими паттернами TypeScript и обновлённым материалом о TypeScript 7. Доступно для Kindle и в мягкой обложке.',
+		coverAlt: 'Обложка The Concise TypeScript Book Plus Edition',
+		topBanner: {
+			ariaLabel: 'Анонс нового издания Plus Edition',
+			badge: 'Новое платное издание',
+			strong: 'Освойте TypeScript 7',
+			message: 'React + практические паттерны',
+			action: 'Подробнее о Plus Edition',
+		},
+		home: {
+			ariaLabel: 'Узнать больше о The Concise TypeScript Book Plus Edition',
+			eyebrow: 'Новое платное издание · TypeScript 7',
+			title: 'Применяйте TypeScript в реальных проектах',
+			description:
+				'Plus Edition дополняет бесплатную книгу с открытым исходным кодом наиболее востребованными практическими материалами: React с TypeScript и переиспользуемыми паттернами для продакшен-кода.',
+			items: [
+				['React с TypeScript:', 'компоненты, пропсы, хуки, события, рефы и масштабируемые паттерны компонентов.'],
+				['Практические паттерны TypeScript:', 'практические подходы к созданию более безопасных, понятных и удобных в сопровождении приложений.'],
+				['TypeScript 7:', 'краткое изложение от основ до продвинутых приёмов работы с системой типов.'],
+			],
+			action: 'Посмотреть содержание',
+			availability: 'Доступно для Kindle и в мягкой обложке',
+		},
+		sidebar: {
+			coverCta: 'Обложка Plus Edition',
+			eyebrow: 'Plus Edition',
+			title: 'Не ограничивайтесь бесплатной книгой',
+			description: 'Эксклюзивное руководство по React и практические паттерны из реальных проектов, обновлённые для TypeScript 7.',
+			formats: 'Kindle и мягкая обложка',
+			action: 'Подробнее о книге',
+			ariaLabel: 'Подробнее о The Concise TypeScript Book Plus Edition',
+		},
+		landing: {
+			heroEyebrow: 'Платное расширенное издание · Обновлено для TypeScript 7',
+			title: PLUS_EDITION.titles.en,
+			lead:
+				'Краткое практическое руководство по TypeScript 7, дополненное эксклюзивными главами, которые связывают систему типов с вашей повседневной работой.',
+			primaryAction: 'Выбрать версию для Kindle или в мягкой обложке',
+			secondaryAction: 'Посмотреть, что нового',
+			availability: 'Издания на английском и итальянском языках · Доступны по всему миру через Amazon',
+			introEyebrow: 'От понимания TypeScript к уверенному применению',
+			introTitle: 'Новые материалы для реальных проектов',
+			introText:
+				'Plus Edition основано на широко читаемой книге The Concise TypeScript Book с открытым исходным кодом. Оно сохраняет прямые объяснения и сфокусированные примеры, а затем подробнее рассматривает две важные области, доступные только в этом платном издании.',
+			featureAriaLabel: 'Эксклюзивные материалы Plus Edition',
+			exclusiveContent: 'Эксклюзивные материалы',
+			features: [
+				{
+					title: 'TypeScript в React',
+					description:
+						'Уверенно переходите от базовой типизации компонентов к паттернам, которые остаются понятными по мере роста React-приложения.',
+					items: [
+						'Компоненты, пропсы, дочерние элементы и события',
+						'Хуки, рефы и переиспользуемые абстракции',
+						'Дискриминированные объединения и обобщённые компоненты',
+						'Практические паттерны для более безопасных компонентных API',
+					],
+				},
+				{
+					title: 'Практические паттерны',
+					description:
+						'Узнайте, как продвинутые возможности TypeScript сочетаются для решения повторяющихся задач проектирования приложений.',
+					items: [
+						'Выразительные и удобные в сопровождении типы предметной области',
+						'Более безопасные границы и обработка ошибок',
+						'Переиспользуемые отображения типов и паттерны фабрик',
+						'Приёмы, которые можно адаптировать для продакшен-кода',
+					],
+				},
+			],
+			whyEyebrow: 'Краткость по замыслу',
+			whyTitle: 'Больше практической глубины без лишнего',
+			whyItems: [
+				['Актуально', 'Обновлено для TypeScript 7: от основных концепций языка до продвинутых приёмов работы с системой типов.'],
+				['Практично', 'Краткие объяснения и целенаправленные примеры, предназначенные для непосредственного применения в повседневной разработке.'],
+				['Полезно на любом уровне', 'Структурированное введение для начинающих разработчиков TypeScript и удобный справочник для опытных инженеров.'],
+			],
+			audienceEyebrow: 'Для кого эта книга',
+			audienceTitle: 'Для разработчиков, которым важны ясность и практическое применение',
+			audienceText:
+				'Выбирайте Plus Edition, если вам нужен единый специализированный ресурс для изучения современного TypeScript, эффективной типизации в React и применения языка к реальным задачам проектирования. Знание JavaScript будет полезно, но глубокий опыт работы с TypeScript не требуется.',
+			trustEyebrow: 'Доверие разработчиков',
+			trustTitle: 'На основе популярной книги о TypeScript с открытым исходным кодом',
+			trustText:
+				'У бесплатного издания более 10 000 звёзд на GitHub, и им пользуются многие разработчики TypeScript. Автор Plus Edition — Simone Poggiali, который воплотил 20-летний опыт международной работы в практическом руководстве по React и паттернах TypeScript для реальных проектов.',
+		},
+		amazon: {
+			eyebrow: 'Выберите формат',
+			title: 'Купить Plus Edition на Amazon',
+			editionLabel: 'Издание',
+			kindle: 'Издание для Kindle',
+			paperback: 'Мягкая обложка',
+			buyOn: 'Купить на',
+			detected: 'Мы используем язык и регион вашего браузера, чтобы открыть наиболее подходящие издание и магазин Amazon.',
 		},
 	},
 	'fr-fr': {
