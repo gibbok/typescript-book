@@ -78,6 +78,8 @@ Denna bok har översatts till flera språkversioner, inklusive:
 
 [Thailändska](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 
+[Ryska](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
+
 ## Nedladdningar och webbplats
 
 Du kan också ladda ner EPUB-versionen:
