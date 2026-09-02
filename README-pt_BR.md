@@ -78,6 +78,8 @@ Este livro foi traduzido para vários idiomas, incluindo:
 
 [Tailandês](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 
+[Russo](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
+
 ## Downloads e site
 
 Você também pode baixar a versão EPUB:
