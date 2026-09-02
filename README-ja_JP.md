@@ -78,6 +78,8 @@ Plus Edition は、世界各国の Amazon で英語版とイタリア語版を�
 
 [タイ語](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 
+[ロシア語](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
+
 ## ダウンロードとウェブサイト
 
 EPUB 版もダウンロードできます。

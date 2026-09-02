@@ -78,6 +78,8 @@ Buku ini telah diterjemahkan ke dalam beberapa bahasa, termasuk:
 
 [Bahasa Thai](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 
+[Bahasa Rusia](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
+
 ## Unduhan dan situs web
 
 Anda juga dapat mengunduh versi EPUB:

@@ -40,3 +40,5 @@ Questo libro è stato tradotto in diverse lingue, tra cui:
 
 [Tailandese](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 
+[Russo](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
+

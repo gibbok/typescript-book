@@ -78,6 +78,8 @@ Plus Edition มีจำหน่ายทั่วโลกบน Amazon ใ�
 
 [ภาษาไทย](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 
+[ภาษารัสเซีย](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
+
 ## ดาวน์โหลดและเว็บไซต์
 
 คุณสามารถดาวน์โหลดเวอร์ชัน EPUB ได้ด้วย:

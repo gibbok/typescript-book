@@ -78,6 +78,8 @@ Cuốn sách này đã được dịch sang một số ngôn ngữ, bao gồm:
 
 [Tiếng Thái](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 
+[Tiếng Nga](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
+
 ## Tải xuống và trang web
 
 Bạn cũng có thể tải xuống phiên bản EPUB:

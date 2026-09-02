@@ -62,6 +62,9 @@ OUTPUT_DIR_PATH_VI = "../website/src/content/docs/vi-vn/book"
 INPUT_FILE_PATH_TH = "../README-th_TH.md"
 OUTPUT_DIR_PATH_TH = "../website/src/content/docs/th-th/book"
 
+INPUT_FILE_PATH_RU = "../README-ru_RU.md"
+OUTPUT_DIR_PATH_RU = "../website/src/content/docs/ru-ru/book"
+
 
 def manage_output_dir(path: str) -> None:
     if os.path.exists(path):
@@ -325,3 +328,4 @@ process(INPUT_FILE_PATH, INPUT_FILE_PATH_PL, OUTPUT_DIR_PATH_PL)
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_TR, OUTPUT_DIR_PATH_TR)
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_VI, OUTPUT_DIR_PATH_VI)
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_TH, OUTPUT_DIR_PATH_TH)
+process(INPUT_FILE_PATH, INPUT_FILE_PATH_RU, OUTPUT_DIR_PATH_RU)
