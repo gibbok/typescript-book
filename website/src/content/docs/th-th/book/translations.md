@@ -8,6 +8,8 @@ sidebar:
 
 หนังสือเล่มนี้ได้รับการแปลเป็นหลายภาษา ได้แก่:
 
+[ภาษาอังกฤษ](https://github.com/gibbok/typescript-book/blob/main/README.md)
+
 [ภาษาบัลแกเรีย](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
 [ภาษาเยอรมัน](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
@@ -35,4 +37,6 @@ sidebar:
 [ภาษาจีน](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
 [ภาษาสเปน](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
+[ภาษาไทย](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 

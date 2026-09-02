@@ -8,6 +8,8 @@ sidebar:
 
 Ta książka została przetłumaczona na kilka języków, w tym:
 
+[angielski](https://github.com/gibbok/typescript-book/blob/main/README.md)
+
 [bułgarski](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
 [niemiecki](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
@@ -35,4 +37,6 @@ Ta książka została przetłumaczona na kilka języków, w tym:
 [chiński](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
 [hiszpański](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
+[tajski](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 
