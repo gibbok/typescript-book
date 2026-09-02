@@ -8,6 +8,8 @@ sidebar:
 
 Bu kitap aşağıdakiler de dâhil olmak üzere birçok dile çevrilmiştir:
 
+[İngilizce](https://github.com/gibbok/typescript-book/blob/main/README.md)
+
 [Bulgarca](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
 [Almanca](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
@@ -35,4 +37,6 @@ Bu kitap aşağıdakiler de dâhil olmak üzere birçok dile çevrilmiştir:
 [Çince](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
 [İspanyolca](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
+[Tayca](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 

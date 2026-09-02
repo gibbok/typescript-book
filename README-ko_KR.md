@@ -46,6 +46,8 @@ Plus Edition은 전 세계 Amazon에서 영어와 이탈리아어로 제공됩�
 
 이 책은 다음을 포함한 여러 언어로 번역되었습니다.
 
+[영어](https://github.com/gibbok/typescript-book/blob/main/README.md)
+
 [불가리아어](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
 [독일어](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
@@ -73,6 +75,8 @@ Plus Edition은 전 세계 Amazon에서 영어와 이탈리아어로 제공됩�
 [중국어](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
 [스페인어](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
+[태국어](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 
 ## 다운로드 및 웹사이트
 

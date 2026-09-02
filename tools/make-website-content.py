@@ -59,6 +59,9 @@ OUTPUT_DIR_PATH_TR = "../website/src/content/docs/tr-tr/book"
 INPUT_FILE_PATH_VI = "../README-vi_VN.md"
 OUTPUT_DIR_PATH_VI = "../website/src/content/docs/vi-vn/book"
 
+INPUT_FILE_PATH_TH = "../README-th_TH.md"
+OUTPUT_DIR_PATH_TH = "../website/src/content/docs/th-th/book"
+
 
 def manage_output_dir(path: str) -> None:
     if os.path.exists(path):
@@ -156,7 +159,11 @@ def validate_page_headings(
 
 
 def make_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
-    anchor = re.sub(r"[^\w\s\u0300-\u036f-]", "", text.lower())
+    anchor = re.sub(
+        r"[^\w\s\u0300-\u036f\u0E31-\u0E3A\u0E47-\u0E4E-]",
+        "",
+        text.lower(),
+    )
     anchor = re.sub(r"\s+", "-", anchor).strip("-")
     count = anchor_counts.get(anchor, 0)
     anchor_counts[anchor] = count + 1
@@ -166,7 +173,11 @@ def make_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
 
 
 def make_source_anchor_slug(text: str, anchor_counts: Dict[str, int]) -> str:
-    anchor = re.sub(r"[^\w\s.\u0300-\u036f-]", "", text.lower())
+    anchor = re.sub(
+        r"[^\w\s.\u0300-\u036f\u0E31-\u0E3A\u0E47-\u0E4E-]",
+        "",
+        text.lower(),
+    )
     anchor = re.sub(r"\s+", "-", anchor).strip("-")
     count = anchor_counts.get(anchor, 0)
     anchor_counts[anchor] = count + 1
@@ -213,12 +224,18 @@ def rewrite_markdown_anchor_links(
         anchor = match.group(2)
         if anchor not in anchor_links:
             normalized_anchor = re.sub(
-                r"[^\w\u0300-\u036f-]", "", anchor
+                r"[^\w\u0300-\u036f\u0E31-\u0E3A\u0E47-\u0E4E-]",
+                "",
+                anchor,
             ).strip("-")
             matching_anchors = [
                 candidate
                 for candidate in anchor_links
-                if re.sub(r"[^\w\u0300-\u036f-]", "", candidate).strip("-")
+                if re.sub(
+                    r"[^\w\u0300-\u036f\u0E31-\u0E3A\u0E47-\u0E4E-]",
+                    "",
+                    candidate,
+                ).strip("-")
                 == normalized_anchor
             ]
             if len(matching_anchors) != 1:
@@ -307,3 +324,4 @@ process(INPUT_FILE_PATH, INPUT_FILE_PATH_PL, OUTPUT_DIR_PATH_PL)
 
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_TR, OUTPUT_DIR_PATH_TR)
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_VI, OUTPUT_DIR_PATH_VI)
+process(INPUT_FILE_PATH, INPUT_FILE_PATH_TH, OUTPUT_DIR_PATH_TH)

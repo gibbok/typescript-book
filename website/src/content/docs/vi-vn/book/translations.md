@@ -8,6 +8,8 @@ sidebar:
 
 Cuốn sách này đã được dịch sang một số ngôn ngữ, bao gồm:
 
+[Tiếng Anh](https://github.com/gibbok/typescript-book/blob/main/README.md)
+
 [Tiếng Bulgaria](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
 [Tiếng Đức](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
@@ -35,4 +37,6 @@ Cuốn sách này đã được dịch sang một số ngôn ngữ, bao gồm:
 [Tiếng Trung](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
 [Tiếng Tây Ban Nha](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
+[Tiếng Thái](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 

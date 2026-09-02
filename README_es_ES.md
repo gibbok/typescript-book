@@ -46,6 +46,8 @@ Tu apoyo me ayuda a mantener el contenido actualizado y ampliarlo con nuevos eje
 
 Este libro se ha traducido a varios idiomas, entre ellos:
 
+[Inglés](https://github.com/gibbok/typescript-book/blob/main/README.md)
+
 [Búlgaro](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
 [Alemán](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
@@ -73,6 +75,8 @@ Este libro se ha traducido a varios idiomas, entre ellos:
 [Chino](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
 [Español](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
+[Tailandés](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 
 ## Descargas y sitio web
 
