@@ -4,6 +4,8 @@
 
 本書は、以下を含む複数の言語に翻訳されています。
 
+[英語](https://github.com/gibbok/typescript-book/blob/main/README.md)
+
 [ブルガリア語](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
 [ドイツ語](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
@@ -31,4 +33,6 @@
 [中国語](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
 [スペイン語](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
+[タイ語](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 

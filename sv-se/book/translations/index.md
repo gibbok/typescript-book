@@ -4,6 +4,8 @@
 
 Denna bok har översatts till flera språkversioner, inklusive:
 
+[Engelska](https://github.com/gibbok/typescript-book/blob/main/README.md)
+
 [Bulgariska](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
 [Tyska](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
@@ -31,4 +33,6 @@ Denna bok har översatts till flera språkversioner, inklusive:
 [Kinesiska](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
 [Spanska](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
+[Thailändska](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 

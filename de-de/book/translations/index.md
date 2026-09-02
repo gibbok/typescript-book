@@ -4,6 +4,8 @@
 
 Dieses Buch wurde in mehrere Sprachen übersetzt, darunter:
 
+[Englisch](https://github.com/gibbok/typescript-book/blob/main/README.md)
+
 [Bulgarisch](https://github.com/gibbok/typescript-book/blob/main/README-bg_BG.md)
 
 [Deutsch](https://github.com/gibbok/typescript-book/blob/main/README-de_DE.md)
@@ -31,4 +33,6 @@ Dieses Buch wurde in mehrere Sprachen übersetzt, darunter:
 [Chinesisch](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
 [Spanisch](https://github.com/gibbok/typescript-book/blob/main/README_es_ES.md)
+
+[Thailändisch](https://github.com/gibbok/typescript-book/blob/main/README-th_TH.md)
 
