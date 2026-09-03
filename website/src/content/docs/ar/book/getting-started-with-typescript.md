@@ -22,7 +22,7 @@ yarn add typescript --dev
 
 تأكد من إيداع ملف القفل الناتج لضمان استخدام كل عضو في الفريق لإصدار TypeScript نفسه.
 
-لتشغيل مصرّف TypeScript، يمكنك استخدام الأوامر التالية
+لتشغيل مصرّف TypeScript، يمكنك استخدام الأوامر التالية:
 
 ```shell
 npx tsc
@@ -99,7 +99,7 @@ tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts an
 
 #### target
 
-تُستخدم الخاصية "target" لتحديد إصدار ECMAScript الذي ينبغي أن تُخرج/تُصرّف إليه شيفرة TypeScript. وتُعد ES6 خيارًا جيدًا للمتصفحات الحديثة. ملاحظة: أُهمل دعم ES5 في TypeScript 6.0، ولم يعد مدعومًا في TypeScript 7.0.
+تُستخدم الخاصية "target" لتحديد إصدار ECMAScript الذي ينبغي أن تُخرج أو تُصرّف إليه شيفرة TypeScript. وتُعد ES6 خيارًا جيدًا للمتصفحات الحديثة. ملاحظة: أُهمل دعم ES5 في TypeScript 6.0، ولم يعد مدعومًا في TypeScript 7.0.
 
 #### lib
 
