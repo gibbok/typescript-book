@@ -80,6 +80,8 @@ The Concise TypeScript Book предоставя изчерпателен и к�
 
 [руски](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
 
+[арабски](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
+
 ## Изтегляния и уебсайт
 
 Можете също да изтеглите версията в Epub формат:

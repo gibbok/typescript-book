@@ -42,3 +42,5 @@ Este livro foi traduzido para vários idiomas, incluindo:
 
 [Russo](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
 
+[Árabe](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
+

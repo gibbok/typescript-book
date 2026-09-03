@@ -42,3 +42,5 @@ sidebar:
 
 [俄语](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
 
+[阿拉伯语](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
+

@@ -1,4 +1,4 @@
-export type PlusEditionLocale = 'en' | 'zh-cn' | 'it-it' | 'pt-br' | 'sv-se' | 'bg-bg' | 'es-es' | 'ja-jp' | 'fr-fr' | 'ko-kr' | 'id-id' | 'de-de' | 'pl-pl' | 'tr-tr' | 'vi-vn' | 'th-th' | 'ru-ru';
+export type PlusEditionLocale = 'en' | 'ar' | 'zh-cn' | 'it-it' | 'pt-br' | 'sv-se' | 'bg-bg' | 'es-es' | 'ja-jp' | 'fr-fr' | 'ko-kr' | 'id-id' | 'de-de' | 'pl-pl' | 'tr-tr' | 'vi-vn' | 'th-th' | 'ru-ru';
 
 const DEFAULT_LOCALE: PlusEditionLocale = 'en';
 
@@ -6,6 +6,7 @@ const LOCALE_BY_LANG: Readonly<Record<string, PlusEditionLocale>> = {
 	en: 'en',
 	'en-us': 'en',
 	'en-gb': 'en',
+	ar: 'ar',
 	'zh-cn': 'zh-cn',
 	'zh-hans': 'zh-cn',
 	it: 'it-it',
@@ -45,6 +46,7 @@ export const PLUS_EDITION_PATH = `${PLUS_EDITION_BASE_PATH}/plus-edition/`;
 
 export const PLUS_EDITION_COVERS: Readonly<Record<PlusEditionLocale, string>> = {
 	en: `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
+	ar: `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 	'zh-cn': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_zh_CN.webp`,
 	'it-it': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_it_IT.webp`,
 	'pt-br': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_pt_BR.webp`,
@@ -198,6 +200,105 @@ export const PLUS_EDITION_COPY = {
 			paperback: 'Paperback',
 			buyOn: 'Buy on',
 			detected: 'We’ll use your browser language and region to open the most relevant edition and Amazon store.',
+		},
+	},
+	ar: {
+		pageTitle: 'The Concise TypeScript Book Plus Edition — React وأنماط من واقع العمل لـ TypeScript 7',
+		pageDescription:
+			'الإصدار المدفوع والموسّع من The Concise TypeScript Book، مع إرشادات حصرية حول React، وأنماط TypeScript من واقع العمل، ومحتوى محدّث يغطي TypeScript 7. متوفر بإصدار Kindle وبغلاف ورقي.',
+		coverAlt: 'غلاف The Concise TypeScript Book Plus Edition',
+		topBanner: {
+			ariaLabel: 'إعلان إصدار Plus Edition الجديد',
+			badge: 'إصدار جديد مدفوع',
+			strong: 'أتقن TypeScript 7',
+			message: 'React + أنماط من واقع العمل',
+			action: 'استكشف Plus Edition',
+		},
+		home: {
+			ariaLabel: 'تعرّف على المزيد حول The Concise TypeScript Book Plus Edition',
+			eyebrow: 'إصدار جديد مدفوع · TypeScript 7',
+			title: 'وظّف TypeScript في مشاريع حقيقية',
+			description:
+				'يوسّع Plus Edition الكتاب المجاني مفتوح المصدر بالمحتوى العملي الأكثر طلبًا من المطورين: React مع TypeScript وأنماط قابلة لإعادة الاستخدام في شيفرة الإنتاج.',
+			items: [
+				['React مع TypeScript:', 'المكونات، والخصائص، والخطافات، والأحداث، والمراجع، وأنماط المكونات القابلة للتوسع.'],
+				['أنماط TypeScript من واقع العمل:', 'أساليب عملية لبناء تطبيقات أكثر أمانًا ووضوحًا وقابلية للصيانة.'],
+				['TypeScript 7:', 'تغطية موجزة تبدأ من الأساسيات وتصل إلى التقنيات المتقدمة لنظام الأنواع.'],
+			],
+			action: 'اكتشف المحتوى',
+			availability: 'متوفر بإصدار Kindle وبغلاف ورقي',
+		},
+		sidebar: {
+			coverCta: 'غلاف Plus Edition',
+			eyebrow: 'Plus Edition',
+			title: 'تجاوز حدود الكتاب المجاني',
+			description: 'إرشادات حصرية حول React وأنماط عملية من واقع العمل، محدّثة لـ TypeScript 7.',
+			formats: 'Kindle وغلاف ورقي',
+			action: 'استكشف الكتاب',
+			ariaLabel: 'استكشف The Concise TypeScript Book Plus Edition',
+		},
+		landing: {
+			heroEyebrow: 'الإصدار المدفوع والموسّع · محدّث لـ TypeScript 7',
+			title: PLUS_EDITION.titles.en,
+			lead:
+				'دليل موجز وعملي إلى TypeScript 7، موسّع بفصول حصرية تربط نظام الأنواع بالعمل الذي تؤديه كل يوم.',
+			primaryAction: 'اختر إصدار Kindle أو الغلاف الورقي',
+			secondaryAction: 'اطّلع على الجديد',
+			availability: 'إصداران باللغتين الإنجليزية والإيطالية · متوفران عالميًا عبر Amazon',
+			introEyebrow: 'من فهم TypeScript إلى استخدامها بفاعلية',
+			introTitle: 'محتوى جديد مصمم للمشاريع الحقيقية',
+			introText:
+				'يبني Plus Edition على كتاب The Concise TypeScript Book مفتوح المصدر والواسع الانتشار. ويحافظ على الشروحات المباشرة والأمثلة المركزة، ثم يتعمق في مجالين مهمين لا يتوفران إلا في هذا الإصدار المدفوع.',
+			featureAriaLabel: 'المحتوى الحصري في Plus Edition',
+			exclusiveContent: 'محتوى حصري',
+			features: [
+				{
+					title: 'TypeScript مع React',
+					description:
+						'انتقل بثقة من أنواع المكونات الأساسية إلى أنماط تظل واضحة مع نمو تطبيق React.',
+					items: [
+						'المكونات، والخصائص، والعناصر الأبناء، والأحداث',
+						'الخطافات، والمراجع، والتجريدات القابلة لإعادة الاستخدام',
+						'الاتحادات المميّزة والمكونات العامة',
+						'أنماط عملية لواجهات API أكثر أمانًا للمكونات',
+					],
+				},
+				{
+					title: 'أنماط من واقع العمل',
+					description:
+						'تعرّف على كيفية تكامل ميزات TypeScript المتقدمة لحل مشكلات تصميم التطبيقات المتكررة.',
+					items: [
+						'أنواع معبّرة وقابلة للصيانة لنطاق العمل',
+						'حدود أكثر أمانًا ومعالجة الأخطاء',
+						'خرائط أنواع وأنماط مصانع قابلة لإعادة الاستخدام',
+						'تقنيات يمكنك تكييفها مع شيفرة الإنتاج',
+					],
+				},
+			],
+			whyEyebrow: 'الإيجاز مقصود',
+			whyTitle: 'عمق عملي أكبر بلا حشو',
+			whyItems: [
+				['محدّث', 'محدّث لـ TypeScript 7، من مفاهيم اللغة الأساسية إلى التقنيات المتقدمة لنظام الأنواع.'],
+				['عملي', 'شروحات قصيرة وأمثلة مركزة مصممة لتطبيقها مباشرة في أعمال التطوير اليومية.'],
+				['مفيد في كل مستوى', 'مقدمة منظمة لمطوري TypeScript الجدد ومرجع سريع للمهندسين ذوي الخبرة.'],
+			],
+			audienceEyebrow: 'لمن هذا الكتاب',
+			audienceTitle: 'للمطورين الباحثين عن الوضوح والتطبيق العملي',
+			audienceText:
+				'اختر Plus Edition إذا كنت تريد مرجعًا واحدًا ومركّزًا لتعلّم TypeScript الحديثة، وكتابة أنواع React بفاعلية، وتطبيق اللغة على مشكلات تصميم واقعية. تساعد معرفة JavaScript، لكن الخبرة العميقة في TypeScript ليست مطلوبة.',
+			trustEyebrow: 'موثوق به لدى المطورين',
+			trustTitle: 'مبني على كتاب TypeScript شهير مفتوح المصدر',
+			trustText:
+				'حصد الإصدار المجاني أكثر من 10,000 نجمة على GitHub ويستخدمه العديد من مطوري TypeScript. ألّف Simone Poggiali إصدار Plus Edition، مستفيدًا من 20 عامًا من الخبرة المهنية الدولية لتقديم إرشادات عملية حول React وأنماط TypeScript من واقع العمل.',
+		},
+		amazon: {
+			eyebrow: 'اختر التنسيق المناسب لك',
+			title: 'احصل على Plus Edition من Amazon',
+			editionLabel: 'الإصدار',
+			kindle: 'إصدار Kindle',
+			paperback: 'غلاف ورقي',
+			buyOn: 'اشترِ من',
+			detected: 'سنستخدم لغة متصفحك ومنطقتك لفتح الإصدار ومتجر Amazon الأنسب لك.',
 		},
 	},
 	'ru-ru': {

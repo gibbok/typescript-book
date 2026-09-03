@@ -1,0 +1,11 @@
+html,
+body {
+    direction: rtl;
+    text-align: start;
+}
+
+pre,
+code {
+    direction: ltr;
+    text-align: left;
+}

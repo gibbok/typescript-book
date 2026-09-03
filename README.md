@@ -80,6 +80,8 @@ This book has been translated into several languages, including:
 
 [Russian](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
 
+[Arabic](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
+
 ## Downloads and website
 
 You can also download the EPUB version:
