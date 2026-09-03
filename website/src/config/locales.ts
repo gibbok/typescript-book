@@ -69,6 +69,11 @@ export const locales = {
     label: 'Русский',
     lang: 'ru-RU',
   },
+  'ar': {
+    label: 'العربية',
+    lang: 'ar',
+    dir: 'rtl',
+  },
 } as const;
 
 export type Locale = keyof typeof locales;

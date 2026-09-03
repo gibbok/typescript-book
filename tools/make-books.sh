@@ -36,7 +36,19 @@ fi
 # Generate eBooks
 for artifact in "${BOOK_ARTIFACTS[@]}"; do
     IFS="|" read -r input output title language <<< "$artifact"
-    pandoc --data-dir=. --lua-filter=tools/epub-anchor-filter.lua -o "$DIR_DOWNLOADS/$output.epub" --metadata title="$title" --metadata author="$AUTHOR" --metadata lang="$language" -s "$input.md"
+    pandoc_options=(
+        --data-dir=.
+        --lua-filter=tools/epub-anchor-filter.lua
+        --output "$DIR_DOWNLOADS/$output.epub"
+        --metadata title="$title"
+        --metadata author="$AUTHOR"
+        --metadata lang="$language"
+        --standalone
+    )
+    if [[ "$language" == "ar" ]]; then
+        pandoc_options+=(--metadata dir=rtl --metadata page-progression-direction=rtl --css=tools/rtl.css)
+    fi
+    pandoc "${pandoc_options[@]}" "$input.md"
 done
 
 # Generate PDFs. Calibre selects these fonts while converting EPUB to PDF; the

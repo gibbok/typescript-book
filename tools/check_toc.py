@@ -1,9 +1,16 @@
 import re
 import sys
+import unicodedata
 
 def slugify(text):
     text = text.lower()
-    text = re.sub(r'[^\w\s-]', '', text)
+    text = ''.join(
+        char for char in text
+        if unicodedata.category(char)[0] in {'L', 'M', 'N'}
+        or unicodedata.category(char) == 'Pc'
+        or char.isspace()
+        or char == '-'
+    )
     text = re.sub(r'\s+', '-', text)
     return text
 
