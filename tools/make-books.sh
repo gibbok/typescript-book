@@ -70,12 +70,17 @@ for artifact in "${BOOK_ARTIFACTS[@]}"; do
             mono_family="Noto Sans Mono CJK JP"
             ;;
     esac
-    ebook-convert "$DIR_DOWNLOADS/$output.epub" "$DIR_DOWNLOADS/$output.pdf" \
+    pdf_options=(
         --pdf-page-numbers \
         --pdf-serif-family="$serif_family" \
         --pdf-sans-family="$sans_family" \
         --pdf-mono-family="$mono_family" \
         --pdf-standard-font=serif
+    )
+    if [[ "$language" == "ar" ]]; then
+        pdf_options+=(--extra-css=tools/pdf-rtl.css)
+    fi
+    ebook-convert "$DIR_DOWNLOADS/$output.epub" "$DIR_DOWNLOADS/$output.pdf" "${pdf_options[@]}"
 done
 
 python3 tools/verify-books.py
