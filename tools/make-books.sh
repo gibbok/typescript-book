@@ -46,7 +46,7 @@ for artifact in "${BOOK_ARTIFACTS[@]}"; do
         --standalone
     )
     if [[ "$language" == "ar" ]]; then
-        pandoc_options+=(--metadata dir=rtl --metadata page-progression-direction=rtl --css=tools/rtl.css)
+        pandoc_options+=(--metadata dir=rtl --metadata page-progression-direction=rtl --css=tools/rtl.css --lua-filter=tools/epub-rtl-filter.lua)
     fi
     pandoc "${pandoc_options[@]}" "$input.md"
 done
