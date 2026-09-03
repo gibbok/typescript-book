@@ -38,3 +38,5 @@ Buku ini telah diterjemahkan ke dalam beberapa bahasa, termasuk:
 
 [Bahasa Rusia](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
 
+[Bahasa Arab](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
+
