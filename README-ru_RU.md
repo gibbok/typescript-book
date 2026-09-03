@@ -80,6 +80,8 @@
 
 [Русский](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
 
+[Арабский](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
+
 ## Загрузки и веб-сайт
 
 Вы также можете загрузить версию в формате EPUB:
