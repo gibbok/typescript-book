@@ -1,0 +1,55 @@
+name: apply-typescript-news-2026-09-04
+
+on:
+  push:
+    branches:
+      - agent/typescript-news-2026-09-04
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-validate:
+    if: github.event.head_commit.message == 'Prepare TypeScript news update'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: agent/typescript-news-2026-09-04
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Apply synchronized TypeScript news update
+        run: python3 .agents/tmp/apply-typescript-news-2026-09-04.py
+      - name: Verify news order and locale parity
+        run: python3 .agents/skills/create-typescript-news/scripts/verify_news_order.py
+      - name: Lint content
+        run: bash .github/workflows/lint.sh
+      - name: Compile snippets
+        run: bash .github/workflows/compile.sh
+      - name: Test GitHub Actions scripts
+        run: node --test tools/github-actions/*.test.js
+      - name: Install website dependencies
+        working-directory: website
+        run: npm ci
+      - name: Install Chromium
+        working-directory: website
+        run: npx playwright install --with-deps chromium
+      - name: Build website
+        working-directory: website
+        run: npm run build
+      - name: Inspect generated news routes and metadata
+        run: python3 .agents/tmp/apply-typescript-news-2026-09-04.py --verify-dist
+      - name: Run website end-to-end tests
+        working-directory: website
+        run: npm run e2e
+      - name: Commit validated content
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add website/src/content/docs
+          git diff --cached --check
+          git commit -m 'Add TypeScript 7 AST traversal API news'
+          git push origin HEAD:agent/typescript-news-2026-09-04
