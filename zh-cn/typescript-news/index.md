@@ -5,6 +5,12 @@
 
 ## 最新消息
 
+### [TypeScript 7.1 为环境模块添加导入属性](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**发布日期：** 2026 年 9 月 1 日
+
+模式环境模块现在可以声明导入属性类型，使 TypeScript 能根据 import 上的属性选择对应的类型声明。
+
 ### [TypeScript 7 修复联合类型和交叉类型中的 setter 可访问性](./2026/typescript-7-fixes-setter-accessibility/)
 
 **发布日期：** 2026 年 8 月 24 日

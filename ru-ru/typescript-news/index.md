@@ -5,6 +5,12 @@
 
 ## Последние новости
 
+### [TypeScript 7.1 добавляет import attributes в ambient-модули](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**Опубликовано:** 1 сентября 2026 г.
+
+Шаблонные ambient-модули теперь могут объявлять типы import attributes, позволяя TypeScript выбирать типы по атрибутам import.
+
 ### [TypeScript 7 исправляет учёт доступности сеттеров в объединениях и пересечениях](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Опубликовано:** 24 августа 2026 г.

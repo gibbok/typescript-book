@@ -68,6 +68,7 @@
 - [Void 타입](https://gibbok.github.io/typescript-book/ko-kr/book/void-type/index.md): void 타입은 함수가 값을 반환하지 않음을 나타내는 데 사용됩니다.
 - [TypeScript Book](https://gibbok.github.io/typescript-book/ko-kr/index.md): The Concise TypeScript Book
 - [The Concise TypeScript Book Plus Edition — TypeScript 7을 위한 React와 실전 패턴](https://gibbok.github.io/typescript-book/ko-kr/plus-edition/index.md): The Concise TypeScript Book의 유료 확장판으로, 독점 React 가이드, 실전 TypeScript 패턴, TypeScript 7에 맞게 업데이트된 내용을 담았습니다. Kindle과 종이책으로 제공됩니다.
+- [TypeScript 7.1이 ambient 모듈에 import attributes를 추가했습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-1-import-attributes-ambient-modules/index.md): TypeScript 7.1은 import attributes를 기준으로 패턴 ambient 모듈 선언을 매칭할 수 있습니다.
 - [TypeScript 7이 유니언과 인터섹션에서 setter 접근성을 수정했습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-fixes-setter-accessibility/index.md): 네이티브 검사기는 이제 유니언과 인터섹션 속성에서 setter 접근성을 getter 접근성과 별도로 준수합니다.
 - [TypeScript 7이 Go to Implementation의 메모리 사용을 개선했습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-go-to-implementation-memory-fix/index.md): 네이티브 언어 서비스 수정으로 규모가 크고 타입이 깊게 중첩된 프로젝트에서 구현을 찾을 때 메모리 사용량이 이차적으로 증가하는 것을 방지합니다.
 - [TypeScript 7 네이티브 API에 emit 메서드가 추가되었습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-native-api-adds-emit-methods/index.md): 네이티브 TypeScript API에 전체 프로그램과 선택한 JavaScript 또는 선언 출력을 위한 파일 시스템 및 인메모리 emit 메서드가 추가되었습니다.

@@ -5,6 +5,12 @@
 
 ## ข่าวล่าสุด
 
+### [TypeScript 7.1 เพิ่ม import attributes ให้ ambient module](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**เผยแพร่:** 1 กันยายน 2026
+
+ambient module แบบ pattern สามารถประกาศชนิดของ import attributes ได้แล้ว ทำให้ TypeScript เลือกชนิดตาม attributes ของ import
+
 ### [TypeScript 7 แก้ไขการเข้าถึง setter ใน union และ intersection](./2026/typescript-7-fixes-setter-accessibility/)
 
 **เผยแพร่:** 24 สิงหาคม 2026

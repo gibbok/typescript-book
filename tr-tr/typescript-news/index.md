@@ -5,6 +5,12 @@ Resmî TypeScript kaynaklarına dayanan kısa özetlerle önemli TypeScript sür
 
 ## Son haberler
 
+### [TypeScript 7.1 ambient modüllere import öznitelikleri ekliyor](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**Yayımlandı:** 1 Eylül 2026
+
+Desenli ambient modüller artık import öznitelik türleri bildirebilir; böylece TypeScript import özniteliklerine göre uygun türleri seçebilir.
+
 ### [TypeScript 7, birleşimlerde ve kesişimlerde setter erişilebilirliğini düzeltiyor](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Yayımlandı:** 24 Ağustos 2026

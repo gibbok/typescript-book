@@ -68,6 +68,7 @@
 - [void 型](https://gibbok.github.io/typescript-book/ja-jp/book/void-type/index.md): void 型は、関数が値を返さないことを示すために使用されます。
 - [TypeScript Book](https://gibbok.github.io/typescript-book/ja-jp/index.md): The Concise TypeScript Book
 - [The Concise TypeScript Book Plus Edition — TypeScript 7 向け React と実践的なパターン](https://gibbok.github.io/typescript-book/ja-jp/plus-edition/index.md): The Concise TypeScript Book の有料拡張版です。本書限定の React ガイド、実際の開発で役立つ TypeScript パターン、TypeScript 7 に対応した最新内容を収録しています。Kindle 版とペーパーバック版があります。
+- [TypeScript 7.1 が ambient module に import attributes を追加](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-7-1-import-attributes-ambient-modules/index.md): TypeScript 7.1 では、パターン ambient module 宣言を import attributes に基づいて照合できます。
 - [TypeScript 7 が union と intersection の setter アクセス制御を修正](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-7-fixes-setter-accessibility/index.md): ネイティブ型チェッカーが、union と intersection のプロパティで setter と getter のアクセス制御を個別に扱うようになりました。
 - [TypeScript 7 で Go to Implementation のメモリ使用量が改善](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-7-go-to-implementation-memory-fix/index.md): ネイティブ言語サービスの修正により、大規模で型が深くネストしたプロジェクトにおいて、実装の検索時にメモリ使用量が二次関数的に増加する問題を防ぎます。
 - [TypeScript 7 のネイティブ API に emit メソッドが追加](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-7-native-api-adds-emit-methods/index.md): ネイティブ TypeScript API に、プログラム全体、および選択した JavaScript または宣言の出力を生成するための、ファイルシステム向けとインメモリ向けの emit メソッドが追加されました。

@@ -5,6 +5,12 @@ TypeScript の公式情報源に基づく簡潔な要約を通じて、重要な
 
 ## 最新ニュース
 
+### [TypeScript 7.1 が ambient module に import attributes を追加](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**公開日:** 2026年9月1日
+
+パターン ambient module で import attributes の型を宣言できるようになり、TypeScript は import の属性に応じて型定義を選択できます。
+
 ### [TypeScript 7 が union と intersection の setter アクセス制御を修正](./2026/typescript-7-fixes-setter-accessibility/)
 
 **公開日:** 2026年8月24日

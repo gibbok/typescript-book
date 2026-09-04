@@ -5,6 +5,12 @@ Follow important TypeScript releases and project updates through concise summari
 
 ## Latest news
 
+### [TypeScript 7.1 adds import attributes to ambient modules](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**Published:** September 1, 2026
+
+Pattern ambient modules can now declare import-attribute types, so TypeScript can select typings according to attributes on an import.
+
 ### [TypeScript 7 fixes setter accessibility in unions and intersections](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Published:** August 24, 2026

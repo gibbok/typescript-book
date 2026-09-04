@@ -5,6 +5,12 @@ Verfolgen Sie wichtige TypeScript-Releases und Projektaktualisierungen anhand ko
 
 ## Neueste Nachrichten
 
+### [TypeScript 7.1 fügt Importattribute zu Ambient-Modulen hinzu](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**Veröffentlicht:** 1. September 2026
+
+Pattern-Ambient-Module können nun Typen für Importattribute deklarieren, sodass TypeScript Typen anhand der Attribute eines Imports auswählen kann.
+
 ### [TypeScript 7 korrigiert die Setter-Zugänglichkeit bei Union- und Intersection-Typen](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Veröffentlicht:** 24. August 2026

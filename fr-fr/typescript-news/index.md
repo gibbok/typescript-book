@@ -5,6 +5,12 @@ Suivez les versions importantes et les mises à jour du projet TypeScript grâce
 
 ## Dernières actualités
 
+### [TypeScript 7.1 ajoute les attributs d’import aux modules ambient](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**Publié le :** 1er septembre 2026
+
+Les modules ambient à motif peuvent désormais déclarer des types d’attributs d’import, afin que TypeScript choisisse les types selon les attributs de l’import.
+
 ### [TypeScript 7 corrige l'accessibilité des setters dans les unions et intersections](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Publié le :** 24 août 2026

@@ -68,6 +68,7 @@
 - [空类型](https://gibbok.github.io/typescript-book/zh-cn/book/void-type/index.md): void 类型用于指示函数不返回值。
 - [TypeScript Book](https://gibbok.github.io/typescript-book/zh-cn/index.md): The Concise TypeScript Book
 - [The Concise TypeScript Book Plus Edition — React 与 TypeScript 7 实战模式](https://gibbok.github.io/typescript-book/zh-cn/plus-edition/index.md): The Concise TypeScript Book 的付费扩展版，包含 React 指导、真实项目中的 TypeScript 模式，并更新到 TypeScript 7。提供 Kindle 和平装版。
+- [TypeScript 7.1 为环境模块添加导入属性](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-7-1-import-attributes-ambient-modules/index.md): TypeScript 7.1 可按导入属性匹配模式环境模块声明，从而支持基于属性的模块类型解析。
 - [TypeScript 7 修复联合类型和交叉类型中的 setter 可访问性](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-7-fixes-setter-accessibility/index.md): 原生类型检查器现在会在联合类型和交叉类型属性上分别处理 setter 与 getter 的可访问性。
 - [TypeScript 7 改进“转到实现”的内存使用](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-7-go-to-implementation-memory-fix/index.md): 原生语言服务中的一项修复避免了在大型、类型结构复杂的项目中查找实现时出现内存使用量平方级增长。
 - [TypeScript 7 原生 API 新增 emit 方法](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-7-native-api-adds-emit-methods/index.md): TypeScript 原生 API 新增面向整个程序和选定 JavaScript 或声明输出的文件系统与内存 emit 方法。

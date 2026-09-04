@@ -5,6 +5,12 @@ Följ viktiga TypeScript-versioner och projektuppdateringar genom kortfattade sa
 
 ## Senaste nytt
 
+### [TypeScript 7.1 lägger till importattribut i ambient-moduler](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**Publicerad:** 1 september 2026
+
+Mönsterbaserade ambient-moduler kan nu deklarera typer för importattribut, så att TypeScript kan välja typer utifrån importens attribut.
+
 ### [TypeScript 7 rättar setter-åtkomst i unions- och intersection-typer](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Publicerad:** 24 augusti 2026

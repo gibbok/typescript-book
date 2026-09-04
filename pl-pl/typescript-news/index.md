@@ -5,6 +5,12 @@
 
 ## Najnowsze aktualności
 
+### [TypeScript 7.1 dodaje atrybuty importu do modułów ambient](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**Opublikowano:** 1 września 2026 r.
+
+Wzorcowe moduły ambient mogą teraz deklarować typy atrybutów importu, dzięki czemu TypeScript wybiera typy na podstawie atrybutów importu.
+
 ### [TypeScript 7 poprawia kontrolę dostępności setterów w uniach i przecięciach](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Opublikowano:** 24 sierpnia 2026 r.
