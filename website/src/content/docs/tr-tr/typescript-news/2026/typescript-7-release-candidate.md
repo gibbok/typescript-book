@@ -3,7 +3,7 @@ title: TypeScript 7.0 sürüm adayı duyuruldu
 description: TypeScript 7.0 sürüm adayı; yerel derleyiciyi, paralel derlemeleri, uyumluluk değişikliklerini ve genişletilmiş düzenleyici desteğini önizlemeye sundu.
 lastUpdated: 2026-06-18
 sidebar:
-    order: 8
+    order: 9
 head:
     - tag: meta
       attrs:

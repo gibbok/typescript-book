@@ -3,7 +3,7 @@ title: Gli strumenti nativi di TypeScript 7 si stanno consolidando
 description: I maintainer di TypeScript hanno chiarito che il nome tsgo verrà abbandonato, il codice nativo tornerà nel repository principale di TypeScript e l'estensione nativa per VS Code verrà integrata.
 lastUpdated: 2026-07-27
 sidebar:
-    order: 5
+    order: 6
 head:
     - tag: meta
       attrs:

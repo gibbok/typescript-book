@@ -3,7 +3,7 @@ title: TypeScript 7 adds a workspace-symbol search scope
 description: The native language service adds a setting that can limit workspace-symbol searches to the current project.
 lastUpdated: 2026-08-07
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

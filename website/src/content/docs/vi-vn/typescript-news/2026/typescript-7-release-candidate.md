@@ -3,7 +3,7 @@ title: TypeScript 7.0 release candidate được công bố
 description: TypeScript 7.0 release candidate giới thiệu trước compiler native, build song song, các thay đổi tương thích và hỗ trợ editor mở rộng.
 lastUpdated: 2026-06-18
 sidebar:
-    order: 8
+    order: 9
 head:
     - tag: meta
       attrs:

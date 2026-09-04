@@ -3,7 +3,7 @@ title: TypeScript 7 네이티브 API에 emit 메서드가 추가되었습니다
 description: 네이티브 TypeScript API에 전체 프로그램과 선택한 JavaScript 또는 선언 출력을 위한 파일 시스템 및 인메모리 emit 메서드가 추가되었습니다.
 lastUpdated: 2026-07-24
 sidebar:
-    order: 6
+    order: 7
 head:
     - tag: meta
       attrs:

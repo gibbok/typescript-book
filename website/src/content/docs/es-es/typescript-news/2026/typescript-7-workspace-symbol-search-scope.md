@@ -3,7 +3,7 @@ title: TypeScript 7 añade un ámbito de búsqueda para los símbolos del espaci
 description: El servicio de lenguaje nativo añade una configuración que puede limitar la búsqueda de símbolos del espacio de trabajo al proyecto actual.
 lastUpdated: 2026-08-07
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

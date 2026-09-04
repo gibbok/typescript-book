@@ -3,7 +3,7 @@ title: TypeScript 7.0 Release Candidate har tillkännagivits
 description: TypeScript 7.0 Release Candidate förhandsvisade den inbyggda kompilatorn, parallella byggen, kompatibilitetsändringar och utökat redigeringsstöd.
 lastUpdated: 2026-06-18
 sidebar:
-    order: 8
+    order: 9
 head:
     - tag: meta
       attrs:

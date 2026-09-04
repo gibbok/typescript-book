@@ -3,7 +3,7 @@ title: TypeScript 7, birleşimlerde ve kesişimlerde setter erişilebilirliğini
 description: Yerel denetleyici artık birleşim ve kesişim özelliklerinde setter erişilebilirliğini getter erişilebilirliğinden ayrı olarak dikkate alıyor.
 lastUpdated: 2026-08-24
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

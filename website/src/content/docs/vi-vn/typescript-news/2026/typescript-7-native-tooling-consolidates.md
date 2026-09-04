@@ -3,7 +3,7 @@ title: Công cụ native của TypeScript 7 đang được hợp nhất
 description: Các maintainer TypeScript làm rõ rằng tên tsgo sẽ không còn được dùng, codebase native sẽ quay lại repository TypeScript chính, và extension VS Code native sẽ được bundle.
 lastUpdated: 2026-07-27
 sidebar:
-    order: 5
+    order: 6
 head:
     - tag: meta
       attrs:

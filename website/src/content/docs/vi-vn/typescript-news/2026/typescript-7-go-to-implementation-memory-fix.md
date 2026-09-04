@@ -3,7 +3,7 @@ title: TypeScript 7 cải thiện mức sử dụng bộ nhớ của Go to Imple
 description: Một bản sửa trong language service native ngăn tăng trưởng bộ nhớ bậc hai khi tìm implementation trong các project lớn có kiểu phức tạp sâu.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 3
+    order: 4
 head:
     - tag: meta
       attrs:

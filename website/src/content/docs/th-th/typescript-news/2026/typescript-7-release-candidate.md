@@ -3,7 +3,7 @@ title: ประกาศ TypeScript 7.0 release candidate
 description: TypeScript 7.0 release candidate นำเสนอคอมไพเลอร์แบบเนทีฟ การ build แบบขนาน การเปลี่ยนแปลงด้านความเข้ากันได้ และการรองรับ editor ที่กว้างขึ้น
 lastUpdated: 2026-06-18
 sidebar:
-    order: 8
+    order: 9
 head:
     - tag: meta
       attrs:

@@ -3,7 +3,7 @@ title: TypeScript 7 が union と intersection の setter アクセス制御を�
 description: ネイティブ型チェッカーが、union と intersection のプロパティで setter と getter のアクセス制御を個別に扱うようになりました。
 lastUpdated: 2026-08-24
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

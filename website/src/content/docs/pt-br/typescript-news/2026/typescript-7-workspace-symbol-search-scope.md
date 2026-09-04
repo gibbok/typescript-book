@@ -3,7 +3,7 @@ title: TypeScript 7 adiciona um escopo de busca para símbolos do espaço de tra
 description: O serviço de linguagem nativo adiciona uma configuração que pode limitar a busca de símbolos do espaço de trabalho ao projeto atual.
 lastUpdated: 2026-08-07
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

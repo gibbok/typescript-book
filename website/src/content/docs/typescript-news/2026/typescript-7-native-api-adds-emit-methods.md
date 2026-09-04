@@ -3,7 +3,7 @@ title: TypeScript 7 native API adds emit methods
 description: The native TypeScript API adds filesystem and in-memory emit methods for whole programs and selected JavaScript or declaration outputs.
 lastUpdated: 2026-07-24
 sidebar:
-    order: 6
+    order: 7
 head:
     - tag: meta
       attrs:

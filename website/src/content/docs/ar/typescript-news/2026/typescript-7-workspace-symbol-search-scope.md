@@ -3,7 +3,7 @@ title: يضيف TypeScript 7 نطاقًا للبحث عن رموز مساحة ا
 description: تضيف خدمة اللغة الأصلية إعدادًا يمكنه قصر عمليات البحث عن رموز مساحة العمل على المشروع الحالي.
 lastUpdated: 2026-08-07
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

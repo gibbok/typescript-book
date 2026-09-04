@@ -3,7 +3,7 @@ title: TypeScript 7 thêm phạm vi tìm kiếm workspace-symbol
 description: Language service native thêm một thiết lập có thể giới hạn tìm kiếm workspace-symbol trong project hiện tại.
 lastUpdated: 2026-08-07
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

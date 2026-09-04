@@ -3,7 +3,7 @@ title: Die native API von TypeScript 7 erhält Emit-Methoden
 description: Die native TypeScript-API erhält Methoden für die Ausgabe in das Dateisystem und in den Arbeitsspeicher, sowohl für ganze Programme als auch für ausgewählte JavaScript- oder Deklarationsausgaben.
 lastUpdated: 2026-07-24
 sidebar:
-    order: 6
+    order: 7
 head:
     - tag: meta
       attrs:

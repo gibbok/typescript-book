@@ -3,7 +3,7 @@ title: الإعلان عن الإصدار المرشح من TypeScript 7.0
 description: استعرض الإصدار المرشح من TypeScript 7.0 المصرّف الأصلي والبناء المتوازي وتغييرات التوافق والدعم الموسع للمحررات.
 lastUpdated: 2026-06-18
 sidebar:
-    order: 8
+    order: 9
 head:
     - tag: meta
       attrs:

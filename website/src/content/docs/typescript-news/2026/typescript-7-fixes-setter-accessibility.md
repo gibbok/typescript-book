@@ -3,7 +3,7 @@ title: TypeScript 7 fixes setter accessibility in unions and intersections
 description: The native checker now respects setter accessibility separately from getter accessibility on union and intersection properties.
 lastUpdated: 2026-08-24
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

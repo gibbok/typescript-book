@@ -3,7 +3,7 @@ title: TypeScript 7 verbessert die Speichernutzung von „Go to Implementation�
 description: Eine Korrektur im nativen Language Service verhindert quadratisches Speicherwachstum bei der Suche nach Implementierungen in großen Projekten mit tief verschachtelten Typen.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 3
+    order: 4
 head:
     - tag: meta
       attrs:

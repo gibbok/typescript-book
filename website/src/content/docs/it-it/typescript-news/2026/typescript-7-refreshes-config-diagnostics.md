@@ -3,7 +3,7 @@ title: TypeScript 7 aggiorna la diagnostica dei file di configurazione dopo le m
 description: Il language service nativo ora ripubblica gli errori di tsconfig.json e jsconfig.json quando cambiano i file di configurazione monitorati.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:

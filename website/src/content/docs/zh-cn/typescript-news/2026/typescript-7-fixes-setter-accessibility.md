@@ -3,7 +3,7 @@ title: TypeScript 7 修复联合类型和交叉类型中的 setter 可访问性
 description: 原生类型检查器现在会在联合类型和交叉类型属性上分别处理 setter 与 getter 的可访问性。
 lastUpdated: 2026-08-24
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

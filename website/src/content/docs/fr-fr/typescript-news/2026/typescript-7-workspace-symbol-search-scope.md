@@ -3,7 +3,7 @@ title: TypeScript 7 ajoute une portée de recherche des symboles de l'espace de 
 description: Le service de langage natif ajoute un paramètre permettant de limiter la recherche de symboles dans l'espace de travail au projet actuel.
 lastUpdated: 2026-08-07
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

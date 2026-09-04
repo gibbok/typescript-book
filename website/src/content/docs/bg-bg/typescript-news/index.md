@@ -9,6 +9,12 @@ sidebar:
 
 ## Последни новини
 
+### [TypeScript 7.1 добавя import attributes към ambient модули](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**Публикувано:** 1 септември 2026 г.
+
+Pattern ambient модулите вече могат да декларират типове за import attributes, така че TypeScript да избира типизация според атрибутите на import.
+
 ### [TypeScript 7 коригира достъпа до setter-и в union и intersection типове](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Публикувано:** 24 август 2026 г.

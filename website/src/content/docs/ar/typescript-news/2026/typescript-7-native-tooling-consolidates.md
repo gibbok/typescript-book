@@ -3,7 +3,7 @@ title: أدوات TypeScript 7 الأصلية تتوحّد
 description: أوضح مشرفو TypeScript أن اسم tsgo سيُلغى، وأن قاعدة الشيفرة الأصلية ستعود إلى مستودع TypeScript الرئيسي، وأن امتداد VS Code الأصلي سيُضمّن معه.
 lastUpdated: 2026-07-27
 sidebar:
-    order: 5
+    order: 6
 head:
     - tag: meta
       attrs:

@@ -3,7 +3,7 @@ title: TypeScript 7.0 พร้อมใช้งานแล้ว
 description: TypeScript 7.0 เปิดตัวคอมไพเลอร์และบริการภาษาแบบเนทีฟที่พัฒนาด้วย Go ซึ่งช่วยเพิ่มประสิทธิภาพอย่างมากสำหรับการ build และ editor
 lastUpdated: 2026-07-08
 sidebar:
-    order: 7
+    order: 8
 head:
     - tag: meta
       attrs:

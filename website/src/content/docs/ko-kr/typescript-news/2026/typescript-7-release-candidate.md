@@ -3,7 +3,7 @@ title: TypeScript 7.0 릴리스 후보가 발표되었습니다
 description: TypeScript 7.0 릴리스 후보는 네이티브 컴파일러, 병렬 빌드, 호환성 변경 사항, 확장된 편집기 지원을 미리 선보였습니다.
 lastUpdated: 2026-06-18
 sidebar:
-    order: 8
+    order: 9
 head:
     - tag: meta
       attrs:
