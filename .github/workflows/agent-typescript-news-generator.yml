@@ -1,0 +1,26 @@
+name: Agent TypeScript news generator
+on:
+  push:
+    branches:
+      - agent/typescript-news-2026-09-04-import-attributes
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    if: github.event.head_commit.message == 'Run TypeScript news generator'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Generate synchronized TypeScript news
+        run: python3 .agents/skills/create-typescript-news/scripts/agent_generate_2026_09_04.py
+      - name: Commit generated news
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Add TypeScript 7.1 ambient module import attributes news"
+          git push
