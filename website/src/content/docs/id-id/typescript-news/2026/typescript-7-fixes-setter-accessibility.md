@@ -3,7 +3,7 @@ title: TypeScript 7 memperbaiki aksesibilitas setter pada union dan intersection
 description: Pemeriksa native kini memisahkan aksesibilitas setter dari aksesibilitas getter pada properti union dan intersection.
 lastUpdated: 2026-08-24
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

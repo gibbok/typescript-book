@@ -3,7 +3,7 @@ title: TypeScript 7.0 متاح الآن
 description: يقدم TypeScript 7.0 مصرّفًا وخدمة لغة أصليين مبنيين على Go، ويوفر تحسينات كبيرة في أداء عمليات البناء والمحررات.
 lastUpdated: 2026-07-08
 sidebar:
-    order: 7
+    order: 8
 head:
     - tag: meta
       attrs:

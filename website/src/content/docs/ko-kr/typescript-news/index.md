@@ -9,6 +9,12 @@ sidebar:
 
 ## 최신 뉴스
 
+### [TypeScript 7.1이 ambient 모듈에 import attributes를 추가했습니다](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**게시일:** 2026년 9월 1일
+
+패턴 ambient 모듈이 이제 import attributes 타입을 선언할 수 있어 TypeScript가 import의 속성에 따라 타입 정의를 선택할 수 있습니다.
+
 ### [TypeScript 7이 유니언과 인터섹션에서 setter 접근성을 수정했습니다](./2026/typescript-7-fixes-setter-accessibility/)
 
 **게시일:** 2026년 8월 24일

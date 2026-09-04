@@ -3,7 +3,7 @@ title: เครื่องมือแบบเนทีฟของ TypeScrip
 description: ผู้ดูแล TypeScript ชี้แจงว่าจะเลิกใช้ชื่อ tsgo ฐานโค้ดแบบเนทีฟจะกลับไปยัง repository หลักของ TypeScript และส่วนขยาย VS Code แบบเนทีฟจะถูกรวมไว้ในแพ็กเกจ
 lastUpdated: 2026-07-27
 sidebar:
-    order: 5
+    order: 6
 head:
     - tag: meta
       attrs:

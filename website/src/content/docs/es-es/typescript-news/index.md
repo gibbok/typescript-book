@@ -9,6 +9,12 @@ Sigue los lanzamientos importantes y las actualizaciones del proyecto TypeScript
 
 ## Últimas noticias
 
+### [TypeScript 7.1 añade atributos de importación a módulos ambient](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**Publicado:** 1 de septiembre de 2026
+
+Los módulos ambient con patrón ahora pueden declarar tipos de atributos de importación, permitiendo que TypeScript elija tipos según los atributos del import.
+
 ### [TypeScript 7 corrige la accesibilidad de setters en unions e intersections](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Publicado:** 24 de agosto de 2026

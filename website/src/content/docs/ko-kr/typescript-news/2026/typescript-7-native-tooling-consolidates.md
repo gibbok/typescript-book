@@ -3,7 +3,7 @@ title: TypeScript 7 네이티브 도구가 통합되고 있습니다
 description: TypeScript 유지관리자들은 tsgo 이름이 사라지고, 네이티브 코드베이스가 기본 TypeScript 저장소로 돌아가며, 네이티브 VS Code 확장 프로그램이 번들로 제공될 것이라고 설명했습니다.
 lastUpdated: 2026-07-27
 sidebar:
-    order: 5
+    order: 6
 head:
     - tag: meta
       attrs:

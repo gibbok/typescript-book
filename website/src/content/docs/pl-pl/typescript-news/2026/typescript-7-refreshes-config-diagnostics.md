@@ -3,7 +3,7 @@ title: TypeScript 7 odświeża diagnostykę konfiguracji po zmianach plików
 description: Natywna usługa językowa ponownie publikuje błędy dotyczące plików tsconfig.json i jsconfig.json po zmianie obserwowanych plików konfiguracyjnych.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:

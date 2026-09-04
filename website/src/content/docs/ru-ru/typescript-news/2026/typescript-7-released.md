@@ -3,7 +3,7 @@ title: TypeScript 7.0 уже доступен
 description: TypeScript 7.0 представляет нативный компилятор и нативную языковую службу на основе Go, которые значительно повышают производительность сборки и редакторов.
 lastUpdated: 2026-07-08
 sidebar:
-    order: 7
+    order: 8
 head:
     - tag: meta
       attrs:

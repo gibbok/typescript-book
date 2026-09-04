@@ -3,7 +3,7 @@ title: TypeScript 7이 유니언과 인터섹션에서 setter 접근성을 수�
 description: 네이티브 검사기는 이제 유니언과 인터섹션 속성에서 setter 접근성을 getter 접근성과 별도로 준수합니다.
 lastUpdated: 2026-08-24
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

@@ -3,7 +3,7 @@ title: TypeScript 7이 Go to Implementation의 메모리 사용을 개선했습�
 description: 네이티브 언어 서비스 수정으로 규모가 크고 타입이 깊게 중첩된 프로젝트에서 구현을 찾을 때 메모리 사용량이 이차적으로 증가하는 것을 방지합니다.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 3
+    order: 4
 head:
     - tag: meta
       attrs:

@@ -3,7 +3,7 @@ title: TypeScript 7 原生 API 新增 emit 方法
 description: TypeScript 原生 API 新增面向整个程序和选定 JavaScript 或声明输出的文件系统与内存 emit 方法。
 lastUpdated: 2026-07-24
 sidebar:
-    order: 6
+    order: 7
 head:
     - tag: meta
       attrs:

@@ -3,7 +3,7 @@ title: TypeScript 7 yerel API'si emit metotları ekliyor
 description: Yerel TypeScript API'si, programların tamamı ile seçilen JavaScript veya bildirim çıktıları için dosya sistemine ve belleğe emit metotları ekliyor.
 lastUpdated: 2026-07-24
 sidebar:
-    order: 6
+    order: 7
 head:
     - tag: meta
       attrs:

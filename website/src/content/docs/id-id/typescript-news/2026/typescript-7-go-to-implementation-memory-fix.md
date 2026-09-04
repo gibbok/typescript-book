@@ -3,7 +3,7 @@ title: TypeScript 7 meningkatkan penggunaan memori Go to Implementation
 description: Perbaikan language service native mencegah pertumbuhan memori kuadratik saat menemukan implementasi pada proyek besar dengan tipe yang mendalam.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 3
+    order: 4
 head:
     - tag: meta
       attrs:

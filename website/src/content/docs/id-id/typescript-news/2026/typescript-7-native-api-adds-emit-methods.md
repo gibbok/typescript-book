@@ -3,7 +3,7 @@ title: API native TypeScript 7 menambahkan metode emit
 description: API TypeScript native menambahkan metode emit ke filesystem dan memori untuk seluruh program serta output JavaScript atau deklarasi yang dipilih.
 lastUpdated: 2026-07-24
 sidebar:
-    order: 6
+    order: 7
 head:
     - tag: meta
       attrs:

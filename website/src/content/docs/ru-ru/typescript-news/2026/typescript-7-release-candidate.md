@@ -3,7 +3,7 @@ title: Объявлен релиз-кандидат TypeScript 7.0
 description: В релиз-кандидате TypeScript 7.0 представлены нативный компилятор, параллельная сборка, изменения совместимости и расширенная поддержка редакторов.
 lastUpdated: 2026-06-18
 sidebar:
-    order: 8
+    order: 9
 head:
     - tag: meta
       attrs:

@@ -3,7 +3,7 @@ title: TypeScript 7 rättar setter-åtkomst i unions- och intersection-typer
 description: Den inbyggda typkontrollen respekterar nu setter-åtkomst separat från getter-åtkomst för egenskaper i unions- och intersection-typer.
 lastUpdated: 2026-08-24
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

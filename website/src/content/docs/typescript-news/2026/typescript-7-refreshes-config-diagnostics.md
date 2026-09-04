@@ -3,7 +3,7 @@ title: TypeScript 7 refreshes config diagnostics after file changes
 description: The native language service now republishes tsconfig.json and jsconfig.json errors after watched config files change.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:

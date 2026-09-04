@@ -3,7 +3,7 @@ title: TypeScript 7 在配置文件更改后刷新诊断信息
 description: 原生语言服务现在会在受监视的配置文件更改后重新发布 tsconfig.json 和 jsconfig.json 错误。
 lastUpdated: 2026-07-30
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:

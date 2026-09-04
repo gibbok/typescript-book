@@ -9,6 +9,12 @@ Theo dõi các bản phát hành và cập nhật quan trọng của TypeScript 
 
 ## Tin mới nhất
 
+### [TypeScript 7.1 thêm thuộc tính import cho ambient module](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**Đã xuất bản:** 1 tháng 9, 2026
+
+Ambient module dạng mẫu giờ có thể khai báo kiểu cho thuộc tính import, giúp TypeScript chọn kiểu dựa trên thuộc tính của import.
+
 ### [TypeScript 7 sửa khả năng truy cập setter trong union và intersection](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Đã xuất bản:** August 24, 2026

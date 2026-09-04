@@ -3,7 +3,7 @@ title: TypeScript 7 menambahkan cakupan pencarian simbol workspace
 description: Language service native menambahkan pengaturan yang dapat membatasi pencarian simbol workspace ke proyek saat ini.
 lastUpdated: 2026-08-07
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

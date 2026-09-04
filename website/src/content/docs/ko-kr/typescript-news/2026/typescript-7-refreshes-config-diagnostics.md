@@ -3,7 +3,7 @@ title: TypeScript 7이 파일 변경 후 구성 진단을 새로 고칩니다
 description: 이제 네이티브 언어 서비스는 감시 중인 구성 파일이 변경된 후 tsconfig.json 및 jsconfig.json 오류를 다시 게시합니다.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:

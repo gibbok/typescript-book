@@ -3,7 +3,7 @@ title: TypeScript 7, Go to Implementation bellek kullanımını iyileştiriyor
 description: Yerel dil hizmetindeki bir düzeltme, büyük ve derinlemesine türlendirilmiş projelerde uygulamaları bulurken ikinci dereceden bellek büyümesini önlüyor.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 3
+    order: 4
 head:
     - tag: meta
       attrs:

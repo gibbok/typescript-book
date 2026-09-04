@@ -3,7 +3,7 @@ title: TypeScript 7 korrigiert die Setter-Zugänglichkeit bei Union- und Interse
 description: Der native Type-Checker berücksichtigt nun bei Eigenschaften von Union- und Intersection-Typen die Zugänglichkeit des Setters getrennt von der Zugänglichkeit des Getters.
 lastUpdated: 2026-08-24
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

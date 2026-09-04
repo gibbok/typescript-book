@@ -3,7 +3,7 @@ title: TypeScript 7 обновляет диагностику конфигура
 description: Нативная языковая служба теперь повторно публикует ошибки tsconfig.json и jsconfig.json после изменения отслеживаемых файлов конфигурации.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:

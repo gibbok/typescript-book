@@ -9,6 +9,12 @@ Ikuti rilis penting TypeScript dan pembaruan proyek melalui ringkasan singkat be
 
 ## Berita terbaru
 
+### [TypeScript 7.1 menambahkan atribut impor ke modul ambient](./2026/typescript-7-1-import-attributes-ambient-modules/)
+
+**Diterbitkan:** 1 September 2026
+
+Modul ambient berpola kini dapat mendeklarasikan tipe atribut impor, sehingga TypeScript dapat memilih tipe berdasarkan atribut pada import.
+
 ### [TypeScript 7 memperbaiki aksesibilitas setter pada union dan intersection](./2026/typescript-7-fixes-setter-accessibility/)
 
 **24 Agustus 2026**

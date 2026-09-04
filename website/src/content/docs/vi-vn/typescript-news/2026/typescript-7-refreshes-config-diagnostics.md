@@ -3,7 +3,7 @@ title: TypeScript 7 làm mới diagnostics cấu hình sau khi file thay đổi
 description: Language service native hiện đăng lại lỗi `tsconfig.json` và `jsconfig.json` sau khi các file cấu hình được theo dõi thay đổi.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:

@@ -3,7 +3,7 @@ title: TypeScript 7 коригира достъпа до setter-и в union и i
 description: Нативната проверка на типовете вече спазва отделно достъпа до setter и getter при свойства на union и intersection типове.
 lastUpdated: 2026-08-24
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

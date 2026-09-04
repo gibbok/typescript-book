@@ -3,7 +3,7 @@ title: API native của TypeScript 7 thêm các phương thức emit
 description: API TypeScript native thêm các phương thức emit ra hệ thống file và trong bộ nhớ cho toàn bộ program và các output JavaScript hoặc declaration được chọn.
 lastUpdated: 2026-07-24
 sidebar:
-    order: 6
+    order: 7
 head:
     - tag: meta
       attrs:

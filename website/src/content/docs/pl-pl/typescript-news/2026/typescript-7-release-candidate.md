@@ -3,7 +3,7 @@ title: Ogłoszono wersję kandydującą TypeScript 7.0
 description: Wersja kandydująca TypeScript 7.0 prezentowała natywny kompilator, kompilacje równoległe, zmiany zgodności i rozszerzoną obsługę edytorów.
 lastUpdated: 2026-06-18
 sidebar:
-    order: 8
+    order: 9
 head:
     - tag: meta
       attrs:

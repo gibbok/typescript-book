@@ -3,7 +3,7 @@ title: TypeScript 7 รีเฟรช diagnostics ของการกำห�
 description: ขณะนี้บริการภาษาแบบเนทีฟเผยแพร่ข้อผิดพลาดของ tsconfig.json และ jsconfig.json อีกครั้งหลังไฟล์การกำหนดค่าที่เฝ้าดูมีการเปลี่ยนแปลง
 lastUpdated: 2026-07-30
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:
