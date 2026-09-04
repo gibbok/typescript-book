@@ -3,7 +3,7 @@ title: TypeScript 7 réduit la consommation mémoire de Go to Implementation
 description: Un correctif du service de langage natif empêche une croissance quadratique de la mémoire lors de la recherche d'implémentations dans de grands projets aux types complexes.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 3
+    order: 4
 head:
     - tag: meta
       attrs:

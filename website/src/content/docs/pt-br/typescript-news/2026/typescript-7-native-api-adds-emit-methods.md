@@ -3,7 +3,7 @@ title: API nativa do TypeScript 7 adiciona métodos de emit
 description: A API nativa do TypeScript adiciona métodos de emit para sistema de arquivos e memória, cobrindo programas inteiros e saídas JavaScript ou de declarações selecionadas.
 lastUpdated: 2026-07-24
 sidebar:
-    order: 6
+    order: 7
 head:
     - tag: meta
       attrs:

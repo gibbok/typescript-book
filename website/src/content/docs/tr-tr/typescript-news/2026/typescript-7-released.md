@@ -3,7 +3,7 @@ title: TypeScript 7.0 artık kullanılabilir
 description: TypeScript 7.0, yerel Go tabanlı bir derleyici ve dil hizmeti sunarak derlemeler ve düzenleyiciler için önemli performans iyileştirmeleri sağlıyor.
 lastUpdated: 2026-07-08
 sidebar:
-    order: 7
+    order: 8
 head:
     - tag: meta
       attrs:

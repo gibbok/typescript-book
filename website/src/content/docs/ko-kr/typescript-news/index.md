@@ -9,6 +9,12 @@ sidebar:
 
 ## 최신 뉴스
 
+### [TypeScript 7 네이티브 API에 AST 자식 및 토큰 getter 추가](./2026/typescript-7-native-api-adds-ast-traversal-getters/)
+
+**게시일:** 2026년 9월 3일
+
+TypeScript 네이티브 API에 자식 노드와 토큰을 순회하는 다섯 가지 `Node` 도우미가 추가되어 JavaScript API와의 기능 차이가 줄었습니다.
+
 ### [TypeScript 7이 유니언과 인터섹션에서 setter 접근성을 수정했습니다](./2026/typescript-7-fixes-setter-accessibility/)
 
 **게시일:** 2026년 8월 24일

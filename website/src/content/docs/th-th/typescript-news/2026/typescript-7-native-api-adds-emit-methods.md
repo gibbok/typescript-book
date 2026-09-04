@@ -3,7 +3,7 @@ title: API แบบเนทีฟของ TypeScript 7 เพิ่มเม�
 description: API แบบเนทีฟของ TypeScript เพิ่มเมธอด emit ไปยังระบบไฟล์และในหน่วยความจำสำหรับทั้งโปรแกรม รวมถึงเอาต์พุต JavaScript หรือ declaration ที่เลือก
 lastUpdated: 2026-07-24
 sidebar:
-    order: 6
+    order: 7
 head:
     - tag: meta
       attrs:

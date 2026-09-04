@@ -9,6 +9,12 @@ sidebar:
 
 ## 最新消息
 
+### [TypeScript 7 原生 API 新增 AST 子节点和 token 获取方法](./2026/typescript-7-native-api-adds-ast-traversal-getters/)
+
+**发布日期：** 2026 年 9 月 3 日
+
+TypeScript 原生 API 为 `Node` 新增五个子节点和 token 遍历辅助方法，进一步缩小与 JavaScript API 的差距。
+
 ### [TypeScript 7 修复联合类型和交叉类型中的 setter 可访问性](./2026/typescript-7-fixes-setter-accessibility/)
 
 **发布日期：** 2026 年 8 月 24 日

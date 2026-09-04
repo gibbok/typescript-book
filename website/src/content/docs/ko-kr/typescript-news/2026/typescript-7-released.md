@@ -3,7 +3,7 @@ title: TypeScript 7.0을 사용할 수 있습니다
 description: TypeScript 7.0에는 네이티브 Go 기반 컴파일러와 언어 서비스가 도입되어 빌드와 편집기의 성능이 크게 향상되었습니다.
 lastUpdated: 2026-07-08
 sidebar:
-    order: 7
+    order: 8
 head:
     - tag: meta
       attrs:

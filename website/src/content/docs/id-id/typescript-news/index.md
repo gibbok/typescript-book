@@ -9,6 +9,12 @@ Ikuti rilis penting TypeScript dan pembaruan proyek melalui ringkasan singkat be
 
 ## Berita terbaru
 
+### [API native TypeScript 7 menambahkan getter anak AST dan token](./2026/typescript-7-native-api-adds-ast-traversal-getters/)
+
+**3 September 2026**
+
+API native TypeScript menambahkan lima helper `Node` untuk menelusuri node anak dan token, meningkatkan kesetaraan dengan API JavaScript.
+
 ### [TypeScript 7 memperbaiki aksesibilitas setter pada union dan intersection](./2026/typescript-7-fixes-setter-accessibility/)
 
 **24 Agustus 2026**

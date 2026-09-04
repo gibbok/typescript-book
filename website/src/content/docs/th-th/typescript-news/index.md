@@ -9,6 +9,12 @@ sidebar:
 
 ## ข่าวล่าสุด
 
+### [API แบบเนทีฟของ TypeScript 7 เพิ่ม getter สำหรับโหนดย่อยและ token ของ AST](./2026/typescript-7-native-api-adds-ast-traversal-getters/)
+
+**เผยแพร่:** 3 กันยายน 2026
+
+API แบบเนทีฟของ TypeScript เพิ่มตัวช่วย `Node` ห้ารายการสำหรับไล่ดูโหนดย่อยและ token ทำให้สอดคล้องกับ JavaScript API มากขึ้น
+
 ### [TypeScript 7 แก้ไขการเข้าถึง setter ใน union และ intersection](./2026/typescript-7-fixes-setter-accessibility/)
 
 **เผยแพร่:** 24 สิงหาคม 2026

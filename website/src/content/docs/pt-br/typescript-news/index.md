@@ -9,6 +9,12 @@ Acompanhe lançamentos importantes e atualizações do projeto TypeScript por me
 
 ## Últimas notícias
 
+### [API nativa do TypeScript 7 adiciona getters de filhos e tokens da AST](./2026/typescript-7-native-api-adds-ast-traversal-getters/)
+
+**Publicado:** 3 de setembro de 2026
+
+A API nativa do TypeScript adiciona cinco auxiliares de `Node` para percorrer nós filhos e tokens, melhorando a paridade com a API JavaScript.
+
 ### [TypeScript 7 corrige a acessibilidade de setters em unions e intersections](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Publicado:** 24 de agosto de 2026

@@ -3,7 +3,7 @@ title: TypeScript 7 menyegarkan diagnosis konfigurasi setelah perubahan berkas
 description: Language service native kini menerbitkan ulang error tsconfig.json dan jsconfig.json setelah berkas konfigurasi yang dipantau berubah.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:

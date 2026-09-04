@@ -3,7 +3,7 @@ title: TypeScript 7.0 发布候选版已公布
 description: TypeScript 7.0 发布候选版预览了原生编译器、并行构建、兼容性变化和扩展的编辑器支持。
 lastUpdated: 2026-06-18
 sidebar:
-    order: 8
+    order: 9
 head:
     - tag: meta
       attrs:

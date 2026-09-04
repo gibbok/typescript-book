@@ -9,6 +9,12 @@ Följ viktiga TypeScript-versioner och projektuppdateringar genom kortfattade sa
 
 ## Senaste nytt
 
+### [TypeScript 7:s inbyggda API får getters för AST-barn och token](./2026/typescript-7-native-api-adds-ast-traversal-getters/)
+
+**Publicerad:** 3 september 2026
+
+TypeScripts inbyggda API lägger till fem `Node`-hjälpmetoder för att traversera barnnoder och token, vilket förbättrar pariteten med JavaScript-API:t.
+
 ### [TypeScript 7 rättar setter-åtkomst i unions- och intersection-typer](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Publicerad:** 24 augusti 2026

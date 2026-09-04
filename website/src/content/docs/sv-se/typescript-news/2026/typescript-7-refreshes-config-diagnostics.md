@@ -3,7 +3,7 @@ title: TypeScript 7 uppdaterar konfigurationsdiagnostiken efter filändringar
 description: Den inbyggda språktjänsten publicerar nu fel i tsconfig.json och jsconfig.json på nytt när bevakade konfigurationsfiler ändras.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:

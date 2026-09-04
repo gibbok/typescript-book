@@ -9,6 +9,12 @@ TypeScript の公式情報源に基づく簡潔な要約を通じて、重要な
 
 ## 最新ニュース
 
+### [TypeScript 7 のネイティブ API に AST の子ノードとトークン取得メソッドが追加](./2026/typescript-7-native-api-adds-ast-traversal-getters/)
+
+**公開日:** 2026年9月3日
+
+TypeScript のネイティブ API に、子ノードとトークンを走査する 5 つの `Node` ヘルパーが追加され、JavaScript API との機能差が縮まりました。
+
 ### [TypeScript 7 が union と intersection の setter アクセス制御を修正](./2026/typescript-7-fixes-setter-accessibility/)
 
 **公開日:** 2026年8月24日

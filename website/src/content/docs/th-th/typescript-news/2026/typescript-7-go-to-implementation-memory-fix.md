@@ -3,7 +3,7 @@ title: TypeScript 7 ปรับปรุงการใช้หน่วยค
 description: การแก้ไขในบริการภาษาแบบเนทีฟป้องกันการเพิ่มขึ้นของหน่วยความจำแบบกำลังสองเมื่อค้นหา implementation ในโปรเจกต์ขนาดใหญ่ที่มีชนิดข้อมูลซ้อนลึก
 lastUpdated: 2026-07-30
 sidebar:
-    order: 3
+    order: 4
 head:
     - tag: meta
       attrs:

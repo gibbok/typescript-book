@@ -3,7 +3,7 @@ title: TypeScript 7, dosya değişikliklerinden sonra yapılandırma tanılamala
 description: Yerel dil hizmeti artık izlenen yapılandırma dosyaları değiştikten sonra tsconfig.json ve jsconfig.json hatalarını yeniden yayımlıyor.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:

@@ -9,6 +9,12 @@ sidebar:
 
 ## Najnowsze aktualności
 
+### [Natywne API TypeScript 7 dodaje gettery dzieci AST i tokenów](./2026/typescript-7-native-api-adds-ast-traversal-getters/)
+
+**Opublikowano:** 3 września 2026 r.
+
+Natywne API TypeScript dodaje pięć metod pomocniczych `Node` do przechodzenia po węzłach potomnych i tokenach, poprawiając zgodność z API JavaScript.
+
 ### [TypeScript 7 poprawia kontrolę dostępności setterów w uniach i przecięciach](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Opublikowano:** 24 sierpnia 2026 r.

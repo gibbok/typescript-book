@@ -3,7 +3,7 @@ title: TypeScript 7 lägger till ett sökomfång för arbetsytans symboler
 description: Den inbyggda språktjänsten lägger till en inställning som kan begränsa sökningen efter arbetsytans symboler till det aktuella projektet.
 lastUpdated: 2026-08-07
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

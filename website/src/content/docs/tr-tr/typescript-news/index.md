@@ -9,6 +9,12 @@ Resmî TypeScript kaynaklarına dayanan kısa özetlerle önemli TypeScript sür
 
 ## Son haberler
 
+### [TypeScript 7 yerel API'si AST alt düğüm ve token getter'ları ekliyor](./2026/typescript-7-native-api-adds-ast-traversal-getters/)
+
+**Yayımlandı:** 3 Eylül 2026
+
+TypeScript'in yerel API'si alt düğümleri ve token'ları dolaşmak için beş `Node` yardımcısı ekleyerek JavaScript API'siyle uyumluluğu artırıyor.
+
 ### [TypeScript 7, birleşimlerde ve kesişimlerde setter erişilebilirliğini düzeltiyor](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Yayımlandı:** 24 Ağustos 2026

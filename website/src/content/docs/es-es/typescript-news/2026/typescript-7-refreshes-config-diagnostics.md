@@ -3,7 +3,7 @@ title: TypeScript 7 actualiza los diagnósticos de configuración tras los cambi
 description: El servicio de lenguaje nativo ahora vuelve a publicar los errores de tsconfig.json y jsconfig.json cuando cambian los archivos de configuración supervisados.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:

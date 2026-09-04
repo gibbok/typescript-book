@@ -3,7 +3,7 @@ title: TypeScript 7 native tooling is consolidating
 description: TypeScript maintainers clarified that the tsgo name is going away, the native codebase will return to the main TypeScript repository, and the native VS Code extension will be bundled.
 lastUpdated: 2026-07-27
 sidebar:
-    order: 5
+    order: 6
 head:
     - tag: meta
       attrs:

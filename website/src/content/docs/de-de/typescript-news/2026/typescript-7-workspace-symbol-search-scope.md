@@ -3,7 +3,7 @@ title: TypeScript 7 fügt einen Suchbereich für Workspace-Symbole hinzu
 description: Der native Language Service bietet eine Einstellung, mit der sich die Suche nach Workspace-Symbolen auf das aktuelle Projekt beschränken lässt.
 lastUpdated: 2026-08-07
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

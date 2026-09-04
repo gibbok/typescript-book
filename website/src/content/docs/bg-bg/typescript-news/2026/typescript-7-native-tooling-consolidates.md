@@ -3,7 +3,7 @@ title: Нативните инструменти на TypeScript 7 се конс
 description: Поддръжниците на TypeScript уточниха, че името tsgo ще отпадне, нативната кодова база ще се върне в основното хранилище на TypeScript, а нативното разширение за VS Code ще бъде вградено.
 lastUpdated: 2026-07-27
 sidebar:
-    order: 5
+    order: 6
 head:
     - tag: meta
       attrs:

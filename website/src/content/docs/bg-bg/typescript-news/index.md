@@ -9,6 +9,12 @@ sidebar:
 
 ## Последни новини
 
+### [Нативният API на TypeScript 7 добавя getter-и за AST дъщерни възли и token-и](./2026/typescript-7-native-api-adds-ast-traversal-getters/)
+
+**Публикувано:** 3 септември 2026 г.
+
+Нативният API на TypeScript добавя пет помощни метода на `Node` за обхождане на дъщерни възли и token-и и подобрява съответствието с JavaScript API.
+
 ### [TypeScript 7 коригира достъпа до setter-и в union и intersection типове](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Публикувано:** 24 август 2026 г.

@@ -3,7 +3,7 @@ title: TypeScript 7에 워크스페이스 심볼 검색 범위가 추가되었�
 description: 네이티브 언어 서비스에 워크스페이스 심볼 검색을 현재 프로젝트로 제한할 수 있는 설정이 추가되었습니다.
 lastUpdated: 2026-08-07
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

@@ -9,6 +9,12 @@ Theo dõi các bản phát hành và cập nhật quan trọng của TypeScript 
 
 ## Tin mới nhất
 
+### [API native của TypeScript 7 thêm getter cho nút con và token của AST](./2026/typescript-7-native-api-adds-ast-traversal-getters/)
+
+**Đã xuất bản:** 3 tháng 9, 2026
+
+API native của TypeScript thêm năm helper `Node` để duyệt nút con và token, cải thiện mức độ tương đồng với API JavaScript.
+
 ### [TypeScript 7 sửa khả năng truy cập setter trong union và intersection](./2026/typescript-7-fixes-setter-accessibility/)
 
 **Đã xuất bản:** August 24, 2026

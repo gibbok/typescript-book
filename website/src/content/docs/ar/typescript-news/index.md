@@ -9,6 +9,12 @@ sidebar:
 
 ## أحدث الأخبار
 
+### [واجهة TypeScript 7 الأصلية تضيف دوال getter لعُقد AST الفرعية والرموز](./2026/typescript-7-native-api-adds-ast-traversal-getters/)
+
+**تاريخ النشر:** 3 سبتمبر 2026
+
+تضيف واجهة TypeScript الأصلية خمس دوال مساعدة على `Node` لاجتياز العُقد الفرعية والرموز، مما يحسن التوافق مع واجهة JavaScript.
+
 ### [يصلح TypeScript 7 إمكانية الوصول إلى دوال الضبط في الاتحادات والتقاطعات](./2026/typescript-7-fixes-setter-accessibility/)
 
 **نُشر في:** 24 أغسطس 2026

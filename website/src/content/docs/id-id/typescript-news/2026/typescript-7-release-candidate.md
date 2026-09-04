@@ -3,7 +3,7 @@ title: Kandidat rilis TypeScript 7.0 diumumkan
 description: Kandidat rilis TypeScript 7.0 memperkenalkan compiler native, build paralel, perubahan kompatibilitas, dan dukungan editor yang diperluas.
 lastUpdated: 2026-06-18
 sidebar:
-    order: 8
+    order: 9
 head:
     - tag: meta
       attrs:

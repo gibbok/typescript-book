@@ -3,7 +3,7 @@ title: TypeScript 7 yerel araçları birleştiriliyor
 description: TypeScript bakımcıları, tsgo adının kaldırılacağını, yerel kod tabanının ana TypeScript deposuna döneceğini ve yerel VS Code uzantısının paketle birlikte sunulacağını açıkladı.
 lastUpdated: 2026-07-27
 sidebar:
-    order: 5
+    order: 6
 head:
     - tag: meta
       attrs:

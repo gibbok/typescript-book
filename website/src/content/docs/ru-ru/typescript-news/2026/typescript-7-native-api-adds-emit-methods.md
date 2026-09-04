@@ -3,7 +3,7 @@ title: В нативном API TypeScript 7 появились методы emit
 description: В нативный API TypeScript добавлены методы emit для генерации выходных данных всей программы в файловую систему или память, а также выбранных выходных данных JavaScript или деклараций в память.
 lastUpdated: 2026-07-24
 sidebar:
-    order: 6
+    order: 7
 head:
     - tag: meta
       attrs:

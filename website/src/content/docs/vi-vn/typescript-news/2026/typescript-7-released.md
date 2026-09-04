@@ -3,7 +3,7 @@ title: TypeScript 7.0 hiện đã khả dụng
 description: TypeScript 7.0 giới thiệu compiler và language service native dựa trên Go, mang lại cải thiện hiệu năng lớn cho build và editor.
 lastUpdated: 2026-07-08
 sidebar:
-    order: 7
+    order: 8
 head:
     - tag: meta
       attrs:
