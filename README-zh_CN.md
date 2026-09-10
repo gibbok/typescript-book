@@ -70,7 +70,7 @@ Plus 版在全球亚马逊平台提供英文版和意大利文版。[了解 Plus
 
 [土耳其语](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
 
-[Vietnamese](https://github.com/gibbok/typescript-book/blob/main/README-vi_VN.md)
+[越南语](https://github.com/gibbok/typescript-book/blob/main/README-vi_VN.md)
 
 [中文](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
