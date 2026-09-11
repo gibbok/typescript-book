@@ -9,6 +9,12 @@ Ikuti rilis penting TypeScript dan pembaruan proyek melalui ringkasan singkat be
 
 ## Berita terbaru
 
+### [API native TypeScript menambahkan sistem berkas virtual berlapis](./2026/typescript-native-api-adds-layered-vfs/)
+
+**Diterbitkan:** 9 September 2026
+
+API native TypeScript kini dapat memperbarui snapshot dengan data VFS di memori atau berlapis untuk penambahan, perubahan, penghapusan, dan fallback ke host.
+
 ### [TypeScript 7.1 menambahkan atribut impor ke modul ambient](./2026/typescript-7-1-import-attributes-ambient-modules/)
 
 **Diterbitkan:** 1 September 2026

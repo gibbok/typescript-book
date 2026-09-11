@@ -3,7 +3,7 @@ title: TypeScript 7.1 menambahkan atribut impor ke modul ambient
 description: TypeScript 7.1 dapat mencocokkan deklarasi modul ambient berpola berdasarkan atribut impor.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

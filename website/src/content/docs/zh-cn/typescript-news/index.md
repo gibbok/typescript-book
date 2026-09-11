@@ -9,6 +9,12 @@ sidebar:
 
 ## 最新消息
 
+### [TypeScript 原生 API 新增分层虚拟文件系统](./2026/typescript-native-api-adds-layered-vfs/)
+
+**发布日期：** 2026 年 9 月 9 日
+
+TypeScript 原生 API 现在可以通过内存或分层 VFS 数据增量更新快照，并表示文件的新增、修改、删除和宿主回退。
+
 ### [TypeScript 7.1 为环境模块添加导入属性](./2026/typescript-7-1-import-attributes-ambient-modules/)
 
 **发布日期：** 2026 年 9 月 1 日

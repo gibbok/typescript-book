@@ -3,7 +3,7 @@ title: TypeScript 7.1 ajoute les attributs d’import aux modules ambient
 description: TypeScript 7.1 peut faire correspondre les déclarations de modules ambient à motif selon les attributs d’import.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

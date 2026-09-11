@@ -3,7 +3,7 @@ title: TypeScript 7.1 يضيف سمات الاستيراد إلى الوحدات
 description: يمكن لـ TypeScript 7.1 مطابقة تصريحات الوحدات المحيطية ذات الأنماط اعتمادًا على سمات الاستيراد.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

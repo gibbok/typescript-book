@@ -3,7 +3,7 @@ title: TypeScript 7.1 fügt Importattribute zu Ambient-Modulen hinzu
 description: TypeScript 7.1 kann Pattern-Ambient-Moduldeklarationen anhand von Importattributen zuordnen.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

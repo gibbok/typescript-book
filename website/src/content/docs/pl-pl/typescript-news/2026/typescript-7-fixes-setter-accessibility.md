@@ -3,7 +3,7 @@ title: TypeScript 7 poprawia kontrolę dostępności setterów w uniach i przeci
 description: Natywny mechanizm sprawdzania typów respektuje teraz dostępność setterów niezależnie od dostępności getterów dla właściwości typów unii i przecięcia.
 lastUpdated: 2026-08-24
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

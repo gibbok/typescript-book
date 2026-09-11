@@ -3,7 +3,7 @@ title: يحسّن TypeScript 7 استخدام الذاكرة في Go to Implemen
 description: يمنع إصلاح في خدمة اللغة الأصلية نمو الذاكرة تربيعيًا عند العثور على عمليات التنفيذ في مشاريع كبيرة ومعقدة الأنواع.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 4
+    order: 5
 head:
     - tag: meta
       attrs:

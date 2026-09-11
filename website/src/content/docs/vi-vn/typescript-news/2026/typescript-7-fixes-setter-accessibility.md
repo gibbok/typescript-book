@@ -3,7 +3,7 @@ title: TypeScript 7 sửa khả năng truy cập setter trong union và intersec
 description: Bộ kiểm tra native hiện tôn trọng khả năng truy cập setter tách biệt với khả năng truy cập getter trên các thuộc tính của union và intersection.
 lastUpdated: 2026-08-24
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

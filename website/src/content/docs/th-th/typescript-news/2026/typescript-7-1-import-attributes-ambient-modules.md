@@ -3,7 +3,7 @@ title: TypeScript 7.1 เพิ่ม import attributes ให้ ambient module
 description: TypeScript 7.1 สามารถจับคู่การประกาศ ambient module แบบ pattern ตาม import attributes ได้
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

@@ -9,6 +9,12 @@ sidebar:
 
 ## ข่าวล่าสุด
 
+### [API เนทีฟของ TypeScript เพิ่มระบบไฟล์เสมือนแบบเป็นชั้น](./2026/typescript-native-api-adds-layered-vfs/)
+
+**เผยแพร่:** 9 กันยายน 2026
+
+API เนทีฟของ TypeScript สามารถอัปเดต snapshot ด้วยข้อมูล VFS ในหน่วยความจำหรือแบบเป็นชั้นสำหรับการเพิ่ม แก้ไข ลบ และ fallback ไปยัง host ได้แล้ว
+
 ### [TypeScript 7.1 เพิ่ม import attributes ให้ ambient module](./2026/typescript-7-1-import-attributes-ambient-modules/)
 
 **เผยแพร่:** 1 กันยายน 2026

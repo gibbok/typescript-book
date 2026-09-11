@@ -3,7 +3,7 @@ title: TypeScript 7.1 lägger till importattribut i ambient-moduler
 description: TypeScript 7.1 kan matcha mönsterbaserade ambient-moduldeklarationer med hjälp av importattribut.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

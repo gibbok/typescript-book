@@ -9,6 +9,12 @@ Följ viktiga TypeScript-versioner och projektuppdateringar genom kortfattade sa
 
 ## Senaste nytt
 
+### [TypeScripts inbyggda API får virtuella filsystem i lager](./2026/typescript-native-api-adds-layered-vfs/)
+
+**Publicerad:** 9 september 2026
+
+TypeScripts inbyggda API kan nu uppdatera ögonblicksbilder med VFS-data i minnet eller i lager för tillägg, ändringar, borttagningar och fallback till värden.
+
 ### [TypeScript 7.1 lägger till importattribut i ambient-moduler](./2026/typescript-7-1-import-attributes-ambient-modules/)
 
 **Publicerad:** 1 september 2026

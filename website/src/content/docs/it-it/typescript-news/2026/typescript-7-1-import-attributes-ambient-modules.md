@@ -3,7 +3,7 @@ title: TypeScript 7.1 aggiunge gli attributi di import ai moduli ambient
 description: TypeScript 7.1 può associare le dichiarazioni di moduli ambient con pattern in base agli attributi di import.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

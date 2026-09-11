@@ -3,7 +3,7 @@ title: TypeScript 7.1 добавя import attributes към ambient модули
 description: TypeScript 7.1 може да съпоставя pattern ambient module декларации според import attributes.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

@@ -3,7 +3,7 @@ title: TypeScript 7.1 adds import attributes to ambient modules
 description: TypeScript 7.1 can match pattern ambient module declarations by import attributes, enabling attribute-aware module typing.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

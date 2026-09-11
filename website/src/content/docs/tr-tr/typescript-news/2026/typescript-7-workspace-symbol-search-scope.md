@@ -3,7 +3,7 @@ title: TypeScript 7, çalışma alanı sembolü araması için kapsam ekliyor
 description: Yerel dil hizmeti, çalışma alanı sembolü aramalarını geçerli projeyle sınırlayabilen bir ayar ekliyor.
 lastUpdated: 2026-08-07
 sidebar:
-    order: 3
+    order: 4
 head:
     - tag: meta
       attrs:

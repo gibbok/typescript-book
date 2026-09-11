@@ -9,6 +9,12 @@ Resmî TypeScript kaynaklarına dayanan kısa özetlerle önemli TypeScript sür
 
 ## Son haberler
 
+### [TypeScript yerel API'si katmanlı sanal dosya sistemleri ekliyor](./2026/typescript-native-api-adds-layered-vfs/)
+
+**Yayımlandı:** 9 Eylül 2026
+
+TypeScript yerel API'si artık ekleme, değiştirme, kaldırma ve ana sisteme geri dönüş için bellek içi veya katmanlı VFS verileriyle snapshot güncelleyebilir.
+
 ### [TypeScript 7.1 ambient modüllere import öznitelikleri ekliyor](./2026/typescript-7-1-import-attributes-ambient-modules/)
 
 **Yayımlandı:** 1 Eylül 2026
