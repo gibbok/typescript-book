@@ -9,6 +9,12 @@ sidebar:
 
 ## Последни новини
 
+### [Нативният API на TypeScript добавя слоести виртуални файлови системи](./2026/typescript-native-api-adds-layered-vfs/)
+
+**Публикувано:** 9 септември 2026 г.
+
+Нативният API на TypeScript вече може да обновява snapshot-и с VFS данни в паметта или на слоеве за добавяния, промени, премахвания и host fallback.
+
 ### [TypeScript 7.1 добавя import attributes към ambient модули](./2026/typescript-7-1-import-attributes-ambient-modules/)
 
 **Публикувано:** 1 септември 2026 г.

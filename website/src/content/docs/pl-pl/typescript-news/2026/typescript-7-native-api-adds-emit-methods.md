@@ -3,7 +3,7 @@ title: Natywny interfejs API TypeScript 7 dodaje metody generowania danych wyjś
 description: Natywny interfejs API TypeScript dodaje metody generowania danych wyjściowych w systemie plików i w pamięci dla całych programów oraz wybranych danych wyjściowych JavaScript lub deklaracji.
 lastUpdated: 2026-07-24
 sidebar:
-    order: 7
+    order: 8
 head:
     - tag: meta
       attrs:

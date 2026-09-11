@@ -3,7 +3,7 @@ title: TypeScript 7.1 が ambient module に import attributes を追加
 description: TypeScript 7.1 では、パターン ambient module 宣言を import attributes に基づいて照合できます。
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

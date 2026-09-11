@@ -9,6 +9,12 @@ Segui le versioni importanti e gli aggiornamenti del progetto TypeScript attrave
 
 ## Ultime notizie
 
+### [L'API nativa di TypeScript aggiunge file system virtuali a livelli](./2026/typescript-native-api-adds-layered-vfs/)
+
+**Pubblicato:** 9 settembre 2026
+
+L'API nativa di TypeScript può ora aggiornare gli snapshot con dati VFS in memoria o a livelli per aggiunte, modifiche, rimozioni e fallback all’host.
+
 ### [TypeScript 7.1 aggiunge gli attributi di import ai moduli ambient](./2026/typescript-7-1-import-attributes-ambient-modules/)
 
 **Pubblicato:** 1 settembre 2026

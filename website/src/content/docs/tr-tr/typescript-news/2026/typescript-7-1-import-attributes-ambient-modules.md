@@ -3,7 +3,7 @@ title: TypeScript 7.1 ambient modüllere import öznitelikleri ekliyor
 description: TypeScript 7.1, desenli ambient modül bildirimlerini import özniteliklerine göre eşleştirebilir.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

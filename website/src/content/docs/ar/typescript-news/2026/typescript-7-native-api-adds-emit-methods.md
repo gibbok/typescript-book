@@ -3,7 +3,7 @@ title: تضيف واجهة TypeScript 7 الأصلية أساليب لتوليد
 description: تضيف واجهة TypeScript الأصلية أساليب لتوليد المخرجات في نظام الملفات والذاكرة للبرامج الكاملة ولمخرجات JavaScript أو التصريحات المحددة.
 lastUpdated: 2026-07-24
 sidebar:
-    order: 7
+    order: 8
 head:
     - tag: meta
       attrs:

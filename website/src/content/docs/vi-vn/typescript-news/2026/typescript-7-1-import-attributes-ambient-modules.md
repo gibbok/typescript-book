@@ -3,7 +3,7 @@ title: TypeScript 7.1 thêm thuộc tính import cho ambient module
 description: TypeScript 7.1 có thể khớp khai báo ambient module dạng mẫu dựa trên các thuộc tính import.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

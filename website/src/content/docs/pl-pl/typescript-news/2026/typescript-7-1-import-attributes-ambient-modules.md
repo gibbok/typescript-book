@@ -3,7 +3,7 @@ title: TypeScript 7.1 dodaje atrybuty importu do modułów ambient
 description: TypeScript 7.1 może dopasowywać deklaracje wzorcowych modułów ambient na podstawie atrybutów importu.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

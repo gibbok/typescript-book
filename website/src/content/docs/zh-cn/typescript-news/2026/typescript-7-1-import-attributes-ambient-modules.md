@@ -3,7 +3,7 @@ title: TypeScript 7.1 为环境模块添加导入属性
 description: TypeScript 7.1 可按导入属性匹配模式环境模块声明，从而支持基于属性的模块类型解析。
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

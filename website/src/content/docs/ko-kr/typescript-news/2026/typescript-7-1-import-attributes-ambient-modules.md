@@ -3,7 +3,7 @@ title: TypeScript 7.1이 ambient 모듈에 import attributes를 추가했습니�
 description: TypeScript 7.1은 import attributes를 기준으로 패턴 ambient 모듈 선언을 매칭할 수 있습니다.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

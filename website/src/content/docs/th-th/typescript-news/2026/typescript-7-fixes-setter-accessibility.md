@@ -3,7 +3,7 @@ title: TypeScript 7 แก้ไขการเข้าถึง setter ใน 
 description: ขณะนี้ตัวตรวจสอบแบบเนทีฟพิจารณาการเข้าถึง setter แยกจากการเข้าถึง getter สำหรับพร็อพเพอร์ตีของ union และ intersection
 lastUpdated: 2026-08-24
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:

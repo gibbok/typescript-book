@@ -3,7 +3,7 @@ title: TypeScript 7 aktualisiert Konfigurationsdiagnosen nach Dateiänderungen
 description: Der native Language Service veröffentlicht Fehler in tsconfig.json und jsconfig.json nun erneut, nachdem sich überwachte Konfigurationsdateien geändert haben.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 5
+    order: 6
 head:
     - tag: meta
       attrs:

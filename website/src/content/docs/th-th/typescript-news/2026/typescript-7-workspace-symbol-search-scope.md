@@ -3,7 +3,7 @@ title: TypeScript 7 เพิ่มขอบเขตการค้นหาส
 description: บริการภาษาแบบเนทีฟเพิ่มการตั้งค่าที่สามารถจำกัดการค้นหาสัญลักษณ์ใน workspace ให้อยู่เฉพาะโปรเจกต์ปัจจุบัน
 lastUpdated: 2026-08-07
 sidebar:
-    order: 3
+    order: 4
 head:
     - tag: meta
       attrs:

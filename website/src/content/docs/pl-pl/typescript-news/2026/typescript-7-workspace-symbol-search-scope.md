@@ -3,7 +3,7 @@ title: TypeScript 7 dodaje zakres wyszukiwania symboli w obszarze roboczym
 description: Natywna usługa językowa dodaje ustawienie, które może ograniczyć wyszukiwanie symboli w obszarze roboczym do bieżącego projektu.
 lastUpdated: 2026-08-07
 sidebar:
-    order: 3
+    order: 4
 head:
     - tag: meta
       attrs:

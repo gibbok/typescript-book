@@ -3,7 +3,7 @@ title: TypeScript 7.0 kini tersedia
 description: TypeScript 7.0 memperkenalkan compiler dan language service berbasis Go native, dengan peningkatan performa besar untuk build dan editor.
 lastUpdated: 2026-07-08
 sidebar:
-    order: 8
+    order: 9
 head:
     - tag: meta
       attrs:
