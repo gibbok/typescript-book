@@ -5,6 +5,12 @@
 
 ## 최신 뉴스
 
+### [TypeScript 네이티브 API에 계층형 가상 파일 시스템 추가](./2026/typescript-native-api-adds-layered-vfs/)
+
+**게시일:** 2026년 9월 9일
+
+TypeScript 네이티브 API는 이제 메모리 내 또는 계층형 VFS 데이터로 파일 추가, 변경, 삭제 및 호스트 폴백을 포함한 스냅샷 업데이트를 지원합니다.
+
 ### [TypeScript 7.1이 ambient 모듈에 import attributes를 추가했습니다](./2026/typescript-7-1-import-attributes-ambient-modules/)
 
 **게시일:** 2026년 9월 1일

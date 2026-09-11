@@ -77,4 +77,5 @@
 - [TypeScript 7.0 リリース候補版を発表](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-7-release-candidate/index.md): TypeScript 7.0 リリース候補版では、ネイティブコンパイラ、並列ビルド、互換性の変更、拡張されたエディタサポートがプレビューされました。
 - [TypeScript 7.0 が利用可能に](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-7-released/index.md): TypeScript 7.0 では、Go で実装されたネイティブコンパイラと言語サービスが導入され、ビルドとエディタのパフォーマンスが大幅に向上しています。
 - [TypeScript 7 にワークスペースシンボル検索のスコープが追加](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-7-workspace-symbol-search-scope/index.md): ネイティブ言語サービスに、ワークスペースシンボルの検索範囲を現在のプロジェクトに制限できる設定が追加されました。
+- [TypeScript ネイティブ API にレイヤー型仮想ファイルシステムが追加](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/2026/typescript-native-api-adds-layered-vfs/index.md): TypeScript ネイティブ API は、メモリ内またはレイヤー型の仮想ファイルシステムを使ってスナップショットを更新し、ファイルの追加、変更、削除、ホストへのフォールバックを表現できます。
 - [TypeScript ニュース](https://gibbok.github.io/typescript-book/ja-jp/typescript-news/index.md): TypeScript 開発者向けに、TypeScript の最新の公式リリース、発表、変更点を簡潔にまとめています。

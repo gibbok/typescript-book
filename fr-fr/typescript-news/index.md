@@ -5,6 +5,12 @@ Suivez les versions importantes et les mises à jour du projet TypeScript grâce
 
 ## Dernières actualités
 
+### [L’API native de TypeScript ajoute des systèmes de fichiers virtuels en couches](./2026/typescript-native-api-adds-layered-vfs/)
+
+**Publié le :** 9 septembre 2026
+
+L’API native de TypeScript peut désormais mettre à jour des snapshots avec des données VFS en mémoire ou en couches pour les ajouts, modifications, suppressions et replis vers l’hôte.
+
 ### [TypeScript 7.1 ajoute les attributs d’import aux modules ambient](./2026/typescript-7-1-import-attributes-ambient-modules/)
 
 **Publié le :** 1er septembre 2026

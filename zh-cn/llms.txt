@@ -77,4 +77,5 @@
 - [TypeScript 7.0 发布候选版已公布](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-7-release-candidate/index.md): TypeScript 7.0 发布候选版预览了原生编译器、并行构建、兼容性变化和扩展的编辑器支持。
 - [TypeScript 7.0 现已发布](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-7-released/index.md): TypeScript 7.0 引入基于 Go 的原生编译器和语言服务，大幅提升构建和编辑器的性能。
 - [TypeScript 7 新增工作区符号搜索范围](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-7-workspace-symbol-search-scope/index.md): 原生语言服务新增了一项设置，可将工作区符号搜索限制在当前项目中。
+- [TypeScript 原生 API 新增分层虚拟文件系统](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/2026/typescript-native-api-adds-layered-vfs/index.md): TypeScript 原生 API 现在可以使用内存或分层虚拟文件系统更新快照，并表示文件的新增、修改、删除以及对宿主文件系统的回退。
 - [TypeScript 新闻](https://gibbok.github.io/typescript-book/zh-cn/typescript-news/index.md): 为 TypeScript 开发者简明介绍最新的官方 TypeScript 版本、公告和变化。

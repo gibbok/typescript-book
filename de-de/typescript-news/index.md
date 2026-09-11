@@ -5,6 +5,12 @@ Verfolgen Sie wichtige TypeScript-Releases und Projektaktualisierungen anhand ko
 
 ## Neueste Nachrichten
 
+### [Die native TypeScript-API erhält geschichtete virtuelle Dateisysteme](./2026/typescript-native-api-adds-layered-vfs/)
+
+**Veröffentlicht:** 9. September 2026
+
+Die native TypeScript-API kann Snapshots jetzt mit speicherinternen oder geschichteten VFS-Daten für Hinzufügen, Ändern, Entfernen und Host-Fallback aktualisieren.
+
 ### [TypeScript 7.1 fügt Importattribute zu Ambient-Modulen hinzu](./2026/typescript-7-1-import-attributes-ambient-modules/)
 
 **Veröffentlicht:** 1. September 2026

@@ -5,6 +5,12 @@ Theo dõi các bản phát hành và cập nhật quan trọng của TypeScript 
 
 ## Tin mới nhất
 
+### [API TypeScript native bổ sung hệ thống tệp ảo phân lớp](./2026/typescript-native-api-adds-layered-vfs/)
+
+**Đã xuất bản:** 9 tháng 9, 2026
+
+API TypeScript native giờ có thể cập nhật snapshot bằng dữ liệu VFS trong bộ nhớ hoặc phân lớp cho việc thêm, thay đổi, xóa và fallback về host.
+
 ### [TypeScript 7.1 thêm thuộc tính import cho ambient module](./2026/typescript-7-1-import-attributes-ambient-modules/)
 
 **Đã xuất bản:** 1 tháng 9, 2026

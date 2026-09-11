@@ -5,6 +5,12 @@
 
 ## Najnowsze aktualności
 
+### [Natywne API TypeScript dodaje warstwowe wirtualne systemy plików](./2026/typescript-native-api-adds-layered-vfs/)
+
+**Opublikowano:** 9 września 2026 r.
+
+Natywne API TypeScript może teraz aktualizować snapshoty z danymi VFS w pamięci lub warstwowymi dla dodawania, zmian, usuwania i fallbacku do hosta.
+
 ### [TypeScript 7.1 dodaje atrybuty importu do modułów ambient](./2026/typescript-7-1-import-attributes-ambient-modules/)
 
 **Opublikowano:** 1 września 2026 r.

@@ -77,4 +77,5 @@
 - [TypeScript 7.0 릴리스 후보가 발표되었습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-release-candidate/index.md): TypeScript 7.0 릴리스 후보는 네이티브 컴파일러, 병렬 빌드, 호환성 변경 사항, 확장된 편집기 지원을 미리 선보였습니다.
 - [TypeScript 7.0을 사용할 수 있습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-released/index.md): TypeScript 7.0에는 네이티브 Go 기반 컴파일러와 언어 서비스가 도입되어 빌드와 편집기의 성능이 크게 향상되었습니다.
 - [TypeScript 7에 워크스페이스 심볼 검색 범위가 추가되었습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-workspace-symbol-search-scope/index.md): 네이티브 언어 서비스에 워크스페이스 심볼 검색을 현재 프로젝트로 제한할 수 있는 설정이 추가되었습니다.
+- [TypeScript 네이티브 API에 계층형 가상 파일 시스템 추가](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-native-api-adds-layered-vfs/index.md): TypeScript 네이티브 API는 메모리 내 또는 계층형 가상 파일 시스템으로 스냅샷을 업데이트하고 파일 추가, 변경, 삭제 및 호스트 폴백을 표현할 수 있습니다.
 - [TypeScript 뉴스](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/index.md): TypeScript 개발자를 위한 최신 공식 TypeScript 릴리스, 발표, 변경 사항의 간결한 요약입니다.
