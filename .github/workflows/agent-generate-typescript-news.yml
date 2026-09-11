@@ -1,0 +1,33 @@
+name: Agent generate TypeScript news
+
+on:
+  pull_request:
+    types: [opened]
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    if: github.event.pull_request.head.ref == 'agent/typescript-news-2026-09-11-vfs-snapshots'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Generate synchronized TypeScript news
+        run: python3 .github/agent_generate_typescript_news.py
+      - name: Verify news ordering and locale parity
+        run: python3 .agents/skills/create-typescript-news/scripts/verify_news_order.py
+      - name: Check diff whitespace
+        run: git diff --check
+      - name: Commit generated content
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/agent_generate_typescript_news.py .github/workflows/agent-generate-typescript-news.yml
+          git add website/src/content/docs
+          git commit -m 'Add TypeScript native VFS snapshot news'
+          git push origin HEAD:${HEAD_REF}
