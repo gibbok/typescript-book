@@ -11,7 +11,7 @@ Saya percaya bahwa pendidikan teknis berkualitas tinggi harus dapat diakses oleh
 Temukan **The Concise TypeScript Book Plus Edition**.
 
 <!-- markdownlint-disable MD033 MD044 -->
-<a href="https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme">
+<a href="https://gibbok.github.io/typescript-book/id-id/plus-edition/?utm_source=github&utm_medium=readme">
   <img
     src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp"
     alt="Sampul The Concise TypeScript Book Plus Edition"
