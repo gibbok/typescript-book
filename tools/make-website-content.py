@@ -65,6 +65,9 @@ OUTPUT_DIR_PATH_TH = "../website/src/content/docs/th-th/book"
 INPUT_FILE_PATH_RU = "../README-ru_RU.md"
 OUTPUT_DIR_PATH_RU = "../website/src/content/docs/ru-ru/book"
 
+INPUT_FILE_PATH_CS = "../README-cs_CZ.md"
+OUTPUT_DIR_PATH_CS = "../website/src/content/docs/cs-cz/book"
+
 INPUT_FILE_PATH_AR = "../README-ar.md"
 OUTPUT_DIR_PATH_AR = "../website/src/content/docs/ar/book"
 
@@ -333,3 +336,5 @@ process(INPUT_FILE_PATH, INPUT_FILE_PATH_VI, OUTPUT_DIR_PATH_VI)
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_TH, OUTPUT_DIR_PATH_TH)
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_RU, OUTPUT_DIR_PATH_RU)
 process(INPUT_FILE_PATH, INPUT_FILE_PATH_AR, OUTPUT_DIR_PATH_AR)
+
+process(INPUT_FILE_PATH, INPUT_FILE_PATH_CS, OUTPUT_DIR_PATH_CS)

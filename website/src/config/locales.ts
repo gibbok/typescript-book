@@ -57,6 +57,10 @@ export const locales = {
     label: 'Türkçe',
     lang: 'tr-TR',
   },
+  'cs-cz': {
+    label: 'Čeština',
+    lang: 'cs-CZ',
+  },
   'vi-vn': {
     label: 'Tiếng Việt',
     lang: 'vi-VN',

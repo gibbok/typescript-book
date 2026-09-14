@@ -20,6 +20,7 @@ const languageFilePaths: Record<Language, string> = {
     [Language.vi_VN]: '../README-vi_VN.md',
     [Language.th_TH]: '../README-th_TH.md',
     [Language.ru_RU]: '../README-ru_RU.md',
+    [Language.cs_CZ]: '../README-cs_CZ.md',
     [Language.ar]: '../README-ar.md',
 }
 
