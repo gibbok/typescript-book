@@ -17,7 +17,7 @@ sidebar:
 ทำความรู้จักกับ **หนังสือ TypeScript ฉบับกระชับ Plus Edition**
 
 <!-- markdownlint-disable MD033 MD044 -->
-<a href="https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme">
+<a href="https://gibbok.github.io/typescript-book/th-th/plus-edition/?utm_source=github&utm_medium=readme">
   <img
     src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp"
     alt="ปกหนังสือ TypeScript ฉบับกระชับ Plus Edition"

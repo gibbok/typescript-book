@@ -17,7 +17,7 @@ The Concise TypeScript Book은 TypeScript의 기능을 포괄적이면서도 간
 **The Concise TypeScript Book Plus Edition**을 만나 보세요.
 
 <!-- markdownlint-disable MD033 MD044 -->
-<a href="https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme">
+<a href="https://gibbok.github.io/typescript-book/ko-kr/plus-edition/?utm_source=github&utm_medium=readme">
   <img
     src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp"
     alt="The Concise TypeScript Book Plus Edition 표지"
