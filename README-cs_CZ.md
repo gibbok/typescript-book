@@ -81,6 +81,7 @@ Tato kniha byla přeložena do několika jazyků, mezi něž patří:
 [Ruština](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
 
 [Arabština](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
+[Čeština](https://github.com/gibbok/typescript-book/blob/main/README-cs_CZ.md)
 
 ## Soubory ke stažení a web
 

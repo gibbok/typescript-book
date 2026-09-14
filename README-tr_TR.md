@@ -81,6 +81,7 @@ Bu kitap aşağıdakiler de dâhil olmak üzere birçok dile çevrilmiştir:
 [Rusça](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
 
 [Arapça](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
+[Çekçe](https://github.com/gibbok/typescript-book/blob/main/README-cs_CZ.md)
 
 ## İndirmeler ve web sitesi
 
