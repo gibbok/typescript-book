@@ -17,7 +17,7 @@ sidebar:
 Познакомьтесь с **расширенным изданием «Краткой книги по TypeScript»**.
 
 <!-- markdownlint-disable MD033 MD044 -->
-<a href="https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme">
+<a href="https://gibbok.github.io/typescript-book/ru-ru/plus-edition/?utm_source=github&utm_medium=readme">
   <img
     src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp"
     alt="The Concise TypeScript Book Plus Edition cover"
