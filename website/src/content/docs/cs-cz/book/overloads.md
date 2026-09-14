@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Přetížení funkcí v TypeScriptu umožňuje definovat více signatur funkce pro jediný název funkce, a tedy definovat funkce, které lze volat různými způsoby. Zde je příklad:
+Přetížení funkcí v TypeScriptu umožňuje definovat více signatur pro jeden název funkce, takže ji lze volat různými způsoby. Zde je příklad:
 
 ```typescript
 // Overloads

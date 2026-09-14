@@ -9,7 +9,7 @@ sidebar:
 TypeScript má několik vestavěných primitivních typů, které lze použít k definování proměnných, parametrů funkcí a návratových typů:
 
 * `number`: Představuje číselné hodnoty včetně celých čísel a čísel s plovoucí desetinnou čárkou.
-* `string`: Představuje textová data
+* `string`: Představuje textová data.
 * `boolean`: Představuje logické hodnoty, které mohou být buď pravda, nebo nepravda.
 * `null`: Představuje nepřítomnost hodnoty.
 * `undefined`: Představuje hodnotu, která nebyla přiřazena nebo definována.

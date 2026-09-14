@@ -43,4 +43,5 @@ sidebar:
 [ภาษารัสเซีย](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
 
 [ภาษาอาหรับ](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
+[ภาษาเช็ก](https://github.com/gibbok/typescript-book/blob/main/README-cs_CZ.md)
 

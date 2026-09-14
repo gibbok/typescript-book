@@ -183,7 +183,7 @@ class MyClass {
 
 ### Automatické přístupové metody ve třídách
 
-TypeScript ve verzi 4.9 přidává podporu automatických přístupových metod, připravované funkce ECMAScriptu. Podobají se vlastnostem třídy, ale deklarují se klíčovým slovem „accessor“.
+TypeScript ve verzi 4.9 přidává podporu automatických přístupových metod, což je připravovaná funkce ECMAScriptu. Podobají se vlastnostem třídy, ale deklarují se klíčovým slovem „accessor“.
 
 ```typescript
 class Animal {
@@ -585,7 +585,7 @@ flyingFish.fly();
 flyingFish.swim();
 ```
 
-Klíčové slovo `class` v TypeScriptu, podobně jako v JavaScriptu, bývá označováno jako syntaktický cukr. Bylo zavedeno v ECMAScriptu 2015 (ES6), aby nabídlo známější syntaxi pro vytváření objektů a práci s nimi způsobem založeným na třídách. Je však důležité zmínit, že TypeScript jako nadmnožina JavaScriptu se nakonec kompiluje do JavaScriptu, který ve svém základu zůstává založený na prototypech.
+Klíčové slovo `class` v TypeScriptu, podobně jako v JavaScriptu, bývá označováno jako syntaktický cukr. Bylo zavedeno v ECMAScriptu 2015 (ES6), aby nabídlo známější syntaxi pro vytváření objektů a práci s nimi způsobem založeným na třídách. Je však důležité zmínit, že TypeScript jako nadmnožina JavaScriptu se nakonec kompiluje do JavaScriptu, který zůstává ve své podstatě založen na prototypech.
 
 ### Statické členy
 

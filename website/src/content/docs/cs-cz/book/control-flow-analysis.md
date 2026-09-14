@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Analýza toku řízení v TypeScriptu je způsob statické analýzy toku kódu za účelem odvození typů proměnných, který umožňuje překladači podle potřeby zužovat typy těchto proměnných na základě výsledků analýzy.
+Analýza toku řízení v TypeScriptu je způsob statické analýzy toku kódu za účelem odvození typů proměnných, který umožňuje kompilátoru podle potřeby zužovat typy těchto proměnných na základě výsledků analýzy.
 
 Před TypeScriptem 4.4 se analýza toku kódu vztahovala pouze na kód uvnitř příkazu if, ale od TypeScriptu 4.4 ji lze použít také na podmíněné výrazy a přístupy k diskriminačním vlastnostem, na které se nepřímo odkazuje prostřednictvím proměnných const.
 

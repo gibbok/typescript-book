@@ -306,7 +306,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 
 ### Metavlastnost new.target
 
-V TypeScriptu můžete použít metavlastnost `new.target`, která umožňuje zjistit, zda byla funkce nebo konstruktor vyvolán pomocí operátoru new. Umožňuje rozpoznat, zda byl objekt vytvořen v důsledku volání konstruktoru.
+V TypeScriptu můžete použít metavlastnost `new.target`, která umožňuje zjistit, zda došlo k vyvolání funkce nebo konstruktoru pomocí operátoru new. Umožňuje rozpoznat, zda byl objekt vytvořen v důsledku volání konstruktoru.
 
 ```typescript
 class Parent {
@@ -327,7 +327,7 @@ const child = new Child(); // [Function: Child]
 
 ### Výrazy dynamického importu
 
-Pomocí návrhu ECMAScriptu pro dynamický import, který je v TypeScriptu podporován, lze moduly načítat podmíněně nebo je načítat odloženě na vyžádání.
+Pomocí návrhu ECMAScriptu pro dynamický import, který je v TypeScriptu podporován, lze moduly načítat podmíněně nebo odloženě na vyžádání.
 
 Syntaxe výrazů dynamického importu v TypeScriptu je následující:
 

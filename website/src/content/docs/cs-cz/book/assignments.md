@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Zužování typů pomocí přiřazení v TypeScriptu je způsob, jak zúžit typ proměnné na základě hodnoty, která je jí přiřazena. Při přiřazení hodnoty proměnné TypeScript odvodí její typ na základě přiřazené hodnoty a zúží typ proměnné tak, aby odpovídal odvozenému typu.
+Zužování typů pomocí přiřazení v TypeScriptu je způsob, jak zúžit typ proměnné na základě hodnoty, která je jí přiřazena. Při přiřazení hodnoty proměnné TypeScript odvodí její typ a zúží jej tak, aby odpovídal přiřazené hodnotě.
 
 ```typescript
 let value: string | number;

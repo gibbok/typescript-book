@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Když je proměnná zúžena na typ, který nemůže obsahovat žádné hodnoty, překladač TypeScriptu odvodí, že proměnná musí být typu `never`. Je to proto, že typ never představuje hodnotu, která nikdy nemůže vzniknout.
+Když je proměnná zúžena na typ, který nemůže obsahovat žádné hodnoty, kompilátor TypeScriptu odvodí, že proměnná musí být typu `never`. Je to proto, že typ never představuje hodnotu, která nikdy nemůže vzniknout.
 
 ```typescript
 const printValue = (val: string | number) => {

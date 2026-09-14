@@ -36,5 +36,5 @@ Plus Edition obsahuje:
 
 Zakoupením Plus Edition také přímo podporujete další rozvoj a údržbu bezplatné open-source knihy.
 
-Plus Edition je k dispozici v angličtině a italštině na Amazonu po celém světě. [Prozkoumejte Plus Edition a kupte ji na Amazonu](https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme).
+Plus Edition je na Amazonu po celém světě k dispozici v angličtině a italštině. [Prozkoumejte Plus Edition a kupte ji na Amazonu](https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme).
 

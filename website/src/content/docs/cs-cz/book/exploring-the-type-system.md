@@ -684,7 +684,7 @@ function identity<T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
 ```
 
-Jak vidíte, u vlastností `a` a `b` je odvozen typ `string`   .
+Jak vidíte, u vlastností `a` a `b` je odvozen typ `string`.
 
 Nyní se podívejme na rozdíl oproti verzi s `const`:
 

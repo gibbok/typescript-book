@@ -118,9 +118,9 @@ const y: readonly [string, number] = ['a', 1];
 
 Datový typ `any` představuje doslova „jakoukoli“ hodnotu a je výchozí, pokud TypeScript nedokáže typ odvodit nebo pokud typ není uveden.
 
-Při použití `any` překladač TypeScriptu vynechává kontrolu typů, takže použití `any` neposkytuje typovou bezpečnost. Obecně nepoužívejte `any` k umlčení překladače při výskytu chyby; místo toho se zaměřte na její opravu, protože použití `any` umožňuje porušit kontrakty a přijít o výhody automatického doplňování v TypeScriptu.
+Při použití `any` kompilátor TypeScriptu vynechává kontrolu typů, takže použití `any` neposkytuje typovou bezpečnost. Obecně nepoužívejte `any` k umlčení kompilátoru při výskytu chyby; místo toho se zaměřte na její opravu, protože použití `any` umožňuje porušit kontrakty a přijít o výhody automatického doplňování v TypeScriptu.
 
-Typ `any` může být užitečný při postupné migraci z JavaScriptu na TypeScript, protože dokáže umlčet překladač.
+Typ `any` může být užitečný při postupné migraci z JavaScriptu na TypeScript, protože dokáže umlčet kompilátor.
 
 U nových projektů používejte konfiguraci TypeScriptu `noImplicitAny`, která umožňuje TypeScriptu hlásit chyby tam, kde je `any` použit nebo odvozen.
 

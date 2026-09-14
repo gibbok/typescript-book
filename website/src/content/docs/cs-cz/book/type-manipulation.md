@@ -319,7 +319,7 @@ type MyType = Lowercase<'ABC'>; // "abc"
 
 #### Capitalize\<T\>
 
-Převádí první písmeno názvu vstupního typu T na velké.
+Převádí první písmeno názvu vstupního typu T na velké písmeno.
 
 ```typescript
 type MyType = Capitalize<'abc'>; // "Abc"
@@ -327,7 +327,7 @@ type MyType = Capitalize<'abc'>; // "Abc"
 
 #### Uncapitalize\<T\>
 
-Převádí první písmeno názvu vstupního typu T na malé.
+Převádí první písmeno názvu vstupního typu T na malé písmeno.
 
 ```typescript
 type MyType = Uncapitalize<'Abc'>; // "abc"

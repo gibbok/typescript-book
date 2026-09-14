@@ -22,7 +22,7 @@ yarn add typescript --dev
 
 Nezapomeňte vytvořený soubor lockfile zahrnout do commitu, aby všichni členové týmu používali stejnou verzi TypeScriptu.
 
-Kompilátor TypeScriptu můžete spustit následujícími příkazy
+Kompilátor TypeScriptu můžete spustit následujícími příkazy:
 
 ```shell
 npx tsc
@@ -72,7 +72,7 @@ tsc --init
 
 Při místním spuštění příkazu `tsc` TypeScript zkompiluje kód s konfigurací uvedenou v nejbližším souboru tsconfig.json.
 
-Zde je několik příkladů příkazů příkazového řádku, které používají výchozí nastavení:
+Zde je několik příkladů příkazů z příkazového řádku s výchozím nastavením:
 
 ```shell
 tsc main.ts // Compile a specific file (main.ts) to JavaScript
@@ -128,7 +128,7 @@ Vlastnost „moduleResolution“ určuje strategii vyhledávání modulů. Pro m
 
 #### esModuleInterop
 
-Vlastnost „esModuleInterop“ umožňuje výchozí importy z modulů CommonJS, které neexportovaly pomocí vlastnosti „default“; tato vlastnost poskytuje kompatibilitní vrstvu pro zajištění kompatibility ve vygenerovaném JavaScriptu. Po zapnutí této volby můžeme použít `import MyLibrary from "my-library"` namísto `import * as MyLibrary from "my-library"`.
+Vlastnost „esModuleInterop“ umožňuje výchozí importy z modulů CommonJS, které neexportovaly pomocí vlastnosti „default“; tato vlastnost poskytuje vrstvu kompatibility ve vygenerovaném JavaScriptu. Po zapnutí této volby můžeme použít `import MyLibrary from "my-library"` namísto `import * as MyLibrary from "my-library"`.
 
 „esModuleInterop“ se původně zapínalo volitelně, aby se předešlo nekompatibilním změnám, ale již dlouho je doporučeným výchozím nastavením. Jeho vypnutí může při používání CommonJS s ESM způsobit nenápadné problémy za běhu. Poznámka: Od TypeScriptu 6.0 je toto bezpečnější chování pro vzájemnou kompatibilitu vždy zapnuté.
 
