@@ -39,4 +39,5 @@
 [Русский](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
 
 [Арабский](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
+[Чешский](https://github.com/gibbok/typescript-book/blob/main/README-cs_CZ.md)
 
