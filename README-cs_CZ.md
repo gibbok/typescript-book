@@ -30,7 +30,7 @@ Plus Edition obsahuje:
 
 Zakoupením Plus Edition také přímo podporujete další rozvoj a údržbu bezplatné open-source knihy.
 
-Plus Edition je k dispozici v angličtině a italštině na Amazonu po celém světě. [Prozkoumejte Plus Edition a kupte ji na Amazonu](https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme).
+Plus Edition je na Amazonu po celém světě k dispozici v angličtině a italštině. [Prozkoumejte Plus Edition a kupte ji na Amazonu](https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme).
 
 ## Podpořte projekt
 
@@ -668,7 +668,7 @@ Vlastnost „moduleResolution“ určuje strategii vyhledávání modulů. Pro m
 
 #### esModuleInterop
 
-Vlastnost „esModuleInterop“ umožňuje výchozí importy z modulů CommonJS, které neexportovaly pomocí vlastnosti „default“; tato vlastnost poskytuje kompatibilitní vrstvu pro zajištění kompatibility ve vygenerovaném JavaScriptu. Po zapnutí této volby můžeme použít `import MyLibrary from "my-library"` namísto `import * as MyLibrary from "my-library"`.
+Vlastnost „esModuleInterop“ umožňuje výchozí importy z modulů CommonJS, které neexportovaly pomocí vlastnosti „default“; tato vlastnost poskytuje vrstvu kompatibility ve vygenerovaném JavaScriptu. Po zapnutí této volby můžeme použít `import MyLibrary from "my-library"` namísto `import * as MyLibrary from "my-library"`.
 
 „esModuleInterop“ se původně zapínalo volitelně, aby se předešlo nekompatibilním změnám, ale již dlouho je doporučeným výchozím nastavením. Jeho vypnutí může při používání CommonJS s ESM způsobit nenápadné problémy za běhu. Poznámka: Od TypeScriptu 6.0 je toto bezpečnější chování pro vzájemnou kompatibilitu vždy zapnuté.
 
@@ -2190,7 +2190,7 @@ console.log(area(rectangle)); // 50
 
 ## Přiřazení
 
-Zužování typů pomocí přiřazení v TypeScriptu je způsob, jak zúžit typ proměnné na základě hodnoty, která je jí přiřazena. Při přiřazení hodnoty proměnné TypeScript odvodí její typ na základě přiřazené hodnoty a zúží typ proměnné tak, aby odpovídal odvozenému typu.
+Zužování typů pomocí přiřazení v TypeScriptu je způsob, jak zúžit typ proměnné na základě hodnoty, která je jí přiřazena. Při přiřazení hodnoty proměnné TypeScript odvodí její typ a zúží jej tak, aby odpovídal přiřazené hodnotě.
 
 ```typescript
 let value: string | number;
@@ -2530,7 +2530,7 @@ type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optio
 
 ## Podmíněné typy
 
-Podmíněné typy jsou způsob, jak vytvořit typ závislý na podmínce, kdy je vytvářený typ určen na základě výsledku podmínky. Definují se pomocí klíčového slova `extends` a ternárního operátoru pro podmíněný výběr mezi dvěma typy.
+Podmíněné typy představují způsob, jak vytvořit typ závislý na podmínce, kdy je vytvářený typ určen na základě výsledku podmínky. Definují se pomocí klíčového slova `extends` a ternárního operátoru pro podmíněný výběr mezi dvěma typy.
 
 ```typescript
 type IsArray<T> = T extends any[] ? true : false;
@@ -2804,7 +2804,7 @@ Zde je seznam některých běžně používaných vestavěných objektů JavaScr
 
 ## Přetížení
 
-Přetížení funkcí v TypeScriptu umožňuje definovat více signatur funkce pro jediný název funkce, a tedy definovat funkce, které lze volat různými způsoby. Zde je příklad:
+Přetížení funkcí v TypeScriptu umožňuje definovat více signatur pro jeden název funkce, takže ji lze volat různými způsoby. Zde je příklad:
 
 ```typescript
 // Overloads
@@ -3567,7 +3567,7 @@ flyingFish.fly();
 flyingFish.swim();
 ```
 
-Klíčové slovo `class` v TypeScriptu, podobně jako v JavaScriptu, bývá označováno jako syntaktický cukr. Bylo zavedeno v ECMAScriptu 2015 (ES6), aby nabídlo známější syntaxi pro vytváření objektů a práci s nimi způsobem založeným na třídách. Je však důležité zmínit, že TypeScript jako nadmnožina JavaScriptu se nakonec kompiluje do JavaScriptu, který ve svém základu zůstává založený na prototypech.
+Klíčové slovo `class` v TypeScriptu, podobně jako v JavaScriptu, bývá označováno jako syntaktický cukr. Bylo zavedeno v ECMAScriptu 2015 (ES6), aby nabídlo známější syntaxi pro vytváření objektů a práci s nimi způsobem založeným na třídách. Je však důležité zmínit, že TypeScript jako nadmnožina JavaScriptu se nakonec kompiluje do JavaScriptu, který zůstává ve své podstatě založen na prototypech.
 
 ### Statické členy
 
@@ -4163,7 +4163,7 @@ type MyType = Lowercase<'ABC'>; // "abc"
 
 #### Capitalize\<T\>
 
-Převádí první písmeno názvu vstupního typu T na velké.
+Převádí první písmeno názvu vstupního typu T na velké písmeno.
 
 ```typescript
 type MyType = Capitalize<'abc'>; // "Abc"
@@ -4171,7 +4171,7 @@ type MyType = Capitalize<'abc'>; // "Abc"
 
 #### Uncapitalize\<T\>
 
-Převádí první písmeno názvu vstupního typu T na malé.
+Převádí první písmeno názvu vstupního typu T na malé písmeno.
 
 ```typescript
 type MyType = Uncapitalize<'Abc'>; // "abc"
@@ -4526,7 +4526,7 @@ const child = new Child(); // [Function: Child]
 
 ### Výrazy dynamického importu
 
-Pomocí návrhu ECMAScriptu pro dynamický import, který je v TypeScriptu podporován, lze moduly načítat podmíněně nebo je načítat odloženě na vyžádání.
+Pomocí návrhu ECMAScriptu pro dynamický import, který je v TypeScriptu podporován, lze moduly načítat podmíněně nebo odloženě na vyžádání.
 
 Syntaxe výrazů dynamického importu v TypeScriptu je následující:
 
