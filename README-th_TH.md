@@ -81,6 +81,7 @@ Plus Edition มีจำหน่ายทั่วโลกบน Amazon ใ�
 [ภาษารัสเซีย](https://github.com/gibbok/typescript-book/blob/main/README-ru_RU.md)
 
 [ภาษาอาหรับ](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
+[ภาษาเช็ก](https://github.com/gibbok/typescript-book/blob/main/README-cs_CZ.md)
 
 ## ดาวน์โหลดและเว็บไซต์
 

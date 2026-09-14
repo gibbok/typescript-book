@@ -1,4 +1,4 @@
-export type PlusEditionLocale = 'en' | 'ar' | 'zh-cn' | 'it-it' | 'pt-br' | 'sv-se' | 'bg-bg' | 'es-es' | 'ja-jp' | 'fr-fr' | 'ko-kr' | 'id-id' | 'de-de' | 'pl-pl' | 'tr-tr' | 'vi-vn' | 'th-th' | 'ru-ru';
+export type PlusEditionLocale = 'en' | 'ar' | 'zh-cn' | 'it-it' | 'pt-br' | 'sv-se' | 'bg-bg' | 'es-es' | 'ja-jp' | 'fr-fr' | 'ko-kr' | 'id-id' | 'de-de' | 'pl-pl' | 'tr-tr' | 'cs-cz' | 'vi-vn' | 'th-th' | 'ru-ru';
 
 const DEFAULT_LOCALE: PlusEditionLocale = 'en';
 
@@ -33,6 +33,8 @@ const LOCALE_BY_LANG: Readonly<Record<string, PlusEditionLocale>> = {
 	'pl-pl': 'pl-pl',
 	tr: 'tr-tr',
 	'tr-tr': 'tr-tr',
+	cs: 'cs-cz',
+	'cs-cz': 'cs-cz',
 	vi: 'vi-vn',
 	'vi-vn': 'vi-vn',
 	th: 'th-th',
@@ -60,6 +62,7 @@ export const PLUS_EDITION_COVERS: Readonly<Record<PlusEditionLocale, string>> = 
 	'de-de': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 	'pl-pl': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 	'tr-tr': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
+	'cs-cz': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 	'vi-vn': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 	'th-th': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
 	'ru-ru': `${PLUS_EDITION_BASE_PATH}/images/plus-edition-cover_en.webp`,
@@ -1573,6 +1576,105 @@ export const PLUS_EDITION_COPY = {
 			paperback: 'Miękka oprawa',
 			buyOn: 'Kup na',
 			detected: 'Użyjemy języka i regionu przeglądarki, aby otworzyć najlepiej dopasowane wydanie i sklep Amazon.',
+		},
+	},
+	'cs-cz': {
+		pageTitle: 'The Concise TypeScript Book Plus Edition — React and Real-World Patterns For TypeScript 7',
+		pageDescription:
+			'Placené, rozšířené vydání knihy The Concise TypeScript Book s exkluzivním průvodcem Reactem, praktickými vzory v TypeScriptu a aktualizovaným obsahem pro TypeScript 7. K dispozici pro Kindle a v brožované podobě.',
+		coverAlt: 'Obálka knihy The Concise TypeScript Book Plus Edition',
+		topBanner: {
+			ariaLabel: 'Oznámení nového vydání Plus Edition',
+			badge: 'Nové placené vydání',
+			strong: 'Ovládněte TypeScript 7',
+			message: 'React + vzory z praxe',
+			action: 'Prozkoumejte Plus Edition',
+		},
+		home: {
+			ariaLabel: 'Další informace o knize The Concise TypeScript Book Plus Edition',
+			eyebrow: 'Nové placené vydání · TypeScript 7',
+			title: 'Využijte TypeScript ve skutečných projektech',
+			description:
+				'Plus Edition rozšiřuje bezplatnou knihu s otevřeným zdrojovým kódem o praktický obsah, o který vývojáři žádají nejčastěji: React s TypeScriptem a opakovaně použitelné vzory pro produkční kód.',
+			items: [
+				['React s TypeScriptem:', 'komponenty, props, hooky, události, refs a vzory pro škálovatelné komponenty.'],
+				['Praktické vzory v TypeScriptu:', 'praktické přístupy k bezpečnějším, přehlednějším a udržovatelným aplikacím.'],
+				['TypeScript 7:', 'stručný výklad od základů po pokročilé techniky typového systému.'],
+			],
+			action: 'Podívejte se na obsah',
+			availability: 'K dispozici pro Kindle a v brožované podobě',
+		},
+		sidebar: {
+			coverCta: 'Obálka Plus Edition',
+			eyebrow: 'Plus Edition',
+			title: 'Pokračujte za hranice bezplatné knihy',
+			description: 'Exkluzivní průvodce Reactem a praktické vzory z reálných projektů, aktualizované pro TypeScript 7.',
+			formats: 'Kindle a brožované vydání',
+			action: 'Prozkoumejte knihu',
+			ariaLabel: 'Prozkoumejte The Concise TypeScript Book Plus Edition',
+		},
+		landing: {
+			heroEyebrow: 'Placené, rozšířené vydání · Aktualizováno pro TypeScript 7',
+			title: PLUS_EDITION.titles.en,
+			lead:
+				'Stručný, praktický průvodce TypeScriptem 7, rozšířený o exkluzivní kapitoly, které propojují typový systém s vaší každodenní prací.',
+			primaryAction: 'Vyberte Kindle nebo brožované vydání',
+			secondaryAction: 'Podívejte se, co je nového',
+			availability: 'Anglické a italské vydání · Dostupné po celém světě prostřednictvím Amazonu',
+			introEyebrow: 'Od pochopení TypeScriptu k jeho správnému využití',
+			introTitle: 'Nový obsah pro skutečné projekty',
+			introText:
+				'Plus Edition vychází z hojně čtené knihy The Concise TypeScript Book s otevřeným zdrojovým kódem. Zachovává přímá vysvětlení a cílené příklady a dále rozvíjí dvě rozsáhlé oblasti dostupné pouze v tomto placeném vydání.',
+			featureAriaLabel: 'Exkluzivní obsah Plus Edition',
+			exclusiveContent: 'Exkluzivní obsah',
+			features: [
+				{
+					title: 'TypeScript s Reactem',
+					description:
+						'Přejděte s jistotou od základních typů komponent ke vzorům, které zůstávají přehledné i s růstem aplikace v Reactu.',
+					items: [
+						'Komponenty, props, children a události',
+						'Hooky, refs a opakovaně použitelné abstrakce',
+						'Diskriminované unie a generické komponenty',
+						'Praktické vzory pro bezpečnější API komponent',
+					],
+				},
+				{
+					title: 'Vzory z praxe',
+					description:
+						'Zjistěte, jak lze kombinací pokročilých funkcí TypeScriptu řešit opakující se problémy při návrhu aplikací.',
+					items: [
+						'Výstižné a udržovatelné doménové typy',
+						'Bezpečnější hranice a zpracování chyb',
+						'Opakovaně použitelné mapy typů a návrhové vzory typu factory',
+						'Techniky, které můžete přizpůsobit produkčnímu kódu',
+					],
+				},
+			],
+			whyEyebrow: 'Záměrně stručné',
+			whyTitle: 'Více praktických podrobností bez zbytečných slov',
+			whyItems: [
+				['Aktuální', 'Aktualizováno pro TypeScript 7, od základních pojmů jazyka po pokročilé techniky typového systému.'],
+				['Praktické', 'Krátká vysvětlení a cílené příklady navržené pro přímé využití při každodenním vývoji.'],
+				['Užitečné na každé úrovni', 'Strukturovaný úvod pro začínající vývojáře v TypeScriptu a rychlá příručka pro zkušené inženýry.'],
+			],
+			audienceEyebrow: 'Pro koho je určena',
+			audienceTitle: 'Vývojáři hledající srozumitelnost a praktické využití',
+			audienceText:
+				'Zvolte Plus Edition, pokud hledáte jeden ucelený zdroj pro studium moderního TypeScriptu, efektivní typování Reactu a využití jazyka při řešení skutečných návrhových problémů. Znalost JavaScriptu pomůže, ale hluboké zkušenosti s TypeScriptem nejsou nutné.',
+			trustEyebrow: 'Vývojáři jí důvěřují',
+			trustTitle: 'Vychází z oblíbené knihy o TypeScriptu s otevřeným zdrojovým kódem',
+			trustText:
+				'Bezplatné vydání má více než 10 000 hvězdiček na GitHubu a používá je mnoho vývojářů v TypeScriptu. Autorem Plus Edition je Simone Poggiali, který do praktického průvodce Reactem a vzorů v TypeScriptu z reálných projektů promítá 20 let mezinárodních pracovních zkušeností.',
+		},
+		amazon: {
+			eyebrow: 'Vyberte si formát',
+			title: 'Získejte Plus Edition na Amazonu',
+			editionLabel: 'Vydání',
+			kindle: 'Vydání pro Kindle',
+			paperback: 'Brožované vydání',
+			buyOn: 'Koupit na',
+			detected: 'Podle jazyka a regionu vašeho prohlížeče otevřeme nejvhodnější vydání a obchod Amazon.',
 		},
 	},
 	'vi-vn': {
