@@ -13,7 +13,7 @@ Tôi tin rằng giáo dục kỹ thuật chất lượng cao nên dễ dàng ti�
 Khám phá **The Concise TypeScript Book Plus Edition**.
 
 <!-- markdownlint-disable MD033 MD044 -->
-<a href="https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme">
+<a href="https://gibbok.github.io/typescript-book/vi-vn/plus-edition/?utm_source=github&utm_medium=readme">
   <img
     src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp"
     alt="Bìa The Concise TypeScript Book Plus Edition"

@@ -13,7 +13,7 @@
 اكتشف **الإصدار Plus Edition من كتاب TypeScript الموجز**.
 
 <!-- markdownlint-disable MD033 MD044 -->
-<a href="https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme">
+<a href="https://gibbok.github.io/typescript-book/ar/plus-edition/?utm_source=github&utm_medium=readme">
   <img
     src="https://raw.githubusercontent.com/gibbok/typescript-book/main/website/public/images/plus-edition-cover_en.webp"
     alt="غلاف الإصدار Plus Edition من كتاب TypeScript الموجز"
