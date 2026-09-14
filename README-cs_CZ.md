@@ -562,7 +562,7 @@ yarn add typescript --dev
 
 Nezapomeňte vytvořený soubor lockfile zahrnout do commitu, aby všichni členové týmu používali stejnou verzi TypeScriptu.
 
-Kompilátor TypeScriptu můžete spustit následujícími příkazy
+Kompilátor TypeScriptu můžete spustit následujícími příkazy:
 
 ```shell
 npx tsc
@@ -612,7 +612,7 @@ tsc --init
 
 Při místním spuštění příkazu `tsc` TypeScript zkompiluje kód s konfigurací uvedenou v nejbližším souboru tsconfig.json.
 
-Zde je několik příkladů příkazů příkazového řádku, které používají výchozí nastavení:
+Zde je několik příkladů příkazů z příkazového řádku s výchozím nastavením:
 
 ```shell
 tsc main.ts // Compile a specific file (main.ts) to JavaScript
@@ -1430,7 +1430,7 @@ function identity<T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
 ```
 
-Jak vidíte, u vlastností `a` a `b` je odvozen typ `string`   .
+Jak vidíte, u vlastností `a` a `b` je odvozen typ `string`.
 
 Nyní se podívejme na rozdíl oproti verzi s `const`:
 
@@ -1698,9 +1698,9 @@ const y: readonly [string, number] = ['a', 1];
 
 Datový typ `any` představuje doslova „jakoukoli“ hodnotu a je výchozí, pokud TypeScript nedokáže typ odvodit nebo pokud typ není uveden.
 
-Při použití `any` překladač TypeScriptu vynechává kontrolu typů, takže použití `any` neposkytuje typovou bezpečnost. Obecně nepoužívejte `any` k umlčení překladače při výskytu chyby; místo toho se zaměřte na její opravu, protože použití `any` umožňuje porušit kontrakty a přijít o výhody automatického doplňování v TypeScriptu.
+Při použití `any` kompilátor TypeScriptu vynechává kontrolu typů, takže použití `any` neposkytuje typovou bezpečnost. Obecně nepoužívejte `any` k umlčení kompilátoru při výskytu chyby; místo toho se zaměřte na její opravu, protože použití `any` umožňuje porušit kontrakty a přijít o výhody automatického doplňování v TypeScriptu.
 
-Typ `any` může být užitečný při postupné migraci z JavaScriptu na TypeScript, protože dokáže umlčet překladač.
+Typ `any` může být užitečný při postupné migraci z JavaScriptu na TypeScript, protože dokáže umlčet kompilátor.
 
 U nových projektů používejte konfiguraci TypeScriptu `noImplicitAny`, která umožňuje TypeScriptu hlásit chyby tam, kde je `any` použit nebo odvozen.
 
@@ -1924,7 +1924,7 @@ let o = {
 
 ## strictNullChecks
 
-`strictNullChecks` je volba překladače TypeScriptu, která vynucuje striktní kontrolu hodnot null. Pokud je tato volba zapnuta, lze proměnným a parametrům přiřadit `null` nebo `undefined` pouze tehdy, pokud byly explicitně deklarovány jako tento typ pomocí sjednoceného typu `null` | `undefined`. Pokud proměnná nebo parametr nejsou explicitně deklarovány jako umožňující hodnotu null, TypeScript vygeneruje chybu, aby zabránil potenciálním chybám za běhu.
+`strictNullChecks` je volba kompilátoru TypeScriptu, která vynucuje striktní kontrolu hodnot null. Pokud je tato volba zapnuta, lze proměnným a parametrům přiřadit `null` nebo `undefined` pouze tehdy, pokud byly explicitně deklarovány jako tento typ pomocí sjednoceného typu `null` | `undefined`. Pokud proměnná nebo parametr nejsou explicitně deklarovány jako umožňující hodnotu null, TypeScript vygeneruje chybu, aby zabránil potenciálním chybám za běhu.
 
 ## Výčtové typy
 
@@ -2206,7 +2206,7 @@ if (typeof value === 'number') {
 
 ## Analýza toku řízení
 
-Analýza toku řízení v TypeScriptu je způsob statické analýzy toku kódu za účelem odvození typů proměnných, který umožňuje překladači podle potřeby zužovat typy těchto proměnných na základě výsledků analýzy.
+Analýza toku řízení v TypeScriptu je způsob statické analýzy toku kódu za účelem odvození typů proměnných, který umožňuje kompilátoru podle potřeby zužovat typy těchto proměnných na základě výsledků analýzy.
 
 Před TypeScriptem 4.4 se analýza toku kódu vztahovala pouze na kód uvnitř příkazu if, ale od TypeScriptu 4.4 ji lze použít také na podmíněné výrazy a přístupy k diskriminačním vlastnostem, na které se nepřímo odkazuje prostřednictvím proměnných const.
 
@@ -2313,7 +2313,7 @@ console.log(area(circle)); // 12.566370614359172
 
 ## Datový typ never
 
-Když je proměnná zúžena na typ, který nemůže obsahovat žádné hodnoty, překladač TypeScriptu odvodí, že proměnná musí být typu `never`. Je to proto, že typ never představuje hodnotu, která nikdy nemůže vzniknout.
+Když je proměnná zúžena na typ, který nemůže obsahovat žádné hodnoty, kompilátor TypeScriptu odvodí, že proměnná musí být typu `never`. Je to proto, že typ never představuje hodnotu, která nikdy nemůže vzniknout.
 
 ```typescript
 const printValue = (val: string | number) => {
@@ -2769,7 +2769,7 @@ let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both na
 TypeScript má několik vestavěných primitivních typů, které lze použít k definování proměnných, parametrů funkcí a návratových typů:
 
 * `number`: Představuje číselné hodnoty včetně celých čísel a čísel s plovoucí desetinnou čárkou.
-* `string`: Představuje textová data
+* `string`: Představuje textová data.
 * `boolean`: Představuje logické hodnoty, které mohou být buď pravda, nebo nepravda.
 * `null`: Představuje nepřítomnost hodnoty.
 * `undefined`: Představuje hodnotu, která nebyla přiřazena nebo definována.
@@ -3165,7 +3165,7 @@ class MyClass {
 
 ### Automatické přístupové metody ve třídách
 
-TypeScript ve verzi 4.9 přidává podporu automatických přístupových metod, připravované funkce ECMAScriptu. Podobají se vlastnostem třídy, ale deklarují se klíčovým slovem „accessor“.
+TypeScript ve verzi 4.9 přidává podporu automatických přístupových metod, což je připravovaná funkce ECMAScriptu. Podobají se vlastnostem třídy, ale deklarují se klíčovým slovem „accessor“.
 
 ```typescript
 class Animal {
@@ -3802,7 +3802,7 @@ const a: MyNamespace.MyInterface1 = {
 
 ## Symboly
 
-Symboly jsou primitivní datový typ, který představuje neměnnou hodnotu se zaručenou globální jedinečností po celou dobu běhu programu.
+Symboly jsou primitivním datovým typem, který představuje neměnnou hodnotu se zaručenou globální jedinečností po celou dobu běhu programu.
 
 Symboly lze použít jako klíče vlastností objektů a poskytují způsob, jak vytvářet neenumerovatelné vlastnosti.
 
@@ -4505,7 +4505,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 
 ### Metavlastnost new.target
 
-V TypeScriptu můžete použít metavlastnost `new.target`, která umožňuje zjistit, zda byla funkce nebo konstruktor vyvolán pomocí operátoru new. Umožňuje rozpoznat, zda byl objekt vytvořen v důsledku volání konstruktoru.
+V TypeScriptu můžete použít metavlastnost `new.target`, která umožňuje zjistit, zda došlo k vyvolání funkce nebo konstruktoru pomocí operátoru new. Umožňuje rozpoznat, zda byl objekt vytvořen v důsledku volání konstruktoru.
 
 ```typescript
 class Parent {
