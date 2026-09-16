@@ -1,26 +1,38 @@
-name: validate-content 
+name: validate-content
 run-name: ${{ github.actor }} validate content
-on: [pull_request]
+
+on:
+  pull_request:
+    types: [ready_for_review, synchronize]
+
+concurrency:
+  group: validate-content-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   lint-content:
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
       - name: Run lint script
         run: bash ${GITHUB_WORKSPACE}/.github/workflows/lint.sh
   compile-snippets:
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
       - name: Run compile script
         run: bash ${GITHUB_WORKSPACE}/.github/workflows/compile.sh
   verify-typescript-news:
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
       - name: Verify TypeScript news order and locale parity
         run: python3 .agents/skills/create-typescript-news/scripts/verify_news_order.py
   test-github-actions:
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
