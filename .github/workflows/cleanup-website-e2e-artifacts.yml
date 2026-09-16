@@ -1,0 +1,37 @@
+name: cleanup-website-e2e-artifacts
+
+on:
+  pull_request:
+    types: [closed]
+    paths:
+      - 'website/**'
+
+permissions:
+  actions: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Delete pull request evidence
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const artifactName = `playwright-evidence-pr-${context.issue.number}`;
+            const artifacts = await github.paginate(
+              github.rest.actions.listArtifactsForRepo,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                per_page: 100,
+              },
+            );
+
+            for (const artifact of artifacts.filter(({ name }) => name === artifactName)) {
+              await github.rest.actions.deleteArtifact({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                artifact_id: artifact.id,
+              });
+            }

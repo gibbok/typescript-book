@@ -2,13 +2,9 @@ name: website-e2e
 
 on:
   pull_request:
-    types: [opened, reopened, ready_for_review, synchronize, closed]
-
-permissions:
-  actions: write
-  contents: read
-  issues: write
-  pull-requests: write
+    types: [opened, reopened, ready_for_review, synchronize]
+    paths:
+      - 'website/**'
 
 concurrency:
   group: website-e2e-${{ github.event.pull_request.number }}
@@ -16,9 +12,10 @@ concurrency:
 
 jobs:
   test:
-    if: >-
-      github.event.action != 'closed' &&
-      github.event.pull_request.draft == false
+    if: github.event.pull_request.draft == false
+    permissions:
+      contents: read
+      issues: write
     runs-on: ubuntu-latest
     timeout-minutes: 15
     defaults:
@@ -90,31 +87,5 @@ jobs:
                 repo: context.repo.repo,
                 issue_number: context.issue.number,
                 body,
-              });
-            }
-
-  cleanup:
-    if: github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Delete merged pull request evidence
-        uses: actions/github-script@v9
-        with:
-          script: |
-            const artifactName = `playwright-evidence-pr-${context.issue.number}`;
-            const artifacts = await github.paginate(
-              github.rest.actions.listArtifactsForRepo,
-              {
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                per_page: 100,
-              },
-            );
-
-            for (const artifact of artifacts.filter(({ name }) => name === artifactName)) {
-              await github.rest.actions.deleteArtifact({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                artifact_id: artifact.id,
               });
             }
