@@ -10,14 +10,15 @@ permissions:
   issues: write
   pull-requests: write
 
+concurrency:
+  group: website-e2e-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   test:
     if: >-
-      github.event.action == 'ready_for_review' ||
-      (
-        (github.event.action == 'opened' || github.event.action == 'reopened' || github.event.action == 'synchronize') &&
-        github.event.pull_request.draft == false
-      )
+      github.event.action != 'closed' &&
+      github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     timeout-minutes: 15
     defaults:
@@ -48,7 +49,7 @@ jobs:
             website/playwright-report
             website/test-results
           if-no-files-found: error
-          retention-days: 3
+          retention-days: 2
       - name: Add evidence to pull request
         if: always() && steps.evidence.outputs.artifact-url != ''
         uses: actions/github-script@v9
