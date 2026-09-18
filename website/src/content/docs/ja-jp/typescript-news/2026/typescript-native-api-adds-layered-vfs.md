@@ -3,7 +3,7 @@ title: TypeScript ネイティブ API にレイヤー型仮想ファイルシス
 description: TypeScript ネイティブ API は、メモリ内またはレイヤー型の仮想ファイルシステムを使ってスナップショットを更新し、ファイルの追加、変更、削除、ホストへのフォールバックを表現できます。
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:
