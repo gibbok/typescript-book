@@ -3,7 +3,7 @@ title: TypeScripts inbyggda API får virtuella filsystem i lager
 description: TypeScripts inbyggda API kan uppdatera ögonblicksbilder med virtuella filsystem i minnet eller i lager, inklusive tillägg, ändringar, borttagningar och fallback till värdsystemet.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

@@ -3,7 +3,7 @@ title: Нативный API TypeScript добавляет многоуровне
 description: Нативный API TypeScript может обновлять snapshot с виртуальными файловыми системами в памяти или слоями, включая добавление, изменение, удаление и fallback к host-системе.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

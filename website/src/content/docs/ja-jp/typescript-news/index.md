@@ -9,6 +9,12 @@ TypeScript の公式情報源に基づく簡潔な要約を通じて、重要な
 
 ## 最新ニュース
 
+### [TypeScript ネイティブ API に typescript-eslint が必要とする API を追加](./2026/typescript-native-api-adds-typescript-eslint-apis/)
+
+**公開日:** 2026年9月14日
+
+TypeScript ネイティブ API に typescript-eslint が要求したチェッカーと型 API が追加され、ツール連携の互換性が向上します。
+
 ### [TypeScript ネイティブ API にレイヤー型仮想ファイルシステムが追加](./2026/typescript-native-api-adds-layered-vfs/)
 
 **公開日:** 2026年9月9日

@@ -9,6 +9,12 @@ sidebar:
 
 ## Najnowsze aktualności
 
+### [Natywne API TypeScript dodaje API potrzebne typescript-eslint](./2026/typescript-native-api-adds-typescript-eslint-apis/)
+
+**Opublikowano:** 14 września 2026
+
+Natywne API TypeScript dodaje API mechanizmu sprawdzania i typów wymagane przez typescript-eslint i poprawia zgodność narzędzi.
+
 ### [Natywne API TypeScript dodaje warstwowe wirtualne systemy plików](./2026/typescript-native-api-adds-layered-vfs/)
 
 **Opublikowano:** 9 września 2026 r.

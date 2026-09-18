@@ -3,7 +3,7 @@ title: Nativní API TypeScriptu přidává vrstvené virtuální souborové syst
 description: Nativní API TypeScriptu dokáže aktualizovat snapshoty pomocí virtuálních souborových systémů v paměti nebo ve vrstvách, včetně přidávání, změn, odstraňování a záložního přístupu k hostitelskému systému.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

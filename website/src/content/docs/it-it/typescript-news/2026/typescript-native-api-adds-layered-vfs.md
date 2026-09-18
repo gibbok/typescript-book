@@ -3,7 +3,7 @@ title: L'API nativa di TypeScript aggiunge file system virtuali a livelli
 description: L'API nativa di TypeScript può aggiornare gli snapshot con file system virtuali in memoria o a livelli, includendo aggiunte, modifiche, rimozioni e fallback al file system host.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

@@ -3,7 +3,7 @@ title: API เนทีฟของ TypeScript เพิ่มระบบไฟ
 description: API เนทีฟของ TypeScript สามารถอัปเดต snapshot ด้วยระบบไฟล์เสมือนในหน่วยความจำหรือแบบเป็นชั้น รวมถึงการเพิ่ม แก้ไข ลบ และ fallback ไปยัง host
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

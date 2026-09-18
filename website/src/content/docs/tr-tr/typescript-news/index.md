@@ -9,6 +9,12 @@ Resmî TypeScript kaynaklarına dayanan kısa özetlerle önemli TypeScript sür
 
 ## Son haberler
 
+### [TypeScript yerel API'si typescript-eslint için gerekli API'leri ekliyor](./2026/typescript-native-api-adds-typescript-eslint-apis/)
+
+**Yayımlandı:** 14 Eylül 2026
+
+TypeScript yerel API'si, typescript-eslint tarafından istenen denetleyici ve tür API'lerini ekleyerek araç uyumluluğunu geliştiriyor.
+
 ### [TypeScript yerel API'si katmanlı sanal dosya sistemleri ekliyor](./2026/typescript-native-api-adds-layered-vfs/)
 
 **Yayımlandı:** 9 Eylül 2026

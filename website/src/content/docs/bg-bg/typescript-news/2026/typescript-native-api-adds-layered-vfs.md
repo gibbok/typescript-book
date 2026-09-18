@@ -3,7 +3,7 @@ title: Нативният API на TypeScript добавя слоести вир
 description: Нативният API на TypeScript може да обновява snapshot-и с виртуални файлови системи в паметта или на слоеве, включително добавяния, промени, премахвания и връщане към host файловата система.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

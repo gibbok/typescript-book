@@ -3,7 +3,7 @@ title: TypeScript 7 obnovuje diagnostiku konfigurace po změnách souborů
 description: Nativní jazyková služba nyní znovu zveřejňuje chyby v souborech tsconfig.json a jsconfig.json po změně sledovaných konfiguračních souborů.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 6
+    order: 7
 head:
     - tag: meta
       attrs:

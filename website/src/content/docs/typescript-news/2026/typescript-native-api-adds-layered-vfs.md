@@ -3,7 +3,7 @@ title: TypeScript native API adds layered virtual file systems
 description: The native TypeScript API can update snapshots with in-memory or layered virtual file systems, including additions, changes, removals, and host fallbacks.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

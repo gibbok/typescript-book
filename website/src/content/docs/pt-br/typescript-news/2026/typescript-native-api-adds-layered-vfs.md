@@ -3,7 +3,7 @@ title: API nativa do TypeScript adiciona sistemas de arquivos virtuais em camada
 description: A API nativa do TypeScript pode atualizar snapshots com sistemas de arquivos virtuais em memória ou em camadas, incluindo adições, alterações, remoções e fallback para o host.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

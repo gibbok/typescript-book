@@ -3,7 +3,7 @@ title: TypeScript 네이티브 API에 계층형 가상 파일 시스템 추가
 description: TypeScript 네이티브 API는 메모리 내 또는 계층형 가상 파일 시스템으로 스냅샷을 업데이트하고 파일 추가, 변경, 삭제 및 호스트 폴백을 표현할 수 있습니다.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

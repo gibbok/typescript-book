@@ -3,7 +3,7 @@ title: TypeScript 原生 API 新增分层虚拟文件系统
 description: TypeScript 原生 API 现在可以使用内存或分层虚拟文件系统更新快照，并表示文件的新增、修改、删除以及对宿主文件系统的回退。
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:
