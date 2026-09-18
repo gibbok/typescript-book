@@ -3,7 +3,7 @@ title: Oznámen kandidát na vydání TypeScriptu 7.0
 description: Kandidát na vydání TypeScriptu 7.0 představil nativní kompilátor, paralelní sestavování, změny kompatibility a rozšířenou podporu editorů.
 lastUpdated: 2026-06-18
 sidebar:
-    order: 10
+    order: 11
 head:
     - tag: meta
       attrs:
