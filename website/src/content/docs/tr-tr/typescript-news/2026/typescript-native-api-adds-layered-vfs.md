@@ -3,7 +3,7 @@ title: TypeScript yerel API'si katmanlı sanal dosya sistemleri ekliyor
 description: TypeScript yerel API'si, ekleme, değiştirme, kaldırma ve ana sisteme geri dönüş dahil olmak üzere bellek içi veya katmanlı sanal dosya sistemleriyle snapshot'ları güncelleyebilir.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:
