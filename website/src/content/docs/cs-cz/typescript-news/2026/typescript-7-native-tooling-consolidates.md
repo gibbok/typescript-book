@@ -3,7 +3,7 @@ title: Nativní nástroje TypeScriptu 7 se sjednocují
 description: Správci TypeScriptu upřesnili, že název tsgo se přestává používat, nativní kód se vrátí do hlavního repozitáře TypeScriptu a nativní rozšíření pro VS Code bude součástí distribuce.
 lastUpdated: 2026-07-27
 sidebar:
-    order: 7
+    order: 8
 head:
     - tag: meta
       attrs:

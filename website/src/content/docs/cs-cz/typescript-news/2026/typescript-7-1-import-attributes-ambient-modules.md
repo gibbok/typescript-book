@@ -3,7 +3,7 @@ title: TypeScript 7.1 přidává atributy importu do ambientních modulů
 description: TypeScript 7.1 dokáže přiřazovat deklarace ambientních modulů se vzorem podle atributů importu, což umožňuje typování modulů zohledňující atributy.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:
