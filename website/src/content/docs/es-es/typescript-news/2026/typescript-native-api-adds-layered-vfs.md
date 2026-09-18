@@ -3,7 +3,7 @@ title: La API nativa de TypeScript añade sistemas de archivos virtuales por cap
 description: La API nativa de TypeScript puede actualizar snapshots con sistemas de archivos virtuales en memoria o por capas, incluidos altas, cambios, eliminaciones y fallback al sistema host.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:

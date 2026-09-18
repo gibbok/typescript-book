@@ -3,7 +3,7 @@ title: TypeScript 7.1 añade atributos de importación a módulos ambient
 description: TypeScript 7.1 puede asociar declaraciones de módulos ambient con patrón mediante atributos de importación.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 2
+    order: 3
 head:
     - tag: meta
       attrs:
