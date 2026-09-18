@@ -3,7 +3,7 @@ title: Die native TypeScript-API erhält geschichtete virtuelle Dateisysteme
 description: Die native TypeScript-API kann Snapshots mit speicherinternen oder geschichteten virtuellen Dateisystemen aktualisieren, einschließlich Hinzufügen, Ändern, Entfernen und Fallback auf den Host.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:
