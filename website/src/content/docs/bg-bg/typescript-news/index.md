@@ -9,6 +9,12 @@ sidebar:
 
 ## Последни новини
 
+### [Нативният API на TypeScript добавя API, нужни на typescript-eslint](./2026/typescript-native-api-adds-typescript-eslint-apis/)
+
+**Публикувано:** 14 септември 2026 г.
+
+Нативният API на TypeScript добавя API за проверка и типове, поискани от typescript-eslint, и подобрява съвместимостта на инструментите.
+
 ### [Нативният API на TypeScript добавя слоести виртуални файлови системи](./2026/typescript-native-api-adds-layered-vfs/)
 
 **Публикувано:** 9 септември 2026 г.
