@@ -3,7 +3,7 @@ title: API TypeScript native bổ sung hệ thống tệp ảo phân lớp
 description: API TypeScript native có thể cập nhật snapshot bằng hệ thống tệp ảo trong bộ nhớ hoặc phân lớp, gồm thêm, thay đổi, xóa tệp và fallback về host.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 1
+    order: 2
 head:
     - tag: meta
       attrs:
