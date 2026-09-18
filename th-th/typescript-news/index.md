@@ -5,6 +5,12 @@
 
 ## ข่าวล่าสุด
 
+### [API แบบเนทีฟของ TypeScript เพิ่ม API ที่ typescript-eslint ต้องการ](./2026/typescript-native-api-adds-typescript-eslint-apis/)
+
+**เผยแพร่:** 14 กันยายน 2026
+
+API แบบเนทีฟของ TypeScript เพิ่ม API สำหรับตัวตรวจสอบและชนิดข้อมูลที่ typescript-eslint ร้องขอ ช่วยปรับปรุงความเข้ากันได้ของเครื่องมือ
+
 ### [API เนทีฟของ TypeScript เพิ่มระบบไฟล์เสมือนแบบเป็นชั้น](./2026/typescript-native-api-adds-layered-vfs/)
 
 **เผยแพร่:** 9 กันยายน 2026

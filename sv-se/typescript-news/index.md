@@ -5,6 +5,12 @@ Följ viktiga TypeScript-versioner och projektuppdateringar genom kortfattade sa
 
 ## Senaste nytt
 
+### [TypeScripts inbyggda API lägger till API:er som typescript-eslint behöver](./2026/typescript-native-api-adds-typescript-eslint-apis/)
+
+**Publicerad:** 14 september 2026
+
+TypeScripts inbyggda API lägger till checker- och typ-API:er som typescript-eslint efterfrågat och förbättrar verktygskompatibiliteten.
+
 ### [TypeScripts inbyggda API får virtuella filsystem i lager](./2026/typescript-native-api-adds-layered-vfs/)
 
 **Publicerad:** 9 september 2026

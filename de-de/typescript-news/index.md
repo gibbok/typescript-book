@@ -5,6 +5,12 @@ Verfolgen Sie wichtige TypeScript-Releases und Projektaktualisierungen anhand ko
 
 ## Neueste Nachrichten
 
+### [Native TypeScript-API ergänzt von typescript-eslint benötigte APIs](./2026/typescript-native-api-adds-typescript-eslint-apis/)
+
+**Veröffentlicht:** 14. September 2026
+
+Die native TypeScript-API ergänzt von typescript-eslint angeforderte Checker- und Typ-APIs und verbessert die Werkzeugkompatibilität.
+
 ### [Die native TypeScript-API erhält geschichtete virtuelle Dateisysteme](./2026/typescript-native-api-adds-layered-vfs/)
 
 **Veröffentlicht:** 9. September 2026

@@ -5,6 +5,12 @@
 
 ## 最新消息
 
+### [TypeScript 原生 API 新增 typescript-eslint 所需的 API](./2026/typescript-native-api-adds-typescript-eslint-apis/)
+
+**发布日期：** 2026 年 9 月 14 日
+
+TypeScript 原生 API 新增 typescript-eslint 请求的检查器和类型 API，改善工具集成兼容性。
+
 ### [TypeScript 原生 API 新增分层虚拟文件系统](./2026/typescript-native-api-adds-layered-vfs/)
 
 **发布日期：** 2026 年 9 月 9 日

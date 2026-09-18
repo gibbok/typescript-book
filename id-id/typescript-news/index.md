@@ -5,6 +5,12 @@ Ikuti rilis penting TypeScript dan pembaruan proyek melalui ringkasan singkat be
 
 ## Berita terbaru
 
+### [API native TypeScript menambahkan API yang dibutuhkan typescript-eslint](./2026/typescript-native-api-adds-typescript-eslint-apis/)
+
+**Dipublikasikan:** 14 September 2026
+
+API native TypeScript menambahkan API pemeriksa dan tipe yang diminta typescript-eslint, meningkatkan kompatibilitas integrasi alat.
+
 ### [API native TypeScript menambahkan sistem berkas virtual berlapis](./2026/typescript-native-api-adds-layered-vfs/)
 
 **Diterbitkan:** 9 September 2026

@@ -5,6 +5,12 @@
 
 ## أحدث الأخبار
 
+### [واجهة TypeScript الأصلية تضيف واجهات API يحتاجها typescript-eslint](./2026/typescript-native-api-adds-typescript-eslint-apis/)
+
+**تاريخ النشر:** 14 سبتمبر 2026
+
+تضيف واجهة TypeScript الأصلية واجهات API للفاحص والأنواع طلبها typescript-eslint، ما يحسن توافق الأدوات.
+
 ### [واجهة TypeScript الأصلية تضيف أنظمة ملفات افتراضية متعددة الطبقات](./2026/typescript-native-api-adds-layered-vfs/)
 
 **تاريخ النشر:** 9 سبتمبر 2026

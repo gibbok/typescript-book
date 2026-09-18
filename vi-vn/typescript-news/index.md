@@ -5,6 +5,12 @@ Theo dõi các bản phát hành và cập nhật quan trọng của TypeScript 
 
 ## Tin mới nhất
 
+### [API native của TypeScript bổ sung các API mà typescript-eslint cần](./2026/typescript-native-api-adds-typescript-eslint-apis/)
+
+**Xuất bản:** 14 tháng 9, 2026
+
+API native của TypeScript bổ sung các API về bộ kiểm tra và kiểu do typescript-eslint yêu cầu, cải thiện khả năng tương thích của công cụ.
+
 ### [API TypeScript native bổ sung hệ thống tệp ảo phân lớp](./2026/typescript-native-api-adds-layered-vfs/)
 
 **Đã xuất bản:** 9 tháng 9, 2026

@@ -5,6 +5,12 @@ Sledujte důležitá vydání TypeScriptu a aktualizace projektu prostřednictv�
 
 ## Nejnovější zprávy
 
+### [Nativní API TypeScriptu přidává API potřebná pro typescript-eslint](./2026/typescript-native-api-adds-typescript-eslint-apis/)
+
+**Publikováno:** 14. září 2026
+
+Nativní API TypeScriptu přidává API checkeru a typů požadovaná projektem typescript-eslint a zlepšuje kompatibilitu nástrojů.
+
 ### [Nativní API TypeScriptu přidává vrstvené virtuální souborové systémy](./2026/typescript-native-api-adds-layered-vfs/)
 
 **Zveřejněno:** 9. září 2026

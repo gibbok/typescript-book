@@ -5,6 +5,12 @@
 
 ## 최신 뉴스
 
+### [TypeScript 네이티브 API에 typescript-eslint가 필요한 API 추가](./2026/typescript-native-api-adds-typescript-eslint-apis/)
+
+**게시일:** 2026년 9월 14일
+
+TypeScript 네이티브 API에 typescript-eslint가 요청한 검사기 및 타입 API가 추가되어 도구 호환성이 향상됩니다.
+
 ### [TypeScript 네이티브 API에 계층형 가상 파일 시스템 추가](./2026/typescript-native-api-adds-layered-vfs/)
 
 **게시일:** 2026년 9월 9일
