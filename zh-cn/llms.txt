@@ -51,7 +51,7 @@
 - [目录](https://gibbok.github.io/typescript-book/zh-cn/book/table-of-contents/index.md): 目录
 - [模板联合类型](https://gibbok.github.io/typescript-book/zh-cn/book/template-union-types/index.md): 模板联合类型可用于合并和操作类型系统内的文本，例如：
 - [The Concise TypeScript Book](https://gibbok.github.io/typescript-book/zh-cn/book/the-concise-typescript-book/index.md): 《The Concise TypeScript Book》全面而简洁地概述了 TypeScript 的功能。它提供清晰的讲解，涵盖该语言最新版本的各个方面，从强大的类型系统到高级功能。
-- [never 类型缩小](https://gibbok.github.io/typescript-book/zh-cn/book/the-never-type/index.md): 当变量缩小为不能包含任何值的类型时，TypeScript 编译器将推断该变量必须属于该never类型。这是因为 never 类型代表永远无法生成的值。
+- [never 类型缩小](https://gibbok.github.io/typescript-book/zh-cn/book/the-never-type/index.md): 当变量缩小为不能包含任何值的类型时，TypeScript 编译器将推断该变量必须属于该 never 类型。这是因为 never 类型代表永远无法生成的值。
 - [翻译](https://gibbok.github.io/typescript-book/zh-cn/book/translations/index.md): 本书已被翻译成多种语言版本，包括：
 - [三斜杠指令](https://gibbok.github.io/typescript-book/zh-cn/book/triple-slash-directives/index.md): 三斜杠指令是特殊注释，为编译器提供有关如何处理文件的说明。这些指令以三个连续斜杠 (///) 开头，通常放置在 TypeScript 文件的顶部，对运行时行为没有影响。
 - [元组类型（匿名）](https://gibbok.github.io/typescript-book/zh-cn/book/tuple-type-anonymous/index.md): 元组类型是一种表示具有固定数量的元素及其相应类型的数组的类型。元组类型以固定顺序强制执行特定数量的元素及其各自的类型。当您想要表示具有特定类型的值的集合时，元组类型非常有用，其中数组中每个元素的位置都有特定的含义。
