@@ -560,7 +560,7 @@ yarn add typescript --dev
 
 确保提交生成的锁定文件，以确保每个团队成员使用相同版本的 TypeScript。
 
-要运行TypeScript编译器，可以使用以下命令
+要运行 TypeScript 编译器，可以使用以下命令
 
 ```shell
 npx tsc
@@ -1185,7 +1185,7 @@ const x: X = {
 
 #### 类型断言
 
-可以使用as关键字添加断言。这告诉编译器开发人员拥有有关类型的更多信息并消除可能发生的任何错误。
+可以使用 as 关键字添加断言。这告诉编译器开发人员拥有有关类型的更多信息并消除可能发生的任何错误。
 
 例如：
 
@@ -1299,7 +1299,7 @@ const fn = (options: Options) => undefined;
 fn({ c: 'c' } as Options); // 有效
 ```
 
-或者通过将unknown索引签名添加到弱类型：
+或者通过将 unknown 索引签名添加到弱类型：
 
 ```typescript
 type Options = {
@@ -1375,7 +1375,7 @@ let x = [1, 'x', 1, null]; // 类型推断为: (string | number | null)[]
 let x = [new RegExp('x'), new Date()]; // 类型推断为: (RegExp | Date)[]
 ```
 
-TypeScript 利用基于变量位置的"上下文类型"来推断类型。在下面的示例中，编译器知道它的e类型是MouseEvent，因为在lib.d.ts 文件中定义了click事件类型，该文件包含各种常见 JavaScript 构造和 DOM 的环境声明：
+TypeScript 利用基于变量位置的"上下文类型"来推断类型。在下面的示例中，编译器知道它的 e 类型是 MouseEvent，因为在 lib.d.ts 文件中定义了click事件类型，该文件包含各种常见 JavaScript 构造和 DOM 的环境声明：
 
 ```typescript
 window.addEventListener('click', function (e) {}); // e 的类型被推断为 MouseEvent
@@ -1392,7 +1392,7 @@ let y: 'y' | 'x' = 'y'; // y 类型是字面量类型的联合
 y = x; // 无效，字符串不可分配给类型 'x' | 'y'。
 ```
 
-TypeScript根据初始化期间提供的单个值（`x`），将 `string` 赋予给 `x`，这是一个扩展的示例。
+TypeScript 根据初始化期间提供的单个值（`x`），将 `string` 赋予给 `x`，这是一个扩展的示例。
 
 TypeScript 提供了控制加宽过程的方法，例如使用"const"。
 
@@ -1400,7 +1400,7 @@ TypeScript 提供了控制加宽过程的方法，例如使用"const"。
 
 在声明变量时使用 `const` 关键字会导致 TypeScript 中的类型推断范围更窄。
 
-For example:
+例如：
 
 ```typescript
 const x = 'x'; // TypeScript 将 'x' 推断为带有 'const'（不可变）的字符串字面量，但将其扩展为带有 'let'（可重新赋值）的 'string'。
@@ -1434,7 +1434,7 @@ function identity<const T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // 类型推断为: { a: "a"; b: "b"; }
 ```
 
-现在我们可以看到属性 `a` 和 `b` 被推断为const，因此 `a` 和 `b`被视为字符串文字而不仅仅是 `string` 类型。
+现在我们可以看到属性 `a` 和 `b` 被推断为 const，因此 `a` 和 `b`被视为字符串文字而不仅仅是 `string` 类型。
 
 #### 常量断言
 
@@ -1467,7 +1467,7 @@ const y = [1, 2, 3] as const; // 只读数组 [1, 2, 3]
 
 ### 显式类型注释
 
-我们可以具体地传递一个类型，在下面的示例中，属性x的类型是number：
+我们可以具体地传递一个类型，在下面的示例中，属性x的类型是 number：
 
 ```typescript
 const v = {
@@ -1859,14 +1859,14 @@ type O = 'a' | 'b' | 'c';
 
 字面量推断是 TypeScript 中的一项功能，允许根据变量或参数的值推断其类型。
 
-在下面的示例中，我们可以看到 TypeScript 认为x文字类型是因为该值以后不能随时更改，而y被推断为字符串，因为它以后可以随时修改。
+在下面的示例中，我们可以看到 TypeScript 认为 x 文字类型是因为该值以后不能随时更改，而y被推断为字符串，因为它以后可以随时修改。
 
 ```typescript
 const x = 'x'; // x 为字面量类型, 因为值不能改变
 let y = 'y'; // string, 我们能改变这个值
 ```
 
-在下面的示例中，我们可以看到 `o.x` 被推断为 `string`（而不是字面量的a），因为 TypeScript 认为该值可以在以后随时更改。
+在下面的示例中，我们可以看到 `o.x` 被推断为 `string`（而不是字面量的 a），因为 TypeScript 认为该值可以在以后随时更改。
 
 <!-- skip -->
 ```typescript
@@ -2291,7 +2291,7 @@ console.log(area(circle)); // 12.566370614359172
 
 ## never 类型缩小
 
-当变量缩小为不能包含任何值的类型时，TypeScript 编译器将推断该变量必须属于该never类型。这是因为 never 类型代表永远无法生成的值。
+当变量缩小为不能包含任何值的类型时，TypeScript 编译器将推断该变量必须属于该 never 类型。这是因为 never 类型代表永远无法生成的值。
 
 ```typescript
 const printValue = (val: string | number) => {
@@ -2588,7 +2588,7 @@ value = 7; // 有效
 
 在 TypeScript 中，未知类型表示未知类型的值。与允许任何类型值的 `any` 类型不同，`unknown` 需要在以特定方式使用它之前进行类型检查或断言，因此在未首先断言或缩小到更具体的类型的情况下，不允许对 `unknown` 进行任何操作 。
 
-`unknown` 类型只能分配给任何类型和未知类型本身，它是any 的类型安全替代方案。
+`unknown` 类型只能分配给任何类型和未知类型本身，它是 any 的类型安全替代方案。
 
 <!-- skip -->
 ```typescript
@@ -3149,7 +3149,7 @@ class Animal {
 }
 ```
 
-自动访问器被"脱糖"为私有get访问set器，在无法访问的属性上运行。
+自动访问器被"脱糖"为私有 get 访问 set 器，在无法访问的属性上运行。
 
 <!-- skip -->
 ```typescript
@@ -3820,7 +3820,7 @@ console.log(obj[key2]); // value 2
 
 是否可以通过组合、操作或转换现有类型来创建新类型。
 
-交集类型 ( &):
+交集类型 (&):
 
 允许您将多种类型组合成单一类型：
 
