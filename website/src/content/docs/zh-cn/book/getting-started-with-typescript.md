@@ -22,7 +22,7 @@ yarn add typescript --dev
 
 确保提交生成的锁定文件，以确保每个团队成员使用相同版本的 TypeScript。
 
-要运行TypeScript编译器，可以使用以下命令
+要运行 TypeScript 编译器，可以使用以下命令
 
 ```shell
 npx tsc
