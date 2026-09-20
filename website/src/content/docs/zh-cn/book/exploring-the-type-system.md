@@ -441,7 +441,7 @@ const x: X = {
 
 #### 类型断言
 
-可以使用as关键字添加断言。这告诉编译器开发人员拥有有关类型的更多信息并消除可能发生的任何错误。
+可以使用 as 关键字添加断言。这告诉编译器开发人员拥有有关类型的更多信息并消除可能发生的任何错误。
 
 例如：
 
@@ -555,7 +555,7 @@ const fn = (options: Options) => undefined;
 fn({ c: 'c' } as Options); // 有效
 ```
 
-或者通过将unknown索引签名添加到弱类型：
+或者通过将 unknown 索引签名添加到弱类型：
 
 ```typescript
 type Options = {
@@ -631,7 +631,7 @@ let x = [1, 'x', 1, null]; // 类型推断为: (string | number | null)[]
 let x = [new RegExp('x'), new Date()]; // 类型推断为: (RegExp | Date)[]
 ```
 
-TypeScript 利用基于变量位置的"上下文类型"来推断类型。在下面的示例中，编译器知道它的e类型是MouseEvent，因为在lib.d.ts 文件中定义了click事件类型，该文件包含各种常见 JavaScript 构造和 DOM 的环境声明：
+TypeScript 利用基于变量位置的"上下文类型"来推断类型。在下面的示例中，编译器知道它的 e 类型是 MouseEvent，因为在 lib.d.ts 文件中定义了click事件类型，该文件包含各种常见 JavaScript 构造和 DOM 的环境声明：
 
 ```typescript
 window.addEventListener('click', function (e) {}); // e 的类型被推断为 MouseEvent
@@ -648,7 +648,7 @@ let y: 'y' | 'x' = 'y'; // y 类型是字面量类型的联合
 y = x; // 无效，字符串不可分配给类型 'x' | 'y'。
 ```
 
-TypeScript根据初始化期间提供的单个值（`x`），将 `string` 赋予给 `x`，这是一个扩展的示例。
+TypeScript 根据初始化期间提供的单个值（`x`），将 `string` 赋予给 `x`，这是一个扩展的示例。
 
 TypeScript 提供了控制加宽过程的方法，例如使用"const"。
 
@@ -656,7 +656,7 @@ TypeScript 提供了控制加宽过程的方法，例如使用"const"。
 
 在声明变量时使用 `const` 关键字会导致 TypeScript 中的类型推断范围更窄。
 
-For example:
+例如：
 
 ```typescript
 const x = 'x'; // TypeScript 将 'x' 推断为带有 'const'（不可变）的字符串字面量，但将其扩展为带有 'let'（可重新赋值）的 'string'。
@@ -690,7 +690,7 @@ function identity<const T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // 类型推断为: { a: "a"; b: "b"; }
 ```
 
-现在我们可以看到属性 `a` 和 `b` 被推断为const，因此 `a` 和 `b`被视为字符串文字而不仅仅是 `string` 类型。
+现在我们可以看到属性 `a` 和 `b` 被推断为 const，因此 `a` 和 `b`被视为字符串文字而不仅仅是 `string` 类型。
 
 #### 常量断言
 
@@ -723,7 +723,7 @@ const y = [1, 2, 3] as const; // 只读数组 [1, 2, 3]
 
 ### 显式类型注释
 
-我们可以具体地传递一个类型，在下面的示例中，属性x的类型是number：
+我们可以具体地传递一个类型，在下面的示例中，属性x的类型是 number：
 
 ```typescript
 const v = {
