@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} validate content
 
 on:
   pull_request:
-    types: [ready_for_review, synchronize]
+    types: [opened, ready_for_review, synchronize]
 
 permissions:
   contents: read
@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   lint-and-compile-content:
-    if: github.event.pull_request.draft == false
+    if: github.event.pull_request.draft == false || github.event.action == 'opened'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -24,7 +24,7 @@ jobs:
       - name: Run compile script
         run: bash ${GITHUB_WORKSPACE}/.github/workflows/compile.sh
   verify-typescript-news:
-    if: github.event.pull_request.draft == false
+    if: github.event.pull_request.draft == false || github.event.action == 'opened'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -32,7 +32,7 @@ jobs:
       - name: Verify TypeScript news order and locale parity
         run: python3 .agents/skills/create-typescript-news/scripts/verify_news_order.py
   test-github-actions:
-    if: github.event.pull_request.draft == false
+    if: github.event.pull_request.draft == false || github.event.action == 'opened'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
