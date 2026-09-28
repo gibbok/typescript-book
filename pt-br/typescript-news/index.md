@@ -1,72 +1,10 @@
 ﻿# Notícias do TypeScript
 
 
+import NewsList from '../../../../components/NewsList.astro';
+
 Acompanhe lançamentos importantes e atualizações do projeto TypeScript por meio de resumos concisos baseados em fontes oficiais.
 
 ## Últimas notícias
 
-### [API nativa do TypeScript adiciona APIs necessárias ao typescript-eslint](./2026/typescript-native-api-adds-typescript-eslint-apis/)
-
-**Publicado:** 14 de setembro de 2026
-
-A API nativa do TypeScript adiciona APIs do verificador e de tipos solicitadas pelo typescript-eslint, melhorando a compatibilidade das integrações.
-
-### [API nativa do TypeScript adiciona sistemas de arquivos virtuais em camadas](./2026/typescript-native-api-adds-layered-vfs/)
-
-**Publicado:** 9 de setembro de 2026
-
-A API nativa do TypeScript agora pode atualizar snapshots com dados VFS em memória ou em camadas para adições, alterações, remoções e fallback ao host.
-
-### [TypeScript 7.1 adiciona atributos de importação a módulos ambient](./2026/typescript-7-1-import-attributes-ambient-modules/)
-
-**Publicado:** 1 de setembro de 2026
-
-Módulos ambient com padrão agora podem declarar tipos de atributos de importação, permitindo que o TypeScript escolha tipagens conforme os atributos do import.
-
-### [TypeScript 7 corrige a acessibilidade de setters em unions e intersections](./2026/typescript-7-fixes-setter-accessibility/)
-
-**Publicado:** 24 de agosto de 2026
-
-O verificador nativo agora respeita separadamente a acessibilidade de setters e getters em propriedades de unions e intersections.
-
-### [TypeScript 7 adiciona um escopo de busca para símbolos do espaço de trabalho](./2026/typescript-7-workspace-symbol-search-scope/)
-
-**Publicado:** 7 de agosto de 2026
-
-O serviço de linguagem nativo adiciona uma configuração que pode limitar a busca de símbolos do espaço de trabalho ao projeto atual, em vez de a todos os projetos abertos.
-
-### [TypeScript 7 melhora o uso de memória de Ir para Implementação](./2026/typescript-7-go-to-implementation-memory-fix/)
-
-**Publicado:** 30 de julho de 2026
-
-O serviço de linguagem nativo agora evita o crescimento quadrático da memória ao localizar muitas implementações em projetos grandes e com tipos complexos.
-
-### [TypeScript 7 atualiza os diagnósticos de configuração após alterações nos arquivos](./2026/typescript-7-refreshes-config-diagnostics/)
-
-**Publicado:** 30 de julho de 2026
-
-O serviço de linguagem nativo agora republica erros de `tsconfig.json` e `jsconfig.json` após alterações em arquivos de configuração monitorados.
-
-### [As ferramentas nativas do TypeScript 7 estão sendo consolidadas](./2026/typescript-7-native-tooling-consolidates/)
-
-**Publicado:** 27 de julho de 2026
-
-Os mantenedores esclareceram que o nome `tsgo` será abandonado, o código nativo voltará ao repositório principal do TypeScript e a extensão nativa do VS Code será incorporada.
-
-### [API nativa do TypeScript 7 adiciona métodos de emit](./2026/typescript-7-native-api-adds-emit-methods/)
-
-**Publicado:** 24 de julho de 2026
-
-A API nativa do TypeScript adiciona métodos de emit para sistema de arquivos e memória, cobrindo programas inteiros e saídas JavaScript ou de declarações selecionadas.
-
-### [TypeScript 7.0 já está disponível](./2026/typescript-7-released/)
-
-**Publicado:** 8 de julho de 2026
-
-O TypeScript 7 apresenta o novo compilador e serviço de linguagem baseados em Go, com builds e operações no editor consideravelmente mais rápidas.
-
-### [Release candidate do TypeScript 7.0 anunciada](./2026/typescript-7-release-candidate/)
-
-**Publicado:** 18 de junho de 2026
-
-A equipe do TypeScript lançou a prévia final do TypeScript 7, com verificação de tipos paralela, builds de projetos e suporte ampliado a editores.
+<NewsList locale="pt-br" limit={11} />

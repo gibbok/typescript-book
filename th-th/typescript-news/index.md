@@ -1,72 +1,10 @@
 ﻿# ข่าว TypeScript
 
 
+import NewsList from '../../../../components/NewsList.astro';
+
 ติดตามรุ่นสำคัญที่เผยแพร่และการอัปเดตโครงการ TypeScript ผ่านบทสรุปสั้น ๆ ที่อ้างอิงจากแหล่งข้อมูลอย่างเป็นทางการของ TypeScript
 
 ## ข่าวล่าสุด
 
-### [API แบบเนทีฟของ TypeScript เพิ่ม API ที่ typescript-eslint ต้องการ](./2026/typescript-native-api-adds-typescript-eslint-apis/)
-
-**เผยแพร่:** 14 กันยายน 2026
-
-API แบบเนทีฟของ TypeScript เพิ่ม API สำหรับตัวตรวจสอบและชนิดข้อมูลที่ typescript-eslint ร้องขอ ช่วยปรับปรุงความเข้ากันได้ของเครื่องมือ
-
-### [API เนทีฟของ TypeScript เพิ่มระบบไฟล์เสมือนแบบเป็นชั้น](./2026/typescript-native-api-adds-layered-vfs/)
-
-**เผยแพร่:** 9 กันยายน 2026
-
-API เนทีฟของ TypeScript สามารถอัปเดต snapshot ด้วยข้อมูล VFS ในหน่วยความจำหรือแบบเป็นชั้นสำหรับการเพิ่ม แก้ไข ลบ และ fallback ไปยัง host ได้แล้ว
-
-### [TypeScript 7.1 เพิ่ม import attributes ให้ ambient module](./2026/typescript-7-1-import-attributes-ambient-modules/)
-
-**เผยแพร่:** 1 กันยายน 2026
-
-ambient module แบบ pattern สามารถประกาศชนิดของ import attributes ได้แล้ว ทำให้ TypeScript เลือกชนิดตาม attributes ของ import
-
-### [TypeScript 7 แก้ไขการเข้าถึง setter ใน union และ intersection](./2026/typescript-7-fixes-setter-accessibility/)
-
-**เผยแพร่:** 24 สิงหาคม 2026
-
-ขณะนี้ตัวตรวจสอบแบบเนทีฟพิจารณาการเข้าถึง setter แยกจากการเข้าถึง getter สำหรับพร็อพเพอร์ตีของ union และ intersection
-
-### [TypeScript 7 เพิ่มขอบเขตการค้นหาสัญลักษณ์ใน workspace](./2026/typescript-7-workspace-symbol-search-scope/)
-
-**เผยแพร่:** 7 สิงหาคม 2026
-
-บริการภาษาแบบเนทีฟเพิ่มการตั้งค่าที่สามารถจำกัดการค้นหาสัญลักษณ์ใน workspace ให้อยู่เฉพาะโปรเจกต์ปัจจุบัน แทนที่จะค้นหาทุกโปรเจกต์ที่เปิดอยู่
-
-### [TypeScript 7 ปรับปรุงการใช้หน่วยความจำของ Go to Implementation](./2026/typescript-7-go-to-implementation-memory-fix/)
-
-**เผยแพร่:** 30 กรกฎาคม 2026
-
-ขณะนี้บริการภาษาแบบเนทีฟหลีกเลี่ยงการเพิ่มขึ้นของหน่วยความจำแบบกำลังสองเมื่อค้นหา implementation จำนวนมากในโปรเจกต์ขนาดใหญ่ที่มีชนิดข้อมูลซ้อนลึก
-
-### [TypeScript 7 รีเฟรช diagnostics ของการกำหนดค่าหลังไฟล์เปลี่ยนแปลง](./2026/typescript-7-refreshes-config-diagnostics/)
-
-**เผยแพร่:** 30 กรกฎาคม 2026
-
-ขณะนี้บริการภาษาแบบเนทีฟเผยแพร่ข้อผิดพลาดของ `tsconfig.json` และ `jsconfig.json` อีกครั้งหลังไฟล์การกำหนดค่าที่เฝ้าดูมีการเปลี่ยนแปลง
-
-### [เครื่องมือแบบเนทีฟของ TypeScript 7 กำลังถูกรวมเข้าด้วยกัน](./2026/typescript-7-native-tooling-consolidates/)
-
-**เผยแพร่:** 27 กรกฎาคม 2026
-
-ผู้ดูแลชี้แจงว่าจะเลิกใช้ชื่อ `tsgo` ฐานโค้ดแบบเนทีฟจะกลับไปยัง repository หลักของ TypeScript และส่วนขยาย VS Code แบบเนทีฟจะถูกรวมไว้ในแพ็กเกจ
-
-### [API แบบเนทีฟของ TypeScript 7 เพิ่มเมธอด emit](./2026/typescript-7-native-api-adds-emit-methods/)
-
-**เผยแพร่:** 24 กรกฎาคม 2026
-
-API แบบเนทีฟของ TypeScript เพิ่มเมธอด emit ไปยังระบบไฟล์และในหน่วยความจำสำหรับทั้งโปรแกรม รวมถึงเอาต์พุต JavaScript หรือ declaration ที่เลือก
-
-### [TypeScript 7.0 พร้อมใช้งานแล้ว](./2026/typescript-7-released/)
-
-**เผยแพร่:** 8 กรกฎาคม 2026
-
-TypeScript 7 เปิดตัวคอมไพเลอร์และบริการภาษาแบบใหม่ที่พัฒนาด้วย Go ซึ่งช่วยให้การ build และการทำงานใน editor เร็วขึ้นอย่างมาก
-
-### [ประกาศ TypeScript 7.0 release candidate](./2026/typescript-7-release-candidate/)
-
-**เผยแพร่:** 18 มิถุนายน 2026
-
-ทีม TypeScript เปิดตัวรุ่นตัวอย่างสุดท้ายของ TypeScript 7 ซึ่งรวมถึงการตรวจสอบชนิดแบบขนาน การ build โปรเจกต์ และการรองรับ editor ที่กว้างขึ้น
+<NewsList locale="th-th" limit={11} />
