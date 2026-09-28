@@ -1,18 +1,29 @@
+import { readdirSync, readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 
-const expectedEnglishArticleSlugs = [
-	'typescript-native-api-adds-typescript-eslint-apis',
-	'typescript-native-api-adds-layered-vfs',
-	'typescript-7-1-import-attributes-ambient-modules',
-	'typescript-7-fixes-setter-accessibility',
-	'typescript-7-workspace-symbol-search-scope',
-	'typescript-7-go-to-implementation-memory-fix',
-	'typescript-7-refreshes-config-diagnostics',
-	'typescript-7-native-tooling-consolidates',
-	'typescript-7-native-api-adds-emit-methods',
-	'typescript-7-released',
-	'typescript-7-release-candidate',
-];
+// Read source metadata independently of the rendering helper so new articles
+// and publication years do not require updating a second, hand-maintained list.
+const newsDirectory = new URL('../src/content/docs/typescript-news/', import.meta.url);
+const expectedYears = readdirSync(newsDirectory, { withFileTypes: true })
+	.filter((entry) => entry.isDirectory() && /^\d{4}$/.test(entry.name))
+	.map((entry) => entry.name)
+	.filter((year) => readdirSync(new URL(year + '/', newsDirectory))
+		.some((name) => /\.(md|mdx)$/.test(name) && !/^index\.(md|mdx)$/.test(name)))
+	.sort((a, b) => Number(b) - Number(a));
+const expectedArticles = expectedYears.flatMap((year) =>
+	readdirSync(new URL(year + '/', newsDirectory))
+		.filter((name) => /\.(md|mdx)$/.test(name) && !/^index\.(md|mdx)$/.test(name))
+		.map((name) => {
+			const source = readFileSync(new URL(year + '/' + name, newsDirectory), 'utf8');
+			const date = source.match(/property:\s*article:published_time\s+content:\s*['"]?(\d{4}-\d{2}-\d{2})/)?.[1];
+			if (!date) throw new Error('Missing publication date: ' + year + '/' + name);
+			return { year, slug: name.replace(/\.(md|mdx)$/, ''), date };
+		})
+).sort((a, b) => a.date !== b.date ? (a.date < b.date ? 1 : -1) :
+	(a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0));
+const expectedEnglishArticleSlugs = expectedArticles
+	.filter(({ year }) => year === '2026')
+	.map(({ slug }) => slug);
 
 test.describe('TypeScript news archives', () => {
 	test('shows only year links and lists English articles newest first', async ({ page }) => {
@@ -26,8 +37,7 @@ test.describe('TypeScript news archives', () => {
 		const sidebarNewsLinks = page.locator(
 			'#starlight__sidebar a[href*="/typescript-news/"]'
 		);
-		await expect(sidebarNewsLinks).toHaveCount(1);
-		await expect(sidebarNewsLinks.first()).toHaveText('2026');
+		await expect(sidebarNewsLinks).toHaveText(expectedYears);
 		await expect(
 			page.locator('#starlight__sidebar summary').filter({ hasText: 'TypeScript News' }),
 		).toBeVisible();
@@ -47,10 +57,12 @@ test.describe('TypeScript news archives', () => {
 		const landingResponse = await page.goto('typescript-news/');
 		expect(landingResponse?.ok()).toBe(true);
 		await expect(page.getByRole('heading', { level: 1, name: 'TypeScript News' })).toBeVisible();
-		await expect(page.locator('main .news-list a')).toHaveCount(11);
-		await expect(page.locator('main .news-list a').first()).toContainText(
-			'TypeScript native API adds APIs needed by typescript-eslint',
+		const latestPaths = await page.locator('main .news-list a').evaluateAll((links) =>
+			links.map((link) => new URL(link.getAttribute('href')!, location.href).pathname),
 		);
+		expect(latestPaths).toEqual(expectedArticles.slice(0, 11).map(
+			({ year, slug }) => '/typescript-book/typescript-news/' + year + '/' + slug + '/',
+		));
 
 		const articleResponse = await page.goto(
 			'typescript-news/2026/typescript-7-released/',
@@ -97,14 +109,11 @@ test.describe('TypeScript news archives', () => {
 			page.getByRole('heading', { level: 1, name: 'أخبار TypeScript — 2026' }),
 		).toBeVisible();
 
-		const firstArticle = page.locator('main .news-list a').first();
-		await expect(firstArticle).toContainText('واجهة TypeScript الأصلية');
 		const localizedPaths = await page.locator('main .news-list a').evaluateAll((links) =>
 			links.map((link) => new URL(link.getAttribute('href')!, location.href).pathname),
 		);
-		expect(localizedPaths).toHaveLength(11);
-		for (const pathname of localizedPaths) {
-			expect(pathname).toMatch(/^\/typescript-book\/ar\/typescript-news\/2026\//);
-		}
+		expect(localizedPaths).toEqual(expectedEnglishArticleSlugs.map(
+			(slug) => '/typescript-book/ar/typescript-news/2026/' + slug + '/',
+		));
 	});
 });

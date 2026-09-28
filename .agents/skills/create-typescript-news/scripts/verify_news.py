@@ -82,12 +82,17 @@ def load_articles(news_dir: Path) -> dict[str, Article]:
     if not news_dir.is_dir():
         return articles
 
-    for path in sorted(news_dir.rglob("*.md")):
+    for path in sorted(news_dir.rglob("*")):
+        if not path.is_file() or path.suffix not in {".md", ".mdx"}:
+            continue
         relative = path.relative_to(news_dir)
-        if relative == Path("index.md"):
+        if path.stem == "index" and (
+            len(relative.parts) == 1
+            or (len(relative.parts) == 2 and re.fullmatch(r"\d{4}", relative.parts[0]))
+        ):
             continue
         if len(relative.parts) != 2 or not re.fullmatch(r"\d{4}", relative.parts[0]):
-            raise ValueError(f"{path}: news articles must use YYYY/article-slug.md paths")
+            raise ValueError(f"{path}: news articles must use YYYY/article-slug.md or .mdx paths")
         article = parse_article(path)
         year = int(relative.parts[0])
         if article.published.year != year:

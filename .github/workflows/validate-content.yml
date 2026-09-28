@@ -31,6 +31,8 @@ jobs:
       - uses: actions/checkout@v7
       - name: Test TypeScript news archive ordering
         run: npm --prefix website run test:news
+      - name: Test TypeScript news validation
+        run: python3 -m unittest discover -s .agents/skills/create-typescript-news/scripts -p 'test_*.py'
       - name: Verify TypeScript news archives and locale parity
         run: python3 .agents/skills/create-typescript-news/scripts/verify_news.py
   test-github-actions:
