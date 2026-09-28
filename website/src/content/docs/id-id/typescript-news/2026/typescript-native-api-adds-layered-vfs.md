@@ -3,7 +3,7 @@ title: API native TypeScript menambahkan sistem berkas virtual berlapis
 description: API native TypeScript dapat memperbarui snapshot dengan sistem berkas virtual di memori atau berlapis, termasuk penambahan, perubahan, penghapusan, dan fallback ke host.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 2
+    hidden: true
 head:
     - tag: meta
       attrs:

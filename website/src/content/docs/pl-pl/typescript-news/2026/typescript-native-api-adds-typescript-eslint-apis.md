@@ -3,7 +3,7 @@ title: Natywne API TypeScript dodaje API potrzebne typescript-eslint
 description: Natywne API TypeScript dodaje API mechanizmu sprawdzania i typów potrzebne typescript-eslint, zmniejszając luki zgodności.
 lastUpdated: 2026-09-14
 sidebar:
-    order: 1
+    hidden: true
 head:
     - tag: meta
       attrs:

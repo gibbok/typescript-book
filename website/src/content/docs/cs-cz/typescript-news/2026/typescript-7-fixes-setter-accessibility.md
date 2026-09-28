@@ -3,7 +3,7 @@ title: TypeScript 7 opravuje přístupnost setterů v uniích a průnicích
 description: Nativní kontrola typů nyní u vlastností unií a průniků respektuje přístupnost setterů odděleně od přístupnosti getterů.
 lastUpdated: 2026-08-24
 sidebar:
-    order: 4
+    hidden: true
 head:
     - tag: meta
       attrs:

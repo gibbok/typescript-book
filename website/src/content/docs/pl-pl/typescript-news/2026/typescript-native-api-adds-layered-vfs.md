@@ -3,7 +3,7 @@ title: Natywne API TypeScript dodaje warstwowe wirtualne systemy plików
 description: Natywne API TypeScript może aktualizować snapshoty za pomocą wirtualnych systemów plików w pamięci lub warstwowych, obsługując dodawanie, zmiany, usuwanie i fallback do hosta.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 2
+    hidden: true
 head:
     - tag: meta
       attrs:

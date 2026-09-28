@@ -3,7 +3,7 @@ title: TypeScript 7.1 добавляет import attributes в ambient-модул
 description: TypeScript 7.1 может сопоставлять шаблонные объявления ambient-модулей по import attributes.
 lastUpdated: 2026-09-01
 sidebar:
-    order: 3
+    hidden: true
 head:
     - tag: meta
       attrs:

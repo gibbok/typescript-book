@@ -3,7 +3,7 @@ title: Tooling native TypeScript 7 sedang dikonsolidasikan
 description: Para pengelola TypeScript menjelaskan bahwa nama tsgo akan dihentikan, codebase native akan kembali ke repositori utama TypeScript, dan ekstensi VS Code native akan dibundel.
 lastUpdated: 2026-07-27
 sidebar:
-    order: 8
+    hidden: true
 head:
     - tag: meta
       attrs:

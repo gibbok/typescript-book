@@ -29,8 +29,10 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
-      - name: Verify TypeScript news order and locale parity
-        run: python3 .agents/skills/create-typescript-news/scripts/verify_news_order.py
+      - name: Test TypeScript news archive ordering
+        run: npm --prefix website run test:news
+      - name: Verify TypeScript news archives and locale parity
+        run: python3 .agents/skills/create-typescript-news/scripts/verify_news.py
   test-github-actions:
     if: github.event.pull_request.draft == false || github.event.action == 'opened'
     runs-on: ubuntu-latest

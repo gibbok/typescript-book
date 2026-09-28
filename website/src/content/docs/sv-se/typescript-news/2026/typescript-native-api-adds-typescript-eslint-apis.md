@@ -3,7 +3,7 @@ title: TypeScripts inbyggda API lägger till API:er som typescript-eslint behöv
 description: TypeScripts inbyggda API lägger till checker- och typ-API:er som typescript-eslint behöver och minskar kompatibilitetsluckor.
 lastUpdated: 2026-09-14
 sidebar:
-    order: 1
+    hidden: true
 head:
     - tag: meta
       attrs:

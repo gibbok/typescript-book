@@ -3,7 +3,7 @@ title: TypeScript 原生 API 新增 typescript-eslint 所需的 API
 description: TypeScript 原生 API 新增 typescript-eslint 所需的检查器和类型 API，减少工具集成中的兼容性缺口。
 lastUpdated: 2026-09-14
 sidebar:
-    order: 1
+    hidden: true
 head:
     - tag: meta
       attrs:

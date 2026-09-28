@@ -3,7 +3,7 @@ title: Nativní API TypeScriptu 7 přidává metody pro generování výstupu
 description: Nativní API TypeScriptu přidává metody pro generování výstupu do souborového systému a do paměti pro celé programy i vybrané výstupy JavaScriptu nebo deklarací.
 lastUpdated: 2026-07-24
 sidebar:
-    order: 9
+    hidden: true
 head:
     - tag: meta
       attrs:

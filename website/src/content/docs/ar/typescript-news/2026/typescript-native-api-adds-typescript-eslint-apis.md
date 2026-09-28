@@ -3,7 +3,7 @@ title: واجهة TypeScript الأصلية تضيف واجهات API يحتاج
 description: تضيف واجهة TypeScript الأصلية واجهات API للفاحص والأنواع يحتاجها typescript-eslint، ما يقلل فجوات التوافق بين الأدوات.
 lastUpdated: 2026-09-14
 sidebar:
-    order: 1
+    hidden: true
 head:
     - tag: meta
       attrs:

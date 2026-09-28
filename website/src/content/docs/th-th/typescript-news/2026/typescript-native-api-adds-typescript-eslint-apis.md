@@ -3,7 +3,7 @@ title: API แบบเนทีฟของ TypeScript เพิ่ม API ท�
 description: API แบบเนทีฟของ TypeScript เพิ่ม API สำหรับตัวตรวจสอบและชนิดข้อมูลที่ typescript-eslint ต้องการ ลดช่องว่างด้านความเข้ากันได้ของเครื่องมือ
 lastUpdated: 2026-09-14
 sidebar:
-    order: 1
+    hidden: true
 head:
     - tag: meta
       attrs:

@@ -1,6 +1,41 @@
 import { defineConfig } from 'astro/config';
+import { readdirSync, readFileSync } from 'node:fs';
+import sitemap from '@astrojs/sitemap';
 import starlight from '@astrojs/starlight';
 import { defaultLocale, locales } from './src/config/locales.ts';
+import { sortNewsYears } from './src/lib/news-archive.js';
+
+const newsDirectory = new URL('./src/content/docs/typescript-news/', import.meta.url);
+const newsYears = sortNewsYears(
+	readdirSync(newsDirectory, { withFileTypes: true })
+		.filter(
+			(entry) =>
+				entry.isDirectory() &&
+				/^\d{4}$/.test(entry.name) &&
+				readdirSync(new URL(`${entry.name}/`, newsDirectory), { withFileTypes: true }).some(
+					(file) =>
+						file.isFile() &&
+						/\.(?:md|mdx)$/.test(file.name) &&
+						file.name !== 'index.md' &&
+						file.name !== 'index.mdx'
+				)
+		)
+		.map((entry) => entry.name)
+);
+
+const newsSectionTranslations = Object.fromEntries(
+	Object.entries(locales).map(([locale, { lang }]) => {
+		const localePrefix = locale === 'root' ? '' : `${locale}/`;
+		const indexUrl = new URL(
+			`./src/content/docs/${localePrefix}typescript-news/index.mdx`,
+			import.meta.url
+		);
+		const frontmatter = readFileSync(indexUrl, 'utf8').split('---', 3)[1] ?? '';
+		const rawTitle = frontmatter.match(/^title:\s*(.*?)\s*$/m)?.[1] ?? 'TypeScript News';
+		const title = rawTitle.replace(/^(["'])(.*)\1$/, '$2');
+		return [lang, title];
+	})
+);
 
 // https://astro.build/config
 export default defineConfig({
@@ -145,9 +180,15 @@ gtag('config', 'G-SR2LV8LB90');
         },
         {
           label: 'TypeScript News',
-          autogenerate: { directory: 'typescript-news', collapsed: true },
+          translations: newsSectionTranslations,
+          collapsed: true,
+          items: newsYears.map((year) => ({
+            label: year,
+            link: `typescript-news/${year}/`,
+          })),
         },
       ],
     }),
+    sitemap(),
   ],
 });

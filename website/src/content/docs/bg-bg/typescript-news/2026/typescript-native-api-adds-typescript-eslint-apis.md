@@ -3,7 +3,7 @@ title: Нативният API на TypeScript добавя API, нужни на 
 description: Нативният API на TypeScript добавя API за проверка и типове, нужни на typescript-eslint, и намалява пропуските в съвместимостта.
 lastUpdated: 2026-09-14
 sidebar:
-    order: 1
+    hidden: true
 head:
     - tag: meta
       attrs:

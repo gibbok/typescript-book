@@ -3,7 +3,7 @@ title: Нативный API TypeScript добавляет API, необходи�
 description: Нативный API TypeScript добавляет API проверщика и типов, необходимые typescript-eslint, сокращая пробелы совместимости инструментов.
 lastUpdated: 2026-09-14
 sidebar:
-    order: 1
+    hidden: true
 head:
     - tag: meta
       attrs:

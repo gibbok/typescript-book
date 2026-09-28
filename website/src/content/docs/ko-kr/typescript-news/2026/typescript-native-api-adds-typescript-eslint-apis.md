@@ -3,7 +3,7 @@ title: TypeScript 네이티브 API에 typescript-eslint가 필요한 API 추가
 description: TypeScript 네이티브 API에 typescript-eslint가 필요한 검사기 및 타입 API가 추가되어 도구 호환성 차이가 줄어듭니다.
 lastUpdated: 2026-09-14
 sidebar:
-    order: 1
+    hidden: true
 head:
     - tag: meta
       attrs:
