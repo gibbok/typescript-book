@@ -3,7 +3,7 @@ title: TypeScript 7 přidává rozsah vyhledávání symbolů v pracovním prost
 description: Nativní jazyková služba přidává nastavení, které dokáže omezit vyhledávání symbolů v pracovním prostoru na aktuální projekt.
 lastUpdated: 2026-08-07
 sidebar:
-    order: 5
+    hidden: true
 head:
     - tag: meta
       attrs:

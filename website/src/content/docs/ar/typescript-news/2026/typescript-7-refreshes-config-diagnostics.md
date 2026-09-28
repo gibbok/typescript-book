@@ -3,7 +3,7 @@ title: يحدّث TypeScript 7 تشخيصات الإعداد بعد تغييرا
 description: تعيد خدمة اللغة الأصلية الآن نشر أخطاء tsconfig.json وjsconfig.json بعد تغيير ملفات الإعداد المراقبة.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 7
+    hidden: true
 head:
     - tag: meta
       attrs:

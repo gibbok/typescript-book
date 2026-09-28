@@ -3,7 +3,7 @@ title: TypeScript 7 zlepšuje využití paměti funkce Go to Implementation
 description: Oprava nativní jazykové služby zabraňuje kvadratickému růstu spotřeby paměti při hledání implementací ve velkých projektech s hluboce vnořenými typy.
 lastUpdated: 2026-07-30
 sidebar:
-    order: 6
+    hidden: true
 head:
     - tag: meta
       attrs:

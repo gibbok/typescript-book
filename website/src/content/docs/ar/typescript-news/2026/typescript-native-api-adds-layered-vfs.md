@@ -3,7 +3,7 @@ title: واجهة TypeScript الأصلية تضيف أنظمة ملفات اف�
 description: يمكن لواجهة TypeScript الأصلية تحديث اللقطات باستخدام أنظمة ملفات افتراضية في الذاكرة أو متعددة الطبقات، مع الإضافة والتعديل والحذف والرجوع إلى نظام المضيف.
 lastUpdated: 2026-09-09
 sidebar:
-    order: 2
+    hidden: true
 head:
     - tag: meta
       attrs:

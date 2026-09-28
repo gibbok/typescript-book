@@ -3,7 +3,7 @@ title: Native TypeScript-API ergänzt von typescript-eslint benötigte APIs
 description: Die native TypeScript-API ergänzt Checker- und Typ-APIs, die typescript-eslint benötigt, und reduziert Kompatibilitätslücken.
 lastUpdated: 2026-09-14
 sidebar:
-    order: 1
+    hidden: true
 head:
     - tag: meta
       attrs:

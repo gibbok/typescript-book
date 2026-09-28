@@ -3,7 +3,7 @@ title: Nativní API TypeScriptu přidává API potřebná pro typescript-eslint
 description: Nativní API TypeScriptu přidává API checkeru a typů potřebná pro typescript-eslint a zmenšuje mezery v kompatibilitě nástrojů.
 lastUpdated: 2026-09-14
 sidebar:
-    order: 1
+    hidden: true
 head:
     - tag: meta
       attrs:

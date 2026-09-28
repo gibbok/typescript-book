@@ -3,7 +3,7 @@ title: TypeScript ネイティブ API に typescript-eslint が必要とする A
 description: TypeScript ネイティブ API に typescript-eslint が必要とするチェッカーおよび型 API が追加され、ツール連携の互換性が向上します。
 lastUpdated: 2026-09-14
 sidebar:
-    order: 1
+    hidden: true
 head:
     - tag: meta
       attrs:

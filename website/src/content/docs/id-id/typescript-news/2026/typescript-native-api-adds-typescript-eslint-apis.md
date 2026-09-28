@@ -3,7 +3,7 @@ title: API native TypeScript menambahkan API yang dibutuhkan typescript-eslint
 description: API native TypeScript menambahkan API pemeriksa dan tipe yang dibutuhkan typescript-eslint, mengurangi kesenjangan kompatibilitas alat.
 lastUpdated: 2026-09-14
 sidebar:
-    order: 1
+    hidden: true
 head:
     - tag: meta
       attrs:

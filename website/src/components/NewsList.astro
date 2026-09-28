@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import { locales } from '../config/locales.ts';
+import { getNewsArticles } from '../lib/news-archive.js';
+
+interface Props {
+	locale: string;
+	year?: number;
+	limit?: number;
+}
+
+const { locale, year, limit } = Astro.props;
+const lang = locales[locale as keyof typeof locales]?.lang ?? 'en';
+const allArticles = getNewsArticles(await getCollection('docs'), locale, year);
+const articles = limit === undefined ? allArticles : allArticles.slice(0, limit);
+const formatDate = (value: string) =>
+	new Intl.DateTimeFormat(lang, {
+		day: 'numeric',
+		month: 'long',
+		timeZone: 'UTC',
+		year: 'numeric',
+	}).format(new Date(`${value}T00:00:00Z`));
+---
+
+<ul class="news-list">
+	{articles.map((article) => (
+		<li>
+			<p><strong><a href={`./${year === undefined ? article.relativePath : article.slug}/`}>{article.title}</a></strong></p>
+			<p><time datetime={article.publishedDate}>{formatDate(article.publishedDate)}</time></p>
+			{article.description && <p>{article.description}</p>}
+		</li>
+	))}
+</ul>
+
+<style>
+	.news-list li + li {
+		margin-block-start: 1.5rem;
+	}
+
+	.news-list p {
+		margin-block: 0.35rem;
+	}
+</style>

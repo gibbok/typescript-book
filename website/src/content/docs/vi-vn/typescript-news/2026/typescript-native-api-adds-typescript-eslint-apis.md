@@ -3,7 +3,7 @@ title: API native của TypeScript bổ sung các API mà typescript-eslint cầ
 description: API native của TypeScript bổ sung các API về bộ kiểm tra và kiểu mà typescript-eslint cần, giảm khoảng trống tương thích cho công cụ.
 lastUpdated: 2026-09-14
 sidebar:
-    order: 1
+    hidden: true
 head:
     - tag: meta
       attrs:

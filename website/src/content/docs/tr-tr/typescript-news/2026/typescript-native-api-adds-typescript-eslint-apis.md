@@ -3,7 +3,7 @@ title: TypeScript yerel API'si typescript-eslint için gerekli API'leri ekliyor
 description: TypeScript yerel API'si, typescript-eslint için gereken denetleyici ve tür API'lerini ekleyerek araç uyumluluğu boşluklarını azaltıyor.
 lastUpdated: 2026-09-14
 sidebar:
-    order: 1
+    hidden: true
 head:
     - tag: meta
       attrs:
