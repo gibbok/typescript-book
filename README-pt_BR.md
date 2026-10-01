@@ -746,7 +746,7 @@ Durante a migração, evite a refatoração de código e concentre-se apenas em 
 
 O quinto passo é habilitar "noImplicitAny", o que exigirá que todos os tipos sejam conhecidos e definidos, proporcionando uma melhor experiência com TypeScript no projeto.
 
-Durante a migração, você pode usar a diretiva `@ts-check`, que habilita a verificação de tipos do TypeScript em um arquivo JavaScript. Esta diretiva fornece uma versão flexível de verificação de tipos e pode ser usada inicialmente para identificar problemas em arquivos JavaScript. Quando o `@ts-check` é incluído em um arquivo, o TypeScript tentará deduzir definições usando comentários no estilo JSDoc. No entanto, considere usar anotações JSDoc apenas em um estágio muito inicial da migração.
+Durante a migração, você pode usar a diretiva `@ts-check`, que habilita a verificação de tipos do TypeScript em um arquivo JavaScript. Esta diretiva fornece uma verificação de tipos menos rigorosa e pode ser usada inicialmente para identificar problemas em arquivos JavaScript. Quando o `@ts-check` é incluído em um arquivo, o TypeScript tentará deduzir definições usando comentários no estilo JSDoc. No entanto, considere usar anotações JSDoc apenas em um estágio muito inicial da migração.
 
 Considere manter o valor padrão de `noEmitOnError` no seu tsconfig.json como false. Isso permitirá gerar o código-fonte JavaScript mesmo se erros forem relatados.
 
@@ -1041,7 +1041,7 @@ f = 1; // Inválido, nada é atribuível a never
 
 let g: void;
 let g1: any;
-g = 1; // Inválido, void não é atribuível a nada, exceto any, nem nada é atribuível a ele
+g = 1; // Inválido, void não é atribuível a nada nem aceita atribuições de nada, com exceção de any
 g = g1; // Válido
 ```
 
@@ -1182,7 +1182,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Erro: O objeto literal só pode especificar propriedades conhecidas
+    b: 'b', // Erro: O literal de objeto só pode especificar propriedades conhecidas
 };
 ```
 
@@ -1266,7 +1266,7 @@ type X = {
 };
 const y = { a: 'a', b: 'b' };
 const x: X = y; // Válido por causa da tipagem estrutural
-const w: X = { a: 'a', b: 'b' }; // Inválido por causa da verificação de excesso de propriedades
+const w: X = { a: 'a', b: 'b' }; // Inválido por causa da verificação de propriedades excedentes
 ```
 
 ### Tipos Fracos (Weak Types)
@@ -1470,7 +1470,7 @@ Isso pode ser particularmente útil ao definir o tipo para uma tupla:
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tupla de readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // Tupla do tipo readonly [1, 2, 3]
 ```
 
 ### Anotação de Tipo Explícita
@@ -1946,7 +1946,7 @@ No TypeScript, um enum numérico é um enum em que cada constante recebe um valo
 
 ```typescript
 enum Size {
-    Small, // o valor começa de 0
+    Small, // o valor começa em 0
     Medium,
     Large,
 }
@@ -2041,7 +2041,7 @@ console.log(Grade[myGrade]); // A
 console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
-console.log(failGrade); // Erro
+console.log(failGrade); // Saída: fail
 console.log(Grade[failGrade]); // O elemento tem implicitamente o tipo 'any' porque a expressão de índice não é do tipo 'number'.
 ```
 
@@ -2060,7 +2060,7 @@ enum Color {
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // geração 6 em tempo de compilação
+console.log(Color.Blue); // 6 gerado em tempo de compilação
 ```
 
 ```typescript
@@ -2208,7 +2208,7 @@ if (typeof value === 'number') {
 
 A análise de fluxo de controle (Control Flow Analysis) no TypeScript é uma forma de analisar estaticamente o fluxo do código para inferir os tipos das variáveis, permitindo que o compilador estreite os tipos dessas variáveis conforme necessário, com base nos resultados da análise.
 
-Antes do TypeScript 4.4, a análise de fluxo de código só era aplicada ao código dentro de uma instrução `if`, mas a partir do TypeScript 4.4, ela também pode ser aplicada a expressões condicionais e acessos a propriedades discriminantes referenciados indiretamente por meio de variáveis `const`.
+Antes do TypeScript 4.4, a análise de fluxo de controle só era aplicada ao código dentro de uma instrução `if`, mas a partir do TypeScript 4.4, ela também pode ser aplicada a expressões condicionais e acessos a propriedades discriminantes referenciados indiretamente por meio de variáveis `const`.
 
 Por exemplo:
 
@@ -2521,7 +2521,7 @@ Os modificadores de tipos mapeados no TypeScript permitem a transformação de p
 Exemplos:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Todas as propriedades marcadas como somente leitura
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Todas as propriedades marcadas como somente de leitura
 
 type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Todas as propriedades marcadas como mutáveis
 
@@ -2754,13 +2754,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Tipos de União e Interseção
 
 ```typescript
-type MyType = string | number; // Tipo União (Union type)
+type MyType = string | number; // Tipo de união (Union type)
 let myUnion: MyType = 'hello'; // Pode ser uma string
 myUnion = 123; // Ou um número
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Tipo Interseção (Intersection type)
+type CombinedType = TypeA & TypeB; // Tipo de interseção (Intersection type)
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Objeto com as propriedades name e age
 ```
 
@@ -3478,7 +3478,7 @@ Symbol.metadata ??= Symbol('Symbol.metadata'); // Polyfill simples
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // O contexto contém os metadados da propriedade: DecoratorMetadata
+    | ClassMethodDecoratorContext; // O contexto contém a propriedade metadata: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
     // Define o objeto de metadados com um valor primitivo
@@ -3815,8 +3815,8 @@ const obj = {
     [key2]: 'value 2',
 };
 
-console.log(obj[key1]); // valor 1
-console.log(obj[key2]); // valor 2
+console.log(obj[key1]); // Saída: value 1
+console.log(obj[key2]); // Saída: value 2
 ```
 
 Em WeakMaps e WeakSets, símbolos agora são permitidos como chaves.
@@ -4217,7 +4217,7 @@ try {
 } catch (error) {
     // Trata o erro
 } finally {
-    // Código que sempre executa, finally é opcional
+    // Código que sempre é executado, finally é opcional
 }
 ```
 
@@ -4239,7 +4239,7 @@ try {
 
 Tipos de Erro Personalizados:
 
-É possível definir erros mais específicos estendendo a `class` Error:
+É possível definir erros mais específicos estendendo a classe `Error`:
 
 ```typescript
 class CustomError extends Error {
@@ -4992,7 +4992,7 @@ const user2 = {
 user2.attributes?.map(console.log); // A propriedade 'map' não existe no tipo 'string | string[]'. A propriedade 'map' não existe no tipo 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Usando operadores `satisfies` podemos inferir os tipos corretamente agora
+// Usando o operador `satisfies`, podemos inferir os tipos corretamente agora
 const user3 = {
     name: 'Simon',
     nickName: undefined,
@@ -5133,7 +5133,7 @@ Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Polyfill simples
 class DatabaseConnection implements AsyncDisposable {
     // Um método que é chamado quando o objeto é descartado assincronamente
     [Symbol.asyncDispose]() {
-        // Fecha a conexão e retorna uma promise
+        // Fecha a conexão e retorna uma Promise
         return this.close();
     }
 
@@ -5145,7 +5145,7 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Cria uma nova conexão e descarte-a assincronamente quando ela sair do escopo
+    // Cria uma nova conexão e a descarta assincronamente quando ela sair do escopo
     await using connection = new DatabaseConnection(); // Recurso é declarado
     console.log('Doing some work...');
 } // Recurso é descartado (ex: `await connection[Symbol.asyncDispose]()` é avaliado)
@@ -5187,7 +5187,7 @@ A partir da versão 5.5.4, o TypeScript verifica literais de expressões regular
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Erro: Esta referência invertida se refere a um grupo que não existe.
+let r = /(a)\2/; // Erro: Esta retroreferência se refere a um grupo que não existe.
 ```
 
 ### import defer
