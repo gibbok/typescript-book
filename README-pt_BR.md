@@ -394,14 +394,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 O sistema de tipos do TypeScript é amplamente influenciado pelo comportamento do JavaScript em tempo de execução. Por exemplo, o operador de adição (+), que no JavaScript pode realizar a concatenação de strings ou a adição numérica, é modelado da mesma forma no TypeScript:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // O resultado é do tipo string
 ```
 
 A equipe responsável pelo TypeScript tomou a decisão deliberada de sinalizar usos incomuns do JavaScript como erros. Por exemplo, considere o seguinte código JavaScript válido:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal 2
+const result = 1 + true; // Em JavaScript, o resultado é igual a 2
 ```
 
 No entanto, o TypeScript aponta um erro:
@@ -420,7 +420,7 @@ Aqui está um exemplo de código TypeScript com um erro de tipo:
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // Um argumento do tipo 'string' não é atribuível a um parâmetro do tipo 'number'.
 ```
 
 No entanto, ele ainda pode produzir uma saída JavaScript executável:
@@ -447,7 +447,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' refere-se apenas a um tipo, mas está sendo usado como valor aqui.
         // ...
     }
 };
@@ -457,11 +457,11 @@ Como os tipos são apagados após a compilação, não há como executar este c�
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // União marcada
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // União marcada
     meow: () => void;
 }
 type Animal = Dog | Cat;
@@ -1239,7 +1239,7 @@ Muitos tipos de bibliotecas comuns podem ser encontrados em:
 e podem ser instalados usando:
 
 ```shell
-npm install --save-dev @types/nome-da-biblioteca
+npm install --save-dev @types/library-name
 ```
 
 Você pode importar as declarações de ambiente que definiu usando a referência "triple-slash":
@@ -1521,7 +1521,7 @@ Lançar um erro ou retornar antecipadamente de uma ramificação pode ajudar o T
 let x: number | undefined = 10;
 
 if (x === undefined) {
-    throw 'erro';
+    throw 'error';
 }
 x += 100;
 ```
@@ -1560,9 +1560,9 @@ const data = ['a', null, 'c', 'd', null, 'f'];
 
 const r1 = data.filter(x => x != null); // O tipo é (string | null)[], o TypeScript não foi capaz de inferir o tipo corretamente
 
-const isValid = (item: string | null): item is string => item !== null; // Protetor de tipo customizado
+const isValid = (item: string | null): item is string => item !== null; // Guarda de tipo personalizada
 
-const r2 = data.filter(isValid); // O tipo está correto agora string[], ao usar o protetor de tipo predicado conseguimos estreitar o tipo
+const r2 = data.filter(isValid); // O tipo agora é string[]; ao usar a guarda de tipo com um predicado de tipo, conseguimos estreitar o tipo
 ```
 
 #### Estreitamento de Tipos com switch-true
@@ -1899,7 +1899,7 @@ let o = {
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // Um argumento do tipo 'string' não é atribuível a um parâmetro do tipo 'X'
 ```
 
 Como você pode observar, o código gera um erro ao passar `o.x` para `fn`, pois X é um tipo mais estreito.
@@ -2041,8 +2041,8 @@ console.log(Grade[myGrade]); // A
 console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
-console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(failGrade); // Erro
+console.log(Grade[failGrade]); // O elemento tem implicitamente o tipo 'any' porque a expressão de índice não é do tipo 'number'.
 ```
 
 ### Enums de ambiente
@@ -2267,7 +2267,7 @@ const foo = (bar: unknown) => {
     if (isString(bar)) {
         console.log(bar.toUpperCase());
     } else {
-        console.log('não é uma string');
+        console.log('not a string');
     }
 };
 ```
@@ -2324,7 +2324,7 @@ const printValue = (val: string | number) => {
     } else {
         // val tem o tipo never aqui porque nunca pode ser nada além de uma string ou um número
         const neverVal: never = val;
-        console.log(`Valor inesperado: ${neverVal}`);
+        console.log(`Unexpected value: ${neverVal}`);
     }
 };
 ```
@@ -2339,10 +2339,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction) => {
     switch (direction) {
         case 'up':
-            console.log('Movendo para cima');
+            console.log('Moving up');
             break;
         case 'down':
-            console.log('Movendo para baixo');
+            console.log('Moving down');
             break;
         default:
             const exhaustiveCheck: never = direction;
@@ -2678,7 +2678,7 @@ const move = (direction: Direction): void => {
             break;
         default:
             const exhaustiveCheck: never = direction;
-            throw new Error(`Direção não tratada: ${exhaustiveCheck}`);
+            throw new Error(`Unhandled direction: ${exhaustiveCheck}`);
     }
 };
 ```
@@ -2818,7 +2818,7 @@ function sayHi(name: unknown): unknown {
     } else if (Array.isArray(name)) {
         return name.map(name => `Hi, ${name}!`);
     }
-    throw new Error('Valor inválido');
+    throw new Error('Invalid value');
 }
 
 sayHi('xx'); // Válido
@@ -2846,7 +2846,7 @@ class Greeter {
         } else if (Array.isArray(name)) {
             return name.map(name => `${this.message}, ${name}!`);
         }
-        throw new Error('o valor é inválido');
+        throw new Error('value is invalid');
     }
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
@@ -2888,10 +2888,10 @@ interface Bird extends Animal {
 const dog: Bird = {
     name: 'Bird 1',
     eat() {
-        console.log('Comendo');
+        console.log('Eating');
     },
     sing() {
-        console.log('Cantando');
+        console.log('Singing');
     },
 };
 ```
@@ -3002,7 +3002,7 @@ class Person {
     }
     public sayHi(): void {
         console.log(
-            `Olá, meu nome é ${this.name} e eu tenho ${this.age} anos.`
+            `Hello, my name is ${this.name} and I am ${this.age} years old.`
         );
     }
 }
@@ -3021,7 +3021,7 @@ Para criar uma instância de uma classe no TypeScript, você pode usar a palavra
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Saída: Olá, meu nome é John Doe e eu tenho 25 anos.
+myObject.sayHi(); // Saída: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Construtor
@@ -3040,7 +3040,7 @@ class Person {
 
     sayHello() {
         console.log(
-            `Olá, meu nome é ${this.name} e eu tenho ${this.age} anos.`
+            `Hello, my name is ${this.name} and I'm ${this.age} years old.`
         );
     }
 }
@@ -3082,23 +3082,23 @@ class Person {
     constructor(name: string);
     constructor(name: string, age: number);
     constructor(name?: string, age?: number) {
-        this.name = name ?? 'Desconhecido';
+        this.name = name ?? 'Unknown';
         this.age = age ?? 0;
     }
 
     displayInfo() {
-        console.log(`Nome: ${this.name}, Idade: ${this.age}`);
+        console.log(`Name: ${this.name}, Age: ${this.age}`);
     }
 }
 
 const person1 = new Person();
-person1.displayInfo(); // Nome: Desconhecido, Idade: 0
+person1.displayInfo(); // Saída: Name: Unknown, Age: 0
 
 const person2 = new Person('John');
-person2.displayInfo(); // Nome: John, Idade: 0
+person2.displayInfo(); // Saída: Name: John, Age: 0
 
 const person3 = new Person('Jane', 25);
-person3.displayInfo(); // Nome: Jane, Idade: 25
+person3.displayInfo(); // Saída: Name: Jane, Age: 25
 ```
 
 ### Construtores Privados e Protegidos
@@ -3209,12 +3209,12 @@ class Person {
         this.name = name;
     }
     public introduce(): void {
-        console.log(`Olá, meu nome é ${this.name}.`);
+        console.log(`Hello, my name is ${this.name}.`);
     }
 }
 
 const person1 = new Person('Alice');
-person1.introduce(); // Olá, meu nome é Alice.
+person1.introduce(); // Saída: Hello, my name is Alice.
 ```
 
 ### Propriedades de Parâmetro
@@ -3232,7 +3232,7 @@ class Person {
     }
     public introduce(): void {
         console.log(
-            `Olá, meu nome é ${this.name} e eu tenho ${this.age} anos.`
+            `Hello, my name is ${this.name} and I am ${this.age} years old.`
         );
     }
 }
@@ -3258,12 +3258,12 @@ abstract class Animal {
 
 class Cat extends Animal {
     makeSound(): void {
-        console.log(`${this.name} mia (meows).`);
+        console.log(`${this.name} meows.`);
     }
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Saída: Whiskers mia (meows).
+cat.makeSound(); // Saída: Whiskers meows.
 ```
 
 ### Com Genéricos
@@ -3290,9 +3290,9 @@ class Container<T> {
 const container1 = new Container<number>(42);
 console.log(container1.getItem()); //  42
 
-const container2 = new Container<string>('Olá');
-container2.setItem('Mundo');
-console.log(container2.getItem()); // Mundo
+const container2 = new Container<string>('Hello');
+container2.setItem('World');
+console.log(container2.getItem()); // Saída: World
 ```
 
 ### Decoradores (Decorators)
@@ -3394,9 +3394,9 @@ function log<This, Args extends any[], Return>(
     const methodName = String(context.name);
 
     function replacementMethod(this: This, ...args: Args): Return {
-        console.log(`LOG: Entrando no método '${methodName}'.`);
+        console.log(`LOG: Entering method '${methodName}'.`);
         const result = target.call(this, ...args);
-        console.log(`LOG: Saindo do método '${methodName}'.`);
+        console.log(`LOG: Exiting method '${methodName}'.`);
         return result;
     }
 
@@ -3416,9 +3416,9 @@ new MyClass().sayHello();
 Isso registra:
 
 ```shell
-LOG: Entrando no método 'sayHello'.
+LOG: Entering method 'sayHello'.
 Hello!
-LOG: Saindo do método 'sayHello'.
+LOG: Exiting method 'sayHello'.
 ```
 
 #### Decoradores de Getter e Setter
@@ -3473,7 +3473,7 @@ Os metadados podem ser usados para vários fins, como depuração, serializaçã
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Polify simples
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Polyfill simples
 
 type Context =
     | ClassFieldDecoratorContext
@@ -3514,7 +3514,7 @@ class Animal {
     }
 
     speak(): void {
-        console.log('O animal faz um som');
+        console.log('The animal makes a sound');
     }
 }
 
@@ -3532,8 +3532,8 @@ class Dog extends Animal {
 }
 
 // Cria uma instância da classe base
-const animal = new Animal('Animal Genérico');
-animal.speak(); // O animal faz um som
+const animal = new Animal('Generic Animal');
+animal.speak(); // Saída: The animal makes a sound
 
 // Cria uma instância da classe derivada
 const dog = new Dog('Max', 'Labrador');
@@ -3554,11 +3554,11 @@ interface Swimmable {
 
 class FlyingFish implements Flyable, Swimmable {
     fly() {
-        console.log('Voando...');
+        console.log('Flying...');
     }
 
     swim() {
-        console.log('Nadando...');
+        console.log('Swimming...');
     }
 }
 
@@ -3598,7 +3598,7 @@ No exemplo a seguir, esses valores iniciais serão usados quando uma instância 
 
 ```typescript
 class MyClass {
-    property1: string = 'valor padrão';
+    property1: string = 'default value';
     property2: number = 42;
 }
 ```
@@ -3611,7 +3611,7 @@ class MyClass {
     property2: number;
 
     constructor() {
-        this.property1 = 'valor padrão';
+        this.property1 = 'default value';
         this.property2 = 42;
     }
 }
@@ -3622,7 +3622,7 @@ Usando parâmetros do construtor:
 ```typescript
 class MyClass {
     constructor(
-        private property1: string = 'valor padrão',
+        private property1: string = 'default value',
         public property2: number = 42
     ) {
         // Não há necessidade de atribuir os valores às propriedades explicitamente.
@@ -3651,7 +3651,7 @@ class MyClass {
         if (typeof a === 'string' && typeof b === 'string') {
             return a.concat(b);
         }
-        throw new Error('Argumentos inválidos');
+        throw new Error('Invalid arguments');
     }
 }
 
@@ -3815,8 +3815,8 @@ const obj = {
     [key2]: 'value 2',
 };
 
-console.log(obj[key1]); // value 1
-console.log(obj[key2]); // value 2
+console.log(obj[key1]); // valor 1
+console.log(obj[key2]); // valor 2
 ```
 
 Em WeakMaps e WeakSets, símbolos agora são permitidos como chaves.
@@ -3831,7 +3831,7 @@ Referenciando um arquivo de declaração:
 
 <!-- skip -->
 ```typescript
-/// <reference path="caminho/para/arquivo/de/declaracao.d.ts" />
+/// <reference path="path/to/declaration/file.d.ts" />
 ```
 
 Indicar o formato do módulo:
@@ -3887,7 +3887,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // As propriedades tornam-se somente leitura
+type ImmutablePerson = Mutable<Person>; // As propriedades tornam-se somente de leitura
 ```
 
 Tipos Condicionais:
@@ -4092,7 +4092,7 @@ class Person {
     }
 
     sayHello() {
-        console.log(`Olá, meu nome é ${this.name}!`);
+        console.log(`Hello, my name is ${this.name}!`);
     }
 }
 
@@ -4100,7 +4100,7 @@ type PersonInstance = InstanceType<typeof Person>;
 
 const person: PersonInstance = new Person('John');
 
-person.sayHello(); // Olá, meu nome é John!
+person.sayHello(); // Saída: Hello, my name is John!
 ```
 
 #### ThisParameterType\<T\>
@@ -4249,7 +4249,7 @@ class CustomError extends Error {
     }
 }
 
-throw new CustomError('Este é um erro personalizado.');
+throw new CustomError('This is a custom error.');
 ```
 
 ### Classes Mixin (Mixin classes)
@@ -4563,7 +4563,7 @@ type Person = {
 };
 
 const printName = (person?: Person) => {
-    console.log(`O nome é ${person!.name}`);
+    console.log(`Name is ${person!.name}`);
 };
 ```
 
@@ -4572,11 +4572,11 @@ const printName = (person?: Person) => {
 Declarações com valor padrão são usadas quando uma variável ou parâmetro recebe um valor padrão. Isso significa que, se nenhum valor for fornecido para essa variável ou parâmetro, o valor padrão será usado em seu lugar.
 
 ```typescript
-function greet(name: string = 'Anônimo'): void {
-    console.log(`Olá, ${name}!`);
+function greet(name: string = 'Anonymous'): void {
+    console.log(`Hello, ${name}!`);
 }
-greet(); // Olá, Anônimo!
-greet('John'); // Olá, John!
+greet(); // Saída: Hello, Anonymous!
+greet('John'); // Saída: Hello, John!
 ```
 
 ### Encadeamento Opcional (Optional Chaining)
@@ -4639,7 +4639,7 @@ function makeGreeting(person: unknown): unknown {
     } else if (Array.isArray(person)) {
         return person.map(name => `Hi, ${name}!`);
     }
-    throw new Error('Não foi possível saudar');
+    throw new Error('Unable to greet');
 }
 
 makeGreeting('Simon');
@@ -4665,9 +4665,9 @@ Vamos detalhar em termos simples:
 Tipos condicionais permitem definir tipos baseados em condições booleanas:
 
 ```typescript
-type CheckNumber<T> = T extends number ? 'Número' : 'Não é um número';
-type A = CheckNumber<123>; // 'Número'
-type B = CheckNumber<'abc'>; // 'Não é um número'
+type CheckNumber<T> = T extends number ? 'Number' : 'Not a number';
+type A = CheckNumber<123>; // Tipo: 'Number'
+type B = CheckNumber<'abc'>; // Tipo: 'Not a number'
 ```
 
 Recursão significa uma definição de tipo que se refere a si mesma dentro de sua própria definição:
@@ -4720,7 +4720,7 @@ No TypeScript, funções de asserção são funções que indicam a verificaçã
 ```typescript
 function isNumber(value: unknown): asserts value is number {
     if (typeof value !== 'number') {
-        throw new Error('Não é um número');
+        throw new Error('Not a number');
     }
 }
 ```
@@ -4731,7 +4731,7 @@ Ou pode ser declarada como uma expressão de função:
 type AssertIsNumber = (value: unknown) => asserts value is number;
 const isNumber: AssertIsNumber = value => {
     if (typeof value !== 'number') {
-        throw new Error('Não é um número');
+        throw new Error('Not a number');
     }
 };
 ```
@@ -4875,9 +4875,9 @@ class Dog extends Animal {
 let animals: Animal[] = [];
 let dogs: Dog[] = [];
 
-// Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs; // allowed
-dogs = animals; // error
+// Arrays são covariantes no TypeScript (mas não preservam a segurança de tipos)
+animals = dogs; // Permitido
+dogs = animals; // Erro
 ```
 
 Exemplo de contravariância:
@@ -4909,11 +4909,11 @@ let feedDog: Feed<Dog> = dog => {
     console.log(dog.breed);
 };
 
-// Intended contravariance:
-feedDog = feedAnimal; // safe
+// Contravariância pretendida:
+feedDog = feedAnimal; // Seguro
 
-// This depends on compiler settings:
-feedAnimal = feedDog; // error only with strictFunctionTypes
+// Isso depende das opções do compilador:
+feedAnimal = feedDog; // erro apenas com strictFunctionTypes
 ```
 
 #### Anotações de Variância Opcionais para Parâmetros de Tipo
@@ -4949,12 +4949,12 @@ type MyObject = {
 };
 
 const obj: MyObject = {
-    [uniqueSymbol]: 'Chave de símbolo único',
+    [uniqueSymbol]: 'Unique symbol key',
     'key-a': 123,
     'key-b': 456,
 };
 
-console.log(obj[uniqueSymbol]); // Chave de símbolo único
+console.log(obj[uniqueSymbol]); // Saída: Unique symbol key
 console.log(obj['key-a']); // 123
 console.log(obj['key-b']); // 456
 ```
@@ -5059,7 +5059,7 @@ Symbol.dispose ??= Symbol('Symbol.dispose'); // Polyfill simples
 const doWork = (): Disposable => {
     return {
         [Symbol.dispose]: () => {
-            console.log('disposto (disposed)');
+            console.log('disposed');
         },
     };
 };
@@ -5079,7 +5079,7 @@ O código exibirá:
 ```shell
 1
 2
-disposto (disposed)
+disposed
 3
 ```
 
@@ -5138,16 +5138,16 @@ class DatabaseConnection implements AsyncDisposable {
     }
 
     async close() {
-        console.log('Fechando a conexão...');
+        console.log('Closing the connection...');
         await new Promise(resolve => setTimeout(resolve, 1000));
-        console.log('Conexão fechada.');
+        console.log('Connection closed.');
     }
 }
 
 async function doWork() {
     // Cria uma nova conexão e descarte-a assincronamente quando ela sair do escopo
     await using connection = new DatabaseConnection(); // Recurso é declarado
-    console.log('Fazendo algum trabalho...');
+    console.log('Doing some work...');
 } // Recurso é descartado (ex: `await connection[Symbol.asyncDispose]()` é avaliado)
 
 doWork();
@@ -5156,9 +5156,9 @@ doWork();
 O código exibe:
 
 ```shell
-Fazendo algum trabalho...
-Fechando a conexão...
-Conexão fechada.
+Doing some work...
+Closing the connection...
+Connection closed.
 ```
 
 As declarações `using` e `await using` são permitidas nas instruções: `for`, `for-in`, `for-of`, `for-await-of`, `switch`.
@@ -5196,19 +5196,3 @@ let r = /(a)\2/; // Erro: Esta referência invertida se refere a um grupo que n�
 
 * Funciona apenas com: `import defer * as name from "module"`
 * O código é executado somente quando você acessa uma exportação
-
-<!-- skip -->
-```typescript
-// arquivo: a.ts
-console.log('executando!');
-export const x = 1;
-```
-
-<!-- skip -->
-```typescript
-// arquivo: main.ts
-// prettier-ignore
-import defer * as a from "./a.js";
-console.log('iniciando'); // nada de a.ts ainda
-console.log(a.x); // agora imprime "executando!", depois 1
-```
