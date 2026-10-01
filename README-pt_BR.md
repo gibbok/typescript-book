@@ -1894,7 +1894,7 @@ No exemplo a seguir, podemos ver que `o.x` foi inferido como uma `string` (e nã
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // Esta é uma string mais ampla (wider string)
+    x: 'a', // Este é um tipo string mais amplo (wider string)
 };
 
 const fn = (x: X) => `${x}-foo`;
@@ -2464,7 +2464,7 @@ console.log(myDict['a']); // Retorna a
 Tipo a partir de valor (Type from Value) no TypeScript refere-se à inferência automática de um tipo a partir de um valor ou expressão por meio da inferência de tipos.
 
 ```typescript
-const x = 'x'; // O TypeScript infere 'x' como um literal de string com 'const' (imutável), mas alarga para 'string' com 'let' (atribuível novamente).
+const x = 'x'; // O TypeScript infere 'x' como um literal de string com 'const' (imutável), mas alarga para 'string' com 'let' (permite nova atribuição).
 ```
 
 ## Tipo a partir do Retorno de Função
@@ -2472,7 +2472,7 @@ const x = 'x'; // O TypeScript infere 'x' como um literal de string com 'const' 
 Tipo a partir do retorno de função refere-se à capacidade de inferir automaticamente o tipo de retorno de uma função com base em sua implementação. Isso permite que o TypeScript determine o tipo do valor retornado pela função sem anotações de tipo explícitas.
 
 ```typescript
-const add = (x: number, y: number) => x + y; // O TypeScript pode inferir que o tipo de retorno da função é um número
+const add = (x: number, y: number) => x + y; // O TypeScript pode inferir que o tipo de retorno da função é number
 ```
 
 ## Tipo a partir de Módulo
