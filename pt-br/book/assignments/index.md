@@ -2,7 +2,7 @@
 
 
 
-O estreitamento do TypeScript usando atribuições é uma forma de estreitar o tipo de uma variável com base no valor atribuído a ela. Quando uma variável recebe um valor, o TypeScript infere seu tipo com base no valor atribuído e estreita o tipo da variável para corresponder ao tipo inferido.
+O estreitamento de tipos por meio de atribuições no TypeScript é uma forma de estreitar o tipo de uma variável com base no valor atribuído a ela. Quando uma variável recebe um valor, o TypeScript infere seu tipo com base no valor atribuído e estreita o tipo da variável para corresponder ao tipo inferido.
 
 ```typescript
 let value: string | number;

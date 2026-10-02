@@ -2,11 +2,11 @@
 
 
 
-No TypeScript, os tipos de objeto descrevem a forma de um objeto. Eles especificam os nomes e tipos das propriedades do objeto, bem como se essas propriedades são obrigatórias ou opcionais.
+No TypeScript, os tipos de objeto descrevem a estrutura de um objeto. Eles especificam os nomes e tipos das propriedades do objeto, bem como se essas propriedades são obrigatórias ou opcionais.
 
 No TypeScript, você pode definir tipos de objeto de duas maneiras principais:
 
-Interface, que define a forma de um objeto especificando os nomes, tipos e a opcionalidade de suas propriedades.
+Uma interface define a estrutura de um objeto especificando os nomes e tipos de suas propriedades e indicando se são opcionais.
 
 ```typescript
 interface User {
@@ -16,7 +16,7 @@ interface User {
 }
 ```
 
-Apelido de tipo (type alias), semelhante a uma interface, define a forma de um objeto. No entanto, ele também pode criar um novo tipo personalizado baseado em um tipo existente ou em uma combinação de tipos existentes. Isso inclui definir tipos de união, tipos de interseção e outros tipos complexos.
+Um alias de tipo (type alias), semelhante a uma interface, define a estrutura de um objeto. No entanto, ele também pode criar um novo tipo personalizado baseado em um tipo existente ou em uma combinação de tipos existentes. Isso inclui definir tipos de união, tipos de interseção e outros tipos complexos.
 
 ```typescript
 type Point = {

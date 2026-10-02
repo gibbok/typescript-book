@@ -16,7 +16,7 @@ class Person {
     }
     public sayHi(): void {
         console.log(
-            `Olá, meu nome é ${this.name} e eu tenho ${this.age} anos.`
+            `Hello, my name is ${this.name} and I am ${this.age} years old.`
         );
     }
 }
@@ -30,12 +30,12 @@ O construtor é definido usando a palavra-chave `constructor`. Ele recebe name e
 
 A classe possui um método `public` chamado `sayHi` que registra uma mensagem de saudação.
 
-Para criar uma instância de uma classe no TypeScript, você pode usar a palavra-chave `new` seguida pelo nome da classe, seguida de parênteses `()`. Por exemplo:
+Para criar uma instância de uma classe no TypeScript, você pode usar a palavra-chave `new` seguida do nome da classe e de parênteses `()`. Por exemplo:
 
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Saída: Olá, meu nome é John Doe e eu tenho 25 anos.
+myObject.sayHi(); // Saída: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Construtor
@@ -54,7 +54,7 @@ class Person {
 
     sayHello() {
         console.log(
-            `Olá, meu nome é ${this.name} e eu tenho ${this.age} anos.`
+            `Hello, my name is ${this.name} and I'm ${this.age} years old.`
         );
     }
 }
@@ -96,33 +96,33 @@ class Person {
     constructor(name: string);
     constructor(name: string, age: number);
     constructor(name?: string, age?: number) {
-        this.name = name ?? 'Desconhecido';
+        this.name = name ?? 'Unknown';
         this.age = age ?? 0;
     }
 
     displayInfo() {
-        console.log(`Nome: ${this.name}, Idade: ${this.age}`);
+        console.log(`Name: ${this.name}, Age: ${this.age}`);
     }
 }
 
 const person1 = new Person();
-person1.displayInfo(); // Nome: Desconhecido, Idade: 0
+person1.displayInfo(); // Saída: Name: Unknown, Age: 0
 
 const person2 = new Person('John');
-person2.displayInfo(); // Nome: John, Idade: 0
+person2.displayInfo(); // Saída: Name: John, Age: 0
 
 const person3 = new Person('Jane', 25);
-person3.displayInfo(); // Nome: Jane, Idade: 25
+person3.displayInfo(); // Saída: Name: Jane, Age: 25
 ```
 
 ### Construtores Privados e Protegidos
 
 No TypeScript, os construtores podem ser marcados como privados ou protegidos, o que restringe sua acessibilidade e uso.
 
-Construtores Privados (Private Constructors):
-Podem ser chamados apenas dentro da própria classe. Construtores privados são frequentemente usados em cenários onde você deseja impor um padrão singleton ou restringir a criação de instâncias a um método factual dentro da classe.
+Construtores privados:
+Podem ser chamados apenas dentro da própria classe. Construtores privados são frequentemente usados em cenários em que você deseja impor um padrão singleton ou restringir a criação de instâncias a um método de fábrica dentro da classe.
 
-Construtores Protegidos (Protected Constructors):
+Construtores protegidos:
 Construtores protegidos são úteis quando você deseja criar uma classe base que não deve ser instanciada diretamente, mas pode ser estendida por subclasses.
 
 ```typescript
@@ -148,11 +148,11 @@ const derivedObj = new DerivedClass(10);
 
 ### Modificadores de Acesso
 
-Modificadores de Acesso `private`, `protected` e `public` são usados para controlar a visibilidade e acessibilidade dos membros da classe, como propriedades e métodos, em classes TypeScript. Esses modificadores são essenciais para impor o encapsulamento e estabelecer limites para acessar e modificar o estado interno de uma classe.
+Os modificadores de acesso `private`, `protected` e `public` são usados para controlar a visibilidade e a acessibilidade dos membros da classe, como propriedades e métodos, nas classes do TypeScript. Esses modificadores são essenciais para impor o encapsulamento e estabelecer limites para acessar e modificar o estado interno de uma classe.
 
 O modificador `private` restringe o acesso ao membro da classe apenas dentro da classe que o contém.
 
-O modificador `protected` permite o acesso ao membro da classe dentro da classe que o contém e suas classes derivadas.
+O modificador `protected` permite o acesso ao membro da classe dentro da classe que o contém e em suas classes derivadas.
 
 O modificador `public` fornece acesso irrestrito ao membro da classe, permitindo que ele seja acessado de qualquer lugar.
 
@@ -177,9 +177,9 @@ class MyClass {
 }
 ```
 
-### Auto-acessores em Classes
+### Autoacessores em Classes
 
-O TypeScript versão 4.9 adiciona suporte para auto-acessores (auto-accessors), um recurso futuro do ECMAScript. Eles se assemelham a propriedades de classe, mas são declarados com a palavra-chave "accessor".
+A versão 4.9 do TypeScript adiciona suporte a autoacessores (auto-accessors), um recurso futuro do ECMAScript. Eles se assemelham a propriedades de classe, mas são declarados com a palavra-chave "accessor".
 
 ```typescript
 class Animal {
@@ -191,7 +191,7 @@ class Animal {
 }
 ```
 
-Os auto-acessores são transformados em acessores `get` e `set` privados, operando em uma propriedade inacessível.
+Os autoacessores são transformados em acessores `get` e `set` privados, que operam sobre uma propriedade inacessível.
 
 <!-- skip -->
 ```typescript
@@ -214,7 +214,7 @@ class Animal {
 ### this
 
 No TypeScript, a palavra-chave `this` refere-se à instância atual de uma classe dentro de seus métodos ou construtores. Ela permite acessar e modificar as propriedades e métodos da classe de dentro de seu próprio escopo.
-Fornece uma maneira de acessar e manipular o estado interno de um objeto dentro de seus próprios métodos.
+Ela fornece uma maneira de acessar e manipular o estado interno de um objeto dentro de seus próprios métodos.
 
 ```typescript
 class Person {
@@ -223,17 +223,17 @@ class Person {
         this.name = name;
     }
     public introduce(): void {
-        console.log(`Olá, meu nome é ${this.name}.`);
+        console.log(`Hello, my name is ${this.name}.`);
     }
 }
 
 const person1 = new Person('Alice');
-person1.introduce(); // Olá, meu nome é Alice.
+person1.introduce(); // Saída: Hello, my name is Alice.
 ```
 
 ### Propriedades de Parâmetro
 
-As propriedades de parâmetro permitem declarar e inicializar propriedades de classe diretamente dentro dos parâmetros do construtor, evitando o código repetitivo (boilerplate). Exemplo:
+As propriedades de parâmetro permitem declarar e inicializar propriedades de classe diretamente nos parâmetros do construtor, evitando código repetitivo (boilerplate). Por exemplo:
 
 ```typescript
 class Person {
@@ -246,7 +246,7 @@ class Person {
     }
     public introduce(): void {
         console.log(
-            `Olá, meu nome é ${this.name} e eu tenho ${this.age} anos.`
+            `Hello, my name is ${this.name} and I am ${this.age} years old.`
         );
     }
 }
@@ -256,8 +256,8 @@ person.introduce();
 
 ### Classes Abstratas
 
-Classes Abstratas são usadas no TypeScript principalmente para herança; elas fornecem uma maneira de definir propriedades e métodos comuns que podem ser herdados por subclasses.
-Isso é útil quando você deseja definir um comportamento comum e garantir que as subclasses implementem certos métodos. Elas fornecem uma maneira de criar uma hierarquia de classes onde a classe base abstrata fornece uma interface compartilhada e funcionalidade comum para as subclasses.
+As classes abstratas são usadas no TypeScript principalmente para herança. Elas fornecem uma maneira de definir propriedades e métodos comuns que podem ser herdados por subclasses.
+Isso é útil quando você deseja definir um comportamento comum e garantir que as subclasses implementem certos métodos. Elas fornecem uma maneira de criar uma hierarquia de classes em que a classe base abstrata fornece uma interface compartilhada e funcionalidade comum para as subclasses.
 
 ```typescript
 abstract class Animal {
@@ -272,12 +272,12 @@ abstract class Animal {
 
 class Cat extends Animal {
     makeSound(): void {
-        console.log(`${this.name} mia (meows).`);
+        console.log(`${this.name} meows.`);
     }
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Saída: Whiskers mia (meows).
+cat.makeSound(); // Saída: Whiskers meows.
 ```
 
 ### Com Genéricos
@@ -304,37 +304,37 @@ class Container<T> {
 const container1 = new Container<number>(42);
 console.log(container1.getItem()); //  42
 
-const container2 = new Container<string>('Olá');
-container2.setItem('Mundo');
-console.log(container2.getItem()); // Mundo
+const container2 = new Container<string>('Hello');
+container2.setItem('World');
+console.log(container2.getItem()); // Saída: World
 ```
 
 ### Decoradores (Decorators)
 
-Os decoradores fornecem um mecanismo para adicionar metadados, modificar comportamentos, validar ou estender a funcionalidade do elemento alvo. São funções que são executadas em tempo de execução. Múltiplos decoradores podem ser aplicados a uma declaração.
+Os decoradores fornecem um mecanismo para adicionar metadados, modificar comportamentos, validar ou estender a funcionalidade do elemento alvo. São funções executadas em tempo de execução. Múltiplos decoradores podem ser aplicados a uma declaração.
 
 Os decoradores são recursos experimentais, e os exemplos a seguir são compatíveis apenas com a versão 5 do TypeScript ou superior usando ES6.
 
-Para versões do TypeScript anteriores à 5, eles devem ser habilitados usando a propriedade `experimentalDecorators` em seu `tsconfig.json` ou usando `--experimentalDecorators` na sua linha de comando (mas o exemplo a seguir não funcionará).
+Para versões do TypeScript anteriores à versão 5, eles devem ser habilitados usando a propriedade `experimentalDecorators` em seu `tsconfig.json` ou usando `--experimentalDecorators` na sua linha de comando (mas o exemplo a seguir não funcionará).
 
 Alguns dos casos de uso comuns para decoradores incluem:
 
-* Observar mudanças de propriedade.
-* Observar chamadas de métodos.
+* Monitorar alterações em propriedades.
+* Monitorar chamadas de métodos.
 * Adicionar propriedades ou métodos extras.
 * Validação em tempo de execução.
-* Serialização e desserialização automática.
-* Registro (Logging).
+* Serialização e desserialização automáticas.
+* Registro (logging).
 * Autorização e autenticação.
 * Proteção contra erros (Error guarding).
 
-Nota: Decoradores para a versão 5 não permitem decorar parâmetros.
+Nota: Os decoradores da versão 5 não permitem decorar parâmetros.
 
 Tipos de decoradores:
 
 #### Decoradores de Classe (Class Decorators)
 
-Os Decoradores de Classe são úteis para estender uma classe existente, como adicionar propriedades ou métodos, ou coletar instâncias de uma classe. No exemplo a seguir, adicionamos um método `toString` que converte a classe em uma representação de string.
+Os decoradores de classe são úteis para estender uma classe existente, como adicionar propriedades ou métodos, ou coletar instâncias de uma classe. No exemplo a seguir, adicionamos um método `toString` que converte a classe em uma representação em string.
 
 ```typescript
 type Constructor<T = {}> = new (...args: any[]) => T;
@@ -373,7 +373,7 @@ const person = new Person('Simon');
 
 #### Decorador de Propriedade (Property Decorator)
 
-Os decoradores de propriedade são úteis para modificar o comportamento de uma propriedade, como alterar os valores de inicialização. No código a seguir, temos um script que define uma propriedade para estar sempre em letras maiúsculas:
+Os decoradores de propriedade são úteis para modificar o comportamento de uma propriedade, como alterar os valores de inicialização. No código a seguir, temos um script que faz com que uma propriedade sempre esteja em letras maiúsculas:
 
 ```typescript
 function upperCase<T>(
@@ -395,7 +395,7 @@ console.log(new MyClass().prop1); // Registra: HELLO!
 
 #### Decorador de Método (Method Decorator)
 
-Os decoradores de método permitem alterar ou aprimorar o comportamento dos métodos. Abaixo está um exemplo de um registrador (logger) simples:
+Os decoradores de método permitem alterar ou aprimorar o comportamento dos métodos. Abaixo está um exemplo de um logger simples:
 
 ```typescript
 function log<This, Args extends any[], Return>(
@@ -408,9 +408,9 @@ function log<This, Args extends any[], Return>(
     const methodName = String(context.name);
 
     function replacementMethod(this: This, ...args: Args): Return {
-        console.log(`LOG: Entrando no método '${methodName}'.`);
+        console.log(`LOG: Entering method '${methodName}'.`);
         const result = target.call(this, ...args);
-        console.log(`LOG: Saindo do método '${methodName}'.`);
+        console.log(`LOG: Exiting method '${methodName}'.`);
         return result;
     }
 
@@ -430,14 +430,14 @@ new MyClass().sayHello();
 Isso registra:
 
 ```shell
-LOG: Entrando no método 'sayHello'.
+LOG: Entering method 'sayHello'.
 Hello!
-LOG: Saindo do método 'sayHello'.
+LOG: Exiting method 'sayHello'.
 ```
 
 #### Decoradores de Getter e Setter
 
-Decoradores de getter e setter permitem alterar ou aprimorar o comportamento dos acessores de classe. Eles são úteis, por exemplo, para validar atribuições de propriedades. Aqui está um exemplo simples de um decorador de getter:
+Decoradores de getter e setter permitem alterar ou aprimorar o comportamento dos acessores de classe. Eles são úteis, por exemplo, para validar atribuições a propriedades. Aqui está um exemplo simples de um decorador de getter:
 
 ```typescript
 function range<This, Return extends number>(min: number, max: number) {
@@ -480,19 +480,19 @@ console.log(obj2.getValue); // Lança: Invalid!
 
 #### Metadados de Decorador (Decorator Metadata)
 
-Os Metadados de Decorador simplificam o processo para que os decoradores apliquem e utilizem metadados em qualquer classe. Eles podem acessar uma nova propriedade de metadados no objeto de contexto, que pode servir como uma chave para primitivos e objetos.
+Os metadados de decorador simplificam o processo de aplicação e uso de metadados pelos decoradores em qualquer classe. Os decoradores podem acessar uma nova propriedade de metadados no objeto de contexto, que pode servir como uma chave para valores primitivos e objetos.
 As informações de metadados podem ser acessadas na classe via `Symbol.metadata`.
 
-Os metadados podem ser usados para vários fins, como depuração, serialização ou injeção de dependência com decoradores.
+Os metadados podem ser usados para vários fins, como depuração, serialização ou injeção de dependências com decoradores.
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Polify simples
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Polyfill simples
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // O contexto contém os metadados da propriedade: DecoratorMetadata
+    | ClassMethodDecoratorContext; // O contexto contém a propriedade metadata: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
     // Define o objeto de metadados com um valor primitivo
@@ -517,7 +517,7 @@ console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 
 ### Herança
 
-Herança refere-se ao mecanismo pelo qual uma classe pode herdar propriedades e métodos de outra classe, conhecida como classe base ou superclasse. A classe derivada, também chamada de classe filha ou subclasse, pode estender e especializar a funcionalidade da classe base adicionando novas propriedades e métodos ou substituindo (overriding) os existentes.
+Herança refere-se ao mecanismo pelo qual uma classe pode herdar propriedades e métodos de outra classe, conhecida como classe base ou superclasse. A classe derivada, também chamada de classe filha ou subclasse, pode estender e especializar a funcionalidade da classe base adicionando novas propriedades e métodos ou sobrescrevendo (overriding) os existentes.
 
 ```typescript
 class Animal {
@@ -528,7 +528,7 @@ class Animal {
     }
 
     speak(): void {
-        console.log('O animal faz um som');
+        console.log('The animal makes a sound');
     }
 }
 
@@ -546,8 +546,8 @@ class Dog extends Animal {
 }
 
 // Cria uma instância da classe base
-const animal = new Animal('Animal Genérico');
-animal.speak(); // O animal faz um som
+const animal = new Animal('Generic Animal');
+animal.speak(); // Saída: The animal makes a sound
 
 // Cria uma instância da classe derivada
 const dog = new Dog('Max', 'Labrador');
@@ -568,11 +568,11 @@ interface Swimmable {
 
 class FlyingFish implements Flyable, Swimmable {
     fly() {
-        console.log('Voando...');
+        console.log('Flying...');
     }
 
     swim() {
-        console.log('Nadando...');
+        console.log('Swimming...');
     }
 }
 
@@ -583,7 +583,7 @@ flyingFish.swim();
 
 A palavra-chave `class` no TypeScript, assim como no JavaScript, é frequentemente chamada de açúcar sintático (syntactic sugar). Ela foi introduzida no ECMAScript 2015 (ES6) para oferecer uma sintaxe mais familiar para criar e trabalhar com objetos de maneira baseada em classes. No entanto, é importante notar que o TypeScript, sendo um superconjunto do JavaScript, acaba sendo compilado para JavaScript, que permanece baseado em protótipos em seu núcleo.
 
-### Estáticos (Statics)
+### Membros Estáticos
 
 O TypeScript possui membros estáticos. Para acessar os membros estáticos de uma classe, você pode usar o nome da classe seguido por um ponto, sem a necessidade de criar um objeto.
 
@@ -606,13 +606,13 @@ console.log(total); // 2
 
 Existem várias maneiras de inicializar propriedades de uma classe no TypeScript:
 
-Em linha (Inline):
+Na declaração:
 
 No exemplo a seguir, esses valores iniciais serão usados quando uma instância da classe for criada.
 
 ```typescript
 class MyClass {
-    property1: string = 'valor padrão';
+    property1: string = 'default value';
     property2: number = 42;
 }
 ```
@@ -625,7 +625,7 @@ class MyClass {
     property2: number;
 
     constructor() {
-        this.property1 = 'valor padrão';
+        this.property1 = 'default value';
         this.property2 = 42;
     }
 }
@@ -636,7 +636,7 @@ Usando parâmetros do construtor:
 ```typescript
 class MyClass {
     constructor(
-        private property1: string = 'valor padrão',
+        private property1: string = 'default value',
         public property2: number = 42
     ) {
         // Não há necessidade de atribuir os valores às propriedades explicitamente.
@@ -665,7 +665,7 @@ class MyClass {
         if (typeof a === 'string' && typeof b === 'string') {
             return a.concat(b);
         }
-        throw new Error('Argumentos inválidos');
+        throw new Error('Invalid arguments');
     }
 }
 

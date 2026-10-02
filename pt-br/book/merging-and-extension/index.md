@@ -36,10 +36,10 @@ interface Bird extends Animal {
 const dog: Bird = {
     name: 'Bird 1',
     eat() {
-        console.log('Comendo');
+        console.log('Eating');
     },
     sing() {
-        console.log('Cantando');
+        console.log('Singing');
     },
 };
 ```

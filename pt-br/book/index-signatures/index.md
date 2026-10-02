@@ -2,7 +2,7 @@
 
 
 
-No TypeScript, podemos usar como assinatura de índice `string`, `number` e `symbol`:
+No TypeScript, podemos usar `string`, `number` e `symbol` como assinaturas de índice:
 
 ```typescript
 type K = {

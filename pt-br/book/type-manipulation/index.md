@@ -6,7 +6,7 @@
 
 É possível criar novos tipos compondo, manipulando ou transformando tipos existentes.
 
-Tipos Interseção (`&`):
+Tipos de Interseção (`&`):
 
 Permitem combinar múltiplos tipos em um único tipo:
 
@@ -17,7 +17,7 @@ type C = A & B; // Interseção de A e B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
-Tipos União (`|`):
+Tipos de União (`|`):
 
 Permitem definir um tipo que pode ser um de vários tipos:
 
@@ -39,7 +39,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // As propriedades tornam-se somente leitura
+type ImmutablePerson = Mutable<Person>; // As propriedades tornam-se somente de leitura
 ```
 
 Tipos Condicionais:
@@ -72,11 +72,11 @@ type MyType = MyTuple[2]; // boolean
 
 ### Tipos Utilitários (Utility Types)
 
-Vários tipos utilitários integrados podem ser usados para manipular tipos, abaixo uma lista dos mais comuns:
+Vários tipos utilitários integrados podem ser usados para manipular tipos. Abaixo está uma lista dos mais usados:
 
 #### Awaited\<T\>
 
-Constrói um tipo que descompacta recursivamente tipos Promise.
+Constrói um tipo que extrai recursivamente os tipos encapsulados em Promise.
 
 ```typescript
 type A = Awaited<Promise<string>>; // string
@@ -110,7 +110,7 @@ type A = Required<Person>; // { name: string; age: number; }
 
 #### Readonly\<T\>
 
-Constrói um tipo com todas as propriedades de T definidas como somente leitura.
+Constrói um tipo com todas as propriedades de T definidas como somente de leitura.
 
 <!-- skip -->
 ```typescript
@@ -127,7 +127,7 @@ a.name = 'John'; // Inválido
 
 #### Record\<K, T\>
 
-Constrói um tipo com um conjunto de propriedades K do tipo T.
+Constrói um tipo com um conjunto de propriedades K, todas do tipo T.
 
 ```typescript
 type Product = {
@@ -145,7 +145,7 @@ console.log(products.apple); // { name: 'Apple', price: 0.5 }
 
 #### Pick\<T, K\>
 
-Constrói um tipo selecionando as propriedades especificadas K de T.
+Constrói um tipo selecionando em T as propriedades especificadas por K.
 
 ```typescript
 type Product = {
@@ -158,7 +158,7 @@ type Price = Pick<Product, 'price'>; // { price: number; }
 
 #### Omit\<T, K\>
 
-Constrói um tipo omitindo as propriedades especificadas K de T.
+Constrói um tipo omitindo de T as propriedades especificadas por K.
 
 ```typescript
 type Product = {
@@ -198,7 +198,7 @@ type MyType = NonNullable<Union>; // 'a' | 'b'
 
 #### Parameters\<T\>
 
-Extrai os tipos de parâmetros de um tipo de função T.
+Extrai os tipos dos parâmetros de um tipo de função T.
 
 ```typescript
 type Func = (a: string, b: number) => void;
@@ -207,7 +207,7 @@ type MyType = Parameters<Func>; // [a: string, b: number]
 
 #### ConstructorParameters\<T\>
 
-Extrai os tipos de parâmetros de um tipo de função construtora T.
+Extrai os tipos dos parâmetros de um tipo de função construtora T.
 
 ```typescript
 class Person {
@@ -244,7 +244,7 @@ class Person {
     }
 
     sayHello() {
-        console.log(`Olá, meu nome é ${this.name}!`);
+        console.log(`Hello, my name is ${this.name}!`);
     }
 }
 
@@ -252,7 +252,7 @@ type PersonInstance = InstanceType<typeof Person>;
 
 const person: PersonInstance = new Person('John');
 
-person.sayHello(); // Olá, meu nome é John!
+person.sayHello(); // Saída: Hello, my name is John!
 ```
 
 #### ThisParameterType\<T\>

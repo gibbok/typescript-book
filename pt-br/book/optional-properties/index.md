@@ -2,7 +2,7 @@
 
 
 
-Um objeto pode especificar Propriedades Opcionais adicionando um ponto de interrogação `?` ao final do nome da propriedade:
+Um objeto pode especificar propriedades opcionais adicionando um ponto de interrogação `?` ao final do nome da propriedade:
 
 ```typescript
 type X = {

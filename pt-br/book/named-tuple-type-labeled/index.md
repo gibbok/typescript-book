@@ -1,8 +1,8 @@
-﻿# Tipo Tupla Nomeado (Rotulado)
+﻿# Tipo de Tupla Nomeado (Rotulado)
 
 
 
-Os tipos tupla podem incluir rótulos (labels) ou nomes opcionais para cada elemento. Esses rótulos são para legibilidade e assistência de ferramentas, e não afetam as operações que você pode realizar com eles.
+Os tipos de tupla podem incluir rótulos (labels) ou nomes opcionais para cada elemento. Esses rótulos melhoram a legibilidade e o suporte das ferramentas, e não afetam as operações que você pode realizar com eles.
 
 ```typescript
 type T = string;

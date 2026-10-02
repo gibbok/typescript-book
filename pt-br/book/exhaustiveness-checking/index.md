@@ -10,10 +10,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction) => {
     switch (direction) {
         case 'up':
-            console.log('Movendo para cima');
+            console.log('Moving up');
             break;
         case 'down':
-            console.log('Movendo para baixo');
+            console.log('Moving down');
             break;
         default:
             const exhaustiveCheck: never = direction;

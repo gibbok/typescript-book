@@ -1,4 +1,4 @@
-﻿# Objetos JS Integrados Comuns
+﻿# Objetos Integrados Comuns do JavaScript
 
 
 

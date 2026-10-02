@@ -28,7 +28,7 @@ Este livro foi traduzido para vários idiomas, incluindo:
 
 [Turco](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
 
-[Vietnamese](https://github.com/gibbok/typescript-book/blob/main/README-vi_VN.md)
+[Vietnamita](https://github.com/gibbok/typescript-book/blob/main/README-vi_VN.md)
 
 [Chinês](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 

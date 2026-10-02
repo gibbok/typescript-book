@@ -18,7 +18,7 @@ function sum(a: number, b: number) {
 }
 ```
 
-O seguinte é um exemplo usando funções anônimas (as chamadas funções lambda):
+O exemplo a seguir usa uma função anônima (também chamada de função lambda):
 
 ```typescript
 const sum = (a: number, b: number) => a + b;
@@ -38,5 +38,5 @@ const sum = (a = 10, b: number): number => a + b;
 
 Isso é útil especialmente para funções mais complexas, pois escrever explicitamente o tipo de retorno antes de uma implementação pode ajudar a pensar melhor sobre a função.
 
-Geralmente, considere anotar as assinaturas de tipo, mas não as variáveis locais do corpo, e sempre adicione tipos a objetos literais.
+Em geral, considere anotar as assinaturas de tipo, mas não as variáveis locais no corpo da função, e sempre adicione tipos a literais de objeto.
 

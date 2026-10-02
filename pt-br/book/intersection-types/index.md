@@ -2,7 +2,7 @@
 
 
 
-Um Tipo de Interseção (Intersection Type) é um tipo que representa um valor que possui todas as propriedades de dois ou mais tipos. Tipos de Interseção são denotados usando o símbolo `&` entre cada tipo.
+Um tipo de interseção (Intersection Type) é um tipo que representa um valor que possui todas as propriedades de dois ou mais tipos. Tipos de interseção são denotados usando o símbolo `&` entre cada tipo.
 
 ```typescript
 type X = {

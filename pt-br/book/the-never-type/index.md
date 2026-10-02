@@ -2,7 +2,7 @@
 
 
 
-Quando uma variável é estreitada para um tipo que não pode conter nenhum valor, o compilador TypeScript inferirá que a variável deve ser do tipo `never`. Isso ocorre porque o Tipo Never representa um valor que nunca pode ser produzido.
+Quando uma variável é estreitada para um tipo que não pode conter nenhum valor, o compilador TypeScript inferirá que a variável deve ser do tipo `never`. Isso ocorre porque o tipo never representa um valor que nunca pode ser produzido.
 
 ```typescript
 const printValue = (val: string | number) => {
@@ -13,7 +13,7 @@ const printValue = (val: string | number) => {
     } else {
         // val tem o tipo never aqui porque nunca pode ser nada além de uma string ou um número
         const neverVal: never = val;
-        console.log(`Valor inesperado: ${neverVal}`);
+        console.log(`Unexpected value: ${neverVal}`);
     }
 };
 ```

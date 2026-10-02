@@ -1,8 +1,8 @@
-﻿# Diferenças entre Type e Interface
+﻿# Diferenças entre Tipo e Interface
 
 
 
-Mesclagem de declarações (aumento):
+Mesclagem de declarações (augmentation):
 
 As interfaces suportam a mesclagem de declarações, o que significa que você pode definir várias interfaces com o mesmo nome, e o TypeScript as mesclará em uma única interface com as propriedades e métodos combinados. Por outro lado, os tipos (types) não suportam a mesclagem de declarações. Isso pode ser útil quando você deseja adicionar funcionalidades extras ou personalizar tipos existentes sem modificar as definições originais ou corrigir tipos ausentes ou incorretos.
 
@@ -21,7 +21,7 @@ const j: A = {
 
 Estendendo outros tipos/interfaces:
 
-Tanto tipos quanto interfaces podem estender outros tipos/interfaces, mas a sintaxe é diferente. Com as interfaces, você usa a palavra-chave `extends` para herdar propriedades e métodos de outras interfaces. No entanto, uma interface não pode estender um tipo complexo, como um tipo união.
+Tanto tipos quanto interfaces podem estender outros tipos/interfaces, mas a sintaxe é diferente. Com as interfaces, você usa a palavra-chave `extends` para herdar propriedades e métodos de outras interfaces. No entanto, uma interface não pode estender um tipo complexo, como um tipo de união.
 
 ```typescript
 interface A {
@@ -57,9 +57,9 @@ const c: B = {
 };
 ```
 
-Tipos União e Interseção:
+Tipos de União e Interseção:
 
-Os tipos (types) são mais flexíveis quando se trata de definir Tipos União e Interseção. Com a palavra-chave `type`, você pode criar facilmente tipos união usando o operador `|` e tipos interseção usando o operador `&`. Embora as interfaces também possam representar tipos união indiretamente, elas não possuem suporte integrado para tipos interseção.
+Os tipos (types) são mais flexíveis quando se trata de definir tipos de união e interseção. Com a palavra-chave `type`, você pode criar facilmente tipos de união usando o operador `|` e tipos de interseção usando o operador `&`. Embora as interfaces também possam representar tipos de união indiretamente, elas não possuem suporte integrado para tipos de interseção.
 
 ```typescript
 type Department = 'dep-x' | 'dep-y'; // União

@@ -16,7 +16,7 @@ function sayHi(name: unknown): unknown {
     } else if (Array.isArray(name)) {
         return name.map(name => `Hi, ${name}!`);
     }
-    throw new Error('Valor inválido');
+    throw new Error('Invalid value');
 }
 
 sayHi('xx'); // Válido
@@ -44,7 +44,7 @@ class Greeter {
         } else if (Array.isArray(name)) {
             return name.map(name => `${this.message}, ${name}!`);
         }
-        throw new Error('o valor é inválido');
+        throw new Error('value is invalid');
     }
 }
 console.log(new Greeter('Hello').sayHi('Simon'));

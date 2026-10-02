@@ -1,4 +1,4 @@
-﻿# Interface e Type
+﻿# Interface e Tipo
 
 
 
@@ -28,9 +28,9 @@ type TypeName = {
 };
 ```
 
-`interface InterfaceName` ou `type TypeName`: Define o nome da interface/tipo.
+`interface InterfaceName` ou `type TypeName`: Define o nome da interface.
 `property1`: `Type1`: Especifica as propriedades da interface junto com seus tipos correspondentes. Múltiplas propriedades podem ser definidas, cada uma separada por um ponto e vírgula.
-`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;`: Especifica os métodos da interface. Métodos são definidos com seus nomes, seguidos por uma lista de parâmetros entre parênteses e o tipo de retorno. Múltiplos métodos podem ser definidas, cada uma separada por um ponto e vírgula.
+`method1(arg1: ArgType1, arg2: ArgType2): ReturnType;`: Especifica os métodos da interface. Métodos são definidos com seus nomes, seguidos por uma lista de parâmetros entre parênteses e o tipo de retorno. Múltiplos métodos podem ser definidos, cada um separado por um ponto e vírgula.
 
 Exemplo de interface:
 
@@ -51,7 +51,7 @@ type TypeName = {
 };
 ```
 
-No TypeScript, os tipos são usados para definir a forma dos dados e impor a verificação de tipos. Existem várias sintaxes comuns para definir tipos, dependendo do caso de uso específico. Aqui estão alguns exemplos:
+No TypeScript, os tipos são usados para definir a estrutura dos dados e impor a verificação de tipos. Existem várias sintaxes comuns para definir tipos no TypeScript, dependendo do caso de uso específico. Aqui estão alguns exemplos:
 
 ### Tipos Básicos
 
@@ -68,16 +68,16 @@ let myTuple: [string, number] = ['a', 123]; // tupla
 const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ```
 
-### Tipos União e Interseção
+### Tipos de União e Interseção
 
 ```typescript
-type MyType = string | number; // Tipo União (Union type)
+type MyType = string | number; // Tipo de união (Union type)
 let myUnion: MyType = 'hello'; // Pode ser uma string
 myUnion = 123; // Ou um número
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Tipo Interseção (Intersection type)
+type CombinedType = TypeA & TypeB; // Tipo de interseção (Intersection type)
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Objeto com as propriedades name e age
 ```
 

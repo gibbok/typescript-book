@@ -1,4 +1,4 @@
-﻿# Propriedades Somente Leitura (Readonly)
+﻿# Propriedades Somente de Leitura (Readonly)
 
 
 

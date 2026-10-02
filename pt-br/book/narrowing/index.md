@@ -1,14 +1,14 @@
-﻿# Estreitamento (Narrowing)
+﻿# Estreitamento de Tipos (Narrowing)
 
 
 
-O estreitamento (narrowing) no TypeScript é o processo de refinar o tipo de uma variável dentro de um bloco condicional. Isso é útil ao trabalhar com tipos de união, onde uma variável pode ter mais de um tipo.
+O estreitamento de tipos (narrowing) no TypeScript é o processo de refinar o tipo de uma variável dentro de um bloco condicional. Isso é útil ao trabalhar com tipos de união, em que uma variável pode ter mais de um tipo.
 
 O TypeScript reconhece várias maneiras de estreitar o tipo:
 
-### typeof type guards
+### Guardas de tipo typeof
 
-O protetor de tipo (type guard) `typeof` é um protetor de tipo específico no TypeScript que verifica o tipo de uma variável com base em seu tipo JavaScript integrado.
+A guarda de tipo (type guard) `typeof` é uma guarda de tipo específica no TypeScript que verifica o tipo de uma variável com base em seu tipo integrado do JavaScript.
 
 ```typescript
 const fn = (x: number | string) => {
@@ -19,9 +19,9 @@ const fn = (x: number | string) => {
 };
 ```
 
-### Estreitamento de veracidade (Truthiness narrowing)
+### Estreitamento por valor de verdade (Truthiness narrowing)
 
-O estreitamento de veracidade (truthiness narrowing) no TypeScript funciona verificando se uma variável é verdadeira (truthy) ou falsa (falsy) para estreitar seu tipo adequadamente.
+O estreitamento por valor de verdade (truthiness narrowing) no TypeScript funciona verificando se o valor de uma variável é considerado verdadeiro (truthy) ou falso (falsy) para estreitar seu tipo adequadamente.
 
 ```typescript
 const toUpperCase = (name: string | null) => {
@@ -33,9 +33,9 @@ const toUpperCase = (name: string | null) => {
 };
 ```
 
-### Estreitamento de igualdade (Equality narrowing)
+### Estreitamento por igualdade (Equality narrowing)
 
-O estreitamento de igualdade (equality narrowing) no TypeScript funciona verificando se uma variável é igual a um valor específico ou não, para estreitar seu tipo adequadamente.
+O estreitamento por igualdade (equality narrowing) no TypeScript funciona verificando se uma variável é igual a um valor específico ou não, para estreitar seu tipo adequadamente.
 
 É usado em conjunto com instruções `switch` e operadores de igualdade como `===`, `!==`, `==` e `!=` para estreitar os tipos.
 
@@ -50,7 +50,7 @@ const checkStatus = (status: 'success' | 'error') => {
 };
 ```
 
-### Estreitamento com operador In
+### Estreitamento com o operador in
 
 O estreitamento com o operador `in` no TypeScript é uma forma de estreitar o tipo de uma variável com base na existência de uma propriedade dentro do tipo da variável.
 
