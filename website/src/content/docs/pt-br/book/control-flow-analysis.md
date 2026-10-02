@@ -6,9 +6,9 @@ sidebar:
 ---
 
 
-A Análise de Fluxo de Controle (Control Flow Analysis) no TypeScript é uma forma de analisar estaticamente o fluxo do código para inferir os tipos das variáveis, permitindo que o compilador estreite os tipos dessas variáveis conforme necessário, com base nos resultados da análise.
+A análise de fluxo de controle (Control Flow Analysis) no TypeScript é uma forma de analisar estaticamente o fluxo do código para inferir os tipos das variáveis, permitindo que o compilador estreite os tipos dessas variáveis conforme necessário, com base nos resultados da análise.
 
-Antes do TypeScript 4.4, a análise de fluxo de código só seria aplicada ao código dentro de uma instrução `if`, mas a partir do TypeScript 4.4, ela também pode ser aplicada a expressões condicionais e acessos a propriedades discriminantes referenciados indiretamente por meio de variáveis `const`.
+Antes do TypeScript 4.4, a análise de fluxo de controle só era aplicada ao código dentro de uma instrução `if`, mas a partir do TypeScript 4.4, ela também pode ser aplicada a expressões condicionais e acessos a propriedades discriminantes referenciados indiretamente por meio de variáveis `const`.
 
 Por exemplo:
 
@@ -32,7 +32,7 @@ const f2 = (
 };
 ```
 
-Alguns exemplos onde o estreitamento não ocorre:
+Alguns exemplos em que o estreitamento não ocorre:
 
 <!-- skip -->
 ```typescript

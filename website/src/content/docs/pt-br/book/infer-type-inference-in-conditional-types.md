@@ -1,8 +1,8 @@
 ---
-title: infer Inferência de Tipo em Tipos Condicionais
+title: Inferência de Tipo com infer em Tipos Condicionais
 sidebar:
   order: 42
-  label: 42. infer Inferência de Tipo em Tipos Condicionais
+  label: 42. Inferência de Tipo com infer em Tipos Condicionais
 ---
 
 

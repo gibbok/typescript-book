@@ -6,9 +6,9 @@ sidebar:
 ---
 
 
-Um Tipo Literal é um conjunto de elemento único a partir de um tipo coletivo; ele define um valor exato que é um primitivo do JavaScript.
+Um tipo literal é um conjunto de um único elemento dentro de um tipo mais abrangente; ele define um valor exato que é um primitivo do JavaScript.
 
-Os Tipos Literais no TypeScript são números, strings e booleanos.
+Os tipos literais no TypeScript são números, strings e booleanos.
 
 Exemplo de literais:
 
@@ -18,8 +18,8 @@ const b = 1; // Tipo literal numérico
 const c = true; // Tipo literal booleano
 ```
 
-Tipos Literais de String, Numéricos e Booleanos são usados em uniões, protetores de tipo (type guards) e apelidos de tipo (type aliases).
-No exemplo a seguir, você pode ver um apelido de tipo de união. `O` consiste apenas nos valores especificados; nenhuma outra string é válida:
+Tipos literais de string, numéricos e booleanos são usados em uniões, guardas de tipo (type guards) e aliases de tipo (type aliases).
+No exemplo a seguir, você pode ver um alias de tipo de união. `O` consiste apenas nos valores especificados; nenhuma outra string é válida:
 
 ```typescript
 type O = 'a' | 'b' | 'c';
