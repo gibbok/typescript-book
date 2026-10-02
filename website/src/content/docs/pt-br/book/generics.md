@@ -27,7 +27,7 @@ const len = getLen([1, 2, 3]);
 
 ### Classes Genéricas
 
-Os genéricos também podem ser aplicados a classes, permitindo que trabalhem com múltiplos tipos por meio de parâmetros de tipo. Isso é útil para criar definições de classe reutilizáveis que podem operar em diferentes tipos de dados mantendo a segurança de tipo.
+Os genéricos também podem ser aplicados a classes, permitindo que trabalhem com múltiplos tipos por meio de parâmetros de tipo. Isso é útil para criar definições de classe reutilizáveis que podem operar em diferentes tipos de dados mantendo a segurança de tipos.
 
 ```typescript
 class Container<T> {
@@ -53,7 +53,7 @@ console.log(stringContainer.getItem()); // hello
 
 Parâmetros genéricos podem ser restringidos usando a palavra-chave `extends` seguida por um tipo ou interface que o parâmetro de tipo deve satisfazer.
 
-No exemplo a seguir, T deve conter uma propriedade `length` para ser válido:
+No exemplo a seguir, T deve ter uma propriedade `length` corretamente tipada para ser válido:
 
 <!-- skip -->
 ```typescript
@@ -67,7 +67,7 @@ printLen({ length: 10 }); // 10
 printLen(123); // Inválido
 ```
 
-Um recurso interessante de genéricos introduzido na versão 3.4 RC é a inferência de tipo de função de ordem superior, que introduziu argumentos de tipo genérico propagados:
+Um recurso relevante dos genéricos introduzido na versão 3.4 RC é a inferência de tipos para funções de ordem superior, que propaga argumentos de tipo genéricos:
 
 ```typescript
 declare function pipe<A extends any[], B, C>(
@@ -82,11 +82,11 @@ const listBox = pipe(list, box); // <T>(a: T) => { value: T[] }
 const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```
 
-Essa funcionalidade permite uma programação de estilo sem pontos (pointfree) com segurança de tipo mais fácil, o que é comum na programação funcional.
+Essa funcionalidade facilita a programação no estilo pointfree com segurança de tipos, comum na programação funcional.
 
-### Estreitamento Contextual Genérico
+### Estreitamento Contextual para Genéricos
 
-O estreitamento contextual (contextual narrowing) para genéricos é o mecanismo no TypeScript que permite ao compilador estreitar o tipo de um parâmetro genérico com base no contexto em que é usado. É útil ao trabalhar com tipos genéricos em declarações condicionais:
+O estreitamento contextual de tipos (contextual narrowing) para genéricos é o mecanismo do TypeScript que permite ao compilador estreitar o tipo de um parâmetro genérico com base no contexto em que é usado. É útil ao trabalhar com tipos genéricos em instruções condicionais:
 
 ```typescript
 function process<T>(value: T): void {

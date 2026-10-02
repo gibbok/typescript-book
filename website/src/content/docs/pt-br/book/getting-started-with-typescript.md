@@ -20,7 +20,7 @@ ou
 yarn add typescript --dev
 ```
 
-Certifique-se de realizar o commit do arquivo de bloqueio (lockfile) gerado para garantir que cada membro da equipe use a mesma versão do TypeScript.
+Certifique-se de incluir o arquivo de travamento de dependências (lockfile) gerado no commit para garantir que cada membro da equipe use a mesma versão do TypeScript.
 
 Para executar o compilador TypeScript, você pode usar os seguintes comandos:
 
@@ -34,7 +34,7 @@ ou
 yarn tsc
 ```
 
-Recomenda-se instalar o TypeScript por projeto em vez de globalmente, pois fornece um processo de construção mais previsível. No entanto, para ocasiões pontuais, você pode usar o seguinte comando:
+Recomenda-se instalar o TypeScript por projeto em vez de globalmente, pois isso proporciona um processo de build mais previsível. No entanto, em situações pontuais, você pode usar o seguinte comando:
 
 ```shell
 npx tsc
@@ -52,7 +52,7 @@ Se você estiver usando o Microsoft Visual Studio, pode obter o TypeScript como 
 Install-Package Microsoft.TypeScript.MSBuild
 ```
 
-Durante a instalação do TypeScript, dois executáveis são instalados: "tsc" como o compilador TypeScript e "tsserver" como o servidor autônomo do TypeScript. O servidor autônomo contém o compilador e os serviços de linguagem que podem ser utilizados por editores e IDEs para fornecer preenchimento automático de código.
+Durante a instalação do TypeScript, dois executáveis são instalados: "tsc" como o compilador TypeScript e "tsserver" como o servidor autônomo do TypeScript. O servidor autônomo contém o compilador e os serviços de linguagem que podem ser utilizados por editores e IDEs para fornecer preenchimento automático inteligente de código.
 
 Além disso, existem vários transpiladores compatíveis com TypeScript disponíveis, como Babel (via um plugin) ou swc. Esses transpiladores podem ser usados para converter código TypeScript em outras linguagens ou versões de destino.
 
@@ -99,20 +99,20 @@ A seguir, apresentamos uma lista das configurações comuns e úteis:
 
 #### target
 
-A propriedade "target" é usada para especificar para qual versão do ECMAScript seu código TypeScript deve emitir/compilar. Para navegadores modernos, o ES6 é uma boa opção. Observação: o suporte a ES5 foi descontinuado no TypeScript 6.0 e não é mais suportado no TypeScript 7.0.
+A propriedade "target" é usada para especificar a versão do ECMAScript para a qual seu código TypeScript deve ser compilado. Para navegadores modernos, o ES6 é uma boa opção. Observação: o suporte a ES5 foi marcado como obsoleto no TypeScript 6.0 e não está mais disponível no TypeScript 7.0.
 
 #### lib
 
-A propriedade "lib" é usada para especificar quais arquivos de biblioteca incluir no tempo de compilação. O TypeScript inclui automaticamente APIs para recursos especificados na propriedade "target", mas é possível omitir ou escolher bibliotecas específicas para necessidades particulares. Por exemplo, se você estiver trabalhando em um projeto de servidor, pode excluir a biblioteca "DOM", que é útil apenas em um ambiente de navegador.
+A propriedade "lib" é usada para especificar quais arquivos de biblioteca incluir em tempo de compilação. O TypeScript inclui automaticamente APIs para recursos especificados na propriedade "target", mas é possível omitir ou escolher bibliotecas específicas para necessidades particulares. Por exemplo, se você estiver trabalhando em um projeto de servidor, pode excluir a biblioteca "DOM", que é útil apenas em um ambiente de navegador.
 
 #### strict
 
-A opção "strict" aprimora a segurança de tipos, permitindo verificações mais rigorosas. Ela está habilitada por padrão a partir do TypeScript 6.0; caso contrário, você deve defini-la explicitamente como true no seu arquivo tsconfig.json. Habilitar "strict" permite que o TypeScript:
+A opção "strict" aprimora a segurança de tipos, habilitando verificações mais rigorosas. Ela está habilitada por padrão a partir do TypeScript 6.0; nas versões anteriores, você deve defini-la explicitamente como true no seu arquivo tsconfig.json. Ao habilitar "strict", o TypeScript passa a:
 
 * Emitir código usando "use strict" para cada arquivo de origem.
 * Considerar "null" e "undefined" no processo de verificação de tipos.
 * Desabilitar o uso do tipo "any" quando não houver anotações de tipo.
-* Levantar um erro sobre o uso da expressão "this", que de outra forma implicaria o tipo "any".
+* Gerar um erro ao usar a expressão "this" quando, de outra forma, ela teria implicitamente o tipo "any".
 
 #### module
 
@@ -120,7 +120,7 @@ A propriedade "module" define o sistema de módulos suportado pelo programa comp
 
 Os carregadores de módulos mais comuns usados em JavaScript são o CommonJS do Node.js para aplicações do lado do servidor e o RequireJS para módulos AMD em aplicações web baseadas em navegador. O TypeScript pode gerar código para vários sistemas de módulos, incluindo UMD, SystemJS, ESNext, ES2015/ES6 e ES2020. O sistema de módulos deve ser escolhido com base no ambiente de destino e no mecanismo de carregamento de módulos disponível nesse ambiente.
 
-Nota: O suporte para sistemas de módulos mais antigos (AMD, UMD, SystemJS) foi descontinuado no TypeScript 6.0 e não é mais suportado no TypeScript 7.0.
+Nota: O suporte a sistemas de módulos mais antigos (AMD, UMD, SystemJS) foi marcado como obsoleto no TypeScript 6.0 e não está mais disponível no TypeScript 7.0.
 
 #### moduleResolution
 
@@ -130,11 +130,11 @@ A propriedade "moduleResolution" especifica a estratégia de resolução de mód
 
 A propriedade "esModuleInterop" permite a importação padrão de módulos CommonJS que não exportaram usando a propriedade "default"; esta propriedade fornece um shim para garantir a compatibilidade no JavaScript emitido. Após habilitar esta opção, podemos usar `import MyLibrary from "my-library"` em vez de `import * as MyLibrary from "my-library"`.
 
-Originalmente, a opção "esModuleInterop" era opcional para evitar alterações que quebrassem a compatibilidade, mas há muito tempo é o padrão recomendado. Desativá-la pode causar problemas sutis em tempo de execução ao usar CommonJS com ESM. Observação: a partir do TypeScript 6.0, esse comportamento de interoperabilidade mais seguro está sempre ativado.
+Originalmente, "esModuleInterop" era uma opção de ativação explícita (opt-in), para evitar alterações que quebrassem a compatibilidade, mas há muito tempo é o padrão recomendado. Desativá-la pode causar problemas sutis em tempo de execução ao usar CommonJS com ESM. Observação: a partir do TypeScript 6.0, esse comportamento de interoperabilidade mais seguro está sempre ativado.
 
-No TypeScript 6.0, algumas opções de configuração e formas de sintaxe mais antigas foram descontinuadas ou passaram por comportamento antigo. No TypeScript 7.0, elas são erros rígidos ou comportamento sem efeito.
+No TypeScript 6.0, algumas opções de configuração e formas de sintaxe mais antigas foram marcadas como obsoletas ou passaram por uma transição de comportamento. No TypeScript 7.0, elas geram erros de compilação ou não têm efeito.
 
-As descontinuações que se tornaram erros rígidos com comportamento sem efeito são:
+Os recursos obsoletos que passaram a gerar erros de compilação sem produzir efeito são:
 
 * `target: es5`
 * `downlevelIteration`
@@ -174,17 +174,17 @@ Nota: tsconfig.json permite comentários.
 
 ### importHelpers
 
-O TypeScript usa código auxiliar ao gerar código para certos recursos avançados do JavaScript durante o downleveling. Por padrão, esses auxiliares são duplicados nos arquivos que os utilizam. A opção `importHelpers` importa esses auxiliares do módulo `tslib`, tornando a saída do JavaScript mais eficiente.
+O TypeScript usa código auxiliar ao gerar código para certos recursos avançados do JavaScript ou recursos convertidos para versões mais antigas da linguagem (downleveling). Por padrão, esses auxiliares são duplicados nos arquivos que os utilizam. A opção `importHelpers` importa esses auxiliares do módulo `tslib`, tornando a saída do JavaScript mais eficiente.
 
-### Conselhos para Migração para TypeScript
+### Recomendações para Migração para o TypeScript
 
-Para projetos grandes, recomenda-se adotar uma transição gradual onde o código TypeScript e JavaScript coexistirão inicialmente. Apenas projetos pequenos podem ser migrados para TypeScript de uma só vez.
+Para projetos grandes, recomenda-se adotar uma transição gradual em que os códigos TypeScript e JavaScript coexistam inicialmente. Apenas projetos pequenos podem ser migrados para TypeScript de uma só vez.
 
-O primeiro passo desta transição é introduzir o TypeScript no processo da cadeia de construção. Isso pode ser feito usando a opção de compilador "allowJs", que permite que arquivos .ts e .tsx coexistam com arquivos JavaScript existentes. Como o TypeScript voltará para um tipo "any" para uma variável quando não puder inferir o tipo dos arquivos JavaScript, recomenda-se desabilitar "noImplicitAny" em suas opções de compilador no início da migração.
+O primeiro passo desta transição é introduzir o TypeScript no processo de build. Isso pode ser feito usando a opção do compilador "allowJs", que permite que arquivos .ts e .tsx coexistam com arquivos JavaScript existentes. Como o TypeScript usará o tipo "any" para uma variável quando não puder inferir seu tipo a partir dos arquivos JavaScript, recomenda-se desabilitar "noImplicitAny" nas opções do compilador no início da migração.
 
 O segundo passo é garantir que seus testes JavaScript funcionem junto com os arquivos TypeScript, para que você possa executar testes conforme converte cada módulo. Se estiver usando Jest, considere usar o `ts-jest`, que permite testar projetos TypeScript com Jest.
 
-O terceiro passo é incluir declarações de tipo para bibliotecas de terceiros em seu projeto. Essas declarações podem ser encontradas empacotadas ou no DefinitelyTyped. Você pode pesquisar por elas usando [https://www.typescriptlang.org/dt/search](https://www.typescriptlang.org/dt/search) e instalá-las usando:
+O terceiro passo é incluir declarações de tipo para bibliotecas de terceiros em seu projeto. Essas declarações podem ser fornecidas com a própria biblioteca ou encontradas no DefinitelyTyped. Você pode pesquisar por elas usando [https://www.typescriptlang.org/dt/search](https://www.typescriptlang.org/dt/search) e instalá-las usando:
 
 ```shell
 npm install --save-dev @types/package-name
@@ -196,17 +196,17 @@ ou
 yarn add --dev @types/package-name
 ```
 
-O quarto passo é migrar módulo por módulo com uma abordagem de baixo para cima, seguindo seu Gráfico de Dependências começando pelas folhas. A ideia é começar convertendo Módulos que não dependem de outros Módulos. Para visualizar os gráficos de dependência, você pode usar a ferramenta "madge".
+O quarto passo é migrar módulo por módulo com uma abordagem de baixo para cima, seguindo o grafo de dependências a partir das folhas. A ideia é começar convertendo módulos que não dependem de outros módulos. Para visualizar os grafos de dependências, você pode usar a ferramenta "madge".
 
 Bons módulos candidatos para essas conversões iniciais são funções utilitárias e código relacionado a APIs ou especificações externas. É possível gerar automaticamente definições de tipo TypeScript a partir de contratos Swagger, GraphQL ou esquemas JSON para serem incluídos em seu projeto.
 
-Quando não houver especificações ou esquemas oficiais disponíveis, você pode gerar tipos a partir de dados brutos, como JSON retornado por um servidor. No entanto, recomenda-se gerar tipos a partir de especificações em vez de dados para evitar perder casos extremos.
+Quando não houver especificações ou esquemas oficiais disponíveis, você pode gerar tipos a partir de dados brutos, como JSON retornado por um servidor. No entanto, recomenda-se gerar tipos a partir de especificações em vez de dados para evitar deixar de cobrir casos de borda.
 
 Durante a migração, evite a refatoração de código e concentre-se apenas em adicionar tipos aos seus módulos.
 
-O quinto passo é habilitar o "noImplicitAny", que forçará que todos os tipos sejam conhecidos e definidos, proporcionando uma melhor experiência de TypeScript para seu projeto.
+O quinto passo é habilitar "noImplicitAny", o que exigirá que todos os tipos sejam conhecidos e definidos, proporcionando uma melhor experiência com TypeScript no projeto.
 
-Durante a migração, você pode usar a diretiva `@ts-check`, que habilita a verificação de tipos do TypeScript em um arquivo JavaScript. Esta diretiva fornece uma versão flexível de verificação de tipos e pode ser usada inicialmente para identificar problemas em arquivos JavaScript. Quando o `@ts-check` é incluído em um arquivo, o TypeScript tentará deduzir definições usando comentários no estilo JSDoc. No entanto, considere usar anotações JSDoc apenas em um estágio muito inicial da migração.
+Durante a migração, você pode usar a diretiva `@ts-check`, que habilita a verificação de tipos do TypeScript em um arquivo JavaScript. Esta diretiva fornece uma verificação de tipos menos rigorosa e pode ser usada inicialmente para identificar problemas em arquivos JavaScript. Quando o `@ts-check` é incluído em um arquivo, o TypeScript tentará deduzir definições usando comentários no estilo JSDoc. No entanto, considere usar anotações JSDoc apenas em um estágio muito inicial da migração.
 
 Considere manter o valor padrão de `noEmitOnError` no seu tsconfig.json como false. Isso permitirá gerar o código-fonte JavaScript mesmo se erros forem relatados.
 

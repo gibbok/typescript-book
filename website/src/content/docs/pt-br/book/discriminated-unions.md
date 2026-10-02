@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Uniões Discriminadas (Discriminated Unions) no TypeScript são um tipo de união que usa uma propriedade comum, conhecida como discriminante, para estreitar o conjunto de tipos possíveis para a união.
+Uniões discriminadas (Discriminated Unions) no TypeScript são um tipo de união que usa uma propriedade comum, conhecida como discriminante, para estreitar o conjunto de tipos possíveis para a união.
 
 ```typescript
 type Square = {

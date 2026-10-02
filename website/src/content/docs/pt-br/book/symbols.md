@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-Símbolos são um tipo de dado primitivo que representa um valor imutável que é garantido ser globalmente único durante todo o tempo de execução do programa.
+Símbolos são um tipo de dados primitivo que representa um valor imutável, cuja unicidade global é garantida durante toda a execução do programa.
 
 Símbolos podem ser usados como chaves para propriedades de objetos e fornecem uma maneira de criar propriedades não enumeráveis.
 
@@ -19,8 +19,8 @@ const obj = {
     [key2]: 'value 2',
 };
 
-console.log(obj[key1]); // value 1
-console.log(obj[key2]); // value 2
+console.log(obj[key1]); // Saída: value 1
+console.log(obj[key2]); // Saída: value 2
 ```
 
 Em WeakMaps e WeakSets, símbolos agora são permitidos como chaves.

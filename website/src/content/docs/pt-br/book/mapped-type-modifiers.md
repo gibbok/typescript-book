@@ -6,16 +6,16 @@ sidebar:
 ---
 
 
-Os Modificadores de Tipos Mapeados no TypeScript permitem a transformação de propriedades dentro de um tipo existente:
+Os modificadores de tipos mapeados no TypeScript permitem a transformação de propriedades dentro de um tipo existente:
 
-* `readonly` ou `+readonly`: Torna uma propriedade no tipo mapeado como somente leitura.
+* `readonly` ou `+readonly`: Torna uma propriedade no tipo mapeado somente de leitura.
 * `-readonly`: Permite que uma propriedade no tipo mapeado seja mutável.
 * `?`: Designa uma propriedade no tipo mapeado como opcional.
 
 Exemplos:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Todas as propriedades marcadas como somente leitura
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Todas as propriedades marcadas como somente de leitura
 
 type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Todas as propriedades marcadas como mutáveis
 

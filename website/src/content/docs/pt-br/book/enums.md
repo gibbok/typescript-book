@@ -20,11 +20,11 @@ Enums podem ser definidos de diferentes maneiras:
 
 ### Enums numéricos
 
-No TypeScript, um Enum Numérico é um Enum onde cada constante recebe um valor numérico, começando em 0 por padrão.
+No TypeScript, um enum numérico é um enum em que cada constante recebe um valor numérico, começando em 0 por padrão.
 
 ```typescript
 enum Size {
-    Small, // o valor começa de 0
+    Small, // o valor começa em 0
     Medium,
     Large,
 }
@@ -43,7 +43,7 @@ console.log(Size.Medium); // 11
 
 ### Enums de string
 
-No TypeScript, um Enum de String é um Enum onde cada constante recebe um valor de string.
+No TypeScript, um enum de string é um enum em que cada constante recebe um valor de string.
 
 ```typescript
 enum Language {
@@ -52,11 +52,11 @@ enum Language {
 }
 ```
 
-Nota: O TypeScript permite o uso de Enums heterogêneos, onde membros de string e numéricos podem coexistir.
+Nota: O TypeScript permite o uso de enums heterogêneos, nos quais membros de string e numéricos podem coexistir.
 
 ### Enums constantes
 
-Um enum constante (const enum) no TypeScript é um tipo especial de Enum onde todos os valores são conhecidos em tempo de compilação e são inseridos diretamente (inlined) onde quer que o enum seja usado, resultando em um código mais eficiente.
+Um enum constante (const enum) no TypeScript é um tipo especial de enum em que todos os valores são conhecidos em tempo de compilação e são inseridos diretamente (inlined) onde quer que o enum seja usado, resultando em um código mais eficiente.
 
 ```typescript
 const enum Language {
@@ -73,11 +73,11 @@ console.log('EN' /* Language.English */);
 ```
 
 Notas:
-Enums Constantes têm valores fixos (hardcoded), apagando o Enum, o que pode ser mais eficiente em bibliotecas autocontidas, mas geralmente não é desejável. Além disso, enums constantes não podem ter membros computados.
+Enums constantes têm valores fixos (hardcoded), eliminando o enum, o que pode ser mais eficiente em bibliotecas autocontidas, mas geralmente não é desejável. Além disso, enums constantes não podem ter membros computados.
 
 ### Mapeamento reverso
 
-No TypeScript, os mapeamentos reversos em Enums referem-se à capacidade de recuperar o nome do membro do Enum a partir de seu valor. Por padrão, os membros do Enum têm mapeamentos diretos (forward mappings) do nome para o valor, mas mapeamentos reversos podem ser criados definindo explicitamente os valores para cada membro. Os mapeamentos reversos são úteis quando você precisa procurar um membro do Enum pelo seu valor ou quando precisa iterar sobre todos os membros do Enum. Note que apenas membros de enums numéricos gerarão mapeamentos reversos, enquanto membros de Enums de String não possuem um mapeamento reverso gerado.
+No TypeScript, os mapeamentos reversos em enums referem-se à capacidade de recuperar o nome do membro do enum a partir de seu valor. Por padrão, os membros do enum têm mapeamentos diretos (forward mappings) do nome para o valor, mas mapeamentos reversos podem ser criados definindo explicitamente os valores para cada membro. Os mapeamentos reversos são úteis quando você precisa procurar um membro do enum pelo seu valor ou quando precisa iterar sobre todos os membros do enum. Observe que apenas membros de enums numéricos gerarão mapeamentos reversos, enquanto membros de enums de string não possuem um mapeamento reverso gerado.
 
 O seguinte enum:
 
@@ -119,17 +119,17 @@ console.log(Grade[myGrade]); // A
 console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
-console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(failGrade); // Saída: fail
+console.log(Grade[failGrade]); // O elemento tem implicitamente o tipo 'any' porque a expressão de índice não é do tipo 'number'.
 ```
 
 ### Enums de ambiente
 
-Um enum de ambiente no TypeScript é um tipo de Enum que é definido em um arquivo de declaração (*.d.ts) sem uma implementação associada. Ele permite definir um conjunto de constantes nomeadas que podem ser usadas de forma segura em relação aos tipos em diferentes arquivos, sem ter que importar os detalhes da implementação em cada arquivo.
+Um enum de ambiente no TypeScript é um tipo de enum definido em um arquivo de declaração (*.d.ts) sem uma implementação associada. Ele permite definir um conjunto de constantes nomeadas que podem ser usadas com segurança de tipos em diferentes arquivos, sem ter que importar os detalhes da implementação em cada arquivo.
 
 ### Membros computados e constantes
 
-No TypeScript, um membro computado é um membro de um Enum que possui um valor calculado em tempo de execução, enquanto um membro constante é um membro cujo valor é definido em tempo de compilação e não pode ser alterado durante o tempo de execução. Membros computados são permitidos em Enums regulares, enquanto membros constantes são permitidos tanto em enums regulares quanto em enums constantes (const enums).
+No TypeScript, um membro computado é um membro de um enum que possui um valor calculado em tempo de execução, enquanto um membro constante é um membro cujo valor é definido em tempo de compilação e não pode ser alterado em tempo de execução. Membros computados são permitidos em enums regulares, enquanto membros constantes são permitidos tanto em enums regulares quanto em enums constantes (const enums).
 
 ```typescript
 // Membros constantes
@@ -138,7 +138,7 @@ enum Color {
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // geração 6 em tempo de compilação
+console.log(Color.Blue); // 6 gerado em tempo de compilação
 ```
 
 ```typescript

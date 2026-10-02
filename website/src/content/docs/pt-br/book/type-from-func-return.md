@@ -1,14 +1,14 @@
 ---
-title: Tipo a partir de Retorno de Função
+title: Tipo a partir do Retorno de Função
 sidebar:
   order: 36
-  label: 36. Tipo a partir de Retorno de Função
+  label: 36. Tipo a partir do Retorno de Função
 ---
 
 
-Tipo a partir de Retorno de Função refere-se à capacidade de inferir automaticamente o tipo de retorno de uma função com base em sua implementação. Isso permite que o TypeScript determine o tipo do valor retornado pela função sem anotações de tipo explícitas.
+Tipo a partir do retorno de função refere-se à capacidade de inferir automaticamente o tipo de retorno de uma função com base em sua implementação. Isso permite que o TypeScript determine o tipo do valor retornado pela função sem anotações de tipo explícitas.
 
 ```typescript
-const add = (x: number, y: number) => x + y; // O TypeScript pode inferir que o tipo de retorno da função é um número
+const add = (x: number, y: number) => x + y; // O TypeScript pode inferir que o tipo de retorno da função é number
 ```
 

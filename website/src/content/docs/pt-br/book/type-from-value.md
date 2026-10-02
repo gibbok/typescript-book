@@ -6,9 +6,9 @@ sidebar:
 ---
 
 
-Tipo a partir de Valor (Type from Value) no TypeScript refere-se à inferência automática de um tipo a partir de um valor ou expressão através da inferência de tipos.
+Tipo a partir de valor (Type from Value) no TypeScript refere-se à inferência automática de um tipo a partir de um valor ou expressão por meio da inferência de tipos.
 
 ```typescript
-const x = 'x'; // O TypeScript infere 'x' como um literal de string com 'const' (imutável), mas alarga para 'string' com 'let' (atribuível novamente).
+const x = 'x'; // O TypeScript infere 'x' como um literal de string com 'const' (imutável), mas alarga para 'string' com 'let' (permite nova atribuição).
 ```
 

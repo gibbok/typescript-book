@@ -17,7 +17,7 @@ const x: string = 'x';
 const y: string = 'y';
 ```
 
-As strings podem abranger várias linhas se estiverem rodeadas pelo caractere de crase (`):
+As strings podem abranger várias linhas se estiverem delimitadas pelo caractere de crase (`):
 
 ```typescript
 let sentence: string = `xxx,
@@ -46,7 +46,7 @@ const octal: number = 0o633; // Octal começa com 0o
 
 ### bigint
 
-Um `bigint` representa valores numéricos muito grandes (2^53 - 1) que não podem ser representados com um `number`.
+Um `bigint` representa valores inteiros que podem ser maiores que o maior inteiro seguro suportado por `number`, que é 2^53 - 1.
 
 Um `bigint` pode ser criado chamando a função integrada `BigInt()` ou adicionando `n` ao final de qualquer literal numérico inteiro:
 
@@ -57,12 +57,12 @@ const y: bigint = 9007199254740991n;
 
 Notas:
 
-* Valores `bigint` não podem ser misturados com `number` e não podem ser usados com a função integrada `Math`; eles devem ser coeridos para o mesmo tipo.
-* Valores `bigint` estão disponíveis apenas se a configuração da meta (target) for ES2020 ou superior.
+* Valores `bigint` não podem ser misturados com `number` nem usados com o objeto integrado `Math`; eles devem ser convertidos para o mesmo tipo.
+* Valores `bigint` estão disponíveis apenas se a configuração de destino (target) for ES2020 ou superior.
 
 ### Symbol
 
-Symbols são identificadores únicos que podem ser usados como chaves de propriedade em objetos para evitar conflitos de nomenclatura.
+Símbolos são identificadores únicos que podem ser usados como chaves de propriedade em objetos para evitar conflitos de nomenclatura.
 
 ```typescript
 type Obj = {
@@ -97,7 +97,7 @@ const y: Array<string> = ['a', 'b'];
 const j: Array<string | number> = ['a', 1, 'b', 2]; // União
 ```
 
-O TypeScript suporta arrays somente leitura (readonly) usando a seguinte sintaxe:
+O TypeScript suporta arrays somente de leitura (readonly) usando a seguinte sintaxe:
 
 <!-- skip -->
 ```typescript
@@ -107,7 +107,7 @@ const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
 j.push('x'); // Inválido
 ```
 
-O TypeScript suporta tupla e tupla somente leitura:
+O TypeScript suporta tuplas e tuplas somente de leitura:
 
 ```typescript
 const x: [string, number] = ['a', 1];
@@ -116,9 +116,9 @@ const y: readonly [string, number] = ['a', 1];
 
 ### any
 
-O tipo de dado `any` representa literalmente "qualquer" valor; é o valor padrão quando o TypeScript não consegue inferir o tipo ou quando este não é especificado.
+O tipo de dado `any` representa literalmente "qualquer" valor; é o tipo padrão quando o TypeScript não consegue inferir o tipo ou quando este não é especificado.
 
-Ao usar `any`, o compilador TypeScript ignora a verificação de tipo, portanto não há segurança de tipo quando o `any` está sendo usado. Geralmente, não use `any` para silenciar o compilador quando ocorre um erro; em vez disso, concentre-se em corrigir o erro, pois ao usar `any` é possível quebrar contratos e perdemos os benefícios do preenchimento automático do TypeScript.
+Ao usar `any`, o compilador TypeScript ignora a verificação de tipos, portanto não há segurança de tipos quando `any` está sendo usado. Em geral, não use `any` para silenciar o compilador quando ocorre um erro; em vez disso, concentre-se em corrigir o erro, pois usar `any` permite quebrar contratos e perder os benefícios do preenchimento automático do TypeScript.
 
 O tipo `any` pode ser útil durante uma migração gradual de JavaScript para TypeScript, pois pode silenciar o compilador.
 

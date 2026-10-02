@@ -17,7 +17,7 @@ interface Y extends X {
 }
 ```
 
-Também é possível estender de múltiplos tipos:
+Também é possível estender múltiplos tipos:
 
 ```typescript
 interface A {
