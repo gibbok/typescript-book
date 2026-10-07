@@ -309,41 +309,26 @@ Il compito principale di TypeScript è controllare e verificare se un insieme è
 
 TypeScript supporta vari tipi di insiemi:
 
-| Termine di insieme             | TypeScript                        | Note                                                                                                                                          |
-| ------------------------------ | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Insieme vuoto                  | never                             | "never" non contiene nulla                                                                                                   |
-| Insieme di un singolo elemento | undefined / null / tipo letterale |                                                                                                                                               |
-| Insieme finito                 | boolean / union                   |                                                                                                                                               |
-| Insieme infinito               | string / number / object          |                                                                                                                                               |
-| Insieme universale             | any / unknown           | Ogni elemento è un membro di "any" e ogni insieme è un suo sottoinsieme / "unknown" è una controparte di tipo sicuro di "any" |
+| Termine di insieme | TypeScript | Note |
+| ---------------------------- | ---------------------------- | -------------------------------------------- |
+| Insieme vuoto | `never` | "never" non contiene nulla |
+| Insieme di un singolo elemento | `undefined` / `null` / tipo letterale | |
+| Insieme finito | `boolean` / union | |
+| Insieme infinito | `string` / `number` / `object` | |
+| Insieme universale | `any` / `unknown` | Ogni elemento è un membro di "any" e ogni insieme è un suo sottoinsieme / "unknown" è una controparte di tipo sicuro di "any" |
 
 Ecco alcuni esempi:
 
-| TypeScript     | Termine di insieme          | Esempio                                                                           |
-| -------------- | --------------------------- | --------------------------------------------------------------------------------- |
-| never          | ∅ (insieme vuoto)           | const x: never = 'x'; // Errore: il tipo 'string' non è assegnabile al tipo 'never' |
-|                |                             |
-| Tipo letterale | Insieme di elementi singoli | type X = 'X';                                                                     |
-| | | type Y = 7; |
-| | |
-| Valore assegnabile a T | Valore ∈ T (membro di) | type XY = 'X' \| 'Y'; |
-| | | const x: XY = 'X'; |
-| | |
-| T1 assegnabile a T2 | T1 ⊆ T2 (sottoinsieme di) | type XY = 'X' \| 'Y'; |
-| | | const x: XY = 'X'; |
-| | | const j: XY = 'J'; // Il tipo '"J"' non è assegnabile al tipo 'XY'. |
-| | | |
-| T1 extends T2 | T1 ⊆ T2 (sottoinsieme di) | type X = 'X' extends string ? true : false; |
-| | |
-| T1 \| T2 | T1 ∪ T2 (unione) | type XY = 'X' \| 'Y'; |
-| | | type JK = 1 \| 2; |
-| | |
-| T1 & T2 | T1 ∩ T2 (intersezione) | type X = \{ a: string \} |
-| | | type Y = \{ b: string \} |
-| | | type XY = X & Y |
-| | | const x: XY = \{ a: 'a', b: 'b' \} |
-| | |
-| unknown | Insieme universale | const x: unknown = 1 |
+| TypeScript | Termine di insieme | Esempio |
+| ------------------------ | ------------------------ | ---------------------------------------------------- |
+| `never` | ∅ (insieme vuoto) | `const x: never = 'x';`<br />Errore: il tipo 'string' non è assegnabile al tipo 'never' |
+| Tipo letterale | Insieme di elementi singoli | `type X = 'X';`<br />`type Y = 7;` |
+| Valore assegnabile a `T` | Valore ∈ T (membro di) | `type XY = 'X' \| 'Y';`<br />`const x: XY = 'X';` |
+| `T1` assegnabile a `T2` | T1 ⊆ T2 (sottoinsieme di) | `type XY = 'X' \| 'Y';`<br />`const x: XY = 'X';`<br />`const j: XY = 'J';`<br />Il tipo '"J"' non è assegnabile al tipo 'XY'. |
+| `T1 extends T2` | T1 ⊆ T2 (sottoinsieme di) | `type X = 'X' extends string ? true : false;` |
+| `T1 \| T2` | T1 ∪ T2 (unione) | `type XY = 'X' \| 'Y';`<br />`type JK = 1 \| 2;` |
+| `T1 & T2` | T1 ∩ T2 (intersezione) | `type X = { a: string }`<br />`type Y = { b: string }`<br />`type XY = X & Y`<br />`const x: XY = { a: 'a', b: 'b' }` |
+| `unknown` | Insieme universale | `const x: unknown = 1` |
 
 Un'unione (T1 | T2) crea un insieme più ampio (entrambi):
 

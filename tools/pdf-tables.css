@@ -1,0 +1,37 @@
+/* Keep table columns readable and examples together in the generated PDF. */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: 0.85em;
+    margin: 1em 0;
+    page-break-inside: avoid;
+}
+
+th,
+td {
+    padding: 0.45em 0.6em;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    border-bottom: 1px solid #333;
+}
+
+tr {
+    page-break-inside: avoid;
+}
+
+table code {
+    white-space: normal;
+}
+
+/* The Latin Noto fonts do not contain all of the set notation glyphs. */
+.set-symbol {
+    font-family: "Noto Sans CJK JP";
+}
+
+.table-introduction {
+    page-break-after: avoid;
+}

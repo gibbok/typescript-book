@@ -48,6 +48,9 @@ for artifact in "${BOOK_ARTIFACTS[@]}"; do
     if [[ "$language" == "ar" ]]; then
         pandoc_options+=(--metadata dir=rtl --metadata page-progression-direction=rtl --css=tools/rtl.css --lua-filter=tools/epub-rtl-filter.lua)
     fi
+    if [[ "$language" == "it-IT" ]]; then
+        pandoc_options+=(--lua-filter=tools/epub-table-filter.lua)
+    fi
     pandoc "${pandoc_options[@]}" "$input.md"
 done
 
@@ -79,6 +82,9 @@ for artifact in "${BOOK_ARTIFACTS[@]}"; do
     )
     if [[ "$language" == "ar" ]]; then
         pdf_options+=(--extra-css=tools/pdf-rtl.css)
+    fi
+    if [[ "$language" == "it-IT" ]]; then
+        pdf_options+=(--extra-css=tools/pdf-tables.css)
     fi
     ebook-convert "$DIR_DOWNLOADS/$output.epub" "$DIR_DOWNLOADS/$output.pdf" "${pdf_options[@]}"
 done
