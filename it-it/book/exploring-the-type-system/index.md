@@ -320,7 +320,6 @@ Ecco alcuni esempi:
 | never          | ∅ (insieme vuoto)           | const x: never = 'x'; // Errore: il tipo 'string' non è assegnabile al tipo 'never' |
 |                |                             |
 | Tipo letterale | Insieme di elementi singoli | type X = 'X';                                                                     |
-
 | | | type Y = 7; |
 | | |
 | Valore assegnabile a T | Valore ∈ T (membro di) | type XY = 'X' \| 'Y'; |

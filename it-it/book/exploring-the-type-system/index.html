@@ -237,27 +237,107 @@ Il compito principale di TypeScript è controllare e verificare se un insieme è
 
 
 
-<table><thead><tr><th>TypeScript</th><th>Termine di insieme</th><th>Esempio</th></tr></thead><tbody><tr><td>never</td><td>∅ (insieme vuoto)</td><td>const x: never = ‘x’; // Errore: il tipo ‘string’ non è assegnabile al tipo ‘never’</td></tr><tr><td></td><td></td><td></td></tr><tr><td>Tipo letterale</td><td>Insieme di elementi singoli</td><td>type X = ‘X’;</td></tr></tbody></table>
-<p>| | | type Y = 7; |
-| | |
-| Valore assegnabile a T | Valore ∈ T (membro di) | type XY = ‘X’ | ‘Y’; |
-| | | const x: XY = ‘X’; |
-| | |
-| T1 assegnabile a T2 | T1 ⊆ T2 (sottoinsieme di) | type XY = ‘X’ | ‘Y’; |
-| | | const x: XY = ‘X’; |
-| | | const j: XY = ‘J’; // Il tipo ‘“J”’ non è assegnabile al tipo ‘XY’. |
-| | | |
-| T1 extends T2 | T1 ⊆ T2 (sottoinsieme di) | type X = ‘X’ extends string ? true : false; |
-| | |
-| T1 | T2 | T1 ∪ T2 (unione) | type XY = ‘X’ | ‘Y’; |
-| | | type JK = 1 | 2; |
-| | |
-| T1 &#x26; T2 | T1 ∩ T2 (intersezione) | type X = { a: string } |
-| | | type Y = { b: string } |
-| | | type XY = X &#x26; Y |
-| | | const x: XY = { a: ‘a’, b: ‘b’ } |
-| | |
-| unknown | Insieme universale | const x: unknown = 1 |</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>TypeScript</th><th>Termine di insieme</th><th>Esempio</th></tr></thead><tbody><tr><td>never</td><td>∅ (insieme vuoto)</td><td>const x: never = ‘x’; // Errore: il tipo ‘string’ non è assegnabile al tipo ‘never’</td></tr><tr><td></td><td></td><td></td></tr><tr><td>Tipo letterale</td><td>Insieme di elementi singoli</td><td>type X = ‘X’;</td></tr><tr><td></td><td></td><td>type Y = 7;</td></tr><tr><td></td><td></td><td></td></tr><tr><td>Valore assegnabile a T</td><td>Valore ∈ T (membro di)</td><td>type XY = ‘X’ | ‘Y’;</td></tr><tr><td></td><td></td><td>const x: XY = ‘X’;</td></tr><tr><td></td><td></td><td></td></tr><tr><td>T1 assegnabile a T2</td><td>T1 ⊆ T2 (sottoinsieme di)</td><td>type XY = ‘X’ | ‘Y’;</td></tr><tr><td></td><td></td><td>const x: XY = ‘X’;</td></tr><tr><td></td><td></td><td>const j: XY = ‘J’; // Il tipo ‘“J”’ non è assegnabile al tipo ‘XY’.</td></tr><tr><td></td><td></td><td></td></tr><tr><td>T1 extends T2</td><td>T1 ⊆ T2 (sottoinsieme di)</td><td>type X = ‘X’ extends string ? true : false;</td></tr><tr><td></td><td></td><td></td></tr><tr><td>T1 | T2</td><td>T1 ∪ T2 (unione)</td><td>type XY = ‘X’ | ‘Y’;</td></tr><tr><td></td><td></td><td>type JK = 1 | 2;</td></tr><tr><td></td><td></td><td></td></tr><tr><td>T1 &#x26; T2</td><td>T1 ∩ T2 (intersezione)</td><td>type X = { a: string }</td></tr><tr><td></td><td></td><td>type Y = { b: string }</td></tr><tr><td></td><td></td><td>type XY = X &#x26; Y</td></tr><tr><td></td><td></td><td>const x: XY = { a: ‘a’, b: ‘b’ }</td></tr><tr><td></td><td></td><td></td></tr><tr><td>unknown</td><td>Insieme universale</td><td>const x: unknown = 1</td></tr></tbody></table>
 <p>Un’unione (T1 | T2) crea un insieme più ampio (entrambi):</p>
 <div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><span style="--0:#C792EA;--1:#8844AE">type</span><span style="--0:#D6DEEB;--1:#403F53"> X </span><span style="--0:#C792EA;--1:#8844AE">=</span><span style="--0:#D6DEEB;--1:#403F53"> {</span></div><div class="ec-line"><span style="--0:#D6DEEB;--1:#403F53">    a</span><span style="--0:#7FDBCA;--1:#096E72">:</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#C5E478;--1:#3B61B0">string</span><span style="--0:#D6DEEB;--1:#403F53">;</span></div><div class="ec-line"><span style="--0:#D6DEEB;--1:#403F53">};</span></div><div class="ec-line"><span style="--0:#C792EA;--1:#8844AE">type</span><span style="--0:#D6DEEB;--1:#403F53"> Y </span><span style="--0:#C792EA;--1:#8844AE">=</span><span style="--0:#D6DEEB;--1:#403F53"> {</span></div><div class="ec-line"><span style="--0:#D6DEEB;--1:#403F53">    b</span><span style="--0:#7FDBCA;--1:#096E72">:</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#C5E478;--1:#3B61B0">string</span><span style="--0:#D6DEEB;--1:#403F53">;</span></div><div class="ec-line"><span style="--0:#D6DEEB;--1:#403F53">};</span></div><div class="ec-line"><span style="--0:#C792EA;--1:#8844AE">type</span><span style="--0:#D6DEEB;--1:#403F53"> XY </span><span style="--0:#C792EA;--1:#8844AE">=</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#FFCB8B;--1:#111111">X</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#7FDBCA;--1:#096E72">|</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#FFCB8B;--1:#111111">Y</span><span style="--0:#D6DEEB;--1:#403F53">;</span></div><div class="ec-line"><span style="--0:#C792EA;--1:#8844AE">const </span><span style="--0:#82AAFF;--1:#3B61B0">r</span><span style="--0:#7FDBCA;--1:#096E72">:</span><span style="--0:#C792EA;--1:#8844AE"> </span><span style="--0:#FFCB8B;--1:#111111">XY</span><span style="--0:#C792EA;--1:#8844AE"> = { a: </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">a</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#C792EA;--1:#8844AE">, b: </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">x</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#C792EA;--1:#8844AE"> }</span><span style="--0:#D6DEEB;--1:#403F53">; </span><span style="--0:#919F9F;--1:#5D6376">// Valido</span></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="type X = {    a: string;};type Y = {    b: string;};type XY = X | Y;const r: XY = { a: &#x27;a&#x27;, b: &#x27;x&#x27; }; // Valido"><div></div></button></div></figure></div>
 <p>Un’intersezione (T1 e T2) crea un insieme più ristretto (solo condiviso):</p>
