@@ -70,16 +70,18 @@ for artifact in "${BOOK_ARTIFACTS[@]}"; do
             mono_family="Noto Sans Mono CJK JP"
             ;;
     esac
+    pdf_css="$(cat tools/pdf-tables.css)"
+    if [[ "$language" == "ar" ]]; then
+        pdf_css+=$'\n'"$(cat tools/pdf-rtl.css)"
+    fi
     pdf_options=(
         --pdf-page-numbers \
         --pdf-serif-family="$serif_family" \
         --pdf-sans-family="$sans_family" \
         --pdf-mono-family="$mono_family" \
         --pdf-standard-font=serif
+        --extra-css="$pdf_css"
     )
-    if [[ "$language" == "ar" ]]; then
-        pdf_options+=(--extra-css=tools/pdf-rtl.css)
-    fi
     ebook-convert "$DIR_DOWNLOADS/$output.epub" "$DIR_DOWNLOADS/$output.pdf" "${pdf_options[@]}"
 done
 

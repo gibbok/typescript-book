@@ -1,0 +1,26 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+table thead {
+    /* Calibre can clip repeated table headers at page breaks. */
+    display: table-row-group;
+}
+
+table tr {
+    break-inside: avoid;
+}
+
+table th,
+table td {
+    padding: 0.2em 0.4em;
+    vertical-align: top;
+    text-align: start;
+    border-bottom: 1px solid #ddd;
+}
+
+table thead th {
+    border-bottom: 2px solid #888;
+}
