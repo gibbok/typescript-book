@@ -4866,9 +4866,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 As setas indicam o sentido das atribuições seguras:
 
-* `Dog -> Animal`
-* `Producer<Dog> -> Producer<Animal>` (covariance)
-* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
 
 **Arrays mutáveis:** TypeScript também permite atribuir `Dog[]` a `Animal[]`. Ambas as variáveis apontam para o mesmo array; inserir um `Animal` pelo tipo mais amplo pode colocar um elemento que não é cachorro no array.
 
