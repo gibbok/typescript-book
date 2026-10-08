@@ -4866,9 +4866,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 Die Pfeile zeigen die Richtung sicherer Zuweisungen:
 
-* `Dog -> Animal`
-* `Producer<Dog> -> Producer<Animal>` (covariance)
-* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
 
 **Veränderbare Arrays:** TypeScript erlaubt auch, `Dog[]` an `Animal[]` zuzuweisen. Beide Variablen verweisen auf dasselbe Array; über den allgemeineren Typ kann ein `Animal` eingefügt werden, das kein Hund ist.
 
