@@ -4863,11 +4863,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 Стрелките показват посоката на безопасното присвояване:
 
-```text
-Dog -> Animal
-Producer<Dog> -> Producer<Animal> (covariance)
-Consumer<Animal> -> Consumer<Dog> (contravariance)
-```
+* `Dog -> Animal`
+* `Producer<Dog> -> Producer<Animal>` (covariance)
+* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
 
 **Променяеми масиви:** TypeScript позволява също `Dog[]` да се присвои на `Animal[]`. Двете променливи сочат един и същ масив; през по-общия тип може да се добави `Animal`, което не е куче.
 
