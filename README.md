@@ -4866,9 +4866,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 The arrows show the direction of safe assignment:
 
-* `Dog -> Animal`
-* `Producer<Dog> -> Producer<Animal>` (covariance)
-* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
 
 **Mutable arrays:** TypeScript also permits assigning `Dog[]` to `Animal[]`. Both variables then refer to the same array, so inserting an `Animal` through the wider type can put a non-dog into the dogs array.
 
