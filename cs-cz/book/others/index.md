@@ -625,108 +625,69 @@ Obalové typy obvykle nejsou potřeba. Vyhněte se používání obalových typ�
 
 ### Kovariance a kontravariance v TypeScriptu
 
-Kovariance a kontravariance popisují, jak se vztahy mezi typy chovají v generických typech.
+Kovariance a kontravariance popisují vztahy mezi typy uvnitř generických typů. `Dog` je `Animal`, ale ne každý `Animal` je `Dog`.
 
-V TypeScriptu:
-
-* Pole jsou **kovariantní**, ale není to plně typově bezpečné.
-* Typy parametrů funkcí jsou:
-  * **kontravariantní**, když je zapnuto `strictFunctionTypes`
-  * **bivariantní** v ostatních případech
-
-Kovariance znamená, že vztah zůstává zachován: pokud je typ A podtypem typu B, pak je `F<A>` také podtypem `F<B>`. V TypeScriptu se to běžně objevuje u návratových typů a polí (ačkoli kovariance polí není plně typově bezpečná).
-
-Kontravariance znamená, že se vztah obrací: pokud je typ A podtypem typu B, pak je `F<B>` podtypem `F<A>`. V TypeScriptu mají být typy parametrů funkcí kontravariantní, což znamená, že funkci přijímající širší typ lze použít tam, kde se očekává užší typ.
-
-V praxi však TypeScript často umožňuje u parametrů funkcí bivarianci (pokud není zapnuto `strictFunctionTypes`), což znamená, že mohou být přijaty oba směry, i když to není striktně typově bezpečné.
-
-Příklad: Představte si prostor pro všechna zvířata a samostatný prostor pouze pro psy.
-
-* **Kovariance**:  
-  Můžete použít „prostor pro psy“ tam, kde se očekává „prostor pro zvířata“, protože všichni psi jsou zvířata.  
-  Nemůžete však použít „prostor pro zvířata“ tam, kde se očekává „prostor pro psy“, protože by mohl obsahovat i jiná zvířata než psy.
-
-* **Kontravariance** (uvažujte v pojmech funkcí):  
-  Pokud máte něco, co dokáže pracovat s **jakýmkoli zvířetem**, můžete to použít tam, kde se očekává něco, co pracuje **pouze se psy**.  
-  Opačně to ale neplatí.
-
-Příklad kovariance:
+**Kovariance (vytváření hodnot):** funkce vracející `Dog` může zastoupit funkci vracející `Animal`. Každý pes je zvíře, ale funkce vracející libovolné zvíře může vrátit kočku.
 
 <!-- skip -->
 ```typescript
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+    name = '';
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+    breed = '';
 }
 
-let animals: Animal[] = [];
-let dogs: Dog[] = [];
+type Producer<T> = () => T;
 
-// Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs; // allowed
-dogs = animals; // error
+declare let produceAnimal: Producer<Animal>;
+declare let produceDog: Producer<Dog>;
+
+produceAnimal = produceDog; // Valid
+produceDog = produceAnimal; // Error
 ```
 
-Příklad kontravariance:
+**Kontravariance (přijímání hodnot):** funkce přijímající libovolné `Animal` může zastoupit funkci přijímající `Dog`. Zvládne i psy; funkce určená jen pro psy nemůže bezpečně přijmout každé zvíře.
 
 <!-- skip -->
 ```typescript
-class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+type Consumer<T> = (value: T) => void;
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
-}
+declare let consumeAnimal: Consumer<Animal>;
+declare let consumeDog: Consumer<Dog>;
 
-type Feed<T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = animal => {
-    console.log(animal.name);
-};
-
-let feedDog: Feed<Dog> = dog => {
-    console.log(dog.breed);
-};
-
-// Intended contravariance:
-feedDog = feedAnimal; // safe
-
-// This depends on compiler settings:
-feedAnimal = feedDog; // error only with strictFunctionTypes
+consumeDog = consumeAnimal; // Valid
+consumeAnimal = consumeDog; // Error with strictFunctionTypes
 ```
+
+Šipky ukazují směr bezpečného přiřazení:
+
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
+
+**Měnitelná pole:** TypeScript dovoluje také přiřadit `Dog[]` do `Animal[]`. Obě proměnné odkazují na stejné pole; přes obecnější typ lze vložit `Animal`, které není pes.
+
+<!-- skip -->
+```typescript
+const dogs: Dog[] = [new Dog()];
+const animals: Animal[] = dogs;
+
+animals.push(new Animal()); // Allowed, but unsafe
+// dogs now contains an Animal that is not a Dog.
+```
+
+**Nastavení překladače:** při zapnutém `strictFunctionTypes` se parametry samostatných funkcí kontrolují kontravariantně. Bez této volby může TypeScript povolit oba směry (bivarianci), i když nejsou bezpečné. Parametry deklarované v metodách a konstruktorech tvoří výjimku.
 
 #### Volitelné anotace variance pro typové parametry
 
-Od TypeScriptu 4.7.0 můžeme k určení anotací variance používat klíčová slova `out` a `in`.
-
-Pro kovarianci použijte klíčové slovo `out`:
+Od TypeScriptu 4.7 označuje `out` kovarianci, `in` kontravarianci a `in out` invarianci. TypeScript varianci obvykle odvodí. Anotace musí odpovídat použití generického parametru a nemění jeho chování libovolně.
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T is Covariant here
-```
-
-A pro kontravarianci použijte klíčové slovo `in`:
-
-```typescript
-type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
+type Producer<out T> = () => T;
+type Consumer<in T> = (value: T) => void;
+type Transformer<in out T> = (value: T) => T;
 ```
 
 ### Indexové signatury se vzory šablonových řetězců

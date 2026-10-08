@@ -625,108 +625,69 @@ Les types d'objets enveloppeurs ne sont généralement pas nécessaires. Évitez
 
 ### Covariance et contravariance dans TypeScript
 
-La covariance et la contravariance décrivent le comportement des relations entre les types dans les types génériques.
+La covariance et la contravariance décrivent les relations entre types dans les types génériques. Un `Dog` est un `Animal`, mais tous les `Animal` ne sont pas des `Dog`.
 
-Dans TypeScript :
-
-* Les tableaux sont **covariants**, mais cela n’est pas totalement sûr du point de vue du typage.
-* Les types des paramètres de fonction sont :
-  * **contravariants** lorsque `strictFunctionTypes` est activé
-  * **bivariants** dans le cas contraire
-
-La covariance signifie que la relation est préservée : si le type A est un sous-type du type B, alors `F<A>` est également un sous-type de `F<B>`. Dans TypeScript, cela apparaît couramment dans les types de retour et dans les tableaux (bien que la covariance des tableaux ne soit pas totalement sûre du point de vue du typage).
-
-La contravariance signifie que la relation est inversée : si le type A est un sous-type du type B, alors `F<B>` est un sous-type de `F<A>`. Dans TypeScript, les types des paramètres de fonction sont censés être contravariants, ce qui signifie qu’une fonction qui accepte un type plus général peut être utilisée là où une fonction acceptant un type plus restreint est attendue.
-
-Cependant, dans la pratique, TypeScript autorise souvent la bivariance pour les paramètres de fonction (sauf lorsque `strictFunctionTypes` est activé), ce qui signifie que les deux directions peuvent être acceptées même lorsque cela n’est pas strictement sûr du point de vue du typage.
-
-Exemple : imaginez un espace pour tous les animaux et un espace distinct réservé aux chiens.
-
-* **Covariance** :  
-  Vous pouvez utiliser un « espace pour chiens » lorsqu’un « espace pour animaux » est attendu, car tous les chiens sont des animaux.  
-  Mais vous ne pouvez pas utiliser un « espace pour animaux » lorsqu’un « espace pour chiens » est attendu, car il pourrait contenir des animaux qui ne sont pas des chiens.
-
-* **Contravariance** (raisonnez en termes de fonctions) :  
-  Si vous disposez d’un gestionnaire capable de gérer **n’importe quel animal**, vous pouvez l’utiliser lorsqu’un gestionnaire qui gère **uniquement les chiens** est attendu.  
-  Mais pas l’inverse.
-
-Exemple de covariance :
+**Covariance (production) :** une fonction qui renvoie un `Dog` peut remplacer une fonction qui renvoie un `Animal`. Tout chien est un animal, mais une fonction renvoyant un animal quelconque pourrait renvoyer un chat.
 
 <!-- skip -->
 ```typescript
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+    name = '';
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+    breed = '';
 }
 
-let animals: Animal[] = [];
-let dogs: Dog[] = [];
+type Producer<T> = () => T;
 
-// Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs; // allowed
-dogs = animals; // error
+declare let produceAnimal: Producer<Animal>;
+declare let produceDog: Producer<Dog>;
+
+produceAnimal = produceDog; // Valid
+produceDog = produceAnimal; // Error
 ```
 
-Exemple de contravariance :
+**Contravariance (consommation) :** une fonction qui accepte tout `Animal` peut remplacer une fonction qui accepte un `Dog`. Elle accepte aussi les chiens ; une fonction réservée aux chiens ne peut pas traiter tous les animaux.
 
 <!-- skip -->
 ```typescript
-class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+type Consumer<T> = (value: T) => void;
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
-}
+declare let consumeAnimal: Consumer<Animal>;
+declare let consumeDog: Consumer<Dog>;
 
-type Feed<T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = animal => {
-    console.log(animal.name);
-};
-
-let feedDog: Feed<Dog> = dog => {
-    console.log(dog.breed);
-};
-
-// Intended contravariance:
-feedDog = feedAnimal; // safe
-
-// This depends on compiler settings:
-feedAnimal = feedDog; // error only with strictFunctionTypes
+consumeDog = consumeAnimal; // Valid
+consumeAnimal = consumeDog; // Error with strictFunctionTypes
 ```
+
+Les flèches indiquent le sens des affectations sûres :
+
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
+
+**Tableaux modifiables :** TypeScript permet aussi d'affecter `Dog[]` à `Animal[]`. Les variables désignent le même tableau ; insérer un `Animal` via le type plus général peut ajouter un élément qui n'est pas un chien.
+
+<!-- skip -->
+```typescript
+const dogs: Dog[] = [new Dog()];
+const animals: Animal[] = dogs;
+
+animals.push(new Animal()); // Allowed, but unsafe
+// dogs now contains an Animal that is not a Dog.
+```
+
+**Option du compilateur :** avec `strictFunctionTypes`, les paramètres des fonctions indépendantes sont vérifiés de manière contravariante. Sans cette option, TypeScript peut accepter les deux sens (bivariance), même sans garantie de sécurité. Les paramètres déclarés dans les méthodes et constructeurs font exception.
 
 #### Annotations de variance facultatives pour les paramètres de type
 
-Depuis TypeScript 4.7.0, nous pouvons utiliser les mots-clés `out` et `in` pour spécifier des annotations de variance.
-
-Pour la covariance, utilisez le mot-clé `out` :
+Depuis TypeScript 4.7, `out` indique la covariance, `in` la contravariance et `in out` l'invariance. TypeScript déduit normalement la variance. Les annotations doivent correspondre à l'utilisation du paramètre générique, sans la modifier arbitrairement.
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T is Covariant here
-```
-
-Pour la contravariance, utilisez le mot-clé `in` :
-
-```typescript
-type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
+type Producer<out T> = () => T;
+type Consumer<in T> = (value: T) => void;
+type Transformer<in out T> = (value: T) => T;
 ```
 
 ### Signatures d’index avec motifs de chaînes de gabarit

@@ -625,108 +625,69 @@ Tipe boxed biasanya tidak diperlukan. Hindari penggunaan tipe boxed dan gunakan 
 
 ### Kovarians dan Kontravarians dalam TypeScript
 
-Kovariansi dan kontravariansi menjelaskan bagaimana relasi tipe berperilaku dalam tipe generik.
+Kovarians dan kontravarians menjelaskan hubungan tipe dalam tipe generik. `Dog` adalah `Animal`, tetapi tidak semua `Animal` adalah `Dog`.
 
-Dalam TypeScript:
-
-* Array bersifat **kovarian**, tetapi tidak sepenuhnya aman secara tipe.
-* Tipe parameter fungsi bersifat:
-  * **kontravarian** ketika `strictFunctionTypes` diaktifkan
-  * **bivarian** dalam kondisi lainnya
-
-Kovariansi berarti relasinya dipertahankan: jika tipe A adalah subtipe dari tipe B, maka `F<A>` juga merupakan subtipe dari `F<B>`. Dalam TypeScript, hal ini umumnya muncul dalam tipe kembalian dan array (meskipun kovariansi array tidak sepenuhnya aman secara tipe).
-
-Kontravariansi berarti relasinya dibalik: jika tipe A adalah subtipe dari tipe B, maka `F<B>` merupakan subtipe dari `F<A>`. Dalam TypeScript, tipe parameter fungsi dimaksudkan untuk bersifat kontravarian, yang berarti fungsi yang menerima tipe lebih luas dapat digunakan ketika tipe yang lebih sempit diharapkan.
-
-Namun, dalam praktiknya, TypeScript sering mengizinkan bivarians untuk parameter fungsi (kecuali `strictFunctionTypes` diaktifkan), yang berarti kedua arah mungkin diterima meskipun tidak sepenuhnya aman secara tipe.
-
-Contoh: Bayangkan sebuah ruang untuk semua hewan dan ruang terpisah khusus untuk anjing.
-
-* **Kovariansi**:  
-  Anda dapat menggunakan “ruang anjing” ketika “ruang hewan” diharapkan, karena semua anjing adalah hewan.  
-  Namun, Anda tidak dapat menggunakan “ruang hewan” ketika “ruang anjing” diharapkan, karena ruang tersebut mungkin berisi hewan yang bukan anjing.
-
-* **Kontravariansi** (pikirkan dalam konteks fungsi):  
-  Jika Anda memiliki sesuatu yang dapat menangani **hewan apa pun**, Anda dapat menggunakannya ketika sesuatu yang menangani **hanya anjing** diharapkan.  
-  Namun, tidak sebaliknya.
-
-Contoh kovariansi:
+**Kovarians (menghasilkan nilai):** fungsi yang mengembalikan `Dog` dapat menggantikan fungsi yang mengembalikan `Animal`. Semua anjing adalah hewan, tetapi fungsi yang mengembalikan hewan apa pun bisa mengembalikan kucing.
 
 <!-- skip -->
 ```typescript
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+    name = '';
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+    breed = '';
 }
 
-let animals: Animal[] = [];
-let dogs: Dog[] = [];
+type Producer<T> = () => T;
 
-// Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs; // allowed
-dogs = animals; // error
+declare let produceAnimal: Producer<Animal>;
+declare let produceDog: Producer<Dog>;
+
+produceAnimal = produceDog; // Valid
+produceDog = produceAnimal; // Error
 ```
 
-Contoh kontravariansi:
+**Kontravarians (menerima nilai):** fungsi yang menerima semua `Animal` dapat menggantikan fungsi yang menerima `Dog`. Fungsi itu juga dapat menangani anjing; fungsi yang hanya menerima anjing tidak aman untuk semua hewan.
 
 <!-- skip -->
 ```typescript
-class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+type Consumer<T> = (value: T) => void;
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
-}
+declare let consumeAnimal: Consumer<Animal>;
+declare let consumeDog: Consumer<Dog>;
 
-type Feed<T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = animal => {
-    console.log(animal.name);
-};
-
-let feedDog: Feed<Dog> = dog => {
-    console.log(dog.breed);
-};
-
-// Intended contravariance:
-feedDog = feedAnimal; // safe
-
-// This depends on compiler settings:
-feedAnimal = feedDog; // error only with strictFunctionTypes
+consumeDog = consumeAnimal; // Valid
+consumeAnimal = consumeDog; // Error with strictFunctionTypes
 ```
+
+Panah menunjukkan arah penugasan yang aman:
+
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
+
+**Array yang dapat diubah:** TypeScript juga mengizinkan `Dog[]` ditetapkan ke `Animal[]`. Kedua variabel merujuk array yang sama; melalui tipe yang lebih luas, `Animal` yang bukan anjing dapat ditambahkan.
+
+<!-- skip -->
+```typescript
+const dogs: Dog[] = [new Dog()];
+const animals: Animal[] = dogs;
+
+animals.push(new Animal()); // Allowed, but unsafe
+// dogs now contains an Animal that is not a Dog.
+```
+
+**Opsi compiler:** dengan `strictFunctionTypes`, parameter fungsi mandiri diperiksa secara kontravarian. Tanpanya, TypeScript dapat mengizinkan kedua arah (bivarians), meskipun tidak aman. Parameter dalam deklarasi metode dan konstruktor merupakan pengecualian.
 
 #### Anotasi Varians Opsional untuk Parameter Tipe
 
-Mulai TypeScript 4.7.0, kita dapat menggunakan kata kunci `out` dan `in` untuk menentukan anotasi varians.
-
-Untuk kovariansi, gunakan kata kunci `out`:
+Sejak TypeScript 4.7, `out` menandai kovarians, `in` kontravarians, dan `in out` invarians. Biasanya TypeScript menyimpulkan varians. Anotasi harus sesuai dengan penggunaan parameter generik, bukan mengubah perilakunya secara sembarang.
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T is Covariant here
-```
-
-Untuk kontravariansi, gunakan kata kunci `in`:
-
-```typescript
-type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
+type Producer<out T> = () => T;
+type Consumer<in T> = (value: T) => void;
+type Transformer<in out T> = (value: T) => T;
 ```
 
 ### Index Signature Pola Template String

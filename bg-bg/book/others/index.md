@@ -625,108 +625,69 @@ Boxed types обикновено не са необходими. Избягва�
 
 ### Ковариантност и Контравариантност в TypeScript
 
-Ковариантността и контравариантността описват поведението на типовите отношения в генеричните типове.
+Ковариантността и контравариантността описват отношенията между типовете в генеричните типове. `Dog` е `Animal`, но не всеки `Animal` е `Dog`.
 
-В TypeScript:
-
-* Масивите са **ковариантни**, но това не е напълно типово безопасно.
-* Типовете на параметрите на функциите са:
-  * **контравариантни**, когато `strictFunctionTypes` е включен
-  * **бивариантни** в противен случай
-
-Ковариантността означава, че връзката се запазва: ако тип A е подтип на тип B, тогава `F<A>` също е подтип на `F<B>`. В TypeScript това обикновено се появява в типовете на връщаните стойности и в масивите (въпреки че ковариантността на масивите не е напълно типово безопасна).
-
-Контравариантността означава, че връзката е обърната: ако тип A е подтип на тип B, тогава `F<B>` е подтип на `F<A>`. В TypeScript типовете на параметрите на функциите са предназначени да бъдат контравариантни, което означава, че функция, която приема по-широк тип, може да се използва там, където се очаква по-тесен тип.
-
-Въпреки това, на практика, TypeScript често позволява бивариантност за параметрите на функциите (освен ако `strictFunctionTypes` не е включен), което означава, че и двете посоки могат да бъдат приети, дори когато това не е строго типово безопасно.
-
-Пример: Представете си пространство за всички животни и отделно пространство само за кучета.
-
-* **Ковариантност**:  
-  Можете да използвате "пространство за кучета", където се очаква "пространство за животни", защото всички кучета са животни.  
-  Но не можете да използвате "пространство за животни", където се очаква "пространство за кучета", защото може да съдържа животни, които не са кучета.
-
-* **Контравариантност** (мислете в термини на функции):  
-  Ако имате нещо, което може да се справи с **всяко животно**, можете да го използвате там, където се очаква нещо, което се справя **само с кучета**.  
-  Но не и обратното.
-
-Пример за ковариантност:
+**Ковариантност (връщане на стойности):** функция, която връща `Dog`, може да замени функция, връщаща `Animal`. Всяко куче е животно, но функция за произволно животно може да върне котка.
 
 <!-- skip -->
 ```typescript
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+    name = '';
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+    breed = '';
 }
 
-let animals: Animal[] = [];
-let dogs: Dog[] = [];
+type Producer<T> = () => T;
 
-// Масивите в TypeScript са ковариантни (но не са типово безопасни)
-animals = dogs; // allowed
-dogs = animals; // error
+declare let produceAnimal: Producer<Animal>;
+declare let produceDog: Producer<Dog>;
+
+produceAnimal = produceDog; // Valid
+produceDog = produceAnimal; // Error
 ```
 
-Пример за контравариантност:
+**Контравариантност (приемане на стойности):** функция, която приема всеки `Animal`, може да замени функция, приемаща `Dog`. Тя обработва и кучета; функция само за кучета не може безопасно да обработва всички животни.
 
 <!-- skip -->
 ```typescript
-class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+type Consumer<T> = (value: T) => void;
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
-}
+declare let consumeAnimal: Consumer<Animal>;
+declare let consumeDog: Consumer<Dog>;
 
-type Feed<T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = animal => {
-    console.log(animal.name);
-};
-
-let feedDog: Feed<Dog> = dog => {
-    console.log(dog.breed);
-};
-
-// Преднамерена контравариантност:
-feedDog = feedAnimal; // safe
-
-// Това зависи от настройките на компилатора:
-feedAnimal = feedDog; // грешка само при strictFunctionTypes
+consumeDog = consumeAnimal; // Valid
+consumeAnimal = consumeDog; // Error with strictFunctionTypes
 ```
+
+Стрелките показват посоката на безопасното присвояване:
+
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
+
+**Променяеми масиви:** TypeScript позволява също `Dog[]` да се присвои на `Animal[]`. Двете променливи сочат един и същ масив; през по-общия тип може да се добави `Animal`, което не е куче.
+
+<!-- skip -->
+```typescript
+const dogs: Dog[] = [new Dog()];
+const animals: Animal[] = dogs;
+
+animals.push(new Animal()); // Allowed, but unsafe
+// dogs now contains an Animal that is not a Dog.
+```
+
+**Настройка на компилатора:** с `strictFunctionTypes` параметрите на самостоятелните функции се проверяват контравариантно. Без тази настройка TypeScript може да позволи и двете посоки (бивариантност), макар да е опасно. Параметрите в декларации на методи и конструктори са изключение.
 
 #### Optional Variance Annotations for Type Parameters
 
-От TypeScript 4.7.0 можем да използваме `out` и `in` keywords, за да уточним variance аннотацията.
-
-За covariant използваме `out`:
+От TypeScript 4.7 `out` означава ковариантност, `in` — контравариантност, а `in out` — инвариантност. TypeScript обикновено извежда вариантността. Анотациите трябва да съответстват на употребата на генеричния параметър, а не произволно да я променят.
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T е covariant тук
-```
-
-А за contravariant използваме `in`:
-
-```typescript
-type AnimalCallback<in T> = (value: T) => void; // T е contravariant тук
+type Producer<out T> = () => T;
+type Consumer<in T> = (value: T) => void;
+type Transformer<in out T> = (value: T) => T;
 ```
 
 ### Template String Pattern Index Signatures
