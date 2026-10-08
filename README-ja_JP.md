@@ -4828,108 +4828,71 @@ TypeScript は、プリミティブとそれに対応するオブジェクトラ
 
 ### TypeScript における共変性と反変性
 
-共変性と反変性は、ジェネリック型において型の関係がどのように振る舞うかを表します。
+共変性と反変性は、ジェネリック型の内部で型の関係がどう変わるかを表します。`Dog` は `Animal` ですが、すべての `Animal` が `Dog` とは限りません。
 
-TypeScript では、次のようになります。
-
-* 配列は **共変** ですが、完全に型安全ではありません。
-* 関数のパラメーター型は次のようになります。
-  * `strictFunctionTypes` が有効な場合は **反変**
-  * それ以外の場合は **双変**
-
-共変とは、関係が維持されることを意味します。型 A が型 B のサブタイプである場合、`F<A>` も `F<B>` のサブタイプになります。TypeScript では、これは戻り値の型と配列でよく見られます（ただし、配列の共変性は完全に型安全ではありません）。
-
-反変とは、関係が逆になることを意味します。型 A が型 B のサブタイプである場合、`F<B>` は `F<A>` のサブタイプになります。TypeScript では、関数のパラメーター型は反変となるように意図されています。つまり、より広い型を受け入れる関数を、より狭い型が期待される場所で使用できます。
-
-しかし実際には、TypeScript は関数のパラメーターについて双変を許可することがよくあります（`strictFunctionTypes` が有効な場合を除く）。これは、厳密には型安全ではない場合でも、両方向が受け入れられる可能性があることを意味します。
-
-例：すべての動物のための空間と、犬だけのための別の空間を想像してください。
-
-* **共変**：  
-  「動物の空間」が期待される場所で「犬の空間」を使用できます。すべての犬は動物だからです。  
-  ただし、「犬の空間」が期待される場所で「動物の空間」を使用することはできません。犬以外の動物が含まれている可能性があるためです。
-
-* **反変**（関数の観点で考えてください）：  
-  **あらゆる動物**を扱えるものがある場合、それを**犬だけ**を扱うものが期待される場所で使用できます。  
-  ただし、その逆はできません。
-
-共変の例：
+**共変性（値を返す）:** `Dog` を返す関数は、`Animal` を返す関数が必要な場所で使用できます。犬は動物ですが、任意の動物を返す関数は猫を返す可能性があります。
 
 <!-- skip -->
 ```typescript
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+    name = '';
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+    breed = '';
 }
 
-let animals: Animal[] = [];
-let dogs: Dog[] = [];
+type Producer<T> = () => T;
 
-// Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs; // allowed
-dogs = animals; // error
+declare let produceAnimal: Producer<Animal>;
+declare let produceDog: Producer<Dog>;
+
+produceAnimal = produceDog; // Valid
+produceDog = produceAnimal; // Error
 ```
 
-反変の例：
+**反変性（値を受け取る）:** どんな `Animal` も受け取れる関数は、`Dog` を受け取る関数が必要な場所で使用できます。犬にも対応できますが、犬専用の関数ですべての動物を安全に処理することはできません。
 
 <!-- skip -->
 ```typescript
-class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+type Consumer<T> = (value: T) => void;
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
-}
+declare let consumeAnimal: Consumer<Animal>;
+declare let consumeDog: Consumer<Dog>;
 
-type Feed<T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = animal => {
-    console.log(animal.name);
-};
-
-let feedDog: Feed<Dog> = dog => {
-    console.log(dog.breed);
-};
-
-// Intended contravariance:
-feedDog = feedAnimal; // safe
-
-// This depends on compiler settings:
-feedAnimal = feedDog; // error only with strictFunctionTypes
+consumeDog = consumeAnimal; // Valid
+consumeAnimal = consumeDog; // Error with strictFunctionTypes
 ```
+
+矢印は安全に代入できる方向を示します。
+
+```text
+Dog -> Animal
+Producer<Dog> -> Producer<Animal> (covariance)
+Consumer<Animal> -> Consumer<Dog> (contravariance)
+```
+
+**変更可能な配列:** TypeScript では `Dog[]` を `Animal[]` に代入できます。両方の変数が同じ配列を参照するため、より広い型から犬ではない `Animal` を追加できてしまいます。
+
+<!-- skip -->
+```typescript
+const dogs: Dog[] = [new Dog()];
+const animals: Animal[] = dogs;
+
+animals.push(new Animal()); // Allowed, but unsafe
+// dogs now contains an Animal that is not a Dog.
+```
+
+**コンパイラーオプション:** `strictFunctionTypes` を有効にすると、独立した関数の引数は反変的にチェックされます。無効の場合、安全でなくても両方向が許容されることがあります（双変性）。メソッドとコンストラクターの宣言内の引数は例外です。
 
 #### 型パラメーターのオプショナルな変性アノテーション
 
-TypeScript 4.7.0 以降では、`out` キーワードと `in` キーワードを使用して変性アノテーションを指定できます。
-
-共変には、`out` キーワードを使用します。
+TypeScript 4.7 以降、`out` は共変性、`in` は反変性、`in out` は不変性を表します。通常は TypeScript が変性を推論します。注釈はジェネリック引数の実際の使い方と一致する必要があり、動作を任意に変えるものではありません。
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T is Covariant here
-```
-
-反変には、`in` キーワードを使用します。
-
-```typescript
-type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
+type Producer<out T> = () => T;
+type Consumer<in T> = (value: T) => void;
+type Transformer<in out T> = (value: T) => T;
 ```
 
 ### テンプレート文字列パターンのインデックスシグネチャ
