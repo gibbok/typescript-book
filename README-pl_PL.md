@@ -4866,11 +4866,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 Strzałki pokazują kierunek bezpiecznego przypisania:
 
-```text
-Dog -> Animal
-Producer<Dog> -> Producer<Animal> (covariance)
-Consumer<Animal> -> Consumer<Dog> (contravariance)
-```
+* `Dog -> Animal`
+* `Producer<Dog> -> Producer<Animal>` (covariance)
+* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
 
 **Modyfikowalne tablice:** TypeScript pozwala także przypisać `Dog[]` do `Animal[]`. Obie zmienne wskazują tę samą tablicę; przez ogólniejszy typ można dodać `Animal`, które nie jest psem.
 
