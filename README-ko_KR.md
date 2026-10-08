@@ -4866,9 +4866,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 화살표는 안전한 할당 방향을 나타냅니다.
 
-* `Dog -> Animal`
-* `Producer<Dog> -> Producer<Animal>` (covariance)
-* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
 
 **변경 가능한 배열:** TypeScript는 `Dog[]`를 `Animal[]`에 할당하는 것도 허용합니다. 두 변수는 같은 배열을 참조하므로 더 넓은 타입을 통해 개가 아닌 `Animal`을 추가할 수 있습니다.
 
