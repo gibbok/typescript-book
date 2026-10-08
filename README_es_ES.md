@@ -4866,11 +4866,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 Las flechas indican el sentido de las asignaciones seguras:
 
-```text
-Dog -> Animal
-Producer<Dog> -> Producer<Animal> (covariance)
-Consumer<Animal> -> Consumer<Dog> (contravariance)
-```
+* `Dog -> Animal`
+* `Producer<Dog> -> Producer<Animal>` (covariance)
+* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
 
 **Arrays mutables:** TypeScript también permite asignar `Dog[]` a `Animal[]`. Ambas variables se refieren al mismo array; insertar un `Animal` mediante el tipo más general puede añadir un elemento que no es un perro.
 
