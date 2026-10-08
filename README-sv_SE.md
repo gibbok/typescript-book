@@ -4865,9 +4865,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 Pilarna visar riktningen för säkra tilldelningar:
 
-* `Dog -> Animal`
-* `Producer<Dog> -> Producer<Animal>` (covariance)
-* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
 
 **Föränderliga arrayer:** TypeScript tillåter även att `Dog[]` tilldelas `Animal[]`. Båda variablerna pekar på samma array; via den bredare typen kan man lägga till en `Animal` som inte är en hund.
 
