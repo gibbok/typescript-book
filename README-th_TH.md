@@ -4866,11 +4866,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 ลูกศรแสดงทิศทางการกำหนดค่าที่ปลอดภัย:
 
-```text
-Dog -> Animal
-Producer<Dog> -> Producer<Animal> (covariance)
-Consumer<Animal> -> Consumer<Dog> (contravariance)
-```
+* `Dog -> Animal`
+* `Producer<Dog> -> Producer<Animal>` (covariance)
+* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
 
 **อาร์เรย์ที่แก้ไขได้:** TypeScript อนุญาตให้กำหนด `Dog[]` ให้กับ `Animal[]` ตัวแปรทั้งสองอ้างถึงอาร์เรย์เดียวกัน จึงสามารถเพิ่ม `Animal` ที่ไม่ใช่สุนัขผ่านชนิดที่กว้างกว่าได้
 
