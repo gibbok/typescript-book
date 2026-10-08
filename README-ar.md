@@ -4867,11 +4867,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 توضح الأسهم اتجاه الإسناد الآمن:
 
-```text
-Dog -> Animal
-Producer<Dog> -> Producer<Animal> (covariance)
-Consumer<Animal> -> Consumer<Dog> (contravariance)
-```
+* `Dog -> Animal`
+* `Producer<Dog> -> Producer<Animal>` (covariance)
+* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
 
 **المصفوفات القابلة للتعديل:** يسمح TypeScript أيضًا بإسناد `Dog[]` إلى `Animal[]`. يشير المتغيران إلى المصفوفة نفسها؛ ويمكن إضافة `Animal` ليس كلبًا عبر النوع الأعم.
 
