@@ -4827,108 +4827,71 @@ Inkapslingstyperna behövs vanligtvis inte. Undvik att använda inkapslingstyper
 
 ### Kovarians och kontravarians i TypeScript
 
-Kovarians och kontravarians beskriver hur typrelationer beter sig i generiska typer.
+Kovarians och kontravarians beskriver relationer mellan typer i generiska typer. En `Dog` är en `Animal`, men inte varje `Animal` är en `Dog`.
 
-I TypeScript:
-
-* Arrayer är **kovarianta**, men detta är inte helt typesäkert.
-* Funktioners parametertyper är:
-  * **kontravarianta** när `strictFunctionTypes` är aktiverat
-  * **bivarianta** annars
-
-Kovarians innebär att relationen bevaras: om typ A är en subtyp av typ B, så är `F<A>` också en subtyp av `F<B>`. I TypeScript förekommer detta vanligtvis i returtyper och i arrayer (även om arraykovarians inte är helt typesäker).
-
-Kontravarians innebär att relationen är omvänd: om typ A är en subtyp av typ B, så är `F<B>` en subtyp av `F<A>`. I TypeScript är funktioners parametertyper avsedda att vara kontravarianta, vilket innebär att en funktion som accepterar en bredare typ kan användas där en smalare typ förväntas.
-
-I praktiken tillåter TypeScript dock ofta bivarians för funktionsparametrar (om inte `strictFunctionTypes` är aktiverat), vilket innebär att båda riktningarna kan accepteras även när det inte är strikt typesäkert.
-
-Exempel: Föreställ dig ett utrymme för alla djur och ett separat utrymme endast för hundar.
-
-* **Kovarians**:  
-  Du kan använda ett “hundutrymme” där ett “djurutrymme” förväntas, eftersom alla hundar är djur.  
-  Men du kan inte använda ett “djurutrymme” där ett “hundutrymme” förväntas, eftersom det kan innehålla djur som inte är hundar.
-
-* **Kontravarians** (tänk i termer av funktioner):  
-  Om du har något som kan hantera **vilket djur som helst**, kan du använda det där något som hanterar **endast hundar** förväntas.  
-  Men inte tvärtom.
-
-Exempel på kovarians:
+**Kovarians (producera värden):** en funktion som returnerar en `Dog` kan ersätta en funktion som returnerar en `Animal`. Varje hund är ett djur, men en funktion som returnerar vilket djur som helst kan returnera en katt.
 
 <!-- skip -->
 ```typescript
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+    name = '';
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+    breed = '';
 }
 
-let animals: Animal[] = [];
-let dogs: Dog[] = [];
+type Producer<T> = () => T;
 
-// Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs; // allowed
-dogs = animals; // error
+declare let produceAnimal: Producer<Animal>;
+declare let produceDog: Producer<Dog>;
+
+produceAnimal = produceDog; // Valid
+produceDog = produceAnimal; // Error
 ```
 
-Exempel på kontravarians:
+**Kontravarians (ta emot värden):** en funktion som accepterar en valfri `Animal` kan ersätta en funktion som accepterar en `Dog`. Den kan också hantera hundar; en funktion för enbart hundar kan inte säkert hantera alla djur.
 
 <!-- skip -->
 ```typescript
-class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+type Consumer<T> = (value: T) => void;
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
-}
+declare let consumeAnimal: Consumer<Animal>;
+declare let consumeDog: Consumer<Dog>;
 
-type Feed<T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = animal => {
-    console.log(animal.name);
-};
-
-let feedDog: Feed<Dog> = dog => {
-    console.log(dog.breed);
-};
-
-// Intended contravariance:
-feedDog = feedAnimal; // safe
-
-// This depends on compiler settings:
-feedAnimal = feedDog; // error only with strictFunctionTypes
+consumeDog = consumeAnimal; // Valid
+consumeAnimal = consumeDog; // Error with strictFunctionTypes
 ```
+
+Pilarna visar riktningen för säkra tilldelningar:
+
+```text
+Dog -> Animal
+Producer<Dog> -> Producer<Animal> (covariance)
+Consumer<Animal> -> Consumer<Dog> (contravariance)
+```
+
+**Föränderliga arrayer:** TypeScript tillåter även att `Dog[]` tilldelas `Animal[]`. Båda variablerna pekar på samma array; via den bredare typen kan man lägga till en `Animal` som inte är en hund.
+
+<!-- skip -->
+```typescript
+const dogs: Dog[] = [new Dog()];
+const animals: Animal[] = dogs;
+
+animals.push(new Animal()); // Allowed, but unsafe
+// dogs now contains an Animal that is not a Dog.
+```
+
+**Kompilatorinställning:** med `strictFunctionTypes` kontrolleras parametrar i fristående funktioner kontravariant. Utan inställningen kan TypeScript godta båda riktningarna (bivarians), även när det är osäkert. Parametrar i metod- och konstruktordeklarationer är undantag.
 
 #### Valfria variansannotationer för typparametrar
 
-Från och med TypeScript 4.7.0 kan vi använda nyckelorden `out` och `in` för att vara specifika med variansannotationer.
-
-För kovarians, använd nyckelordet `out`:
+Sedan TypeScript 4.7 betyder `out` kovarians, `in` kontravarians och `in out` invarians. TypeScript härleder normalt variansen. Annoteringarna måste stämma med hur den generiska parametern används och ändrar inte dess beteende godtyckligt.
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T is Covariant here
-```
-
-Och för kontravarians, använd nyckelordet `in`:
-
-```typescript
-type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
+type Producer<out T> = () => T;
+type Consumer<in T> = (value: T) => void;
+type Transformer<in out T> = (value: T) => T;
 ```
 
 ### Mallsträngsmönsterindexsignaturer
