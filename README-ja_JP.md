@@ -4866,11 +4866,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 矢印は安全に代入できる方向を示します。
 
-```text
-Dog -> Animal
-Producer<Dog> -> Producer<Animal> (covariance)
-Consumer<Animal> -> Consumer<Dog> (contravariance)
-```
+* `Dog -> Animal`
+* `Producer<Dog> -> Producer<Animal>` (covariance)
+* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
 
 **変更可能な配列:** TypeScript では `Dog[]` を `Animal[]` に代入できます。両方の変数が同じ配列を参照するため、より広い型から犬ではない `Animal` を追加できてしまいます。
 
