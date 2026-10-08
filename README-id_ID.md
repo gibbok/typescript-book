@@ -4869,9 +4869,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 Panah menunjukkan arah penugasan yang aman:
 
-* `Dog -> Animal`
-* `Producer<Dog> -> Producer<Animal>` (covariance)
-* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
 
 **Array yang dapat diubah:** TypeScript juga mengizinkan `Dog[]` ditetapkan ke `Animal[]`. Kedua variabel merujuk array yang sama; melalui tipe yang lebih luas, `Animal` yang bukan anjing dapat ditambahkan.
 
