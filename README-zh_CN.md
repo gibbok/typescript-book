@@ -4784,108 +4784,69 @@ TypeScript 通过为原语及其相应的对象包装器提供单独的类型来
 
 ### TypeScript 中的协变和逆变
 
-协变和逆变描述了泛型类型中类型关系的行为方式。
+协变和逆变描述泛型中类型关系的变化方式。`Dog` 是 `Animal`，但并非所有 `Animal` 都是 `Dog`。
 
-在 TypeScript 中：
-
-* 数组是**协变的**，但这在类型上并不是完全安全的。
-* 函数参数类型是：
-  * 在启用 `strictFunctionTypes` 时为**逆变**
-  * 否则为**双变**
-
-协变意味着关系被保留：如果类型 A 是类型 B 的子类型，那么 `F<A>` 也是 `F<B>` 的子类型。在 TypeScript 中，这通常出现在返回类型和数组中（尽管数组的协变并不是完全类型安全的）。
-
-逆变意味着关系被反转：如果类型 A 是类型 B 的子类型，那么 `F<B>` 是 `F<A>` 的子类型。在 TypeScript 中，函数参数类型被设计为逆变，这意味着一个接受更宽泛类型的函数可以在需要更具体类型的地方使用。
-
-然而，在实践中，TypeScript 通常允许函数参数具有双变性（除非启用了 `strictFunctionTypes`），这意味着即使在不完全类型安全的情况下，两个方向都可能被接受。
-
-示例：想象一个包含所有动物的空间，以及一个只包含狗的独立空间。
-
-* **协变**：  
-  你可以在需要“动物空间”的地方使用“狗空间”，因为所有的狗都是动物。  
-  但你不能在需要“狗空间”的地方使用“动物空间”，因为其中可能包含不是狗的动物。
-
-* **逆变**（从函数的角度思考）：  
-  如果你有一个可以处理**任何动物**的东西，你可以在需要处理**仅狗**的地方使用它。  
-  但反过来不行。
-
-协变示例：
+**协变（产生值）：** 返回 `Dog` 的函数可以用于需要返回 `Animal` 的函数的位置。所有狗都是动物，但返回任意动物的函数可能返回猫。
 
 <!-- skip -->
 ```typescript
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+    name = '';
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+    breed = '';
 }
 
-let animals: Animal[] = [];
-let dogs: Dog[] = [];
+type Producer<T> = () => T;
 
-// Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs; // allowed
-dogs = animals; // error
+declare let produceAnimal: Producer<Animal>;
+declare let produceDog: Producer<Dog>;
+
+produceAnimal = produceDog; // Valid
+produceDog = produceAnimal; // Error
 ```
 
-逆变示例：
+**逆变（接收值）：** 接受任意 `Animal` 的函数可以用于需要接受 `Dog` 的函数的位置。它也能处理狗；只接受狗的函数无法安全地处理所有动物。
 
 <!-- skip -->
 ```typescript
-class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+type Consumer<T> = (value: T) => void;
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
-}
+declare let consumeAnimal: Consumer<Animal>;
+declare let consumeDog: Consumer<Dog>;
 
-type Feed<T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = animal => {
-    console.log(animal.name);
-};
-
-let feedDog: Feed<Dog> = dog => {
-    console.log(dog.breed);
-};
-
-// Intended contravariance:
-feedDog = feedAnimal; // safe
-
-// This depends on compiler settings:
-feedAnimal = feedDog; // error only with strictFunctionTypes
+consumeDog = consumeAnimal; // Valid
+consumeAnimal = consumeDog; // Error with strictFunctionTypes
 ```
+
+箭头表示安全赋值的方向：
+
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
+
+**可变数组：** TypeScript 还允许将 `Dog[]` 赋给 `Animal[]`。两个变量引用同一个数组；通过更宽泛的类型可以插入不是狗的 `Animal`。
+
+<!-- skip -->
+```typescript
+const dogs: Dog[] = [new Dog()];
+const animals: Animal[] = dogs;
+
+animals.push(new Animal()); // Allowed, but unsafe
+// dogs now contains an Animal that is not a Dog.
+```
+
+**编译器选项：** 启用 `strictFunctionTypes` 时，独立函数的参数按逆变方式检查。未启用时，TypeScript 可能允许双向赋值（双变），即使并不安全。方法和构造函数声明中的参数是例外。
 
 #### 类型参数的可选方差注释
 
-从 TypeScript 4.7.0 开始，我们可以使用out和in关键字来具体说明方差注释。
-
-对于协变，使用out关键字：
+从 TypeScript 4.7 开始，`out` 表示协变，`in` 表示逆变，`in out` 表示不变。TypeScript 通常会推断变型。注解必须与泛型参数的实际用法一致，不能任意改变其行为。
 
 ```typescript
-type AnimalCallback<out T> = () => T; // 此处 T 是协变的
-```
-
-对于逆变，使用in关键字：
-
-```typescript
-type AnimalCallback<in T> = (value: T) => void; // 此处 T 是逆变的
+type Producer<out T> = () => T;
+type Consumer<in T> = (value: T) => void;
+type Transformer<in out T> = (value: T) => T;
 ```
 
 ### 模板字符串模式索引签名

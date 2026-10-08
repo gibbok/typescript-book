@@ -4828,108 +4828,69 @@ Boxed type thường không cần thiết. Tránh sử dụng boxed type và tha
 
 ### Covariance và Contravariance trong TypeScript
 
-Covariance và contravariance mô tả cách các quan hệ kiểu hoạt động trong generic type.
+Covariance và contravariance mô tả quan hệ giữa các kiểu bên trong kiểu generic. `Dog` là một `Animal`, nhưng không phải mọi `Animal` đều là `Dog`.
 
-Trong TypeScript:
-
-* Array là **covariant**, nhưng điều này không hoàn toàn an toàn kiểu.
-* Kiểu tham số hàm là:
-  * **contravariant** khi `strictFunctionTypes` được bật
-  * **bivariant** trong trường hợp khác
-
-Covariance có nghĩa quan hệ được giữ nguyên: nếu kiểu A là kiểu con của kiểu B thì `F<A>` cũng là kiểu con của `F<B>`. Trong TypeScript, điều này thường xuất hiện trong kiểu trả về và trong array (mặc dù covariance của array không hoàn toàn an toàn kiểu).
-
-Contravariance có nghĩa quan hệ bị đảo ngược: nếu kiểu A là kiểu con của kiểu B thì `F<B>` là kiểu con của `F<A>`. Trong TypeScript, kiểu tham số hàm được thiết kế để contravariant, nghĩa là một hàm chấp nhận kiểu rộng hơn có thể được dùng ở nơi mong đợi kiểu hẹp hơn.
-
-Tuy nhiên, trên thực tế, TypeScript thường cho phép bivariance đối với tham số hàm (trừ khi `strictFunctionTypes` được bật), nghĩa là cả hai hướng có thể được chấp nhận ngay cả khi không hoàn toàn an toàn kiểu.
-
-Ví dụ: Hãy tưởng tượng một không gian cho tất cả động vật và một không gian riêng chỉ cho chó.
-
-* **Covariance**:  
-  Bạn có thể dùng một “không gian cho chó” ở nơi mong đợi một “không gian cho động vật”, vì mọi con chó đều là động vật.  
-  Nhưng bạn không thể dùng một “không gian cho động vật” ở nơi mong đợi một “không gian cho chó”, vì nó có thể chứa động vật không phải chó.
-
-* **Contravariance** (hãy nghĩ theo hàm):  
-  Nếu bạn có thứ gì đó có thể xử lý **bất kỳ động vật nào**, bạn có thể dùng nó ở nơi mong đợi thứ chỉ xử lý **chó**.  
-  Nhưng không thể làm ngược lại.
-
-Ví dụ covariance:
+**Covariance (tạo giá trị):** hàm trả về `Dog` có thể thay thế hàm trả về `Animal`. Mọi con chó đều là động vật, nhưng hàm trả về động vật bất kỳ có thể trả về mèo.
 
 <!-- skip -->
 ```typescript
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+    name = '';
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+    breed = '';
 }
 
-let animals: Animal[] = [];
-let dogs: Dog[] = [];
+type Producer<T> = () => T;
 
-// Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs; // allowed
-dogs = animals; // error
+declare let produceAnimal: Producer<Animal>;
+declare let produceDog: Producer<Dog>;
+
+produceAnimal = produceDog; // Valid
+produceDog = produceAnimal; // Error
 ```
 
-Ví dụ contravariance:
+**Contravariance (nhận giá trị):** hàm nhận mọi `Animal` có thể thay thế hàm chỉ nhận `Dog`. Hàm đó xử lý được cả chó; hàm chỉ nhận chó không thể xử lý an toàn mọi động vật.
 
 <!-- skip -->
 ```typescript
-class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+type Consumer<T> = (value: T) => void;
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
-}
+declare let consumeAnimal: Consumer<Animal>;
+declare let consumeDog: Consumer<Dog>;
 
-type Feed<T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = animal => {
-    console.log(animal.name);
-};
-
-let feedDog: Feed<Dog> = dog => {
-    console.log(dog.breed);
-};
-
-// Intended contravariance:
-feedDog = feedAnimal; // safe
-
-// This depends on compiler settings:
-feedAnimal = feedDog; // error only with strictFunctionTypes
+consumeDog = consumeAnimal; // Valid
+consumeAnimal = consumeDog; // Error with strictFunctionTypes
 ```
+
+Mũi tên cho biết hướng gán an toàn:
+
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
+
+**Mảng có thể thay đổi:** TypeScript cũng cho phép gán `Dog[]` cho `Animal[]`. Hai biến cùng tham chiếu một mảng; thêm `Animal` qua kiểu rộng hơn có thể đưa một phần tử không phải chó vào mảng chó.
+
+<!-- skip -->
+```typescript
+const dogs: Dog[] = [new Dog()];
+const animals: Animal[] = dogs;
+
+animals.push(new Animal()); // Allowed, but unsafe
+// dogs now contains an Animal that is not a Dog.
+```
+
+**Tùy chọn trình biên dịch:** khi bật `strictFunctionTypes`, tham số của hàm độc lập được kiểm tra theo contravariance. Nếu tắt, TypeScript có thể cho phép cả hai hướng (bivariance) dù không an toàn. Tham số trong khai báo phương thức và hàm tạo là ngoại lệ.
 
 #### Variance Annotation tùy chọn cho tham số kiểu
 
-Kể từ TypeScript 4.7.0, chúng ta có thể sử dụng các từ khóa `out` và `in` để chỉ định variance annotation.
-
-Với covariance, dùng từ khóa `out`:
+Từ TypeScript 4.7, `out` biểu thị covariance, `in` biểu thị contravariance và `in out` biểu thị invariance. TypeScript thường tự suy luận variance. Chú thích phải phù hợp với cách dùng tham số generic, không tùy ý thay đổi hành vi của nó.
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T is Covariant here
-```
-
-Và với Contravariant, dùng từ khóa `in`:
-
-```typescript
-type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
+type Producer<out T> = () => T;
+type Consumer<in T> = (value: T) => void;
+type Transformer<in out T> = (value: T) => T;
 ```
 
 ### Template String Pattern Index Signature

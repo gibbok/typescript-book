@@ -4828,108 +4828,69 @@ The boxed types are usually not needed. Avoid using boxed types and instead use 
 
 ### Covariance and Contravariance in TypeScript
 
-Covariance and contravariance describe how type relationships behave in generic types.
+Covariance and contravariance describe how type relationships behave inside generic types. A `Dog` is an `Animal`, but not every `Animal` is a `Dog`.
 
-In TypeScript:
-
-* Arrays are **covariant**, but this is not fully type-safe.
-* Function parameter types are:
-  * **contravariant** when `strictFunctionTypes` is enabled
-  * **bivariant** otherwise
-
-Covariance means the relationship is preserved: if type A is a subtype of type B, then `F<A>` is also a subtype of `F<B>`. In TypeScript, this commonly appears in return types and in arrays (although array covariance is not fully type-safe).
-
-Contravariance means the relationship is reversed: if type A is a subtype of type B, then `F<B>` is a subtype of `F<A>`. In TypeScript, function parameter types are intended to be contravariant, meaning a function that accepts a broader type can be used where a narrower type is expected.
-
-However, in practice, TypeScript often allows bivariance for function parameters (unless `strictFunctionTypes` is enabled), meaning both directions may be accepted even when it is not strictly type-safe.
-
-Example: Imagine a space for all animals and a separate space just for dogs.
-
-* **Covariance**:  
-  You can use a “dogs space” where an “animals space” is expected, because all dogs are animals.  
-  But you cannot use an “animals space” where a “dogs space” is expected, because it might contain non-dog animals.
-
-* **Contravariance** (think in terms of functions):  
-  If you have something that can handle **any animal**, you can use it where something that handles **only dogs** is expected.  
-  But not the other way around.
-
-Covariance example:
+**Covariance (producing values):** A function returning a `Dog` can be used where a function returning an `Animal` is expected. Every dog is an animal, but a function returning any animal might return a cat.
 
 <!-- skip -->
 ```typescript
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+    name = '';
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+    breed = '';
 }
 
-let animals: Animal[] = [];
-let dogs: Dog[] = [];
+type Producer<T> = () => T;
 
-// Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs; // allowed
-dogs = animals; // error
+declare let produceAnimal: Producer<Animal>;
+declare let produceDog: Producer<Dog>;
+
+produceAnimal = produceDog; // Valid
+produceDog = produceAnimal; // Error
 ```
 
-Contravariance example:
+**Contravariance (consuming values):** A function accepting any `Animal` can be used where a function accepting a `Dog` is expected. It can handle dogs too, but a dog-only function cannot safely handle every animal.
 
 <!-- skip -->
 ```typescript
-class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+type Consumer<T> = (value: T) => void;
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
-}
+declare let consumeAnimal: Consumer<Animal>;
+declare let consumeDog: Consumer<Dog>;
 
-type Feed<T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = animal => {
-    console.log(animal.name);
-};
-
-let feedDog: Feed<Dog> = dog => {
-    console.log(dog.breed);
-};
-
-// Intended contravariance:
-feedDog = feedAnimal; // safe
-
-// This depends on compiler settings:
-feedAnimal = feedDog; // error only with strictFunctionTypes
+consumeDog = consumeAnimal; // Valid
+consumeAnimal = consumeDog; // Error with strictFunctionTypes
 ```
+
+The arrows show the direction of safe assignment:
+
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
+
+**Mutable arrays:** TypeScript also permits assigning `Dog[]` to `Animal[]`. Both variables then refer to the same array, so inserting an `Animal` through the wider type can put a non-dog into the dogs array.
+
+<!-- skip -->
+```typescript
+const dogs: Dog[] = [new Dog()];
+const animals: Animal[] = dogs;
+
+animals.push(new Animal()); // Allowed, but unsafe
+// dogs now contains an Animal that is not a Dog.
+```
+
+**Compiler setting:** With `strictFunctionTypes`, standalone function parameters are checked contravariantly. Without it, TypeScript may allow both directions (bivariance), even when unsafe. Method and constructor parameter declarations are an exception to strict function parameter checking.
 
 #### Optional Variance Annotations for Type Parameters
 
-As of TypeScript 4.7.0, we can use the `out` and `in` keywords to specify variance annotations.
-
-For covariance, use the `out` keyword:
+Since TypeScript 4.7, `out` marks covariance, `in` marks contravariance, and `in out` marks invariance. TypeScript normally infers variance. Annotations must be consistent with how the generic parameter is used; they do not arbitrarily change its behavior.
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T is Covariant here
-```
-
-And for Contravariant, use the `in` keyword:
-
-```typescript
-type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
+type Producer<out T> = () => T;
+type Consumer<in T> = (value: T) => void;
+type Transformer<in out T> = (value: T) => T;
 ```
 
 ### Template String Pattern Index Signatures

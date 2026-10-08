@@ -4828,108 +4828,69 @@ TypeScript는 원시 타입과 그에 해당하는 객체 래퍼에 별도의 �
 
 ### TypeScript의 공변성과 반공변성
 
-공변성과 반공변성은 제네릭 타입에서 타입 관계가 어떻게 동작하는지를 설명합니다.
+공변성과 반공변성은 제네릭 타입 안에서 타입 관계가 어떻게 적용되는지 설명합니다. `Dog`는 `Animal`이지만 모든 `Animal`이 `Dog`는 아닙니다.
 
-TypeScript에서는 다음과 같습니다.
-
-* 배열은 **공변적**이지만, 완전히 타입 안전하지는 않습니다.
-* 함수 매개변수 타입은 다음과 같습니다.
-  * `strictFunctionTypes`가 활성화되어 있으면 **반공변적**입니다.
-  * 그렇지 않으면 **이변적**입니다.
-
-공변성은 관계가 유지되는 것을 의미합니다. 타입 A가 타입 B의 하위 타입이면 `F<A>`도 `F<B>`의 하위 타입입니다. TypeScript에서는 반환 타입과 배열에서 흔히 나타납니다(다만 배열의 공변성은 완전히 타입 안전하지는 않습니다).
-
-반공변성은 관계가 반대로 바뀌는 것을 의미합니다. 타입 A가 타입 B의 하위 타입이면 `F<B>`가 `F<A>`의 하위 타입입니다. TypeScript에서 함수 매개변수 타입은 반공변적으로 동작하도록 설계되어 있습니다. 즉, 더 넓은 타입을 허용하는 함수를 더 좁은 타입이 필요한 위치에서 사용할 수 있습니다.
-
-하지만 실제로 TypeScript는 함수 매개변수에 이변성을 허용하는 경우가 많습니다(`strictFunctionTypes`가 활성화된 경우는 제외). 따라서 엄격하게 타입 안전하지 않은 경우에도 양방향이 모두 허용될 수 있습니다.
-
-예시: 모든 동물을 위한 공간과 개만을 위한 별도의 공간을 상상해 보세요.
-
-* **공변성**:  
-  모든 개는 동물이므로 "동물 공간"이 필요한 곳에 "개 공간"을 사용할 수 있습니다.  
-  하지만 "개 공간"이 필요한 곳에 "동물 공간"을 사용할 수는 없습니다. 개가 아닌 동물이 들어 있을 수 있기 때문입니다.
-
-* **반공변성** (함수를 기준으로 생각하세요):  
-  **모든 동물**을 처리할 수 있는 것이 있다면 **개만** 처리하는 것이 필요한 곳에 사용할 수 있습니다.  
-  하지만 그 반대는 불가능합니다.
-
-공변성 예시:
+**공변성(값 생성):** `Dog`를 반환하는 함수는 `Animal`을 반환하는 함수가 필요한 곳에서 사용할 수 있습니다. 모든 개는 동물이지만 임의의 동물을 반환하는 함수는 고양이를 반환할 수도 있습니다.
 
 <!-- skip -->
 ```typescript
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+    name = '';
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+    breed = '';
 }
 
-let animals: Animal[] = [];
-let dogs: Dog[] = [];
+type Producer<T> = () => T;
 
-// Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs; // allowed
-dogs = animals; // error
+declare let produceAnimal: Producer<Animal>;
+declare let produceDog: Producer<Dog>;
+
+produceAnimal = produceDog; // Valid
+produceDog = produceAnimal; // Error
 ```
 
-반공변성 예시:
+**반공변성(값 소비):** 모든 `Animal`을 받는 함수는 `Dog`를 받는 함수가 필요한 곳에서 사용할 수 있습니다. 개도 처리할 수 있지만 개만 받는 함수는 모든 동물을 안전하게 처리할 수 없습니다.
 
 <!-- skip -->
 ```typescript
-class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+type Consumer<T> = (value: T) => void;
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
-}
+declare let consumeAnimal: Consumer<Animal>;
+declare let consumeDog: Consumer<Dog>;
 
-type Feed<T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = animal => {
-    console.log(animal.name);
-};
-
-let feedDog: Feed<Dog> = dog => {
-    console.log(dog.breed);
-};
-
-// Intended contravariance:
-feedDog = feedAnimal; // safe
-
-// This depends on compiler settings:
-feedAnimal = feedDog; // error only with strictFunctionTypes
+consumeDog = consumeAnimal; // Valid
+consumeAnimal = consumeDog; // Error with strictFunctionTypes
 ```
+
+화살표는 안전한 할당 방향을 나타냅니다.
+
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
+
+**변경 가능한 배열:** TypeScript는 `Dog[]`를 `Animal[]`에 할당하는 것도 허용합니다. 두 변수는 같은 배열을 참조하므로 더 넓은 타입을 통해 개가 아닌 `Animal`을 추가할 수 있습니다.
+
+<!-- skip -->
+```typescript
+const dogs: Dog[] = [new Dog()];
+const animals: Animal[] = dogs;
+
+animals.push(new Animal()); // Allowed, but unsafe
+// dogs now contains an Animal that is not a Dog.
+```
+
+**컴파일러 옵션:** `strictFunctionTypes`를 사용하면 독립적인 함수의 매개변수를 반공변적으로 검사합니다. 사용하지 않으면 안전하지 않아도 양방향을 허용할 수 있습니다(양변성). 메서드와 생성자 선언의 매개변수는 예외입니다.
 
 #### 타입 매개변수의 선택적 변성 어노테이션
 
-TypeScript 4.7.0부터 `out` 및 `in` 키워드를 사용하여 변성 어노테이션을 지정할 수 있습니다.
-
-공변성에는 `out` 키워드를 사용합니다.
+TypeScript 4.7부터 `out`은 공변성, `in`은 반공변성, `in out`은 불변성을 나타냅니다. 보통 TypeScript가 변성을 추론합니다. 주석은 제네릭 매개변수의 실제 사용 방식과 일치해야 하며 동작을 임의로 바꾸지는 않습니다.
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T is Covariant here
-```
-
-반공변성에는 `in` 키워드를 사용합니다.
-
-```typescript
-type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
+type Producer<out T> = () => T;
+type Consumer<in T> = (value: T) => void;
+type Transformer<in out T> = (value: T) => T;
 ```
 
 ### 템플릿 문자열 패턴 인덱스 시그니처
