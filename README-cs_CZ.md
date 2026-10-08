@@ -4866,11 +4866,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 Šipky ukazují směr bezpečného přiřazení:
 
-```text
-Dog -> Animal
-Producer<Dog> -> Producer<Animal> (covariance)
-Consumer<Animal> -> Consumer<Dog> (contravariance)
-```
+* `Dog -> Animal`
+* `Producer<Dog> -> Producer<Animal>` (covariance)
+* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
 
 **Měnitelná pole:** TypeScript dovoluje také přiřadit `Dog[]` do `Animal[]`. Obě proměnné odkazují na stejné pole; přes obecnější typ lze vložit `Animal`, které není pes.
 
