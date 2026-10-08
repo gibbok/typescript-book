@@ -4866,11 +4866,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 Les flèches indiquent le sens des affectations sûres :
 
-```text
-Dog -> Animal
-Producer<Dog> -> Producer<Animal> (covariance)
-Consumer<Animal> -> Consumer<Dog> (contravariance)
-```
+* `Dog -> Animal`
+* `Producer<Dog> -> Producer<Animal>` (covariance)
+* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
 
 **Tableaux modifiables :** TypeScript permet aussi d'affecter `Dog[]` à `Animal[]`. Les variables désignent le même tableau ; insérer un `Animal` via le type plus général peut ajouter un élément qui n'est pas un chien.
 
