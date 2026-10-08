@@ -4866,11 +4866,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 Oklar güvenli atamaların yönünü gösterir:
 
-```text
-Dog -> Animal
-Producer<Dog> -> Producer<Animal> (covariance)
-Consumer<Animal> -> Consumer<Dog> (contravariance)
-```
+* `Dog -> Animal`
+* `Producer<Dog> -> Producer<Animal>` (covariance)
+* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
 
 **Değiştirilebilir diziler:** TypeScript, `Dog[]` değerinin `Animal[]` türüne atanmasına da izin verir. İki değişken aynı diziyi gösterir; daha geniş tür üzerinden köpek olmayan bir `Animal` eklenebilir.
 
