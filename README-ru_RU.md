@@ -4866,9 +4866,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 Стрелки показывают направление безопасного присваивания:
 
-* `Dog -> Animal`
-* `Producer<Dog> -> Producer<Animal>` (covariance)
-* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
 
 **Изменяемые массивы:** TypeScript также разрешает присвоить `Dog[]` переменной типа `Animal[]`. Обе переменные ссылаются на один массив; через более общий тип можно добавить `Animal`, который не является собакой.
 
