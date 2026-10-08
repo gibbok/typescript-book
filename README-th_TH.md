@@ -4828,108 +4828,71 @@ TypeScript แสดงความแตกต่างนี้ด้วยก
 
 ### Covariance และ Contravariance ใน TypeScript
 
-Covariance และ contravariance อธิบายลักษณะการทำงานของความสัมพันธ์ระหว่างชนิดในชนิด generic
+Covariance และ contravariance อธิบายความสัมพันธ์ของชนิดข้อมูลภายในชนิด generic โดย `Dog` เป็น `Animal` แต่ไม่ใช่ `Animal` ทุกตัวจะเป็น `Dog`
 
-ใน TypeScript:
-
-* อาร์เรย์เป็นแบบ **covariant** แต่ไม่ปลอดภัยด้านชนิดอย่างสมบูรณ์
-* ชนิดพารามิเตอร์ของฟังก์ชันเป็น:
-  * **contravariant** เมื่อเปิดใช้ `strictFunctionTypes`
-  * **bivariant** ในกรณีอื่น
-
-Covariance หมายถึงความสัมพันธ์ยังคงเดิม กล่าวคือ หากชนิด A เป็นชนิดย่อยของชนิด B แล้ว `F<A>` ก็เป็นชนิดย่อยของ `F<B>` เช่นกัน ใน TypeScript ลักษณะนี้มักพบในชนิดค่าที่คืนและอาร์เรย์ (แม้ covariance ของอาร์เรย์จะไม่ปลอดภัยด้านชนิดอย่างสมบูรณ์)
-
-Contravariance หมายถึงความสัมพันธ์กลับทิศ กล่าวคือ หากชนิด A เป็นชนิดย่อยของชนิด B แล้ว `F<B>` จะเป็นชนิดย่อยของ `F<A>` ใน TypeScript ชนิดพารามิเตอร์ของฟังก์ชันถูกออกแบบให้เป็นแบบ contravariant ซึ่งหมายความว่าฟังก์ชันที่รับชนิดกว้างกว่าสามารถใช้แทนในตำแหน่งที่คาดหวังชนิดแคบกว่าได้
-
-อย่างไรก็ตาม ในทางปฏิบัติ TypeScript มักยอมให้พารามิเตอร์ของฟังก์ชันเป็นแบบ bivariance (เว้นแต่จะเปิดใช้ `strictFunctionTypes`) ซึ่งหมายความว่าอาจยอมรับได้ทั้งสองทิศทางแม้จะไม่ปลอดภัยด้านชนิดอย่างเคร่งครัด
-
-ตัวอย่าง: ลองนึกภาพพื้นที่สำหรับสัตว์ทุกชนิด และอีกพื้นที่หนึ่งสำหรับสุนัขเท่านั้น
-
-* **Covariance**:  
-  คุณสามารถใช้ “พื้นที่สำหรับสุนัข” ในตำแหน่งที่คาดหวัง “พื้นที่สำหรับสัตว์” ได้ เพราะสุนัขทุกตัวเป็นสัตว์  
-  แต่ไม่สามารถใช้ “พื้นที่สำหรับสัตว์” ในตำแหน่งที่คาดหวัง “พื้นที่สำหรับสุนัข” ได้ เพราะในนั้นอาจมีสัตว์ที่ไม่ใช่สุนัข
-
-* **Contravariance** (พิจารณาในแง่ของฟังก์ชัน):  
-  หากคุณมีบางสิ่งที่จัดการ **สัตว์ชนิดใดก็ได้** คุณสามารถนำไปใช้ในตำแหน่งที่คาดหวังสิ่งซึ่งจัดการ **เฉพาะสุนัข** ได้  
-  แต่ไม่สามารถทำในทางกลับกันได้
-
-ตัวอย่าง Covariance:
+**Covariance (การสร้างค่า):** ฟังก์ชันที่คืนค่า `Dog` สามารถใช้แทนฟังก์ชันที่คืนค่า `Animal` ได้ เพราะสุนัขทุกตัวเป็นสัตว์ แต่ฟังก์ชันที่คืนค่าสัตว์ทั่วไปอาจคืนค่าแมว
 
 <!-- skip -->
 ```typescript
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+    name = '';
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+    breed = '';
 }
 
-let animals: Animal[] = [];
-let dogs: Dog[] = [];
+type Producer<T> = () => T;
 
-// Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs; // allowed
-dogs = animals; // error
+declare let produceAnimal: Producer<Animal>;
+declare let produceDog: Producer<Dog>;
+
+produceAnimal = produceDog; // Valid
+produceDog = produceAnimal; // Error
 ```
 
-ตัวอย่าง Contravariance:
+**Contravariance (การรับค่า):** ฟังก์ชันที่รับ `Animal` ทุกชนิดใช้แทนฟังก์ชันที่รับ `Dog` ได้ เพราะรับสุนัขได้ด้วย แต่ฟังก์ชันที่รับเฉพาะสุนัขไม่สามารถจัดการสัตว์ทุกชนิดได้อย่างปลอดภัย
 
 <!-- skip -->
 ```typescript
-class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+type Consumer<T> = (value: T) => void;
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
-}
+declare let consumeAnimal: Consumer<Animal>;
+declare let consumeDog: Consumer<Dog>;
 
-type Feed<T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = animal => {
-    console.log(animal.name);
-};
-
-let feedDog: Feed<Dog> = dog => {
-    console.log(dog.breed);
-};
-
-// Intended contravariance:
-feedDog = feedAnimal; // safe
-
-// This depends on compiler settings:
-feedAnimal = feedDog; // error only with strictFunctionTypes
+consumeDog = consumeAnimal; // Valid
+consumeAnimal = consumeDog; // Error with strictFunctionTypes
 ```
+
+ลูกศรแสดงทิศทางการกำหนดค่าที่ปลอดภัย:
+
+```text
+Dog -> Animal
+Producer<Dog> -> Producer<Animal> (covariance)
+Consumer<Animal> -> Consumer<Dog> (contravariance)
+```
+
+**อาร์เรย์ที่แก้ไขได้:** TypeScript อนุญาตให้กำหนด `Dog[]` ให้กับ `Animal[]` ตัวแปรทั้งสองอ้างถึงอาร์เรย์เดียวกัน จึงสามารถเพิ่ม `Animal` ที่ไม่ใช่สุนัขผ่านชนิดที่กว้างกว่าได้
+
+<!-- skip -->
+```typescript
+const dogs: Dog[] = [new Dog()];
+const animals: Animal[] = dogs;
+
+animals.push(new Animal()); // Allowed, but unsafe
+// dogs now contains an Animal that is not a Dog.
+```
+
+**ตัวเลือกคอมไพเลอร์:** เมื่อเปิด `strictFunctionTypes` พารามิเตอร์ของฟังก์ชันทั่วไปจะถูกตรวจแบบ contravariance หากปิด อาจยอมรับทั้งสองทิศทาง (bivariance) แม้ไม่ปลอดภัย พารามิเตอร์ในประกาศเมธอดและคอนสตรักเตอร์เป็นข้อยกเว้น
 
 #### Variance Annotation แบบเลือกใช้ได้สำหรับพารามิเตอร์ชนิด
 
-ตั้งแต่ TypeScript 4.7.0 เราสามารถใช้คีย์เวิร์ด `out` และ `in` เพื่อระบุ variance annotation ได้
-
-สำหรับ covariance ให้ใช้คีย์เวิร์ด `out`:
+ตั้งแต่ TypeScript 4.7 `out` หมายถึง covariance, `in` หมายถึง contravariance และ `in out` หมายถึง invariance โดยปกติ TypeScript จะอนุมาน variance เอง annotation ต้องสอดคล้องกับการใช้งานพารามิเตอร์ generic ไม่ใช่เปลี่ยนพฤติกรรมตามใจ
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T is Covariant here
-```
-
-และสำหรับ contravariant ให้ใช้คีย์เวิร์ด `in`:
-
-```typescript
-type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
+type Producer<out T> = () => T;
+type Consumer<in T> = (value: T) => void;
+type Transformer<in out T> = (value: T) => T;
 ```
 
 ### Index Signature ที่ใช้รูปแบบ Template String
