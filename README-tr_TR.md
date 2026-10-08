@@ -4828,108 +4828,71 @@ Kutulanmış türlere genellikle gerek yoktur. Kutulanmış türleri kullanmakta
 
 ### TypeScript'te Kovaryans ve Kontravaryans
 
-Kovaryans ve kontravaryans, jenerik türlerde tür ilişkilerinin nasıl davrandığını açıklar.
+Kovaryans ve kontravaryans, jenerik türlerdeki tür ilişkilerini açıklar. `Dog` bir `Animal` türüdür, ancak her `Animal` bir `Dog` değildir.
 
-TypeScript'te:
-
-* Diziler **kovaryanttır**, ancak bu tamamen tür güvenli değildir.
-* Fonksiyon parametresi türleri:
-  * `strictFunctionTypes` etkinleştirildiğinde **kontravaryanttır**
-  * aksi durumda **bivaryanttır**
-
-Kovaryans, ilişkinin korunduğu anlamına gelir: A türü B türünün alt türüyse `F<A>` da `F<B>` türünün alt türüdür. TypeScript'te bu, yaygın olarak dönüş türlerinde ve dizilerde görülür (ancak dizi kovaryansı tamamen tür güvenli değildir).
-
-Kontravaryans, ilişkinin tersine çevrildiği anlamına gelir: A türü B türünün alt türüyse `F<B>`, `F<A>` türünün alt türüdür. TypeScript'te fonksiyon parametresi türlerinin kontravaryant olması amaçlanır; yani daha geniş bir türü kabul eden bir fonksiyon, daha dar bir türün beklendiği yerde kullanılabilir.
-
-Ancak uygulamada TypeScript, fonksiyon parametreleri için çoğunlukla bivaryansa izin verir (`strictFunctionTypes` etkinleştirilmediği sürece); bu, tam anlamıyla tür güvenli olmasa bile her iki yönün de kabul edilebileceği anlamına gelir.
-
-Örnek: Tüm hayvanlar için bir alan ve yalnızca köpekler için ayrı bir alan düşünün.
-
-* **Kovaryans**:  
-  Tüm köpekler hayvan olduğu için "hayvanlar alanı" beklenen yerde bir "köpekler alanı" kullanabilirsiniz.  
-  Ancak "köpekler alanı" beklenen yerde bir "hayvanlar alanı" kullanamazsınız, çünkü bu alan köpek olmayan hayvanlar içerebilir.
-
-* **Kontravaryans** (fonksiyonlar açısından düşünün):  
-  **Herhangi bir hayvanı** işleyebilen bir şeyi, **yalnızca köpekleri** işleyen bir şeyin beklendiği yerde kullanabilirsiniz.  
-  Ancak bunun tersi geçerli değildir.
-
-Kovaryans örneği:
+**Kovaryans (değer üretme):** `Dog` döndüren bir fonksiyon, `Animal` döndüren bir fonksiyonun yerine kullanılabilir. Her köpek bir hayvandır, ancak herhangi bir hayvan döndüren fonksiyon kedi döndürebilir.
 
 <!-- skip -->
 ```typescript
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+    name = '';
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+    breed = '';
 }
 
-let animals: Animal[] = [];
-let dogs: Dog[] = [];
+type Producer<T> = () => T;
 
-// Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs; // allowed
-dogs = animals; // error
+declare let produceAnimal: Producer<Animal>;
+declare let produceDog: Producer<Dog>;
+
+produceAnimal = produceDog; // Valid
+produceDog = produceAnimal; // Error
 ```
 
-Kontravaryans örneği:
+**Kontravaryans (değer kabul etme):** herhangi bir `Animal` kabul eden fonksiyon, `Dog` kabul eden fonksiyonun yerine kullanılabilir. Köpekleri de işleyebilir; yalnızca köpek kabul eden fonksiyon tüm hayvanları güvenle işleyemez.
 
 <!-- skip -->
 ```typescript
-class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+type Consumer<T> = (value: T) => void;
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
-}
+declare let consumeAnimal: Consumer<Animal>;
+declare let consumeDog: Consumer<Dog>;
 
-type Feed<T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = animal => {
-    console.log(animal.name);
-};
-
-let feedDog: Feed<Dog> = dog => {
-    console.log(dog.breed);
-};
-
-// Intended contravariance:
-feedDog = feedAnimal; // safe
-
-// This depends on compiler settings:
-feedAnimal = feedDog; // error only with strictFunctionTypes
+consumeDog = consumeAnimal; // Valid
+consumeAnimal = consumeDog; // Error with strictFunctionTypes
 ```
+
+Oklar güvenli atamaların yönünü gösterir:
+
+```text
+Dog -> Animal
+Producer<Dog> -> Producer<Animal> (covariance)
+Consumer<Animal> -> Consumer<Dog> (contravariance)
+```
+
+**Değiştirilebilir diziler:** TypeScript, `Dog[]` değerinin `Animal[]` türüne atanmasına da izin verir. İki değişken aynı diziyi gösterir; daha geniş tür üzerinden köpek olmayan bir `Animal` eklenebilir.
+
+<!-- skip -->
+```typescript
+const dogs: Dog[] = [new Dog()];
+const animals: Animal[] = dogs;
+
+animals.push(new Animal()); // Allowed, but unsafe
+// dogs now contains an Animal that is not a Dog.
+```
+
+**Derleyici seçeneği:** `strictFunctionTypes` etkinse bağımsız fonksiyon parametreleri kontravaryant olarak denetlenir. Etkin değilse TypeScript güvenli olmasa da iki yönü kabul edebilir (bivaryans). Metot ve kurucu bildirimlerindeki parametreler bu denetimin istisnasıdır.
 
 #### Tür Parametreleri için İsteğe Bağlı Varyans Ek Açıklamaları
 
-TypeScript 4.7.0 itibarıyla varyans ek açıklamalarını belirtmek için `out` ve `in` anahtar sözcüklerini kullanabiliriz.
-
-Kovaryans için `out` anahtar sözcüğünü kullanın:
+TypeScript 4.7'den itibaren `out` kovaryansı, `in` kontravaryansı ve `in out` invaryansı belirtir. TypeScript genellikle varyansı çıkarır. Ek açıklamalar jenerik parametrenin kullanımına uygun olmalı, davranışı keyfî olarak değiştirmemelidir.
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T is Covariant here
-```
-
-Kontravaryans için de `in` anahtar sözcüğünü kullanın:
-
-```typescript
-type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
+type Producer<out T> = () => T;
+type Consumer<in T> = (value: T) => void;
+type Transformer<in out T> = (value: T) => T;
 ```
 
 ### Şablon Dizesi Kalıbı İndeks İmzaları
