@@ -4829,108 +4829,71 @@ console.log('\u0041'.normalize());
 
 ### التغاير والتغاير العكسي في TypeScript
 
-يصف التغاير والتغاير العكسي كيفية تصرف علاقات الأنواع داخل الأنواع العامة.
+يصف التغاير والتغاير العكسي العلاقات بين الأنواع داخل الأنواع العامة. النوع `Dog` هو `Animal`، لكن ليس كل `Animal` من نوع `Dog`.
 
-في TypeScript:
-
-* المصفوفات **متغايرة**، لكن هذا ليس آمنًا تمامًا من ناحية الأنواع.
-* أنواع معاملات الدوال تكون:
-  * **متغايرة عكسيًا** عند تفعيل `strictFunctionTypes`
-  * **متغايرة في الاتجاهين** بخلاف ذلك
-
-يعني التغاير أن العلاقة تبقى محفوظة: إذا كان النوع A نوعًا فرعيًا من النوع B، فإن `F<A>` يكون أيضًا نوعًا فرعيًا من `F<B>`. في TypeScript، يظهر هذا عادةً في أنواع الإرجاع وفي المصفوفات (مع أن تغاير المصفوفات ليس آمنًا تمامًا من ناحية الأنواع).
-
-يعني التغاير العكسي أن العلاقة تنعكس: إذا كان النوع A نوعًا فرعيًا من النوع B، فإن `F<B>` يكون نوعًا فرعيًا من `F<A>`. في TypeScript، يُفترض أن تكون أنواع معاملات الدوال متغايرة عكسيًا، مما يعني إمكان استخدام دالة تقبل نوعًا أوسع حيث يُتوقع نوع أضيق.
-
-لكن عمليًا، تسمح TypeScript غالبًا بالتغاير في الاتجاهين لمعاملات الدوال (ما لم يكن `strictFunctionTypes` مفعّلًا)، مما يعني إمكان قبول الاتجاهين حتى عندما لا يكون ذلك آمنًا تمامًا من ناحية الأنواع.
-
-مثال: تخيل مساحة لجميع الحيوانات ومساحة منفصلة للكلاب فقط.
-
-* **التغاير**:  
-  يمكنك استخدام "مساحة كلاب" حيث يُتوقع وجود "مساحة حيوانات"، لأن جميع الكلاب حيوانات.  
-  لكن لا يمكنك استخدام "مساحة حيوانات" حيث يُتوقع وجود "مساحة كلاب"، لأنها قد تحتوي على حيوانات ليست كلابًا.
-
-* **التغاير العكسي** (فكر من منظور الدوال):  
-  إذا كان لديك شيء يمكنه التعامل مع **أي حيوان**، فيمكنك استخدامه حيث يُتوقع شيء يتعامل مع **الكلاب فقط**.  
-  لكن العكس غير صحيح.
-
-مثال على التغاير:
+**التغاير (إنتاج القيم):** يمكن استخدام دالة تُرجع `Dog` بدلًا من دالة تُرجع `Animal`. فكل كلب حيوان، لكن الدالة التي تُرجع أي حيوان قد تُرجع قطة.
 
 <!-- skip -->
 ```typescript
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+    name = '';
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+    breed = '';
 }
 
-let animals: Animal[] = [];
-let dogs: Dog[] = [];
+type Producer<T> = () => T;
 
-// Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs; // allowed
-dogs = animals; // error
+declare let produceAnimal: Producer<Animal>;
+declare let produceDog: Producer<Dog>;
+
+produceAnimal = produceDog; // Valid
+produceDog = produceAnimal; // Error
 ```
 
-مثال على التغاير العكسي:
+**التغاير العكسي (استقبال القيم):** يمكن استخدام دالة تقبل أي `Animal` بدلًا من دالة تقبل `Dog`. فهي تقبل الكلاب أيضًا، أما الدالة المخصصة للكلاب فلا يمكنها التعامل بأمان مع كل الحيوانات.
 
 <!-- skip -->
 ```typescript
-class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+type Consumer<T> = (value: T) => void;
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
-}
+declare let consumeAnimal: Consumer<Animal>;
+declare let consumeDog: Consumer<Dog>;
 
-type Feed<T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = animal => {
-    console.log(animal.name);
-};
-
-let feedDog: Feed<Dog> = dog => {
-    console.log(dog.breed);
-};
-
-// Intended contravariance:
-feedDog = feedAnimal; // safe
-
-// This depends on compiler settings:
-feedAnimal = feedDog; // error only with strictFunctionTypes
+consumeDog = consumeAnimal; // Valid
+consumeAnimal = consumeDog; // Error with strictFunctionTypes
 ```
+
+توضح الأسهم اتجاه الإسناد الآمن:
+
+```text
+Dog -> Animal
+Producer<Dog> -> Producer<Animal> (covariance)
+Consumer<Animal> -> Consumer<Dog> (contravariance)
+```
+
+**المصفوفات القابلة للتعديل:** يسمح TypeScript أيضًا بإسناد `Dog[]` إلى `Animal[]`. يشير المتغيران إلى المصفوفة نفسها؛ ويمكن إضافة `Animal` ليس كلبًا عبر النوع الأعم.
+
+<!-- skip -->
+```typescript
+const dogs: Dog[] = [new Dog()];
+const animals: Animal[] = dogs;
+
+animals.push(new Animal()); // Allowed, but unsafe
+// dogs now contains an Animal that is not a Dog.
+```
+
+**خيار المترجم:** مع تفعيل `strictFunctionTypes`، تُفحص معاملات الدوال المستقلة وفق التغاير العكسي. بدونه قد يقبل TypeScript الاتجاهين (التغاير الثنائي) حتى إن لم يكونا آمنين. معاملات تعريفات الطرق والبناة استثناء من هذا الفحص.
 
 #### تعليقات التغاير الاختيارية لمعاملات الأنواع
 
-بدءًا من TypeScript 4.7.0، يمكننا استخدام الكلمتين المفتاحيتين `out` و`in` لتحديد تعليقات التغاير.
-
-للتغاير، استخدم الكلمة المفتاحية `out`:
+منذ TypeScript 4.7، تشير `out` إلى التغاير، و`in` إلى التغاير العكسي، و`in out` إلى الثبات. يستنتج TypeScript التغاير عادةً. يجب أن تتوافق التعليقات مع طريقة استخدام المعامل العام، ولا تغيّر سلوكه اعتباطيًا.
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T is Covariant here
-```
-
-وللتغاير العكسي، استخدم الكلمة المفتاحية `in`:
-
-```typescript
-type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
+type Producer<out T> = () => T;
+type Consumer<in T> = (value: T) => void;
+type Transformer<in out T> = (value: T) => T;
 ```
 
 ### تواقيع الفهرس ذات أنماط السلاسل القالبية
