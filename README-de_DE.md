@@ -4828,108 +4828,71 @@ Boxed Types werden normalerweise nicht benötigt. Vermeiden Sie Boxed Types und 
 
 ### Kovarianz und Kontravarianz in TypeScript
 
-Kovarianz und Kontravarianz beschreiben, wie sich Typbeziehungen in generischen Typen verhalten.
+Kovarianz und Kontravarianz beschreiben Typbeziehungen innerhalb generischer Typen. Ein `Dog` ist ein `Animal`, aber nicht jedes `Animal` ist ein `Dog`.
 
-In TypeScript gilt:
-
-* Arrays sind **kovariant**, dies ist jedoch nicht vollständig typsicher.
-* Funktionsparametertypen sind:
-  * **kontravariant**, wenn `strictFunctionTypes` aktiviert ist
-  * andernfalls **bivariant**
-
-Kovarianz bedeutet, dass die Beziehung erhalten bleibt: Wenn Typ A ein Subtyp von Typ B ist, ist `F<A>` ebenfalls ein Subtyp von `F<B>`. In TypeScript tritt dies häufig bei Rückgabetypen und Arrays auf (obwohl die Kovarianz von Arrays nicht vollständig typsicher ist).
-
-Kontravarianz bedeutet, dass die Beziehung umgekehrt wird: Wenn Typ A ein Subtyp von Typ B ist, ist `F<B>` ein Subtyp von `F<A>`. In TypeScript sollen Funktionsparametertypen kontravariant sein. Das bedeutet, dass eine Funktion, die einen allgemeineren Typ akzeptiert, dort verwendet werden kann, wo ein spezifischerer Typ erwartet wird.
-
-In der Praxis lässt TypeScript für Funktionsparameter jedoch häufig Bivarianz zu (sofern `strictFunctionTypes` nicht aktiviert ist). Das bedeutet, dass beide Richtungen akzeptiert werden können, selbst wenn dies nicht streng typsicher ist.
-
-Beispiel: Stellen Sie sich einen Bereich für alle Tiere und einen separaten Bereich nur für Hunde vor.
-
-* **Kovarianz**:  
-  Sie können einen „Hundebereich“ dort verwenden, wo ein „Tierbereich“ erwartet wird, da alle Hunde Tiere sind.  
-  Sie können jedoch keinen „Tierbereich“ dort verwenden, wo ein „Hundebereich“ erwartet wird, da er andere Tiere als Hunde enthalten könnte.
-
-* **Kontravarianz** (bezogen auf Funktionen):  
-  Wenn etwas **jedes Tier** verarbeiten kann, können Sie es dort verwenden, wo etwas erwartet wird, das **nur Hunde** verarbeitet.  
-  Umgekehrt ist dies jedoch nicht möglich.
-
-Beispiel für Kovarianz:
+**Kovarianz (Erzeugen):** Eine Funktion, die einen `Dog` zurückgibt, kann eine Funktion ersetzen, die ein `Animal` zurückgibt. Jeder Hund ist ein Tier, aber eine Funktion für beliebige Tiere könnte eine Katze liefern.
 
 <!-- skip -->
 ```typescript
 class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+    name = '';
 }
 
 class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
+    breed = '';
 }
 
-let animals: Animal[] = [];
-let dogs: Dog[] = [];
+type Producer<T> = () => T;
 
-// Arrays are covariant in TypeScript (but not type-safe)
-animals = dogs; // allowed
-dogs = animals; // error
+declare let produceAnimal: Producer<Animal>;
+declare let produceDog: Producer<Dog>;
+
+produceAnimal = produceDog; // Valid
+produceDog = produceAnimal; // Error
 ```
 
-Beispiel für Kontravarianz:
+**Kontravarianz (Entgegennehmen):** Eine Funktion, die jedes `Animal` akzeptiert, kann eine Funktion ersetzen, die einen `Dog` akzeptiert. Sie kann auch Hunde verarbeiten; eine Funktion nur für Hunde kann nicht jedes Tier sicher verarbeiten.
 
 <!-- skip -->
 ```typescript
-class Animal {
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+type Consumer<T> = (value: T) => void;
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, breed: string) {
-        super(name);
-        this.breed = breed;
-    }
-}
+declare let consumeAnimal: Consumer<Animal>;
+declare let consumeDog: Consumer<Dog>;
 
-type Feed<T> = (animal: T) => void;
-
-let feedAnimal: Feed<Animal> = animal => {
-    console.log(animal.name);
-};
-
-let feedDog: Feed<Dog> = dog => {
-    console.log(dog.breed);
-};
-
-// Intended contravariance:
-feedDog = feedAnimal; // safe
-
-// This depends on compiler settings:
-feedAnimal = feedDog; // error only with strictFunctionTypes
+consumeDog = consumeAnimal; // Valid
+consumeAnimal = consumeDog; // Error with strictFunctionTypes
 ```
+
+Die Pfeile zeigen die Richtung sicherer Zuweisungen:
+
+```text
+Dog -> Animal
+Producer<Dog> -> Producer<Animal> (covariance)
+Consumer<Animal> -> Consumer<Dog> (contravariance)
+```
+
+**Veränderbare Arrays:** TypeScript erlaubt auch, `Dog[]` an `Animal[]` zuzuweisen. Beide Variablen verweisen auf dasselbe Array; über den allgemeineren Typ kann ein `Animal` eingefügt werden, das kein Hund ist.
+
+<!-- skip -->
+```typescript
+const dogs: Dog[] = [new Dog()];
+const animals: Animal[] = dogs;
+
+animals.push(new Animal()); // Allowed, but unsafe
+// dogs now contains an Animal that is not a Dog.
+```
+
+**Compiler-Option:** Mit `strictFunctionTypes` werden Parameter eigenständiger Funktionen kontravariant geprüft. Ohne diese Option kann TypeScript beide Richtungen zulassen (Bivarianz), auch wenn dies unsicher ist. Parameter in Methoden- und Konstruktordeklarationen bilden eine Ausnahme.
 
 #### Optionale Varianzannotationen für Typparameter
 
-Seit TypeScript 4.7.0 können wir mit den Schlüsselwörtern `out` und `in` Varianzannotationen angeben.
-
-Verwenden Sie für Kovarianz das Schlüsselwort `out`:
+Seit TypeScript 4.7 kennzeichnet `out` Kovarianz, `in` Kontravarianz und `in out` Invarianz. TypeScript leitet Varianz normalerweise ab. Annotationen müssen zur tatsächlichen Verwendung des generischen Parameters passen und ändern diese nicht beliebig.
 
 ```typescript
-type AnimalCallback<out T> = () => T; // T is Covariant here
-```
-
-Verwenden Sie für Kontravarianz das Schlüsselwort `in`:
-
-```typescript
-type AnimalCallback<in T> = (value: T) => void; // T is Contravariance here
+type Producer<out T> = () => T;
+type Consumer<in T> = (value: T) => void;
+type Transformer<in out T> = (value: T) => T;
 ```
 
 ### Template-String-Pattern-Indexsignaturen
