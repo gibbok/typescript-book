@@ -4822,9 +4822,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 箭头表示安全赋值的方向：
 
-* `Dog -> Animal`
-* `Producer<Dog> -> Producer<Animal>` (covariance)
-* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
 
 **可变数组：** TypeScript 还允许将 `Dog[]` 赋给 `Animal[]`。两个变量引用同一个数组；通过更宽泛的类型可以插入不是狗的 `Animal`。
 
