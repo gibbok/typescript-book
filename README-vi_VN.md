@@ -4866,9 +4866,9 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 
 Mũi tên cho biết hướng gán an toàn:
 
-* `Dog -> Animal`
-* `Producer<Dog> -> Producer<Animal>` (covariance)
-* `Consumer<Animal> -> Consumer<Dog>` (contravariance)
+* Dog -> Animal
+* Producer\<Dog> -> Producer\<Animal> (covariance)
+* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
 
 **Mảng có thể thay đổi:** TypeScript cũng cho phép gán `Dog[]` cho `Animal[]`. Hai biến cùng tham chiếu một mảng; thêm `Animal` qua kiểu rộng hơn có thể đưa một phần tử không phải chó vào mảng chó.
 
