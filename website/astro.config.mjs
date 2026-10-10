@@ -169,7 +169,7 @@ gtag('config', 'G-SR2LV8LB90');
       },
       social: {
         github: 'https://github.com/gibbok/typescript-book',
-        bluesky: 'https://bsky.app/profile/gibbok.bsky.social',
+        blueSky: 'https://bsky.app/profile/gibbok.bsky.social',
       },
       defaultLocale,
       locales,
