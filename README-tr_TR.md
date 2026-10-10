@@ -326,7 +326,7 @@ Simone Poggiali'ye aşağıdaki platformlardan ulaşabilirsiniz:
 
 * LinkedIn: [https://www.linkedin.com/in/simone-poggiali](https://www.linkedin.com/in/simone-poggiali)
 * GitHub: [https://github.com/gibbok](https://github.com/gibbok)
-* X.com: [https://x.com/gibbok_coding](https://x.com/gibbok_coding)
+* Bluesky: [https://bsky.app/profile/gibbok.bsky.social](https://bsky.app/profile/gibbok.bsky.social)
 * E-posta: gibbok.coding📧gmail.com
 
 Katkıda bulunanların tam listesi: [https://github.com/gibbok/typescript-book/graphs/contributors](https://github.com/gibbok/typescript-book/graphs/contributors)

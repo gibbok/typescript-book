@@ -12,7 +12,7 @@ Sie erreichen Simone Poggiali über die folgenden Plattformen:
 
 * LinkedIn: [https://www.linkedin.com/in/simone-poggiali](https://www.linkedin.com/in/simone-poggiali)
 * GitHub: [https://github.com/gibbok](https://github.com/gibbok)
-* X.com: [https://x.com/gibbok_coding](https://x.com/gibbok_coding)
+* Bluesky: [https://bsky.app/profile/gibbok.bsky.social](https://bsky.app/profile/gibbok.bsky.social)
 * E-Mail: gibbok.coding📧gmail.com
 
 Vollständige Liste der Mitwirkenden: [https://github.com/gibbok/typescript-book/graphs/contributors](https://github.com/gibbok/typescript-book/graphs/contributors)
