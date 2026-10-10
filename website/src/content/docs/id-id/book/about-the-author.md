@@ -12,7 +12,7 @@ Anda dapat menghubungi Simone Poggiali melalui platform berikut:
 
 * LinkedIn: [https://www.linkedin.com/in/simone-poggiali](https://www.linkedin.com/in/simone-poggiali)
 * GitHub: [https://github.com/gibbok](https://github.com/gibbok)
-* X.com: [https://x.com/gibbok_coding](https://x.com/gibbok_coding)
+* Bluesky: [https://bsky.app/profile/gibbok.bsky.social](https://bsky.app/profile/gibbok.bsky.social)
 * Email: gibbok.coding📧gmail.com
 
 Daftar lengkap kontributor: [https://github.com/gibbok/typescript-book/graphs/contributors](https://github.com/gibbok/typescript-book/graphs/contributors)
