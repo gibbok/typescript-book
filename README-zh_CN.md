@@ -326,7 +326,7 @@ Simone Poggiali 是一位经验丰富的资深工程师，自 90 年代以来便
 
 * 领英: [https://www.linkedin.com/in/simone-poggiali](https://www.linkedin.com/in/simone-poggiali)
 * GitHub: [https://github.com/gibbok](https://github.com/gibbok)
-* X.com: [https://x.com/gibbok_coding](https://x.com/gibbok_coding)
+* Bluesky: [https://bsky.app/profile/gibbok.bsky.social](https://bsky.app/profile/gibbok.bsky.social)
 * 电子邮箱: gibbok.coding📧gmail.com
 
 完整的贡献者名单：[https://github.com/gibbok/typescript-book/graphs/contributors](https://github.com/gibbok/typescript-book/graphs/contributors)
