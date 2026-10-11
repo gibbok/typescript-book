@@ -1,5 +1,6 @@
 ---
 import { AMAZON_DOMAINS_BY_REGION, PLUS_EDITION, getPlusEditionCopy } from '../data/plusEdition';
+import { resolveAmazonPurchase } from '../scripts/amazonPurchase';
 
 interface Props {
 	lang?: string;
@@ -8,11 +9,14 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 const copy = getPlusEditionCopy(lang).amazon;
 
-const clientConfig = JSON.stringify({
+const config = {
 	domains: AMAZON_DOMAINS_BY_REGION,
 	editions: PLUS_EDITION.editions,
 	titles: PLUS_EDITION.titles,
-});
+};
+const clientConfig = JSON.stringify(config);
+const selection = resolveAmazonPurchase(lang, config);
+const storeName = (url: string) => new URL(url).hostname.replace(/^www\./, '').replace('amazon.', 'Amazon.');
 ---
 
 <section class="amazon-purchase" data-amazon-purchase data-config={clientConfig} aria-labelledby="buy-plus-edition">
@@ -24,13 +28,15 @@ const clientConfig = JSON.stringify({
 		<label>
 			<span>{copy.editionLabel}</span>
 			<select data-edition-select>
-				<option value="en">English</option>
-				<option value="it">Italiano</option>
+				<option value="en" selected={selection.editionKey === 'en'}>English</option>
+				<option value="it" selected={selection.editionKey === 'it'}>Italiano</option>
+				<option value="pt" selected={selection.editionKey === 'pt'}>Português (Brasil)</option>
+				<option value="es" selected={selection.editionKey === 'es'}>Español</option>
 			</select>
 		</label>
 	</div>
 
-	<p class="amazon-purchase__title" data-edition-title>{PLUS_EDITION.titles.en}</p>
+	<p class="amazon-purchase__title" data-edition-title>{PLUS_EDITION.titles[selection.editionKey]}</p>
 	<div class="amazon-purchase__actions">
 		<a
 			class="amazon-purchase__button amazon-purchase__button--primary"
@@ -39,12 +45,12 @@ const clientConfig = JSON.stringify({
 			data-plus-edition-cta-id="amazon_kindle"
 			data-plus-edition-placement="plus_edition_landing_purchase"
 			data-plus-edition-cta-text={copy.kindle}
-			href={`https://www.amazon.com/dp/${PLUS_EDITION.editions.en.kindleAsin}`}
+			href={selection.kindleUrl}
 			target="_blank"
 			rel="noopener noreferrer"
 		>
 			<span class="amazon-purchase__format">{copy.kindle}</span>
-			<span>{copy.buyOn} <span data-store-name>Amazon.com</span> <span aria-hidden="true">↗</span></span>
+			<span>{copy.buyOn} <span data-store-name>{storeName(selection.kindleUrl)}</span> <span aria-hidden="true">↗</span></span>
 		</a>
 		<a
 			class="amazon-purchase__button"
@@ -53,12 +59,12 @@ const clientConfig = JSON.stringify({
 			data-plus-edition-cta-id="amazon_paperback"
 			data-plus-edition-placement="plus_edition_landing_purchase"
 			data-plus-edition-cta-text={copy.paperback}
-			href={`https://www.amazon.com/dp/${PLUS_EDITION.editions.en.paperbackAsin}`}
+			href={selection.paperbackUrl}
 			target="_blank"
 			rel="noopener noreferrer"
 		>
 			<span class="amazon-purchase__format">{copy.paperback}</span>
-			<span>{copy.buyOn} <span data-store-name>Amazon.com</span> <span aria-hidden="true">↗</span></span>
+			<span>{copy.buyOn} <span data-store-name>{storeName(selection.paperbackUrl)}</span> <span aria-hidden="true">↗</span></span>
 		</a>
 	</div>
 	<p class="amazon-purchase__detected" aria-live="polite" data-detection-message>

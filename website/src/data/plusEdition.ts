@@ -90,6 +90,8 @@ export const PLUS_EDITION = {
 	titles: {
 		en: 'The Concise TypeScript Book Plus Edition: React and Real-World Patterns For TypeScript 7',
 		it: 'The Concise TypeScript Book Plus Edition (Versione italiana): React e pattern pratici per TypeScript 7 (Italian Edition)',
+		pt: 'The Concise TypeScript Book Plus Edition (versão em português): React e padrões do mundo real para TypeScript 7',
+		es: 'The Concise TypeScript Book Plus Edition (versión en español): React y patrones del mundo real para TypeScript 7',
 	},
 	editions: {
 		en: {
@@ -101,6 +103,20 @@ export const PLUS_EDITION = {
 			label: 'Edizione italiana',
 			kindleAsin: 'B0H95PLXHX',
 			paperbackAsin: 'B0H96R5HZD',
+		},
+		pt: {
+			label: 'Edição em português (Brasil)',
+			kindleAsin: 'B0HM6RT27Y',
+			paperbackAsin: 'B0HMG1CNPX',
+			kindleDomain: 'amazon.com.br',
+			paperbackDomain: 'amazon.com',
+		},
+		es: {
+			label: 'Edición en español',
+			kindleAsin: 'B0HM6ZNYBP',
+			paperbackAsin: 'B0HMFP27WJ',
+			kindleDomain: 'amazon.es',
+			paperbackDomain: 'amazon.es',
 		},
 	},
 } as const;
@@ -148,7 +164,7 @@ export const PLUS_EDITION_COPY = {
 				'A concise, practical guide to TypeScript 7, expanded with exclusive chapters that connect the type system to the work you do every day.',
 			primaryAction: 'Choose Kindle or paperback',
 			secondaryAction: 'See what’s new',
-			availability: 'English and Italian editions · Available worldwide through Amazon',
+			availability: 'English, Italian, Portuguese, and Spanish editions · Available worldwide through Amazon',
 			introEyebrow: 'From understanding TypeScript to using it well',
 			introTitle: 'New content built for real projects',
 			introText:
@@ -247,7 +263,7 @@ export const PLUS_EDITION_COPY = {
 				'دليل موجز وعملي إلى TypeScript 7، موسّع بفصول حصرية تربط نظام الأنواع بالعمل الذي تؤديه كل يوم.',
 			primaryAction: 'اختر إصدار Kindle أو الغلاف الورقي',
 			secondaryAction: 'اطّلع على الجديد',
-			availability: 'إصداران باللغتين الإنجليزية والإيطالية · متوفران عالميًا عبر Amazon',
+			availability: 'إصدارات باللغات الإنجليزية والإيطالية والبرتغالية والإسبانية · متوفرة عالميًا عبر Amazon',
 			introEyebrow: 'من فهم TypeScript إلى استخدامها بفاعلية',
 			introTitle: 'محتوى جديد مصمم للمشاريع الحقيقية',
 			introText:
@@ -346,7 +362,7 @@ export const PLUS_EDITION_COPY = {
 				'Краткое практическое руководство по TypeScript 7, дополненное эксклюзивными главами, которые связывают систему типов с вашей повседневной работой.',
 			primaryAction: 'Выбрать версию для Kindle или в мягкой обложке',
 			secondaryAction: 'Посмотреть, что нового',
-			availability: 'Издания на английском и итальянском языках · Доступны по всему миру через Amazon',
+			availability: 'Издания на английском, итальянском, португальском и испанском языках · Доступны по всему миру через Amazon',
 			introEyebrow: 'От понимания TypeScript к уверенному применению',
 			introTitle: 'Новые материалы для реальных проектов',
 			introText:
@@ -445,7 +461,7 @@ export const PLUS_EDITION_COPY = {
 				'Un guide concis et pratique de TypeScript 7, enrichi de chapitres exclusifs qui relient le système de types à votre travail quotidien.',
 			primaryAction: 'Choisir Kindle ou broché',
 			secondaryAction: 'Voir les nouveautés',
-			availability: 'Éditions anglaise et italienne · Disponibles dans le monde entier sur Amazon',
+			availability: 'Éditions anglaise, italienne, portugaise et espagnole · Disponibles dans le monde entier sur Amazon',
 			introEyebrow: 'De la compréhension de TypeScript à sa bonne utilisation',
 			introTitle: 'Du nouveau contenu conçu pour des projets concrets',
 			introText:
@@ -544,7 +560,7 @@ export const PLUS_EDITION_COPY = {
 				'TypeScript 7 を簡潔かつ実践的に学べるガイドです。型システムと日々の開発を結び付ける本書限定の章を追加しています。',
 			primaryAction: 'Kindle またはペーパーバックを選ぶ',
 			secondaryAction: '新しい内容を見る',
-			availability: '英語版とイタリア語版 · Amazon を通じて世界中で購入可能',
+			availability: '英語版・イタリア語版・ポルトガル語版・スペイン語版 · Amazon を通じて世界中で購入可能',
 			introEyebrow: 'TypeScript の理解から効果的な活用へ',
 			introTitle: '実際のプロジェクト向けの新しい内容',
 			introText:
@@ -642,7 +658,7 @@ export const PLUS_EDITION_COPY = {
 			lead: '一本精炼、实用的 TypeScript 7 指南，新增独家章节，把类型系统和日常开发工作连接起来。',
 			primaryAction: '选择 Kindle 或平装版',
 			secondaryAction: '查看新增内容',
-			availability: '英文版和意大利文版 · 通过 Amazon 面向全球发售',
+			availability: '英文版、意大利文版、葡萄牙文版和西班牙文版 · 通过 Amazon 面向全球发售',
 			introEyebrow: '从理解 TypeScript 到真正用好它',
 			introTitle: '为真实项目编写的新内容',
 			introText:
@@ -729,7 +745,7 @@ export const PLUS_EDITION_COPY = {
 				'Una guida concisa e pratica a TypeScript 7, ampliata con capitoli esclusivi che collegano il sistema di tipi al lavoro quotidiano.',
 			primaryAction: 'Scegli Kindle o cartaceo',
 			secondaryAction: 'Scopri le novità',
-			availability: 'Edizioni inglese e italiana · Disponibile in tutto il mondo tramite Amazon',
+			availability: 'Edizioni inglese, italiana, portoghese e spagnola · Disponibile in tutto il mondo tramite Amazon',
 			introEyebrow: 'Dal capire TypeScript al saperlo usare bene',
 			introTitle: 'Nuovi contenuti pensati per progetti reali',
 			introText:
@@ -823,12 +839,12 @@ export const PLUS_EDITION_COPY = {
 		},
 		landing: {
 			heroEyebrow: 'A edição paga e expandida · Atualizada para TypeScript 7',
-			title: PLUS_EDITION.titles.en,
+			title: PLUS_EDITION.titles.pt,
 			lead:
 				'Um guia conciso e prático de TypeScript 7, expandido com capítulos exclusivos que conectam o sistema de tipos ao trabalho do dia a dia.',
 			primaryAction: 'Escolha Kindle ou brochura',
 			secondaryAction: 'Veja as novidades',
-			availability: 'Edições em inglês e italiano · Disponível mundialmente pela Amazon',
+			availability: 'Edições em inglês, italiano, português e espanhol · Disponível mundialmente pela Amazon',
 			introEyebrow: 'De entender TypeScript a usá-lo bem',
 			introTitle: 'Novo conteúdo criado para projetos reais',
 			introText:
@@ -927,7 +943,7 @@ export const PLUS_EDITION_COPY = {
 				'En koncis och praktisk guide till TypeScript 7, utökad med exklusiva kapitel som kopplar typsystemet till arbetet du gör varje dag.',
 			primaryAction: 'Välj Kindle eller pocket',
 			secondaryAction: 'Se vad som är nytt',
-			availability: 'Engelsk och italiensk utgåva · Tillgänglig världen över via Amazon',
+			availability: 'Engelsk, italiensk, portugisisk och spansk utgåva · Tillgänglig världen över via Amazon',
 			introEyebrow: 'Från att förstå TypeScript till att använda det väl',
 			introTitle: 'Nytt innehåll byggt för riktiga projekt',
 			introText:
@@ -1026,7 +1042,7 @@ export const PLUS_EDITION_COPY = {
 				'Кратко и практично ръководство за TypeScript 7, разширено с ексклузивни глави, които свързват типовата система с ежедневната работа.',
 			primaryAction: 'Избери Kindle или меки корици',
 			secondaryAction: 'Виж новото съдържание',
-			availability: 'Английско и италианско издание · Достъпно по целия свят чрез Amazon',
+			availability: 'Английско, италианско, португалско и испанско издание · Достъпно по целия свят чрез Amazon',
 			introEyebrow: 'От разбиране на TypeScript към добро използване',
 			introTitle: 'Ново съдържание за реални проекти',
 			introText:
@@ -1120,12 +1136,12 @@ export const PLUS_EDITION_COPY = {
 		},
 		landing: {
 			heroEyebrow: 'La edición ampliada y de pago · Actualizada para TypeScript 7',
-			title: PLUS_EDITION.titles.en,
+			title: PLUS_EDITION.titles.es,
 			lead:
 				'Una guía concisa y práctica de TypeScript 7, ampliada con capítulos exclusivos que conectan el sistema de tipos con el trabajo diario.',
 			primaryAction: 'Elige Kindle o tapa blanda',
 			secondaryAction: 'Ver novedades',
-			availability: 'Ediciones en inglés e italiano · Disponible en todo el mundo a través de Amazon',
+			availability: 'Ediciones en inglés, italiano, portugués y español · Disponible en todo el mundo a través de Amazon',
 			introEyebrow: 'De entender TypeScript a usarlo bien',
 			introTitle: 'Nuevo contenido creado para proyectos reales',
 			introText:
@@ -1224,7 +1240,7 @@ export const PLUS_EDITION_COPY = {
 				'타입 시스템을 일상적인 개발 작업과 연결하는 독점 챕터로 확장된 간결하고 실용적인 TypeScript 7 안내서입니다.',
 			primaryAction: 'Kindle 또는 종이책 선택하기',
 			secondaryAction: '새로운 내용 보기',
-			availability: '영어판과 이탈리아어판 · Amazon을 통해 전 세계에서 구매 가능',
+			availability: '영어판, 이탈리아어판, 포르투갈어판, 스페인어판 · Amazon을 통해 전 세계에서 구매 가능',
 			introEyebrow: 'TypeScript를 이해하는 데서 제대로 활용하는 데까지',
 			introTitle: '실제 프로젝트를 위해 만든 새로운 콘텐츠',
 			introText:
@@ -1323,7 +1339,7 @@ export const PLUS_EDITION_COPY = {
 				'Panduan TypeScript 7 yang ringkas dan praktis, diperluas dengan bab eksklusif yang menghubungkan sistem tipe dengan pekerjaan Anda sehari-hari.',
 			primaryAction: 'Pilih Kindle atau buku cetak',
 			secondaryAction: 'Lihat yang baru',
-			availability: 'Edisi bahasa Inggris dan Italia · Tersedia di seluruh dunia melalui Amazon',
+			availability: 'Edisi bahasa Inggris, Italia, Portugis, dan Spanyol · Tersedia di seluruh dunia melalui Amazon',
 			introEyebrow: 'Dari memahami TypeScript hingga menggunakannya dengan baik',
 			introTitle: 'Konten baru yang dibuat untuk proyek nyata',
 			introText:
@@ -1422,7 +1438,7 @@ export const PLUS_EDITION_COPY = {
 				'Ein prägnanter, praxisorientierter Leitfaden zu TypeScript 7, erweitert um exklusive Kapitel, die das Typsystem mit Ihrer täglichen Arbeit verbinden.',
 			primaryAction: 'Kindle oder Taschenbuch wählen',
 			secondaryAction: 'Neuerungen ansehen',
-			availability: 'Englische und italienische Ausgabe · Weltweit über Amazon erhältlich',
+			availability: 'Englische, italienische, portugiesische und spanische Ausgabe · Weltweit über Amazon erhältlich',
 			introEyebrow: 'TypeScript verstehen und richtig einsetzen',
 			introTitle: 'Neue Inhalte für echte Projekte',
 			introText:
@@ -1521,7 +1537,7 @@ export const PLUS_EDITION_COPY = {
 				'Zwięzły, praktyczny przewodnik po TypeScript 7, rozszerzony o ekskluzywne rozdziały łączące system typów z codzienną pracą.',
 			primaryAction: 'Wybierz Kindle lub miękką oprawę',
 			secondaryAction: 'Zobacz nowości',
-			availability: 'Wydania angielskie i włoskie · Dostępne na całym świecie na Amazonie',
+			availability: 'Wydania angielskie, włoskie, portugalskie i hiszpańskie · Dostępne na całym świecie na Amazonie',
 			introEyebrow: 'Od zrozumienia TypeScript do sprawnego korzystania z niego',
 			introTitle: 'Nowe treści stworzone dla rzeczywistych projektów',
 			introText:
@@ -1620,7 +1636,7 @@ export const PLUS_EDITION_COPY = {
 				'Stručný, praktický průvodce TypeScriptem 7, rozšířený o exkluzivní kapitoly, které propojují typový systém s vaší každodenní prací.',
 			primaryAction: 'Vyberte Kindle nebo brožované vydání',
 			secondaryAction: 'Podívejte se, co je nového',
-			availability: 'Anglické a italské vydání · Dostupné po celém světě prostřednictvím Amazonu',
+			availability: 'Anglické, italské, portugalské a španělské vydání · Dostupné po celém světě prostřednictvím Amazonu',
 			introEyebrow: 'Od pochopení TypeScriptu k jeho správnému využití',
 			introTitle: 'Nový obsah pro skutečné projekty',
 			introText:
@@ -1719,7 +1735,7 @@ export const PLUS_EDITION_COPY = {
 				'Một hướng dẫn TypeScript 7 súc tích và thực tế, được mở rộng với các chương độc quyền kết nối hệ thống kiểu với công việc phát triển hằng ngày.',
 			primaryAction: 'Chọn Kindle hoặc bìa mềm',
 			secondaryAction: 'Xem nội dung mới',
-			availability: 'Phiên bản tiếng Anh và tiếng Ý · Có trên Amazon trên toàn thế giới',
+			availability: 'Phiên bản tiếng Anh, tiếng Ý, tiếng Bồ Đào Nha và tiếng Tây Ban Nha · Có trên Amazon trên toàn thế giới',
 			introEyebrow: 'Từ hiểu TypeScript đến sử dụng hiệu quả',
 			introTitle: 'Nội dung mới dành cho các dự án thực tế',
 			introText:
@@ -1818,7 +1834,7 @@ export const PLUS_EDITION_COPY = {
 				'คู่มือ TypeScript 7 ที่กระชับและนำไปใช้ได้จริง เพิ่มเติมด้วยบทเฉพาะฉบับที่เชื่อมโยงระบบชนิดข้อมูลเข้ากับงานที่คุณทำทุกวัน',
 			primaryAction: 'เลือก Kindle หรือปกอ่อน',
 			secondaryAction: 'ดูว่ามีอะไรใหม่',
-			availability: 'ฉบับภาษาอังกฤษและภาษาอิตาลี · วางจำหน่ายทั่วโลกผ่าน Amazon',
+			availability: 'ฉบับภาษาอังกฤษ ภาษาอิตาลี ภาษาโปรตุเกส และภาษาสเปน · วางจำหน่ายทั่วโลกผ่าน Amazon',
 			introEyebrow: 'จากการเข้าใจ TypeScript สู่การใช้งานอย่างมีประสิทธิภาพ',
 			introTitle: 'เนื้อหาใหม่ที่สร้างขึ้นสำหรับโปรเจกต์จริง',
 			introText:
@@ -1918,7 +1934,7 @@ export const PLUS_EDITION_COPY = {
 				'Tür sistemini her gün yaptığınız işlerle buluşturan, yalnızca bu sürüme özel bölümlerle genişletilmiş, TypeScript 7 için özlü ve pratik bir rehber.',
 			primaryAction: 'Kindle veya ciltsiz sürümü seçin',
 			secondaryAction: 'Yenilikleri görün',
-			availability: 'İngilizce ve İtalyanca sürümler · Amazon üzerinden dünya çapında sunulur',
+			availability: 'İngilizce, İtalyanca, Portekizce ve İspanyolca sürümler · Amazon üzerinden dünya çapında sunulur',
 			introEyebrow: 'TypeScript\'i anlamaktan doğru kullanmaya',
 			introTitle: 'Gerçek projeler için hazırlanmış yeni içerik',
 			introText:
