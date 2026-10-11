@@ -2,22 +2,36 @@ interface EditionConfig {
 	label: string;
 	kindleAsin: string;
 	paperbackAsin: string;
+	kindleDomain?: string;
+	paperbackDomain?: string;
 }
+type EditionKey = 'en' | 'it' | 'pt' | 'es';
 export interface AmazonPurchaseConfig {
 	domains: Record<string, string>;
-	editions: Record<'en' | 'it', EditionConfig>;
-	titles: Record<'en' | 'it', string>;
+	editions: Record<EditionKey, EditionConfig>;
+	titles: Record<EditionKey, string>;
 }
 
 interface PurchaseSelection {
 	domain: string;
-	editionKey: 'en' | 'it';
+	editionKey: EditionKey;
 	kindleUrl: string;
 	paperbackUrl: string;
 }
 
 const DEFAULT_LOCALE = 'en-US';
 const DEFAULT_REGION = 'US';
+
+function getEditionKey(language: string): EditionKey {
+	return language === 'it' || language === 'pt' || language === 'es' ? language : 'en';
+}
+
+export function getAmazonFormatLinks(edition: EditionConfig, domain: string) {
+	return {
+		kindleUrl: `https://www.${edition.kindleDomain || domain}/dp/${edition.kindleAsin}`,
+		paperbackUrl: `https://www.${edition.paperbackDomain || domain}/dp/${edition.paperbackAsin}`,
+	};
+}
 
 export function resolveAmazonPurchase(localeString: string, config: AmazonPurchaseConfig): PurchaseSelection {
 	let locale: Intl.Locale;
@@ -30,14 +44,13 @@ export function resolveAmazonPurchase(localeString: string, config: AmazonPurcha
 
 	const region = locale.region || DEFAULT_REGION;
 	const domain = config.domains[region] || config.domains[DEFAULT_REGION];
-	const editionKey = locale.language.toLowerCase() === 'it' ? 'it' : 'en';
+	const editionKey = getEditionKey(locale.language.toLowerCase());
 	const edition = config.editions[editionKey];
 
 	return {
 		domain,
 		editionKey,
-		kindleUrl: `https://www.${domain}/dp/${edition.kindleAsin}`,
-		paperbackUrl: `https://www.${domain}/dp/${edition.paperbackAsin}`,
+		...getAmazonFormatLinks(edition, domain),
 	};
 }
 
@@ -45,7 +58,7 @@ function updatePurchaseOptions(
 	root: HTMLElement,
 	config: AmazonPurchaseConfig,
 	domain: string,
-	editionKey: 'en' | 'it',
+	editionKey: EditionKey,
 ) {
 	const edition = config.editions[editionKey];
 	const kindleLink = root.querySelector<HTMLAnchorElement>('[data-format-link="kindle"]');
@@ -56,12 +69,16 @@ function updatePurchaseOptions(
 	if (!kindleLink || !paperbackLink || !title || !message) return;
 
 	title.textContent = config.titles[editionKey];
-	kindleLink.href = `https://www.${domain}/dp/${edition.kindleAsin}`;
-	paperbackLink.href = `https://www.${domain}/dp/${edition.paperbackAsin}`;
-	root.querySelectorAll<HTMLElement>('[data-store-name]').forEach((element) => {
-		element.textContent = domain.replace('amazon.', 'Amazon.');
+	const links = getAmazonFormatLinks(edition, domain);
+	kindleLink.href = links.kindleUrl;
+	paperbackLink.href = links.paperbackUrl;
+	const stores = [kindleLink, paperbackLink].map((link) => {
+		const store = new URL(link.href).hostname.replace(/^www\./, '');
+		const storeName = link.querySelector<HTMLElement>('[data-store-name]');
+		if (storeName) storeName.textContent = store.replace('amazon.', 'Amazon.');
+		return store;
 	});
-	message.textContent = `${edition.label} · ${domain}`;
+	message.textContent = `${edition.label} · ${[...new Set(stores)].join(' / ')}`;
 }
 
 export function initializeAmazonPurchaseOptions(root: HTMLElement) {
@@ -75,7 +92,7 @@ export function initializeAmazonPurchaseOptions(root: HTMLElement) {
 
 	select.value = selection.editionKey;
 	select.addEventListener('change', () => {
-		updatePurchaseOptions(root, config, selection.domain, select.value === 'it' ? 'it' : 'en');
+		updatePurchaseOptions(root, config, selection.domain, getEditionKey(select.value));
 	});
 	updatePurchaseOptions(root, config, selection.domain, selection.editionKey);
 }
