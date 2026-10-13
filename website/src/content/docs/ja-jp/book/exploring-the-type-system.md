@@ -100,7 +100,7 @@ let y: Y = (a: number) => undefined; // Missing b parameter
 y = x; // Valid
 ```
 
-ソース型に追加された任意のオプションパラメーターは有効です。
+ソース型に追加された任意のオプショナルパラメーターは有効です。
 
 ```typescript
 type X = (a: number, b?: number, c?: number) => undefined;
@@ -111,7 +111,7 @@ y = x; // Valid
 x = y; //Valid
 ```
 
-ソース型に対応するパラメーターがないターゲット型のオプションパラメーターはすべて有効であり、エラーにはなりません。
+ソース型に対応するパラメーターがないターゲット型のオプショナルパラメーターはすべて有効であり、エラーにはなりません。
 
 ```typescript
 type X = (a: number) => undefined;
@@ -122,7 +122,7 @@ y = x; // Valid
 x = y; // Valid
 ```
 
-rest パラメーターは、オプションパラメーターが無限に続くものとして扱われます。
+rest パラメーターは、オプショナルパラメーターが無限に続くものとして扱われます。
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
@@ -242,7 +242,7 @@ x === y; // Valid
 x === z; // Valid even if z is from a different inheritance hierarchy
 ```
 
-ジェネリクスは、ジェネリックパラメーターを適用した後に得られる型の構造に基づいて比較され、最終結果だけが非ジェネリック型として比較されます。
+ジェネリクスは、ジェネリック型パラメーターを適用した後に得られる型の構造に基づいて比較され、最終結果だけが非ジェネリック型として比較されます。
 
 <!-- skip -->
 ```typescript
@@ -525,7 +525,7 @@ const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
 
 ### 弱い型
 
-すべてオプションのプロパティの集合だけで構成される型は、弱い型とみなされます。
+すべてオプショナルなプロパティの集合だけで構成される型は、弱い型とみなされます。
 
 ```typescript
 type X = {
@@ -559,7 +559,7 @@ const fn = (options: Options) => undefined;
 fn({ c: 'c' } as Options); // Valid
 ```
 
-または、弱い型のインデックスシグネチャに `unknown` を追加します。
+または、`unknown` を値の型とするインデックスシグネチャを弱い型に追加します。
 
 ```typescript
 type Options = {
@@ -684,7 +684,7 @@ function identity<T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
 ```
 
-ご覧のとおり、プロパティ `a` と `b` は `string` 型として推論されています   。
+ご覧のとおり、プロパティ `a` と `b` は `string` 型として推論されています。
 
 次に、`const` を使用したバージョンとの違いを見てみましょう。
 
