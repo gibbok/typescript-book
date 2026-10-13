@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+# Install https://github.com/apps/coderabbitai for gibbok/typescript-book.
+# Reviews and checks are provided by the GitHub App; no Actions workflow or API key is needed.
+language: en-US
+reviews:
+  review_progress: true
+  auto_review:
+    enabled: true
+    drafts: true
+    auto_incremental_review: true
+    auto_pause_after_reviewed_commits: 0
