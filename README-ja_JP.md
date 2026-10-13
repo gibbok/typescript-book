@@ -34,7 +34,7 @@ Plus Edition は、世界各国の Amazon で英語版とイタリア語版を�
 
 ## プロジェクトを支援する
 
-無料版がバグの修正、難しい概念の理解、キャリアの前進に役立ったなら、希望する金額（推奨額は**$5**）をお支払いいただくか、コーヒー 1 杯分のご支援をご検討ください。
+無料版がバグの修正、難しい概念の理解、キャリアの前進に役立ったなら、希望する金額（推奨額は **$5**）をお支払いいただくか、コーヒー 1 杯分のご支援をご検討ください。
 
 皆さまのご支援により、コンテンツを最新の状態に保ち、新しい例、より明快な説明、実践的なガイダンスを追加して充実させることができます。
 
@@ -70,7 +70,7 @@ Plus Edition は、世界各国の Amazon で英語版とイタリア語版を�
 
 [トルコ語](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
 
-[Vietnamese](https://github.com/gibbok/typescript-book/blob/main/README-vi_VN.md)
+[ベトナム語](https://github.com/gibbok/typescript-book/blob/main/README-vi_VN.md)
 
 [中国語](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
@@ -108,7 +108,7 @@ EPUB 版もダウンロードできます。
     - [TypeScript を選ぶ理由](#typescript-を選ぶ理由)
     - [TypeScript と JavaScript](#typescript-と-javascript)
     - [TypeScript のコード生成](#typescript-のコード生成)
-    - [今すぐモダン JavaScript（ダウンレベリング）](#今すぐモダン-javascriptダウンレベリング)
+    - [モダン JavaScript を今すぐ使う（ダウンレベリング）](#モダン-javascript-を今すぐ使うダウンレベリング)
   - [TypeScript を始める](#typescript-を始める)
     - [インストール](#インストール)
     - [構成](#構成)
@@ -177,7 +177,7 @@ EPUB 版もダウンロードできます。
     - [計算メンバーと定数メンバー](#計算メンバーと定数メンバー)
   - [型の絞り込み](#型の絞り込み-1)
     - [typeof 型ガード](#typeof-型ガード)
-    - [真偽値による絞り込み](#真偽値による絞り込み)
+    - [真偽性による絞り込み](#真偽性による絞り込み)
     - [等価性による絞り込み](#等価性による絞り込み)
     - [in 演算子による絞り込み](#in-演算子による絞り込み)
     - [instanceof による絞り込み](#instanceof-による絞り込み)
@@ -370,14 +370,14 @@ TypeScript は `.ts` または `.tsx` ファイルに記述し、JavaScript フ�
 const sum = (a, b) => a + b;
 ```
 
-ファイル拡張子を `.ts` に変更すれば、この関数を TypeScript に変換して使用できます。ただし、同じ関数に TypeScript の型注釈を付けると、コンパイルなしではどの JavaScript ランタイムでも実行できません。次の TypeScript コードは、コンパイルしなければ構文エラーになります。
+ファイル拡張子を `.ts` に変更すれば、この関数を TypeScript に変換して使用できます。ただし、同じ関数に TypeScript の型アノテーションを付けると、コンパイルなしではどの JavaScript ランタイムでも実行できません。次の TypeScript コードは、コンパイルしなければ構文エラーになります。
 
 <!-- skip -->
 ```typescript
 const sum = (a: number, b: number): number => a + b;
 ```
 
-TypeScript は、開発者が型注釈を通じて意図を表現できるようにすることで、潜在的なランタイムエラーをコンパイル時に検出するよう設計されています。さらに、型推論により、明示的な型注釈がなくても TypeScript は特定の問題を検出できます。たとえば、次のコードスニペットでは TypeScript の型を一切指定していません。
+TypeScript は、開発者が型アノテーションを通じて意図を表現できるようにすることで、潜在的なランタイムエラーをコンパイル時に検出するよう設計されています。さらに、型推論により、明示的な型アノテーションがなくても TypeScript は特定の問題を検出できます。たとえば、次のコードスニペットでは TypeScript の型を一切指定していません。
 
 <!-- skip -->
 ```typescript
@@ -404,7 +404,7 @@ TypeScript の開発チームは、JavaScript の通常とは異なる使い方�
 const result = 1 + true; // In JavaScript, the result is equal to 2
 ```
 
-しかし、TypeScript はエラーをスローします。
+しかし、TypeScript はエラーを報告します。
 
 ```text
 Operator '+' cannot be applied to types 'number' and 'boolean'.
@@ -483,7 +483,7 @@ makeNoise(dog);
 
 「kind」プロパティは、JavaScript でオブジェクトを区別するために実行時に使用できる値です。
 
-また、実行時の値が、型宣言で宣言された型とは異なる型を持つ可能性もあります。たとえば、開発者が API の型を誤って解釈し、誤った注釈を付けた場合です。
+また、実行時の値が、型宣言で宣言された型とは異なる型を持つ可能性もあります。たとえば、開発者が API の型を誤って解釈し、誤った型アノテーションを付けた場合です。
 
 TypeScript は JavaScript のスーパーセットであるため、「class」キーワードは実行時に型および値として使用できます。
 
@@ -525,7 +525,7 @@ JavaScript では、「class」には「prototype」プロパティがあり、�
 
 すべての型が消去されるため、TypeScript が実行時のパフォーマンスに影響を与えることはありません。ただし、TypeScript によってビルド時間のオーバーヘッドが多少発生します。
 
-### 今すぐモダン JavaScript（ダウンレベリング）
+### モダン JavaScript を今すぐ使う（ダウンレベリング）
 
 TypeScript は、ECMAScript 3（1999 年）以降にリリースされたあらゆるバージョンの JavaScript へコードをコンパイルできます。つまり、TypeScript は最新の JavaScript 機能を古いバージョンへトランスパイルできます。この処理はダウンレベリングと呼ばれます。これにより、古いランタイム環境との互換性を最大限に維持しながら、モダン JavaScript を使用できます。
 
@@ -651,8 +651,8 @@ tsconfig.json ファイルは、TypeScript コンパイラ（tsc）の構成に�
 
 * 各ソースファイルで「use strict」を使用するコードを出力します。
 * 型チェック処理で「null」と「undefined」を考慮します。
-* 型注釈がない場合に「any」型の使用を無効にします。
-* 「this」式の使用時にエラーを発生させます。そうしなければ「any」型であることが暗黙に示されます。
+* 型アノテーションがない場合に「any」型の使用を無効にします。
+* 「this」式の型が暗黙に「any」となる場合に、エラーを報告します。
 
 #### module
 
@@ -846,7 +846,7 @@ let y: Y = (a: number) => undefined; // Missing b parameter
 y = x; // Valid
 ```
 
-ソース型に追加された任意のオプションパラメーターは有効です。
+ソース型に追加された任意のオプショナルパラメーターは有効です。
 
 ```typescript
 type X = (a: number, b?: number, c?: number) => undefined;
@@ -857,7 +857,7 @@ y = x; // Valid
 x = y; //Valid
 ```
 
-ソース型に対応するパラメーターがないターゲット型のオプションパラメーターはすべて有効であり、エラーにはなりません。
+ソース型に対応するパラメーターがないターゲット型のオプショナルパラメーターはすべて有効であり、エラーにはなりません。
 
 ```typescript
 type X = (a: number) => undefined;
@@ -868,7 +868,7 @@ y = x; // Valid
 x = y; // Valid
 ```
 
-rest パラメーターは、オプションパラメーターが無限に続くものとして扱われます。
+rest パラメーターは、オプショナルパラメーターが無限に続くものとして扱われます。
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
@@ -988,7 +988,7 @@ x === y; // Valid
 x === z; // Valid even if z is from a different inheritance hierarchy
 ```
 
-ジェネリクスは、ジェネリックパラメーターを適用した後に得られる型の構造に基づいて比較され、最終結果だけが非ジェネリック型として比較されます。
+ジェネリクスは、ジェネリック型パラメーターを適用した後に得られる型の構造に基づいて比較され、最終結果だけが非ジェネリック型として比較されます。
 
 <!-- skip -->
 ```typescript
@@ -1271,7 +1271,7 @@ const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
 
 ### 弱い型
 
-すべてオプションのプロパティの集合だけで構成される型は、弱い型とみなされます。
+すべてオプショナルなプロパティの集合だけで構成される型は、弱い型とみなされます。
 
 ```typescript
 type X = {
@@ -1305,7 +1305,7 @@ const fn = (options: Options) => undefined;
 fn({ c: 'c' } as Options); // Valid
 ```
 
-または、弱い型のインデックスシグネチャに `unknown` を追加します。
+または、`unknown` を値の型とするインデックスシグネチャを弱い型に追加します。
 
 ```typescript
 type Options = {
@@ -1430,7 +1430,7 @@ function identity<T>(value: T) {
 const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
 ```
 
-ご覧のとおり、プロパティ `a` と `b` は `string` 型として推論されています   。
+ご覧のとおり、プロパティ `a` と `b` は `string` 型として推論されています。
 
 次に、`const` を使用したバージョンとの違いを見てみましょう。
 
@@ -1626,7 +1626,7 @@ const octal: number = 0o633; // Octal starts with 0o
 
 ### bigint
 
-`bigint` は、`number` がサポートする最大安全整数である 2^53 - 1 よりも大きな整数値を表します。
+`bigint` は、`number` がサポートする最大安全整数である 2^53 - 1 を超える整数値も表せます。
 
 `bigint` は、組み込み関数 `BigInt()` を呼び出すか、任意の整数リテラルの末尾に `n` を追加することで作成できます。
 
@@ -1677,7 +1677,7 @@ const y: Array<string> = ['a', 'b'];
 const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
 ```
 
-TypeScript は、次の構文を使用した readonly 配列をサポートしています。
+TypeScript は、次の構文を使用した読み取り専用配列をサポートしています。
 
 <!-- skip -->
 ```typescript
@@ -1687,7 +1687,7 @@ const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
 j.push('x'); // Invalid
 ```
 
-TypeScript はタプルと readonly タプルをサポートしています。
+TypeScript はタプルと読み取り専用タプルをサポートしています。
 
 ```typescript
 const x: [string, number] = ['a', 1];
@@ -1744,7 +1744,7 @@ const sum = (a = 10, b: number): number => a + b;
 
 これは、より複雑な関数で特に有用です。実装の前に戻り値の型を記述することで、関数について考えを整理しやすくなります。
 
-一般には、型シグネチャには注釈を付ける一方、関数本体内のローカル変数には付けず、オブジェクトリテラルには常に型を追加することを検討してください。
+一般には、型シグネチャにはアノテーションを付ける一方、関数本体内のローカル変数には付けず、オブジェクトリテラルには常に型を追加することを検討してください。
 
 ## オプショナルプロパティ
 
@@ -2095,7 +2095,7 @@ TypeScript は、型を絞り込むいくつかの方法を認識します。
 
 ### typeof 型ガード
 
-typeof 型ガードは、組み込みの JavaScript 型に基づいて変数の型を確認する、TypeScript 固有の型ガードの 1 つです。
+typeof 型ガードは、組み込みの JavaScript 型に基づいて変数の型を確認する、TypeScript の型ガードの 1 つです。
 
 ```typescript
 const fn = (x: number | string) => {
@@ -2106,9 +2106,9 @@ const fn = (x: number | string) => {
 };
 ```
 
-### 真偽値による絞り込み
+### 真偽性による絞り込み
 
-TypeScript の真偽値による絞り込みは、変数が truthy か falsy かを確認し、それに応じて型を絞り込む仕組みです。
+TypeScript の真偽性による絞り込みは、変数が truthy か falsy かを確認し、それに応じて型を絞り込む仕組みです。
 
 ```typescript
 const toUpperCase = (name: string | null) => {
@@ -2469,7 +2469,7 @@ const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immuta
 
 ## 関数の戻り値から型を取得する
 
-関数の戻り値から型を取得するとは、実装に基づいて関数の戻り値の型を自動的に推論する機能を指します。これにより TypeScript は、明示的な型注釈がなくても、関数が返す値の型を判断できます。
+関数の戻り値から型を取得するとは、実装に基づいて関数の戻り値の型を自動的に推論する機能を指します。これにより TypeScript は、明示的な型アノテーションがなくても、関数が返す値の型を判断できます。
 
 ```typescript
 const add = (x: number, y: number) => x + y; // TypeScript can infer that the return type of the function is a number
@@ -2555,7 +2555,7 @@ type NullableNumberOrBool = Nullable<NumberOrBool>; // number | boolean | null
 
 ## 条件型における infer 型推論
 
-`infer` キーワードは、条件型において、依存する型からジェネリックパラメーターの型を推論（抽出）するために使用されます。これにより、より柔軟で再利用可能な型定義を記述できます。
+`infer` キーワードは、条件型において、ジェネリック型パラメーターに依存する型から、そのパラメーターの型を推論（抽出）するために使用されます。これにより、より柔軟で再利用可能な型定義を記述できます。
 
 ```typescript
 type ElementType<T> = T extends (infer U)[] ? U : never;
@@ -3103,7 +3103,7 @@ person3.displayInfo(); // Name: Jane, Age: 25
 
 ### プライベートコンストラクターとプロテクテッドコンストラクター
 
-TypeScript では、コンストラクターを private または protected としてマークでき、これによりアクセシビリティと使用方法が制限されます。
+TypeScript では、コンストラクターを private または protected としてマークでき、これによりアクセスできる範囲と使用方法が制限されます。
 
 プライベートコンストラクター:
 クラス自体の内部からのみ呼び出せます。プライベートコンストラクターは、シングルトンパターンを適用したい場合や、インスタンスの作成をクラス内のファクトリーメソッドに制限したい場合によく使用されます。
@@ -3134,7 +3134,7 @@ const derivedObj = new DerivedClass(10);
 
 ### アクセス修飾子
 
-アクセス修飾子 `private`、`protected`、`public` は、TypeScript クラスのプロパティやメソッドなどのクラスメンバーの可視性とアクセシビリティを制御するために使用されます。これらの修飾子は、カプセル化を適用し、クラスの内部状態へのアクセスや変更に境界を設けるうえで不可欠です。
+アクセス修飾子 `private`、`protected`、`public` は、TypeScript クラスのプロパティやメソッドなどのクラスメンバーの可視性とアクセスできる範囲を制御するために使用されます。これらの修飾子は、カプセル化を適用し、クラスの内部状態へのアクセスや変更に境界を設けるうえで不可欠です。
 
 `private` 修飾子は、クラスメンバーへのアクセスを、それを含むクラス内のみに制限します。
 
@@ -3177,7 +3177,7 @@ class Animal {
 }
 ```
 
-自動アクセサーは、アクセス不能なプロパティを操作するプライベートな `get` アクセサーと `set` アクセサーに「脱糖化」されます。
+自動アクセサーは、アクセス不能なプロパティを操作するプライベートな `get` アクセサーと `set` アクセサーに展開されます。
 
 <!-- skip -->
 ```typescript
@@ -3567,7 +3567,7 @@ flyingFish.fly();
 flyingFish.swim();
 ```
 
-TypeScript の `class` キーワードは、JavaScript と同様に、構文糖衣と呼ばれることがよくあります。これは、クラスベースの方法でオブジェクトを作成して操作するための、より馴染みのある構文を提供する目的で ECMAScript 2015（ES6）に導入されました。ただし、TypeScript は JavaScript のスーパーセットであるため、最終的には JavaScript にコンパイルされ、その中核は引き続きプロトタイプベースである点に注意が必要です。
+TypeScript の `class` キーワードは、JavaScript と同様に、糖衣構文と呼ばれることがよくあります。これは、クラスベースの方法でオブジェクトを作成して操作するための、より馴染みのある構文を提供する目的で ECMAScript 2015（ES6）に導入されました。ただし、TypeScript は JavaScript のスーパーセットであるため、最終的には JavaScript にコンパイルされ、その中核は引き続きプロトタイプベースである点に注意が必要です。
 
 ### 静的メンバー
 
@@ -3706,7 +3706,7 @@ console.log(stringContainer.getItem()); // hello
 
 ### ジェネリック制約
 
-ジェネリックパラメーターは、`extends` キーワードの後に、その型パラメーターが満たす必要のある型またはインターフェースを続けることで制約できます。
+ジェネリック型パラメーターは、`extends` キーワードの後に、その型パラメーターが満たす必要のある型またはインターフェースを続けることで制約できます。
 
 次の例では、有効であるために `T` が適切に型付けされた `length` プロパティを持っている必要があります。
 
@@ -3741,7 +3741,7 @@ const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 
 ### ジェネリクスのコンテキストに基づく絞り込み
 
-ジェネリクスのコンテキストに基づく絞り込みとは、TypeScript において、ジェネリックパラメーターが使用されるコンテキストに基づいて、コンパイラがその型を絞り込める仕組みです。条件文でジェネリック型を扱う場合に便利です。
+ジェネリクスのコンテキストに基づく絞り込みとは、TypeScript において、ジェネリック型パラメーターが使用されるコンテキストに基づいて、コンパイラがその型を絞り込める仕組みです。条件文でジェネリック型を扱う場合に便利です。
 
 ```typescript
 function process<T>(value: T): void {
@@ -3958,7 +3958,7 @@ type A = Required<Person>; // { name: string; age: number; }
 
 #### Readonly\<T\>
 
-T のすべてのプロパティを readonly に設定した型を構築します。
+T のすべてのプロパティを読み取り専用に設定した型を構築します。
 
 <!-- skip -->
 ```typescript
@@ -3975,7 +3975,7 @@ a.name = 'John'; // Invalid
 
 #### Record\<K, T\>
 
-T 型のプロパティ K の集合を持つ型を構築します。
+K をキーとし、T を値の型とするプロパティの集合を持つ型を構築します。
 
 ```typescript
 type Product = {
@@ -4239,7 +4239,7 @@ try {
 
 カスタムエラー型:
 
-Error `class` を拡張することで、より具体的なエラーを指定できます。
+`Error` クラスを拡張することで、より具体的なエラーを指定できます。
 
 ```typescript
 class CustomError extends Error {
@@ -4254,7 +4254,7 @@ throw new CustomError('This is a custom error.');
 
 ### ミックスインクラス
 
-Mixin クラスを使用すると、複数のクラスの振る舞いを組み合わせて構成し、1 つのクラスにまとめることができます。深い継承チェーンを必要とせずに、機能を再利用して拡張する方法を提供します。
+ミックスインクラスを使用すると、複数のクラスの振る舞いを組み合わせて構成し、1 つのクラスにまとめることができます。深い継承チェーンを必要とせずに、機能を再利用して拡張する方法を提供します。
 
 ```typescript
 abstract class Identifiable {
@@ -4431,7 +4431,7 @@ power(10, 2); // function power(base: number, exponent: number): number
 
 ### @types
 
-@types 組織配下のパッケージは、既存の JavaScript ライブラリやモジュールに型定義を提供するために使用される、特別なパッケージ命名規則です。たとえば、次を使用すると、
+@types 組織配下のパッケージには、既存の JavaScript ライブラリやモジュールに型定義を提供するための、特別な命名規則が使われています。たとえば、次を使用すると、
 
 ```shell
 npm install --save-dev @types/lodash
@@ -4660,7 +4660,7 @@ type ListNode<T> = {
 ### 再帰条件型
 
 TypeScript では、ロジックと再帰を使用して複雑な型の関係を定義できます。
-簡単な言葉で分解してみましょう。
+簡単な言葉で、順に説明します。
 
 条件型を使用すると、真偽条件に基づいて型を定義できます。
 
@@ -4756,7 +4756,7 @@ type Student = [string, number];
 const [name, age]: Student = ['Simone', 20];
 ```
 
-「variadic」という用語は、不定アリティ（可変数の引数を受け入れること）を意味します。
+「variadic」という用語は、引数の個数が不定であること（可変数の引数を受け入れること）を意味します。
 
 可変長タプルは、これまでと同じすべてのプロパティを持ちながら、正確な形状がまだ定義されていないタプル型です。
 
@@ -4768,9 +4768,9 @@ type B = Bar<['a', 'b']>; // [boolean, 'a', 'b', number]
 type C = Bar<[]>; // [boolean, number]
 ```
 
-前のコードでは、渡されたジェネリック `T` によってタプルの形状が定義されていることが分かります。
+前のコードでは、渡されたジェネリック型引数 `T` によってタプルの形状が定義されていることが分かります。
 
-可変長タプルは複数のジェネリックを受け入れることができるため、非常に柔軟です。
+可変長タプルでは複数の型パラメーターを使用できるため、非常に柔軟です。
 
 ```typescript
 type Bar<T extends unknown[], G extends unknown[]> = [...T, boolean, ...G];
@@ -4867,10 +4867,10 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 矢印は安全に代入できる方向を示します。
 
 * Dog -> Animal
-* Producer\<Dog> -> Producer\<Animal> (covariance)
-* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
+* Producer\<Dog> -> Producer\<Animal> (共変性)
+* Consumer\<Animal> -> Consumer\<Dog> (反変性)
 
-**変更可能な配列:** TypeScript では `Dog[]` を `Animal[]` に代入できます。両方の変数が同じ配列を参照するため、より広い型から犬ではない `Animal` を追加できてしまいます。
+**変更可能な配列:** TypeScript では `Dog[]` を `Animal[]` に代入することも許可されます。両方の変数が同じ配列を参照するため、より広い型を通じて `Animal` を挿入すると、犬ではない値が犬の配列に入る可能性があります。
 
 <!-- skip -->
 ```typescript
@@ -4881,11 +4881,11 @@ animals.push(new Animal()); // Allowed, but unsafe
 // dogs now contains an Animal that is not a Dog.
 ```
 
-**コンパイラーオプション:** `strictFunctionTypes` を有効にすると、独立した関数の引数は反変的にチェックされます。無効の場合、安全でなくても両方向が許容されることがあります（双変性）。メソッドとコンストラクターの宣言内の引数は例外です。
+**コンパイラオプション:** `strictFunctionTypes` を有効にすると、独立した関数のパラメーターは反変的にチェックされます。無効の場合、安全でなくても両方向が許容されることがあります（双変性）。メソッドとコンストラクターのパラメーター宣言は、厳密な関数パラメーターのチェックの例外です。
 
 #### 型パラメーターのオプショナルな変性アノテーション
 
-TypeScript 4.7 以降、`out` は共変性、`in` は反変性、`in out` は不変性を表します。通常は TypeScript が変性を推論します。注釈はジェネリック引数の実際の使い方と一致する必要があり、動作を任意に変えるものではありません。
+TypeScript 4.7 以降、`out` は共変性、`in` は反変性、`in out` は不変性を表します。通常は TypeScript が変性を推論します。アノテーションはジェネリック型パラメーターの使われ方と一致する必要があり、その振る舞いを任意に変えるものではありません。
 
 ```typescript
 type Producer<out T> = () => T;
@@ -4922,7 +4922,7 @@ console.log(obj['key-b']); // 456
 
 ### satisfies 演算子
 
-`satisfies` 演算子を使用すると、指定された型が特定のインターフェイスや条件を満たしているかを確認できます。言い換えると、型が特定のインターフェイスで必要とされるすべてのプロパティとメソッドを持っていることを保証します。変数が型の定義に適合することを保証する方法です。
+`satisfies` 演算子を使用すると、指定された型が特定のインターフェースや条件を満たしているかを確認できます。言い換えると、型が特定のインターフェースで必要とされるすべてのプロパティとメソッドを持っていることを保証します。変数が型の定義に適合することを保証する方法です。
 例を示します。
 
 <!-- skip -->
@@ -5044,7 +5044,7 @@ disposed
 3
 ```
 
-破棄の対象となるリソースは、`Disposable` インターフェイスに準拠している必要があります。
+破棄の対象となるリソースは、`Disposable` インターフェースに準拠している必要があります。
 
 ```typescript
 // lib.esnext.disposable.d.ts
@@ -5077,7 +5077,7 @@ async function doWorkAsync() {
 } // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
 ```
 
-非同期に破棄可能なリソースは、`Disposable` または `AsyncDisposable` インターフェイスのいずれかに準拠している必要があります。
+非同期に破棄可能なリソースは、`Disposable` または `AsyncDisposable` インターフェースのいずれかに準拠している必要があります。
 
 ```typescript
 // lib.esnext.disposable.d.ts
