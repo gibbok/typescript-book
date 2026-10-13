@@ -46,7 +46,7 @@ const octal: number = 0o633; // Octal starts with 0o
 
 ### bigint
 
-`bigint` は、`number` がサポートする最大安全整数である 2^53 - 1 よりも大きな整数値を表します。
+`bigint` は、`number` がサポートする最大安全整数である 2^53 - 1 を超える整数値も表せます。
 
 `bigint` は、組み込み関数 `BigInt()` を呼び出すか、任意の整数リテラルの末尾に `n` を追加することで作成できます。
 
@@ -97,7 +97,7 @@ const y: Array<string> = ['a', 'b'];
 const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
 ```
 
-TypeScript は、次の構文を使用した readonly 配列をサポートしています。
+TypeScript は、次の構文を使用した読み取り専用配列をサポートしています。
 
 <!-- skip -->
 ```typescript
@@ -107,7 +107,7 @@ const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
 j.push('x'); // Invalid
 ```
 
-TypeScript はタプルと readonly タプルをサポートしています。
+TypeScript はタプルと読み取り専用タプルをサポートしています。
 
 ```typescript
 const x: [string, number] = ['a', 1];

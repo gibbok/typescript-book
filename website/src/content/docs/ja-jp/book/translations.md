@@ -32,7 +32,7 @@ sidebar:
 
 [トルコ語](https://github.com/gibbok/typescript-book/blob/main/README-tr_TR.md)
 
-[Vietnamese](https://github.com/gibbok/typescript-book/blob/main/README-vi_VN.md)
+[ベトナム語](https://github.com/gibbok/typescript-book/blob/main/README-vi_VN.md)
 
 [中国語](https://github.com/gibbok/typescript-book/blob/main/README-zh_CN.md)
 
