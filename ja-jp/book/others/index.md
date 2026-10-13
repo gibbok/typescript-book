@@ -36,7 +36,7 @@ try {
 
 カスタムエラー型:
 
-Error `class` を拡張することで、より具体的なエラーを指定できます。
+`Error` クラスを拡張することで、より具体的なエラーを指定できます。
 
 ```typescript
 class CustomError extends Error {
@@ -51,7 +51,7 @@ throw new CustomError('This is a custom error.');
 
 ### ミックスインクラス
 
-Mixin クラスを使用すると、複数のクラスの振る舞いを組み合わせて構成し、1 つのクラスにまとめることができます。深い継承チェーンを必要とせずに、機能を再利用して拡張する方法を提供します。
+ミックスインクラスを使用すると、複数のクラスの振る舞いを組み合わせて構成し、1 つのクラスにまとめることができます。深い継承チェーンを必要とせずに、機能を再利用して拡張する方法を提供します。
 
 ```typescript
 abstract class Identifiable {
@@ -228,7 +228,7 @@ power(10, 2); // function power(base: number, exponent: number): number
 
 ### @types
 
-@types 組織配下のパッケージは、既存の JavaScript ライブラリやモジュールに型定義を提供するために使用される、特別なパッケージ命名規則です。たとえば、次を使用すると、
+@types 組織配下のパッケージには、既存の JavaScript ライブラリやモジュールに型定義を提供するための、特別な命名規則が使われています。たとえば、次を使用すると、
 
 ```shell
 npm install --save-dev @types/lodash
@@ -457,7 +457,7 @@ type ListNode<T> = {
 ### 再帰条件型
 
 TypeScript では、ロジックと再帰を使用して複雑な型の関係を定義できます。
-簡単な言葉で分解してみましょう。
+簡単な言葉で、順に説明します。
 
 条件型を使用すると、真偽条件に基づいて型を定義できます。
 
@@ -553,7 +553,7 @@ type Student = [string, number];
 const [name, age]: Student = ['Simone', 20];
 ```
 
-「variadic」という用語は、不定アリティ（可変数の引数を受け入れること）を意味します。
+「variadic」という用語は、引数の個数が不定であること（可変数の引数を受け入れること）を意味します。
 
 可変長タプルは、これまでと同じすべてのプロパティを持ちながら、正確な形状がまだ定義されていないタプル型です。
 
@@ -565,9 +565,9 @@ type B = Bar<['a', 'b']>; // [boolean, 'a', 'b', number]
 type C = Bar<[]>; // [boolean, number]
 ```
 
-前のコードでは、渡されたジェネリック `T` によってタプルの形状が定義されていることが分かります。
+前のコードでは、渡されたジェネリック型引数 `T` によってタプルの形状が定義されていることが分かります。
 
-可変長タプルは複数のジェネリックを受け入れることができるため、非常に柔軟です。
+可変長タプルでは複数の型パラメーターを使用できるため、非常に柔軟です。
 
 ```typescript
 type Bar<T extends unknown[], G extends unknown[]> = [...T, boolean, ...G];
@@ -664,10 +664,10 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 矢印は安全に代入できる方向を示します。
 
 * Dog -> Animal
-* Producer\<Dog> -> Producer\<Animal> (covariance)
-* Consumer\<Animal> -> Consumer\<Dog> (contravariance)
+* Producer\<Dog> -> Producer\<Animal> (共変性)
+* Consumer\<Animal> -> Consumer\<Dog> (反変性)
 
-**変更可能な配列:** TypeScript では `Dog[]` を `Animal[]` に代入できます。両方の変数が同じ配列を参照するため、より広い型から犬ではない `Animal` を追加できてしまいます。
+**変更可能な配列:** TypeScript では `Dog[]` を `Animal[]` に代入することも許可されます。両方の変数が同じ配列を参照するため、より広い型を通じて `Animal` を挿入すると、犬ではない値が犬の配列に入る可能性があります。
 
 <!-- skip -->
 ```typescript
@@ -678,11 +678,11 @@ animals.push(new Animal()); // Allowed, but unsafe
 // dogs now contains an Animal that is not a Dog.
 ```
 
-**コンパイラーオプション:** `strictFunctionTypes` を有効にすると、独立した関数の引数は反変的にチェックされます。無効の場合、安全でなくても両方向が許容されることがあります（双変性）。メソッドとコンストラクターの宣言内の引数は例外です。
+**コンパイラオプション:** `strictFunctionTypes` を有効にすると、独立した関数のパラメーターは反変的にチェックされます。無効の場合、安全でなくても両方向が許容されることがあります（双変性）。メソッドとコンストラクターのパラメーター宣言は、厳密な関数パラメーターのチェックの例外です。
 
 #### 型パラメーターのオプショナルな変性アノテーション
 
-TypeScript 4.7 以降、`out` は共変性、`in` は反変性、`in out` は不変性を表します。通常は TypeScript が変性を推論します。注釈はジェネリック引数の実際の使い方と一致する必要があり、動作を任意に変えるものではありません。
+TypeScript 4.7 以降、`out` は共変性、`in` は反変性、`in out` は不変性を表します。通常は TypeScript が変性を推論します。アノテーションはジェネリック型パラメーターの使われ方と一致する必要があり、その振る舞いを任意に変えるものではありません。
 
 ```typescript
 type Producer<out T> = () => T;
@@ -719,7 +719,7 @@ console.log(obj['key-b']); // 456
 
 ### satisfies 演算子
 
-`satisfies` 演算子を使用すると、指定された型が特定のインターフェイスや条件を満たしているかを確認できます。言い換えると、型が特定のインターフェイスで必要とされるすべてのプロパティとメソッドを持っていることを保証します。変数が型の定義に適合することを保証する方法です。
+`satisfies` 演算子を使用すると、指定された型が特定のインターフェースや条件を満たしているかを確認できます。言い換えると、型が特定のインターフェースで必要とされるすべてのプロパティとメソッドを持っていることを保証します。変数が型の定義に適合することを保証する方法です。
 例を示します。
 
 <!-- skip -->
@@ -841,7 +841,7 @@ disposed
 3
 ```
 
-破棄の対象となるリソースは、`Disposable` インターフェイスに準拠している必要があります。
+破棄の対象となるリソースは、`Disposable` インターフェースに準拠している必要があります。
 
 ```typescript
 // lib.esnext.disposable.d.ts
@@ -874,7 +874,7 @@ async function doWorkAsync() {
 } // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
 ```
 
-非同期に破棄可能なリソースは、`Disposable` または `AsyncDisposable` インターフェイスのいずれかに準拠している必要があります。
+非同期に破棄可能なリソースは、`Disposable` または `AsyncDisposable` インターフェースのいずれかに準拠している必要があります。
 
 ```typescript
 // lib.esnext.disposable.d.ts

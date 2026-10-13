@@ -39,14 +39,14 @@ TypeScript は `.ts` または `.tsx` ファイルに記述し、JavaScript フ�
 const sum = (a, b) => a + b;
 ```
 
-ファイル拡張子を `.ts` に変更すれば、この関数を TypeScript に変換して使用できます。ただし、同じ関数に TypeScript の型注釈を付けると、コンパイルなしではどの JavaScript ランタイムでも実行できません。次の TypeScript コードは、コンパイルしなければ構文エラーになります。
+ファイル拡張子を `.ts` に変更すれば、この関数を TypeScript に変換して使用できます。ただし、同じ関数に TypeScript の型アノテーションを付けると、コンパイルなしではどの JavaScript ランタイムでも実行できません。次の TypeScript コードは、コンパイルしなければ構文エラーになります。
 
 <!-- skip -->
 ```typescript
 const sum = (a: number, b: number): number => a + b;
 ```
 
-TypeScript は、開発者が型注釈を通じて意図を表現できるようにすることで、潜在的なランタイムエラーをコンパイル時に検出するよう設計されています。さらに、型推論により、明示的な型注釈がなくても TypeScript は特定の問題を検出できます。たとえば、次のコードスニペットでは TypeScript の型を一切指定していません。
+TypeScript は、開発者が型アノテーションを通じて意図を表現できるようにすることで、潜在的なランタイムエラーをコンパイル時に検出するよう設計されています。さらに、型推論により、明示的な型アノテーションがなくても TypeScript は特定の問題を検出できます。たとえば、次のコードスニペットでは TypeScript の型を一切指定していません。
 
 <!-- skip -->
 ```typescript
@@ -73,7 +73,7 @@ TypeScript の開発チームは、JavaScript の通常とは異なる使い方�
 const result = 1 + true; // In JavaScript, the result is equal to 2
 ```
 
-しかし、TypeScript はエラーをスローします。
+しかし、TypeScript はエラーを報告します。
 
 ```text
 Operator '+' cannot be applied to types 'number' and 'boolean'.
@@ -152,7 +152,7 @@ makeNoise(dog);
 
 「kind」プロパティは、JavaScript でオブジェクトを区別するために実行時に使用できる値です。
 
-また、実行時の値が、型宣言で宣言された型とは異なる型を持つ可能性もあります。たとえば、開発者が API の型を誤って解釈し、誤った注釈を付けた場合です。
+また、実行時の値が、型宣言で宣言された型とは異なる型を持つ可能性もあります。たとえば、開発者が API の型を誤って解釈し、誤った型アノテーションを付けた場合です。
 
 TypeScript は JavaScript のスーパーセットであるため、「class」キーワードは実行時に型および値として使用できます。
 
@@ -194,7 +194,7 @@ JavaScript では、「class」には「prototype」プロパティがあり、�
 
 すべての型が消去されるため、TypeScript が実行時のパフォーマンスに影響を与えることはありません。ただし、TypeScript によってビルド時間のオーバーヘッドが多少発生します。
 
-### 今すぐモダン JavaScript（ダウンレベリング）
+### モダン JavaScript を今すぐ使う（ダウンレベリング）
 
 TypeScript は、ECMAScript 3（1999 年）以降にリリースされたあらゆるバージョンの JavaScript へコードをコンパイルできます。つまり、TypeScript は最新の JavaScript 機能を古いバージョンへトランスパイルできます。この処理はダウンレベリングと呼ばれます。これにより、古いランタイム環境との互換性を最大限に維持しながら、モダン JavaScript を使用できます。
 

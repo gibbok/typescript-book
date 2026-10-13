@@ -110,7 +110,7 @@ type A = Required<Person>; // { name: string; age: number; }
 
 #### Readonly\<T\>
 
-T のすべてのプロパティを readonly に設定した型を構築します。
+T のすべてのプロパティを読み取り専用に設定した型を構築します。
 
 <!-- skip -->
 ```typescript
@@ -127,7 +127,7 @@ a.name = 'John'; // Invalid
 
 #### Record\<K, T\>
 
-T 型のプロパティ K の集合を持つ型を構築します。
+K をキーとし、T を値の型とするプロパティの集合を持つ型を構築します。
 
 ```typescript
 type Product = {

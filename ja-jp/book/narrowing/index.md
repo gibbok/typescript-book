@@ -8,7 +8,7 @@ TypeScript は、型を絞り込むいくつかの方法を認識します。
 
 ### typeof 型ガード
 
-typeof 型ガードは、組み込みの JavaScript 型に基づいて変数の型を確認する、TypeScript 固有の型ガードの 1 つです。
+typeof 型ガードは、組み込みの JavaScript 型に基づいて変数の型を確認する、TypeScript の型ガードの 1 つです。
 
 ```typescript
 const fn = (x: number | string) => {
@@ -19,9 +19,9 @@ const fn = (x: number | string) => {
 };
 ```
 
-### 真偽値による絞り込み
+### 真偽性による絞り込み
 
-TypeScript の真偽値による絞り込みは、変数が truthy か falsy かを確認し、それに応じて型を絞り込む仕組みです。
+TypeScript の真偽性による絞り込みは、変数が truthy か falsy かを確認し、それに応じて型を絞り込む仕組みです。
 
 ```typescript
 const toUpperCase = (name: string | null) => {

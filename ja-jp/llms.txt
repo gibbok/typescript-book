@@ -25,7 +25,7 @@
 - [ジェネリクス](https://gibbok.github.io/typescript-book/ja-jp/book/generics/index.md): ジェネリクスを使用すると、複数の型を扱える再利用可能なコンポーネントや関数を作成できます。ジェネリクスでは、型、関数、インターフェースを型パラメーター化できるため、事前に明示的に指定することなく、さまざまな型を扱えるようになります。
 - [TypeScript を始める](https://gibbok.github.io/typescript-book/ja-jp/book/getting-started-with-typescript/index.md): インストール
 - [インデックスシグネチャ](https://gibbok.github.io/typescript-book/ja-jp/book/index-signatures/index.md): TypeScript では、インデックスシグネチャとして string、number、symbol を使用できます。
-- [条件型における infer 型推論](https://gibbok.github.io/typescript-book/ja-jp/book/infer-type-inference-in-conditional-types/index.md): infer キーワードは、条件型において、依存する型からジェネリックパラメーターの型を推論（抽出）するために使用されます。これにより、より柔軟で再利用可能な型定義を記述できます。
+- [条件型における infer 型推論](https://gibbok.github.io/typescript-book/ja-jp/book/infer-type-inference-in-conditional-types/index.md): infer キーワードは、条件型において、ジェネリック型パラメーターに依存する型から、そのパラメーターの型を推論（抽出）するために使用されます。これにより、より柔軟で再利用可能な型定義を記述できます。
 - [インターフェースと型](https://gibbok.github.io/typescript-book/ja-jp/book/interface-and-type/index.md): 共通の構文
 - [交差型](https://gibbok.github.io/typescript-book/ja-jp/book/intersection-types/index.md): 交差型は、2 つ以上の型のすべてのプロパティを持つ値を表す型です。交差型は、各型の間に & 記号を使用して表します。
 - [はじめに](https://gibbok.github.io/typescript-book/ja-jp/book/introduction/index.md): 『The Concise TypeScript Book』へようこそ！このガイドでは、TypeScript を使って効果的に開発するために不可欠な知識と実践的なスキルを身につけられます。クリーンで堅牢なコードを書くための主要な概念とテクニックを学びましょう。初心者にも経験豊富な開発者にも、本書はプロジェクトで TypeScript の力を活用するための包括的なガイドであると同時に、手軽なリファレンスとしても役立ちます。
@@ -56,7 +56,7 @@
 - [トリプルスラッシュディレクティブ](https://gibbok.github.io/typescript-book/ja-jp/book/triple-slash-directives/index.md): トリプルスラッシュディレクティブは、ファイルの処理方法についてコンパイラに指示を与える特別なコメントです。これらのディレクティブは 3 つの連続するスラッシュ（///）で始まり、通常は TypeScript ファイルの先頭に配置され、実行時の動作には影響しません。
 - [タプル型（匿名）](https://gibbok.github.io/typescript-book/ja-jp/book/tuple-type-anonymous/index.md): タプル型は、固定された数の要素と、それぞれに対応する型を持つ配列を表す型です。タプル型は、特定の数の要素と、それぞれの型を固定された順序で強制します。タプル型は、特定の型を持つ値のコレクションを表し、配列内の各要素の位置に特定の意味がある場合に便利です。
 - [型アノテーション](https://gibbok.github.io/typescript-book/ja-jp/book/type-annotations/index.md): var、let、const を使用して宣言した変数には、必要に応じて型を追加できます。
-- [関数の戻り値から型を取得する](https://gibbok.github.io/typescript-book/ja-jp/book/type-from-func-return/index.md): 関数の戻り値から型を取得するとは、実装に基づいて関数の戻り値の型を自動的に推論する機能を指します。これにより TypeScript は、明示的な型注釈がなくても、関数が返す値の型を判断できます。
+- [関数の戻り値から型を取得する](https://gibbok.github.io/typescript-book/ja-jp/book/type-from-func-return/index.md): 関数の戻り値から型を取得するとは、実装に基づいて関数の戻り値の型を自動的に推論する機能を指します。これにより TypeScript は、明示的な型アノテーションがなくても、関数が返す値の型を判断できます。
 - [モジュールから型を取得する](https://gibbok.github.io/typescript-book/ja-jp/book/type-from-module/index.md): モジュールから型を取得するとは、モジュールがエクスポートした値を使用して、その型を自動的に推論する機能を指します。モジュールが特定の型を持つ値をエクスポートすると、TypeScript はその情報を使用して、別のモジュールへインポートされた際に、その値の型を自動的に推論できます。
 - [値から型を取得する](https://gibbok.github.io/typescript-book/ja-jp/book/type-from-value/index.md): TypeScript で値から型を取得するとは、型推論を通じて値または式から型が自動的に推論されることを指します。
 - [型のインデックスアクセス](https://gibbok.github.io/typescript-book/ja-jp/book/type-indexing/index.md): 型のインデックスアクセスとは、明示的に宣言されていないプロパティの型を指定するインデックスシグネチャを使用して、事前には分からないキーでインデックスアクセスできる型を定義する機能を指します。
