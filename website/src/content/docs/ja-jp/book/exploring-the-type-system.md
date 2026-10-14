@@ -34,7 +34,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // 有効
 ```
 
 ### TypeScript の基本的な比較規則
@@ -47,7 +47,7 @@ TypeScript の比較処理は再帰的であり、どの階層にネストされ
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // 有効。少なくとも X と同じメンバーを持つため
 const r: X = y;
 ```
 
@@ -58,8 +58,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // 有効
+x = y; // 有効
 ```
 
 関数の戻り値の型は同じでなければなりません。
@@ -70,8 +70,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // 無効
+x = y; // 無効
 ```
 
 ソース関数の戻り値の型は、ターゲット関数の戻り値の型のサブタイプでなければなりません。
@@ -80,8 +80,8 @@ x = y; // Invalid
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // 有効
+y = x; // 無効。メンバー b がないため
 ```
 
 関数のパラメーターを破棄することは許可されています。これは JavaScript で一般的な慣行であり、たとえば「Array.prototype.map()」で使用されています。
@@ -96,8 +96,8 @@ y = x; // Invalid member b is missing
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // パラメーター b がない
+y = x; // 有効
 ```
 
 ソース型に追加された任意のオプショナルパラメーターは有効です。
@@ -107,8 +107,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // 有効
+x = y; //有効
 ```
 
 ソース型に対応するパラメーターがないターゲット型のオプショナルパラメーターはすべて有効であり、エラーにはなりません。
@@ -118,15 +118,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // 有効
+x = y; // 有効
 ```
 
 rest パラメーターは、オプショナルパラメーターが無限に続くものとして扱われます。
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //有効
 ```
 
 オーバーロードを持つ関数は、オーバーロードシグネチャが実装シグネチャと互換性がある場合に有効です。
@@ -138,10 +138,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // 有効
+x('a', 1); // 有効
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // 無効。実装シグネチャと互換性がないため
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -153,25 +153,25 @@ y('a', 1);
 ソースとターゲットのパラメーターがスーパータイプまたはサブタイプに代入可能な場合、関数パラメーターの比較は成功します（双変性）。
 
 ```typescript
-// Supertype
+// スーパータイプ
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// サブタイプ
 class Y extends X {}
-// Subtype
+// サブタイプ
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// 双変性ではスーパータイプも受け入れる
+console.log(getA(new X('x'))); // 有効
+console.log(getA(new Y('Y'))); // 有効
+console.log(getA(new Z('z'))); // 有効
 ```
 
 列挙型は数値と比較でき、その逆も有効ですが、異なる列挙型の列挙値どうしを比較することは無効です。
@@ -187,9 +187,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // 有効
+const ya: Y = 0; // 有効
+X.A === Y.A; // 無効
 ```
 
 クラスのインスタンスでは、private および protected メンバーに対して互換性チェックが行われます。
@@ -210,7 +210,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // 無効
 ```
 
 比較チェックでは、継承階層の違いは考慮されません。たとえば次のとおりです。
@@ -238,8 +238,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // 有効
+x === z; // z が異なる継承階層に属していても有効
 ```
 
 ジェネリクスは、ジェネリック型パラメーターを適用した後に得られる型の構造に基づいて比較され、最終結果だけが非ジェネリック型として比較されます。
@@ -251,14 +251,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // 無効。最終的な構造で型引数が使用されているため
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // 有効。最終的な構造で型引数が使用されていないため
 ```
 
 ジェネリクスの型引数が指定されていない場合、指定されていないすべての引数は「any」型として扱われます。
@@ -268,7 +268,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // 有効
 ```
 
 次の点を覚えておいてください。
@@ -277,26 +277,26 @@ x = y; // Valid
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // 有効。すべての型はそれ自身に割り当て可能
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // 有効。すべての型は any に割り当て可能
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // 有効。すべての型は unknown に割り当て可能
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // 有効。unknown はそれ自身と any にのみ割り当て可能
+let e2: any = e; // 有効
+let e3: number = e; // 無効
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // 無効。never には何も割り当てられない
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // 無効。void は any 以外の型との相互の割り当てができない
+g = g1; // 有効
 ```
 
 「strictNullChecks」が有効な場合、「null」と「undefined」は「void」と同様に扱われます。それ以外の場合は「never」と同様に扱われることに注意してください。
@@ -354,7 +354,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // 有効
 ```
 
 交差型（T1 & T2）は、より狭い集合（共有されるものだけ）を作成します。
@@ -369,8 +369,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // 無効
+const j: XY = { a: 'a', b: 'b' }; // 有効
 ```
 
 この文脈では、`extends` キーワードは「部分集合」と考えることができます。これは型に制約を設定します。`extends` をジェネリックとともに使用すると、ジェネリック型パラメーターがより具体的な型に制約されます。
@@ -404,7 +404,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // 有効
 ```
 
 ### 型を割り当てる：型宣言と型アサーション
@@ -420,7 +420,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// 型宣言
 const x: X = {
     a: 'a',
 };
@@ -436,7 +436,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // エラー: オブジェクトリテラルで指定できるのは既知のプロパティのみ
 };
 ```
 
@@ -519,8 +519,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // 構造的型付けにより有効
+const w: X = { a: 'a', b: 'b' }; // 過剰プロパティチェックにより無効
 ```
 
 ### 弱い型
@@ -545,7 +545,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // 無効
 ```
 
 推奨はされませんが、必要であれば、型アサーションを使用してこのチェックを回避できます。
@@ -556,7 +556,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // 有効
 ```
 
 または、`unknown` を値の型とするインデックスシグネチャを弱い型に追加します。
@@ -569,7 +569,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // 有効
 ```
 
 ### 厳密なオブジェクトリテラルチェック（Freshness）
@@ -588,20 +588,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // Freshness チェック: 無効な代入
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // Freshness チェック: 無効な代入
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // 型の拡大: エラーなし。構造的に型の互換性がある
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // Freshness チェック: 無効な引数
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // 型の拡大: Freshness チェックなし
 ```
 
 ### 型推論
@@ -616,7 +616,7 @@ TypeScript は、次の場合にアノテーションが指定されていなく
 例：
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // 推論される型は string
 ```
 
 TypeScript コンパイラは値または式を分析し、利用可能な情報に基づいてその型を決定します。
@@ -626,19 +626,19 @@ TypeScript コンパイラは値または式を分析し、利用可能な情報
 型推論で複数の式が使用されている場合、TypeScript は「最適な共通型」を探します。たとえば次のとおりです。
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // 推論される型: (string | number | null)[]
 ```
 
 コンパイラが最適な共通型を見つけられない場合は、ユニオン型を返します。例：
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // 推論される型: (RegExp | Date)[]
 ```
 
 TypeScript は、変数の位置に基づく「コンテキスト型付け」を利用して型を推論します。次の例では、コンパイラは `e` が `MouseEvent` 型であることを認識します。これは、さまざまな一般的な JavaScript 構文と DOM のアンビエント宣言を含む lib.d.ts ファイルに `click` イベント型が定義されているためです。
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // e の推論される型は MouseEvent
 ```
 
 ### 型の拡大
@@ -648,9 +648,9 @@ window.addEventListener('click', function (e) {}); // The inferred type of e is 
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript は広い型である string と推論
+let y: 'y' | 'x' = 'y'; // y の型はリテラル型のユニオン
+y = x; // 無効。型 'string' を型 '"x" | "y"' に割り当てることはできません。
 ```
 
 TypeScript は `string` を `x` に割り当てます。これは、初期化時に指定された単一の値（`x`）に基づく型の拡大の一例です。
@@ -664,9 +664,9 @@ TypeScript には、たとえば「const」を使用するなど、型の拡大�
 例：
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript は x の型をより狭い型である 'x' と推論
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // 有効: x の型は 'x' と推論される
 ```
 
 `const` を使用して変数 x を宣言すると、その型は特定のリテラル値 'x' に絞り込まれます。x の型が絞り込まれているため、エラーなしで変数 y に代入できます。
@@ -678,10 +678,10 @@ TypeScript のバージョン 5.0 以降では、ジェネリック型パラメ�
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // ここでは const を使用しない
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // 推論される型: { a: string; b: string; }
 ```
 
 ご覧のとおり、プロパティ `a` と `b` は `string` 型として推論されています。
@@ -690,10 +690,10 @@ const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // 型パラメーターに const 修飾子を使用
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // 推論される型: { a: "a"; b: "b"; }
 ```
 
 プロパティ `a` と `b` が、単なる `string` 型ではなく文字列リテラルとして推論されていることが分かります。
@@ -724,7 +724,7 @@ const v = {
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // readonly [1, 2, 3] 型のタプル
 ```
 
 ### 明示的な型アノテーション
@@ -733,9 +733,9 @@ const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // 推論される型: number (型の拡大)
 };
-v.x = 3; // Valid
+v.x = 3; // 有効
 ```
 
 リテラル型のユニオンを使用すると、型アノテーションをより具体的にできます。
@@ -743,10 +743,10 @@ v.x = 3; // Valid
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // x はリテラル型のユニオンになる: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // 有効
+v.x = 100; // 無効
 ```
 
 ### 型の絞り込み
@@ -763,7 +763,7 @@ v.x = 100; // Invalid
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // 型は number。条件によって絞り込まれている
 }
 ```
 
@@ -798,9 +798,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // 型は A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // 型は B
     }
 };
 ```
@@ -812,11 +812,11 @@ TypeScript が型を判定できない場合、「ユーザー定義型ガード
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // 型は (string | null)[]。TypeScript は型を適切に推論できなかった
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // カスタム型ガード
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // 型は適切な string[] になる。型述語による型ガードで型を絞り込めた
 ```
 
 #### switch-true による絞り込み

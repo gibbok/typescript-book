@@ -14,10 +14,10 @@ TypeScript の `unknown` 型は、型が不明な値を表します。あらゆ�
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // 有効
+let value2: any = value; // 有効
+let value3: boolean = value; // 無効
+let value4: number = value; // 無効
 ```
 
 ```typescript

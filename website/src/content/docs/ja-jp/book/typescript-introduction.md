@@ -67,14 +67,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 TypeScript の型システムは、JavaScript の実行時の振る舞いから大きな影響を受けています。たとえば、JavaScript では文字列の連結または数値の加算を行う加算演算子（+）は、TypeScript でも同じようにモデル化されています。
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // 結果の型は string
 ```
 
 TypeScript の開発チームは、JavaScript の通常とは異なる使い方をエラーとして示すという意図的な判断をしています。たとえば、次の有効な JavaScript コードを考えてみましょう。
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // JavaScript では結果は 2
 ```
 
 しかし、TypeScript はエラーを報告します。
@@ -93,7 +93,7 @@ TypeScript コンパイラには、型エラーのチェックと JavaScript へ
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // 型 'string' の引数を型 'number' のパラメーターに割り当てることはできません。
 ```
 
 それでも、実行可能な JavaScript を出力できます。
@@ -120,7 +120,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' は型のみを参照しますが、ここでは値として使用されています。
         // ...
     }
 };
@@ -130,11 +130,11 @@ const makeNoise = (animal: Animal) => {
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // タグ付きユニオン
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // タグ付きユニオン
     meow: () => void;
 }
 type Animal = Dog | Cat;

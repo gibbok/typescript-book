@@ -64,7 +64,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // 無効
 ```
 
 バージョン 3.4 RC で導入された注目すべきジェネリック機能の 1 つに、ジェネリック型引数を伝播する高階関数の型推論があります。
@@ -91,10 +91,10 @@ const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // 値は型 'string' に絞り込まれる
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // 値は型 'number' に絞り込まれる
         console.log(value.toFixed(2));
     }
 }

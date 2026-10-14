@@ -9,11 +9,11 @@ sidebar:
 TypeScript の関数オーバーロードを使用すると、1 つの関数名に対して複数の関数シグネチャを定義でき、複数の方法で呼び出せる関数を定義できます。例を次に示します。
 
 ```typescript
-// Overloads
+// オーバーロード
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// 実装
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -23,8 +23,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // 有効
+sayHi(['aa', 'bb']); // 有効
 ```
 
 `class` 内で関数オーバーロードを使用する別の例を次に示します。
@@ -37,11 +37,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // オーバーロード
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // 実装
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;

@@ -14,11 +14,11 @@ Try-Catch-Finally ブロック:
 
 ```typescript
 try {
-    // Code that might throw an error
+    // エラーをスローする可能性のあるコード
 } catch (error) {
-    // Handle the error
+    // エラーを処理
 } finally {
-    // Code that always executes, finally is optional
+    // 常に実行されるコード。finally は省略可能
 }
 ```
 
@@ -26,14 +26,14 @@ try {
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // さまざまな型のエラーをスローする可能性のあるコード
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // TypeError を処理
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // RangeError を処理
     } else {
-        // Handle other errors
+        // その他のエラーを処理
     }
 }
 ```
@@ -79,10 +79,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// MyClass を拡張し、Identifiable と Selectable の振る舞いを含める
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// クラスにミックスインを適用する関数
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -97,7 +97,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// MyClass にミックスインを適用
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -212,10 +212,10 @@ JavaScript のコードベースを扱う場合、型情報を提供する追加
 
 ```typescript
 /**
- * Computes the power of a given number
+ * 指定した数値の累乗を計算
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – 式の底の値
+ * @param {number} exponent – 式の指数の値
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -311,7 +311,7 @@ TypeScript では `new.target` メタプロパティを使用できます。こ�
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // インスタンスの作成に使用されたコンストラクター関数をログ出力
     }
 }
 
@@ -336,7 +336,7 @@ TypeScript における動的 import 式の構文は次のとおりです。
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // 動的インポート
         widget.render(container);
     }
 }
@@ -648,8 +648,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // 有効
+produceDog = produceAnimal; // エラー
 ```
 
 **反変性（値を受け取る）:** どんな `Animal` も受け取れる関数は、`Dog` を受け取る関数が必要な場所で使用できます。犬にも対応できますが、犬専用の関数ですべての動物を安全に処理することはできません。
@@ -661,8 +661,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // 有効
+consumeAnimal = consumeDog; // strictFunctionTypes が有効な場合はエラー
 ```
 
 矢印は安全に代入できる方向を示します。
@@ -678,8 +678,8 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // 許可されるが安全ではない
+// dogs に Dog ではない Animal が含まれるようになる。
 ```
 
 **コンパイラオプション:** `strictFunctionTypes` を有効にすると、独立した関数のパラメーターは反変的にチェックされます。無効の場合、安全でなくても両方向が許容されることがあります（双変性）。メソッドとコンストラクターのパラメーター宣言は、厳密な関数パラメーターのチェックの例外です。
@@ -732,37 +732,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// `User` による型アノテーション
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// 以下の行では、TypeScript は適切に推論できない
+user.attributes?.map(console.log); // プロパティ 'map' は型 'string | string[]' に存在しません。プロパティ 'map' は型 'string' に存在しません。
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// `as` による型アサーション
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// ここでも、TypeScript は適切に推論できない
+user2.attributes?.map(console.log); // プロパティ 'map' は型 'string | string[]' に存在しません。プロパティ 'map' は型 'string' に存在しません。
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// `satisfies` 演算子を使うと、型を適切に推論できる
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript は正しく推論する: string[]
+user3.nickName; // TypeScript は正しく推論する: undefined
 ```
 
 ### 型のみのインポートとエクスポート
@@ -816,7 +816,7 @@ export type { T } from './mod';
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // 簡単なポリフィル
 
 const doWork = (): Disposable => {
     return {
@@ -829,9 +829,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // リソースを宣言
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // リソースを破棄 (例: `work[Symbol.dispose]()` を評価)
 
 console.log(3);
 ```
@@ -862,7 +862,7 @@ interface Disposable {
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // `C`、`B`、`A` の順に破棄。
 ```
 
 後続のコードが実行された場合や例外が発生した場合でも、リソースは確実に破棄されます。そのため、破棄時に例外がスローされ、別の例外が抑制される可能性があります。抑制されたエラーの情報を保持するため、新しいネイティブ例外 `SuppressedError` が導入されています。
@@ -874,8 +874,8 @@ interface Disposable {
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // リソースを宣言
+} // リソースを破棄 (例: `await work[Symbol.asyncDispose]()` を評価)
 ```
 
 非同期に破棄可能なリソースは、`Disposable` または `AsyncDisposable` インターフェースのいずれかに準拠している必要があります。
@@ -890,12 +890,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // 簡単なポリフィル
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // オブジェクトが非同期に破棄されるときに呼び出されるメソッド
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // 接続を閉じ、Promise を返す
         return this.close();
     }
 
@@ -907,10 +907,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // 新しい接続を作成し、スコープを抜けるときに非同期に破棄
+    await using connection = new DatabaseConnection(); //  リソースを宣言
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // リソースを破棄 (例: `await connection[Symbol.asyncDispose]()` を評価)
 
 doWork();
 ```
@@ -949,7 +949,7 @@ TypeScript 5.5.4 以降、コンパイル時に正規表現リテラルの一般
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // エラー: この後方参照は存在しないグループを参照しています。
 ```
 
 ### import defer

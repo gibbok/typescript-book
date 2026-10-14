@@ -10,12 +10,12 @@ TypeScript の判別可能なユニオンは、判別子と呼ばれる共通の
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // 判別子
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // 判別子
     radius: number;
 };
 
