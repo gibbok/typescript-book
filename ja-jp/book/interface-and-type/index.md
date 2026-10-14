@@ -56,10 +56,10 @@ TypeScript では、型を使用してデータの構造を定義し、型チェ
 ### 基本型
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myNumber: number = 123; // number 型
+let myBoolean: boolean = true; // boolean 型
+let myArray: string[] = ['a', 'b']; // 文字列の配列
+let myTuple: [string, number] = ['a', 123]; // タプル
 ```
 
 ### オブジェクトとインターフェース
@@ -71,13 +71,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### ユニオン型と交差型
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // ユニオン型
+let myUnion: MyType = 'hello'; // 文字列にできる
+myUnion = 123; // または数値にできる
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // 交差型
+let myCombined: CombinedType = { name: 'John', age: 25 }; // name と age の両方のプロパティを持つオブジェクト
 ```
 

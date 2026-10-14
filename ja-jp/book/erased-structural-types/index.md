@@ -19,6 +19,6 @@ const obj = {
     prop1: 'Origin',
 };
 
-log(obj); // Valid
+log(obj); // 有効
 ```
 

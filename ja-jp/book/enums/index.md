@@ -20,7 +20,7 @@ TypeScript の数値列挙型とは、各定数に数値が割り当てられ、
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // 値は 0 から始まる
     Medium,
     Large,
 }
@@ -116,7 +116,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // インデックス式が型 'number' ではないため、要素は暗黙的に 'any' 型になります。
 ```
 
 ### アンビエント列挙型
@@ -128,23 +128,23 @@ TypeScript のアンビエント列挙型は、関連する実装を持たずに
 TypeScript の計算メンバーは実行時に値が計算される列挙型のメンバーであり、定数メンバーはコンパイル時に値が設定され、実行時には変更できないメンバーです。計算メンバーは通常の列挙型で使用でき、定数メンバーは通常の列挙型と const 列挙型の両方で使用できます。
 
 ```typescript
-// Constant members
+// 定数メンバー
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6 コンパイル時に生成
 ```
 
 ```typescript
-// Computed members
+// 計算メンバー
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // 実行時に生成される乱数
 ```
 
 列挙型は、そのメンバー型から構成されるユニオンで表されます。各メンバーの値は定数式または非定数式によって決定でき、定数値を持つメンバーにはリテラル型が割り当てられます。例として、型 E とそのサブタイプ E.A、E.B、E.C の宣言を考えてみましょう。この場合、E はユニオン E.A | E.B | E.C を表します。
@@ -153,9 +153,9 @@ console.log(Color.Blue); // random number generated at run time
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // 数値リテラル
+    B = 'bar', // 文字列リテラル
+    C = identity(42), // 不透明な計算値
 }
 
 console.log(E.C); //42

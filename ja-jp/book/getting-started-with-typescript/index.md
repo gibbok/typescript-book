@@ -71,9 +71,9 @@ tsc --init
 デフォルト設定で実行する CLI コマンドの例を以下に示します。
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // 特定のファイル (main.ts) を JavaScript にコンパイル
+tsc src/*.ts // 'src' フォルダー内のすべての .ts ファイルを JavaScript にコンパイル
+tsc app.ts util.ts --outfile index.js // 2 つの TypeScript ファイル (app.ts と util.ts) を 1 つの JavaScript ファイル (index.js) にコンパイル
 ```
 
 ### TypeScript 構成ファイル

@@ -9,9 +9,9 @@ TypeScript のリテラル型には、数値、文字列、真偽値がありま
 リテラルの例を次に示します。
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // 文字列リテラル型
+const b = 1; // 数値リテラル型
+const c = true; // 真偽値リテラル型
 ```
 
 文字列、数値、真偽値のリテラル型は、ユニオン、型ガード、型エイリアスで使用されます。

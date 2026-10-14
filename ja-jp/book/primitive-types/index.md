@@ -35,9 +35,9 @@ TypeScript は、たとえば次のように、16 進数、2 進数、8 進数�
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // 16 進数は 0x で始まる
+const binary: number = 0b1010; // 2 進数は 0b で始まる
+const octal: number = 0o633; // 8 進数は 0o で始まる
 ```
 
 ### bigint
@@ -90,17 +90,17 @@ console.log(obj[b]); // 456
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // ユニオン
 ```
 
 TypeScript は、次の構文を使用した読み取り専用配列をサポートしています。
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // readonly 修飾子
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // 無効
 ```
 
 TypeScript はタプルと読み取り専用タプルをサポートしています。

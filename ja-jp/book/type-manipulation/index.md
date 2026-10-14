@@ -13,7 +13,7 @@
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // A と B の交差
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -39,7 +39,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // プロパティが読み取り専用になる
 ```
 
 条件型:
@@ -122,7 +122,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // 無効
 ```
 
 #### Record\<K, T\>
@@ -291,8 +291,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // 有効。"log" は "this" の一部であるため。
+        this.update(); // 無効
     },
 };
 ```
@@ -336,22 +336,22 @@ NoInfer は、ジェネリック関数のスコープ内で型が自動推論さ
 例:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// ジェネリック関数のスコープ内での型の自動推論。
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // ここでの型は ("a" | "b" | "c")[]
 ```
 
 NoInfer を使用する場合:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// NoInfer を使用して型推論を防ぐ関数の例
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // エラー: 型 '"c"' の引数を型 '"a" | "b"' のパラメーターに割り当てることはできません。
 ```
 

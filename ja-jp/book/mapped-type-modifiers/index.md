@@ -11,10 +11,10 @@ TypeScript のマップ型の修飾子を使用すると、既存の型内のプ
 例:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // すべてのプロパティを読み取り専用にする
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // すべてのプロパティを変更可能にする
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // すべてのプロパティをオプショナルにする
 ```
 

@@ -7,8 +7,8 @@
 次の例では、値を後から変更できないため、TypeScript が `x` をリテラル型と見なすことが分かります。一方、`y` は後からいつでも変更できるため、文字列として推論されます。
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // この値は変更できないため、リテラル型 'x'
+let y = 'y'; // この値は変更できるため、型は string
 ```
 
 次の例では、TypeScript が値は後からいつでも変更できると見なすため、`o.x` が `string` として（`a` のリテラルとしてではなく）推論されたことが分かります。
@@ -18,12 +18,12 @@ let y = 'y'; // Type string, as we can change this value
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // これはより広い string 型
 };
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // 型 'string' の引数を型 'X' のパラメーターに割り当てることはできません
 ```
 
 ご覧のとおり、X はより狭い型であるため、`o.x` を `fn` に渡すとコードはエラーを発生させます。

@@ -13,7 +13,7 @@ typeof 型ガードは、組み込みの JavaScript 型に基づいて変数の�
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x は number
     }
     return -1;
 };
