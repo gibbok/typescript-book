@@ -66,7 +66,7 @@ const c: B = {
 ユニオン型と交差型を定義する場合、型のほうが柔軟です。`type` キーワードを使用すると、`|` 演算子でユニオン型を、`&` 演算子で交差型を簡単に作成できます。インターフェースでも間接的にユニオン型を表現できますが、交差型の組み込みサポートはありません。
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // ユニオン
 
 type Person = {
     name: string;
@@ -78,7 +78,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // 交差
 ```
 
 インターフェースを使用した例:
@@ -91,6 +91,6 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // インターフェースのユニオン
 ```
 

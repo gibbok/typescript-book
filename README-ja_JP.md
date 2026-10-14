@@ -394,14 +394,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 TypeScript の型システムは、JavaScript の実行時の振る舞いから大きな影響を受けています。たとえば、JavaScript では文字列の連結または数値の加算を行う加算演算子（+）は、TypeScript でも同じようにモデル化されています。
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // 結果の型は string
 ```
 
 TypeScript の開発チームは、JavaScript の通常とは異なる使い方をエラーとして示すという意図的な判断をしています。たとえば、次の有効な JavaScript コードを考えてみましょう。
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // JavaScript では結果は 2
 ```
 
 しかし、TypeScript はエラーを報告します。
@@ -420,7 +420,7 @@ TypeScript コンパイラには、型エラーのチェックと JavaScript へ
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // 型 'string' の引数を型 'number' のパラメーターに割り当てることはできません。
 ```
 
 それでも、実行可能な JavaScript を出力できます。
@@ -447,7 +447,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' は型のみを参照しますが、ここでは値として使用されています。
         // ...
     }
 };
@@ -457,11 +457,11 @@ const makeNoise = (animal: Animal) => {
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // タグ付きユニオン
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // タグ付きユニオン
     meow: () => void;
 }
 type Animal = Dog | Cat;
@@ -615,9 +615,9 @@ tsc --init
 デフォルト設定で実行する CLI コマンドの例を以下に示します。
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // 特定のファイル (main.ts) を JavaScript にコンパイル
+tsc src/*.ts // 'src' フォルダー内のすべての .ts ファイルを JavaScript にコンパイル
+tsc app.ts util.ts --outfile index.js // 2 つの TypeScript ファイル (app.ts と util.ts) を 1 つの JavaScript ファイル (index.js) にコンパイル
 ```
 
 ### TypeScript 構成ファイル
@@ -780,7 +780,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // 有効
 ```
 
 ### TypeScript の基本的な比較規則
@@ -793,7 +793,7 @@ TypeScript の比較処理は再帰的であり、どの階層にネストされ
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // 有効。少なくとも X と同じメンバーを持つため
 const r: X = y;
 ```
 
@@ -804,8 +804,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // 有効
+x = y; // 有効
 ```
 
 関数の戻り値の型は同じでなければなりません。
@@ -816,8 +816,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // 無効
+x = y; // 無効
 ```
 
 ソース関数の戻り値の型は、ターゲット関数の戻り値の型のサブタイプでなければなりません。
@@ -826,8 +826,8 @@ x = y; // Invalid
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // 有効
+y = x; // 無効。メンバー b がないため
 ```
 
 関数のパラメーターを破棄することは許可されています。これは JavaScript で一般的な慣行であり、たとえば「Array.prototype.map()」で使用されています。
@@ -842,8 +842,8 @@ y = x; // Invalid member b is missing
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // パラメーター b がない
+y = x; // 有効
 ```
 
 ソース型に追加された任意のオプショナルパラメーターは有効です。
@@ -853,8 +853,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // 有効
+x = y; //有効
 ```
 
 ソース型に対応するパラメーターがないターゲット型のオプショナルパラメーターはすべて有効であり、エラーにはなりません。
@@ -864,15 +864,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // 有効
+x = y; // 有効
 ```
 
 rest パラメーターは、オプショナルパラメーターが無限に続くものとして扱われます。
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //有効
 ```
 
 オーバーロードを持つ関数は、オーバーロードシグネチャが実装シグネチャと互換性がある場合に有効です。
@@ -884,10 +884,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // 有効
+x('a', 1); // 有効
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // 無効。実装シグネチャと互換性がないため
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -899,25 +899,25 @@ y('a', 1);
 ソースとターゲットのパラメーターがスーパータイプまたはサブタイプに代入可能な場合、関数パラメーターの比較は成功します（双変性）。
 
 ```typescript
-// Supertype
+// スーパータイプ
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// サブタイプ
 class Y extends X {}
-// Subtype
+// サブタイプ
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// 双変性ではスーパータイプも受け入れる
+console.log(getA(new X('x'))); // 有効
+console.log(getA(new Y('Y'))); // 有効
+console.log(getA(new Z('z'))); // 有効
 ```
 
 列挙型は数値と比較でき、その逆も有効ですが、異なる列挙型の列挙値どうしを比較することは無効です。
@@ -933,9 +933,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // 有効
+const ya: Y = 0; // 有効
+X.A === Y.A; // 無効
 ```
 
 クラスのインスタンスでは、private および protected メンバーに対して互換性チェックが行われます。
@@ -956,7 +956,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // 無効
 ```
 
 比較チェックでは、継承階層の違いは考慮されません。たとえば次のとおりです。
@@ -984,8 +984,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // 有効
+x === z; // z が異なる継承階層に属していても有効
 ```
 
 ジェネリクスは、ジェネリック型パラメーターを適用した後に得られる型の構造に基づいて比較され、最終結果だけが非ジェネリック型として比較されます。
@@ -997,14 +997,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // 無効。最終的な構造で型引数が使用されているため
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // 有効。最終的な構造で型引数が使用されていないため
 ```
 
 ジェネリクスの型引数が指定されていない場合、指定されていないすべての引数は「any」型として扱われます。
@@ -1014,7 +1014,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // 有効
 ```
 
 次の点を覚えておいてください。
@@ -1023,26 +1023,26 @@ x = y; // Valid
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // 有効。すべての型はそれ自身に割り当て可能
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // 有効。すべての型は any に割り当て可能
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // 有効。すべての型は unknown に割り当て可能
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // 有効。unknown はそれ自身と any にのみ割り当て可能
+let e2: any = e; // 有効
+let e3: number = e; // 無効
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // 無効。never には何も割り当てられない
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // 無効。void は any 以外の型との相互の割り当てができない
+g = g1; // 有効
 ```
 
 「strictNullChecks」が有効な場合、「null」と「undefined」は「void」と同様に扱われます。それ以外の場合は「never」と同様に扱われることに注意してください。
@@ -1100,7 +1100,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // 有効
 ```
 
 交差型（T1 & T2）は、より狭い集合（共有されるものだけ）を作成します。
@@ -1115,8 +1115,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // 無効
+const j: XY = { a: 'a', b: 'b' }; // 有効
 ```
 
 この文脈では、`extends` キーワードは「部分集合」と考えることができます。これは型に制約を設定します。`extends` をジェネリックとともに使用すると、ジェネリック型パラメーターがより具体的な型に制約されます。
@@ -1150,7 +1150,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // 有効
 ```
 
 ### 型を割り当てる：型宣言と型アサーション
@@ -1166,7 +1166,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// 型宣言
 const x: X = {
     a: 'a',
 };
@@ -1182,7 +1182,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // エラー: オブジェクトリテラルで指定できるのは既知のプロパティのみ
 };
 ```
 
@@ -1265,8 +1265,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // 構造的型付けにより有効
+const w: X = { a: 'a', b: 'b' }; // 過剰プロパティチェックにより無効
 ```
 
 ### 弱い型
@@ -1291,7 +1291,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // 無効
 ```
 
 推奨はされませんが、必要であれば、型アサーションを使用してこのチェックを回避できます。
@@ -1302,7 +1302,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // 有効
 ```
 
 または、`unknown` を値の型とするインデックスシグネチャを弱い型に追加します。
@@ -1315,7 +1315,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // 有効
 ```
 
 ### 厳密なオブジェクトリテラルチェック（Freshness）
@@ -1334,20 +1334,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // Freshness チェック: 無効な代入
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // Freshness チェック: 無効な代入
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // 型の拡大: エラーなし。構造的に型の互換性がある
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // Freshness チェック: 無効な引数
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // 型の拡大: Freshness チェックなし
 ```
 
 ### 型推論
@@ -1362,7 +1362,7 @@ TypeScript は、次の場合にアノテーションが指定されていなく
 例：
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // 推論される型は string
 ```
 
 TypeScript コンパイラは値または式を分析し、利用可能な情報に基づいてその型を決定します。
@@ -1372,19 +1372,19 @@ TypeScript コンパイラは値または式を分析し、利用可能な情報
 型推論で複数の式が使用されている場合、TypeScript は「最適な共通型」を探します。たとえば次のとおりです。
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // 推論される型: (string | number | null)[]
 ```
 
 コンパイラが最適な共通型を見つけられない場合は、ユニオン型を返します。例：
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // 推論される型: (RegExp | Date)[]
 ```
 
 TypeScript は、変数の位置に基づく「コンテキスト型付け」を利用して型を推論します。次の例では、コンパイラは `e` が `MouseEvent` 型であることを認識します。これは、さまざまな一般的な JavaScript 構文と DOM のアンビエント宣言を含む lib.d.ts ファイルに `click` イベント型が定義されているためです。
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // e の推論される型は MouseEvent
 ```
 
 ### 型の拡大
@@ -1394,9 +1394,9 @@ window.addEventListener('click', function (e) {}); // The inferred type of e is 
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript は広い型である string と推論
+let y: 'y' | 'x' = 'y'; // y の型はリテラル型のユニオン
+y = x; // 無効。型 'string' を型 '"x" | "y"' に割り当てることはできません。
 ```
 
 TypeScript は `string` を `x` に割り当てます。これは、初期化時に指定された単一の値（`x`）に基づく型の拡大の一例です。
@@ -1410,9 +1410,9 @@ TypeScript には、たとえば「const」を使用するなど、型の拡大�
 例：
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript は x の型をより狭い型である 'x' と推論
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // 有効: x の型は 'x' と推論される
 ```
 
 `const` を使用して変数 x を宣言すると、その型は特定のリテラル値 'x' に絞り込まれます。x の型が絞り込まれているため、エラーなしで変数 y に代入できます。
@@ -1424,10 +1424,10 @@ TypeScript のバージョン 5.0 以降では、ジェネリック型パラメ�
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // ここでは const を使用しない
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // 推論される型: { a: string; b: string; }
 ```
 
 ご覧のとおり、プロパティ `a` と `b` は `string` 型として推論されています。
@@ -1436,10 +1436,10 @@ const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // 型パラメーターに const 修飾子を使用
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // 推論される型: { a: "a"; b: "b"; }
 ```
 
 プロパティ `a` と `b` が、単なる `string` 型ではなく文字列リテラルとして推論されていることが分かります。
@@ -1470,7 +1470,7 @@ const v = {
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // readonly [1, 2, 3] 型のタプル
 ```
 
 ### 明示的な型アノテーション
@@ -1479,9 +1479,9 @@ const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // 推論される型: number (型の拡大)
 };
-v.x = 3; // Valid
+v.x = 3; // 有効
 ```
 
 リテラル型のユニオンを使用すると、型アノテーションをより具体的にできます。
@@ -1489,10 +1489,10 @@ v.x = 3; // Valid
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // x はリテラル型のユニオンになる: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // 有効
+v.x = 100; // 無効
 ```
 
 ### 型の絞り込み
@@ -1509,7 +1509,7 @@ v.x = 100; // Invalid
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // 型は number。条件によって絞り込まれている
 }
 ```
 
@@ -1544,9 +1544,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // 型は A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // 型は B
     }
 };
 ```
@@ -1558,11 +1558,11 @@ TypeScript が型を判定できない場合、「ユーザー定義型ガード
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // 型は (string | null)[]。TypeScript は型を適切に推論できなかった
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // カスタム型ガード
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // 型は適切な string[] になる。型述語による型ガードで型を絞り込めた
 ```
 
 #### switch-true による絞り込み
@@ -1619,9 +1619,9 @@ TypeScript は、たとえば次のように、16 進数、2 進数、8 進数�
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // 16 進数は 0x で始まる
+const binary: number = 0b1010; // 2 進数は 0b で始まる
+const octal: number = 0o633; // 8 進数は 0o で始まる
 ```
 
 ### bigint
@@ -1674,17 +1674,17 @@ console.log(obj[b]); // 456
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // ユニオン
 ```
 
 TypeScript は、次の構文を使用した読み取り専用配列をサポートしています。
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // readonly 修飾子
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // 無効
 ```
 
 TypeScript はタプルと読み取り専用タプルをサポートしています。
@@ -1753,7 +1753,7 @@ const sum = (a = 10, b: number): number => a + b;
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // オプショナル
 };
 ```
 
@@ -1800,7 +1800,7 @@ type K = {
 const k: K = { x: 'x', 1: 'b' };
 console.log(k['x']);
 console.log(k[1]);
-console.log(k['1']); // Same result as k[1]
+console.log(k['1']); // k[1] と同じ結果
 ```
 
 JavaScript は `number` のインデックスを自動的に `string` のインデックスへ変換するため、`k[1]` と `k["1"]` は同じ値を返すことに注意してください。
@@ -1864,9 +1864,9 @@ TypeScript のリテラル型には、数値、文字列、真偽値がありま
 リテラルの例を次に示します。
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // 文字列リテラル型
+const b = 1; // 数値リテラル型
+const c = true; // 真偽値リテラル型
 ```
 
 文字列、数値、真偽値のリテラル型は、ユニオン、型ガード、型エイリアスで使用されます。
@@ -1883,8 +1883,8 @@ type O = 'a' | 'b' | 'c';
 次の例では、値を後から変更できないため、TypeScript が `x` をリテラル型と見なすことが分かります。一方、`y` は後からいつでも変更できるため、文字列として推論されます。
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // この値は変更できないため、リテラル型 'x'
+let y = 'y'; // この値は変更できるため、型は string
 ```
 
 次の例では、TypeScript が値は後からいつでも変更できると見なすため、`o.x` が `string` として（`a` のリテラルとしてではなく）推論されたことが分かります。
@@ -1894,12 +1894,12 @@ let y = 'y'; // Type string, as we can change this value
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // これはより広い string 型
 };
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // 型 'string' の引数を型 'X' のパラメーターに割り当てることはできません
 ```
 
 ご覧のとおり、X はより狭い型であるため、`o.x` を `fn` に渡すとコードはエラーを発生させます。
@@ -1946,7 +1946,7 @@ TypeScript の数値列挙型とは、各定数に数値が割り当てられ、
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // 値は 0 から始まる
     Medium,
     Large,
 }
@@ -2042,7 +2042,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // インデックス式が型 'number' ではないため、要素は暗黙的に 'any' 型になります。
 ```
 
 ### アンビエント列挙型
@@ -2054,23 +2054,23 @@ TypeScript のアンビエント列挙型は、関連する実装を持たずに
 TypeScript の計算メンバーは実行時に値が計算される列挙型のメンバーであり、定数メンバーはコンパイル時に値が設定され、実行時には変更できないメンバーです。計算メンバーは通常の列挙型で使用でき、定数メンバーは通常の列挙型と const 列挙型の両方で使用できます。
 
 ```typescript
-// Constant members
+// 定数メンバー
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6 コンパイル時に生成
 ```
 
 ```typescript
-// Computed members
+// 計算メンバー
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // 実行時に生成される乱数
 ```
 
 列挙型は、そのメンバー型から構成されるユニオンで表されます。各メンバーの値は定数式または非定数式によって決定でき、定数値を持つメンバーにはリテラル型が割り当てられます。例として、型 E とそのサブタイプ E.A、E.B、E.C の宣言を考えてみましょう。この場合、E はユニオン E.A | E.B | E.C を表します。
@@ -2079,9 +2079,9 @@ console.log(Color.Blue); // random number generated at run time
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // 数値リテラル
+    B = 'bar', // 文字列リテラル
+    C = identity(42), // 不透明な計算値
 }
 
 console.log(E.C); //42
@@ -2100,7 +2100,7 @@ typeof 型ガードは、組み込みの JavaScript 型に基づいて変数の�
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x は number
     }
     return -1;
 };
@@ -2239,7 +2239,7 @@ const f2 = (
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // エラー。isString が const ではないため絞り込まれない
     }
 };
 
@@ -2249,7 +2249,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // エラー。関数本体で obj に代入しているため絞り込まれない
     }
 };
 ```
@@ -2284,12 +2284,12 @@ TypeScript の判別可能なユニオンは、判別子と呼ばれる共通の
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // 判別子
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // 判別子
     radius: number;
 };
 
@@ -2322,7 +2322,7 @@ const printValue = (val: string | number) => {
     } else if (typeof val === 'number') {
         console.log(val.toFixed(2));
     } else {
-        // val has type never here because it can never be anything other than a string or a number
+        // val は string または number 以外になり得ないため、ここでは never 型
         const neverVal: never = val;
         console.log(`Unexpected value: ${neverVal}`);
     }
@@ -2346,7 +2346,7 @@ const move = (direction: Direction) => {
             break;
         default:
             const exhaustiveCheck: never = direction;
-            console.log(exhaustiveCheck); // This line will never be executed
+            console.log(exhaustiveCheck); // この行は実行されない
     }
 };
 ```
@@ -2401,7 +2401,7 @@ type Point = [number, number];
 type T = string;
 type Tuple1 = [T, T];
 type Tuple2 = [a: T, b: T];
-type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
+type Tuple3 = [a: T, T]; // 名前付きタプルと匿名タプルの組み合わせ
 ```
 
 ## 固定長タプル
@@ -2413,7 +2413,7 @@ type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // エラー
 ```
 
 ## ユニオン型
@@ -2422,8 +2422,8 @@ x.push(2); // Error
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // 有効
+x = 123; // 有効
 ```
 
 ## 交差型
@@ -2439,7 +2439,7 @@ type Y = {
     b: string;
 };
 
-type J = X & Y; // Intersection
+type J = X & Y; // 交差
 
 const j: J = {
     a: 'a',
@@ -2456,7 +2456,7 @@ type Dictionary<T> = {
     [key: string]: T;
 };
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-console.log(myDict['a']); // Returns a
+console.log(myDict['a']); // a を返す
 ```
 
 ## 値から型を取得する
@@ -2464,7 +2464,7 @@ console.log(myDict['a']); // Returns a
 TypeScript で値から型を取得するとは、型推論を通じて値または式から型が自動的に推論されることを指します。
 
 ```typescript
-const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immutable), but widens it to 'string' with 'let' (reassignable).
+const x = 'x'; // TypeScript は 'const' (不変) では 'x' を文字列リテラル型と推論するが、'let' (再代入可能) では 'string' に拡大する。
 ```
 
 ## 関数の戻り値から型を取得する
@@ -2472,7 +2472,7 @@ const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immuta
 関数の戻り値から型を取得するとは、実装に基づいて関数の戻り値の型を自動的に推論する機能を指します。これにより TypeScript は、明示的な型アノテーションがなくても、関数が返す値の型を判断できます。
 
 ```typescript
-const add = (x: number, y: number) => x + y; // TypeScript can infer that the return type of the function is a number
+const add = (x: number, y: number) => x + y; // TypeScript は関数の戻り値の型を number と推論できる
 ```
 
 ## モジュールから型を取得する
@@ -2485,7 +2485,7 @@ const add = (x: number, y: number) => x + y; // TypeScript can infer that the re
 export const add = (x: number, y: number) => x + y;
 // index.ts
 import { add } from 'calc';
-const r = add(1, 2); // r is number
+const r = add(1, 2); // r は number
 ```
 
 ## マップ型
@@ -2521,11 +2521,11 @@ TypeScript のマップ型の修飾子を使用すると、既存の型内のプ
 例:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // すべてのプロパティを読み取り専用にする
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // すべてのプロパティを変更可能にする
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // すべてのプロパティをオプショナルにする
 ```
 
 ## 条件型
@@ -2538,8 +2538,8 @@ type IsArray<T> = T extends any[] ? true : false;
 const myArray = [1, 2, 3];
 const myNumber = 42;
 
-type IsMyArrayAnArray = IsArray<typeof myArray>; // Type true
-type IsMyNumberAnArray = IsArray<typeof myNumber>; // Type false
+type IsMyArrayAnArray = IsArray<typeof myArray>; // 型は true
+type IsMyNumberAnArray = IsArray<typeof myNumber>; // 型は false
 ```
 
 ## 分配条件型
@@ -2605,8 +2605,8 @@ type ProductId = `id-${Products}-${Status}`; // "id-p1-active" | "id-p1-inactive
 
 ```typescript
 let value: any;
-value = true; // Valid
-value = 7; // Valid
+value = true; // 有効
+value = 7; // 有効
 ```
 
 ## unknown 型
@@ -2619,10 +2619,10 @@ TypeScript の `unknown` 型は、型が不明な値を表します。あらゆ�
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // 有効
+let value2: any = value; // 有効
+let value3: boolean = value; // 無効
+let value4: number = value; // 無効
 ```
 
 ```typescript
@@ -2651,7 +2651,7 @@ const sayHello = (): void => {
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // 何らかの処理を行う
     }
 };
 ```
@@ -2671,10 +2671,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // 上に移動
             break;
         case 'down':
-            // move down
+            // 下に移動
             break;
         default:
             const exhaustiveCheck: never = direction;
@@ -2739,10 +2739,10 @@ TypeScript では、型を使用してデータの構造を定義し、型チェ
 ### 基本型
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myNumber: number = 123; // number 型
+let myBoolean: boolean = true; // boolean 型
+let myArray: string[] = ['a', 'b']; // 文字列の配列
+let myTuple: [string, number] = ['a', 123]; // タプル
 ```
 
 ### オブジェクトとインターフェース
@@ -2754,14 +2754,14 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### ユニオン型と交差型
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // ユニオン型
+let myUnion: MyType = 'hello'; // 文字列にできる
+myUnion = 123; // または数値にできる
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // 交差型
+let myCombined: CombinedType = { name: 'John', age: 25 }; // name と age の両方のプロパティを持つオブジェクト
 ```
 
 ## 組み込みのプリミティブ型
@@ -2807,11 +2807,11 @@ TypeScript は JavaScript のスーパーセットであり、一般的に使用
 TypeScript の関数オーバーロードを使用すると、1 つの関数名に対して複数の関数シグネチャを定義でき、複数の方法で呼び出せる関数を定義できます。例を次に示します。
 
 ```typescript
-// Overloads
+// オーバーロード
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// 実装
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -2821,8 +2821,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // 有効
+sayHi(['aa', 'bb']); // 有効
 ```
 
 `class` 内で関数オーバーロードを使用する別の例を次に示します。
@@ -2835,11 +2835,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // オーバーロード
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // 実装
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;
@@ -2958,7 +2958,7 @@ const c: B = {
 ユニオン型と交差型を定義する場合、型のほうが柔軟です。`type` キーワードを使用すると、`|` 演算子でユニオン型を、`&` 演算子で交差型を簡単に作成できます。インターフェースでも間接的にユニオン型を表現できますが、交差型の組み込みサポートはありません。
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // ユニオン
 
 type Person = {
     name: string;
@@ -2970,7 +2970,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // 交差
 ```
 
 インターフェースを使用した例:
@@ -2983,7 +2983,7 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // インターフェースのユニオン
 ```
 
 ## クラス
@@ -3021,7 +3021,7 @@ TypeScript でクラスのインスタンスを作成するには、`new` キー
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // 出力: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### コンストラクター
@@ -3125,10 +3125,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// 基底クラスを直接インスタンス化しようとするとエラーになる
+// const baseObj = new BaseClass(); // エラー: クラス 'BaseClass' のコンストラクターは protected です。
 
-// Create an instance of the derived class
+// 派生クラスのインスタンスを作成
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -3227,8 +3227,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // コンストラクター内の "private" と "public" キーワードは
+        // 対応するクラスプロパティを自動的に宣言して初期化する。
     }
     public introduce(): void {
         console.log(
@@ -3263,7 +3263,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // 出力: Whiskers meows.
 ```
 
 ### ジェネリクスを使用するクラス
@@ -3351,7 +3351,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* ログ出力:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -3376,7 +3376,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // ログ出力: HELLO!
 ```
 
 #### メソッドデコレーター
@@ -3458,10 +3458,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // 有効: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // スロー: Invalid!
 ```
 
 #### デコレーターメタデータ
@@ -3473,15 +3473,15 @@ console.log(obj2.getValue); // Throw: Invalid!
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // 簡単なポリフィル
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // コンテキストはプロパティ metadata を含む: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // メタデータオブジェクトにプリミティブ値を設定
     context.metadata[context.name] = true;
 }
 
@@ -3496,7 +3496,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // メタデータ情報を取得
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -3531,11 +3531,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// 基底クラスのインスタンスを作成
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// 派生クラスのインスタンスを作成
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -3625,7 +3625,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // プロパティに値を明示的に代入する必要はない。
     }
     log() {
         console.log(this.property2);
@@ -3641,8 +3641,8 @@ x.log();
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // オーバーロードシグネチャ 1
+    add(a: string, b: string): string; // オーバーロードシグネチャ 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -3656,7 +3656,7 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // ログ出力 15
 ```
 
 ## ジェネリクス
@@ -3719,7 +3719,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // 無効
 ```
 
 バージョン 3.4 RC で導入された注目すべきジェネリック機能の 1 つに、ジェネリック型引数を伝播する高階関数の型推論があります。
@@ -3746,10 +3746,10 @@ const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // 値は型 'string' に絞り込まれる
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // 値は型 'number' に絞り込まれる
         console.log(value.toFixed(2));
     }
 }
@@ -3777,7 +3777,7 @@ const obj = {
     prop1: 'Origin',
 };
 
-log(obj); // Valid
+log(obj); // 有効
 ```
 
 ## 名前空間
@@ -3861,7 +3861,7 @@ WeakMap と WeakSet では、シンボルをキーとして使用できるよう
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // A と B の交差
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -3887,7 +3887,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // プロパティが読み取り専用になる
 ```
 
 条件型:
@@ -3970,7 +3970,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // 無効
 ```
 
 #### Record\<K, T\>
@@ -4139,8 +4139,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // 有効。"log" は "this" の一部であるため。
+        this.update(); // 無効
     },
 };
 ```
@@ -4184,23 +4184,23 @@ NoInfer は、ジェネリック関数のスコープ内で型が自動推論さ
 例:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// ジェネリック関数のスコープ内での型の自動推論。
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // ここでの型は ("a" | "b" | "c")[]
 ```
 
 NoInfer を使用する場合:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// NoInfer を使用して型推論を防ぐ関数の例
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // エラー: 型 '"c"' の引数を型 '"a" | "b"' のパラメーターに割り当てることはできません。
 ```
 
 ## その他
@@ -4213,11 +4213,11 @@ Try-Catch-Finally ブロック:
 
 ```typescript
 try {
-    // Code that might throw an error
+    // エラーをスローする可能性のあるコード
 } catch (error) {
-    // Handle the error
+    // エラーを処理
 } finally {
-    // Code that always executes, finally is optional
+    // 常に実行されるコード。finally は省略可能
 }
 ```
 
@@ -4225,14 +4225,14 @@ try {
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // さまざまな型のエラーをスローする可能性のあるコード
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // TypeError を処理
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // RangeError を処理
     } else {
-        // Handle other errors
+        // その他のエラーを処理
     }
 }
 ```
@@ -4278,10 +4278,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// MyClass を拡張し、Identifiable と Selectable の振る舞いを含める
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// クラスにミックスインを適用する関数
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -4296,7 +4296,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// MyClass にミックスインを適用
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -4411,10 +4411,10 @@ JavaScript のコードベースを扱う場合、型情報を提供する追加
 
 ```typescript
 /**
- * Computes the power of a given number
+ * 指定した数値の累乗を計算
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – 式の底の値
+ * @param {number} exponent – 式の指数の値
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -4510,7 +4510,7 @@ TypeScript では `new.target` メタプロパティを使用できます。こ�
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // インスタンスの作成に使用されたコンストラクター関数をログ出力
     }
 }
 
@@ -4535,7 +4535,7 @@ TypeScript における動的 import 式の構文は次のとおりです。
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // 動的インポート
         widget.render(container);
     }
 }
@@ -4847,8 +4847,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // 有効
+produceDog = produceAnimal; // エラー
 ```
 
 **反変性（値を受け取る）:** どんな `Animal` も受け取れる関数は、`Dog` を受け取る関数が必要な場所で使用できます。犬にも対応できますが、犬専用の関数ですべての動物を安全に処理することはできません。
@@ -4860,8 +4860,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // 有効
+consumeAnimal = consumeDog; // strictFunctionTypes が有効な場合はエラー
 ```
 
 矢印は安全に代入できる方向を示します。
@@ -4877,8 +4877,8 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // 許可されるが安全ではない
+// dogs に Dog ではない Animal が含まれるようになる。
 ```
 
 **コンパイラオプション:** `strictFunctionTypes` を有効にすると、独立した関数のパラメーターは反変的にチェックされます。無効の場合、安全でなくても両方向が許容されることがあります（双変性）。メソッドとコンストラクターのパラメーター宣言は、厳密な関数パラメーターのチェックの例外です。
@@ -4931,37 +4931,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// `User` による型アノテーション
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// 以下の行では、TypeScript は適切に推論できない
+user.attributes?.map(console.log); // プロパティ 'map' は型 'string | string[]' に存在しません。プロパティ 'map' は型 'string' に存在しません。
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// `as` による型アサーション
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// ここでも、TypeScript は適切に推論できない
+user2.attributes?.map(console.log); // プロパティ 'map' は型 'string | string[]' に存在しません。プロパティ 'map' は型 'string' に存在しません。
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// `satisfies` 演算子を使うと、型を適切に推論できる
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript は正しく推論する: string[]
+user3.nickName; // TypeScript は正しく推論する: undefined
 ```
 
 ### 型のみのインポートとエクスポート
@@ -5015,7 +5015,7 @@ export type { T } from './mod';
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // 簡単なポリフィル
 
 const doWork = (): Disposable => {
     return {
@@ -5028,9 +5028,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // リソースを宣言
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // リソースを破棄 (例: `work[Symbol.dispose]()` を評価)
 
 console.log(3);
 ```
@@ -5061,7 +5061,7 @@ interface Disposable {
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // `C`、`B`、`A` の順に破棄。
 ```
 
 後続のコードが実行された場合や例外が発生した場合でも、リソースは確実に破棄されます。そのため、破棄時に例外がスローされ、別の例外が抑制される可能性があります。抑制されたエラーの情報を保持するため、新しいネイティブ例外 `SuppressedError` が導入されています。
@@ -5073,8 +5073,8 @@ interface Disposable {
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // リソースを宣言
+} // リソースを破棄 (例: `await work[Symbol.asyncDispose]()` を評価)
 ```
 
 非同期に破棄可能なリソースは、`Disposable` または `AsyncDisposable` インターフェースのいずれかに準拠している必要があります。
@@ -5089,12 +5089,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // 簡単なポリフィル
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // オブジェクトが非同期に破棄されるときに呼び出されるメソッド
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // 接続を閉じ、Promise を返す
         return this.close();
     }
 
@@ -5106,10 +5106,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // 新しい接続を作成し、スコープを抜けるときに非同期に破棄
+    await using connection = new DatabaseConnection(); //  リソースを宣言
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // リソースを破棄 (例: `await connection[Symbol.asyncDispose]()` を評価)
 
 doWork();
 ```
@@ -5148,7 +5148,7 @@ TypeScript 5.5.4 以降、コンパイル時に正規表現リテラルの一般
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // エラー: この後方参照は存在しないグループを参照しています。
 ```
 
 ### import defer

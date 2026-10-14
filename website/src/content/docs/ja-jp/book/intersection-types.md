@@ -17,7 +17,7 @@ type Y = {
     b: string;
 };
 
-type J = X & Y; // Intersection
+type J = X & Y; // 交差
 
 const j: J = {
     a: 'a',

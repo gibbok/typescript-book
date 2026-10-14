@@ -13,6 +13,6 @@ sidebar:
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // エラー
 ```
 
