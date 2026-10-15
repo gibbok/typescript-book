@@ -465,8 +465,9 @@ Les assertions de type peuvent également être utilisées pour remapper des cl�
 
 ```typescript
 type J<Type> = {
-    [Property in keyof Type as `prefix_${string &
-        Property}`]: () => Type[Property];
+    [
+        Property in keyof Type as `prefix_${string & Property}`
+    ]: () => Type[Property];
 };
 type X = {
     a: string;

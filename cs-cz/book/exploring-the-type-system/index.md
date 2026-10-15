@@ -465,8 +465,9 @@ Přetypování lze použít také k přemapování klíčů, jak ukazuje příkl
 
 ```typescript
 type J<Type> = {
-    [Property in keyof Type as `prefix_${string &
-        Property}`]: () => Type[Property];
+    [
+        Property in keyof Type as `prefix_${string & Property}`
+    ]: () => Type[Property];
 };
 type X = {
     a: string;

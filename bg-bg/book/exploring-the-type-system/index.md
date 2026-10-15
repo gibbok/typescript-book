@@ -465,8 +465,9 @@ Type assertions могат също да се използват за прена
 
 ```typescript
 type J<Type> = {
-    [Property in keyof Type as `prefix_${string &
-        Property}`]: () => Type[Property];
+    [
+        Property in keyof Type as `prefix_${string & Property}`
+    ]: () => Type[Property];
 };
 type X = {
     a: string;
