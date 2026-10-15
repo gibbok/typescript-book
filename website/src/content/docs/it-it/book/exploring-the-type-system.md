@@ -471,8 +471,9 @@ Le asserzioni di tipo possono anche essere utilizzate per rimappare le chiavi, c
 
 ```typescript
 type J<Type> = {
-    [Property in keyof Type as `prefix_${string &
-        Property}`]: () => Type[Property];
+    [
+        Property in keyof Type as `prefix_${string & Property}`
+    ]: () => Type[Property];
 };
 type X = {
     a: string;
