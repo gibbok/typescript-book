@@ -35,7 +35,7 @@ const main = async () => {
     const options = await getPrettierOptions()
 
     for (const language of languages) {
-        lintCodeBlocksInMarkdownFile(makeFilePath(language), options, language);
+        await lintCodeBlocksInMarkdownFile(makeFilePath(language), options, language);
     }
 }
 

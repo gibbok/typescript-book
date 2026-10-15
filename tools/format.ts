@@ -27,7 +27,7 @@ const main = async () => {
     const options = await getPrettierOptions()
 
     for (const language of languages) {
-        formatCodeBlocksInMarkdownFile(makeFilePath(language), options, language);
+        await formatCodeBlocksInMarkdownFile(makeFilePath(language), options, language);
     }
 }
 
