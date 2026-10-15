@@ -469,8 +469,9 @@ Type assertions can also be used to remap keys, as shown in the example below wi
 
 ```typescript
 type J<Type> = {
-    [Property in keyof Type as `prefix_${string &
-        Property}`]: () => Type[Property];
+    [
+        Property in keyof Type as `prefix_${string & Property}`
+    ]: () => Type[Property];
 };
 type X = {
     a: string;

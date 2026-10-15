@@ -469,8 +469,9 @@ Asserções de tipo também podem ser usadas para remapear chaves, conforme most
 
 ```typescript
 type J<Type> = {
-    [Property in keyof Type as `prefix_${string &
-        Property}`]: () => Type[Property];
+    [
+        Property in keyof Type as `prefix_${string & Property}`
+    ]: () => Type[Property];
 };
 type X = {
     a: string;
