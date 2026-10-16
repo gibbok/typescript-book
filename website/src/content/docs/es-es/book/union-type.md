@@ -10,7 +10,7 @@ Un tipo de unión representa un valor que puede pertenecer a varios tipos. Se in
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // Válido
+x = 123; // Válido
 ```
 

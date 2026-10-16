@@ -67,14 +67,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 Typový systém TypeScriptu je do značné míry ovlivněn chováním JavaScriptu za běhu. Například operátor sčítání (+), který v JavaScriptu může provádět buď spojování řetězců, nebo sčítání čísel, je v TypeScriptu modelován stejným způsobem:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // Výsledek je typu string
 ```
 
 Tým stojící za TypeScriptem se záměrně rozhodl označovat neobvyklé použití JavaScriptu za chyby. Uvažujme například následující platný kód JavaScriptu:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // V JavaScriptu je výsledek roven 2
 ```
 
 TypeScript však ohlásí chybu:
@@ -93,7 +93,7 @@ Zde je příklad kódu TypeScriptu s typovou chybou:
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // Argument typu 'string' nelze přiřadit parametru typu 'number'.
 ```
 
 Přesto může vzniknout spustitelný výstup v JavaScriptu:
@@ -120,7 +120,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' označuje pouze typ, ale zde se používá jako hodnota.
         // ...
     }
 };
@@ -130,11 +130,11 @@ Protože jsou typy po kompilaci odstraněny, nelze tento kód spustit v JavaScri
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Diskriminované sjednocení
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Diskriminované sjednocení
     meow: () => void;
 }
 type Animal = Dog | Cat;

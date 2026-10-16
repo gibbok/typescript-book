@@ -24,7 +24,7 @@ enum Color {
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // значение начинается с 0
     Medium,
     Large,
 }
@@ -120,7 +120,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // Элемент неявно имеет тип 'any', поскольку индексное выражение не имеет тип 'number'.
 ```
 
 ### Внешние перечисления
@@ -132,23 +132,23 @@ console.log(Grade[failGrade]); // Element implicitly has an 'any' type because i
 В TypeScript вычисляемый член — это член перечисления, значение которого вычисляется во время выполнения, тогда как константный член — это член, значение которого задаётся во время компиляции и не может быть изменено во время выполнения. Вычисляемые члены разрешены в обычных перечислениях, а константные — как в обычных, так и в константных перечислениях.
 
 ```typescript
-// Constant members
+// Константные члены
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6, вычисляется во время компиляции
 ```
 
 ```typescript
-// Computed members
+// Вычисляемые члены
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // случайное число, сгенерированное во время выполнения
 ```
 
 Перечисления представлены объединениями, состоящими из типов их членов. Значения каждого члена могут определяться константными или неконстантными выражениями, при этом членам с константными значениями назначаются литеральные типы. Для примера рассмотрим объявление типа E и его подтипов E.A, E.B и E.C. В данном случае E представляет объединение E.A | E.B | E.C.
@@ -157,9 +157,9 @@ console.log(Color.Blue); // random number generated at run time
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // Числовой литерал
+    B = 'bar', // Строковый литерал
+    C = identity(42), // Непрозрачное вычисляемое значение
 }
 
 console.log(E.C); //42

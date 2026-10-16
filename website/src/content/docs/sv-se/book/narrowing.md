@@ -17,7 +17,7 @@ typeof-typvakten är en specifik typvakt i TypeScript som kontrollerar typen av 
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x har typen number
     }
     return -1;
 };

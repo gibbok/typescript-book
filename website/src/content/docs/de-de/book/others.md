@@ -14,11 +14,11 @@ Try-Catch-Finally-Blöcke:
 
 ```typescript
 try {
-    // Code that might throw an error
+    // Code, der einen Fehler auslösen kann
 } catch (error) {
-    // Handle the error
+    // Den Fehler behandeln
 } finally {
-    // Code that always executes, finally is optional
+    // Code, der immer ausgeführt wird, finally ist optional
 }
 ```
 
@@ -26,14 +26,14 @@ Sie können auch verschiedene Fehlertypen behandeln:
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // Code, der verschiedene Fehlertypen auslösen kann
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // TypeError behandeln
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // RangeError behandeln
     } else {
-        // Handle other errors
+        // Andere Fehler behandeln
     }
 }
 ```
@@ -79,10 +79,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// MyClass um das Verhalten von Identifiable und Selectable erweitern
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// Funktion zum Anwenden von Mixins auf eine Klasse
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -97,7 +97,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// Die Mixins auf MyClass anwenden
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -212,10 +212,10 @@ Beispiel:
 
 ```typescript
 /**
- * Computes the power of a given number
+ * Berechnet die Potenz einer gegebenen Zahl
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – Der Basiswert des Ausdrucks
+ * @param {number} exponent – Der Exponent des Ausdrucks
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -311,7 +311,7 @@ Sie können die Metaeigenschaft `new.target` in TypeScript verwenden, um festzus
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // Gibt die zum Erstellen einer Instanz verwendete Konstruktorfunktion aus
     }
 }
 
@@ -336,7 +336,7 @@ Die Syntax für dynamische Importausdrücke in TypeScript lautet wie folgt:
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // Dynamischer Import
         widget.render(container);
     }
 }
@@ -648,8 +648,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // Gültig
+produceDog = produceAnimal; // Fehler
 ```
 
 **Kontravarianz (Entgegennehmen):** Eine Funktion, die jedes `Animal` akzeptiert, kann eine Funktion ersetzen, die einen `Dog` akzeptiert. Sie kann auch Hunde verarbeiten; eine Funktion nur für Hunde kann nicht jedes Tier sicher verarbeiten.
@@ -661,8 +661,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // Gültig
+consumeAnimal = consumeDog; // Fehler mit strictFunctionTypes
 ```
 
 Die Pfeile zeigen die Richtung sicherer Zuweisungen:
@@ -678,8 +678,8 @@ Die Pfeile zeigen die Richtung sicherer Zuweisungen:
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // Erlaubt, aber unsicher
+// dogs enthält nun ein Animal, das kein Dog ist.
 ```
 
 **Compiler-Option:** Mit `strictFunctionTypes` werden Parameter eigenständiger Funktionen kontravariant geprüft. Ohne diese Option kann TypeScript beide Richtungen zulassen (Bivarianz), auch wenn dies unsicher ist. Parameter in Methoden- und Konstruktordeklarationen bilden eine Ausnahme.
@@ -716,7 +716,7 @@ const obj: MyObject = {
     'key-b': 456,
 };
 
-console.log(obj[uniqueSymbol]); // Unique symbol key
+console.log(obj[uniqueSymbol]); // Eindeutiger Symbolschlüssel
 console.log(obj['key-a']); // 123
 console.log(obj['key-b']); // 456
 ```
@@ -732,37 +732,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// Typannotation mit `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// In den folgenden Zeilen kann TypeScript die Typen nicht korrekt ableiten
+user.attributes?.map(console.log); // Die Eigenschaft 'map' existiert nicht für den Typ 'string | string[]'. Die Eigenschaft 'map' existiert nicht für den Typ 'string'.
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// Typzusicherung mit `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Auch hier kann TypeScript die Typen nicht korrekt ableiten
+user2.attributes?.map(console.log); // Die Eigenschaft 'map' existiert nicht für den Typ 'string | string[]'. Die Eigenschaft 'map' existiert nicht für den Typ 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// Mit dem Operator `satisfies` können wir die Typen nun korrekt ableiten
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript leitet korrekt ab: string[]
+user3.nickName; // TypeScript leitet korrekt ab: undefined
 ```
 
 ### Type-Only Imports und Export
@@ -816,7 +816,7 @@ Beispiel:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Einfacher Polyfill
 
 const doWork = (): Disposable => {
     return {
@@ -829,9 +829,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // Ressource wird deklariert
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // Ressource wird freigegeben (z. B. wird `work[Symbol.dispose]()` ausgewertet)
 
 console.log(3);
 ```
@@ -862,7 +862,7 @@ Die `using`-Deklarationen speichern die Operationen zur Ressourcenfreigabe in ei
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // gibt `C`, dann `B`, dann `A` frei.
 ```
 
 Die Freigabe von Ressourcen ist auch dann garantiert, wenn nachfolgender Code ausgeführt wird oder Ausnahmen auftreten. Dies kann dazu führen, dass die Freigabe selbst eine Ausnahme auslöst und dabei möglicherweise eine andere unterdrückt. Um Informationen zu unterdrückten Fehlern zu erhalten, wird die neue native Ausnahme `SuppressedError` eingeführt.
@@ -874,8 +874,8 @@ Eine `await using`-Deklaration verarbeitet eine asynchron freizugebende Ressourc
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // Ressource wird deklariert
+} // Ressource wird freigegeben (z. B. wird `await work[Symbol.asyncDispose]()` ausgewertet)
 ```
 
 Eine asynchron freizugebende Ressource muss entweder dem Interface `Disposable` oder `AsyncDisposable` entsprechen:
@@ -890,12 +890,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Einfacher Polyfill
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // Eine Methode, die beim asynchronen Freigeben des Objekts aufgerufen wird
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // Die Verbindung schließen und ein Promise zurückgeben
         return this.close();
     }
 
@@ -907,10 +907,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // Eine neue Verbindung erstellen und beim Verlassen des Gültigkeitsbereichs asynchron freigeben
+    await using connection = new DatabaseConnection(); //  Ressource wird deklariert
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Ressource wird freigegeben (z. B. wird `await connection[Symbol.asyncDispose]()` ausgewertet)
 
 doWork();
 ```
@@ -949,7 +949,7 @@ Seit TypeScript 5.5.4 werden Regex-Literale zur Kompilierzeit auf häufige Fehle
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // Fehler: Dieser Rückverweis verweist auf eine nicht vorhandene Gruppe.
 ```
 
 ### import defer

@@ -67,14 +67,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 El sistema de tipos de TypeScript está influido en gran medida por el comportamiento de JavaScript en tiempo de ejecución. Por ejemplo, el operador de suma (+), que en JavaScript puede realizar tanto una concatenación de cadenas como una suma numérica, se modela del mismo modo en TypeScript:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // El resultado es de tipo string
 ```
 
 El equipo responsable de TypeScript tomó la decisión deliberada de señalar como errores los usos inusuales de JavaScript. Por ejemplo, considera el siguiente código JavaScript válido:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // En JavaScript, el resultado es igual a 2
 ```
 
 Sin embargo, TypeScript genera un error:
@@ -93,7 +93,7 @@ Este es un ejemplo de código TypeScript con un error de tipos:
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // El argumento de tipo 'string' no se puede asignar al parámetro de tipo 'number'.
 ```
 
 Sin embargo, aún puede producir una salida de JavaScript ejecutable:
@@ -120,7 +120,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' solo hace referencia a un tipo, pero aquí se utiliza como valor.
         // ...
     }
 };
@@ -130,11 +130,11 @@ Como los tipos se eliminan después de la compilación, no hay forma de ejecutar
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Unión discriminada
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Unión discriminada
     meow: () => void;
 }
 type Animal = Dog | Cat;

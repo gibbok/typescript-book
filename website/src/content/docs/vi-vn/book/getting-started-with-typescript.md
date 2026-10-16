@@ -75,9 +75,9 @@ Khi thực thi lệnh `tsc` cục bộ, TypeScript sẽ biên dịch mã bằng 
 Dưới đây là một số ví dụ về lệnh CLI chạy với thiết lập mặc định:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // Biên dịch một tệp cụ thể (main.ts) sang JavaScript
+tsc src/*.ts // Biên dịch mọi tệp .ts trong thư mục 'src' sang JavaScript
+tsc app.ts util.ts --outfile index.js // Biên dịch hai tệp TypeScript (app.ts và util.ts) thành một tệp JavaScript duy nhất (index.js)
 ```
 
 ### Tệp cấu hình TypeScript

@@ -75,9 +75,9 @@ Podczas lokalnego wykonywania polecenia `tsc` TypeScript skompiluje kod przy uż
 Oto kilka przykładów poleceń interfejsu wiersza poleceń uruchamianych z ustawieniami domyślnymi:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // Skompiluj wskazany plik (main.ts) do JavaScript
+tsc src/*.ts // Skompiluj pliki .ts z folderu 'src' do JavaScript
+tsc app.ts util.ts --outfile index.js // Skompiluj dwa pliki TypeScript (app.ts i util.ts) do jednego pliku JavaScript (index.js)
 ```
 
 ### Plik konfiguracyjny TypeScript

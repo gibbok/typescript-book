@@ -16,7 +16,7 @@ Použitím typu `any` dáváte kompilátoru TypeScriptu najevo, že hodnoty maj�
 
 ```typescript
 let value: any;
-value = true; // Valid
-value = 7; // Valid
+value = true; // Platné
+value = 7; // Platné
 ```
 

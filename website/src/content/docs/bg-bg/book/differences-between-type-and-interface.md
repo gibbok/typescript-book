@@ -66,7 +66,7 @@ Union и Intersection типове:
 Types са по-гъвкави при дефиниране на Union и Intersection типове. С ключовата дума `type` можете лесно да създавате union типове чрез оператора `|` и intersection типове чрез оператора `&`. Докато interfaces могат индиректно да представят union типове, те нямат вградена поддръжка за intersection типове.
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // Обединение
 
 type Person = {
     name: string;
@@ -78,7 +78,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // Сечение
 ```
 
 Пример с interfaces:
@@ -91,6 +91,6 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union от interfaces
+type C = A | B; // Обединение на интерфейси
 ```
 

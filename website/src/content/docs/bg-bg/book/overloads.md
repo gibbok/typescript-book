@@ -9,11 +9,11 @@ sidebar:
 Function overloads в TypeScript позволяват да дефинирате множество сигнатури на функция за едно и също име на функция, което позволява тя да бъде извиквана по различни начини. Ето пример:
 
 ```typescript
-// Overloads
+// Претоварвания
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// Реализация
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -37,11 +37,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // претоварване
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // реализация
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;

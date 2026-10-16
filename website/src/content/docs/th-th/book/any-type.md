@@ -16,7 +16,7 @@ sidebar:
 
 ```typescript
 let value: any;
-value = true; // Valid
-value = 7; // Valid
+value = true; // ถูกต้อง
+value = 7; // ถูกต้อง
 ```
 

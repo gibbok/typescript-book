@@ -13,7 +13,7 @@ Například nekonečná smyčka:
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // provést nějakou akci
     }
 };
 ```
@@ -33,10 +33,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // posunout nahoru
             break;
         case 'down':
-            // move down
+            // posunout dolů
             break;
         default:
             const exhaustiveCheck: never = direction;

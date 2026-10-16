@@ -75,9 +75,9 @@ Al ejecutar localmente el comando `tsc`, TypeScript compilará el código con la
 Estos son algunos ejemplos de comandos de la CLI que se ejecutan con la configuración predeterminada:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // Compila un archivo específico (main.ts) a JavaScript
+tsc src/*.ts // Compila todos los archivos .ts de la carpeta 'src' a JavaScript
+tsc app.ts util.ts --outfile index.js // Compila dos archivos TypeScript (app.ts y util.ts) en un único archivo JavaScript (index.js)
 ```
 
 ### Archivo de configuración de TypeScript

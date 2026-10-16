@@ -24,7 +24,7 @@ W TypeScript wyliczenie liczbowe to `enum`, w którym każdej stałej przypisana
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // wartość zaczyna się od 0
     Medium,
     Large,
 }
@@ -120,7 +120,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // Element ma niejawnie typ 'any', ponieważ wyrażenie indeksujące nie jest typu 'number'.
 ```
 
 ### Wyliczenia ambientowe
@@ -132,23 +132,23 @@ Wyliczenie ambientowe w TypeScript to rodzaj `enum` zdefiniowanego w pliku dekla
 W TypeScript element wyliczany to element `enum`, którego wartość jest obliczana w czasie wykonywania, natomiast element stały to element, którego wartość jest ustawiana w czasie kompilacji i nie może zostać zmieniona w czasie wykonywania. Elementy wyliczane są dozwolone w zwykłych wyliczeniach, natomiast elementy stałe są dozwolone zarówno w zwykłych wyliczeniach, jak i w `const enum`.
 
 ```typescript
-// Constant members
+// Składowe stałe
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6, generowane podczas kompilacji
 ```
 
 ```typescript
-// Computed members
+// Składowe obliczane
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // liczba losowa generowana podczas działania programu
 ```
 
 Wyliczenia są reprezentowane przez unie złożone z typów ich elementów. Wartości każdego elementu można określić za pomocą wyrażeń stałych lub niestałych, przy czym elementom o wartościach stałych przypisywane są typy literałowe. Dla zobrazowania rozważmy deklarację typu E i jego podtypów E.A, E.B oraz E.C. W tym przypadku E reprezentuje unię E.A | E.B | E.C.
@@ -157,9 +157,9 @@ Wyliczenia są reprezentowane przez unie złożone z typów ich elementów. Wart
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // Literał liczbowy
+    B = 'bar', // Literał tekstowy
+    C = identity(42), // Nieprzejrzysta wartość obliczana
 }
 
 console.log(E.C); //42

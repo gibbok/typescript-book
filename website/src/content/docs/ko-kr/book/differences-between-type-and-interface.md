@@ -66,7 +66,7 @@ const c: B = {
 유니온 타입과 인터섹션 타입을 정의할 때는 타입 별칭이 더 유연합니다. `type` 키워드를 사용하면 `|` 연산자로 유니온 타입을, `&` 연산자로 인터섹션 타입을 쉽게 만들 수 있습니다. 인터페이스도 유니온 타입을 간접적으로 나타낼 수 있지만 인터섹션 타입을 기본적으로 지원하지 않습니다.
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // 유니온
 
 type Person = {
     name: string;
@@ -78,7 +78,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // 인터섹션
 ```
 
 인터페이스를 사용한 예제:
@@ -91,6 +91,6 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // 인터페이스의 유니온
 ```
 

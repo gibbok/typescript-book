@@ -11,7 +11,7 @@ Objekt může určit volitelné vlastnosti přidáním otazníku `?` na konec n�
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // Volitelné
 };
 ```
 

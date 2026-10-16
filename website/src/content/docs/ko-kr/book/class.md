@@ -39,7 +39,7 @@ TypeScript에서 클래스의 인스턴스를 만들려면 `new` 키워드 다�
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // 출력: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### 생성자
@@ -143,10 +143,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// 기본 클래스의 인스턴스를 직접 생성하려고 하면 오류 발생
+// const baseObj = new BaseClass(); // 오류: 'BaseClass' 클래스의 생성자는 protected입니다.
 
-// Create an instance of the derived class
+// 파생 클래스의 인스턴스 생성
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -245,8 +245,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // 생성자의 "private"와 "public" 키워드는
+        // 해당 클래스 프로퍼티를 자동으로 선언하고 초기화합니다.
     }
     public introduce(): void {
         console.log(
@@ -281,7 +281,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // 출력: Whiskers meows.
 ```
 
 ### 제네릭과 함께 사용하기
@@ -369,7 +369,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* 로그 출력:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -394,7 +394,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // 로그 출력: HELLO!
 ```
 
 #### 메서드 데코레이터
@@ -476,10 +476,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // 유효함: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // 예외 발생: Invalid!
 ```
 
 #### 데코레이터 메타데이터
@@ -491,15 +491,15 @@ console.log(obj2.getValue); // Throw: Invalid!
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // 간단한 폴리필
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // 컨텍스트는 metadata 프로퍼티를 포함함: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // 메타데이터 객체에 원시값 설정
     context.metadata[context.name] = true;
 }
 
@@ -514,7 +514,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // 메타데이터 정보 가져오기
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -549,11 +549,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// 기본 클래스의 인스턴스 생성
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// 파생 클래스의 인스턴스 생성
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -643,7 +643,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // 프로퍼티에 값을 명시적으로 할당할 필요가 없습니다.
     }
     log() {
         console.log(this.property2);
@@ -659,8 +659,8 @@ x.log();
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // 오버로드 시그니처 1
+    add(a: string, b: string): string; // 오버로드 시그니처 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -674,6 +674,6 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // 로그 출력 15
 ```
 

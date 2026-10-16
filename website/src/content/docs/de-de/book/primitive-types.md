@@ -39,9 +39,9 @@ TypeScript unterstützt beispielsweise auch hexadezimale, binäre und oktale Zah
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // Hexadezimalzahlen beginnen mit 0x
+const binary: number = 0b1010; // Binärzahlen beginnen mit 0b
+const octal: number = 0o633; // Oktalzahlen beginnen mit 0o
 ```
 
 ### bigint
@@ -101,10 +101,10 @@ TypeScript unterstützt schreibgeschützte Arrays mit der folgenden Syntax:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // Modifikator readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // Ungültig
 ```
 
 TypeScript unterstützt Tupel und schreibgeschützte Tupel:

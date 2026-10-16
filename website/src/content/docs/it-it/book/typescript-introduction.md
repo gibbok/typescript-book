@@ -130,11 +130,11 @@ Poiché i tipi vengono cancellati dopo la compilazione, non è possibile eseguir
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Unione discriminata
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Unione discriminata
     meow: () => void;
 }
 type Animal = Dog | Cat;

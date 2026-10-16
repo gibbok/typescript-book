@@ -67,14 +67,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 Na system typów TypeScript duży wpływ ma zachowanie JavaScript w czasie wykonywania. Na przykład operator dodawania (+), który w JavaScript może wykonywać konkatenację ciągów znaków albo dodawanie liczb, jest modelowany w TypeScript w ten sam sposób:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // Wynik jest typu string
 ```
 
 Zespół TypeScript świadomie zdecydował się oznaczać nietypowe użycie JavaScript jako błędy. Rozważmy na przykład następujący poprawny kod JavaScript:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // W JavaScript wynik wynosi 2
 ```
 
 TypeScript zgłasza jednak błąd:
@@ -93,7 +93,7 @@ Oto przykład kodu TypeScript z błędem typu:
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // Argument typu 'string' nie może być przypisany do parametru typu 'number'.
 ```
 
 Mimo to może wygenerować wykonywalny kod JavaScript:
@@ -120,7 +120,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' odnosi się tylko do typu, ale jest tutaj używany jako wartość.
         // ...
     }
 };
@@ -130,11 +130,11 @@ Ponieważ typy są usuwane po kompilacji, nie ma możliwości wykonania tego kod
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Unia tagowana
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Unia tagowana
     meow: () => void;
 }
 type Animal = Dog | Cat;

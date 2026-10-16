@@ -9,11 +9,11 @@ sidebar:
 TypeScript'te fonksiyon aşırı yüklemeleri, tek bir fonksiyon adı için birden fazla fonksiyon imzası tanımlamanıza ve böylece birden fazla şekilde çağrılabilen fonksiyonlar oluşturmanıza olanak tanır. İşte bir örnek:
 
 ```typescript
-// Overloads
+// Aşırı yüklemeler
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// Uygulama
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -23,8 +23,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // Geçerli
+sayHi(['aa', 'bb']); // Geçerli
 ```
 
 Bir `class` içinde fonksiyon aşırı yüklemelerinin kullanımına ilişkin başka bir örnek:
@@ -37,11 +37,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // aşırı yükleme
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // uygulama
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;

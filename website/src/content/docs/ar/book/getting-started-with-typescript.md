@@ -75,9 +75,9 @@ tsc --init
 فيما يلي بعض أمثلة أوامر واجهة سطر الأوامر التي تعمل بالإعدادات الافتراضية:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // ترجمة ملف محدد (main.ts) إلى JavaScript
+tsc src/*.ts // ترجمة ملفات .ts الموجودة في المجلد 'src' إلى JavaScript
+tsc app.ts util.ts --outfile index.js // ترجمة ملفي TypeScript ‏(app.ts و util.ts) إلى ملف JavaScript واحد (index.js)
 ```
 
 ### ملف تهيئة TypeScript

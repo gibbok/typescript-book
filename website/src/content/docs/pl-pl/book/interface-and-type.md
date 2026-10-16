@@ -60,10 +60,10 @@ W TypeScript typy służą do definiowania kształtu danych i wymuszania kontrol
 ### Typy podstawowe
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myNumber: number = 123; // typ number
+let myBoolean: boolean = true; // typ boolean
+let myArray: string[] = ['a', 'b']; // tablica ciągów znaków
+let myTuple: [string, number] = ['a', 123]; // krotka
 ```
 
 ### Obiekty i interfejsy
@@ -75,13 +75,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Typy sumy i przecięcia
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // Typ unii
+let myUnion: MyType = 'hello'; // Może być ciągiem znaków
+myUnion = 123; // Lub liczbą
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // Typ przecięcia
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Obiekt z właściwościami name i age
 ```
 

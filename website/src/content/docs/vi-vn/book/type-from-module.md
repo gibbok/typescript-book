@@ -14,6 +14,6 @@ Type from Module nói đến khả năng sử dụng các giá trị được ex
 export const add = (x: number, y: number) => x + y;
 // index.ts
 import { add } from 'calc';
-const r = add(1, 2); // r is number
+const r = add(1, 2); // r có kiểu number
 ```
 

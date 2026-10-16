@@ -10,12 +10,12 @@ Diskriminierte Unions sind in TypeScript Union-Typen, die eine gemeinsame Eigens
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // Diskriminante
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // Diskriminante
     radius: number;
 };
 

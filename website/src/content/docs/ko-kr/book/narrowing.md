@@ -17,7 +17,7 @@ typeof 타입 가드는 내장 JavaScript 타입을 바탕으로 변수의 타�
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x는 number
     }
     return -1;
 };

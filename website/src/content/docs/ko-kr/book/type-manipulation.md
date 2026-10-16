@@ -17,7 +17,7 @@ sidebar:
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // A와 B의 인터섹션
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -43,7 +43,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // 프로퍼티가 읽기 전용이 됨
 ```
 
 조건부 타입:
@@ -126,7 +126,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // 유효하지 않음
 ```
 
 #### Record\<K, T\>
@@ -295,8 +295,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // "log"가 "this"의 일부이므로 유효함.
+        this.update(); // 유효하지 않음
     },
 };
 ```
@@ -340,22 +340,22 @@ NoInfer는 제네릭 함수 범위 내에서 타입이 자동으로 추론되는
 예제:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// 제네릭 함수 범위 내에서 타입을 자동으로 추론합니다.
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // 여기서 타입은 ("a" | "b" | "c")[]
 ```
 
 NoInfer를 사용한 경우:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// NoInfer를 사용하여 타입 추론을 방지하는 함수 예제
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // 오류: '"c"' 타입의 타입 인수는 '"a" | "b"' 타입의 매개변수에 할당할 수 없습니다.
 ```
 

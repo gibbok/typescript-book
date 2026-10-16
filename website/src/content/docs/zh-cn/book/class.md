@@ -363,7 +363,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* 日志输出：
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */

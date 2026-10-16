@@ -17,7 +17,7 @@ Mit ihnen können Sie mehrere Typen zu einem einzigen Typ kombinieren:
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // Schnittmenge von A und B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -43,7 +43,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // Eigenschaften werden schreibgeschützt
 ```
 
 Conditional Types:
@@ -126,7 +126,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // Ungültig
 ```
 
 #### Record\<K, T\>
@@ -295,8 +295,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // Gültig, da "log" zu "this" gehört.
+        this.update(); // Ungültig
     },
 };
 ```
@@ -340,22 +340,22 @@ NoInfer ist ein Utility Type, der die automatische Typinferenz innerhalb des Gü
 Beispiel:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// Automatische Typableitung im Gültigkeitsbereich einer generischen Funktion.
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // Der Typ ist hier ("a" | "b" | "c")[]
 ```
 
 Mit NoInfer:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// Beispielfunktion, die NoInfer verwendet, um Typableitung zu verhindern
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // Fehler: Ein Argument vom Typ '"c"' kann keinem Parameter vom Typ '"a" | "b"' zugewiesen werden.
 ```
 

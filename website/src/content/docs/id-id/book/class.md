@@ -39,7 +39,7 @@ Untuk membuat instance dari sebuah class dalam TypeScript, Anda dapat menggunaka
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // Keluaran: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Constructor
@@ -143,10 +143,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// Mencoba membuat instans kelas dasar secara langsung akan menghasilkan kesalahan
+// const baseObj = new BaseClass(); // Kesalahan: Konstruktor kelas 'BaseClass' bersifat protected.
 
-// Create an instance of the derived class
+// Buat instans kelas turunan
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -245,8 +245,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // Kata kunci "private" dan "public" dalam konstruktor
+        // secara otomatis mendeklarasikan dan menginisialisasi properti kelas yang sesuai.
     }
     public introduce(): void {
         console.log(
@@ -281,7 +281,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // Keluaran: Whiskers meows.
 ```
 
 ### Dengan Generic
@@ -369,7 +369,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* Mencetak:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -394,7 +394,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // Mencetak: HELLO!
 ```
 
 #### Decorator Metode
@@ -479,7 +479,7 @@ const obj = new MyClass(10);
 console.log(obj.getValue); // Valid: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // Melempar: Invalid!
 ```
 
 #### Metadata Decorator
@@ -491,15 +491,15 @@ Metadata dapat digunakan untuk berbagai tujuan, seperti debugging, serialisasi, 
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Polyfill sederhana
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // Konteks berisi metadata properti: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // Tetapkan objek metadata dengan nilai primitif
     context.metadata[context.name] = true;
 }
 
@@ -514,7 +514,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // Dapatkan informasi metadata
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -549,11 +549,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// Buat instans kelas dasar
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// Buat instans kelas turunan
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -643,7 +643,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // Tidak perlu menetapkan nilai ke properti secara eksplisit.
     }
     log() {
         console.log(this.property2);
@@ -659,8 +659,8 @@ Overload metode memungkinkan sebuah class memiliki beberapa metode dengan nama y
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // Tanda tangan overload 1
+    add(a: string, b: string): string; // Tanda tangan overload 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -674,6 +674,6 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // Mencetak 15
 ```
 

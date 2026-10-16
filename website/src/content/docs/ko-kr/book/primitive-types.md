@@ -39,9 +39,9 @@ TypeScript는 16진수, 2진수, 8진수도 지원합니다. 예를 들면 다�
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // 16진수는 0x로 시작
+const binary: number = 0b1010; // 2진수는 0b로 시작
+const octal: number = 0o633; // 8진수는 0o로 시작
 ```
 
 ### bigint
@@ -94,17 +94,17 @@ console.log(obj[b]); // 456
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // 유니온
 ```
 
 TypeScript는 다음 구문을 사용하여 읽기 전용 배열을 지원합니다.
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // 읽기 전용 한정자
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // 유효하지 않음
 ```
 
 TypeScript는 튜플과 읽기 전용 튜플을 지원합니다.

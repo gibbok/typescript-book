@@ -10,7 +10,7 @@ Union Type là kiểu biểu diễn một giá trị có thể thuộc một tro
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // Hợp lệ
+x = 123; // Hợp lệ
 ```
 

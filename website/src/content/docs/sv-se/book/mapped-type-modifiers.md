@@ -15,10 +15,10 @@ Modifierare för mappade typer i TypeScript möjliggör transformation av egensk
 Exempel:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Alla egenskaper markerade som skrivskyddade
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Alla egenskaper markerade som föränderliga
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // Alla egenskaper markerade som valfria
 ```
 

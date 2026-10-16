@@ -66,7 +66,7 @@ Typy sumy i przecięcia:
 Typy są bardziej elastyczne podczas definiowania typów sumy i przecięcia. Za pomocą słowa kluczowego `type` można łatwo tworzyć typy sumy przy użyciu operatora `|` oraz typy przecięcia przy użyciu operatora `&`. Interfejsy mogą wprawdzie pośrednio reprezentować typy sumy, ale nie mają wbudowanej obsługi typów przecięcia.
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // Unia
 
 type Person = {
     name: string;
@@ -78,7 +78,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // Przecięcie
 ```
 
 Przykład z interfejsami:
@@ -91,6 +91,6 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // Unia interfejsów
 ```
 

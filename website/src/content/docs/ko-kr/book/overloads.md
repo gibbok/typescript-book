@@ -9,11 +9,11 @@ sidebar:
 TypeScript의 함수 오버로드를 사용하면 하나의 함수 이름에 여러 함수 시그니처를 정의할 수 있어, 여러 방식으로 호출할 수 있는 함수를 정의할 수 있습니다. 다음은 예제입니다.
 
 ```typescript
-// Overloads
+// 오버로드
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// 구현
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -23,8 +23,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // 유효함
+sayHi(['aa', 'bb']); // 유효함
 ```
 
 다음은 `class` 안에서 함수 오버로드를 사용하는 또 다른 예제입니다.
@@ -37,11 +37,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // 오버로드
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // 구현
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;

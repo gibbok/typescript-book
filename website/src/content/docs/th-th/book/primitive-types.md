@@ -39,9 +39,9 @@ TypeScript ยังรองรับเลขฐานสิบหก เล�
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // เลขฐานสิบหกขึ้นต้นด้วย 0x
+const binary: number = 0b1010; // เลขฐานสองขึ้นต้นด้วย 0b
+const octal: number = 0o633; // เลขฐานแปดขึ้นต้นด้วย 0o
 ```
 
 ### bigint
@@ -94,17 +94,17 @@ console.log(obj[b]); // 456
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // ยูเนียน
 ```
 
 TypeScript รองรับอาร์เรย์แบบอ่านอย่างเดียวด้วยไวยากรณ์ต่อไปนี้:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // ตัวปรับแต่ง readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // ไม่ถูกต้อง
 ```
 
 TypeScript รองรับทูเพิลและทูเพิลแบบอ่านอย่างเดียว:

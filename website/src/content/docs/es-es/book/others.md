@@ -14,11 +14,11 @@ Bloques try-catch-finally:
 
 ```typescript
 try {
-    // Code that might throw an error
+    // Código que puede lanzar un error
 } catch (error) {
-    // Handle the error
+    // Gestiona el error
 } finally {
-    // Code that always executes, finally is optional
+    // Código que siempre se ejecuta; finally es opcional
 }
 ```
 
@@ -26,14 +26,14 @@ También puedes gestionar distintos tipos de errores:
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // Código que puede lanzar diferentes tipos de errores
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // Gestiona TypeError
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // Gestiona RangeError
     } else {
-        // Handle other errors
+        // Gestiona otros errores
     }
 }
 ```
@@ -79,10 +79,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// Amplía MyClass para incluir el comportamiento de Identifiable y Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// Función para aplicar mixins a una clase
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -97,7 +97,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// Aplica los mixins a MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -212,10 +212,10 @@ Ejemplo:
 
 ```typescript
 /**
- * Computes the power of a given number
+ * Calcula la potencia de un número dado
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – El valor de la base de la expresión
+ * @param {number} exponent – El valor del exponente de la expresión
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -311,7 +311,7 @@ La metapropiedad `new.target` permite determinar si una función o un constructo
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // Muestra la función constructora utilizada para crear una instancia
     }
 }
 
@@ -336,7 +336,7 @@ La sintaxis de las expresiones de importación dinámica es la siguiente:
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // Importación dinámica
         widget.render(container);
     }
 }
@@ -648,7 +648,7 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
+produceAnimal = produceDog; // Válido
 produceDog = produceAnimal; // Error
 ```
 
@@ -661,8 +661,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // Válido
+consumeAnimal = consumeDog; // Error con strictFunctionTypes
 ```
 
 Las flechas indican el sentido de las asignaciones seguras:
@@ -678,8 +678,8 @@ Las flechas indican el sentido de las asignaciones seguras:
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // Permitido, pero inseguro
+// dogs ahora contiene un Animal que no es un Dog.
 ```
 
 **Opción del compilador:** con `strictFunctionTypes`, los parámetros de funciones independientes se comprueban contravariantemente. Sin esta opción, TypeScript puede aceptar ambos sentidos (bivarianza), aunque no sean seguros. Los parámetros declarados en métodos y constructores son una excepción.
@@ -716,7 +716,7 @@ const obj: MyObject = {
     'key-b': 456,
 };
 
-console.log(obj[uniqueSymbol]); // Unique symbol key
+console.log(obj[uniqueSymbol]); // Clave de símbolo único
 console.log(obj['key-a']); // 123
 console.log(obj['key-b']); // 456
 ```
@@ -732,37 +732,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// Anotación de tipo mediante `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// En las siguientes líneas, TypeScript no podrá inferir los tipos correctamente
+user.attributes?.map(console.log); // La propiedad 'map' no existe en el tipo 'string | string[]'. La propiedad 'map' no existe en el tipo 'string'.
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// Aserción de tipo mediante `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Aquí tampoco podrá TypeScript inferir los tipos correctamente
+user2.attributes?.map(console.log); // La propiedad 'map' no existe en el tipo 'string | string[]'. La propiedad 'map' no existe en el tipo 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// Con el operador `satisfies` ahora podemos inferir los tipos correctamente
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript infiere correctamente: string[]
+user3.nickName; // TypeScript infiere correctamente: undefined
 ```
 
 ### Importaciones y exportaciones solo de tipos
@@ -816,7 +816,7 @@ Ejemplo:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Polyfill sencillo
 
 const doWork = (): Disposable => {
     return {
@@ -829,9 +829,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // Se declara el recurso
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // Se libera el recurso (por ejemplo, se evalúa `work[Symbol.dispose]()`)
 
 console.log(3);
 ```
@@ -862,7 +862,7 @@ Las declaraciones `using` registran las operaciones de liberación en una pila p
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // Libera `C`, después `B` y luego `A`.
 ```
 
 Se garantiza que los recursos se liberen aunque el código posterior o las excepciones interrumpan la ejecución. La liberación puede lanzar una excepción y ocultar otra. Para conservar información sobre los errores suprimidos se introduce la excepción nativa `SuppressedError`.
@@ -874,8 +874,8 @@ Una declaración `await using` gestiona un recurso desechable de forma asíncron
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // Se declara el recurso
+} // Se libera el recurso (por ejemplo, se evalúa `await work[Symbol.asyncDispose]()`)
 ```
 
 Un recurso desechable de forma asíncrona debe ajustarse a la interfaz `Disposable` o `AsyncDisposable`:
@@ -890,12 +890,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Polyfill sencillo
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // Método que se invoca cuando el objeto se libera de forma asíncrona
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // Cierra la conexión y devuelve una promesa
         return this.close();
     }
 
@@ -907,10 +907,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // Crea una conexión nueva y la libera de forma asíncrona cuando sale del ámbito
+    await using connection = new DatabaseConnection(); //  Se declara el recurso
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Se libera el recurso (por ejemplo, se evalúa `await connection[Symbol.asyncDispose]()`)
 
 doWork();
 ```
@@ -949,7 +949,7 @@ Desde TypeScript 5.5.4 se comprueban durante la compilación errores habituales 
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // Error: esta referencia inversa hace referencia a un grupo que no existe.
 ```
 
 ### import defer

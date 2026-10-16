@@ -60,9 +60,9 @@ Dalam TypeScript, tipe digunakan untuk mendefinisikan bentuk data dan menerapkan
 ### Tipe Dasar
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
+let myNumber: number = 123; // tipe number
+let myBoolean: boolean = true; // tipe boolean
+let myArray: string[] = ['a', 'b']; // array string
 let myTuple: [string, number] = ['a', 123]; // tuple
 ```
 
@@ -75,13 +75,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Tipe Union dan Intersection
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // Tipe union
+let myUnion: MyType = 'hello'; // Dapat berupa string
+myUnion = 123; // Atau angka
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // Tipe irisan
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Objek dengan properti name dan age
 ```
 

@@ -39,9 +39,9 @@ const isReady: boolean = true;
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // يبدأ التمثيل الست عشري بالبادئة 0x
+const binary: number = 0b1010; // يبدأ التمثيل الثنائي بالبادئة 0b
+const octal: number = 0o633; // يبدأ التمثيل الثماني بالبادئة 0o
 ```
 
 ### bigint
@@ -94,17 +94,17 @@ console.log(obj[b]); // 456
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // اتحاد
 ```
 
 يدعم TypeScript المصفوفات المخصّصة للقراءة فقط باستخدام الصياغة الآتية:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // المعدّل readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // غير صحيح
 ```
 
 يدعم TypeScript أنواع Tuple وأنواع Tuple المخصّصة للقراءة فقط:

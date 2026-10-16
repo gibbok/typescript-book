@@ -10,12 +10,12 @@ sidebar:
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // Дискриминант
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // Дискриминант
     radius: number;
 };
 

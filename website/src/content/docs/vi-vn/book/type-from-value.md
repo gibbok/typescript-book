@@ -9,6 +9,6 @@ sidebar:
 Type from Value trong TypeScript nói đến việc tự động suy luận kiểu từ một giá trị hoặc biểu thức thông qua type inference.
 
 ```typescript
-const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immutable), but widens it to 'string' with 'let' (reassignable).
+const x = 'x'; // TypeScript suy luận 'x' là literal chuỗi khi dùng 'const' (bất biến), nhưng mở rộng thành 'string' khi dùng 'let' (có thể gán lại).
 ```
 

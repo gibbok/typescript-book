@@ -13,9 +13,9 @@ Typami literałowymi w TypeScript są liczby, ciągi znaków i wartości logiczn
 Przykład literałów:
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // Typ literału tekstowego
+const b = 1; // Typ literału liczbowego
+const c = true; // Typ literału logicznego
 ```
 
 Literałowe typy ciągów znaków, liczb i wartości logicznych są używane w uniach, strażnikach typów i aliasach typów.

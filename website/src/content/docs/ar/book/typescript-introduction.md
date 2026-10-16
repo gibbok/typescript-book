@@ -67,14 +67,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 يتأثر نظام الأنواع في TypeScript إلى حد كبير بسلوك JavaScript في وقت التشغيل. فمثلًا، تجري نمذجة معامل الجمع (+)، الذي يمكنه في JavaScript إجراء ربط النصوص أو الجمع العددي، بالطريقة نفسها في TypeScript:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // النتيجة من النوع string
 ```
 
 اتخذ الفريق المسؤول عن TypeScript قرارًا متعمّدًا باعتبار الاستخدامات غير المعتادة في JavaScript أخطاءً. على سبيل المثال، لنتناول شيفرة JavaScript الصالحة التالية:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // في JavaScript، تساوي النتيجة 2
 ```
 
 لكن TypeScript تُصدر خطأً:
@@ -93,7 +93,7 @@ Operator '+' cannot be applied to types 'number' and 'boolean'.
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // لا يمكن إسناد وسيط من النوع 'string' إلى معامل من النوع 'number'.
 ```
 
 ومع ذلك، لا يزال بإمكانها إنتاج مخرجات JavaScript قابلة للتنفيذ:
@@ -120,7 +120,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // يشير 'Dog' إلى نوع فقط، لكنه يُستخدم هنا كقيمة.
         // ...
     }
 };
@@ -130,11 +130,11 @@ const makeNoise = (animal: Animal) => {
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // اتحاد موسوم
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // اتحاد موسوم
     meow: () => void;
 }
 type Animal = Dog | Cat;

@@ -67,14 +67,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 Le système de types de TypeScript est largement influencé par le comportement de JavaScript à l'exécution. Par exemple, l'opérateur d'addition (+), qui peut effectuer une concaténation de chaînes ou une addition numérique en JavaScript, est modélisé de la même manière dans TypeScript :
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // Le résultat est de type string
 ```
 
 L'équipe à l'origine de TypeScript a délibérément choisi de signaler comme erreurs les utilisations inhabituelles de JavaScript. Prenons par exemple le code JavaScript valide suivant :
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // En JavaScript, le résultat est égal à 2
 ```
 
 Cependant, TypeScript génère une erreur :
@@ -93,7 +93,7 @@ Voici un exemple de code TypeScript comportant une erreur de type :
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // Un argument de type 'string' n'est pas assignable à un paramètre de type 'number'.
 ```
 
 Il peut néanmoins produire une sortie JavaScript exécutable :
@@ -120,7 +120,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' désigne uniquement un type, mais est utilisé ici comme valeur.
         // ...
     }
 };
@@ -130,11 +130,11 @@ Puisque les types sont effacés après la compilation, il n'existe aucun moyen d
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Union discriminée
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Union discriminée
     meow: () => void;
 }
 type Animal = Dog | Cat;

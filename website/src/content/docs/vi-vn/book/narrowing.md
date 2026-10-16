@@ -17,7 +17,7 @@ Type guard typeof là một type guard cụ thể trong TypeScript kiểm tra ki
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x có kiểu number
     }
     return -1;
 };

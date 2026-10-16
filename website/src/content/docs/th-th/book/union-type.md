@@ -10,7 +10,7 @@ sidebar:
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // ถูกต้อง
+x = 123; // ถูกต้อง
 ```
 

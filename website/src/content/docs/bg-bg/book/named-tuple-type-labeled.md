@@ -12,6 +12,6 @@ Tuple типовете могат да включват опционални е�
 type T = string;
 type Tuple1 = [T, T];
 type Tuple2 = [a: T, b: T];
-type Tuple3 = [a: T, T]; // Именуван Tuple тип плюс анонимен Tuple тип
+type Tuple3 = [a: T, T]; // Именуван кортеж плюс анонимен кортеж
 ```
 

@@ -39,7 +39,7 @@ Quelques exemples dans lesquels la réduction ne se produit pas :
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // Erreur, aucun affinement car isString n'est pas const
     }
 };
 
@@ -49,7 +49,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // Erreur, aucun affinement car obj est réaffecté dans le corps de la fonction
     }
 };
 ```

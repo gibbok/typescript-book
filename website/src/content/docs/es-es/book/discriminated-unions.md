@@ -10,12 +10,12 @@ Las uniones discriminadas de TypeScript son tipos de unión que utilizan una pro
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // Discriminante
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // Discriminante
     radius: number;
 };
 

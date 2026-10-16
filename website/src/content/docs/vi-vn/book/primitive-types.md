@@ -39,9 +39,9 @@ TypeScript cũng hỗ trợ hệ thập lục phân, nhị phân và bát phân,
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // Số thập lục phân bắt đầu bằng 0x
+const binary: number = 0b1010; // Số nhị phân bắt đầu bằng 0b
+const octal: number = 0o633; // Số bát phân bắt đầu bằng 0o
 ```
 
 ### bigint
@@ -101,10 +101,10 @@ TypeScript hỗ trợ mảng readonly bằng cú pháp sau:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // Từ khóa bổ nghĩa readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // Không hợp lệ
 ```
 
 TypeScript hỗ trợ tuple và readonly tuple:

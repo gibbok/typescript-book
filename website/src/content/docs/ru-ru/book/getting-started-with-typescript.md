@@ -75,9 +75,9 @@ tsc --init
 Ниже приведены примеры команд CLI, выполняемых с настройками по умолчанию:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // Компиляция указанного файла (main.ts) в JavaScript
+tsc src/*.ts // Компиляция всех файлов .ts в папке 'src' в JavaScript
+tsc app.ts util.ts --outfile index.js // Компиляция двух файлов TypeScript (app.ts и util.ts) в один файл JavaScript (index.js)
 ```
 
 ### Файл конфигурации TypeScript

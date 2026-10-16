@@ -15,10 +15,10 @@ TypeScript의 매핑된 타입 수정자를 사용하면 기존 타입 내의 �
 예제:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // 모든 프로퍼티를 읽기 전용으로 표시
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // 모든 프로퍼티를 변경 가능으로 표시
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // 모든 프로퍼티를 선택적으로 표시
 ```
 

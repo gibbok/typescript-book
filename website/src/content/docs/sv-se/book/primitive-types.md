@@ -39,9 +39,9 @@ TypeScript stöder även hexadecimala, binära och oktala tal, till exempel:
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // Hexadecimala tal börjar med 0x
+const binary: number = 0b1010; // Binära tal börjar med 0b
+const octal: number = 0o633; // Oktala tal börjar med 0o
 ```
 
 ### bigInt
@@ -101,10 +101,10 @@ TypeScript stöder skrivskyddade arrayer med följande syntax:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // Modifieraren readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // Ogiltigt
 ```
 
 TypeScript stöder tupler och skrivskyddade tupler:

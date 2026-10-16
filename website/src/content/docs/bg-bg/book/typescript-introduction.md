@@ -93,7 +93,7 @@ Operator '+' cannot be applied to types 'number' and 'boolean'.
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // Аргумент от тип 'string' не може да се присвои на параметър от тип 'number'.
 ```
 
 Въпреки това, TypeScript все още може да генерира изпълним JavaScript код:
@@ -130,11 +130,11 @@ const makeNoise = (animal: Animal) => {
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Дискриминирано обединение
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Дискриминирано обединение
     meow: () => void;
 }
 type Animal = Dog | Cat;

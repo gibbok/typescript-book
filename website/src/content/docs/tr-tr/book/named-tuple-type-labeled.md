@@ -12,6 +12,6 @@ Demet türleri, her öğe için isteğe bağlı etiketler veya adlar içerebilir
 type T = string;
 type Tuple1 = [T, T];
 type Tuple2 = [a: T, b: T];
-type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
+type Tuple3 = [a: T, T]; // Adlandırılmış demet ve anonim demet
 ```
 

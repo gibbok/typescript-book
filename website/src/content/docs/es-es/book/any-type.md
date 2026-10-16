@@ -16,7 +16,7 @@ Al utilizar `any` indicas al compilador de TypeScript que los valores deben repr
 
 ```typescript
 let value: any;
-value = true; // Valid
-value = 7; // Valid
+value = true; // Válido
+value = 7; // Válido
 ```
 

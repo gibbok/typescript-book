@@ -39,7 +39,7 @@ För att skapa en instans av en klass i TypeScript kan du använda nyckelordet `
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // Utdata: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Konstruktor
@@ -143,10 +143,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// Ett försök att instansiera basklassen direkt ger ett fel
+// const baseObj = new BaseClass(); // Fel: Konstruktorn för klassen 'BaseClass' är skyddad.
 
-// Create an instance of the derived class
+// Skapa en instans av den härledda klassen
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -245,8 +245,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // Nyckelorden "private" och "public" i konstruktorn
+        // deklarerar och initierar automatiskt motsvarande klassegenskaper.
     }
     public introduce(): void {
         console.log(
@@ -281,7 +281,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // Utdata: Whiskers meows.
 ```
 
 ### Med generics
@@ -369,7 +369,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* Skriver ut:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -394,7 +394,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // Skriver ut: HELLO!
 ```
 
 #### Metoddekoratör
@@ -476,10 +476,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // Giltigt: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // Kastar undantag: Invalid!
 ```
 
 #### Dekoratörmetadata
@@ -491,15 +491,15 @@ Metadata kan användas för olika ändamål, till exempel felsökning, serialise
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Enkel polyfill
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // Kontexten innehåller egenskapsmetadata: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // Ange metadataobjektet med ett primitivt värde
     context.metadata[context.name] = true;
 }
 
@@ -514,7 +514,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // Hämta metadatainformation
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -549,11 +549,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// Skapa en instans av basklassen
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// Skapa en instans av den härledda klassen
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -643,7 +643,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // Värdena behöver inte tilldelas egenskaperna uttryckligen.
     }
     log() {
         console.log(this.property2);
@@ -659,8 +659,8 @@ Metodöverlagring gör det möjligt för en klass att ha flera metoder med samma
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // Överlagringssignatur 1
+    add(a: string, b: string): string; // Överlagringssignatur 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -674,6 +674,6 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // Skriver ut 15
 ```
 

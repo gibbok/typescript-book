@@ -66,7 +66,7 @@ Sjednocení a průniky typů:
 Typy jsou při definování sjednocení a průniků typů flexibilnější. Pomocí klíčového slova `type` můžete snadno vytvářet sjednocení typů operátorem `|` a průniky typů operátorem `&`. Přestože rozhraní mohou také nepřímo reprezentovat sjednocení typů, nemají vestavěnou podporu pro průniky typů.
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // Sjednocení
 
 type Person = {
     name: string;
@@ -78,7 +78,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // Průnik
 ```
 
 Příklad s rozhraními:
@@ -91,6 +91,6 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // Sjednocení rozhraní
 ```
 

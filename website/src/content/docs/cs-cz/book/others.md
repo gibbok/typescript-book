@@ -14,11 +14,11 @@ Bloky Try-Catch-Finally:
 
 ```typescript
 try {
-    // Code that might throw an error
+    // Kód, který může vyhodit chybu
 } catch (error) {
-    // Handle the error
+    // Zpracování chyby
 } finally {
-    // Code that always executes, finally is optional
+    // Kód, který se provede vždy, finally je volitelné
 }
 ```
 
@@ -26,14 +26,14 @@ Můžete také zpracovávat různé typy chyb:
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // Kód, který může vyhodit různé typy chyb
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // Zpracování TypeError
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // Zpracování RangeError
     } else {
-        // Handle other errors
+        // Zpracování ostatních chyb
     }
 }
 ```
@@ -79,10 +79,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// Rozšířit MyClass o chování Identifiable a Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// Funkce pro aplikaci mixinů na třídu
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -97,7 +97,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// Aplikovat mixiny na MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -212,10 +212,10 @@ Příklad:
 
 ```typescript
 /**
- * Computes the power of a given number
+ * Vypočítá mocninu zadaného čísla
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – Základ výrazu
+ * @param {number} exponent – Exponent výrazu
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -311,7 +311,7 @@ V TypeScriptu můžete použít metavlastnost `new.target`, která umožňuje zj
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // Vypíše funkci konstruktoru použitou k vytvoření instance
     }
 }
 
@@ -336,7 +336,7 @@ Syntaxe výrazů dynamického importu v TypeScriptu je následující:
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // Dynamický import
         widget.render(container);
     }
 }
@@ -648,8 +648,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // Platné
+produceDog = produceAnimal; // Chyba
 ```
 
 **Kontravariance (přijímání hodnot):** funkce přijímající libovolné `Animal` může zastoupit funkci přijímající `Dog`. Zvládne i psy; funkce určená jen pro psy nemůže bezpečně přijmout každé zvíře.
@@ -661,8 +661,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // Platné
+consumeAnimal = consumeDog; // Chyba při zapnutém strictFunctionTypes
 ```
 
 Šipky ukazují směr bezpečného přiřazení:
@@ -678,8 +678,8 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // Povoleno, ale nebezpečné
+// dogs nyní obsahuje Animal, který není Dog.
 ```
 
 **Nastavení překladače:** při zapnutém `strictFunctionTypes` se parametry samostatných funkcí kontrolují kontravariantně. Bez této volby může TypeScript povolit oba směry (bivarianci), i když nejsou bezpečné. Parametry deklarované v metodách a konstruktorech tvoří výjimku.
@@ -716,7 +716,7 @@ const obj: MyObject = {
     'key-b': 456,
 };
 
-console.log(obj[uniqueSymbol]); // Unique symbol key
+console.log(obj[uniqueSymbol]); // Klíč unikátního symbolu
 console.log(obj['key-a']); // 123
 console.log(obj['key-b']); // 456
 ```
@@ -732,37 +732,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// Typová anotace pomocí `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Na následujících řádcích TypeScript nedokáže správně odvodit typy
+user.attributes?.map(console.log); // Vlastnost 'map' neexistuje v typu 'string | string[]'. Vlastnost 'map' neexistuje v typu 'string'.
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// Typové tvrzení pomocí `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Ani zde TypeScript nedokáže správně odvodit typy
+user2.attributes?.map(console.log); // Vlastnost 'map' neexistuje v typu 'string | string[]'. Vlastnost 'map' neexistuje v typu 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// Pomocí operátoru `satisfies` nyní můžeme správně odvodit typy
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript správně odvodí: string[]
+user3.nickName; // TypeScript správně odvodí: undefined
 ```
 
 ### Importy a exporty pouze typů
@@ -816,7 +816,7 @@ Příklad:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Jednoduchý polyfill
 
 const doWork = (): Disposable => {
     return {
@@ -829,9 +829,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // Zdroj je deklarován
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // Zdroj je uvolněn (např. se vyhodnotí `work[Symbol.dispose]()`)
 
 console.log(3);
 ```
@@ -862,7 +862,7 @@ Deklarace `using` zaznamenávají operace uvolnění prostředků do zásobníku
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // uvolní `C`, poté `B`, poté `A`.
 ```
 
 Je zaručeno, že prostředky budou uvolněny, i když následuje další kód nebo dojde k výjimkám. Při uvolňování tak může dojít k vyvolání výjimky, která případně potlačí jinou výjimku. Pro zachování informací o potlačených chybách je zavedena nová nativní výjimka `SuppressedError`.
@@ -874,8 +874,8 @@ Deklarace `await using` spravuje asynchronně uvolnitelný prostředek. Hodnota 
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // Zdroj je deklarován
+} // Zdroj je uvolněn (např. se vyhodnotí `await work[Symbol.asyncDispose]()`)
 ```
 
 Asynchronně uvolnitelný prostředek musí splňovat buď rozhraní `Disposable`, nebo `AsyncDisposable`:
@@ -890,12 +890,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Jednoduchý polyfill
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // Metoda volaná při asynchronním uvolnění objektu
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // Zavřít spojení a vrátit promise
         return this.close();
     }
 
@@ -907,10 +907,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // Vytvořit nové spojení a asynchronně jej uvolnit při opuštění rozsahu platnosti
+    await using connection = new DatabaseConnection(); //  Zdroj je deklarován
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Zdroj je uvolněn (např. se vyhodnotí `await connection[Symbol.asyncDispose]()`)
 
 doWork();
 ```
@@ -949,7 +949,7 @@ Od verze 5.5.4 TypeScript při kompilaci kontroluje literály regulárních výr
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // Chyba: tento zpětný odkaz odkazuje na neexistující skupinu.
 ```
 
 ### import defer

@@ -17,7 +17,7 @@ sidebar:
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // Пересечение A и B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -43,7 +43,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // Свойства становятся доступными только для чтения
 ```
 
 Условные типы:
@@ -126,7 +126,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // Недопустимо
 ```
 
 #### Record\<K, T\>
@@ -295,8 +295,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // Допустимо, поскольку "log" является частью "this".
+        this.update(); // Недопустимо
     },
 };
 ```
@@ -340,22 +340,22 @@ NoInfer — это служебный тип, предназначенный д�
 Пример:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// Автоматический вывод типов в области видимости обобщённой функции.
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // Здесь тип ("a" | "b" | "c")[]
 ```
 
 С NoInfer:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// Пример функции, использующей NoInfer для предотвращения вывода типов
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // Ошибка: аргумент типа '"c"' нельзя присвоить параметру типа '"a" | "b"'.
 ```
 

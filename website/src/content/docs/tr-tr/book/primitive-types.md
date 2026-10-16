@@ -39,9 +39,9 @@ TypeScript ayrıca onaltılık, ikilik ve sekizlik sayıları da destekler; örn
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // Onaltılık gösterim 0x ile başlar
+const binary: number = 0b1010; // İkilik gösterim 0b ile başlar
+const octal: number = 0o633; // Sekizlik gösterim 0o ile başlar
 ```
 
 ### bigint
@@ -94,17 +94,17 @@ Bir `array`, aynı türde veya farklı türlerde birden fazla değeri saklayabil
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // Birleşim
 ```
 
 TypeScript, aşağıdaki söz dizimini kullanarak salt okunur dizileri destekler:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // Readonly değiştiricisi
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // Geçersiz
 ```
 
 TypeScript, demetleri ve salt okunur demetleri destekler:

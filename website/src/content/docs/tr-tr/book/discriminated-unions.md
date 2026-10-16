@@ -10,12 +10,12 @@ TypeScript'te Ayırt Edici Birleşimler, birleşim için olası türler kümesin
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // Ayırt edici
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // Ayırt edici
     radius: number;
 };
 

@@ -15,8 +15,8 @@ Esempio di letterali:
 ```typescript
 const a = 'a'; // Stringa tipo letterale
 
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const b = 1; // Tipo letterale numerico
+const c = true; // Tipo letterale booleano
 ```
 
 I tipi letterali stringa, numerico e booleano vengono utilizzati nell'unione, nella protezione dei tipi e negli alias di tipo.

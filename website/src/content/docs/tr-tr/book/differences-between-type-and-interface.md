@@ -66,7 +66,7 @@ Birleşim ve Kesişim Türleri:
 Birleşim ve Kesişim Türlerini tanımlama konusunda türler daha esnektir. `type` anahtar sözcüğüyle `|` operatörünü kullanarak kolayca birleşim türleri ve `&` operatörünü kullanarak kesişim türleri oluşturabilirsiniz. Arayüzler de birleşim türlerini dolaylı olarak temsil edebilse de kesişim türleri için yerleşik desteğe sahip değildir.
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // Birleşim
 
 type Person = {
     name: string;
@@ -78,7 +78,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // Kesişim
 ```
 
 Arayüzlerle örnek:
@@ -91,6 +91,6 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // Arayüzlerin birleşimi
 ```
 

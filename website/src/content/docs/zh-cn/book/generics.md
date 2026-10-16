@@ -91,10 +91,10 @@ const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value 的类型被缩小到 'string' 类型
+        // 值的类型被缩小到 'string' 类型
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value 的类型被缩小到 'number' 类型
+        // 值的类型被缩小到 'number' 类型
         console.log(value.toFixed(2));
     }
 }

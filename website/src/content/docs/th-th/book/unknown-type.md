@@ -14,10 +14,10 @@ sidebar:
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // ถูกต้อง
+let value2: any = value; // ถูกต้อง
+let value3: boolean = value; // ไม่ถูกต้อง
+let value4: number = value; // ไม่ถูกต้อง
 ```
 
 ```typescript

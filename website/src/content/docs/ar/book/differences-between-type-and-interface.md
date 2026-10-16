@@ -66,7 +66,7 @@ const c: B = {
 تكون الأنواع أكثر مرونة عند تعريف أنواع الاتحاد والتقاطع. باستخدام الكلمة المفتاحية `type`، يمكنك بسهولة إنشاء أنواع اتحاد باستخدام المعامل `|` وأنواع تقاطع باستخدام المعامل `&`. وعلى الرغم من أن الواجهات يمكنها أيضًا تمثيل أنواع الاتحاد بصورة غير مباشرة، فإنها لا توفر دعمًا مضمّنًا لأنواع التقاطع.
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // اتحاد
 
 type Person = {
     name: string;
@@ -78,7 +78,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // تقاطع
 ```
 
 مثال باستخدام الواجهات:
@@ -91,6 +91,6 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // اتحاد واجهات
 ```
 

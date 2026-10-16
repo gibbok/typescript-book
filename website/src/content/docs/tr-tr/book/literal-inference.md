@@ -11,8 +11,8 @@ Sabit Değer Çıkarımı, bir değişkenin veya parametrenin türünün değeri
 Aşağıdaki örnekte TypeScript'in, değeri daha sonra değiştirilemeyeceği için `x`'i sabit değer türü olarak değerlendirdiğini; buna karşılık `y` daha sonra herhangi bir zamanda değiştirilebildiği için türünün string olarak çıkarıldığını görebiliriz.
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // Bu değer değiştirilemediği için 'x' sabit türü
+let y = 'y'; // Bu değeri değiştirebildiğimiz için string türü
 ```
 
 Aşağıdaki örnekte, TypeScript değerin daha sonra herhangi bir zamanda değiştirilebileceğini düşündüğünden `o.x` türünün `string` olarak (`a` sabit değeri olarak değil) çıkarıldığını görebiliriz.
@@ -22,12 +22,12 @@ Aşağıdaki örnekte, TypeScript değerin daha sonra herhangi bir zamanda deği
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // Bu daha geniş bir string türüdür
 };
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // 'string' türündeki argüman 'X' türündeki parametreye atanamaz
 ```
 
 Gördüğünüz gibi, X daha dar bir tür olduğundan `o.x`, `fn`'ye geçirildiğinde kod hata verir.

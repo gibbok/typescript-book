@@ -10,7 +10,7 @@ Ein Union-Typ ist ein Typ, der einen Wert darstellt, der einem von mehreren Type
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // Gültig
+x = 123; // Gültig
 ```
 

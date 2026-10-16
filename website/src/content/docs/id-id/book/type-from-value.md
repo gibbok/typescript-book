@@ -9,6 +9,6 @@ sidebar:
 Tipe dari Nilai dalam TypeScript mengacu pada inferensi otomatis suatu tipe dari nilai atau ekspresi melalui inferensi tipe.
 
 ```typescript
-const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immutable), but widens it to 'string' with 'let' (reassignable).
+const x = 'x'; // TypeScript menginferensikan 'x' sebagai literal string dengan 'const' (tidak dapat diubah), tetapi melebarkannya menjadi 'string' dengan 'let' (dapat ditetapkan ulang).
 ```
 

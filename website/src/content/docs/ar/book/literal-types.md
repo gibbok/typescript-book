@@ -13,9 +13,9 @@ sidebar:
 مثال على القيم الحرفية:
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // نوع سلسلة نصية حرفية
+const b = 1; // نوع قيمة عددية حرفية
+const c = true; // نوع قيمة منطقية حرفية
 ```
 
 تُستخدم الأنواع الحرفية النصية والعددية والمنطقية في الاتحادات وحراس الأنواع والأسماء المستعارة للأنواع.

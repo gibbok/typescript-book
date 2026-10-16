@@ -14,10 +14,10 @@ Der Typ `unknown` kann nur `any` und `unknown` selbst zugewiesen werden und ist 
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // Gültig
+let value2: any = value; // Gültig
+let value3: boolean = value; // Ungültig
+let value4: number = value; // Ungültig
 ```
 
 ```typescript

@@ -13,9 +13,9 @@ sidebar:
 Примеры литералов:
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // Строковый литеральный тип
+const b = 1; // Числовой литеральный тип
+const c = true; // Логический литеральный тип
 ```
 
 Строковые, числовые и логические литеральные типы используются в объединениях, защитниках типа и псевдонимах типов.

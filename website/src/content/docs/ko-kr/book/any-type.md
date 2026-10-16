@@ -16,7 +16,7 @@ sidebar:
 
 ```typescript
 let value: any;
-value = true; // Valid
-value = 7; // Valid
+value = true; // 유효함
+value = 7; // 유효함
 ```
 
