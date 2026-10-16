@@ -1,0 +1,28 @@
+name: Temporary TypeScript News Validation
+on:
+  push:
+    branches:
+      - gbk/typescript-news-2026-10-16-memory
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - name: Verify news
+        run: python3 .agents/skills/create-typescript-news/scripts/verify_news.py
+      - name: Test news verifier
+        run: python3 -m unittest discover -s .agents/skills/create-typescript-news/scripts -p 'test_*.py'
+      - name: Test news ordering
+        run: npm --prefix website run test:news
+      - name: Install website dependencies
+        run: npm ci --prefix website
+      - name: Build website
+        run: npm --prefix website run build
