@@ -13,7 +13,7 @@ Umożliwiają połączenie wielu typów w jeden typ:
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // Przecięcie A i B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -39,7 +39,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // Właściwości stają się tylko do odczytu
 ```
 
 Typy warunkowe:
@@ -122,7 +122,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // Niepoprawne
 ```
 
 #### Record\<K, T\>
@@ -291,8 +291,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // Poprawne, ponieważ "log" jest częścią "this".
+        this.update(); // Niepoprawne
     },
 };
 ```
@@ -336,22 +336,22 @@ type MyType = Uncapitalize<'Abc'>; // "abc"
 Przykład:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// Automatyczne wnioskowanie typów w zakresie funkcji generycznej.
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // Typ tutaj to ("a" | "b" | "c")[]
 ```
 
 Z użyciem `NoInfer`:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// Przykładowa funkcja używająca NoInfer do zapobiegania wnioskowaniu typu
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // Błąd: Argument typu '"c"' nie może być przypisany do parametru typu '"a" | "b"'.
 ```
 

@@ -5,11 +5,11 @@
 โอเวอร์โหลดฟังก์ชันใน TypeScript ช่วยให้คุณกำหนดลายเซ็นฟังก์ชันหลายแบบสำหรับชื่อฟังก์ชันเดียว ทำให้สามารถกำหนดฟังก์ชันที่เรียกใช้ได้หลายรูปแบบ ต่อไปนี้คือตัวอย่าง:
 
 ```typescript
-// Overloads
+// โอเวอร์โหลด
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// การใช้งานจริง
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -19,8 +19,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // ถูกต้อง
+sayHi(['aa', 'bb']); // ถูกต้อง
 ```
 
 ต่อไปนี้เป็นอีกตัวอย่างของการใช้โอเวอร์โหลดฟังก์ชันภายใน `class`:
@@ -33,11 +33,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // โอเวอร์โหลด
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // การใช้งานจริง
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;

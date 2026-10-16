@@ -10,6 +10,6 @@ Tipe dari Modul mengacu pada kemampuan untuk menggunakan nilai yang diekspor seb
 export const add = (x: number, y: number) => x + y;
 // index.ts
 import { add } from 'calc';
-const r = add(1, 2); // r is number
+const r = add(1, 2); // r bertipe number
 ```
 

@@ -5,6 +5,6 @@
 ชนิดจากค่าใน TypeScript หมายถึงการอนุมานชนิดจากค่าหรือนิพจน์โดยอัตโนมัติผ่านกลไกการอนุมานชนิด
 
 ```typescript
-const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immutable), but widens it to 'string' with 'let' (reassignable).
+const x = 'x'; // TypeScript อนุมาน 'x' เป็นสตริงลิเทอรัลเมื่อใช้ 'const' (เปลี่ยนค่าไม่ได้) แต่ขยายเป็น 'string' เมื่อใช้ 'let' (กำหนดค่าใหม่ได้)
 ```
 

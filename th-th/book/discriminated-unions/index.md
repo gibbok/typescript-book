@@ -6,12 +6,12 @@
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // ตัวจำแนก
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // ตัวจำแนก
     radius: number;
 };
 

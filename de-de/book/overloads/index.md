@@ -5,11 +5,11 @@
 Funktionsüberladungen in TypeScript ermöglichen es Ihnen, mehrere Funktionssignaturen für einen einzelnen Funktionsnamen zu definieren. So können Sie Funktionen definieren, die auf unterschiedliche Weise aufgerufen werden können. Hier ist ein Beispiel:
 
 ```typescript
-// Overloads
+// Überladungen
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// Implementierung
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -19,8 +19,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // Gültig
+sayHi(['aa', 'bb']); // Gültig
 ```
 
 Hier ist ein weiteres Beispiel für die Verwendung von Funktionsüberladungen innerhalb einer `class`:
@@ -33,11 +33,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // Überladung
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // Implementierung
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;

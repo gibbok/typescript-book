@@ -13,7 +13,7 @@ Permettent de combiner plusieurs types en un seul type :
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // Intersection de A et B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -39,7 +39,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // Les propriétés deviennent en lecture seule
 ```
 
 Types conditionnels :
@@ -122,7 +122,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // Invalide
 ```
 
 #### Record\<K, T\>
@@ -291,8 +291,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // Valide, car "log" fait partie de "this".
+        this.update(); // Invalide
     },
 };
 ```
@@ -336,22 +336,22 @@ NoInfer est un type utilitaire conçu pour bloquer l'inférence automatique des 
 Exemple :
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// Inférence automatique des types dans la portée d'une fonction générique.
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // Le type est ici ("a" | "b" | "c")[]
 ```
 
 Avec NoInfer :
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// Exemple de fonction utilisant NoInfer pour empêcher l'inférence de type
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // Erreur : un argument de type '"c"' n'est pas assignable à un paramètre de type '"a" | "b"'.
 ```
 

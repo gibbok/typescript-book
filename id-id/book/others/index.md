@@ -10,11 +10,11 @@ Blok Try-Catch-Finally:
 
 ```typescript
 try {
-    // Code that might throw an error
+    // Kode yang mungkin melempar kesalahan
 } catch (error) {
-    // Handle the error
+    // Tangani kesalahan
 } finally {
-    // Code that always executes, finally is optional
+    // Kode yang selalu dijalankan, finally bersifat opsional
 }
 ```
 
@@ -22,14 +22,14 @@ Anda juga dapat menangani berbagai tipe galat:
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // Kode yang mungkin melempar berbagai jenis kesalahan
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // Tangani TypeError
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // Tangani RangeError
     } else {
-        // Handle other errors
+        // Tangani kesalahan lainnya
     }
 }
 ```
@@ -75,10 +75,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// Perluas MyClass agar mencakup perilaku Identifiable dan Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// Fungsi untuk menerapkan mixin ke kelas
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -93,7 +93,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// Terapkan mixin ke MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -208,10 +208,10 @@ Contoh:
 
 ```typescript
 /**
- * Computes the power of a given number
+ * Menghitung pangkat suatu angka
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – Nilai basis ekspresi
+ * @param {number} exponent – Nilai eksponen ekspresi
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -307,7 +307,7 @@ Anda dapat menggunakan meta-properti `new.target` dalam TypeScript, yang memungk
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // Mencetak fungsi konstruktor yang digunakan untuk membuat instans
     }
 }
 
@@ -332,7 +332,7 @@ Sintaks untuk ekspresi impor dinamis dalam TypeScript adalah sebagai berikut:
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // Impor dinamis
         widget.render(container);
     }
 }
@@ -645,7 +645,7 @@ declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
 produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceDog = produceAnimal; // Kesalahan
 ```
 
 **Kontravarians (menerima nilai):** fungsi yang menerima semua `Animal` dapat menggantikan fungsi yang menerima `Dog`. Fungsi itu juga dapat menangani anjing; fungsi yang hanya menerima anjing tidak aman untuk semua hewan.
@@ -658,7 +658,7 @@ declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
 consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeAnimal = consumeDog; // Kesalahan dengan strictFunctionTypes
 ```
 
 Panah menunjukkan arah penugasan yang aman:
@@ -674,8 +674,8 @@ Panah menunjukkan arah penugasan yang aman:
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // Diizinkan, tetapi tidak aman
+// dogs kini berisi Animal yang bukan Dog.
 ```
 
 **Opsi compiler:** dengan `strictFunctionTypes`, parameter fungsi mandiri diperiksa secara kontravarian. Tanpanya, TypeScript dapat mengizinkan kedua arah (bivarians), meskipun tidak aman. Parameter dalam deklarasi metode dan konstruktor merupakan pengecualian.
@@ -728,37 +728,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// Anotasi tipe menggunakan `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Pada baris berikut, TypeScript tidak dapat menginferensikan dengan benar
+user.attributes?.map(console.log); // Properti 'map' tidak ada pada tipe 'string | string[]'. Properti 'map' tidak ada pada tipe 'string'.
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// Penegasan tipe menggunakan `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Di sini juga, TypeScript tidak dapat menginferensikan dengan benar
+user2.attributes?.map(console.log); // Properti 'map' tidak ada pada tipe 'string | string[]'. Properti 'map' tidak ada pada tipe 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// Dengan operator `satisfies`, kita kini dapat menginferensikan tipe dengan benar
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript menginferensikan dengan benar: string[]
+user3.nickName; // TypeScript menginferensikan dengan benar: undefined
 ```
 
 ### Import dan Export Khusus Tipe
@@ -812,7 +812,7 @@ Contoh:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Polyfill sederhana
 
 const doWork = (): Disposable => {
     return {
@@ -825,9 +825,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // Sumber daya dideklarasikan
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // Sumber daya dibuang (misalnya, `work[Symbol.dispose]()` dievaluasi)
 
 console.log(3);
 ```
@@ -858,7 +858,7 @@ Deklarasi `using` mencatat operasi disposal sumber daya dalam sebuah stack, sehi
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // membuang `C`, lalu `B`, lalu `A`.
 ```
 
 Sumber daya dijamin akan di-dispose, bahkan jika kode berikutnya dijalankan atau terjadi exception. Hal ini dapat menyebabkan proses disposal memunculkan exception yang mungkin menyembunyikan exception lainnya. Untuk mempertahankan informasi tentang galat yang ditekan, exception bawaan baru, `SuppressedError`, diperkenalkan.
@@ -870,8 +870,8 @@ Deklarasi `await using` menangani sumber daya yang dapat di-dispose secara asink
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // Sumber daya dideklarasikan
+} // Sumber daya dibuang (misalnya, `await work[Symbol.asyncDispose]()` dievaluasi)
 ```
 
 Sumber daya yang dapat di-dispose secara asinkron harus mematuhi antarmuka `Disposable` atau `AsyncDisposable`:
@@ -886,12 +886,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Polyfill sederhana
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // Metode yang dipanggil saat objek dibuang secara asinkron
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // Tutup koneksi dan kembalikan promise
         return this.close();
     }
 
@@ -903,10 +903,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // Buat koneksi baru dan buang secara asinkron saat keluar dari cakupan
+    await using connection = new DatabaseConnection(); //  Sumber daya dideklarasikan
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Sumber daya dibuang (misalnya, `await connection[Symbol.asyncDispose]()` dievaluasi)
 
 doWork();
 ```
@@ -945,7 +945,7 @@ Sejak TypeScript 5.5.4, TypeScript memeriksa literal regex untuk galat umum pada
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // Kesalahan: Referensi balik ini merujuk ke grup yang tidak ada.
 ```
 
 ### import defer

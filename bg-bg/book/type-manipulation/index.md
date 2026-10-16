@@ -13,7 +13,7 @@ Intersection типове (`&`):
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // Сечение на A и B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -39,7 +39,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Свойствата стават read-only
+type ImmutablePerson = Mutable<Person>; // Свойствата стават достъпни само за четене
 ```
 
 Условни типове:
@@ -291,7 +291,7 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Валидно as "log" is a part of "this".
+        this.log('some error'); // Валидно, тъй като "log" е част от "this".
         this.update(); // Невалидно
     },
 };
@@ -336,22 +336,22 @@ NoInfer е utility тип, създаден да блокира автомати
 Пример:
 
 ```typescript
-// Автоматично извеждане на типове в generic функция
+// Автоматично извеждане на типове в обобщена функция
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // Типът тук е ("a" | "b" | "c")[]
 ```
 
 С NoInfer:
 
 <!-- skip -->
 ```typescript
-// Примерна функция, която използва NoInfer, за да предотврати type inference
+// Примерна функция, която използва NoInfer, за да предотврати извеждането на типове
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // Грешка: аргумент от тип '"c"' не може да се присвои на параметър от тип '"a" | "b"'.
 ```
 

@@ -35,7 +35,7 @@ Pour créer une instance d'une classe en TypeScript, vous pouvez utiliser le mot
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // Sortie : Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Constructeur
@@ -139,10 +139,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// Tenter d'instancier directement la classe de base provoquera une erreur
+// const baseObj = new BaseClass(); // Erreur : le constructeur de la classe 'BaseClass' est protégé.
 
-// Create an instance of the derived class
+// Créer une instance de la classe dérivée
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -241,8 +241,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // Les mots-clés "private" et "public" dans le constructeur
+        // déclarent et initialisent automatiquement les propriétés correspondantes de la classe.
     }
     public introduce(): void {
         console.log(
@@ -277,7 +277,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // Sortie : Whiskers meows.
 ```
 
 ### Avec des génériques
@@ -365,7 +365,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* Affiche :
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -390,7 +390,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // Affiche : HELLO!
 ```
 
 #### Décorateur de méthode
@@ -472,10 +472,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // Valide : 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // Lève une exception : Invalid!
 ```
 
 #### Métadonnées des décorateurs
@@ -487,15 +487,15 @@ Les métadonnées peuvent être utilisées à diverses fins, telles que le débo
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Polyfill simple
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // Le contexte contient les métadonnées de propriété : DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // Définir l'objet de métadonnées avec une valeur primitive
     context.metadata[context.name] = true;
 }
 
@@ -510,7 +510,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // Obtenir les métadonnées
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -545,11 +545,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// Créer une instance de la classe de base
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// Créer une instance de la classe dérivée
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -639,7 +639,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // Il n'est pas nécessaire d'affecter explicitement les valeurs aux propriétés.
     }
     log() {
         console.log(this.property2);
@@ -655,8 +655,8 @@ La surcharge de méthodes permet à une classe de disposer de plusieurs méthode
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // Signature de surcharge 1
+    add(a: string, b: string): string; // Signature de surcharge 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -670,6 +670,6 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // Affiche 15
 ```
 

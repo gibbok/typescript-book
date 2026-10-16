@@ -9,9 +9,9 @@ TypeScript의 리터럴 타입에는 숫자, 문자열, 불리언이 있습니�
 리터럴의 예제는 다음과 같습니다.
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // 문자열 리터럴 타입
+const b = 1; // 숫자 리터럴 타입
+const c = true; // 불리언 리터럴 타입
 ```
 
 문자열, 숫자, 불리언 리터럴 타입은 유니온, 타입 가드, 타입 별칭에서 사용됩니다.

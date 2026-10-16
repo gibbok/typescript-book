@@ -56,9 +56,9 @@ Trong TypeScript, type được dùng để định nghĩa hình dạng của d�
 ### Kiểu cơ bản
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
+let myNumber: number = 123; // kiểu number
+let myBoolean: boolean = true; // kiểu boolean
+let myArray: string[] = ['a', 'b']; // mảng chuỗi
 let myTuple: [string, number] = ['a', 123]; // tuple
 ```
 
@@ -71,13 +71,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Union Type và Intersection Type
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // Kiểu union
+let myUnion: MyType = 'hello'; // Có thể là một chuỗi
+myUnion = 123; // Hoặc một số
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // Kiểu giao
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Đối tượng có cả thuộc tính name và age
 ```
 

@@ -7,8 +7,8 @@ L’inférence des littéraux est une fonctionnalité de TypeScript qui permet d
 Dans l’exemple suivant, nous pouvons voir que TypeScript considère `x` comme un type littéral, car sa valeur ne peut plus être modifiée ultérieurement, tandis que `y` est inféré comme une chaîne puisqu’il peut être modifié ultérieurement.
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // Type littéral de 'x', car cette valeur ne peut pas être modifiée
+let y = 'y'; // Type string, car cette valeur peut être modifiée
 ```
 
 Dans l’exemple suivant, nous pouvons voir que `o.x` a été inféré comme un `string` (et non comme le littéral `a`), car TypeScript considère que la valeur peut être modifiée ultérieurement.
@@ -18,12 +18,12 @@ Dans l’exemple suivant, nous pouvons voir que `o.x` a été inféré comme un 
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // Il s'agit d'une chaîne de type plus large
 };
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // Un argument de type 'string' n'est pas assignable à un paramètre de type 'X'
 ```
 
 Comme vous pouvez le constater, le code génère une erreur lors du passage de `o.x` à `fn`, car X est un type plus étroit.

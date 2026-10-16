@@ -20,7 +20,7 @@ In TypeScript ist ein numerisches Enum ein Enum, bei dem jeder Konstanten ein nu
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // Wert beginnt bei 0
     Medium,
     Large,
 }
@@ -116,7 +116,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // Das Element hat implizit den Typ 'any', da der Indexausdruck nicht vom Typ 'number' ist.
 ```
 
 ### Ambient Enums
@@ -128,23 +128,23 @@ Ein Ambient Enum ist in TypeScript ein Enum-Typ, der in einer Deklarationsdatei 
 In TypeScript ist ein berechneter Member ein Member eines Enums, dessen Wert zur Laufzeit berechnet wird. Ein konstanter Member ist dagegen ein Member, dessen Wert zur Kompilierzeit festgelegt wird und zur Laufzeit nicht geändert werden kann. Berechnete Member sind in regulären Enums zulässig, während konstante Member sowohl in regulären als auch in Const-Enums zulässig sind.
 
 ```typescript
-// Constant members
+// Konstante Member
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6, bei der Kompilierung erzeugt
 ```
 
 ```typescript
-// Computed members
+// Berechnete Member
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // Zur Laufzeit erzeugte Zufallszahl
 ```
 
 Enums werden durch Unions dargestellt, die aus den Typen ihrer Member bestehen. Die Werte der einzelnen Member können durch konstante oder nicht konstante Ausdrücke bestimmt werden, wobei Membern mit konstanten Werten Literaltypen zugewiesen werden. Betrachten Sie zur Veranschaulichung die Deklaration des Typs E und seiner Untertypen E.A, E.B und E.C. In diesem Fall stellt E die Union E.A | E.B | E.C dar.
@@ -153,9 +153,9 @@ Enums werden durch Unions dargestellt, die aus den Typen ihrer Member bestehen. 
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // Numerisches Literal
+    B = 'bar', // String-Literal
+    C = identity(42), // Opaker berechneter Wert
 }
 
 console.log(E.C); //42

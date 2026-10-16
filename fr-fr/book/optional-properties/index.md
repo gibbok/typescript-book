@@ -7,7 +7,7 @@ Un objet peut spécifier des propriétés facultatives en ajoutant un point d’
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // Facultatif
 };
 ```
 

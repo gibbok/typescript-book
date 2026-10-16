@@ -35,9 +35,9 @@ TypeScript también admite valores hexadecimales, binarios y octales. Por ejempl
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // El hexadecimal comienza por 0x
+const binary: number = 0b1010; // El binario comienza por 0b
+const octal: number = 0o633; // El octal comienza por 0o
 ```
 
 ### bigint
@@ -90,17 +90,17 @@ Un `array` es un tipo de datos que puede almacenar varios valores, sean o no del
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // Unión
 ```
 
 TypeScript admite arrays de solo lectura mediante la siguiente sintaxis:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // Modificador de solo lectura
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // No válido
 ```
 
 TypeScript admite tuplas y tuplas de solo lectura:

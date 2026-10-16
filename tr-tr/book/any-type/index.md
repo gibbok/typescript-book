@@ -12,7 +12,7 @@
 
 ```typescript
 let value: any;
-value = true; // Valid
-value = 7; // Valid
+value = true; // Geçerli
+value = 7; // Geçerli
 ```
 

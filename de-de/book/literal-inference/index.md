@@ -7,8 +7,8 @@ Die Literaltypinferenz ist eine Funktion von TypeScript, mit der der Typ einer V
 Im folgenden Beispiel sehen wir, dass TypeScript `x` als Literaltyp betrachtet, da der Wert später nicht geändert werden kann. `y` wird dagegen als String abgeleitet, da der Wert später jederzeit geändert werden kann.
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // Literaltyp 'x', da dieser Wert nicht geändert werden kann
+let y = 'y'; // Typ string, da dieser Wert geändert werden kann
 ```
 
 Im folgenden Beispiel sehen wir, dass `o.x` als `string` (und nicht als Literal von `a`) abgeleitet wurde, da TypeScript davon ausgeht, dass der Wert später jederzeit geändert werden kann.
@@ -18,12 +18,12 @@ Im folgenden Beispiel sehen wir, dass `o.x` als `string` (und nicht als Literal 
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // Dies ist ein breiterer String-Typ
 };
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // Ein Argument vom Typ 'string' kann keinem Parameter vom Typ 'X' zugewiesen werden
 ```
 
 Wie Sie sehen, gibt der Code beim Übergeben von `o.x` an `fn` einen Fehler aus, da X ein engerer Typ ist.

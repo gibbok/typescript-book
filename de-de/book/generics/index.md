@@ -60,7 +60,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // Ungültig
 ```
 
 Eine bemerkenswerte Funktion von Generics, die in Version 3.4 RC eingeführt wurde, ist die Typinferenz für Funktionen höherer Ordnung, die generische Typargumente weitergibt:
@@ -87,10 +87,10 @@ Kontextbezogenes Narrowing für Generics ist der Mechanismus in TypeScript, der 
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // Der Wert wird auf den Typ 'string' eingegrenzt
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // Der Wert wird auf den Typ 'number' eingegrenzt
         console.log(value.toFixed(2));
     }
 }

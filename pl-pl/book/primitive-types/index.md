@@ -35,9 +35,9 @@ TypeScript obsługuje również liczby szesnastkowe, binarne i ósemkowe, na prz
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // Zapis szesnastkowy zaczyna się od 0x
+const binary: number = 0b1010; // Zapis binarny zaczyna się od 0b
+const octal: number = 0o633; // Zapis ósemkowy zaczyna się od 0o
 ```
 
 ### bigint
@@ -90,17 +90,17 @@ Tablica (`array`) to typ danych, który może przechowywać wiele wartości tego
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // Unia
 ```
 
 TypeScript obsługuje tablice tylko do odczytu przy użyciu następującej składni:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // Modyfikator readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // Niepoprawne
 ```
 
 TypeScript obsługuje krotki i krotki tylko do odczytu:

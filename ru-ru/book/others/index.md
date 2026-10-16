@@ -10,11 +10,11 @@ TypeScript позволяет перехватывать и обрабатыва
 
 ```typescript
 try {
-    // Code that might throw an error
+    // Код, который может вызвать исключение
 } catch (error) {
-    // Handle the error
+    // Обработка ошибки
 } finally {
-    // Code that always executes, finally is optional
+    // Код, который выполняется всегда; блок finally необязателен
 }
 ```
 
@@ -22,14 +22,14 @@ try {
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // Код, который может вызывать ошибки разных типов
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // Обработка TypeError
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // Обработка RangeError
     } else {
-        // Handle other errors
+        // Обработка других ошибок
     }
 }
 ```
@@ -75,10 +75,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// Расширить MyClass, включив поведение Identifiable и Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// Функция для применения примесей к классу
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -93,7 +93,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// Применить примеси к MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -208,10 +208,10 @@ TypeScript также поддерживает асинхронные итера
 
 ```typescript
 /**
- * Computes the power of a given number
+ * Вычисляет степень заданного числа
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – Основание выражения
+ * @param {number} exponent – Показатель степени выражения
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -307,7 +307,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // Выводит функцию-конструктор, использованную для создания экземпляра
     }
 }
 
@@ -332,7 +332,7 @@ const child = new Child(); // [Function: Child]
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // Динамический импорт
         widget.render(container);
     }
 }
@@ -644,8 +644,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // Допустимо
+produceDog = produceAnimal; // Ошибка
 ```
 
 **Контравариантность (приём значений):** функция, принимающая любой `Animal`, может заменить функцию, принимающую `Dog`. Она обработает и собаку; функция только для собак не может безопасно обработать любое животное.
@@ -657,8 +657,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // Допустимо
+consumeAnimal = consumeDog; // Ошибка при включённом strictFunctionTypes
 ```
 
 Стрелки показывают направление безопасного присваивания:
@@ -674,8 +674,8 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // Разрешено, но небезопасно
+// Теперь dogs содержит Animal, который не является Dog.
 ```
 
 **Настройка компилятора:** при `strictFunctionTypes` параметры обычных функций проверяются контравариантно. Без этого параметра TypeScript может допускать оба направления (бивариантность), даже если это небезопасно. Параметры объявлений методов и конструкторов — исключение.
@@ -712,7 +712,7 @@ const obj: MyObject = {
     'key-b': 456,
 };
 
-console.log(obj[uniqueSymbol]); // Unique symbol key
+console.log(obj[uniqueSymbol]); // Ключ уникального символа
 console.log(obj['key-a']); // 123
 console.log(obj['key-b']); // 456
 ```
@@ -728,37 +728,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// Аннотация типа с использованием `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// В следующих строках TypeScript не сможет правильно вывести типы
+user.attributes?.map(console.log); // Свойство 'map' не существует в типе 'string | string[]'. Свойство 'map' не существует в типе 'string'.
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// Утверждение типа с использованием `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Здесь TypeScript тоже не сможет правильно вывести типы
+user2.attributes?.map(console.log); // Свойство 'map' не существует в типе 'string | string[]'. Свойство 'map' не существует в типе 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// С оператором `satisfies` теперь можно правильно вывести типы
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript правильно выводит тип: string[]
+user3.nickName; // TypeScript правильно выводит тип: undefined
 ```
 
 ### Импорт и экспорт только типов
@@ -812,7 +812,7 @@ export type { T } from './mod';
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Простой полифил
 
 const doWork = (): Disposable => {
     return {
@@ -825,9 +825,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // Ресурс объявлен
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // Ресурс освобождён (например, выполняется `work[Symbol.dispose]()`)
 
 console.log(3);
 ```
@@ -858,7 +858,7 @@ interface Disposable {
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // освобождает `C`, затем `B`, затем `A`.
 ```
 
 Освобождение ресурсов гарантируется даже при выполнении последующего кода или возникновении исключений. При этом операция освобождения потенциально может выбросить исключение и, возможно, подавить другое. Для сохранения информации о подавленных ошибках введено новое встроенное исключение `SuppressedError`.
@@ -870,8 +870,8 @@ interface Disposable {
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // Ресурс объявлен
+} // Ресурс освобождён (например, выполняется `await work[Symbol.asyncDispose]()`)
 ```
 
 Асинхронно освобождаемый ресурс должен соответствовать интерфейсу `Disposable` или `AsyncDisposable`:
@@ -886,12 +886,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Простой полифил
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // Метод, вызываемый при асинхронном освобождении объекта
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // Закрыть соединение и вернуть промис
         return this.close();
     }
 
@@ -903,10 +903,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // Создать соединение и асинхронно освободить его при выходе из области видимости
+    await using connection = new DatabaseConnection(); //  Ресурс объявлен
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Ресурс освобождён (например, выполняется `await connection[Symbol.asyncDispose]()`)
 
 doWork();
 ```
@@ -945,7 +945,7 @@ const config = import('./config.json', { with: { type: 'json' } });
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // Ошибка: эта обратная ссылка ссылается на несуществующую группу.
 ```
 
 ### import defer

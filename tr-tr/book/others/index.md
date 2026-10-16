@@ -10,11 +10,11 @@ Try-Catch-Finally Blokları:
 
 ```typescript
 try {
-    // Code that might throw an error
+    // Hata fırlatabilecek kod
 } catch (error) {
-    // Handle the error
+    // Hatayı işle
 } finally {
-    // Code that always executes, finally is optional
+    // Her zaman çalışan kod, finally isteğe bağlıdır
 }
 ```
 
@@ -22,14 +22,14 @@ Farklı hata türlerini de işleyebilirsiniz:
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // Farklı türlerde hatalar fırlatabilecek kod
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // TypeError hatasını işle
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // RangeError hatasını işle
     } else {
-        // Handle other errors
+        // Diğer hataları işle
     }
 }
 ```
@@ -75,10 +75,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// MyClass sınıfını Identifiable ve Selectable davranışlarını içerecek şekilde genişlet
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// Bir sınıfa mixin uygulayan işlev
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -93,7 +93,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// Mixin'leri MyClass sınıfına uygula
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -208,10 +208,10 @@ Bir JavaScript kod tabanıyla çalışırken tür bilgisi sağlayan ek açıklam
 
 ```typescript
 /**
- * Computes the power of a given number
+ * Verilen sayının kuvvetini hesaplar
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – İfadenin taban değeri
+ * @param {number} exponent – İfadenin üs değeri
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -307,7 +307,7 @@ TypeScript'te `new.target` meta özelliğini kullanabilirsiniz. Bu özellik, bir
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // Örnek oluşturmak için kullanılan kurucu işlevi yazdırır
     }
 }
 
@@ -332,7 +332,7 @@ TypeScript'te dinamik içe aktarma ifadelerinin sözdizimi şöyledir:
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // Dinamik içe aktarma
         widget.render(container);
     }
 }
@@ -644,8 +644,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // Geçerli
+produceDog = produceAnimal; // Hata
 ```
 
 **Kontravaryans (değer kabul etme):** herhangi bir `Animal` kabul eden fonksiyon, `Dog` kabul eden fonksiyonun yerine kullanılabilir. Köpekleri de işleyebilir; yalnızca köpek kabul eden fonksiyon tüm hayvanları güvenle işleyemez.
@@ -657,8 +657,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // Geçerli
+consumeAnimal = consumeDog; // strictFunctionTypes ile hata
 ```
 
 Oklar güvenli atamaların yönünü gösterir:
@@ -674,8 +674,8 @@ Oklar güvenli atamaların yönünü gösterir:
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // İzin verilir, ancak güvenli değil
+// dogs artık Dog olmayan bir Animal içeriyor.
 ```
 
 **Derleyici seçeneği:** `strictFunctionTypes` etkinse bağımsız fonksiyon parametreleri kontravaryant olarak denetlenir. Etkin değilse TypeScript güvenli olmasa da iki yönü kabul edebilir (bivaryans). Metot ve kurucu bildirimlerindeki parametreler bu denetimin istisnasıdır.
@@ -712,7 +712,7 @@ const obj: MyObject = {
     'key-b': 456,
 };
 
-console.log(obj[uniqueSymbol]); // Unique symbol key
+console.log(obj[uniqueSymbol]); // Benzersiz sembol anahtarı
 console.log(obj['key-a']); // 123
 console.log(obj['key-b']); // 456
 ```
@@ -728,37 +728,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// `User` kullanarak tür belirtimi
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Aşağıdaki satırlarda TypeScript türleri doğru çıkaramayacak
+user.attributes?.map(console.log); // 'map' özelliği 'string | string[]' türünde mevcut değil. 'map' özelliği 'string' türünde mevcut değil.
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// `as` kullanarak tür iddiası
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Burada da TypeScript türleri doğru çıkaramayacak
+user2.attributes?.map(console.log); // 'map' özelliği 'string | string[]' türünde mevcut değil. 'map' özelliği 'string' türünde mevcut değil.
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// `satisfies` işleciyle artık türleri doğru çıkarabiliriz
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript doğru çıkarır: string[]
+user3.nickName; // TypeScript doğru çıkarır: undefined
 ```
 
 ### Yalnızca Tür İçe Aktarımları ve Dışa Aktarımı
@@ -812,7 +812,7 @@ Notlar:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Basit polyfill
 
 const doWork = (): Disposable => {
     return {
@@ -825,9 +825,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // Kaynak bildirilir
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // Kaynak serbest bırakılır (ör. `work[Symbol.dispose]()` değerlendirilir)
 
 console.log(3);
 ```
@@ -858,7 +858,7 @@ interface Disposable {
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // önce `C`, sonra `B`, ardından `A` serbest bırakılır.
 ```
 
 Daha sonraki kod çalışsa veya istisnalar oluşsa bile kaynakların elden çıkarılması garanti edilir. Bu durum, elden çıkarma işleminin istisna oluşturmasına ve başka bir istisnayı muhtemelen bastırmasına yol açabilir. Bastırılan hatalara ilişkin bilgileri korumak için `SuppressedError` adında yeni bir yerleşik istisna kullanıma sunulmuştur.
@@ -870,8 +870,8 @@ Bir `await using` bildirimi, eşzamansız olarak elden çıkarılabilen bir kayn
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // Kaynak bildirilir
+} // Kaynak serbest bırakılır (ör. `await work[Symbol.asyncDispose]()` değerlendirilir)
 ```
 
 Eşzamansız olarak elden çıkarılabilen bir kaynak, `Disposable` veya `AsyncDisposable` arayüzlerinden birine uymalıdır:
@@ -886,12 +886,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Basit polyfill
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // Nesne eşzamansız olarak serbest bırakıldığında çağrılan yöntem
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // Bağlantıyı kapat ve bir promise döndür
         return this.close();
     }
 
@@ -903,10 +903,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // Yeni bir bağlantı oluştur ve kapsamından çıkıldığında eşzamansız olarak serbest bırak
+    await using connection = new DatabaseConnection(); //  Kaynak bildirilir
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Kaynak serbest bırakılır (ör. `await connection[Symbol.asyncDispose]()` değerlendirilir)
 
 doWork();
 ```
@@ -945,7 +945,7 @@ TypeScript, 5.5.4 sürümünden itibaren düzenli ifade değişmezlerini derleme
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // Hata: Bu geri başvuru mevcut olmayan bir gruba işaret ediyor.
 ```
 
 ### import defer

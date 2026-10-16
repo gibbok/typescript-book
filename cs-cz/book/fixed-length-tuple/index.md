@@ -9,6 +9,6 @@ N-tice s pevnou délkou jsou užitečné, když potřebujete reprezentovat kolek
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // Chyba
 ```
 

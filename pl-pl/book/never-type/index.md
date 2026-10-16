@@ -9,7 +9,7 @@ Na przykład nieskończona pętla:
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // zrób coś
     }
 };
 ```
@@ -29,10 +29,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // przesuń w górę
             break;
         case 'down':
-            // move down
+            // przesuń w dół
             break;
         default:
             const exhaustiveCheck: never = direction;

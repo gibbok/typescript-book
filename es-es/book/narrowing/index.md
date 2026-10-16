@@ -13,7 +13,7 @@ La guarda de tipo typeof es una guarda específica de TypeScript que comprueba e
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x es de tipo number
     }
     return -1;
 };

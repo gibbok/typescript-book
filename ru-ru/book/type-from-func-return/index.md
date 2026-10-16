@@ -5,6 +5,6 @@
 Тип из возвращаемого значения функции означает возможность автоматически вывести возвращаемый тип функции на основе её реализации. Это позволяет TypeScript определить тип возвращаемого функцией значения без явных аннотаций типов.
 
 ```typescript
-const add = (x: number, y: number) => x + y; // TypeScript can infer that the return type of the function is a number
+const add = (x: number, y: number) => x + y; // TypeScript может вывести, что функция возвращает число
 ```
 

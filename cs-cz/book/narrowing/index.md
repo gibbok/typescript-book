@@ -13,7 +13,7 @@ Typový strážce typeof je konkrétní typový strážce v TypeScriptu, který 
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x je typu number
     }
     return -1;
 };

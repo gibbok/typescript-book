@@ -6,7 +6,7 @@ Un type union représente une valeur qui peut appartenir à l'un de plusieurs ty
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // Valide
+x = 123; // Valide
 ```
 

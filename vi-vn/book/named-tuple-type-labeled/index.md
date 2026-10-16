@@ -8,6 +8,6 @@ Tuple type có thể bao gồm nhãn hoặc tên tùy chọn cho từng phần t
 type T = string;
 type Tuple1 = [T, T];
 type Tuple2 = [a: T, b: T];
-type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
+type Tuple3 = [a: T, T]; // Tuple có tên kết hợp với tuple ẩn danh
 ```
 

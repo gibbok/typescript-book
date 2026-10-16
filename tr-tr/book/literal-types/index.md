@@ -9,9 +9,9 @@ TypeScript'teki Sabit Değer Türleri sayılar, dizeler ve boole değerleridir.
 Sabit değer örnekleri:
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // Dize sabiti türü
+const b = 1; // Sayısal sabit türü
+const c = true; // Mantıksal sabit türü
 ```
 
 Dize, Sayısal ve Boole Sabit Değer Türleri birleşimlerde, tür korumalarında ve tür takma adlarında kullanılır.

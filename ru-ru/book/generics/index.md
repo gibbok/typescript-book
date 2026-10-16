@@ -60,7 +60,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // Недопустимо
 ```
 
 Примечательная возможность обобщений, появившаяся в версии 3.4 RC, — вывод типов для функций высшего порядка, который распространяет аргументы обобщённых типов:
@@ -87,10 +87,10 @@ const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // Значение сужено до типа 'string'
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // Значение сужено до типа 'number'
         console.log(value.toFixed(2));
     }
 }

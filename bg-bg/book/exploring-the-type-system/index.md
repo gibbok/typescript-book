@@ -149,22 +149,22 @@ y('a', 1);
 Сравнението на параметрите на функциите е успешно, ако изходните и целевите параметри могат да бъдат присвоени към супертипове или подтипове (bivariance).
 
 ```typescript
-// Supertype
+// Надтип
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// Подтип
 class Y extends X {}
-// Subtype
+// Подтип
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
+// Бивариантността допуска надтипове
 console.log(getA(new X('x'))); // Валидно
 console.log(getA(new Y('Y'))); // Валидно
 console.log(getA(new Z('z'))); // Валидно
@@ -432,7 +432,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // Грешка: обектният литерал може да съдържа само известни свойства
 };
 ```
 
@@ -646,7 +646,7 @@ window.addEventListener('click', function (e) {}); // Типът, който с�
 <!-- skip -->
 ```typescript
 let x = 'x'; // TypeScript извежда като string, широк тип
-let y: 'y' | 'x' = 'y'; // Типът на y е "union" на литерални типове
+let y: 'y' | 'x' = 'y'; // Типът на y е обединение на литерални типове
 y = x; // Невалиден Тип 'string' не може да бъде присвоен на типа '"x" | "y"'.
 ```
 
@@ -686,7 +686,7 @@ const values = identity({ a: 'a', b: 'b' }); // Изведения тип е: { 
 
 ```typescript
 function identity<const T>(value: T) {
-    // Използване на const modifier върху type параметри
+    // Използване на модификатора const върху параметри на типове
     return value;
 }
 const values = identity({ a: 'a', b: 'b' }); // Изведения тип е: { a: "a"; b: "b"; }
@@ -720,7 +720,7 @@ const v = {
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple от readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // Кортеж readonly [1, 2, 3]
 ```
 
 ### Явна типова анотация
@@ -810,9 +810,9 @@ const data = ['a', null, 'c', 'd', null, 'f'];
 
 const r1 = data.filter(x => x != null); // Типът е (string | null)[], TypeScript не успя да определи типа правилно
 
-const isValid = (item: string | null): item is string => item !== null; // Потребителски type guard
+const isValid = (item: string | null): item is string => item !== null; // Потребителска защита на тип
 
-const r2 = data.filter(isValid); // Типът вече е string[], като използвахме predicate type guard успяхме да стесним типа
+const r2 = data.filter(isValid); // Типът вече е string[], като чрез предикат за защита на тип успяхме да го стесним
 ```
 
 #### Switch-true narrowing

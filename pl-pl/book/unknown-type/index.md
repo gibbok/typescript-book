@@ -10,10 +10,10 @@ Typ `unknown` można przypisać tylko do typów `any` i `unknown`; jest on bezpi
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // Poprawne
+let value2: any = value; // Poprawne
+let value3: boolean = value; // Niepoprawne
+let value4: number = value; // Niepoprawne
 ```
 
 ```typescript

@@ -20,7 +20,7 @@ TypeScript'te Sayısal Enum, her sabite varsayılan olarak 0'dan başlayan sayı
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // değer 0'dan başlar
     Medium,
     Large,
 }
@@ -116,7 +116,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // İndeks ifadesi 'number' türünde olmadığı için öğe örtük olarak 'any' türündedir.
 ```
 
 ### Bildirimsel enum'lar
@@ -128,23 +128,23 @@ TypeScript'te bildirimsel enum, ilişkili bir uygulaması olmadan bir bildirim d
 TypeScript'te hesaplanmış üye, değeri çalışma zamanında hesaplanan bir Enum üyesiyken sabit üye, değeri derleme zamanında belirlenen ve çalışma zamanında değiştirilemeyen bir üyedir. Hesaplanmış üyelere normal Enum'larda izin verilirken sabit üyelere hem normal hem de const enum'larda izin verilir.
 
 ```typescript
-// Constant members
+// Sabit üyeler
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6, derleme zamanında üretilir
 ```
 
 ```typescript
-// Computed members
+// Hesaplanan üyeler
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // çalışma zamanında üretilen rastgele sayı
 ```
 
 Enum'lar, üye türlerinden oluşan birleşimlerle gösterilir. Her üyenin değeri sabit veya sabit olmayan ifadeler aracılığıyla belirlenebilir ve sabit değerlere sahip üyelere sabit değer türleri atanır. Örnek olarak E türünün ve E.A, E.B ve E.C alt türlerinin bildirimini ele alalım. Bu durumda E, E.A | E.B | E.C birleşimini temsil eder.
@@ -153,9 +153,9 @@ Enum'lar, üye türlerinden oluşan birleşimlerle gösterilir. Her üyenin değ
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // Sayısal sabit
+    B = 'bar', // Dize sabiti
+    C = identity(42), // Opak hesaplanan değer
 }
 
 console.log(E.C); //42

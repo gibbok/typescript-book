@@ -13,7 +13,7 @@ type Y = {
     b: string;
 };
 
-type J = X & Y; // Intersection
+type J = X & Y; // Průnik
 
 const j: J = {
     a: 'a',

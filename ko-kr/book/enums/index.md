@@ -20,7 +20,7 @@ TypeScript에서 숫자 열거형은 각 상수에 숫자 값이 할당되는 �
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // 값은 0부터 시작
     Medium,
     Large,
 }
@@ -116,7 +116,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // 인덱스 표현식의 타입이 'number'가 아니므로 요소는 암시적으로 'any' 타입입니다.
 ```
 
 ### 앰비언트 열거형
@@ -128,23 +128,23 @@ TypeScript의 앰비언트 열거형은 관련 구현 없이 선언 파일(*.d.t
 TypeScript에서 계산된 멤버는 런타임에 값이 계산되는 열거형 멤버이고, 상수 멤버는 컴파일 시간에 값이 설정되어 런타임에 변경할 수 없는 멤버입니다. 계산된 멤버는 일반 열거형에서 사용할 수 있으며, 상수 멤버는 일반 열거형과 const 열거형 모두에서 사용할 수 있습니다.
 
 ```typescript
-// Constant members
+// 상수 멤버
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6 컴파일 시 생성
 ```
 
 ```typescript
-// Computed members
+// 계산된 멤버
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // 런타임에 생성된 난수
 ```
 
 열거형은 멤버 타입으로 구성된 유니온으로 표현됩니다. 각 멤버의 값은 상수 표현식이나 비상수 표현식을 통해 결정할 수 있으며, 상숫값을 갖는 멤버에는 리터럴 타입이 할당됩니다. 예를 들어 타입 E와 그 하위 타입 E.A, E.B, E.C의 선언을 살펴보세요. 이 경우 E는 유니온 E.A | E.B | E.C를 나타냅니다.
@@ -153,9 +153,9 @@ console.log(Color.Blue); // random number generated at run time
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // 숫자 리터럴
+    B = 'bar', // 문자열 리터럴
+    C = identity(42), // 불투명한 계산값
 }
 
 console.log(E.C); //42

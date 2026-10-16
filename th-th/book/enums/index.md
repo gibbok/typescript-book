@@ -20,7 +20,7 @@ enum Color {
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // ค่าเริ่มต้นจาก 0
     Medium,
     Large,
 }
@@ -116,7 +116,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // สมาชิกมีชนิด 'any' โดยปริยาย เนื่องจากนิพจน์ดัชนีไม่ใช่ชนิด 'number'
 ```
 
 ### Ambient enum
@@ -128,23 +128,23 @@ Ambient enum ใน TypeScript คือ Enum ชนิดหนึ่งที�
 ใน TypeScript สมาชิกที่คำนวณค่าคือสมาชิกของ Enum ที่มีการคำนวณค่าในเวลารันไทม์ ส่วนสมาชิกค่าคงที่คือสมาชิกที่กำหนดค่าในเวลาคอมไพล์และไม่สามารถเปลี่ยนแปลงได้ระหว่างรันไทม์ สมาชิกที่คำนวณค่าใช้ได้ใน Enum ปกติ ส่วนสมาชิกค่าคงที่ใช้ได้ทั้งใน Enum ปกติและ const enum
 
 ```typescript
-// Constant members
+// สมาชิกค่าคงที่
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6 ถูกสร้างขึ้นขณะคอมไพล์
 ```
 
 ```typescript
-// Computed members
+// สมาชิกที่คำนวณค่า
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // ตัวเลขสุ่มที่สร้างขณะรัน
 ```
 
 Enum แสดงด้วยยูเนียนที่ประกอบด้วยชนิดของสมาชิก ค่าของสมาชิกแต่ละตัวสามารถกำหนดผ่านนิพจน์ค่าคงที่หรือไม่ใช่ค่าคงที่ โดยสมาชิกที่มีค่าคงที่จะได้รับการกำหนดเป็นชนิดลิเทอรัล เพื่อให้เห็นภาพ ให้พิจารณาการประกาศชนิด E และชนิดย่อย E.A, E.B และ E.C ในกรณีนี้ E แทนยูเนียน E.A | E.B | E.C
@@ -153,9 +153,9 @@ Enum แสดงด้วยยูเนียนที่ประกอบด
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // ลิเทอรัลตัวเลข
+    B = 'bar', // ลิเทอรัลสตริง
+    C = identity(42), // ค่าที่คำนวณแบบทึบแสง
 }
 
 console.log(E.C); //42

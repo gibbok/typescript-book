@@ -6,7 +6,7 @@ Typ unii to typ reprezentujący wartość, która może być jednym z kilku typ�
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // Poprawne
+x = 123; // Poprawne
 ```
 

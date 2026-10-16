@@ -9,9 +9,9 @@ Literal types в TypeScript са числа, низове и булеви сто
 Пример за literal стойности:
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // Низов литерален тип
+const b = 1; // Числов литерален тип
+const c = true; // Булев литерален тип
 ```
 
 String, Numeric и Boolean literal types се използват в unions, type guards и type aliases.

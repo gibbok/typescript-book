@@ -9,7 +9,7 @@
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // تنفيذ شيء ما
     }
 };
 ```
@@ -29,10 +29,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // التحرك للأعلى
             break;
         case 'down':
-            // move down
+            // التحرك للأسفل
             break;
         default:
             const exhaustiveCheck: never = direction;

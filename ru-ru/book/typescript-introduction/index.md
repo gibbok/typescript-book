@@ -63,14 +63,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 Система типов TypeScript во многом учитывает поведение JavaScript во время выполнения. Например, оператор сложения (+), который в JavaScript может выполнять как конкатенацию строк, так и сложение чисел, моделируется в TypeScript таким же образом:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // Результат имеет тип string
 ```
 
 Команда разработчиков TypeScript приняла осознанное решение отмечать необычное использование JavaScript как ошибку. Например, рассмотрим следующий допустимый код JavaScript:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // В JavaScript результат равен 2
 ```
 
 Однако TypeScript выдаёт ошибку:
@@ -89,7 +89,7 @@ Operator '+' cannot be applied to types 'number' and 'boolean'.
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // Аргумент типа 'string' нельзя присвоить параметру типа 'number'.
 ```
 
 Тем не менее он может сгенерировать исполняемый код JavaScript:
@@ -116,7 +116,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' обозначает только тип, но здесь используется как значение.
         // ...
     }
 };
@@ -126,11 +126,11 @@ const makeNoise = (animal: Animal) => {
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Размеченное объединение
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Размеченное объединение
     meow: () => void;
 }
 type Animal = Dog | Cat;

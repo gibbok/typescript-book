@@ -6,7 +6,7 @@ Sjednocený typ je typ, který představuje hodnotu, jež může být jedním z 
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // Platné
+x = 123; // Platné
 ```
 

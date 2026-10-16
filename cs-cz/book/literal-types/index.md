@@ -9,9 +9,9 @@ Literálové typy v TypeScriptu jsou čísla, řetězce a booleovské hodnoty.
 Příklad literálů:
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // Řetězcový literálový typ
+const b = 1; // Číselný literálový typ
+const c = true; // Booleovský literálový typ
 ```
 
 Řetězcové, číselné a booleovské literálové typy se používají ve sjednoceních, typových strážcích a typových aliasech.

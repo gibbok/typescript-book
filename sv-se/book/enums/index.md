@@ -20,7 +20,7 @@ I TypeScript är en numerisk Enum en Enum där varje konstant tilldelas ett nume
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // värdet börjar på 0
     Medium,
     Large,
 }
@@ -116,7 +116,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // Elementet har implicit typen 'any' eftersom indexuttrycket inte har typen 'number'.
 ```
 
 ### Omgivande enums
@@ -128,23 +128,23 @@ En omgivande enum i TypeScript är en typ av Enum som definieras i en deklaratio
 I TypeScript är en beräknad medlem en medlem av en Enum som har ett värde som beräknas vid körning, medan en konstant medlem är en medlem vars värde sätts vid kompileringstid och inte kan ändras under körning. Beräknade medlemmar är tillåtna i vanliga Enums, medan konstanta medlemmar är tillåtna i både vanliga och const enums.
 
 ```typescript
-// Constant members
+// Konstanta medlemmar
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6, genererat vid kompilering
 ```
 
 ```typescript
-// Computed members
+// Beräknade medlemmar
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // Slumptal genererat vid körning
 ```
 
 Enums betecknas av unioner som består av deras medlemstyper. Värdena för varje medlem kan bestämmas genom konstanta eller icke-konstanta uttryck, där medlemmar med konstanta värden tilldelas literaltyper. För att illustrera, betrakta deklarationen av typ E och dess undertyper E.A, E.B och E.C. I detta fall representerar E unionen E.A | E.B | E.C.
@@ -153,9 +153,9 @@ Enums betecknas av unioner som består av deras medlemstyper. Värdena för varj
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // Numerisk literal
+    B = 'bar', // Strängliteral
+    C = identity(42), // Opakt beräknat värde
 }
 
 console.log(E.C); //42

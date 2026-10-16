@@ -9,6 +9,6 @@ Krotki o stałej długości są przydatne, gdy trzeba reprezentować kolekcję w
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // Błąd
 ```
 

@@ -35,9 +35,9 @@ TypeScript также поддерживает шестнадцатеричны�
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // Шестнадцатеричное число начинается с 0x
+const binary: number = 0b1010; // Двоичное число начинается с 0b
+const octal: number = 0o633; // Восьмеричное число начинается с 0o
 ```
 
 ### bigint
@@ -90,17 +90,17 @@ console.log(obj[b]); // 456
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // Объединение
 ```
 
 TypeScript поддерживает массивы только для чтения со следующим синтаксисом:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // Модификатор readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // Недопустимо
 ```
 
 TypeScript поддерживает кортежи и кортежи только для чтения:

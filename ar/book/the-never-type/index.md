@@ -11,7 +11,7 @@ const printValue = (val: string | number) => {
     } else if (typeof val === 'number') {
         console.log(val.toFixed(2));
     } else {
-        // val has type never here because it can never be anything other than a string or a number
+        // نوع val هنا هو never لأنه لا يمكن أن يكون سوى سلسلة نصية أو عدد
         const neverVal: never = val;
         console.log(`Unexpected value: ${neverVal}`);
     }

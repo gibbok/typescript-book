@@ -71,9 +71,9 @@ Saat menjalankan perintah `tsc` secara lokal, TypeScript akan mengompilasi kode 
 Berikut adalah beberapa contoh perintah CLI yang dijalankan dengan pengaturan default:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // Kompilasi file tertentu (main.ts) ke JavaScript
+tsc src/*.ts // Kompilasi semua file .ts dalam folder 'src' ke JavaScript
+tsc app.ts util.ts --outfile index.js // Kompilasi dua file TypeScript (app.ts dan util.ts) menjadi satu file JavaScript (index.js)
 ```
 
 ### Berkas Konfigurasi TypeScript

@@ -13,7 +13,7 @@ Gör det möjligt att kombinera flera typer till en enda typ:
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // Snitt av A och B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -39,7 +39,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // Egenskaperna blir skrivskyddade
 ```
 
 Villkorliga typer:
@@ -122,7 +122,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // Ogiltigt
 ```
 
 #### Record\<K, T\>
@@ -291,8 +291,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // Giltigt eftersom "log" är en del av "this".
+        this.update(); // Ogiltigt
     },
 };
 ```
@@ -336,22 +336,22 @@ NoInfer är en verktygstyp utformad för att blockera automatisk typinferens ino
 Exempel:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// Automatisk typhärledning inom en generisk funktions räckvidd.
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // Typen här är ("a" | "b" | "c")[]
 ```
 
 Med NoInfer:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// Exempelfunktion som använder NoInfer för att förhindra typhärledning
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // Fel: Ett argument av typen '"c"' kan inte tilldelas en parameter av typen '"a" | "b"'.
 ```
 

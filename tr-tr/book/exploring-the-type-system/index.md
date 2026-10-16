@@ -30,7 +30,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // Geçerli
 ```
 
 ### TypeScript'in Temel Karşılaştırma Kuralları
@@ -43,7 +43,7 @@ TypeScript'in karşılaştırma süreci özyinelemelidir ve herhangi bir düzeyd
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // En az X ile aynı üyelere sahip olduğu için geçerli
 const r: X = y;
 ```
 
@@ -54,8 +54,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Geçerli
+x = y; // Geçerli
 ```
 
 İşlev dönüş türleri aynı olmalıdır:
@@ -66,8 +66,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // Geçersiz
+x = y; // Geçersiz
 ```
 
 Bir kaynak işlevin dönüş türü, hedef işlevin dönüş türünün bir alt türü olmalıdır:
@@ -76,8 +76,8 @@ Bir kaynak işlevin dönüş türü, hedef işlevin dönüş türünün bir alt 
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // Geçerli
+y = x; // Geçersiz, b üyesi eksik
 ```
 
 İşlev parametrelerinin yok sayılmasına JavaScript'te yaygın bir uygulama olduğundan izin verilir; örneğin "Array.prototype.map()" kullanımı:
@@ -92,8 +92,8 @@ Bu nedenle aşağıdaki tür bildirimleri tamamen geçerlidir:
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // b parametresi eksik
+y = x; // Geçerli
 ```
 
 Kaynak türün tüm ek isteğe bağlı parametreleri geçerlidir:
@@ -103,8 +103,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // Geçerli
+x = y; //Geçerli
 ```
 
 Hedef türün kaynak türde karşılığı olmayan tüm isteğe bağlı parametreleri geçerlidir ve hata oluşturmaz:
@@ -114,15 +114,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Geçerli
+x = y; // Geçerli
 ```
 
 Rest parametresi, sonsuz bir isteğe bağlı parametre dizisi olarak ele alınır:
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //geçerli
 ```
 
 Aşırı yüklemelere sahip işlevler, aşırı yükleme imzası uygulama imzasıyla uyumluysa geçerlidir:
@@ -134,10 +134,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // Geçerli
+x('a', 1); // Geçerli
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // Geçersiz, uygulama imzasıyla uyumlu değil
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -149,25 +149,25 @@ y('a', 1);
 Kaynak ve hedef parametreler üst türlere veya alt türlere atanabiliyorsa işlev parametresi karşılaştırması başarılı olur (çift değişkenlik).
 
 ```typescript
-// Supertype
+// Üst tür
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// Alt tür
 class Y extends X {}
-// Subtype
+// Alt tür
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// Çift yönlü varyans üst türleri kabul eder
+console.log(getA(new X('x'))); // Geçerli
+console.log(getA(new Y('Y'))); // Geçerli
+console.log(getA(new Z('z'))); // Geçerli
 ```
 
 Enum'lar sayılarla, sayılar da Enum'larla karşılaştırılabilir ve geçerlidir; ancak farklı Enum türlerinden Enum değerlerini karşılaştırmak geçersizdir.
@@ -183,9 +183,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // Geçerli
+const ya: Y = 0; // Geçerli
+X.A === Y.A; // Geçersiz
 ```
 
 Bir sınıfın örnekleri, private ve protected üyeleri için uyumluluk denetimine tabi tutulur:
@@ -206,7 +206,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // Geçersiz
 ```
 
 Karşılaştırma denetimi farklı kalıtım hiyerarşilerini dikkate almaz, örneğin:
@@ -234,8 +234,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // Geçerli
+x === z; // z farklı bir kalıtım hiyerarşisinden olsa bile geçerli
 ```
 
 Jenerikler, jenerik parametre uygulandıktan sonra ortaya çıkan türün yapısı kullanılarak karşılaştırılır; yalnızca nihai sonuç jenerik olmayan bir tür olarak karşılaştırılır.
@@ -247,14 +247,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // Tür argümanı son yapıda kullanıldığı için geçersiz
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // Tür argümanı son yapıda kullanılmadığı için geçerli
 ```
 
 Jeneriklerin tür argümanı belirtilmediğinde, belirtilmemiş tüm argümanlar "any" türü olarak ele alınır:
@@ -264,7 +264,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // Geçerli
 ```
 
 Unutmayın:
@@ -273,26 +273,26 @@ Unutmayın:
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // Geçerli, her şey kendisine atanabilir
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // Geçerli, tüm türler any türüne atanabilir
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // Geçerli, tüm türler unknown türüne atanabilir
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // Geçerli, unknown yalnızca kendisine ve any türüne atanabilir
+let e2: any = e; // Geçerli
+let e3: number = e; // Geçersiz
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // Geçersiz, never türüne hiçbir şey atanamaz
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // Geçersiz, any dışında void ile diğer türler arasında atama yapılamaz
+g = g1; // Geçerli
 ```
 
 "strictNullChecks" etkinleştirildiğinde "null" ve "undefined" değerlerinin "void" değerine benzer şekilde, aksi durumda ise "never" değerine benzer şekilde ele alındığını lütfen unutmayın.
@@ -350,7 +350,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // Geçerli
 ```
 
 Bir kesişim, (T1 & T2), daha dar bir küme (yalnızca ortak olanlar) oluşturur:
@@ -365,8 +365,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // Geçersiz
+const j: XY = { a: 'a', b: 'b' }; // Geçerli
 ```
 
 `extends` anahtar sözcüğü bu bağlamda "alt kümesi" olarak düşünülebilir. Bir tür için kısıtlama belirler. `extends` bir jenerikle kullanıldığında, jenerik tür parametresini daha belirli bir türle sınırlar.
@@ -400,7 +400,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // Geçerli
 ```
 
 ### Tür Atama: Tür Bildirimleri ve Tür Onaylamaları
@@ -416,7 +416,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// Tür bildirimi
 const x: X = {
     a: 'a',
 };
@@ -432,7 +432,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // Hata: Nesne sabiti yalnızca bilinen özellikleri belirtebilir
 };
 ```
 
@@ -516,8 +516,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // Yapısal tipleme nedeniyle geçerli
+const w: X = { a: 'a', b: 'b' }; // Fazladan özellik denetimi nedeniyle geçersiz
 ```
 
 ### Zayıf Türler
@@ -542,7 +542,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // Geçersiz
 ```
 
 Önerilmemekle birlikte, gerekirse tür onaylaması kullanarak bu denetimi atlamak mümkündür:
@@ -553,7 +553,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // Geçerli
 ```
 
 Ya da zayıf türün indeks imzasına `unknown` ekleyerek:
@@ -566,7 +566,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // Geçerli
 ```
 
 ### Katı Nesne Değişmezi Denetimi (Tazelik)
@@ -585,20 +585,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // Tazelik denetimi: Geçersiz atama
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // Tazelik denetimi: Geçersiz atama
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // Genişletme: Hata yok, türler yapısal olarak uyumlu
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // Tazelik denetimi: Geçersiz argüman
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // Genişletme: Tazelik denetimi yok
 ```
 
 ### Tür Çıkarımı
@@ -613,7 +613,7 @@ TypeScript, şu durumlarda ek açıklama sağlanmadığında türleri çıkarabi
 Örneğin:
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // Çıkarılan tür string
 ```
 
 TypeScript derleyicisi, değeri veya ifadeyi analiz eder ve mevcut bilgilere göre türünü belirler.
@@ -623,19 +623,19 @@ TypeScript derleyicisi, değeri veya ifadeyi analiz eder ve mevcut bilgilere gö
 Tür çıkarımında birden fazla ifade kullanıldığında TypeScript "en iyi ortak türleri" arar. Örneğin:
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // Çıkarılan tür: (string | number | null)[]
 ```
 
 Derleyici en iyi ortak türleri bulamazsa bir birleşim türü döndürür. Örneğin:
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // Çıkarılan tür: (RegExp | Date)[]
 ```
 
 TypeScript, türleri çıkarmak için değişkenin konumuna dayalı "bağlamsal türleme" kullanır. Aşağıdaki örnekte derleyici, `e` öğesinin `MouseEvent` türünde olduğunu bilir; çünkü çeşitli yaygın JavaScript yapılarına ve DOM'a yönelik ortam bildirimlerini içeren lib.d.ts dosyasında `click` olay türü tanımlanmıştır:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // e için çıkarılan tür MouseEvent
 ```
 
 ### Tür Genişletme
@@ -645,9 +645,9 @@ Aşağıdaki örnekte:
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript geniş bir tür olan string türünü çıkarır
+let y: 'y' | 'x' = 'y'; // y türü, sabit türlerin birleşimidir
+y = x; // Geçersiz: 'string' türü '"x" | "y"' türüne atanamaz.
 ```
 
 TypeScript, `string` türünü `x` değişkenine, başlatma sırasında sağlanan tek değeri (`x`) temel alarak atar; bu bir genişletme örneğidir.
@@ -661,9 +661,9 @@ Bir değişken bildirilirken `const` anahtar sözcüğünün kullanılması, Typ
 Örneğin:
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript x için daha dar bir tür olan 'x' türünü çıkarır
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // Geçerli: x için çıkarılan tür 'x'
 ```
 
 x değişkenini bildirmek için `const` kullanıldığında, türü belirli 'x' değişmez değerine daraltılır. x türü daraltıldığından, herhangi bir hata olmadan y değişkenine atanabilir.
@@ -675,10 +675,10 @@ TypeScript'in 5.0 sürümünden itibaren bir jenerik tür parametresinde `const`
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // Burada const yok
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // Çıkarılan tür: { a: string; b: string; }
 ```
 
 Gördüğünüz gibi `a` ve `b` özelliklerinin türü `string` olarak çıkarılır.
@@ -687,10 +687,10 @@ Gördüğünüz gibi `a` ve `b` özelliklerinin türü `string` olarak çıkarı
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // Tür parametrelerinde const değiştiricisinin kullanımı
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // Çıkarılan tür: { a: "a"; b: "b"; }
 ```
 
 Artık `a` ve `b` özelliklerinin yalnızca `string` türleri yerine dize değişmezleri olarak çıkarıldığını görebiliriz.
@@ -721,7 +721,7 @@ Bu, özellikle bir tuple için tür tanımlarken yararlı olabilir:
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // readonly [1, 2, 3] demeti
 ```
 
 ### Açık Tür Ek Açıklaması
@@ -730,9 +730,9 @@ Daha belirli davranıp bir tür aktarabiliriz. Aşağıdaki örnekte `x` özelli
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // Çıkarılan tür: number (genişletme)
 };
-v.x = 3; // Valid
+v.x = 3; // Geçerli
 ```
 
 Değişmez türlerin birleşimini kullanarak tür ek açıklamasını daha belirli hâle getirebiliriz:
@@ -740,10 +740,10 @@ Değişmez türlerin birleşimini kullanarak tür ek açıklamasını daha belir
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // x artık sabit türlerin birleşimidir: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // Geçerli
+v.x = 100; // Geçersiz
 ```
 
 ### Tür Daraltma
@@ -760,7 +760,7 @@ TypeScript, `if` veya `switch` gibi koşullu ifadeler kullanıldığında koşul
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // Tür, koşul tarafından daraltılmış olan number türüdür
 }
 ```
 
@@ -795,9 +795,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // tür A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // tür B
     }
 };
 ```
@@ -809,11 +809,11 @@ TypeScript'in bir türü belirleyemediği durumlarda, "kullanıcı tanımlı tü
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // Tür (string | null)[], TypeScript türü doğru çıkaramadı
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // Özel tür koruyucusu
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // Tür artık doğru: string[], tür koruyucu yüklemi kullanarak türü daraltabildik
 ```
 
 #### switch-true daraltması

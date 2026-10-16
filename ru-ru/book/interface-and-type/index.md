@@ -56,10 +56,10 @@ type TypeName = {
 ### Базовые типы
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myNumber: number = 123; // тип number
+let myBoolean: boolean = true; // тип boolean
+let myArray: string[] = ['a', 'b']; // массив строк
+let myTuple: [string, number] = ['a', 123]; // кортеж
 ```
 
 ### Объекты и интерфейсы
@@ -71,13 +71,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Типы объединения и пересечения
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // Тип объединения
+let myUnion: MyType = 'hello'; // Может быть строкой
+myUnion = 123; // Или числом
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // Тип пересечения
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Объект со свойствами name и age
 ```
 

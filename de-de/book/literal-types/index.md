@@ -9,9 +9,9 @@ Literaltypen in TypeScript sind Zahlen, Strings und boolesche Werte.
 Beispiel für Literale:
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // String-Literaltyp
+const b = 1; // Numerischer Literaltyp
+const c = true; // Boolescher Literaltyp
 ```
 
 String-, numerische und boolesche Literaltypen werden in Unions, Type Guards und Typaliasen verwendet.

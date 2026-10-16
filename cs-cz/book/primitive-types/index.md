@@ -35,9 +35,9 @@ TypeScript podporuje také šestnáctkový, dvojkový a osmičkový zápis, nap�
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // Šestnáctkové číslo začíná na 0x
+const binary: number = 0b1010; // Dvojkové číslo začíná na 0b
+const octal: number = 0o633; // Osmičkové číslo začíná na 0o
 ```
 
 ### bigint
@@ -90,17 +90,17 @@ Typ `array` je datový typ, který může uchovávat více hodnot stejného i r�
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // Sjednocení
 ```
 
 TypeScript podporuje pole pouze pro čtení pomocí následující syntaxe:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // Modifikátor readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // Neplatné
 ```
 
 TypeScript podporuje n-tice a n-tice pouze pro čtení:

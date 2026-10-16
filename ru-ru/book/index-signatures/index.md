@@ -11,7 +11,7 @@ type K = {
 const k: K = { x: 'x', 1: 'b' };
 console.log(k['x']);
 console.log(k[1]);
-console.log(k['1']); // Same result as k[1]
+console.log(k['1']); // Тот же результат, что и k[1]
 ```
 
 Обратите внимание, что JavaScript автоматически преобразует индекс типа `number` в индекс типа `string`, поэтому `k[1]` и `k["1"]` возвращают одно и то же значение.

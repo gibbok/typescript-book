@@ -5,11 +5,11 @@
 Function overload trong TypeScript cho phép bạn định nghĩa nhiều chữ ký hàm cho một tên hàm duy nhất, nhờ đó có thể định nghĩa các hàm được gọi theo nhiều cách. Dưới đây là một ví dụ:
 
 ```typescript
-// Overloads
+// Các overload
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// Phần triển khai
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -19,8 +19,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // Hợp lệ
+sayHi(['aa', 'bb']); // Hợp lệ
 ```
 
 Dưới đây là một ví dụ khác về sử dụng function overload trong một `class`:
@@ -37,7 +37,7 @@ class Greeter {
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // phần triển khai
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;

@@ -35,7 +35,7 @@ K vytvoření instance třídy v TypeScriptu můžete použít klíčové slovo 
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // Výstup: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Konstruktor
@@ -139,10 +139,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// Pokus o přímé vytvoření instance základní třídy způsobí chybu
+// const baseObj = new BaseClass(); // Chyba: konstruktor třídy 'BaseClass' je chráněný.
 
-// Create an instance of the derived class
+// Vytvoření instance odvozené třídy
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -241,8 +241,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // Klíčová slova "private" a "public" v konstruktoru
+        // automaticky deklarují a inicializují odpovídající vlastnosti třídy.
     }
     public introduce(): void {
         console.log(
@@ -277,7 +277,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // Výstup: Whiskers meows.
 ```
 
 ### S generiky
@@ -365,7 +365,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* Výpis:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -390,7 +390,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // Výpis: HELLO!
 ```
 
 #### Dekorátor metody
@@ -472,10 +472,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // Platné: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // Vyhodí výjimku: Invalid!
 ```
 
 #### Metadata dekorátorů
@@ -487,15 +487,15 @@ Metadata lze využít k různým účelům, například k ladění, serializaci 
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Jednoduchý polyfill
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // Kontext obsahuje metadata vlastnosti: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // Nastavit primitivní hodnotu v objektu metadat
     context.metadata[context.name] = true;
 }
 
@@ -510,7 +510,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // Získání metadat
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -545,11 +545,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// Vytvoření instance základní třídy
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// Vytvoření instance odvozené třídy
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -639,7 +639,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // Hodnoty není nutné vlastnostem přiřazovat explicitně.
     }
     log() {
         console.log(this.property2);
@@ -655,8 +655,8 @@ Přetěžování metod umožňuje třídě mít více metod se stejným názvem,
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // Signatura přetížení 1
+    add(a: string, b: string): string; // Signatura přetížení 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -670,6 +670,6 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // Vypíše 15
 ```
 

@@ -469,7 +469,7 @@ const obj = new MyClass(10);
 console.log(obj.getValue); // Valido: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // Genera un errore: Invalid!
 ```
 
 #### Metadati del decoratore
@@ -481,7 +481,7 @@ I metadati possono essere utilizzati per vari scopi, come il debug, la serializz
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Polyfill semplice
 
 type Context =
     | ClassFieldDecoratorContext

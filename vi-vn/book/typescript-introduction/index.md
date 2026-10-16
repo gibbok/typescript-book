@@ -63,14 +63,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 Hệ thống kiểu của TypeScript chịu ảnh hưởng lớn từ hành vi thời gian chạy của JavaScript. Ví dụ, toán tử cộng (+), trong JavaScript có thể thực hiện nối chuỗi hoặc cộng số, cũng được mô hình hóa tương tự trong TypeScript:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // Kết quả có kiểu string
 ```
 
 Nhóm phát triển TypeScript đã chủ động quyết định đánh dấu các cách sử dụng JavaScript bất thường là lỗi. Ví dụ, hãy xem đoạn mã JavaScript hợp lệ sau:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // Trong JavaScript, kết quả bằng 2
 ```
 
 Tuy nhiên, TypeScript báo lỗi:
@@ -89,7 +89,7 @@ Dưới đây là ví dụ về mã TypeScript có lỗi kiểu:
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // Đối số có kiểu 'string' không thể gán cho tham số có kiểu 'number'.
 ```
 
 Tuy nhiên, nó vẫn có thể tạo ra đầu ra JavaScript có thể thực thi:
@@ -116,7 +116,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' chỉ đề cập đến một kiểu, nhưng đang được dùng làm giá trị ở đây.
         // ...
     }
 };
@@ -126,11 +126,11 @@ Vì các kiểu bị xóa sau khi biên dịch, không có cách nào chạy đo
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Union có thẻ
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Union có thẻ
     meow: () => void;
 }
 type Animal = Dog | Cat;

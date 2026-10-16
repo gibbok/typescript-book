@@ -13,7 +13,7 @@ Der typeof-Type-Guard ist ein bestimmter Type Guard in TypeScript, der den Typ e
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x hat den Typ number
     }
     return -1;
 };

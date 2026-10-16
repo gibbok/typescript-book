@@ -20,7 +20,7 @@ Trong TypeScript, Numeric Enum là một Enum mà mỗi hằng được gán m�
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // giá trị bắt đầu từ 0
     Medium,
     Large,
 }
@@ -116,7 +116,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // Phần tử ngầm định có kiểu 'any' vì biểu thức chỉ mục không có kiểu 'number'.
 ```
 
 ### Ambient enum
@@ -128,23 +128,23 @@ Ambient enum trong TypeScript là một kiểu Enum được định nghĩa tron
 Trong TypeScript, computed member là thành viên của Enum có giá trị được tính tại thời gian chạy, còn constant member là thành viên có giá trị được đặt tại thời điểm biên dịch và không thể thay đổi trong thời gian chạy. Computed member được phép trong Enum thông thường, còn constant member được phép trong cả Enum thông thường và const enum.
 
 ```typescript
-// Constant members
+// Các thành viên hằng
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6 được tạo tại thời điểm biên dịch
 ```
 
 ```typescript
-// Computed members
+// Các thành viên được tính toán
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // số ngẫu nhiên được tạo tại thời điểm chạy
 ```
 
 Enum được biểu diễn bằng các union gồm kiểu của các thành viên. Giá trị của mỗi thành viên có thể được xác định thông qua biểu thức hằng hoặc không hằng, trong đó các thành viên có giá trị hằng được gán literal type. Để minh họa, hãy xem khai báo kiểu E và các kiểu con E.A, E.B và E.C. Trong trường hợp này, E biểu diễn union E.A | E.B | E.C.
@@ -153,9 +153,9 @@ Enum được biểu diễn bằng các union gồm kiểu của các thành vi�
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // Literal số
+    B = 'bar', // Literal chuỗi
+    C = identity(42), // Giá trị được tính toán không tường minh
 }
 
 console.log(E.C); //42

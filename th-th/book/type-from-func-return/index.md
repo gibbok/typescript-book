@@ -5,6 +5,6 @@
 ชนิดจากค่าที่ฟังก์ชันส่งคืนหมายถึงความสามารถในการอนุมานชนิดค่าที่ส่งคืนของฟังก์ชันโดยอัตโนมัติจากอิมพลีเมนเทชัน ซึ่งช่วยให้ TypeScript กำหนดชนิดของค่าที่ฟังก์ชันส่งคืนได้โดยไม่ต้องมีคำกำกับชนิดอย่างชัดเจน
 
 ```typescript
-const add = (x: number, y: number) => x + y; // TypeScript can infer that the return type of the function is a number
+const add = (x: number, y: number) => x + y; // TypeScript สามารถอนุมานได้ว่าชนิดค่าคืนของฟังก์ชันคือ number
 ```
 

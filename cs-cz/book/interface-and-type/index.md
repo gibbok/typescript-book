@@ -56,10 +56,10 @@ V TypeScriptu se typy používají k definování struktury dat a vynucení typo
 ### Základní typy
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myNumber: number = 123; // typ number
+let myBoolean: boolean = true; // typ boolean
+let myArray: string[] = ['a', 'b']; // pole řetězců
+let myTuple: [string, number] = ['a', 123]; // n-tice
 ```
 
 ### Objekty a rozhraní
@@ -71,13 +71,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Sjednocení a průniky typů
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // Typ sjednocení
+let myUnion: MyType = 'hello'; // Může být řetězec
+myUnion = 123; // Nebo číslo
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // Typ průniku
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Objekt s vlastnostmi name i age
 ```
 

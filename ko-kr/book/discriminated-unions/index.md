@@ -6,12 +6,12 @@ TypeScript의 판별 유니온은 판별자라고 하는 공통 프로퍼티를 
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // 판별자
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // 판별자
     radius: number;
 };
 

@@ -59,7 +59,7 @@ type TypeName = {
 let myNumber: number = 123; // number тип
 let myBoolean: boolean = true; // boolean тип
 let myArray: string[] = ['a', 'b']; // масив от string
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myTuple: [string, number] = ['a', 123]; // кортеж
 ```
 
 ### Обекти и Interfaces
@@ -71,13 +71,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Union и Intersection типове
 
 ```typescript
-type MyType = string | number; // Union тип
+type MyType = string | number; // Тип обединение
 let myUnion: MyType = 'hello'; // Може да бъде string
 myUnion = 123; // Или number
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection тип
+type CombinedType = TypeA & TypeB; // Тип сечение
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Обект със свойства name и age
 ```
 

@@ -56,10 +56,10 @@ TypeScript에서 타입은 데이터의 형태를 정의하고 타입 검사를 
 ### 기본 타입
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myNumber: number = 123; // number 타입
+let myBoolean: boolean = true; // boolean 타입
+let myArray: string[] = ['a', 'b']; // 문자열 배열
+let myTuple: [string, number] = ['a', 123]; // 튜플
 ```
 
 ### 객체와 인터페이스
@@ -71,13 +71,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### 유니온 타입과 인터섹션 타입
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // 유니온 타입
+let myUnion: MyType = 'hello'; // 문자열일 수 있음
+myUnion = 123; // 또는 숫자
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // 인터섹션 타입
+let myCombined: CombinedType = { name: 'John', age: 25 }; // name과 age 프로퍼티를 모두 가지는 객체
 ```
 

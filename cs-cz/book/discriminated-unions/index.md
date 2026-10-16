@@ -6,12 +6,12 @@ Diskriminovaná sjednocení v TypeScriptu jsou druhem sjednoceného typu, který
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // Diskriminant
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // Diskriminant
     radius: number;
 };
 

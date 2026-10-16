@@ -6,7 +6,7 @@
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // 유효함
+x = 123; // 유효함
 ```
 

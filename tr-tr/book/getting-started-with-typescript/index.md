@@ -71,9 +71,9 @@ tsc --init
 Varsayılan ayarlarla çalışan bazı CLI komutu örnekleri şunlardır:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // Belirli bir dosyayı (main.ts) JavaScript'e derle
+tsc src/*.ts // 'src' klasöründeki .ts dosyalarını JavaScript'e derle
+tsc app.ts util.ts --outfile index.js // İki TypeScript dosyasını (app.ts ve util.ts) tek bir JavaScript dosyasına (index.js) derle
 ```
 
 ### TypeScript Yapılandırma Dosyası

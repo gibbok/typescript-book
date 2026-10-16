@@ -5,11 +5,11 @@
 Перегрузки функций в TypeScript позволяют определить несколько сигнатур для одного имени функции, благодаря чему функцию можно вызывать несколькими способами. Рассмотрим пример:
 
 ```typescript
-// Overloads
+// Перегрузки
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// Реализация
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -19,8 +19,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // Допустимо
+sayHi(['aa', 'bb']); // Допустимо
 ```
 
 Ещё один пример использования перегрузок функций внутри `class`:
@@ -33,11 +33,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // перегрузка
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // реализация
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;

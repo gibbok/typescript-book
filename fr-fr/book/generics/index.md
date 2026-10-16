@@ -60,7 +60,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // Invalide
 ```
 
 Une fonctionnalité générique notable introduite dans la version 3.4 RC est l'inférence de type des fonctions d'ordre supérieur, qui propage les arguments de type générique :
@@ -87,10 +87,10 @@ La réduction contextuelle des génériques est le mécanisme de TypeScript qui 
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // La valeur est affinée au type 'string'
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // La valeur est affinée au type 'number'
         console.log(value.toFixed(2));
     }
 }

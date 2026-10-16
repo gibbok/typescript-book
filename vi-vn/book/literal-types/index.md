@@ -9,9 +9,9 @@ Literal Type trong TypeScript là số, chuỗi và boolean.
 Ví dụ về literal:
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // Kiểu literal chuỗi
+const b = 1; // Kiểu literal số
+const c = true; // Kiểu literal boolean
 ```
 
 String, Numeric và Boolean Literal Type được dùng trong union, type guard và type alias.

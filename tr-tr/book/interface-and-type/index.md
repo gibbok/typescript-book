@@ -56,10 +56,10 @@ TypeScript'te türler, verilerin şeklini tanımlamak ve tür denetimini zorunlu
 ### Temel Türler
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myNumber: number = 123; // number türü
+let myBoolean: boolean = true; // boolean türü
+let myArray: string[] = ['a', 'b']; // dize dizisi
+let myTuple: [string, number] = ['a', 123]; // demet
 ```
 
 ### Nesneler ve Arayüzler
@@ -71,13 +71,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Birleşim ve Kesişim Türleri
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // Birleşim türü
+let myUnion: MyType = 'hello'; // Dize olabilir
+myUnion = 123; // Veya sayı
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // Kesişim türü
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Hem name hem de age özelliklerine sahip nesne
 ```
 

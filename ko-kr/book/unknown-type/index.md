@@ -10,10 +10,10 @@ TypeScript에서 `unknown` 타입은 타입을 알 수 없는 값을 나타냅�
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // 유효함
+let value2: any = value; // 유효함
+let value3: boolean = value; // 유효하지 않음
+let value4: number = value; // 유효하지 않음
 ```
 
 ```typescript

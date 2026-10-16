@@ -35,7 +35,7 @@ Einige Beispiele, in denen kein Narrowing erfolgt:
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // Fehler, keine Eingrenzung, da isString nicht const ist
     }
 };
 
@@ -45,7 +45,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // Fehler, keine Eingrenzung, da obj im Funktionsrumpf zugewiesen wird
     }
 };
 ```

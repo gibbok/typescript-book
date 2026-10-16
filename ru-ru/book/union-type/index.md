@@ -6,7 +6,7 @@
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // Допустимо
+x = 123; // Допустимо
 ```
 

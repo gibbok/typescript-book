@@ -5,7 +5,7 @@
 Funktionsöverlagringar i TypeScript låter dig definiera flera funktionssignaturer för ett enda funktionsnamn, vilket gör det möjligt att definiera funktioner som kan anropas på flera sätt. Här är ett exempel:
 
 ```typescript
-// Overloads
+// Överlagringar
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
@@ -19,8 +19,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // Giltigt
+sayHi(['aa', 'bb']); // Giltigt
 ```
 
 Här är ytterligare ett exempel på användning av funktionsöverlagringar inom en `class`:
@@ -33,7 +33,7 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // överlagring
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 

@@ -30,7 +30,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // ถูกต้อง
 ```
 
 ### กฎพื้นฐานในการเปรียบเทียบของ TypeScript
@@ -43,7 +43,7 @@ const y: Y = x; // Valid
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // ถูกต้อง เพราะมีสมาชิกอย่างน้อยเหมือนกับ X
 const r: X = y;
 ```
 
@@ -54,8 +54,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // ถูกต้อง
+x = y; // ถูกต้อง
 ```
 
 ชนิดค่าที่ส่งกลับของฟังก์ชันต้องเหมือนกัน:
@@ -66,8 +66,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // ไม่ถูกต้อง
+x = y; // ไม่ถูกต้อง
 ```
 
 ชนิดค่าที่ส่งกลับของฟังก์ชันต้นทางต้องเป็นชนิดย่อยของชนิดค่าที่ส่งกลับของฟังก์ชันเป้าหมาย:
@@ -76,8 +76,8 @@ x = y; // Invalid
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // ถูกต้อง
+y = x; // ไม่ถูกต้อง ไม่มีสมาชิก b
 ```
 
 อนุญาตให้ละทิ้งพารามิเตอร์ของฟังก์ชันได้ เนื่องจากเป็นแนวปฏิบัติทั่วไปใน JavaScript เช่น เมื่อใช้ "Array.prototype.map()":
@@ -92,8 +92,8 @@ y = x; // Invalid member b is missing
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // ไม่มีพารามิเตอร์ b
+y = x; // ถูกต้อง
 ```
 
 พารามิเตอร์ทางเลือกเพิ่มเติมใด ๆ ของชนิดต้นทางถือว่าถูกต้อง:
@@ -103,8 +103,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // ถูกต้อง
+x = y; //ถูกต้อง
 ```
 
 พารามิเตอร์ทางเลือกใด ๆ ของชนิดเป้าหมายที่ไม่มีพารามิเตอร์ที่สอดคล้องกันในชนิดต้นทางถือว่าถูกต้องและไม่เป็นข้อผิดพลาด:
@@ -114,15 +114,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // ถูกต้อง
+x = y; // ถูกต้อง
 ```
 
 พารามิเตอร์ rest จะถือเป็นชุดพารามิเตอร์ทางเลือกที่มีจำนวนไม่สิ้นสุด:
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //ถูกต้อง
 ```
 
 ฟังก์ชันที่มีโอเวอร์โหลดจะถูกต้อง หากลายเซ็นโอเวอร์โหลดเข้ากันได้กับลายเซ็นการนำไปใช้:
@@ -134,10 +134,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // ถูกต้อง
+x('a', 1); // ถูกต้อง
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // ไม่ถูกต้อง ไม่เข้ากันกับลายเซ็นของการใช้งานจริง
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -149,25 +149,25 @@ y('a', 1);
 การเปรียบเทียบพารามิเตอร์ของฟังก์ชันจะสำเร็จ หากพารามิเตอร์ต้นทางและเป้าหมายสามารถกำหนดให้กับชนิดแม่หรือชนิดย่อยได้ (bivariance)
 
 ```typescript
-// Supertype
+// ชนิดแม่
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// ชนิดย่อย
 class Y extends X {}
-// Subtype
+// ชนิดย่อย
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// ความแปรปรวนสองทางยอมรับชนิดแม่
+console.log(getA(new X('x'))); // ถูกต้อง
+console.log(getA(new Y('Y'))); // ถูกต้อง
+console.log(getA(new Z('z'))); // ถูกต้อง
 ```
 
 Enum สามารถเปรียบเทียบและใช้ร่วมกับตัวเลขได้ รวมถึงในทางกลับกัน แต่การเปรียบเทียบค่า Enum จากชนิด Enum ที่ต่างกันถือว่าไม่ถูกต้อง
@@ -183,9 +183,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // ถูกต้อง
+const ya: Y = 0; // ถูกต้อง
+X.A === Y.A; // ไม่ถูกต้อง
 ```
 
 อินสแตนซ์ของคลาสจะต้องผ่านการตรวจสอบความเข้ากันได้ของสมาชิก private และ protected:
@@ -206,7 +206,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // ไม่ถูกต้อง
 ```
 
 การตรวจสอบการเปรียบเทียบจะไม่พิจารณาความแตกต่างของลำดับชั้นการสืบทอด ตัวอย่างเช่น:
@@ -234,8 +234,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // ถูกต้อง
+x === z; // ถูกต้อง แม้ว่า z มาจากลำดับชั้นการสืบทอดที่ต่างกัน
 ```
 
 Generic จะเปรียบเทียบกันโดยใช้โครงสร้างตามชนิดผลลัพธ์หลังจากนำพารามิเตอร์ generic ไปใช้ โดยจะเปรียบเทียบเฉพาะผลลัพธ์สุดท้ายในฐานะชนิดที่ไม่ใช่ generic
@@ -247,14 +247,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // ไม่ถูกต้อง เพราะมีการใช้อาร์กิวเมนต์ชนิดในโครงสร้างสุดท้าย
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // ถูกต้อง เพราะไม่มีการใช้อาร์กิวเมนต์ชนิดในโครงสร้างสุดท้าย
 ```
 
 เมื่อ generic ไม่ได้ระบุอาร์กิวเมนต์ชนิด อาร์กิวเมนต์ที่ไม่ระบุทั้งหมดจะถือเป็นชนิด "any":
@@ -264,7 +264,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // ถูกต้อง
 ```
 
 โปรดจำไว้ว่า:
@@ -273,26 +273,26 @@ x = y; // Valid
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // ถูกต้อง ทุกชนิดสามารถกำหนดให้ตัวเองได้
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // ถูกต้อง ทุกชนิดสามารถกำหนดให้ any ได้
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // ถูกต้อง ทุกชนิดสามารถกำหนดให้ unknown ได้
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // ถูกต้อง unknown สามารถกำหนดให้ตัวเองและ any เท่านั้น
+let e2: any = e; // ถูกต้อง
+let e3: number = e; // ไม่ถูกต้อง
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // ไม่ถูกต้อง ไม่มีสิ่งใดกำหนดให้ never ได้
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // ไม่ถูกต้อง void ไม่สามารถกำหนดให้หรือรับค่าจากชนิดใดได้ยกเว้น any
+g = g1; // ถูกต้อง
 ```
 
 โปรดทราบว่าเมื่อเปิดใช้งาน "strictNullChecks" ค่า "null" และ "undefined" จะถูกจัดการคล้ายกับ "void" มิฉะนั้นจะคล้ายกับ "never"
@@ -350,7 +350,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // ถูกต้อง
 ```
 
 อินเตอร์เซกชัน (T1 & T2) สร้างเซตที่แคบลง (เฉพาะส่วนที่มีร่วมกัน):
@@ -365,8 +365,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // ไม่ถูกต้อง
+const j: XY = { a: 'a', b: 'b' }; // ถูกต้อง
 ```
 
 ในบริบทนี้ คีย์เวิร์ด `extends` สามารถถือว่าหมายถึง "เป็นเซตย่อยของ" โดยใช้กำหนดข้อจำกัดให้กับชนิด เมื่อใช้ `extends` กับ generic คีย์เวิร์ดนี้จะจำกัดพารามิเตอร์ชนิด generic ให้เป็นชนิดที่เฉพาะเจาะจงยิ่งขึ้น
@@ -400,7 +400,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // ถูกต้อง
 ```
 
 ### การกำหนดชนิด: การประกาศชนิดและการยืนยันชนิด
@@ -416,7 +416,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// การประกาศชนิด
 const x: X = {
     a: 'a',
 };
@@ -432,7 +432,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // ข้อผิดพลาด: อ็อบเจกต์ลิเทอรัลระบุได้เฉพาะพร็อพเพอร์ตีที่รู้จัก
 };
 ```
 
@@ -516,8 +516,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // ถูกต้อง เพราะระบบชนิดเชิงโครงสร้าง
+const w: X = { a: 'a', b: 'b' }; // ไม่ถูกต้อง เพราะการตรวจสอบพร็อพเพอร์ตีส่วนเกิน
 ```
 
 ### ชนิดแบบอ่อน
@@ -542,7 +542,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // ไม่ถูกต้อง
 ```
 
 แม้จะไม่แนะนำ แต่หากจำเป็นก็สามารถข้ามการตรวจสอบนี้ได้โดยใช้การยืนยันชนิด:
@@ -553,7 +553,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // ถูกต้อง
 ```
 
 หรือเพิ่ม `unknown` ลงใน index signature ของชนิดแบบอ่อน:
@@ -566,7 +566,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // ถูกต้อง
 ```
 
 ### การตรวจสอบ Object Literal อย่างเข้มงวด (Freshness)
@@ -585,20 +585,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // การตรวจสอบ freshness: การกำหนดค่าไม่ถูกต้อง
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // การตรวจสอบ freshness: การกำหนดค่าไม่ถูกต้อง
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // การขยายชนิด: ไม่มีข้อผิดพลาด ชนิดเข้ากันได้ในเชิงโครงสร้าง
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // การตรวจสอบ freshness: อาร์กิวเมนต์ไม่ถูกต้อง
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // การขยายชนิด: ไม่มีการตรวจสอบ freshness
 ```
 
 ### การอนุมานชนิด
@@ -613,7 +613,7 @@ TypeScript สามารถอนุมานชนิดได้เมื่
 ตัวอย่างเช่น:
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // ชนิดที่อนุมานได้คือ string
 ```
 
 คอมไพเลอร์ TypeScript จะวิเคราะห์ค่าหรือนิพจน์ และกำหนดชนิดโดยอิงจากข้อมูลที่มีอยู่
@@ -623,19 +623,19 @@ let x = 'x'; // The type inferred is string
 เมื่อใช้หลายนิพจน์ในการอนุมานชนิด TypeScript จะค้นหา "ชนิดร่วมที่เหมาะสมที่สุด" ตัวอย่างเช่น:
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // ชนิดที่อนุมานได้คือ: (string | number | null)[]
 ```
 
 หากคอมไพเลอร์ไม่พบชนิดร่วมที่เหมาะสมที่สุด ก็จะส่งกลับชนิดยูเนียน ตัวอย่างเช่น:
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // ชนิดที่อนุมานได้คือ: (RegExp | Date)[]
 ```
 
 TypeScript ใช้ "การกำหนดชนิดตามบริบท" โดยอิงจากตำแหน่งของตัวแปรเพื่ออนุมานชนิด ในตัวอย่างต่อไปนี้ คอมไพเลอร์ทราบว่า `e` มีชนิดเป็น `MouseEvent` เนื่องจากชนิดเหตุการณ์ `click` ที่กำหนดไว้ในไฟล์ lib.d.ts ซึ่งมีการประกาศแบบ ambient สำหรับโครงสร้าง JavaScript ที่ใช้กันทั่วไปและ DOM:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // ชนิดของ e ที่อนุมานได้คือ MouseEvent
 ```
 
 ### การขยายชนิด
@@ -645,9 +645,9 @@ window.addEventListener('click', function (e) {}); // The inferred type of e is 
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript อนุมานเป็น string ซึ่งเป็นชนิดที่กว้าง
+let y: 'y' | 'x' = 'y'; // ชนิดของ y เป็นยูเนียนของชนิดลิเทอรัล
+y = x; // ไม่ถูกต้อง ชนิด 'string' ไม่สามารถกำหนดให้ชนิด '"x" | "y"' ได้
 ```
 
 TypeScript กำหนด `string` ให้กับ `x` โดยอิงจากค่าเดียวที่ให้ไว้ระหว่างการกำหนดค่าเริ่มต้น (`x`) ซึ่งเป็นตัวอย่างของการขยายชนิด
@@ -661,9 +661,9 @@ TypeScript มีวิธีควบคุมกระบวนการขย
 ตัวอย่างเช่น:
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript อนุมานชนิดของ x เป็น 'x' ซึ่งเป็นชนิดที่แคบกว่า
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // ถูกต้อง: ชนิดของ x ถูกอนุมานเป็น 'x'
 ```
 
 เมื่อใช้ `const` เพื่อประกาศตัวแปร x ชนิดของตัวแปรจะถูกจำกัดให้แคบลงเหลือค่าลิเทอรัลเฉพาะ 'x' เนื่องจากชนิดของ x แคบลง จึงสามารถกำหนดให้กับตัวแปร y ได้โดยไม่มีข้อผิดพลาด
@@ -675,10 +675,10 @@ y = x; // Valid: The type of x is inferred as 'x'
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // ไม่มี const ที่นี่
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // ชนิดที่อนุมานได้คือ: { a: string; b: string; }
 ```
 
 ดังที่เห็น พร็อพเพอร์ตี `a` และ `b` ได้รับการอนุมานว่ามีชนิดเป็น `string`
@@ -687,10 +687,10 @@ const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // ใช้ตัวปรับแต่ง const กับพารามิเตอร์ชนิด
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // ชนิดที่อนุมานได้คือ: { a: "a"; b: "b"; }
 ```
 
 ตอนนี้จะเห็นว่าพร็อพเพอร์ตี `a` และ `b` ได้รับการอนุมานเป็นลิเทอรัลสตริง แทนที่จะเป็นเพียงชนิด `string`
@@ -721,7 +721,7 @@ const v = {
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // ทูเพิล readonly [1, 2, 3]
 ```
 
 ### คำอธิบายประกอบชนิดอย่างชัดเจน
@@ -730,9 +730,9 @@ const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // ชนิดที่อนุมานได้: number (การขยายชนิด)
 };
-v.x = 3; // Valid
+v.x = 3; // ถูกต้อง
 ```
 
 เราสามารถทำให้คำอธิบายประกอบชนิดเฉพาะเจาะจงยิ่งขึ้นได้โดยใช้ยูเนียนของชนิดลิเทอรัล:
@@ -740,10 +740,10 @@ v.x = 3; // Valid
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // ตอนนี้ x เป็นยูเนียนของชนิดลิเทอรัล: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // ถูกต้อง
+v.x = 100; // ไม่ถูกต้อง
 ```
 
 ### การจำกัดชนิดให้แคบลง
@@ -760,7 +760,7 @@ v.x = 100; // Invalid
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // ชนิดคือ number ซึ่งถูกจำกัดให้แคบลงด้วยเงื่อนไข
 }
 ```
 
@@ -795,9 +795,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // ชนิดคือ A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // ชนิดคือ B
     }
 };
 ```
@@ -809,11 +809,11 @@ const x = (input: A | B): string | number => {
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // ชนิดคือ (string | null)[] โดย TypeScript ไม่สามารถอนุมานชนิดได้อย่างถูกต้อง
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // ตัวตรวจสอบชนิดที่กำหนดเอง
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // ตอนนี้ชนิดถูกต้องเป็น string[] โดยใช้ตัวตรวจสอบชนิดแบบเพรดิเคตเพื่อจำกัดชนิดให้แคบลง
 ```
 
 #### การจำกัดชนิดด้วย Switch-true

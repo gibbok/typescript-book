@@ -63,14 +63,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 Sistem tipe TypeScript sangat dipengaruhi oleh perilaku runtime JavaScript. Sebagai contoh, operator penjumlahan (+), yang dalam JavaScript dapat melakukan penggabungan string atau penjumlahan numerik, dimodelkan dengan cara yang sama dalam TypeScript:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // Hasil bertipe string
 ```
 
 Tim di balik TypeScript telah mengambil keputusan yang disengaja untuk menandai penggunaan JavaScript yang tidak biasa sebagai error. Sebagai contoh, perhatikan kode JavaScript valid berikut:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // Dalam JavaScript, hasilnya sama dengan 2
 ```
 
 Namun, TypeScript menghasilkan error:
@@ -90,7 +90,7 @@ Berikut adalah contoh kode TypeScript dengan error tipe:
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // Argumen bertipe 'string' tidak dapat ditetapkan ke parameter bertipe 'number'.
 ```
 
 Namun, kode tersebut tetap dapat menghasilkan keluaran JavaScript yang dapat dijalankan:
@@ -117,7 +117,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' hanya merujuk pada tipe, tetapi digunakan sebagai nilai di sini.
         // ...
     }
 };
@@ -127,11 +127,11 @@ Karena tipe dihapus setelah kompilasi, kode ini tidak dapat dijalankan dalam Jav
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Union bertag
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Union bertag
     meow: () => void;
 }
 type Animal = Dog | Cat;

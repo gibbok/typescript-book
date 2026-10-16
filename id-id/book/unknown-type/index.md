@@ -12,8 +12,8 @@ let value: unknown;
 
 let value1: unknown = value; // Valid
 let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value3: boolean = value; // Tidak valid
+let value4: number = value; // Tidak valid
 ```
 
 ```typescript

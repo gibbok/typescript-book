@@ -56,10 +56,10 @@ type TypeName = {
 ### ชนิดพื้นฐาน
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myNumber: number = 123; // ชนิด number
+let myBoolean: boolean = true; // ชนิด boolean
+let myArray: string[] = ['a', 'b']; // อาร์เรย์ของสตริง
+let myTuple: [string, number] = ['a', 123]; // ทูเพิล
 ```
 
 ### ออบเจ็กต์และอินเทอร์เฟซ
@@ -71,13 +71,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### ชนิดยูเนียนและ Intersection
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // ชนิดยูเนียน
+let myUnion: MyType = 'hello'; // อาจเป็นสตริง
+myUnion = 123; // หรือเป็นตัวเลข
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // ชนิดอินเตอร์เซกชัน
+let myCombined: CombinedType = { name: 'John', age: 25 }; // อ็อบเจกต์ที่มีทั้งพร็อพเพอร์ตี name และ age
 ```
 

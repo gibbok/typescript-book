@@ -7,7 +7,7 @@ Một đối tượng có thể chỉ định Thuộc tính tùy chọn bằng c
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // Tùy chọn
 };
 ```
 

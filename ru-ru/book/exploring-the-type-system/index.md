@@ -30,7 +30,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // Допустимо
 ```
 
 ### Основные правила сравнения в TypeScript
@@ -43,7 +43,7 @@ const y: Y = x; // Valid
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // Допустимо, поскольку содержит как минимум те же члены, что и X
 const r: X = y;
 ```
 
@@ -54,8 +54,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Допустимо
+x = y; // Допустимо
 ```
 
 Возвращаемые типы функций должны совпадать:
@@ -66,8 +66,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // Недопустимо
+x = y; // Недопустимо
 ```
 
 Возвращаемый тип исходной функции должен быть подтипом возвращаемого типа целевой функции:
@@ -76,8 +76,8 @@ x = y; // Invalid
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // Допустимо
+y = x; // Недопустимо: отсутствует член b
 ```
 
 Отбрасывать параметры функции разрешено, поскольку это распространённая практика в JavaScript, например при использовании "Array.prototype.map()":
@@ -92,8 +92,8 @@ y = x; // Invalid member b is missing
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // Отсутствует параметр b
+y = x; // Допустимо
 ```
 
 Любые дополнительные необязательные параметры исходного типа допустимы:
@@ -103,8 +103,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // Допустимо
+x = y; //Допустимо
 ```
 
 Любые необязательные параметры целевого типа, которым не соответствуют параметры исходного типа, допустимы и не приводят к ошибке:
@@ -114,15 +114,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Допустимо
+x = y; // Допустимо
 ```
 
 Остаточный параметр рассматривается как бесконечная последовательность необязательных параметров:
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //допустимо
 ```
 
 Функции с перегрузками допустимы, если сигнатура перегрузки совместима с сигнатурой реализации:
@@ -134,10 +134,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // Допустимо
+x('a', 1); // Допустимо
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // Недопустимо: несовместимо с сигнатурой реализации
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -149,25 +149,25 @@ y('a', 1);
 Сравнение параметров функций считается успешным, если исходные и целевые параметры могут быть присвоены супертипам или подтипам (бивариантность).
 
 ```typescript
-// Supertype
+// Надтип
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// Подтип
 class Y extends X {}
-// Subtype
+// Подтип
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// Бивариантность допускает надтипы
+console.log(getA(new X('x'))); // Допустимо
+console.log(getA(new Y('Y'))); // Допустимо
+console.log(getA(new Z('z'))); // Допустимо
 ```
 
 Перечисления совместимы с числами и наоборот, однако сравнение значений из перечислений разных типов недопустимо.
@@ -183,9 +183,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // Допустимо
+const ya: Y = 0; // Допустимо
+X.A === Y.A; // Недопустимо
 ```
 
 При проверке совместимости экземпляров классов учитываются их закрытые и защищённые члены:
@@ -206,7 +206,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // Недопустимо
 ```
 
 При сравнении не учитываются различия в иерархии наследования, например:
@@ -234,8 +234,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // Допустимо
+x === z; // Допустимо, даже если z принадлежит другой иерархии наследования
 ```
 
 Обобщённые типы сравниваются по их структурам на основе результирующего типа после применения параметра типа. Сравнивается только конечный результат как необобщённый тип.
@@ -247,14 +247,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // Недопустимо, поскольку аргумент типа используется в итоговой структуре
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // Допустимо, поскольку аргумент типа не используется в итоговой структуре
 ```
 
 Если аргументы обобщённых типов не указаны, все неуказанные аргументы рассматриваются как типы "any":
@@ -264,7 +264,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // Допустимо
 ```
 
 Помните:
@@ -273,26 +273,26 @@ x = y; // Valid
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // Допустимо: любой тип присваиваем самому себе
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // Допустимо: все типы присваиваемы типу any
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // Допустимо: все типы присваиваемы типу unknown
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // Допустимо: unknown присваиваем только самому себе и any
+let e2: any = e; // Допустимо
+let e3: number = e; // Недопустимо
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // Недопустимо: ничто не присваиваемо типу never
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // Недопустимо: void нельзя присвоить ничему и ему нельзя присвоить ничего, кроме any
+g = g1; // Допустимо
 ```
 
 Обратите внимание, что при включённом параметре "strictNullChecks" типы "null" и "undefined" обрабатываются аналогично "void"; в противном случае — аналогично "never".
@@ -350,7 +350,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // Допустимо
 ```
 
 Пересечение (T1 & T2) создаёт более узкое множество (только общие элементы):
@@ -365,8 +365,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // Недопустимо
+const j: XY = { a: 'a', b: 'b' }; // Допустимо
 ```
 
 В этом контексте ключевое слово `extends` можно рассматривать как «является подмножеством». Оно задаёт ограничение для типа. Когда `extends` используется с обобщённым типом, оно ограничивает параметр обобщённого типа более конкретным типом.
@@ -400,7 +400,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // Допустимо
 ```
 
 ### Задание типа: объявления типов и утверждения типов
@@ -416,7 +416,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// Объявление типа
 const x: X = {
     a: 'a',
 };
@@ -432,7 +432,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // Ошибка: объектный литерал может содержать только известные свойства
 };
 ```
 
@@ -516,8 +516,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // Допустимо благодаря структурной типизации
+const w: X = { a: 'a', b: 'b' }; // Недопустимо из-за проверки лишних свойств
 ```
 
 ### Слабые типы
@@ -542,7 +542,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // Недопустимо
 ```
 
 Хотя это не рекомендуется, при необходимости данную проверку можно обойти с помощью утверждения типа:
@@ -553,7 +553,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // Допустимо
 ```
 
 Либо добавив `unknown` в индексную сигнатуру слабого типа:
@@ -566,7 +566,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // Допустимо
 ```
 
 ### Строгая проверка объектных литералов (свежесть)
@@ -585,20 +585,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // Проверка свежести: недопустимое присваивание
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // Проверка свежести: недопустимое присваивание
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // Расширение: ошибок нет, типы структурно совместимы
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // Проверка свежести: недопустимый аргумент
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // Расширение: проверка свежести не выполняется
 ```
 
 ### Вывод типов
@@ -613,7 +613,7 @@ TypeScript может выводить типы, если аннотация н�
 Например:
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // Выведен тип string
 ```
 
 Компилятор TypeScript анализирует значение или выражение и определяет его тип на основе доступной информации.
@@ -623,19 +623,19 @@ let x = 'x'; // The type inferred is string
 Если при выводе типов используется несколько выражений, TypeScript ищет «наилучшие общие типы». Например:
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // Выведен тип: (string | number | null)[]
 ```
 
 Если компилятор не может найти наилучшие общие типы, он возвращает тип-объединение. Например:
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // Выведен тип: (RegExp | Date)[]
 ```
 
 TypeScript использует «контекстную типизацию» на основе расположения переменной для вывода типов. В следующем примере компилятор знает, что `e` имеет тип `MouseEvent`, благодаря типу события `click`, определённому в файле lib.d.ts, который содержит внешние объявления для различных распространённых конструкций JavaScript и DOM:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // Для e выведен тип MouseEvent
 ```
 
 ### Расширение типов
@@ -645,9 +645,9 @@ window.addEventListener('click', function (e) {}); // The inferred type of e is 
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript выводит широкий тип string
+let y: 'y' | 'x' = 'y'; // Тип y — объединение литеральных типов
+y = x; // Недопустимо: тип 'string' нельзя присвоить типу '"x" | "y"'.
 ```
 
 На основе единственного значения, указанного при инициализации (`x`), TypeScript назначает переменной `x` тип `string`; это пример расширения.
@@ -661,9 +661,9 @@ TypeScript позволяет управлять процессом расшир
 Например:
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript выводит для x более узкий тип 'x'
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // Допустимо: для x выведен тип 'x'
 ```
 
 При использовании `const` для объявления переменной x её тип сужается до конкретного литерального значения 'x'. Поскольку тип x сужен, его можно присвоить переменной y без ошибок.
@@ -675,10 +675,10 @@ y = x; // Valid: The type of x is inferred as 'x'
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // Здесь нет const
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // Выведен тип: { a: string; b: string; }
 ```
 
 Как видно, для свойств `a` и `b` выводится тип `string`.
@@ -687,10 +687,10 @@ const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // Использование модификатора const для параметров типа
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // Выведен тип: { a: "a"; b: "b"; }
 ```
 
 Теперь видно, что для свойств `a` и `b` выводятся строковые литералы, а не просто типы `string`.
@@ -721,7 +721,7 @@ const v = {
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // Кортеж readonly [1, 2, 3]
 ```
 
 ### Явная аннотация типа
@@ -730,9 +730,9 @@ const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // Выведен тип: number (расширение)
 };
-v.x = 3; // Valid
+v.x = 3; // Допустимо
 ```
 
 Аннотацию типа можно сделать более конкретной, используя объединение литеральных типов:
@@ -740,10 +740,10 @@ v.x = 3; // Valid
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // Теперь x имеет объединение литеральных типов: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // Допустимо
+v.x = 100; // Недопустимо
 ```
 
 ### Сужение типов
@@ -760,7 +760,7 @@ v.x = 100; // Invalid
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // Тип number, суженный условием
 }
 ```
 
@@ -795,9 +795,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // тип A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // тип B
     }
 };
 ```
@@ -809,11 +809,11 @@ const x = (input: A | B): string | number => {
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // Тип (string | null)[]: TypeScript не смог правильно вывести тип
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // Пользовательская защита типа
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // Теперь тип корректен: string[]; предикат защиты типа позволил сузить тип
 ```
 
 #### Сужение с помощью switch (true)

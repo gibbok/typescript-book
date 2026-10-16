@@ -74,7 +74,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // Schnittmenge
 ```
 
 Beispiel mit Interfaces:
@@ -87,6 +87,6 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // Union von Interfaces
 ```
 

@@ -11,10 +11,10 @@ Modifizierer gemappter Typen ermöglichen in TypeScript die Transformation von E
 Beispiele:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Alle Eigenschaften als schreibgeschützt markiert
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Alle Eigenschaften als veränderlich markiert
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // Alle Eigenschaften als optional markiert
 ```
 

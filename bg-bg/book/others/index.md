@@ -78,7 +78,7 @@ class MyClass {
 // Разширяване на MyClass с поведението на Identifiable и Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Функция за прилагане на mixins към клас
+// Функция за прилагане на миксини към клас
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -93,7 +93,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Прилагане на mixins към MyClass
+// Прилагане на миксини към MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -307,7 +307,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // Извежда функцията конструктор, използвана за създаване на екземпляр
     }
 }
 
@@ -332,7 +332,7 @@ const child = new Child(); // [Function: Child]
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // Динамично импортиране
         widget.render(container);
     }
 }
@@ -644,8 +644,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // Валидно
+produceDog = produceAnimal; // Грешка
 ```
 
 **Контравариантност (приемане на стойности):** функция, която приема всеки `Animal`, може да замени функция, приемаща `Dog`. Тя обработва и кучета; функция само за кучета не може безопасно да обработва всички животни.
@@ -657,8 +657,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // Валидно
+consumeAnimal = consumeDog; // Грешка при включен strictFunctionTypes
 ```
 
 Стрелките показват посоката на безопасното присвояване:
@@ -674,8 +674,8 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // Позволено, но небезопасно
+// dogs вече съдържа Animal, който не е Dog.
 ```
 
 **Настройка на компилатора:** с `strictFunctionTypes` параметрите на самостоятелните функции се проверяват контравариантно. Без тази настройка TypeScript може да позволи и двете посоки (бивариантност), макар да е опасно. Параметрите в декларации на методи и конструктори са изключение.
@@ -712,7 +712,7 @@ const obj: MyObject = {
     'key-b': 456,
 };
 
-console.log(obj[uniqueSymbol]); // Unique symbol key
+console.log(obj[uniqueSymbol]); // Ключ с уникален символ
 console.log(obj['key-a']); // 123
 console.log(obj['key-b']); // 456
 ```
@@ -728,37 +728,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// Анотация на тип чрез `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// В следните редове TypeScript няма да може да направи правилно inference
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// В следните редове TypeScript няма да може да изведе правилно типовете
+user.attributes?.map(console.log); // Свойството 'map' не съществува в типа 'string | string[]'. Свойството 'map' не съществува в типа 'string'.
 user.nickName; // string | string[] | undefined
 
-// Type assertion с `as`
+// Твърдение за тип с `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// И тук TypeScript няма да може да направи правилно inference
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// И тук TypeScript няма да може да изведе правилно типовете
+user2.attributes?.map(console.log); // Свойството 'map' не съществува в типа 'string | string[]'. Свойството 'map' не съществува в типа 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Използвайки `satisfies` операторите, можем да направим правилно inference на типовете
+// Използвайки оператора `satisfies`, вече можем да изведем правилно типовете
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript инферира правилно: string[]
-user3.nickName; // TypeScript инферира правилно: undefined
+user3.attributes?.map(console.log); // TypeScript извежда правилно: string[]
+user3.nickName; // TypeScript извежда правилно: undefined
 ```
 
 ### Type-Only Imports и Export
@@ -812,7 +812,7 @@ export type { T } from './mod';
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Прост полифил
 
 const doWork = (): Disposable => {
     return {
@@ -825,9 +825,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // Ресурсът е деклариран
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // Ресурсът е освободен (например се изпълнява `work[Symbol.dispose]()`)
 
 console.log(3);
 ```
@@ -858,7 +858,7 @@ interface Disposable {
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // освобождава `C`, после `B`, после `A`.
 ```
 
 Resources се гарантира, че ще бъдат disposed, дори ако последващ код или exception възникне. Това може да доведе до ситуация, в която disposal хвърля exception, който може да suppress-не друг. За да се запази информация за suppressed errors, се въвежда нов native exception `SuppressedError`.
@@ -870,8 +870,8 @@ Resources се гарантира, че ще бъдат disposed, дори ак�
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // Ресурсът е деклариран
+} // Ресурсът е освободен (например се изпълнява `await work[Symbol.asyncDispose]()`)
 ```
 
 За да бъде ресурсът асинхронно освобождаем, той трябва да отговаря на интерфейса `Disposable` или `AsyncDisposable`:
@@ -886,12 +886,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Прост полифил
 
 class DatabaseConnection implements AsyncDisposable {
     // Метод, който се извиква, когато обектът се унищожава асинхронно
     [Symbol.asyncDispose]() {
-        // Затваряне на връзката и връщане на promise
+        // Затваряне на връзката и връщане на обещание
         return this.close();
     }
 
@@ -904,9 +904,9 @@ class DatabaseConnection implements AsyncDisposable {
 
 async function doWork() {
     // Създаване на нова връзка и асинхронно освобождаване, когато излезе от обхвата
-    await using connection = new DatabaseConnection(); //  Resource е деклариран
+    await using connection = new DatabaseConnection(); //  Ресурсът е деклариран
     console.log('Doing some work...');
-} // Resource е освободен (например, `await connection[Symbol.asyncDispose]()` се извиква)
+} // Ресурсът е освободен (например се извиква `await connection[Symbol.asyncDispose]()`)
 
 doWork();
 ```
@@ -945,7 +945,7 @@ const config = import('./config.json', { with: { type: 'json' } });
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // Грешка: тази обратна препратка сочи към несъществуваща група.
 ```
 
 ### import defer

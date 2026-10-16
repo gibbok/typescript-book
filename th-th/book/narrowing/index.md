@@ -13,7 +13,7 @@ TypeScript รองรับหลายวิธีในการจำกั
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x มีชนิด number
     }
     return -1;
 };

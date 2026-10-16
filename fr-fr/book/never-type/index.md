@@ -9,7 +9,7 @@ Par exemple, une boucle infinie :
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // faire quelque chose
     }
 };
 ```
@@ -29,10 +29,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // monter
             break;
         case 'down':
-            // move down
+            // descendre
             break;
         default:
             const exhaustiveCheck: never = direction;

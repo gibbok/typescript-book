@@ -7,7 +7,7 @@
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // 선택적 프로퍼티
 };
 ```
 

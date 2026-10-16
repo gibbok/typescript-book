@@ -63,14 +63,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 TypeScript의 타입 시스템은 JavaScript의 런타임 동작에 큰 영향을 받습니다. 예를 들어 JavaScript에서 문자열 연결이나 숫자 덧셈을 수행할 수 있는 덧셈 연산자(+)는 TypeScript에서도 같은 방식으로 모델링됩니다.
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // 결과의 타입은 string
 ```
 
 TypeScript 개발 팀은 JavaScript의 비정상적인 사용을 의도적으로 오류로 표시하기로 결정했습니다. 예를 들어 다음의 유효한 JavaScript 코드를 살펴보겠습니다.
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // JavaScript에서 결과는 2
 ```
 
 하지만 TypeScript는 오류를 발생시킵니다.
@@ -89,7 +89,7 @@ TypeScript 컴파일러에는 타입 오류 검사와 JavaScript 컴파일이라
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // 'string' 타입의 인수는 'number' 타입의 매개변수에 할당할 수 없습니다.
 ```
 
 하지만 여전히 실행 가능한 JavaScript 출력을 생성할 수 있습니다.
@@ -116,7 +116,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog'는 타입만 나타내지만 여기서는 값으로 사용되고 있습니다.
         // ...
     }
 };
@@ -126,11 +126,11 @@ const makeNoise = (animal: Animal) => {
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // 태그된 유니온
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // 태그된 유니온
     meow: () => void;
 }
 type Animal = Dog | Cat;

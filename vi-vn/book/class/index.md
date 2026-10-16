@@ -35,7 +35,7 @@ Class có một phương thức `public` tên là sayHi, phương thức này gh
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // Kết quả: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Constructor
@@ -139,10 +139,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// Việc cố tạo trực tiếp một thể hiện của lớp cơ sở sẽ gây ra lỗi
+// const baseObj = new BaseClass(); // Lỗi: Hàm khởi tạo của lớp 'BaseClass' là protected.
 
-// Create an instance of the derived class
+// Tạo một thể hiện của lớp dẫn xuất
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -241,8 +241,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // Các từ khóa "private" và "public" trong hàm khởi tạo
+        // tự động khai báo và khởi tạo các thuộc tính tương ứng của lớp.
     }
     public introduce(): void {
         console.log(
@@ -277,7 +277,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // Kết quả: Whiskers meows.
 ```
 
 ### Với Generic
@@ -365,7 +365,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* In ra:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -390,7 +390,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // In ra: HELLO!
 ```
 
 #### Method Decorator
@@ -472,10 +472,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // Hợp lệ: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // Ném lỗi: Invalid!
 ```
 
 #### Metadata của Decorator
@@ -487,15 +487,15 @@ Metadata có thể được dùng cho nhiều mục đích như debugging, seria
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Polyfill đơn giản
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // Ngữ cảnh chứa metadata của thuộc tính: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // Gán một giá trị nguyên thủy cho đối tượng metadata
     context.metadata[context.name] = true;
 }
 
@@ -510,7 +510,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // Lấy thông tin metadata
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -545,11 +545,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// Tạo một thể hiện của lớp cơ sở
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// Tạo một thể hiện của lớp dẫn xuất
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -639,7 +639,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // Không cần gán tường minh các giá trị cho thuộc tính.
     }
     log() {
         console.log(this.property2);
@@ -655,8 +655,8 @@ Method overloading cho phép một class có nhiều phương thức cùng tên 
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // Chữ ký overload 1
+    add(a: string, b: string): string; // Chữ ký overload 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -670,6 +670,6 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // In ra 15
 ```
 

@@ -71,13 +71,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Tipos de União e Interseção
 
 ```typescript
-type MyType = string | number; // Tipo de união (Union type)
+type MyType = string | number; // Tipo de união
 let myUnion: MyType = 'hello'; // Pode ser uma string
 myUnion = 123; // Ou um número
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Tipo de interseção (Intersection type)
+type CombinedType = TypeA & TypeB; // Tipo de interseção
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Objeto com as propriedades name e age
 ```
 

@@ -9,6 +9,6 @@ Les tuples de longueur fixe sont utiles lorsque vous devez représenter une coll
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // Erreur
 ```
 

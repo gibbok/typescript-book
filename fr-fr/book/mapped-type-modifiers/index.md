@@ -11,10 +11,10 @@ En TypeScript, les modificateurs de types mappés permettent de transformer les 
 Exemples :
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Toutes les propriétés sont en lecture seule
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Toutes les propriétés sont modifiables
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // Toutes les propriétés sont facultatives
 ```
 

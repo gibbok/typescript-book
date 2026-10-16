@@ -10,11 +10,11 @@ Try-Catch-Finally 블록:
 
 ```typescript
 try {
-    // Code that might throw an error
+    // 오류가 발생할 수 있는 코드
 } catch (error) {
-    // Handle the error
+    // 오류 처리
 } finally {
-    // Code that always executes, finally is optional
+    // 항상 실행되는 코드. finally는 선택 사항
 }
 ```
 
@@ -22,14 +22,14 @@ try {
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // 다양한 타입의 오류가 발생할 수 있는 코드
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // TypeError 처리
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // RangeError 처리
     } else {
-        // Handle other errors
+        // 기타 오류 처리
     }
 }
 ```
@@ -75,10 +75,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// MyClass를 확장하여 Identifiable과 Selectable의 동작 포함
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// 클래스에 믹스인을 적용하는 함수
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -93,7 +93,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// MyClass에 믹스인 적용
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -208,10 +208,10 @@ JavaScript 코드베이스로 작업할 때 추가 어노테이션이 포함된 
 
 ```typescript
 /**
- * Computes the power of a given number
+ * 주어진 수의 거듭제곱을 계산
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – 식의 밑 값
+ * @param {number} exponent – 식의 지수 값
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -307,7 +307,7 @@ TypeScript에서는 `new.target` 메타 프로퍼티를 사용하여 함수나 �
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // 인스턴스 생성에 사용된 생성자 함수 로그 출력
     }
 }
 
@@ -332,7 +332,7 @@ TypeScript의 동적 import 표현식 구문은 다음과 같습니다.
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // 동적 임포트
         widget.render(container);
     }
 }
@@ -644,8 +644,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // 유효함
+produceDog = produceAnimal; // 오류
 ```
 
 **반공변성(값 소비):** 모든 `Animal`을 받는 함수는 `Dog`를 받는 함수가 필요한 곳에서 사용할 수 있습니다. 개도 처리할 수 있지만 개만 받는 함수는 모든 동물을 안전하게 처리할 수 없습니다.
@@ -657,8 +657,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // 유효함
+consumeAnimal = consumeDog; // strictFunctionTypes를 사용하면 오류
 ```
 
 화살표는 안전한 할당 방향을 나타냅니다.
@@ -674,8 +674,8 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // 허용되지만 안전하지 않음
+// 이제 dogs에는 Dog가 아닌 Animal이 포함됩니다.
 ```
 
 **컴파일러 옵션:** `strictFunctionTypes`를 사용하면 독립적인 함수의 매개변수를 반공변적으로 검사합니다. 사용하지 않으면 안전하지 않아도 양방향을 허용할 수 있습니다(양변성). 메서드와 생성자 선언의 매개변수는 예외입니다.
@@ -728,37 +728,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// `User`를 사용한 타입 주석
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// 다음 줄에서는 TypeScript가 올바르게 추론할 수 없음
+user.attributes?.map(console.log); // 'string | string[]' 타입에 'map' 프로퍼티가 없습니다. 'string' 타입에 'map' 프로퍼티가 없습니다.
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// `as`를 사용한 타입 단언
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// 여기서도 TypeScript가 올바르게 추론할 수 없음
+user2.attributes?.map(console.log); // 'string | string[]' 타입에 'map' 프로퍼티가 없습니다. 'string' 타입에 'map' 프로퍼티가 없습니다.
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// `satisfies` 연산자를 사용하면 이제 타입을 올바르게 추론할 수 있음
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript가 올바르게 추론함: string[]
+user3.nickName; // TypeScript가 올바르게 추론함: undefined
 ```
 
 ### 타입 전용 가져오기와 내보내기
@@ -812,7 +812,7 @@ export type { T } from './mod';
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // 간단한 폴리필
 
 const doWork = (): Disposable => {
     return {
@@ -825,9 +825,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // 리소스 선언
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // 리소스 해제(예: `work[Symbol.dispose]()` 실행)
 
 console.log(3);
 ```
@@ -858,7 +858,7 @@ interface Disposable {
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // `C`, `B`, `A` 순서로 해제합니다.
 ```
 
 이후 코드가 실행되거나 예외가 발생하더라도 리소스는 반드시 폐기됩니다. 이 과정에서 폐기 작업이 예외를 던져 다른 예외를 억제할 수 있습니다. 억제된 오류에 대한 정보를 유지하기 위해 새로운 네이티브 예외인 `SuppressedError`가 도입되었습니다.
@@ -870,8 +870,8 @@ interface Disposable {
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // 리소스 선언
+} // 리소스 해제(예: `await work[Symbol.asyncDispose]()` 실행)
 ```
 
 비동기적으로 폐기 가능한 리소스는 `Disposable` 또는 `AsyncDisposable` 인터페이스를 준수해야 합니다.
@@ -886,12 +886,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // 간단한 폴리필
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // 객체가 비동기적으로 해제될 때 호출되는 메서드
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // 연결을 닫고 프로미스 반환
         return this.close();
     }
 
@@ -903,10 +903,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // 새 연결을 생성하고 범위를 벗어나면 비동기적으로 해제
+    await using connection = new DatabaseConnection(); //  리소스 선언
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // 리소스 해제(예: `await connection[Symbol.asyncDispose]()` 실행)
 
 doWork();
 ```
@@ -945,7 +945,7 @@ TypeScript 5.5.4부터는 컴파일 시간에 정규 표현식 리터럴의 일�
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // 오류: 이 역참조는 존재하지 않는 그룹을 참조합니다.
 ```
 
 ### import defer

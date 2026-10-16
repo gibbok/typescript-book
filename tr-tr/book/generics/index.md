@@ -60,7 +60,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // Geçersiz
 ```
 
 3.4 RC sürümünde sunulan dikkate değer bir jenerik özelliği, jenerik tür bağımsız değişkenlerini yayan yüksek dereceli işlev türü çıkarımıdır:
@@ -87,10 +87,10 @@ Jeneriklerde bağlamsal daraltma, TypeScript'te derleyicinin bir jenerik paramet
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // Değer 'string' türüne daraltılır
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // Değer 'number' türüne daraltılır
         console.log(value.toFixed(2));
     }
 }

@@ -11,10 +11,10 @@ Modifikátory mapovaných typů v TypeScriptu umožňují transformovat vlastnos
 Příklady:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Všechny vlastnosti jsou označeny pouze pro čtení
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Všechny vlastnosti jsou označeny jako měnitelné
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // Všechny vlastnosti jsou označeny jako volitelné
 ```
 

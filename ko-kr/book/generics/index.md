@@ -60,7 +60,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // 유효하지 않음
 ```
 
 버전 3.4 RC에서 도입된 주목할 만한 제네릭 기능으로 제네릭 타입 인수를 전파하는 고차 함수 타입 추론이 있습니다.
@@ -87,10 +87,10 @@ const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // 값의 타입이 'string'으로 좁혀짐
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // 값의 타입이 'number'로 좁혀짐
         console.log(value.toFixed(2));
     }
 }

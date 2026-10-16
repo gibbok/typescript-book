@@ -62,7 +62,7 @@ const c: B = {
 Типы предоставляют больше возможностей при определении типов объединения и пересечения. С помощью ключевого слова `type` можно легко создавать типы объединения, используя оператор `|`, и типы пересечения, используя оператор `&`. Хотя интерфейсы также могут косвенно представлять типы объединения, у них нет встроенной поддержки типов пересечения.
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // Объединение
 
 type Person = {
     name: string;
@@ -74,7 +74,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // Пересечение
 ```
 
 Пример с интерфейсами:
@@ -87,6 +87,6 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // Объединение интерфейсов
 ```
 

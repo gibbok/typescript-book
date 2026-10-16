@@ -10,6 +10,6 @@ Typ z modulu označuje možnost používat exportované hodnoty modulu k automat
 export const add = (x: number, y: number) => x + y;
 // index.ts
 import { add } from 'calc';
-const r = add(1, 2); // r is number
+const r = add(1, 2); // r je typu number
 ```
 

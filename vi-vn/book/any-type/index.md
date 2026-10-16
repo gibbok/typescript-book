@@ -12,7 +12,7 @@ Khi sử dụng kiểu `any`, bạn cho trình biên dịch TypeScript biết r�
 
 ```typescript
 let value: any;
-value = true; // Valid
-value = 7; // Valid
+value = true; // Hợp lệ
+value = 7; // Hợp lệ
 ```
 

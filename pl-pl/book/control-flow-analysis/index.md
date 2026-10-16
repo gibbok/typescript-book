@@ -35,7 +35,7 @@ Przykłady, w których zawężanie nie zachodzi:
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // Błąd, brak zawężania, ponieważ isString nie jest const
     }
 };
 
@@ -45,7 +45,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // Błąd, brak zawężania, ponieważ obj jest przypisywany w ciele funkcji
     }
 };
 ```

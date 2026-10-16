@@ -13,7 +13,7 @@
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // อินเตอร์เซกชันของ A และ B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -39,7 +39,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // พร็อพเพอร์ตีเปลี่ยนเป็นอ่านอย่างเดียว
 ```
 
 ชนิด Conditional:
@@ -122,7 +122,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // ไม่ถูกต้อง
 ```
 
 #### Record\<K, T\>
@@ -291,8 +291,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // ถูกต้อง เพราะ "log" เป็นส่วนหนึ่งของ "this"
+        this.update(); // ไม่ถูกต้อง
     },
 };
 ```
@@ -336,22 +336,22 @@ NoInfer เป็น utility type ที่ออกแบบมาเพื่�
 ตัวอย่าง:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// การอนุมานชนิดอัตโนมัติภายในขอบเขตของฟังก์ชันเจเนอริก
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // ชนิดที่นี่คือ ("a" | "b" | "c")[]
 ```
 
 เมื่อใช้ NoInfer:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// ตัวอย่างฟังก์ชันที่ใช้ NoInfer เพื่อป้องกันการอนุมานชนิด
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // ข้อผิดพลาด: อาร์กิวเมนต์ชนิด '"c"' ไม่สามารถกำหนดให้พารามิเตอร์ชนิด '"a" | "b"' ได้
 ```
 

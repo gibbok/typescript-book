@@ -5,11 +5,11 @@
 Overload fungsi dalam TypeScript memungkinkan Anda mendefinisikan beberapa signature fungsi untuk satu nama fungsi, sehingga Anda dapat mendefinisikan fungsi yang bisa dipanggil dengan berbagai cara. Berikut contohnya:
 
 ```typescript
-// Overloads
+// Overload
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// Implementasi
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -37,7 +37,7 @@ class Greeter {
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // implementasi
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;

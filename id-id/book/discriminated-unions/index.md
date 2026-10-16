@@ -6,12 +6,12 @@ Union Terdiskriminasi dalam TypeScript adalah jenis tipe union yang menggunakan 
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // Diskriminan
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // Diskriminan
     radius: number;
 };
 

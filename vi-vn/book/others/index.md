@@ -10,11 +10,11 @@ Khối Try-Catch-Finally:
 
 ```typescript
 try {
-    // Code that might throw an error
+    // Mã có thể ném ra lỗi
 } catch (error) {
-    // Handle the error
+    // Xử lý lỗi
 } finally {
-    // Code that always executes, finally is optional
+    // Mã luôn được thực thi, finally là tùy chọn
 }
 ```
 
@@ -22,14 +22,14 @@ Bạn cũng có thể xử lý các loại lỗi khác nhau:
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // Mã có thể ném ra các loại lỗi khác nhau
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // Xử lý TypeError
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // Xử lý RangeError
     } else {
-        // Handle other errors
+        // Xử lý các lỗi khác
     }
 }
 ```
@@ -75,10 +75,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// Mở rộng MyClass để bao gồm hành vi của Identifiable và Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// Hàm để áp dụng mixin cho một lớp
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -93,7 +93,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// Áp dụng mixin cho MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -208,10 +208,10 @@ Ví dụ:
 
 ```typescript
 /**
- * Computes the power of a given number
+ * Tính lũy thừa của một số cho trước
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – Giá trị cơ số của biểu thức
+ * @param {number} exponent – Giá trị số mũ của biểu thức
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -307,7 +307,7 @@ Bạn có thể dùng meta-property `new.target` trong TypeScript, cho phép xá
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // In ra hàm khởi tạo được dùng để tạo thể hiện
     }
 }
 
@@ -332,7 +332,7 @@ Cú pháp cho biểu thức dynamic import trong TypeScript như sau:
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // Nhập động
         widget.render(container);
     }
 }
@@ -644,8 +644,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // Hợp lệ
+produceDog = produceAnimal; // Lỗi
 ```
 
 **Contravariance (nhận giá trị):** hàm nhận mọi `Animal` có thể thay thế hàm chỉ nhận `Dog`. Hàm đó xử lý được cả chó; hàm chỉ nhận chó không thể xử lý an toàn mọi động vật.
@@ -657,8 +657,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // Hợp lệ
+consumeAnimal = consumeDog; // Lỗi khi dùng strictFunctionTypes
 ```
 
 Mũi tên cho biết hướng gán an toàn:
@@ -674,8 +674,8 @@ Mũi tên cho biết hướng gán an toàn:
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // Được phép, nhưng không an toàn
+// dogs hiện chứa một Animal không phải là Dog.
 ```
 
 **Tùy chọn trình biên dịch:** khi bật `strictFunctionTypes`, tham số của hàm độc lập được kiểm tra theo contravariance. Nếu tắt, TypeScript có thể cho phép cả hai hướng (bivariance) dù không an toàn. Tham số trong khai báo phương thức và hàm tạo là ngoại lệ.
@@ -728,37 +728,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// Chú thích kiểu bằng `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Trong các dòng sau, TypeScript không thể suy luận chính xác
+user.attributes?.map(console.log); // Thuộc tính 'map' không tồn tại trên kiểu 'string | string[]'. Thuộc tính 'map' không tồn tại trên kiểu 'string'.
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// Khẳng định kiểu bằng `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Ở đây cũng vậy, TypeScript không thể suy luận chính xác
+user2.attributes?.map(console.log); // Thuộc tính 'map' không tồn tại trên kiểu 'string | string[]'. Thuộc tính 'map' không tồn tại trên kiểu 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// Với toán tử `satisfies`, giờ ta có thể suy luận kiểu chính xác
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript suy luận chính xác: string[]
+user3.nickName; // TypeScript suy luận chính xác: undefined
 ```
 
 ### Import và Export chỉ dành cho Type
@@ -812,7 +812,7 @@ Ví dụ:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Polyfill đơn giản
 
 const doWork = (): Disposable => {
     return {
@@ -825,9 +825,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // Tài nguyên được khai báo
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // Tài nguyên được giải phóng (ví dụ: `work[Symbol.dispose]()` được thực thi)
 
 console.log(3);
 ```
@@ -858,7 +858,7 @@ Khai báo `using` ghi các thao tác dispose resource vào một stack, bảo đ
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // giải phóng `C`, rồi `B`, rồi `A`.
 ```
 
 Resource được bảo đảm sẽ được dispose ngay cả khi mã tiếp theo hoặc exception xảy ra. Điều này có thể dẫn đến việc dispose phát sinh exception và có khả năng suppress một exception khác. Để giữ lại thông tin về các lỗi bị suppress, một native exception mới, `SuppressedError`, được giới thiệu.
@@ -870,8 +870,8 @@ Khai báo `await using` xử lý một resource được dispose bất đồng b
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // Tài nguyên được khai báo
+} // Tài nguyên được giải phóng (ví dụ: `await work[Symbol.asyncDispose]()` được thực thi)
 ```
 
 Với resource được dispose bất đồng bộ, nó phải tuân theo interface `Disposable` hoặc `AsyncDisposable`:
@@ -886,12 +886,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Polyfill đơn giản
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // Phương thức được gọi khi đối tượng được giải phóng bất đồng bộ
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // Đóng kết nối và trả về một promise
         return this.close();
     }
 
@@ -903,10 +903,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // Tạo kết nối mới và giải phóng bất đồng bộ khi ra khỏi phạm vi
+    await using connection = new DatabaseConnection(); //  Tài nguyên được khai báo
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Tài nguyên được giải phóng (ví dụ: `await connection[Symbol.asyncDispose]()` được thực thi)
 
 doWork();
 ```
@@ -945,7 +945,7 @@ Kể từ TypeScript 5.5.4, TypeScript kiểm tra regex literal để phát hi�
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // Lỗi: Tham chiếu ngược này đề cập đến một nhóm không tồn tại.
 ```
 
 ### import defer

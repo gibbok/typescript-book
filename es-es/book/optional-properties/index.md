@@ -7,7 +7,7 @@ Un objeto puede especificar propiedades opcionales añadiendo un signo de interr
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // Opcional
 };
 ```
 

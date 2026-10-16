@@ -35,9 +35,9 @@ TypeScript prend également en charge les notations hexadécimale, binaire et oc
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // L'hexadécimal commence par 0x
+const binary: number = 0b1010; // Le binaire commence par 0b
+const octal: number = 0o633; // L'octal commence par 0o
 ```
 
 ### bigint
@@ -97,10 +97,10 @@ TypeScript prend en charge les tableaux en lecture seule avec la syntaxe suivant
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // Modificateur readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // Invalide
 ```
 
 TypeScript prend en charge les tuples et les tuples en lecture seule :

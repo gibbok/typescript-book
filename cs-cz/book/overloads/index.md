@@ -5,11 +5,11 @@
 Přetížení funkcí v TypeScriptu umožňuje definovat více signatur pro jeden název funkce, takže ji lze volat různými způsoby. Zde je příklad:
 
 ```typescript
-// Overloads
+// Přetížení
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// Implementace
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -19,8 +19,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // Platné
+sayHi(['aa', 'bb']); // Platné
 ```
 
 Zde je další příklad použití přetížení funkcí ve třídě (`class`):
@@ -33,11 +33,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // přetížení
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // implementace
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;

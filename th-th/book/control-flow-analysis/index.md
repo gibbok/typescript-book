@@ -35,7 +35,7 @@ const f2 = (
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // เกิดข้อผิดพลาด ไม่มีการจำกัดชนิดให้แคบลงเพราะ isString ไม่ใช่ const
     }
 };
 
@@ -45,7 +45,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // เกิดข้อผิดพลาด ไม่มีการจำกัดชนิดให้แคบลงเพราะ obj ถูกกำหนดค่าในตัวฟังก์ชัน
     }
 };
 ```

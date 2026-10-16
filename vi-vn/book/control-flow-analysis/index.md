@@ -35,7 +35,7 @@ Một số ví dụ mà việc thu hẹp không xảy ra:
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // Lỗi, không thu hẹp kiểu vì isString không phải const
     }
 };
 
@@ -45,7 +45,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // Lỗi, không thu hẹp kiểu vì obj được gán trong thân hàm
     }
 };
 ```

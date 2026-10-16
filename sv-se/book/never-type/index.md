@@ -9,7 +9,7 @@ Till exempel en oändlig loop:
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // gör något
     }
 };
 ```
@@ -29,10 +29,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // flytta upp
             break;
         case 'down':
-            // move down
+            // flytta ned
             break;
         default:
             const exhaustiveCheck: never = direction;

@@ -6,12 +6,12 @@ Unie dyskryminowane w TypeScript są rodzajem typu unii, który wykorzystuje wsp
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // Dyskryminator
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // Dyskryminator
     radius: number;
 };
 

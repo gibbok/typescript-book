@@ -35,9 +35,9 @@ TypeScript juga mendukung bilangan heksadesimal, biner, dan oktal, misalnya:
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // Bilangan heksadesimal diawali dengan 0x
+const binary: number = 0b1010; // Bilangan biner diawali dengan 0b
+const octal: number = 0o633; // Bilangan oktal diawali dengan 0o
 ```
 
 ### bigint
@@ -97,10 +97,10 @@ TypeScript mendukung array readonly menggunakan sintaks berikut:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // Pengubah readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // Tidak valid
 ```
 
 TypeScript mendukung tuple dan tuple readonly:

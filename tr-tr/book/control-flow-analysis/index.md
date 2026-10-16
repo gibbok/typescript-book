@@ -35,7 +35,7 @@ Daraltmanın gerçekleşmediği bazı örnekler:
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // Hata, isString const olmadığı için daraltma yok
     }
 };
 
@@ -45,7 +45,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // Hata, obj işlev gövdesinde atandığı için daraltma yok
     }
 };
 ```

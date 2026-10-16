@@ -11,10 +11,10 @@ Mapped Type Modifier trong TypeScript cho phép biến đổi các thuộc tính
 Ví dụ:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Tất cả thuộc tính được đánh dấu là chỉ đọc
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Tất cả thuộc tính được đánh dấu là có thể thay đổi
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // Tất cả thuộc tính được đánh dấu là tùy chọn
 ```
 

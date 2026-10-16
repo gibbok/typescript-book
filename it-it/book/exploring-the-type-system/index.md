@@ -731,7 +731,7 @@ Possiamo essere specifici e passare un tipo, nell'esempio seguente la proprietà
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // Tipo inferito: number (allargamento)
 };
 v.x = 3; // Valido
 ```

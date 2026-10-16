@@ -11,10 +11,10 @@ TypeScript'teki Eşlenmiş Tür Değiştiricileri, mevcut bir tür içindeki öz
 Örnekler:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Tüm özellikler salt okunur olarak işaretlendi
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Tüm özellikler değiştirilebilir olarak işaretlendi
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // Tüm özellikler isteğe bağlı olarak işaretlendi
 ```
 

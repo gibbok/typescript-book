@@ -5,11 +5,11 @@
 تتيح لك التحميلات الزائدة للدوال في TypeScript تعريف عدة تواقيع دوال لاسم دالة واحد، مما يتيح لك تعريف دوال يمكن استدعاؤها بطرائق متعددة. إليك مثالًا:
 
 ```typescript
-// Overloads
+// تحميلات زائدة
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// التنفيذ
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -19,8 +19,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // صحيح
+sayHi(['aa', 'bb']); // صحيح
 ```
 
 إليك مثالًا آخر على استخدام التحميلات الزائدة للدوال داخل `class`:
@@ -33,11 +33,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // تحميل زائد
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // التنفيذ
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;

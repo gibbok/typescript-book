@@ -30,7 +30,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // 유효함
 ```
 
 ### TypeScript의 기본 비교 규칙
@@ -43,7 +43,7 @@ TypeScript의 비교 과정은 재귀적으로 이루어지며 모든 깊이에 
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // 최소한 X와 같은 멤버를 가지므로 유효함
 const r: X = y;
 ```
 
@@ -54,8 +54,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // 유효함
+x = y; // 유효함
 ```
 
 함수 반환 타입은 같아야 합니다.
@@ -66,8 +66,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // 유효하지 않음
+x = y; // 유효하지 않음
 ```
 
 소스 함수의 반환 타입은 대상 함수 반환 타입의 하위 타입이어야 합니다.
@@ -76,8 +76,8 @@ x = y; // Invalid
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // 유효함
+y = x; // 멤버 b가 누락되어 유효하지 않음
 ```
 
 함수 매개변수를 버리는 것은 허용됩니다. 이는 JavaScript에서 흔한 관행으로, 예를 들면 "Array.prototype.map()"을 사용할 때 그렇습니다.
@@ -92,8 +92,8 @@ y = x; // Invalid member b is missing
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // 매개변수 b 누락
+y = x; // 유효함
 ```
 
 소스 타입의 추가 선택적 매개변수는 모두 유효합니다.
@@ -103,8 +103,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // 유효함
+x = y; //유효함
 ```
 
 소스 타입에 대응하는 매개변수가 없는 대상 타입의 선택적 매개변수는 모두 유효하며 오류가 아닙니다.
@@ -114,15 +114,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // 유효함
+x = y; // 유효함
 ```
 
 나머지 매개변수는 선택적 매개변수가 무한히 이어지는 것으로 취급됩니다.
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //유효함
 ```
 
 오버로드가 있는 함수는 오버로드 시그니처가 구현 시그니처와 호환되면 유효합니다.
@@ -134,10 +134,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // 유효함
+x('a', 1); // 유효함
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // 구현 시그니처와 호환되지 않아 유효하지 않음
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -149,25 +149,25 @@ y('a', 1);
 소스와 대상의 매개변수를 상위 타입이나 하위 타입에 할당할 수 있으면 함수 매개변수 비교가 성공합니다(이변성).
 
 ```typescript
-// Supertype
+// 상위 타입
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// 하위 타입
 class Y extends X {}
-// Subtype
+// 하위 타입
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// 이변성은 상위 타입도 허용함
+console.log(getA(new X('x'))); // 유효함
+console.log(getA(new Y('Y'))); // 유효함
+console.log(getA(new Z('z'))); // 유효함
 ```
 
 열거형은 숫자와 비교할 수 있으며 그 반대도 유효하지만, 서로 다른 열거형 타입의 열거형 값을 비교하는 것은 유효하지 않습니다.
@@ -183,9 +183,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // 유효함
+const ya: Y = 0; // 유효함
+X.A === Y.A; // 유효하지 않음
 ```
 
 클래스의 인스턴스는 private 멤버와 protected 멤버에 대한 호환성 검사를 받습니다.
@@ -206,7 +206,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // 유효하지 않음
 ```
 
 비교 검사는 서로 다른 상속 계층을 고려하지 않습니다. 예를 들면 다음과 같습니다.
@@ -234,8 +234,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // 유효함
+x === z; // z가 다른 상속 계층에 속하더라도 유효함
 ```
 
 제네릭은 제네릭 매개변수를 적용한 뒤의 결과 타입을 바탕으로 구조를 사용해 비교하며, 최종 결과만 비제네릭 타입으로 비교합니다.
@@ -247,14 +247,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // 타입 인수가 최종 구조에서 사용되므로 유효하지 않음
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // 타입 인수가 최종 구조에서 사용되지 않으므로 유효함
 ```
 
 제네릭의 타입 인수를 지정하지 않으면 지정되지 않은 모든 인수는 "any" 타입으로 취급됩니다.
@@ -264,7 +264,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // 유효함
 ```
 
 기억하세요.
@@ -273,26 +273,26 @@ x = y; // Valid
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // 모든 타입은 자기 자신에 할당할 수 있으므로 유효함
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // 모든 타입은 any에 할당할 수 있으므로 유효함
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // 모든 타입은 unknown에 할당할 수 있으므로 유효함
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // 유효함. unknown은 자기 자신과 any에만 할당할 수 있음
+let e2: any = e; // 유효함
+let e3: number = e; // 유효하지 않음
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // never에는 어떤 값도 할당할 수 없으므로 유효하지 않음
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // void는 any 이외의 타입과 서로 할당할 수 없으므로 유효하지 않음
+g = g1; // 유효함
 ```
 
 "strictNullChecks"가 활성화된 경우 "null"과 "undefined"는 "void"와 비슷하게 취급되며, 그렇지 않으면 "never"와 비슷하게 취급된다는 점에 유의하세요.
@@ -350,7 +350,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // 유효함
 ```
 
 교집합 (T1 & T2)는 더 좁은 집합(공유되는 부분만)을 만듭니다.
@@ -365,8 +365,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // 유효하지 않음
+const j: XY = { a: 'a', b: 'b' }; // 유효함
 ```
 
 이 맥락에서 `extends` 키워드는 "부분집합"으로 생각할 수 있습니다. 이는 타입에 제약 조건을 설정합니다. `extends`를 제네릭과 함께 사용하면 제네릭 타입 매개변수를 더 구체적인 타입으로 제한합니다.
@@ -400,7 +400,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // 유효함
 ```
 
 ### 타입 지정하기: 타입 선언과 타입 단언
@@ -416,7 +416,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// 타입 선언
 const x: X = {
     a: 'a',
 };
@@ -432,7 +432,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // 오류: 객체 리터럴에는 알려진 프로퍼티만 지정할 수 있습니다
 };
 ```
 
@@ -516,8 +516,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // 구조적 타이핑으로 인해 유효함
+const w: X = { a: 'a', b: 'b' }; // 초과 프로퍼티 검사로 인해 유효하지 않음
 ```
 
 ### 약한 타입
@@ -542,7 +542,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // 유효하지 않음
 ```
 
 권장되지는 않지만 필요하다면 타입 단언을 사용하여 이 검사를 우회할 수 있습니다.
@@ -553,7 +553,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // 유효함
 ```
 
 또는 약한 타입의 인덱스 시그니처에 `unknown`을 추가할 수 있습니다.
@@ -566,7 +566,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // 유효함
 ```
 
 ### 엄격한 객체 리터럴 검사(Freshness)
@@ -585,20 +585,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // 신선도 검사: 유효하지 않은 할당
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // 신선도 검사: 유효하지 않은 할당
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // 타입 확장: 구조적으로 타입이 호환되므로 오류 없음
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // 신선도 검사: 유효하지 않은 인수
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // 타입 확장: 신선도 검사 없음
 ```
 
 ### 타입 추론
@@ -613,7 +613,7 @@ TypeScript는 다음 상황에서 어노테이션이 제공되지 않아도 타�
 예를 들면 다음과 같습니다.
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // 추론된 타입은 string
 ```
 
 TypeScript 컴파일러는 값이나 표현식을 분석하고 사용 가능한 정보를 바탕으로 타입을 결정합니다.
@@ -623,19 +623,19 @@ TypeScript 컴파일러는 값이나 표현식을 분석하고 사용 가능한 
 타입 추론에 여러 표현식이 사용되면 TypeScript는 "최적 공통 타입"을 찾습니다. 예를 들면 다음과 같습니다.
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // 추론된 타입: (string | number | null)[]
 ```
 
 컴파일러가 최적 공통 타입을 찾을 수 없으면 유니온 타입을 반환합니다. 예를 들면 다음과 같습니다.
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // 추론된 타입: (RegExp | Date)[]
 ```
 
 TypeScript는 변수의 위치를 바탕으로 "문맥적 타이핑"을 사용하여 타입을 추론합니다. 다음 예제에서 컴파일러는 다양한 일반 JavaScript 구문과 DOM의 앰비언트 선언이 들어 있는 lib.d.ts 파일에 정의된 `click` 이벤트 타입을 바탕으로 `e`가 `MouseEvent` 타입임을 압니다.
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // e의 추론된 타입은 MouseEvent
 ```
 
 ### 타입 넓히기
@@ -645,9 +645,9 @@ window.addEventListener('click', function (e) {}); // The inferred type of e is 
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript는 넓은 타입인 string으로 추론함
+let y: 'y' | 'x' = 'y'; // y의 타입은 리터럴 타입의 유니온
+y = x; // 유효하지 않음. 'string' 타입은 '"x" | "y"' 타입에 할당할 수 없습니다.
 ```
 
 TypeScript는 초기화할 때 제공된 단일 값(`x`)을 바탕으로 `x`에 `string`을 할당하며, 이는 타입 넓히기의 예입니다.
@@ -661,9 +661,9 @@ TypeScript는 예를 들어 "const"를 사용하여 타입 넓히기 과정을 �
 예를 들면 다음과 같습니다.
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript는 x의 타입을 더 좁은 타입인 'x'로 추론함
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // 유효함: x의 타입은 'x'로 추론됨
 ```
 
 `const`를 사용해 변수 x를 선언하면 타입이 특정 리터럴 값 'x'로 좁혀집니다. x의 타입이 좁혀졌으므로 오류 없이 변수 y에 할당할 수 있습니다.
@@ -675,10 +675,10 @@ TypeScript 버전 5.0부터 제네릭 타입 매개변수에 `const` 속성을 �
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // 여기서는 const를 사용하지 않음
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // 추론된 타입: { a: string; b: string; }
 ```
 
 보이는 것처럼 프로퍼티 `a`와 `b`는 `string` 타입으로 추론됩니다.
@@ -687,10 +687,10 @@ const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // 타입 매개변수에 const 한정자 사용
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // 추론된 타입: { a: "a"; b: "b"; }
 ```
 
 이제 프로퍼티 `a`와 `b`가 단순한 `string` 타입이 아니라 문자열 리터럴로 추론되는 것을 확인할 수 있습니다.
@@ -721,7 +721,7 @@ const v = {
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // readonly [1, 2, 3] 타입의 튜플
 ```
 
 ### 명시적 타입 어노테이션
@@ -730,9 +730,9 @@ const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // 추론된 타입: number (타입 확장)
 };
-v.x = 3; // Valid
+v.x = 3; // 유효함
 ```
 
 리터럴 타입의 유니온을 사용하면 타입 어노테이션을 더 구체적으로 만들 수 있습니다.
@@ -740,10 +740,10 @@ v.x = 3; // Valid
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // 이제 x는 리터럴 타입의 유니온: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // 유효함
+v.x = 100; // 유효하지 않음
 ```
 
 ### 타입 좁히기
@@ -760,7 +760,7 @@ v.x = 100; // Invalid
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // 조건에 의해 좁혀진 타입은 number
 }
 ```
 
@@ -795,9 +795,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // 타입은 A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // 타입은 B
     }
 };
 ```
@@ -809,11 +809,11 @@ TypeScript가 타입을 판별할 수 없는 경우에는 "사용자 정의 타�
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // 타입은 (string | null)[]이며 TypeScript가 타입을 올바르게 추론하지 못함
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // 사용자 정의 타입 가드
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // 타입 서술어를 사용하는 타입 가드로 타입을 좁혀 이제 타입은 올바른 string[]
 ```
 
 #### Switch-true 좁히기

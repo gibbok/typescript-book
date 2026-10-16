@@ -35,7 +35,7 @@ Algunos ejemplos en los que no se produce la restricción:
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // Error, no hay restricción de tipo porque isString no es const
     }
 };
 
@@ -45,7 +45,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // Error, no hay restricción de tipo porque obj recibe una asignación en el cuerpo de la función
     }
 };
 ```

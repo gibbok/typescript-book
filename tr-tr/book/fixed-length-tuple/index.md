@@ -9,6 +9,6 @@ Sabit Uzunluklu Demetler, belirli sayıda öğe ve belirli türlerden oluşan bi
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // Hata
 ```
 
