@@ -34,7 +34,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // Giltigt
 ```
 
 ### Grundläggande jämförelseregler i TypeScript
@@ -47,7 +47,7 @@ En typ "X" är kompatibel med "Y" om "Y" har åtminstone samma medlemmar som "X"
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // Giltigt, eftersom det har åtminstone samma medlemmar som X
 const r: X = y;
 ```
 
@@ -58,8 +58,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Giltigt
+x = y; // Giltigt
 ```
 
 Funktionens returtyper måste vara desamma:
@@ -70,8 +70,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // Ogiltigt
+x = y; // Ogiltigt
 ```
 
 Returtypen för en källfunktion måste vara en undertyp av returtypen för en målfunktion:
@@ -80,8 +80,8 @@ Returtypen för en källfunktion måste vara en undertyp av returtypen för en m
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // Giltigt
+y = x; // Ogiltigt, medlemmen b saknas
 ```
 
 Att utelämna funktionsparametrar är tillåtet, eftersom det är vanlig praxis i JavaScript, till exempel vid användning av "Array.prototype.map()":
@@ -96,8 +96,8 @@ Därför är följande typdeklarationer helt giltiga:
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // Parametern b saknas
+y = x; // Giltigt
 ```
 
 Eventuella ytterligare valfria parametrar i källtypen är giltiga:
@@ -107,8 +107,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // Giltigt
+x = y; //Giltigt
 ```
 
 Eventuella valfria parametrar i måltypen utan motsvarande parametrar i källtypen är giltiga och utgör inte ett fel:
@@ -118,15 +118,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Giltigt
+x = y; // Giltigt
 ```
 
 Rest-parametern behandlas som en oändlig serie av valfria parametrar:
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //giltigt
 ```
 
 Funktioner med överlagringar är giltiga om överlagringssignaturen är kompatibel med dess implementeringssignatur:
@@ -138,10 +138,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // Giltigt
+x('a', 1); // Giltigt
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // Ogiltigt, inte kompatibelt med implementationssignaturen
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -153,25 +153,25 @@ y('a', 1);
 Jämförelse av funktionsparametrar lyckas om käll- och målparametrarna kan tilldelas supertyper eller undertyper (bivarians).
 
 ```typescript
-// Supertype
+// Supertyp
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// Undertyp
 class Y extends X {}
-// Subtype
+// Undertyp
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// Bivarians accepterar supertyper
+console.log(getA(new X('x'))); // Giltigt
+console.log(getA(new Y('Y'))); // Giltigt
+console.log(getA(new Z('z'))); // Giltigt
 ```
 
 Enums är jämförbara och giltiga med tal och vice versa, men att jämföra Enum-värden från olika Enum-typer är ogiltigt.
@@ -187,9 +187,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // Giltigt
+const ya: Y = 0; // Giltigt
+X.A === Y.A; // Ogiltigt
 ```
 
 Instanser av en klass genomgår en kompatibilitetskontroll för sina privata och skyddade medlemmar:
@@ -210,7 +210,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // Ogiltigt
 ```
 
 Jämförelsekontrollen tar inte hänsyn till den olika arvshierarkin, till exempel:
@@ -238,8 +238,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // Giltigt
+x === z; // Giltigt även om z tillhör en annan arvshierarki
 ```
 
 Generics jämförs med hjälp av deras strukturer baserat på den resulterande typen efter tillämpning av den generiska parametern. Bara slutresultatet jämförs som en icke-generisk typ.
@@ -251,14 +251,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // Ogiltigt eftersom typargumentet används i den slutliga strukturen
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // Giltigt eftersom typargumentet inte används i den slutliga strukturen
 ```
 
 När generics inte har sitt typargument specificerat behandlas alla ospecificerade argument som typer med "any":
@@ -268,7 +268,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // Giltigt
 ```
 
 Kom ihåg:
@@ -277,26 +277,26 @@ Kom ihåg:
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // Giltigt, allt kan tilldelas sig självt
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // Giltigt, alla typer kan tilldelas any
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // Giltigt, alla typer kan tilldelas unknown
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // Giltigt, unknown kan endast tilldelas sig självt och any
+let e2: any = e; // Giltigt
+let e3: number = e; // Ogiltigt
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // Ogiltigt, inget kan tilldelas never
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything expect any
-g = g1; // Valid
+g = 1; // Ogiltigt, void kan varken tilldelas eller ta emot något annat än any
+g = g1; // Giltigt
 ```
 
 Observera att när "strictNullChecks" är aktiverat behandlas "null" och "undefined" på liknande sätt som "void"; annars liknar de "never".
@@ -354,7 +354,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // Giltigt
 ```
 
 En intersektion, (T1 & T2) skapar en smalare mängd (endast delade):
@@ -369,8 +369,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // Ogiltigt
+const j: XY = { a: 'a', b: 'b' }; // Giltigt
 ```
 
 Nyckelordet `extends` kan betraktas som "delmängd av" i detta sammanhang. Det anger en begränsning för en typ. När `extends` används med en generisk typ begränsar det den generiska typparametern till en mer specifik typ.
@@ -404,7 +404,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // Giltigt
 ```
 
 ### Tilldela en typ: Typdeklarationer och Typpåståenden
@@ -420,7 +420,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// Typdeklaration
 const x: X = {
     a: 'a',
 };
@@ -436,7 +436,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // Fel: En objektliteral får endast ange kända egenskaper
 };
 ```
 
@@ -520,8 +520,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // Giltigt på grund av strukturell typning
+const w: X = { a: 'a', b: 'b' }; // Ogiltigt på grund av kontrollen av överflödiga egenskaper
 ```
 
 ### Svaga typer
@@ -546,7 +546,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // Ogiltigt
 ```
 
 Även om det inte rekommenderas, är det möjligt att kringgå denna kontroll genom att använda typpåstående om det behövs:
@@ -557,7 +557,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // Giltigt
 ```
 
 Eller genom att lägga till `unknown` i indexsignaturen till den svaga typen:
@@ -570,7 +570,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // Giltigt
 ```
 
 ### Strikt kontroll av objektliteraler (Freshness)
@@ -589,20 +589,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // Färskhetskontroll: Ogiltig tilldelning
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // Färskhetskontroll: Ogiltig tilldelning
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // Typbreddning: Inga fel, strukturellt typkompatibel
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // Färskhetskontroll: Ogiltigt argument
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // Typbreddning: Ingen färskhetskontroll
 ```
 
 ### Typinferens
@@ -617,7 +617,7 @@ TypeScript kan härleda typer när ingen annotering tillhandahålls vid:
 Till exempel:
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // Den härledda typen är string
 ```
 
 TypeScript-kompilatorn analyserar värdet eller uttrycket och bestämmer dess typ baserat på tillgänglig information.
@@ -627,19 +627,19 @@ TypeScript-kompilatorn analyserar värdet eller uttrycket och bestämmer dess ty
 När flera uttryck används vid typinferens letar TypeScript efter de "bästa gemensamma typerna". Till exempel:
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // Den härledda typen är: (string | number | null)[]
 ```
 
 Om kompilatorn inte kan hitta de bästa gemensamma typerna returnerar den en unionstyp. Till exempel:
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // Den härledda typen är: (RegExp | Date)[]
 ```
 
 TypeScript använder "kontextuell typning" baserat på variabelns placering för att härleda typer. I följande exempel vet kompilatorn att `e` är av typen `MouseEvent` på grund av händelsetypen `click` som definieras i filen lib.d.ts, vilken innehåller omgivande deklarationer för olika vanliga JavaScript-konstruktioner och DOM:en:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // Den härledda typen för e är MouseEvent
 ```
 
 ### Typbreddning
@@ -649,9 +649,9 @@ I följande exempel:
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript härleder string, en bred typ
+let y: 'y' | 'x' = 'y'; // Typen för y är en union av literaltyper
+y = x; // Ogiltigt: Typen 'string' kan inte tilldelas typen '"x" | "y"'.
 ```
 
 TypeScript tilldelar `string` till `x` baserat på det enda värde som angavs vid initieringen (`x`), detta är ett exempel på breddning.
@@ -665,9 +665,9 @@ Att använda nyckelordet `const` vid deklaration av en variabel resulterar i en 
 Till exempel:
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript härleder typen för x som 'x', en snävare typ
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // Giltigt: Typen för x härleds som 'x'
 ```
 
 Genom att använda `const` för att deklarera variabeln x, smalnas dess typ av till det specifika literalvärdet 'x'. Eftersom typen av x är avsmalnad kan den tilldelas till variabeln y utan något fel.
@@ -679,10 +679,10 @@ Från version 5.0 av TypeScript är det möjligt att ange attributet `const` på
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // Inget const här
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type infered is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // Den härledda typen är: { a: string; b: string; }
 ```
 
 Som du kan se härleddes egenskaperna `a` och `b` med typen `string`.
@@ -691,10 +691,10 @@ Låt oss nu se skillnaden med `const`-versionen:
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // Använder modifieraren const på typparametrar
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type infered is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // Den härledda typen är: { a: "a"; b: "b"; }
 ```
 
 Nu kan vi se att egenskaperna `a` och `b` härleddes som `const`, så `a` och `b` behandlas som strängliteraler snarare än bara `string`-typer.
@@ -725,7 +725,7 @@ Detta kan vara särskilt användbart vid definition av typen för en tupel:
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // Tupel readonly [1, 2, 3]
 ```
 
 ### Explicit typannotering
@@ -734,9 +734,9 @@ Vi kan vara specifika och ange en typ. I följande exempel är egenskapen `x` av
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // Härledd typ: number (typbreddning)
 };
-v.x = 3; // Valid
+v.x = 3; // Giltigt
 ```
 
 Vi kan göra typannoteringen mer specifik genom att använda en union av literaltyper:
@@ -744,10 +744,10 @@ Vi kan göra typannoteringen mer specifik genom att använda en union av literal
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // x är nu en union av literaltyper: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // Giltigt
+v.x = 100; // Ogiltigt
 ```
 
 ### Typavsmalnande
@@ -764,7 +764,7 @@ Genom att använda villkorssatser, som `if` eller `switch`, kan TypeScript smaln
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // Typen är number, som har snävats in av villkoret
 }
 ```
 
@@ -799,9 +799,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // typen är A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // typen är B
     }
 };
 ```
@@ -813,11 +813,11 @@ I fall där TypeScript inte kan avgöra en typ är det möjligt att skriva en hj
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // Typen är (string | null)[], TypeScript kunde inte härleda typen korrekt
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // Anpassad typvakt
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // Typen är nu korrekt string[], med hjälp av typvakten med predikat kunde vi snäva in typen
 ```
 
 #### Switch-true-förträngning

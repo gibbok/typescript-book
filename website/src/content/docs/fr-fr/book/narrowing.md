@@ -17,7 +17,7 @@ La garde de type typeof est une garde de type spécifique à TypeScript qui vér
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x est de type number
     }
     return -1;
 };

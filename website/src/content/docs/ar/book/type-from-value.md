@@ -9,6 +9,6 @@ sidebar:
 يشير «النوع من القيمة» في TypeScript إلى الاستدلال التلقائي لنوع من قيمة أو تعبير من خلال استدلال النوع.
 
 ```typescript
-const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immutable), but widens it to 'string' with 'let' (reassignable).
+const x = 'x'; // يستنتج TypeScript أن 'x' نوع نصي حرفي مع const (غير قابل للتغيير)، لكنه يوسعه إلى string مع let (قابل لإعادة الإسناد).
 ```
 

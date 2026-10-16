@@ -11,7 +11,7 @@ Obiekt może określać właściwości opcjonalne przez dodanie znaku zapytania 
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // Opcjonalne
 };
 ```
 

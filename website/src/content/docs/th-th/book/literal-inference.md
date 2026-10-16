@@ -11,8 +11,8 @@ sidebar:
 ในตัวอย่างต่อไปนี้ เราจะเห็นว่า TypeScript ถือว่า `x` เป็นชนิดลิเทอรัล เนื่องจากไม่สามารถเปลี่ยนค่าได้ในภายหลัง ขณะที่ `y` ถูกอนุมานเป็น string เนื่องจากสามารถแก้ไขค่าได้ในภายหลัง
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // ชนิดลิเทอรัล 'x' เพราะไม่สามารถเปลี่ยนค่านี้ได้
+let y = 'y'; // ชนิด string เพราะเราสามารถเปลี่ยนค่านี้ได้
 ```
 
 ในตัวอย่างต่อไปนี้ เราจะเห็นว่า `o.x` ถูกอนุมานเป็น `string` (ไม่ใช่ลิเทอรัลของ `a`) เนื่องจาก TypeScript พิจารณาว่าค่านี้สามารถเปลี่ยนได้ในภายหลัง
@@ -22,12 +22,12 @@ let y = 'y'; // Type string, as we can change this value
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // นี่คือสตริงที่มีชนิดกว้างกว่า
 };
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // อาร์กิวเมนต์ชนิด 'string' ไม่สามารถกำหนดให้พารามิเตอร์ชนิด 'X' ได้
 ```
 
 ดังที่เห็น โค้ดจะแสดงข้อผิดพลาดเมื่อส่ง `o.x` ไปยัง `fn` เนื่องจาก X เป็นชนิดที่แคบกว่า

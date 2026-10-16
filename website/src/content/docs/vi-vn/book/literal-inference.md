@@ -11,8 +11,8 @@ Literal Inference là một tính năng trong TypeScript cho phép suy luận ki
 Trong ví dụ sau, chúng ta có thể thấy TypeScript coi `x` là literal type vì giá trị không thể thay đổi về sau, trong khi `y` được suy luận là string vì nó có thể được sửa đổi bất kỳ lúc nào sau đó.
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // Kiểu literal 'x', vì giá trị này không thể thay đổi
+let y = 'y'; // Kiểu string, vì ta có thể thay đổi giá trị này
 ```
 
 Trong ví dụ sau, chúng ta có thể thấy `o.x` được suy luận là `string` (không phải literal của `a`) vì TypeScript cho rằng giá trị có thể thay đổi bất kỳ lúc nào sau đó.
@@ -22,12 +22,12 @@ Trong ví dụ sau, chúng ta có thể thấy `o.x` được suy luận là `st
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // Đây là chuỗi có kiểu rộng hơn
 };
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // Đối số có kiểu 'string' không thể gán cho tham số có kiểu 'X'
 ```
 
 Như bạn có thể thấy, mã gây lỗi khi truyền `o.x` vào `fn` vì X là kiểu hẹp hơn.

@@ -14,10 +14,10 @@ TypeScript'te `unknown` türü, türü bilinmeyen bir değeri temsil eder. Herha
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // Geçerli
+let value2: any = value; // Geçerli
+let value3: boolean = value; // Geçersiz
+let value4: number = value; // Geçersiz
 ```
 
 ```typescript

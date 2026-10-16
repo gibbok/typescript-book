@@ -13,7 +13,7 @@ sidebar:
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // извършване на действие
     }
 };
 ```
@@ -33,10 +33,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // движение нагоре
             break;
         case 'down':
-            // move down
+            // движение надолу
             break;
         default:
             const exhaustiveCheck: never = direction;

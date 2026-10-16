@@ -9,11 +9,11 @@ sidebar:
 Las sobrecargas de funciones de TypeScript permiten definir varias firmas para un mismo nombre, de modo que la función pueda llamarse de distintas formas. Este es un ejemplo:
 
 ```typescript
-// Overloads
+// Sobrecargas
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// Implementación
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -23,8 +23,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // Válido
+sayHi(['aa', 'bb']); // Válido
 ```
 
 Este es otro ejemplo de sobrecargas de funciones dentro de una `class`:
@@ -37,11 +37,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // Sobrecarga
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // Implementación
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;

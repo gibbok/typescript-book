@@ -66,7 +66,7 @@ const c: B = {
 Type มีความยืดหยุ่นมากกว่าในการกำหนดชนิดยูเนียนและ Intersection ด้วยคีย์เวิร์ด `type` คุณสามารถสร้างชนิดยูเนียนได้ง่าย ๆ โดยใช้ตัวดำเนินการ `|` และสร้างชนิด intersection โดยใช้ตัวดำเนินการ `&` แม้ว่าอินเทอร์เฟซจะสามารถแทนชนิดยูเนียนทางอ้อมได้เช่นกัน แต่ไม่มีการรองรับชนิด intersection ในตัว
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // ยูเนียน
 
 type Person = {
     name: string;
@@ -78,7 +78,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // อินเตอร์เซกชัน
 ```
 
 ตัวอย่างที่ใช้อินเทอร์เฟซ:
@@ -91,6 +91,6 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // ยูเนียนของอินเทอร์เฟซ
 ```
 

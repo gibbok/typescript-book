@@ -34,7 +34,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // صحيح
 ```
 
 ### قواعد المقارنة الأساسية في TypeScript
@@ -47,7 +47,7 @@ const y: Y = x; // Valid
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // صحيح، لأنه يحتوي على الأقل على الأعضاء نفسها الموجودة في X
 const r: X = y;
 ```
 
@@ -58,8 +58,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // صحيح
+x = y; // صحيح
 ```
 
 يجب أن تكون أنواع إرجاع الدوال متماثلة:
@@ -70,8 +70,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // غير صحيح
+x = y; // غير صحيح
 ```
 
 يجب أن يكون نوع إرجاع الدالة المصدر نوعًا فرعيًا من نوع إرجاع الدالة الهدف:
@@ -80,8 +80,8 @@ x = y; // Invalid
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // صحيح
+y = x; // غير صحيح، العضو b مفقود
 ```
 
 يُسمح بتجاهل معاملات الدوال، إذ إنها ممارسة شائعة في JavaScript، مثل استخدام "Array.prototype.map()":
@@ -96,8 +96,8 @@ y = x; // Invalid member b is missing
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // المعامل b مفقود
+y = x; // صحيح
 ```
 
 تكون أي معاملات اختيارية إضافية في النوع المصدر صالحة:
@@ -107,8 +107,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // صحيح
+x = y; //صحيح
 ```
 
 تُعد أي معاملات اختيارية في النوع الهدف لا تقابلها معاملات في النوع المصدر صالحة، ولا تمثل خطأ:
@@ -118,15 +118,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // صحيح
+x = y; // صحيح
 ```
 
 يُعامل معامل البقية كسلسلة لا نهائية من المعاملات الاختيارية:
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //صحيح
 ```
 
 تكون الدوال ذات الأحمال الزائدة صالحة إذا كان توقيع الحمل الزائد متوافقًا مع توقيع تنفيذها:
@@ -138,10 +138,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // صحيح
+x('a', 1); // صحيح
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // غير صحيح، غير متوافق مع توقيع التنفيذ
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -153,25 +153,25 @@ y('a', 1);
 تنجح مقارنة معاملات الدوال إذا كان من الممكن إسناد المعاملات المصدر والهدف إلى الأنواع الفائقة أو الأنواع الفرعية (التباين الثنائي).
 
 ```typescript
-// Supertype
+// نوع أعلى
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// نوع فرعي
 class Y extends X {}
-// Subtype
+// نوع فرعي
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// التغاير ثنائي الاتجاه يقبل الأنواع الأعلى
+console.log(getA(new X('x'))); // صحيح
+console.log(getA(new Y('Y'))); // صحيح
+console.log(getA(new Z('z'))); // صحيح
 ```
 
 يمكن مقارنة التعدادات بالأرقام والعكس صحيح ويكون ذلك صالحًا، لكن مقارنة قيم تعداد من أنواع تعداد مختلفة غير صالحة.
@@ -187,9 +187,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // صحيح
+const ya: Y = 0; // صحيح
+X.A === Y.A; // غير صحيح
 ```
 
 تخضع مثيلات الصنف لفحص توافق أعضائها الخاصة والمحمية:
@@ -210,7 +210,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // غير صحيح
 ```
 
 لا يأخذ فحص المقارنة في الحسبان اختلاف التسلسل الهرمي للوراثة، على سبيل المثال:
@@ -238,8 +238,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // صحيح
+x === z; // صحيح حتى لو كان z من تسلسل وراثة مختلف
 ```
 
 تُقارن الأنواع العامة باستخدام بنيتها استنادًا إلى النوع الناتج بعد تطبيق معامل النوع العام، ولا يُقارن إلا الناتج النهائي بوصفه نوعًا غير عام.
@@ -251,14 +251,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // غير صحيح لأن وسيط النوع يُستخدم في البنية النهائية
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // صحيح لأن وسيط النوع لا يُستخدم في البنية النهائية
 ```
 
 عندما لا يُحدَّد وسيط النوع للأنواع العامة، تُعامل جميع الوسائط غير المحددة على أنها من النوع "any":
@@ -268,7 +268,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // صحيح
 ```
 
 تذكّر:
@@ -277,26 +277,26 @@ x = y; // Valid
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // صحيح، يمكن إسناد كل شيء إلى نفسه
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // صحيح، يمكن إسناد جميع الأنواع إلى any
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // صحيح، يمكن إسناد جميع الأنواع إلى unknown
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // صحيح، لا يمكن إسناد unknown إلا إلى نفسه وإلى any
+let e2: any = e; // صحيح
+let e3: number = e; // غير صحيح
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // غير صحيح، لا يمكن إسناد أي شيء إلى never
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // غير صحيح، لا يمكن الإسناد من void أو إليه باستثناء any
+g = g1; // صحيح
 ```
 
 يرجى ملاحظة أنه عند تفعيل "strictNullChecks"، يُعامل "null" و"undefined" على نحو مماثل لـ "void"؛ وإلا فيُعاملان على نحو مماثل لـ "never".
@@ -354,7 +354,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // صحيح
 ```
 
 ينشئ التقاطع، (T1 & T2)، مجموعة أضيق (المشترك فقط):
@@ -369,8 +369,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // غير صحيح
+const j: XY = { a: 'a', b: 'b' }; // صحيح
 ```
 
 يمكن اعتبار الكلمة المفتاحية `extends` بمعنى "مجموعة جزئية من" في هذا السياق. فهي تضع قيدًا لنوع ما. وعندما تُستخدم `extends` مع نوع عام، فإنها تقيّد معامل النوع العام بنوع أكثر تحديدًا.
@@ -404,7 +404,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // صحيح
 ```
 
 ### إسناد نوع: تصريحات الأنواع وتوكيدات الأنواع
@@ -420,7 +420,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// تصريح نوع
 const x: X = {
     a: 'a',
 };
@@ -436,7 +436,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // خطأ: لا يمكن للكائن الحرفي تحديد سوى الخصائص المعروفة
 };
 ```
 
@@ -520,8 +520,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // صحيح بفضل نظام الأنواع البنيوي
+const w: X = { a: 'a', b: 'b' }; // غير صحيح بسبب فحص الخصائص الزائدة
 ```
 
 ### الأنواع الضعيفة
@@ -546,7 +546,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // غير صحيح
 ```
 
 رغم أن ذلك غير موصى به، يمكن عند الحاجة تجاوز هذا الفحص باستخدام توكيد النوع:
@@ -557,7 +557,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // صحيح
 ```
 
 أو بإضافة `unknown` إلى توقيع الفهرس في النوع الضعيف:
@@ -570,7 +570,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // صحيح
 ```
 
 ### الفحص الصارم للكائنات الحرفية (الحداثة)
@@ -589,20 +589,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // فحص الحداثة: إسناد غير صحيح
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // فحص الحداثة: إسناد غير صحيح
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // توسيع النوع: لا أخطاء، الأنواع متوافقة بنيويًا
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // فحص الحداثة: وسيط غير صحيح
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // توسيع النوع: لا يوجد فحص للحداثة
 ```
 
 ### استدلال الأنواع
@@ -617,7 +617,7 @@ c = d; // Widening: No Freshness check
 على سبيل المثال:
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // النوع المستنتج هو string
 ```
 
 يحلل مصرّف TypeScript القيمة أو التعبير، ويحدد نوعه استنادًا إلى المعلومات المتاحة.
@@ -627,19 +627,19 @@ let x = 'x'; // The type inferred is string
 عند استخدام عدة تعبيرات في استدلال الأنواع، تبحث TypeScript عن "أفضل الأنواع المشتركة". على سبيل المثال:
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // النوع المستنتج هو: (string | number | null)[]
 ```
 
 إذا لم يتمكن المصرّف من العثور على أفضل الأنواع المشتركة، فإنه يعيد نوع اتحاد. على سبيل المثال:
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // النوع المستنتج هو: (RegExp | Date)[]
 ```
 
 تستخدم TypeScript "التنميط السياقي" استنادًا إلى موضع المتغير لاستدلال الأنواع. في المثال التالي، يعرف المصرّف أن `e` من النوع `MouseEvent` بسبب نوع الحدث `click` المعرّف في الملف lib.d.ts، الذي يحتوي على تصريحات محيطية لمختلف بُنى JavaScript الشائعة وDOM:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // النوع المستنتج للمتغير e هو MouseEvent
 ```
 
 ### توسيع النوع
@@ -649,9 +649,9 @@ window.addEventListener('click', function (e) {}); // The inferred type of e is 
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // يستنتج TypeScript النوع string، وهو نوع واسع
+let y: 'y' | 'x' = 'y'; // نوع y هو اتحاد أنواع حرفية
+y = x; // غير صحيح: لا يمكن إسناد النوع 'string' إلى النوع '"x" | "y"'.
 ```
 
 تُسند TypeScript النوع `string` إلى `x` استنادًا إلى القيمة الوحيدة المقدمة أثناء التهيئة (`x`)، وهذا مثال على التوسيع.
@@ -665,9 +665,9 @@ y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
 على سبيل المثال:
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // يستنتج TypeScript أن نوع x هو 'x'، وهو نوع أضيق
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // صحيح: النوع المستنتج للمتغير x هو 'x'
 ```
 
 باستخدام `const` للتصريح عن المتغير x، يُضيّق نوعه إلى القيمة الحرفية المحددة 'x'. وبما أن نوع x قد ضُيّق، فيمكن إسناده إلى المتغير y من دون أي خطأ.
@@ -679,10 +679,10 @@ y = x; // Valid: The type of x is inferred as 'x'
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // لا يوجد const هنا
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // النوع المستنتج هو: { a: string; b: string; }
 ```
 
 كما ترى، يُستدل على أن الخاصيتين `a` و`b` من النوع `string`.
@@ -691,10 +691,10 @@ const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // استخدام المعدّل const مع معاملات النوع
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // النوع المستنتج هو: { a: "a"; b: "b"; }
 ```
 
 يمكننا الآن ملاحظة أن الخاصيتين `a` و`b` تُستنتجان بوصفهما قيمتين نصيتين حرفيتين بدلًا من مجرد نوعي `string`.
@@ -725,7 +725,7 @@ const v = {
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // صف readonly [1, 2, 3]
 ```
 
 ### التعليق التوضيحي الصريح للنوع
@@ -734,9 +734,9 @@ const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // النوع المستنتج: number (توسيع)
 };
-v.x = 3; // Valid
+v.x = 3; // صحيح
 ```
 
 يمكننا جعل التعليق التوضيحي للنوع أكثر تحديدًا باستخدام اتحاد من الأنواع الحرفية:
@@ -744,10 +744,10 @@ v.x = 3; // Valid
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // نوع x الآن اتحاد أنواع حرفية: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // صحيح
+v.x = 100; // غير صحيح
 ```
 
 ### تضييق النوع
@@ -764,7 +764,7 @@ v.x = 100; // Invalid
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // النوع هو number، وقد ضُيّق بواسطة الشرط
 }
 ```
 
@@ -799,9 +799,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // النوع هو A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // النوع هو B
     }
 };
 ```
@@ -813,11 +813,11 @@ const x = (input: A | B): string | number => {
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // النوع هو (string | null)[]، لم يتمكن TypeScript من استنتاج النوع بشكل صحيح
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // حارس نوع مخصص
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // النوع صحيح الآن وهو string[]، إذ تمكنا من تضييق النوع باستخدام حارس نوع ذي مسند
 ```
 
 #### التضييق باستخدام Switch-true

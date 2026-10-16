@@ -13,6 +13,6 @@ Fixed Length Tuple hữu ích khi bạn cần biểu diễn một tập hợp gi
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // Lỗi
 ```
 

@@ -656,8 +656,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // Valido
+produceDog = produceAnimal; // Errore
 ```
 
 **Controvarianza (consumo):** una funzione che accetta qualsiasi `Animal` può sostituire una funzione che accetta un `Dog`. Sa gestire anche i cani; una funzione che accetta solo cani non può gestire ogni animale.
@@ -669,8 +669,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // Valido
+consumeAnimal = consumeDog; // Errore con strictFunctionTypes
 ```
 
 Le frecce indicano il verso delle assegnazioni sicure:
@@ -686,8 +686,8 @@ Le frecce indicano il verso delle assegnazioni sicure:
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // Consentito, ma non sicuro
+// dogs ora contiene un Animal che non è un Dog.
 ```
 
 **Opzione del compilatore:** con `strictFunctionTypes`, i parametri delle funzioni indipendenti sono controllati in modo controvariante. Senza questa opzione, TypeScript può accettare entrambe le direzioni (bivarianza), anche se non sicure. I parametri dichiarati in metodi e costruttori fanno eccezione.
@@ -824,7 +824,7 @@ Esempio:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Polyfill semplice
 
 const doWork = (): Disposable => {
     return {
@@ -898,7 +898,7 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Polyfill semplice
 
 class DatabaseConnection implements AsyncDisposable {
     // Un metodo che viene chiamato quando l'oggetto viene eliminato in modo asincrono

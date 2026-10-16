@@ -13,7 +13,7 @@ Misalnya, sebuah perulangan tak terbatas:
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // lakukan sesuatu
     }
 };
 ```
@@ -33,10 +33,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // bergerak ke atas
             break;
         case 'down':
-            // move down
+            // bergerak ke bawah
             break;
         default:
             const exhaustiveCheck: never = direction;

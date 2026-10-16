@@ -394,14 +394,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 Na system typów TypeScript duży wpływ ma zachowanie JavaScript w czasie wykonywania. Na przykład operator dodawania (+), który w JavaScript może wykonywać konkatenację ciągów znaków albo dodawanie liczb, jest modelowany w TypeScript w ten sam sposób:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // Wynik jest typu string
 ```
 
 Zespół TypeScript świadomie zdecydował się oznaczać nietypowe użycie JavaScript jako błędy. Rozważmy na przykład następujący poprawny kod JavaScript:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // W JavaScript wynik wynosi 2
 ```
 
 TypeScript zgłasza jednak błąd:
@@ -420,7 +420,7 @@ Oto przykład kodu TypeScript z błędem typu:
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // Argument typu 'string' nie może być przypisany do parametru typu 'number'.
 ```
 
 Mimo to może wygenerować wykonywalny kod JavaScript:
@@ -447,7 +447,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' odnosi się tylko do typu, ale jest tutaj używany jako wartość.
         // ...
     }
 };
@@ -457,11 +457,11 @@ Ponieważ typy są usuwane po kompilacji, nie ma możliwości wykonania tego kod
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Unia tagowana
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Unia tagowana
     meow: () => void;
 }
 type Animal = Dog | Cat;
@@ -615,9 +615,9 @@ Podczas lokalnego wykonywania polecenia `tsc` TypeScript skompiluje kod przy uż
 Oto kilka przykładów poleceń interfejsu wiersza poleceń uruchamianych z ustawieniami domyślnymi:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // Skompiluj wskazany plik (main.ts) do JavaScript
+tsc src/*.ts // Skompiluj pliki .ts z folderu 'src' do JavaScript
+tsc app.ts util.ts --outfile index.js // Skompiluj dwa pliki TypeScript (app.ts i util.ts) do jednego pliku JavaScript (index.js)
 ```
 
 ### Plik konfiguracyjny TypeScript
@@ -780,7 +780,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // Poprawne
 ```
 
 ### Podstawowe reguły porównywania w TypeScript
@@ -793,7 +793,7 @@ Typ „X” jest zgodny z typem „Y”, jeśli „Y” ma co najmniej te same e
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // Poprawne, ponieważ zawiera co najmniej te same składowe co X
 const r: X = y;
 ```
 
@@ -804,8 +804,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Poprawne
+x = y; // Poprawne
 ```
 
 Typy zwracane przez funkcje muszą być takie same:
@@ -816,8 +816,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // Niepoprawne
+x = y; // Niepoprawne
 ```
 
 Typ zwracany przez funkcję źródłową musi być podtypem typu zwracanego przez funkcję docelową:
@@ -826,8 +826,8 @@ Typ zwracany przez funkcję źródłową musi być podtypem typu zwracanego prze
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // Poprawne
+y = x; // Niepoprawne, brakuje składowej b
 ```
 
 Pomijanie parametrów funkcji jest dozwolone, ponieważ jest to powszechna praktyka w JavaScript, na przykład podczas używania „Array.prototype.map()”:
@@ -842,8 +842,8 @@ Dlatego poniższe deklaracje typów są całkowicie poprawne:
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // Brak parametru b
+y = x; // Poprawne
 ```
 
 Wszelkie dodatkowe parametry opcjonalne typu źródłowego są poprawne:
@@ -853,8 +853,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // Poprawne
+x = y; //Poprawne
 ```
 
 Wszelkie parametry opcjonalne typu docelowego, którym nie odpowiadają parametry w typie źródłowym, są poprawne i nie powodują błędu:
@@ -864,15 +864,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Poprawne
+x = y; // Poprawne
 ```
 
 Parametr resztowy jest traktowany jako nieskończona seria parametrów opcjonalnych:
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //poprawne
 ```
 
 Funkcje z przeciążeniami są poprawne, jeśli sygnatura przeciążenia jest zgodna z sygnaturą implementacji:
@@ -884,10 +884,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // Poprawne
+x('a', 1); // Poprawne
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // Niepoprawne, niezgodne z sygnaturą implementacji
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -899,25 +899,25 @@ y('a', 1);
 Porównanie parametrów funkcji kończy się powodzeniem, jeśli parametry źródłowe i docelowe można przypisać do nadtypów lub podtypów (biwariancja).
 
 ```typescript
-// Supertype
+// Nadtyp
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// Podtyp
 class Y extends X {}
-// Subtype
+// Podtyp
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// Biwariancja akceptuje nadtypy
+console.log(getA(new X('x'))); // Poprawne
+console.log(getA(new Y('Y'))); // Poprawne
+console.log(getA(new Z('z'))); // Poprawne
 ```
 
 Typy wyliczeniowe są porównywalne i zgodne z liczbami, a liczby z typami wyliczeniowymi, ale porównywanie wartości pochodzących z różnych typów wyliczeniowych jest niepoprawne.
@@ -933,9 +933,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // Poprawne
+const ya: Y = 0; // Poprawne
+X.A === Y.A; // Niepoprawne
 ```
 
 Instancje klasy podlegają kontroli zgodności swoich prywatnych i chronionych elementów składowych:
@@ -956,7 +956,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // Niepoprawne
 ```
 
 Kontrola porównawcza nie uwzględnia różnic w hierarchii dziedziczenia, na przykład:
@@ -984,8 +984,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // Poprawne
+x === z; // Poprawne, nawet jeśli z należy do innej hierarchii dziedziczenia
 ```
 
 Typy generyczne są porównywane na podstawie swoich struktur, z uwzględnieniem typu wynikowego otrzymanego po zastosowaniu parametru typu. Porównywany jest wyłącznie końcowy wynik jako typ niegeneryczny.
@@ -997,14 +997,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // Niepoprawne, ponieważ argument typu jest używany w strukturze końcowej
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // Poprawne, ponieważ argument typu nie jest używany w strukturze końcowej
 ```
 
 Jeśli argument typu generycznego nie został określony, wszystkie nieokreślone argumenty są traktowane jako typy `any`:
@@ -1014,7 +1014,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // Poprawne
 ```
 
 Zapamiętaj:
@@ -1023,26 +1023,26 @@ Zapamiętaj:
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // Poprawne, wszystko można przypisać do siebie samego
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // Poprawne, wszystkie typy można przypisać do any
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // Poprawne, wszystkie typy można przypisać do unknown
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // Poprawne, unknown można przypisać tylko do siebie i do any
+let e2: any = e; // Poprawne
+let e3: number = e; // Niepoprawne
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // Niepoprawne, niczego nie można przypisać do never
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // Niepoprawne, void nie można przypisać do innych typów ani odwrotnie, z wyjątkiem any
+g = g1; // Poprawne
 ```
 
 Należy pamiętać, że gdy opcja „strictNullChecks” jest włączona, wartości „null” i „undefined” są traktowane podobnie do „void”; w przeciwnym razie są traktowane podobnie do „never”.
@@ -1100,7 +1100,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // Poprawne
 ```
 
 Przecięcie (T1 & T2) tworzy węższy zbiór (tylko część wspólną):
@@ -1115,8 +1115,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // Niepoprawne
+const j: XY = { a: 'a', b: 'b' }; // Poprawne
 ```
 
 Słowo kluczowe `extends` można w tym kontekście rozumieć jako „jest podzbiorem”. Nakłada ono ograniczenie na typ. Gdy `extends` jest używane z typem generycznym, ogranicza parametr typu generycznego do bardziej szczegółowego typu.
@@ -1150,7 +1150,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // Poprawne
 ```
 
 ### Przypisywanie typu: deklaracje typów i asercje typów
@@ -1166,7 +1166,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// Deklaracja typu
 const x: X = {
     a: 'a',
 };
@@ -1182,7 +1182,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // Błąd: Literał obiektu może zawierać tylko znane właściwości
 };
 ```
 
@@ -1266,8 +1266,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // Poprawne dzięki typowaniu strukturalnemu
+const w: X = { a: 'a', b: 'b' }; // Niepoprawne z powodu sprawdzania nadmiarowych właściwości
 ```
 
 ### Typy słabe
@@ -1292,7 +1292,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // Niepoprawne
 ```
 
 Choć nie jest to zalecane, w razie potrzeby można pominąć tę kontrolę za pomocą asercji typu:
@@ -1303,7 +1303,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // Poprawne
 ```
 
 Można też dodać `unknown` do sygnatury indeksowej typu słabego:
@@ -1316,7 +1316,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // Poprawne
 ```
 
 ### Ścisła kontrola literałów obiektowych (świeżość)
@@ -1335,20 +1335,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // Sprawdzanie świeżości: Niepoprawne przypisanie
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // Sprawdzanie świeżości: Niepoprawne przypisanie
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // Poszerzanie: Brak błędów, typy zgodne strukturalnie
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // Sprawdzanie świeżości: Niepoprawny argument
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // Poszerzanie: Bez sprawdzania świeżości
 ```
 
 ### Wnioskowanie typów
@@ -1363,7 +1363,7 @@ TypeScript może wnioskować typy, jeśli adnotacji nie podano podczas:
 Na przykład:
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // Wywnioskowany typ to string
 ```
 
 Kompilator TypeScript analizuje wartość lub wyrażenie i określa jego typ na podstawie dostępnych informacji.
@@ -1373,19 +1373,19 @@ Kompilator TypeScript analizuje wartość lub wyrażenie i określa jego typ na 
 Gdy we wnioskowaniu typu używanych jest wiele wyrażeń, TypeScript szuka „najlepszego wspólnego typu”. Na przykład:
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // Wywnioskowany typ to: (string | number | null)[]
 ```
 
 Jeśli kompilator nie może znaleźć najlepszego wspólnego typu, zwraca typ unii. Na przykład:
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // Wywnioskowany typ to: (RegExp | Date)[]
 ```
 
 TypeScript wykorzystuje „typowanie kontekstowe” oparte na miejscu występowania zmiennej, aby wnioskować typy. W poniższym przykładzie kompilator wie, że `e` jest typu `MouseEvent`, ze względu na typ zdarzenia `click` zdefiniowany w pliku lib.d.ts, który zawiera deklaracje otoczenia dla różnych typowych konstrukcji JavaScript i DOM:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // Wywnioskowany typ e to MouseEvent
 ```
 
 ### Poszerzanie typów
@@ -1395,9 +1395,9 @@ W poniższym przykładzie:
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript wnioskuje string, czyli szeroki typ
+let y: 'y' | 'x' = 'y'; // Typ y jest unią typów literałowych
+y = x; // Niepoprawne: Typ 'string' nie może być przypisany do typu '"x" | "y"'.
 ```
 
 TypeScript przypisuje typ `string` do `x` na podstawie pojedynczej wartości podanej podczas inicjalizacji (`x`). Jest to przykład poszerzania.
@@ -1411,9 +1411,9 @@ Użycie słowa kluczowego `const` podczas deklarowania zmiennej powoduje, że Ty
 Na przykład:
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript wnioskuje dla x typ 'x', czyli węższy typ
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // Poprawne: Wywnioskowany typ x to 'x'
 ```
 
 Dzięki użyciu `const` do zadeklarowania zmiennej x jej typ zostaje zawężony do konkretnej wartości literałowej 'x'. Ponieważ typ x jest zawężony, można przypisać go do zmiennej y bez żadnego błędu.
@@ -1425,10 +1425,10 @@ Od wersji 5.0 w TypeScript można określić atrybut `const` dla parametru typu 
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // Tutaj bez const
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // Wywnioskowany typ to: { a: string; b: string; }
 ```
 
 Jak widać, właściwości `a` i `b` mają wywnioskowany typ `string`.
@@ -1437,10 +1437,10 @@ Zobaczmy teraz różnicę w wersji z `const`:
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // Użycie modyfikatora const dla parametrów typu
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // Wywnioskowany typ to: { a: "a"; b: "b"; }
 ```
 
 Teraz widać, że właściwości `a` i `b` są wnioskowane jako literały łańcuchowe, a nie tylko jako typy `string`.
@@ -1471,7 +1471,7 @@ Może to być szczególnie przydatne podczas definiowania typu krotki:
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // Krotka readonly [1, 2, 3]
 ```
 
 ### Jawna adnotacja typu
@@ -1480,9 +1480,9 @@ Możemy jawnie przekazać konkretny typ. W poniższym przykładzie właściwoś�
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // Wywnioskowany typ: number (poszerzanie)
 };
-v.x = 3; // Valid
+v.x = 3; // Poprawne
 ```
 
 Adnotację typu można doprecyzować za pomocą unii typów literałowych:
@@ -1490,10 +1490,10 @@ Adnotację typu można doprecyzować za pomocą unii typów literałowych:
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // x jest teraz unią typów literałowych: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // Poprawne
+v.x = 100; // Niepoprawne
 ```
 
 ### Zawężanie typów
@@ -1510,7 +1510,7 @@ Za pomocą instrukcji warunkowych, takich jak `if` lub `switch`, TypeScript moż
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // Typ to number, zawężony przez warunek
 }
 ```
 
@@ -1545,9 +1545,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // typ to A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // typ to B
     }
 };
 ```
@@ -1559,11 +1559,11 @@ W przypadkach, gdy TypeScript nie jest w stanie określić typu, można napisać
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // Typ to (string | null)[], TypeScript nie zdołał poprawnie wywnioskować typu
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // Własny strażnik typu
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // Typ jest teraz poprawny: string[], użycie predykatu typu pozwoliło zawęzić typ
 ```
 
 #### Zawężanie za pomocą switch-true
@@ -1620,9 +1620,9 @@ TypeScript obsługuje również liczby szesnastkowe, binarne i ósemkowe, na prz
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // Zapis szesnastkowy zaczyna się od 0x
+const binary: number = 0b1010; // Zapis binarny zaczyna się od 0b
+const octal: number = 0o633; // Zapis ósemkowy zaczyna się od 0o
 ```
 
 ### bigint
@@ -1675,17 +1675,17 @@ Tablica (`array`) to typ danych, który może przechowywać wiele wartości tego
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // Unia
 ```
 
 TypeScript obsługuje tablice tylko do odczytu przy użyciu następującej składni:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // Modyfikator readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // Niepoprawne
 ```
 
 TypeScript obsługuje krotki i krotki tylko do odczytu:
@@ -1754,7 +1754,7 @@ Obiekt może określać właściwości opcjonalne przez dodanie znaku zapytania 
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // Opcjonalne
 };
 ```
 
@@ -1801,7 +1801,7 @@ type K = {
 const k: K = { x: 'x', 1: 'b' };
 console.log(k['x']);
 console.log(k[1]);
-console.log(k['1']); // Same result as k[1]
+console.log(k['1']); // Ten sam wynik co k[1]
 ```
 
 Należy pamiętać, że JavaScript automatycznie konwertuje indeks typu `number` na indeks typu `string`, dlatego `k[1]` i `k["1"]` zwracają tę samą wartość.
@@ -1865,9 +1865,9 @@ Typami literałowymi w TypeScript są liczby, ciągi znaków i wartości logiczn
 Przykład literałów:
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // Typ literału tekstowego
+const b = 1; // Typ literału liczbowego
+const c = true; // Typ literału logicznego
 ```
 
 Literałowe typy ciągów znaków, liczb i wartości logicznych są używane w uniach, strażnikach typów i aliasach typów.
@@ -1884,8 +1884,8 @@ Wnioskowanie typów literałowych to funkcja TypeScript, która pozwala wywniosk
 W poniższym przykładzie widać, że TypeScript traktuje `x` jako typ literałowy, ponieważ jego wartości nie można później zmienić, natomiast `y` jest wnioskowane jako `string`, ponieważ można je później zmodyfikować.
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // Typ literałowy 'x', ponieważ tej wartości nie można zmienić
+let y = 'y'; // Typ string, ponieważ tę wartość można zmienić
 ```
 
 W poniższym przykładzie widać, że `o.x` zostało wywnioskowane jako `string` (a nie literał `a`), ponieważ TypeScript zakłada, że wartość może zostać później zmieniona.
@@ -1895,12 +1895,12 @@ W poniższym przykładzie widać, że `o.x` zostało wywnioskowane jako `string`
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // To szerszy typ string
 };
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // Argument typu 'string' nie może być przypisany do parametru typu 'X'
 ```
 
 Jak widać, kod zgłasza błąd podczas przekazywania `o.x` do `fn`, ponieważ X jest węższym typem.
@@ -1947,7 +1947,7 @@ W TypeScript wyliczenie liczbowe to `enum`, w którym każdej stałej przypisana
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // wartość zaczyna się od 0
     Medium,
     Large,
 }
@@ -2043,7 +2043,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // Element ma niejawnie typ 'any', ponieważ wyrażenie indeksujące nie jest typu 'number'.
 ```
 
 ### Wyliczenia ambientowe
@@ -2055,23 +2055,23 @@ Wyliczenie ambientowe w TypeScript to rodzaj `enum` zdefiniowanego w pliku dekla
 W TypeScript element wyliczany to element `enum`, którego wartość jest obliczana w czasie wykonywania, natomiast element stały to element, którego wartość jest ustawiana w czasie kompilacji i nie może zostać zmieniona w czasie wykonywania. Elementy wyliczane są dozwolone w zwykłych wyliczeniach, natomiast elementy stałe są dozwolone zarówno w zwykłych wyliczeniach, jak i w `const enum`.
 
 ```typescript
-// Constant members
+// Składowe stałe
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6, generowane podczas kompilacji
 ```
 
 ```typescript
-// Computed members
+// Składowe obliczane
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // liczba losowa generowana podczas działania programu
 ```
 
 Wyliczenia są reprezentowane przez unie złożone z typów ich elementów. Wartości każdego elementu można określić za pomocą wyrażeń stałych lub niestałych, przy czym elementom o wartościach stałych przypisywane są typy literałowe. Dla zobrazowania rozważmy deklarację typu E i jego podtypów E.A, E.B oraz E.C. W tym przypadku E reprezentuje unię E.A | E.B | E.C.
@@ -2080,9 +2080,9 @@ Wyliczenia są reprezentowane przez unie złożone z typów ich elementów. Wart
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // Literał liczbowy
+    B = 'bar', // Literał tekstowy
+    C = identity(42), // Nieprzejrzysta wartość obliczana
 }
 
 console.log(E.C); //42
@@ -2101,7 +2101,7 @@ Strażnik typu `typeof` to szczególny strażnik typów w TypeScript, który spr
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x jest typu number
     }
     return -1;
 };
@@ -2240,7 +2240,7 @@ Przykłady, w których zawężanie nie zachodzi:
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // Błąd, brak zawężania, ponieważ isString nie jest const
     }
 };
 
@@ -2250,7 +2250,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // Błąd, brak zawężania, ponieważ obj jest przypisywany w ciele funkcji
     }
 };
 ```
@@ -2285,12 +2285,12 @@ Unie dyskryminowane w TypeScript są rodzajem typu unii, który wykorzystuje wsp
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // Dyskryminator
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // Dyskryminator
     radius: number;
 };
 
@@ -2323,7 +2323,7 @@ const printValue = (val: string | number) => {
     } else if (typeof val === 'number') {
         console.log(val.toFixed(2));
     } else {
-        // val has type never here because it can never be anything other than a string or a number
+        // val ma tutaj typ never, ponieważ nie może być niczym innym niż ciągiem znaków lub liczbą
         const neverVal: never = val;
         console.log(`Unexpected value: ${neverVal}`);
     }
@@ -2347,7 +2347,7 @@ const move = (direction: Direction) => {
             break;
         default:
             const exhaustiveCheck: never = direction;
-            console.log(exhaustiveCheck); // This line will never be executed
+            console.log(exhaustiveCheck); // Ta linia nigdy nie zostanie wykonana
     }
 };
 ```
@@ -2402,7 +2402,7 @@ Typy krotek mogą zawierać opcjonalne etykiety lub nazwy dla każdego elementu.
 type T = string;
 type Tuple1 = [T, T];
 type Tuple2 = [a: T, b: T];
-type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
+type Tuple3 = [a: T, T]; // Krotka nazwana oraz krotka anonimowa
 ```
 
 ## Krotka o stałej długości
@@ -2414,7 +2414,7 @@ Krotki o stałej długości są przydatne, gdy trzeba reprezentować kolekcję w
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // Błąd
 ```
 
 ## Typ unii
@@ -2423,8 +2423,8 @@ Typ unii to typ reprezentujący wartość, która może być jednym z kilku typ�
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // Poprawne
+x = 123; // Poprawne
 ```
 
 ## Typy przecięcia
@@ -2440,7 +2440,7 @@ type Y = {
     b: string;
 };
 
-type J = X & Y; // Intersection
+type J = X & Y; // Przecięcie
 
 const j: J = {
     a: 'a',
@@ -2457,7 +2457,7 @@ type Dictionary<T> = {
     [key: string]: T;
 };
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-console.log(myDict['a']); // Returns a
+console.log(myDict['a']); // Zwraca a
 ```
 
 ## Typ na podstawie wartości
@@ -2465,7 +2465,7 @@ console.log(myDict['a']); // Returns a
 Typ na podstawie wartości w TypeScript oznacza automatyczne wnioskowanie typu z wartości lub wyrażenia za pomocą mechanizmu wnioskowania typów.
 
 ```typescript
-const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immutable), but widens it to 'string' with 'let' (reassignable).
+const x = 'x'; // TypeScript wnioskuje 'x' jako literał tekstowy przy const (niezmienny), ale poszerza do string przy let (możliwe ponowne przypisanie).
 ```
 
 ## Typ na podstawie wartości zwracanej przez funkcję
@@ -2473,7 +2473,7 @@ const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immuta
 Typ na podstawie wartości zwracanej przez funkcję oznacza możliwość automatycznego wywnioskowania typu zwracanego przez funkcję na podstawie jej implementacji. Dzięki temu TypeScript może określić typ wartości zwracanej przez funkcję bez jawnych adnotacji typów.
 
 ```typescript
-const add = (x: number, y: number) => x + y; // TypeScript can infer that the return type of the function is a number
+const add = (x: number, y: number) => x + y; // TypeScript może wywnioskować, że typ zwracany przez funkcję to number
 ```
 
 ## Typ na podstawie modułu
@@ -2486,7 +2486,7 @@ Typ na podstawie modułu oznacza możliwość użycia wartości eksportowanych p
 export const add = (x: number, y: number) => x + y;
 // index.ts
 import { add } from 'calc';
-const r = add(1, 2); // r is number
+const r = add(1, 2); // r jest typu number
 ```
 
 ## Typy mapowane
@@ -2522,11 +2522,11 @@ Modyfikatory typów mapowanych w TypeScript umożliwiają przekształcanie wła�
 Przykłady:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Wszystkie właściwości oznaczone jako tylko do odczytu
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Wszystkie właściwości oznaczone jako modyfikowalne
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // Wszystkie właściwości oznaczone jako opcjonalne
 ```
 
 ## Typy warunkowe
@@ -2539,8 +2539,8 @@ type IsArray<T> = T extends any[] ? true : false;
 const myArray = [1, 2, 3];
 const myNumber = 42;
 
-type IsMyArrayAnArray = IsArray<typeof myArray>; // Type true
-type IsMyNumberAnArray = IsArray<typeof myNumber>; // Type false
+type IsMyArrayAnArray = IsArray<typeof myArray>; // Typ true
+type IsMyNumberAnArray = IsArray<typeof myNumber>; // Typ false
 ```
 
 ## Dystrybucyjne typy warunkowe
@@ -2606,8 +2606,8 @@ Używając typu `any`, informuje się kompilator TypeScript, że wartości powin
 
 ```typescript
 let value: any;
-value = true; // Valid
-value = 7; // Valid
+value = true; // Poprawne
+value = 7; // Poprawne
 ```
 
 ## Typ unknown
@@ -2620,10 +2620,10 @@ Typ `unknown` można przypisać tylko do typów `any` i `unknown`; jest on bezpi
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // Poprawne
+let value2: any = value; // Poprawne
+let value3: boolean = value; // Niepoprawne
+let value4: number = value; // Niepoprawne
 ```
 
 ```typescript
@@ -2652,7 +2652,7 @@ Na przykład nieskończona pętla:
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // zrób coś
     }
 };
 ```
@@ -2672,10 +2672,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // przesuń w górę
             break;
         case 'down':
-            // move down
+            // przesuń w dół
             break;
         default:
             const exhaustiveCheck: never = direction;
@@ -2740,10 +2740,10 @@ W TypeScript typy służą do definiowania kształtu danych i wymuszania kontrol
 ### Typy podstawowe
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myNumber: number = 123; // typ number
+let myBoolean: boolean = true; // typ boolean
+let myArray: string[] = ['a', 'b']; // tablica ciągów znaków
+let myTuple: [string, number] = ['a', 123]; // krotka
 ```
 
 ### Obiekty i interfejsy
@@ -2755,14 +2755,14 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Typy sumy i przecięcia
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // Typ unii
+let myUnion: MyType = 'hello'; // Może być ciągiem znaków
+myUnion = 123; // Lub liczbą
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // Typ przecięcia
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Obiekt z właściwościami name i age
 ```
 
 ## Wbudowane typy proste
@@ -2808,11 +2808,11 @@ Oto lista niektórych powszechnie używanych wbudowanych obiektów JavaScript:
 Przeciążenia funkcji w TypeScript pozwalają zdefiniować wiele sygnatur funkcji dla jednej nazwy, umożliwiając tworzenie funkcji, które można wywoływać na wiele sposobów. Oto przykład:
 
 ```typescript
-// Overloads
+// Przeciążenia
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// Implementacja
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -2822,8 +2822,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // Poprawne
+sayHi(['aa', 'bb']); // Poprawne
 ```
 
 Oto kolejny przykład użycia przeciążeń funkcji wewnątrz deklaracji `class`:
@@ -2836,11 +2836,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // przeciążenie
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // implementacja
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;
@@ -2959,7 +2959,7 @@ Typy sumy i przecięcia:
 Typy są bardziej elastyczne podczas definiowania typów sumy i przecięcia. Za pomocą słowa kluczowego `type` można łatwo tworzyć typy sumy przy użyciu operatora `|` oraz typy przecięcia przy użyciu operatora `&`. Interfejsy mogą wprawdzie pośrednio reprezentować typy sumy, ale nie mają wbudowanej obsługi typów przecięcia.
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // Unia
 
 type Person = {
     name: string;
@@ -2971,7 +2971,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // Przecięcie
 ```
 
 Przykład z interfejsami:
@@ -2984,7 +2984,7 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // Unia interfejsów
 ```
 
 ## Klasa
@@ -3022,7 +3022,7 @@ Aby utworzyć instancję klasy w TypeScript, można użyć słowa kluczowego `ne
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // Wynik: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Konstruktor
@@ -3126,10 +3126,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// Próba bezpośredniego utworzenia instancji klasy bazowej spowoduje błąd
+// const baseObj = new BaseClass(); // Błąd: Konstruktor klasy 'BaseClass' jest chroniony.
 
-// Create an instance of the derived class
+// Utwórz instancję klasy pochodnej
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -3228,8 +3228,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // Słowa kluczowe "private" i "public" w konstruktorze
+        // automatycznie deklarują i inicjalizują odpowiednie właściwości klasy.
     }
     public introduce(): void {
         console.log(
@@ -3264,7 +3264,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // Wynik: Whiskers meows.
 ```
 
 ### Z typami generycznymi
@@ -3352,7 +3352,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* Wypisuje:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -3377,7 +3377,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // Wypisuje: HELLO!
 ```
 
 #### Dekorator metody
@@ -3459,10 +3459,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // Poprawne: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // Zgłasza: Invalid!
 ```
 
 #### Metadane dekoratorów
@@ -3474,15 +3474,15 @@ Metadanych można używać do różnych celów, takich jak debugowanie, serializ
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Prosty polyfill
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // Kontekst zawiera metadane właściwości: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // Ustaw obiekt metadanych na wartość typu prostego
     context.metadata[context.name] = true;
 }
 
@@ -3497,7 +3497,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // Pobierz metadane
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -3532,11 +3532,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// Utwórz instancję klasy bazowej
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// Utwórz instancję klasy pochodnej
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -3626,7 +3626,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // Nie trzeba jawnie przypisywać wartości do właściwości.
     }
     log() {
         console.log(this.property2);
@@ -3642,8 +3642,8 @@ Przeciążanie metod pozwala klasie mieć wiele metod o tej samej nazwie, ale z 
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // Sygnatura przeciążenia 1
+    add(a: string, b: string): string; // Sygnatura przeciążenia 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -3657,7 +3657,7 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // Wypisuje 15
 ```
 
 ## Typy generyczne
@@ -3720,7 +3720,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // Niepoprawne
 ```
 
 Istotną funkcją typów generycznych, wprowadzoną w wersji 3.4 RC, jest wnioskowanie typów dla funkcji wyższego rzędu, które propaguje argumenty typów generycznych:
@@ -3747,10 +3747,10 @@ Kontekstowe zawężanie typów generycznych to mechanizm TypeScriptu, który umo
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // Wartość zostaje zawężona do typu 'string'
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // Wartość zostaje zawężona do typu 'number'
         console.log(value.toFixed(2));
     }
 }
@@ -3778,7 +3778,7 @@ const obj = {
     prop1: 'Origin',
 };
 
-log(obj); // Valid
+log(obj); // Poprawne
 ```
 
 ## Przestrzenie nazw
@@ -3862,7 +3862,7 @@ Umożliwiają połączenie wielu typów w jeden typ:
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // Przecięcie A i B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -3888,7 +3888,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // Właściwości stają się tylko do odczytu
 ```
 
 Typy warunkowe:
@@ -3971,7 +3971,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // Niepoprawne
 ```
 
 #### Record\<K, T\>
@@ -4140,8 +4140,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // Poprawne, ponieważ "log" jest częścią "this".
+        this.update(); // Niepoprawne
     },
 };
 ```
@@ -4185,23 +4185,23 @@ type MyType = Uncapitalize<'Abc'>; // "abc"
 Przykład:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// Automatyczne wnioskowanie typów w zakresie funkcji generycznej.
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // Typ tutaj to ("a" | "b" | "c")[]
 ```
 
 Z użyciem `NoInfer`:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// Przykładowa funkcja używająca NoInfer do zapobiegania wnioskowaniu typu
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // Błąd: Argument typu '"c"' nie może być przypisany do parametru typu '"a" | "b"'.
 ```
 
 ## Inne
@@ -4214,11 +4214,11 @@ Bloki try-catch-finally:
 
 ```typescript
 try {
-    // Code that might throw an error
+    // Kod, który może zgłosić błąd
 } catch (error) {
-    // Handle the error
+    // Obsłuż błąd
 } finally {
-    // Code that always executes, finally is optional
+    // Kod wykonywany zawsze, finally jest opcjonalne
 }
 ```
 
@@ -4226,14 +4226,14 @@ Można także obsługiwać różne typy błędów:
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // Kod, który może zgłaszać różne rodzaje błędów
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // Obsłuż TypeError
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // Obsłuż RangeError
     } else {
-        // Handle other errors
+        // Obsłuż inne błędy
     }
 }
 ```
@@ -4279,10 +4279,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// Rozszerz MyClass o zachowanie Identifiable i Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// Funkcja stosująca domieszki do klasy
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -4297,7 +4297,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// Zastosuj domieszki do MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -4412,10 +4412,10 @@ Przykład:
 
 ```typescript
 /**
- * Computes the power of a given number
+ * Oblicza potęgę podanej liczby
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – Wartość podstawy wyrażenia
+ * @param {number} exponent – Wartość wykładnika wyrażenia
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -4511,7 +4511,7 @@ W TypeScript można używać metawłaściwości `new.target`, która pozwala ust
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // Wypisuje funkcję konstruktora użytą do utworzenia instancji
     }
 }
 
@@ -4536,7 +4536,7 @@ Składnia wyrażeń importu dynamicznego w TypeScript wygląda następująco:
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // Import dynamiczny
         widget.render(container);
     }
 }
@@ -4848,8 +4848,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // Poprawne
+produceDog = produceAnimal; // Błąd
 ```
 
 **Kontrawariancja (przyjmowanie wartości):** funkcja przyjmująca dowolne `Animal` może zastąpić funkcję przyjmującą `Dog`. Obsłuży również psy; funkcja przyjmująca tylko psy nie obsłuży bezpiecznie każdego zwierzęcia.
@@ -4861,8 +4861,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // Poprawne
+consumeAnimal = consumeDog; // Błąd przy strictFunctionTypes
 ```
 
 Strzałki pokazują kierunek bezpiecznego przypisania:
@@ -4878,8 +4878,8 @@ Strzałki pokazują kierunek bezpiecznego przypisania:
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // Dozwolone, ale niebezpieczne
+// dogs zawiera teraz instancję Animal, która nie jest Dog.
 ```
 
 **Opcja kompilatora:** przy włączonym `strictFunctionTypes` parametry samodzielnych funkcji są sprawdzane kontrawariantnie. Bez tej opcji TypeScript może dopuścić oba kierunki (biwariancję), nawet gdy są niebezpieczne. Parametry deklaracji metod i konstruktorów stanowią wyjątek.
@@ -4916,7 +4916,7 @@ const obj: MyObject = {
     'key-b': 456,
 };
 
-console.log(obj[uniqueSymbol]); // Unique symbol key
+console.log(obj[uniqueSymbol]); // Klucz będący unikalnym symbolem
 console.log(obj['key-a']); // 123
 console.log(obj['key-b']); // 456
 ```
@@ -4932,37 +4932,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// Adnotacja typu z użyciem `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// W poniższych liniach TypeScript nie będzie w stanie poprawnie wywnioskować typów
+user.attributes?.map(console.log); // Właściwość 'map' nie istnieje w typie 'string | string[]'. Właściwość 'map' nie istnieje w typie 'string'.
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// Asercja typu z użyciem `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Tutaj również TypeScript nie będzie w stanie poprawnie wywnioskować typów
+user2.attributes?.map(console.log); // Właściwość 'map' nie istnieje w typie 'string | string[]'. Właściwość 'map' nie istnieje w typie 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// Używając operatora `satisfies`, możemy teraz poprawnie wywnioskować typy
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript poprawnie wnioskuje: string[]
+user3.nickName; // TypeScript poprawnie wnioskuje: undefined
 ```
 
 ### Importy i eksporty wyłącznie typów
@@ -5016,7 +5016,7 @@ Przykład:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Prosty polyfill
 
 const doWork = (): Disposable => {
     return {
@@ -5029,9 +5029,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // Zasób zostaje zadeklarowany
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // Zasób zostaje zwolniony (np. wykonywane jest `work[Symbol.dispose]()`)
 
 console.log(3);
 ```
@@ -5062,7 +5062,7 @@ Deklaracje `using` rejestrują operacje zwalniania zasobów na stosie, zapewniaj
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // zwalnia `C`, następnie `B`, a potem `A`.
 ```
 
 Zasoby zostaną zwolnione nawet wtedy, gdy późniejszy kod spowoduje wystąpienie wyjątków. Może to spowodować, że zwalnianie zasobu zgłosi wyjątek, potencjalnie tłumiąc inny wyjątek. W celu zachowania informacji o stłumionych błędach wprowadzono nowy natywny wyjątek `SuppressedError`.
@@ -5074,8 +5074,8 @@ Deklaracja `await using` obsługuje zasób zwalniany asynchronicznie. Wartość 
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // Zasób zostaje zadeklarowany
+} // Zasób zostaje zwolniony (np. wykonywane jest `await work[Symbol.asyncDispose]()`)
 ```
 
 Zasób zwalniany asynchronicznie musi być zgodny z interfejsem `Disposable` lub `AsyncDisposable`:
@@ -5090,12 +5090,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Prosty polyfill
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // Metoda wywoływana przy asynchronicznym zwalnianiu obiektu
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // Zamknij połączenie i zwróć obietnicę
         return this.close();
     }
 
@@ -5107,10 +5107,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // Utwórz nowe połączenie i zwolnij je asynchronicznie po opuszczeniu jego zakresu
+    await using connection = new DatabaseConnection(); //  Zasób zostaje zadeklarowany
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Zasób zostaje zwolniony (np. wykonywane jest `await connection[Symbol.asyncDispose]()`)
 
 doWork();
 ```
@@ -5149,7 +5149,7 @@ Od wersji 5.5.4 TypeScript sprawdza literały wyrażeń regularnych podczas komp
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // Błąd: To odwołanie wsteczne odnosi się do nieistniejącej grupy.
 ```
 
 ### import defer

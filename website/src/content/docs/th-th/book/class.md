@@ -39,7 +39,7 @@ class Person {
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // ผลลัพธ์: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### คอนสตรักเตอร์
@@ -143,10 +143,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// การพยายามสร้างอินสแตนซ์ของคลาสฐานโดยตรงจะทำให้เกิดข้อผิดพลาด
+// const baseObj = new BaseClass(); // ข้อผิดพลาด: คอนสตรักเตอร์ของคลาส 'BaseClass' เป็น protected
 
-// Create an instance of the derived class
+// สร้างอินสแตนซ์ของคลาสที่สืบทอด
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -245,8 +245,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // คีย์เวิร์ด "private" และ "public" ในคอนสตรักเตอร์
+        // ประกาศและกำหนดค่าเริ่มต้นให้พร็อพเพอร์ตีของคลาสที่สอดคล้องกันโดยอัตโนมัติ
     }
     public introduce(): void {
         console.log(
@@ -281,7 +281,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // ผลลัพธ์: Whiskers meows.
 ```
 
 ### การใช้ร่วมกับ Generic
@@ -369,7 +369,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* แสดงค่า:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -394,7 +394,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // แสดงค่า: HELLO!
 ```
 
 #### Method Decorator
@@ -476,10 +476,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // ถูกต้อง: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // โยนข้อผิดพลาด: Invalid!
 ```
 
 #### Metadata ของ Decorator
@@ -491,15 +491,15 @@ Metadata สามารถใช้เพื่อวัตถุประส�
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // polyfill อย่างง่าย
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // บริบทมี metadata ของพร็อพเพอร์ตี: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // กำหนดค่าอ็อบเจกต์ metadata ด้วยค่าพื้นฐาน
     context.metadata[context.name] = true;
 }
 
@@ -514,7 +514,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // รับข้อมูล metadata
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -549,11 +549,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// สร้างอินสแตนซ์ของคลาสฐาน
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// สร้างอินสแตนซ์ของคลาสที่สืบทอด
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -643,7 +643,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // ไม่จำเป็นต้องกำหนดค่าให้พร็อพเพอร์ตีอย่างชัดเจน
     }
     log() {
         console.log(this.property2);
@@ -659,8 +659,8 @@ x.log();
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // ลายเซ็นโอเวอร์โหลด 1
+    add(a: string, b: string): string; // ลายเซ็นโอเวอร์โหลด 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -674,6 +674,6 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // แสดงค่า 15
 ```
 

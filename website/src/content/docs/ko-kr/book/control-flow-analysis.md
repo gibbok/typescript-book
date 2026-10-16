@@ -39,7 +39,7 @@ const f2 = (
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // 오류. isString이 const가 아니므로 타입이 좁혀지지 않음
     }
 };
 
@@ -49,7 +49,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // 오류. 함수 본문에서 obj에 할당하므로 타입이 좁혀지지 않음
     }
 };
 ```

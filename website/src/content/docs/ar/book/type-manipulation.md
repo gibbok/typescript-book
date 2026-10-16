@@ -17,7 +17,7 @@ sidebar:
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // تقاطع A و B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -43,7 +43,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // تصبح الخصائص للقراءة فقط
 ```
 
 الأنواع الشرطية:
@@ -126,7 +126,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // غير صحيح
 ```
 
 #### Record\<K, T\>
@@ -295,8 +295,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // صحيح لأن "log" جزء من "this".
+        this.update(); // غير صحيح
     },
 };
 ```
@@ -340,22 +340,22 @@ NoInfer هو نوع أداة مساعدة مصمم لمنع الاستدلال �
 مثال:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// استنتاج الأنواع تلقائيًا ضمن نطاق دالة معمّمة.
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // النوع هنا هو ("a" | "b" | "c")[]
 ```
 
 باستخدام NoInfer:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// دالة مثال تستخدم NoInfer لمنع استنتاج النوع
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // خطأ: لا يمكن إسناد وسيط من النوع '"c"' إلى معامل من النوع '"a" | "b"'.
 ```
 

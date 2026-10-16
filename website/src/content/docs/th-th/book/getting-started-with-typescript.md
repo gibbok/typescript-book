@@ -75,9 +75,9 @@ tsc --init
 ต่อไปนี้คือตัวอย่างคำสั่ง CLI ที่ทำงานด้วยค่าเริ่มต้น:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // คอมไพล์ไฟล์ที่ระบุ (main.ts) เป็น JavaScript
+tsc src/*.ts // คอมไพล์ไฟล์ .ts ทั้งหมดในโฟลเดอร์ 'src' เป็น JavaScript
+tsc app.ts util.ts --outfile index.js // คอมไพล์ไฟล์ TypeScript สองไฟล์ (app.ts และ util.ts) เป็นไฟล์ JavaScript ไฟล์เดียว (index.js)
 ```
 
 ### ไฟล์กำหนดค่า TypeScript

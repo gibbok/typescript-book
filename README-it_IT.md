@@ -457,11 +457,11 @@ Poiché i tipi vengono cancellati dopo la compilazione, non è possibile eseguir
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Unione discriminata
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Unione discriminata
     meow: () => void;
 }
 type Animal = Dog | Cat;
@@ -1483,7 +1483,7 @@ Possiamo essere specifici e passare un tipo, nell'esempio seguente la proprietà
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // Tipo inferito: number (allargamento)
 };
 v.x = 3; // Valido
 ```
@@ -1870,8 +1870,8 @@ Esempio di letterali:
 ```typescript
 const a = 'a'; // Stringa tipo letterale
 
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const b = 1; // Tipo letterale numerico
+const c = true; // Tipo letterale booleano
 ```
 
 I tipi letterali stringa, numerico e booleano vengono utilizzati nell'unione, nella protezione dei tipi e negli alias di tipo.
@@ -1888,8 +1888,8 @@ L'inferenza letterale è una funzionalità di TypeScript che consente di dedurre
 Nell'esempio seguente possiamo vedere che TypeScript considera `x` un tipo letterale in quanto il valore non può essere modificato in seguito, mentre `y` viene dedotto come stringa in quanto può essere modificato in seguito.
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, because we can change this value
+const x = 'x'; // Tipo letterale di 'x', perché questo valore non può essere modificato
+let y = 'y'; // Tipo string, perché possiamo modificare questo valore
 ```
 
 Nell'esempio seguente possiamo vedere che `o.x` è stato dedotto come `string` (e non come un letterale di `a`), poiché TypeScript considera che il valore possa essere modificato in qualsiasi momento successivo.
@@ -2539,8 +2539,8 @@ type IsArray<T> = T extends any[] ? true : false;
 const myArray = [1, 2, 3];
 const myNumber = 42;
 
-type IsMyArrayAnArray = IsArray<typeof myArray>; // Type true
-type IsMyNumberAnArray = IsArray<typeof myNumber>; // Type false
+type IsMyArrayAnArray = IsArray<typeof myArray>; // Tipo true
+type IsMyNumberAnArray = IsArray<typeof myNumber>; // Tipo false
 ```
 
 ## Tipi condizionali distributivi
@@ -2740,8 +2740,8 @@ In TypeScript, i tipi vengono utilizzati per definire la forma dei dati e applic
 ### Tipi di base
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
+let myNumber: number = 123; // Tipo number
+let myBoolean: boolean = true; // Tipo boolean
 let myArray: string[] = ['a', 'b']; // array di stringhe
 let myTuple: [string, number] = ['a', 123]; // tupla
 ```
@@ -2755,14 +2755,14 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Tipi di unione e intersezione
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // Tipo unione
+let myUnion: MyType = 'hello'; // Può essere una stringa
+myUnion = 123; // Oppure un numero
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with name and age properties
+type CombinedType = TypeA & TypeB; // Tipo intersezione
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Oggetto con proprietà name e age
 ```
 
 ## Primitive di tipo predefinite
@@ -3456,7 +3456,7 @@ const obj = new MyClass(10);
 console.log(obj.getValue); // Valido: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // Genera un errore: Invalid!
 ```
 
 #### Metadati del decoratore
@@ -3468,7 +3468,7 @@ I metadati possono essere utilizzati per vari scopi, come il debug, la serializz
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Polyfill semplice
 
 type Context =
     | ClassFieldDecoratorContext
@@ -4850,8 +4850,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // Valido
+produceDog = produceAnimal; // Errore
 ```
 
 **Controvarianza (consumo):** una funzione che accetta qualsiasi `Animal` può sostituire una funzione che accetta un `Dog`. Sa gestire anche i cani; una funzione che accetta solo cani non può gestire ogni animale.
@@ -4863,8 +4863,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // Valido
+consumeAnimal = consumeDog; // Errore con strictFunctionTypes
 ```
 
 Le frecce indicano il verso delle assegnazioni sicure:
@@ -4880,8 +4880,8 @@ Le frecce indicano il verso delle assegnazioni sicure:
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // Consentito, ma non sicuro
+// dogs ora contiene un Animal che non è un Dog.
 ```
 
 **Opzione del compilatore:** con `strictFunctionTypes`, i parametri delle funzioni indipendenti sono controllati in modo controvariante. Senza questa opzione, TypeScript può accettare entrambe le direzioni (bivarianza), anche se non sicure. I parametri dichiarati in metodi e costruttori fanno eccezione.
@@ -5018,7 +5018,7 @@ Esempio:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Polyfill semplice
 
 const doWork = (): Disposable => {
     return {
@@ -5092,7 +5092,7 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Polyfill semplice
 
 class DatabaseConnection implements AsyncDisposable {
     // Un metodo che viene chiamato quando l'oggetto viene eliminato in modo asincrono

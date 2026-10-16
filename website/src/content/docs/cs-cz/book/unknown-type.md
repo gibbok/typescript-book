@@ -14,10 +14,10 @@ Typ `unknown` lze přiřadit pouze typu `any` a samotnému typu `unknown` a pře
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // Platné
+let value2: any = value; // Platné
+let value3: boolean = value; // Neplatné
+let value4: number = value; // Neplatné
 ```
 
 ```typescript

@@ -75,9 +75,9 @@ Při místním spuštění příkazu `tsc` TypeScript zkompiluje kód s konfigur
 Zde je několik příkladů příkazů z příkazového řádku s výchozím nastavením:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // Kompilace konkrétního souboru (main.ts) do JavaScriptu
+tsc src/*.ts // Kompilace všech souborů .ts ve složce 'src' do JavaScriptu
+tsc app.ts util.ts --outfile index.js // Kompilace dvou souborů TypeScriptu (app.ts a util.ts) do jednoho souboru JavaScriptu (index.js)
 ```
 
 ### Konfigurační soubor TypeScriptu

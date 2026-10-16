@@ -24,7 +24,7 @@ Dalam TypeScript, Enum Numerik adalah Enum yang setiap konstantanya diberi nilai
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // nilai dimulai dari 0
     Medium,
     Large,
 }
@@ -120,7 +120,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // Elemen secara implisit bertipe 'any' karena ekspresi indeks bukan bertipe 'number'.
 ```
 
 ### Enum ambient
@@ -132,23 +132,23 @@ Enum ambient dalam TypeScript adalah jenis enum yang didefinisikan dalam berkas 
 Dalam TypeScript, anggota terkomputasi adalah anggota Enum yang nilainya dihitung saat runtime, sedangkan anggota konstan adalah anggota yang nilainya ditetapkan pada waktu kompilasi dan tidak dapat diubah saat runtime. Anggota terkomputasi diperbolehkan dalam Enum biasa, sedangkan anggota konstan diperbolehkan dalam enum biasa maupun const enum.
 
 ```typescript
-// Constant members
+// Anggota konstan
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6 dihasilkan saat kompilasi
 ```
 
 ```typescript
-// Computed members
+// Anggota terhitung
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // angka acak yang dihasilkan saat runtime
 ```
 
 Enum dinyatakan sebagai union yang terdiri dari tipe-tipe anggotanya. Nilai setiap anggota dapat ditentukan melalui ekspresi konstan atau nonkonstan, dengan anggota yang memiliki nilai konstan diberi tipe literal. Sebagai ilustrasi, perhatikan deklarasi tipe E dan subtipenya E.A, E.B, dan E.C. Dalam kasus ini, E merepresentasikan union E.A | E.B | E.C.
@@ -157,9 +157,9 @@ Enum dinyatakan sebagai union yang terdiri dari tipe-tipe anggotanya. Nilai seti
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // Literal numerik
+    B = 'bar', // Literal string
+    C = identity(42), // Nilai terhitung yang tidak transparan
 }
 
 console.log(E.C); //42

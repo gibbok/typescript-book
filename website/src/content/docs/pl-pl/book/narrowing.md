@@ -17,7 +17,7 @@ Strażnik typu `typeof` to szczególny strażnik typów w TypeScript, który spr
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x jest typu number
     }
     return -1;
 };

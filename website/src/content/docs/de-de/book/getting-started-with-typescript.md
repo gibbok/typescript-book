@@ -75,9 +75,9 @@ Wenn Sie den Befehl `tsc` lokal ausführen, kompiliert TypeScript den Code mit d
 Hier sind einige Beispiele für CLI-Befehle, die mit den Standardeinstellungen ausgeführt werden:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // Eine bestimmte Datei (main.ts) nach JavaScript kompilieren
+tsc src/*.ts // Alle .ts-Dateien im Ordner 'src' nach JavaScript kompilieren
+tsc app.ts util.ts --outfile index.js // Zwei TypeScript-Dateien (app.ts und util.ts) in eine einzige JavaScript-Datei (index.js) kompilieren
 ```
 
 ### TypeScript-Konfigurationsdatei

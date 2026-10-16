@@ -60,9 +60,9 @@ En TypeScript, les types servent à définir la forme des données et à imposer
 ### Types de base
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
+let myNumber: number = 123; // type number
+let myBoolean: boolean = true; // type boolean
+let myArray: string[] = ['a', 'b']; // tableau de chaînes
 let myTuple: [string, number] = ['a', 123]; // tuple
 ```
 
@@ -75,13 +75,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Types union et intersection
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // Type union
+let myUnion: MyType = 'hello'; // Peut être une chaîne
+myUnion = 123; // Ou un nombre
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // Type intersection
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Objet possédant les propriétés name et age
 ```
 

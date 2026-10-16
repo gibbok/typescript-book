@@ -15,10 +15,10 @@ sidebar:
 ตัวอย่าง:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // พร็อพเพอร์ตีทั้งหมดถูกกำหนดให้อ่านอย่างเดียว
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // พร็อพเพอร์ตีทั้งหมดถูกกำหนดให้เปลี่ยนแปลงได้
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // พร็อพเพอร์ตีทั้งหมดถูกกำหนดให้เป็นทางเลือก
 ```
 

@@ -47,7 +47,7 @@ Tipe "X" kompatibel dengan "Y" jika "Y" setidaknya memiliki member yang sama den
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // Valid, karena setidaknya memiliki anggota yang sama dengan X
 const r: X = y;
 ```
 
@@ -70,8 +70,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // Tidak valid
+x = y; // Tidak valid
 ```
 
 Tipe kembalian fungsi sumber harus merupakan subtipe dari tipe kembalian fungsi target:
@@ -81,7 +81,7 @@ Tipe kembalian fungsi sumber harus merupakan subtipe dari tipe kembalian fungsi 
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
 x = y; // Valid
-y = x; // Invalid member b is missing
+y = x; // Tidak valid, anggota b tidak ada
 ```
 
 Mengabaikan parameter fungsi diperbolehkan karena merupakan praktik umum dalam JavaScript, misalnya saat menggunakan "Array.prototype.map()":
@@ -96,7 +96,7 @@ Oleh karena itu, deklarasi tipe berikut sepenuhnya valid:
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
+let y: Y = (a: number) => undefined; // Parameter b tidak ada
 y = x; // Valid
 ```
 
@@ -141,7 +141,7 @@ function x(a: string, b?: number): void {
 x('a'); // Valid
 x('a', 1); // Valid
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // Tidak valid, tidak kompatibel dengan tanda tangan implementasi
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -153,22 +153,22 @@ y('a', 1);
 Perbandingan parameter fungsi berhasil jika parameter sumber dan target dapat ditetapkan ke supertipe atau subtipe (bivariance).
 
 ```typescript
-// Supertype
+// Supertipe
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// Subtipe
 class Y extends X {}
-// Subtype
+// Subtipe
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
+// Bivarians menerima supertipe
 console.log(getA(new X('x'))); // Valid
 console.log(getA(new Y('Y'))); // Valid
 console.log(getA(new Z('z'))); // Valid
@@ -189,7 +189,7 @@ enum Y {
 }
 const xa: number = X.A; // Valid
 const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+X.A === Y.A; // Tidak valid
 ```
 
 Instance dari suatu class menjalani pemeriksaan kompatibilitas untuk member private dan protected:
@@ -210,7 +210,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // Tidak valid
 ```
 
 Pemeriksaan perbandingan tidak mempertimbangkan perbedaan hierarki pewarisan, misalnya:
@@ -239,7 +239,7 @@ let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
 x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === z; // Valid meskipun z berasal dari hierarki pewarisan yang berbeda
 ```
 
 Tipe generic dibandingkan berdasarkan strukturnya setelah parameter generic diterapkan; hanya tipe hasil akhir yang dibandingkan sebagai tipe non-generic.
@@ -251,14 +251,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // Tidak valid karena argumen tipe digunakan dalam struktur akhir
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // Valid karena argumen tipe tidak digunakan dalam struktur akhir
 ```
 
 Ketika argumen tipe pada generic tidak ditentukan, semua argumen yang tidak ditentukan diperlakukan sebagai tipe "any":
@@ -277,25 +277,25 @@ Ingat:
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // Valid, semuanya dapat ditetapkan ke dirinya sendiri
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // Valid, semua tipe dapat ditetapkan ke any
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // Valid, semua tipe dapat ditetapkan ke unknown
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
+let e1: unknown = e; // Valid, unknown hanya dapat ditetapkan ke dirinya sendiri dan any
 let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e3: number = e; // Tidak valid
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // Tidak valid, tidak ada yang dapat ditetapkan ke never
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
+g = 1; // Tidak valid, void tidak dapat ditetapkan ke atau dari apa pun kecuali any
 g = g1; // Valid
 ```
 
@@ -369,7 +369,7 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
+const r: XY = { a: 'a' }; // Tidak valid
 const j: XY = { a: 'a', b: 'b' }; // Valid
 ```
 
@@ -420,7 +420,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// Deklarasi tipe
 const x: X = {
     a: 'a',
 };
@@ -436,7 +436,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // Kesalahan: Literal objek hanya boleh menentukan properti yang dikenal
 };
 ```
 
@@ -520,8 +520,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // Valid karena pengetikan struktural
+const w: X = { a: 'a', b: 'b' }; // Tidak valid karena pemeriksaan properti berlebih
 ```
 
 ### Tipe Lemah
@@ -546,7 +546,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // Tidak valid
 ```
 
 Meskipun tidak disarankan, jika diperlukan, pemeriksaan ini dapat dilewati dengan menggunakan asersi tipe:
@@ -589,20 +589,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // Pemeriksaan freshness: Penetapan tidak valid
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // Pemeriksaan freshness: Penetapan tidak valid
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // Pelebaran: Tidak ada kesalahan, tipe kompatibel secara struktural
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // Pemeriksaan freshness: Argumen tidak valid
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // Pelebaran: Tidak ada pemeriksaan freshness
 ```
 
 ### Inferensi Tipe
@@ -617,7 +617,7 @@ TypeScript dapat menyimpulkan tipe ketika tidak ada anotasi yang diberikan dalam
 Sebagai contoh:
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // Tipe yang diinferensikan adalah string
 ```
 
 Compiler TypeScript menganalisis nilai atau ekspresi dan menentukan tipenya berdasarkan informasi yang tersedia.
@@ -627,19 +627,19 @@ Compiler TypeScript menganalisis nilai atau ekspresi dan menentukan tipenya berd
 Ketika beberapa ekspresi digunakan dalam inferensi tipe, TypeScript mencari "tipe umum terbaik". Misalnya:
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // Tipe yang diinferensikan adalah: (string | number | null)[]
 ```
 
 Jika compiler tidak dapat menemukan tipe umum terbaik, compiler mengembalikan union type. Sebagai contoh:
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // Tipe yang diinferensikan adalah: (RegExp | Date)[]
 ```
 
 TypeScript menggunakan "contextual typing" berdasarkan lokasi variabel untuk menyimpulkan tipe. Dalam contoh berikut, compiler mengetahui bahwa `e` bertipe `MouseEvent` karena tipe event `click` didefinisikan dalam berkas lib.d.ts, yang berisi deklarasi ambient untuk berbagai konstruksi umum JavaScript dan DOM:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // Tipe e yang diinferensikan adalah MouseEvent
 ```
 
 ### Pelebaran Tipe
@@ -649,9 +649,9 @@ Dalam contoh berikut:
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript menginferensikan sebagai string, tipe yang lebar
+let y: 'y' | 'x' = 'y'; // tipe y merupakan union tipe literal
+y = x; // Tidak valid, tipe 'string' tidak dapat ditetapkan ke tipe '"x" | "y"'.
 ```
 
 TypeScript menetapkan `string` ke `x` berdasarkan satu nilai yang diberikan saat inisialisasi (`x`); ini merupakan contoh pelebaran.
@@ -665,9 +665,9 @@ Menggunakan kata kunci `const` saat mendeklarasikan variabel menghasilkan infere
 Sebagai contoh:
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript menginferensikan tipe x sebagai 'x', tipe yang lebih sempit
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // Valid: Tipe x diinferensikan sebagai 'x'
 ```
 
 Dengan menggunakan `const` untuk mendeklarasikan variabel x, tipenya dipersempit ke nilai literal tertentu, yaitu 'x'. Karena tipe x dipersempit, nilai tersebut dapat ditetapkan ke variabel y tanpa error.
@@ -679,10 +679,10 @@ Mulai TypeScript versi 5.0, atribut `const` dapat ditentukan pada parameter tipe
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // Tidak ada const di sini
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // Tipe yang diinferensikan adalah: { a: string; b: string; }
 ```
 
 Seperti yang dapat Anda lihat, properti `a` dan `b` disimpulkan dengan tipe `string`.
@@ -691,10 +691,10 @@ Sekarang, mari kita lihat perbedaannya dengan versi `const`:
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // Menggunakan pengubah const pada parameter tipe
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // Tipe yang diinferensikan adalah: { a: "a"; b: "b"; }
 ```
 
 Sekarang kita dapat melihat bahwa properti `a` dan `b` disimpulkan sebagai string literal, bukan sekadar tipe `string`.
@@ -725,7 +725,7 @@ Hal ini dapat sangat berguna ketika mendefinisikan tipe untuk tuple:
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // Tuple readonly [1, 2, 3]
 ```
 
 ### Anotasi Tipe Eksplisit
@@ -734,7 +734,7 @@ Kita dapat menentukan dan memberikan tipe secara eksplisit. Dalam contoh berikut
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // Tipe yang diinferensikan: number (pelebaran)
 };
 v.x = 3; // Valid
 ```
@@ -744,10 +744,10 @@ Kita dapat membuat anotasi tipe lebih spesifik dengan menggunakan union dari tip
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // x kini merupakan union tipe literal: 1 | 2 | 3
 };
 v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 100; // Tidak valid
 ```
 
 ### Penyempitan Tipe
@@ -764,7 +764,7 @@ Dengan menggunakan pernyataan kondisional, seperti `if` atau `switch`, TypeScrip
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // Tipenya adalah number, yang telah dipersempit oleh kondisi
 }
 ```
 
@@ -800,9 +800,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // tipenya adalah A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // tipenya adalah B
     }
 };
 ```
@@ -814,11 +814,11 @@ Dalam kasus ketika TypeScript tidak dapat menentukan suatu tipe, kita dapat menu
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // Tipenya adalah (string | null)[], TypeScript tidak dapat menginferensikan tipe dengan benar
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // Penjaga tipe khusus
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // Tipenya kini benar, yaitu string[], dengan penjaga tipe predikat kita dapat mempersempit tipe
 ```
 
 #### Penyempitan switch-true

@@ -91,6 +91,6 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // Union d'interfaces
 ```
 

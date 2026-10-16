@@ -11,7 +11,7 @@ Bir nesne, özellik adının sonuna soru işareti `?` ekleyerek İsteğe Bağlı
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // İsteğe bağlı
 };
 ```
 

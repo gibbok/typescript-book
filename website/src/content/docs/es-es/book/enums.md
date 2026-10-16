@@ -24,7 +24,7 @@ En TypeScript, un enum numérico es aquel en el que se asigna un valor numérico
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // El valor comienza en 0
     Medium,
     Large,
 }
@@ -120,7 +120,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // El elemento tiene implícitamente el tipo 'any' porque la expresión de índice no es de tipo 'number'.
 ```
 
 ### Enums de ambiente
@@ -132,23 +132,23 @@ Un enum de ambiente de TypeScript se define en un archivo de declaración (*.d.t
 En TypeScript, un miembro calculado de un enum tiene un valor calculado en tiempo de ejecución, mientras que el valor de un miembro constante se establece durante la compilación y no puede cambiar en tiempo de ejecución. Los miembros calculados se permiten en enums normales, mientras que los miembros constantes se permiten tanto en enums normales como en enums constantes.
 
 ```typescript
-// Constant members
+// Miembros constantes
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6 generado en tiempo de compilación
 ```
 
 ```typescript
-// Computed members
+// Miembros calculados
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // Número aleatorio generado en tiempo de ejecución
 ```
 
 Los enums se representan mediante uniones de los tipos de sus miembros. El valor de cada miembro puede determinarse mediante expresiones constantes o no constantes; a los miembros con valores constantes se les asignan tipos literales. Considera la declaración del tipo E y sus subtipos E.A, E.B y E.C. En este caso, E representa la unión E.A | E.B | E.C.
@@ -157,9 +157,9 @@ Los enums se representan mediante uniones de los tipos de sus miembros. El valor
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // Literal numérico
+    B = 'bar', // Literal de cadena
+    C = identity(42), // Calculado opaco
 }
 
 console.log(E.C); //42

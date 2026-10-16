@@ -14,6 +14,6 @@ Typ från modul avser möjligheten att använda en moduls exporterade värden f�
 export const add = (x: number, y: number) => x + y;
 // index.ts
 import { add } from 'calc';
-const r = add(1, 2); // r is number
+const r = add(1, 2); // r har typen number
 ```
 

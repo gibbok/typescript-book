@@ -67,14 +67,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 ระบบชนิดข้อมูลของ TypeScript ได้รับอิทธิพลอย่างมากจากพฤติกรรม runtime ของ JavaScript ตัวอย่างเช่น ตัวดำเนินการบวก (+) ซึ่งใน JavaScript สามารถต่อสตริงหรือบวกตัวเลขได้ ถูกจำลองในลักษณะเดียวกันใน TypeScript:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // ผลลัพธ์มีชนิด string
 ```
 
 ทีมงาน TypeScript ตั้งใจให้การใช้ JavaScript ในรูปแบบที่ผิดปกติถูกระบุเป็นข้อผิดพลาด ตัวอย่างเช่น ลองพิจารณาโค้ด JavaScript ที่ถูกต้องต่อไปนี้:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // ใน JavaScript ผลลัพธ์เท่ากับ 2
 ```
 
 อย่างไรก็ตาม TypeScript จะแจ้งข้อผิดพลาด:
@@ -93,7 +93,7 @@ Operator '+' cannot be applied to types 'number' and 'boolean'.
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // อาร์กิวเมนต์ชนิด 'string' ไม่สามารถกำหนดให้พารามิเตอร์ชนิด 'number' ได้
 ```
 
 อย่างไรก็ตาม ยังสามารถสร้างผลลัพธ์ JavaScript ที่รันได้:
@@ -120,7 +120,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' อ้างถึงเพียงชนิด แต่ถูกใช้เป็นค่าที่นี่
         // ...
     }
 };
@@ -130,11 +130,11 @@ const makeNoise = (animal: Animal) => {
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // ยูเนียนแบบมีแท็ก
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // ยูเนียนแบบมีแท็ก
     meow: () => void;
 }
 type Animal = Dog | Cat;

@@ -394,14 +394,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 TypeScript의 타입 시스템은 JavaScript의 런타임 동작에 큰 영향을 받습니다. 예를 들어 JavaScript에서 문자열 연결이나 숫자 덧셈을 수행할 수 있는 덧셈 연산자(+)는 TypeScript에서도 같은 방식으로 모델링됩니다.
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // 결과의 타입은 string
 ```
 
 TypeScript 개발 팀은 JavaScript의 비정상적인 사용을 의도적으로 오류로 표시하기로 결정했습니다. 예를 들어 다음의 유효한 JavaScript 코드를 살펴보겠습니다.
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // JavaScript에서 결과는 2
 ```
 
 하지만 TypeScript는 오류를 발생시킵니다.
@@ -420,7 +420,7 @@ TypeScript 컴파일러에는 타입 오류 검사와 JavaScript 컴파일이라
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // 'string' 타입의 인수는 'number' 타입의 매개변수에 할당할 수 없습니다.
 ```
 
 하지만 여전히 실행 가능한 JavaScript 출력을 생성할 수 있습니다.
@@ -447,7 +447,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog'는 타입만 나타내지만 여기서는 값으로 사용되고 있습니다.
         // ...
     }
 };
@@ -457,11 +457,11 @@ const makeNoise = (animal: Animal) => {
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // 태그된 유니온
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // 태그된 유니온
     meow: () => void;
 }
 type Animal = Dog | Cat;
@@ -615,9 +615,9 @@ tsc --init
 다음은 기본 설정으로 실행되는 CLI 명령의 몇 가지 예입니다.
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // 특정 파일(main.ts)을 JavaScript로 컴파일
+tsc src/*.ts // 'src' 폴더 아래의 모든 .ts 파일을 JavaScript로 컴파일
+tsc app.ts util.ts --outfile index.js // 두 TypeScript 파일(app.ts와 util.ts)을 하나의 JavaScript 파일(index.js)로 컴파일
 ```
 
 ### TypeScript 구성 파일
@@ -780,7 +780,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // 유효함
 ```
 
 ### TypeScript의 기본 비교 규칙
@@ -793,7 +793,7 @@ TypeScript의 비교 과정은 재귀적으로 이루어지며 모든 깊이에 
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // 최소한 X와 같은 멤버를 가지므로 유효함
 const r: X = y;
 ```
 
@@ -804,8 +804,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // 유효함
+x = y; // 유효함
 ```
 
 함수 반환 타입은 같아야 합니다.
@@ -816,8 +816,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // 유효하지 않음
+x = y; // 유효하지 않음
 ```
 
 소스 함수의 반환 타입은 대상 함수 반환 타입의 하위 타입이어야 합니다.
@@ -826,8 +826,8 @@ x = y; // Invalid
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // 유효함
+y = x; // 멤버 b가 누락되어 유효하지 않음
 ```
 
 함수 매개변수를 버리는 것은 허용됩니다. 이는 JavaScript에서 흔한 관행으로, 예를 들면 "Array.prototype.map()"을 사용할 때 그렇습니다.
@@ -842,8 +842,8 @@ y = x; // Invalid member b is missing
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // 매개변수 b 누락
+y = x; // 유효함
 ```
 
 소스 타입의 추가 선택적 매개변수는 모두 유효합니다.
@@ -853,8 +853,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // 유효함
+x = y; //유효함
 ```
 
 소스 타입에 대응하는 매개변수가 없는 대상 타입의 선택적 매개변수는 모두 유효하며 오류가 아닙니다.
@@ -864,15 +864,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // 유효함
+x = y; // 유효함
 ```
 
 나머지 매개변수는 선택적 매개변수가 무한히 이어지는 것으로 취급됩니다.
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //유효함
 ```
 
 오버로드가 있는 함수는 오버로드 시그니처가 구현 시그니처와 호환되면 유효합니다.
@@ -884,10 +884,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // 유효함
+x('a', 1); // 유효함
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // 구현 시그니처와 호환되지 않아 유효하지 않음
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -899,25 +899,25 @@ y('a', 1);
 소스와 대상의 매개변수를 상위 타입이나 하위 타입에 할당할 수 있으면 함수 매개변수 비교가 성공합니다(이변성).
 
 ```typescript
-// Supertype
+// 상위 타입
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// 하위 타입
 class Y extends X {}
-// Subtype
+// 하위 타입
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// 이변성은 상위 타입도 허용함
+console.log(getA(new X('x'))); // 유효함
+console.log(getA(new Y('Y'))); // 유효함
+console.log(getA(new Z('z'))); // 유효함
 ```
 
 열거형은 숫자와 비교할 수 있으며 그 반대도 유효하지만, 서로 다른 열거형 타입의 열거형 값을 비교하는 것은 유효하지 않습니다.
@@ -933,9 +933,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // 유효함
+const ya: Y = 0; // 유효함
+X.A === Y.A; // 유효하지 않음
 ```
 
 클래스의 인스턴스는 private 멤버와 protected 멤버에 대한 호환성 검사를 받습니다.
@@ -956,7 +956,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // 유효하지 않음
 ```
 
 비교 검사는 서로 다른 상속 계층을 고려하지 않습니다. 예를 들면 다음과 같습니다.
@@ -984,8 +984,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // 유효함
+x === z; // z가 다른 상속 계층에 속하더라도 유효함
 ```
 
 제네릭은 제네릭 매개변수를 적용한 뒤의 결과 타입을 바탕으로 구조를 사용해 비교하며, 최종 결과만 비제네릭 타입으로 비교합니다.
@@ -997,14 +997,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // 타입 인수가 최종 구조에서 사용되므로 유효하지 않음
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // 타입 인수가 최종 구조에서 사용되지 않으므로 유효함
 ```
 
 제네릭의 타입 인수를 지정하지 않으면 지정되지 않은 모든 인수는 "any" 타입으로 취급됩니다.
@@ -1014,7 +1014,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // 유효함
 ```
 
 기억하세요.
@@ -1023,26 +1023,26 @@ x = y; // Valid
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // 모든 타입은 자기 자신에 할당할 수 있으므로 유효함
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // 모든 타입은 any에 할당할 수 있으므로 유효함
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // 모든 타입은 unknown에 할당할 수 있으므로 유효함
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // 유효함. unknown은 자기 자신과 any에만 할당할 수 있음
+let e2: any = e; // 유효함
+let e3: number = e; // 유효하지 않음
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // never에는 어떤 값도 할당할 수 없으므로 유효하지 않음
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // void는 any 이외의 타입과 서로 할당할 수 없으므로 유효하지 않음
+g = g1; // 유효함
 ```
 
 "strictNullChecks"가 활성화된 경우 "null"과 "undefined"는 "void"와 비슷하게 취급되며, 그렇지 않으면 "never"와 비슷하게 취급된다는 점에 유의하세요.
@@ -1100,7 +1100,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // 유효함
 ```
 
 교집합 (T1 & T2)는 더 좁은 집합(공유되는 부분만)을 만듭니다.
@@ -1115,8 +1115,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // 유효하지 않음
+const j: XY = { a: 'a', b: 'b' }; // 유효함
 ```
 
 이 맥락에서 `extends` 키워드는 "부분집합"으로 생각할 수 있습니다. 이는 타입에 제약 조건을 설정합니다. `extends`를 제네릭과 함께 사용하면 제네릭 타입 매개변수를 더 구체적인 타입으로 제한합니다.
@@ -1150,7 +1150,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // 유효함
 ```
 
 ### 타입 지정하기: 타입 선언과 타입 단언
@@ -1166,7 +1166,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// 타입 선언
 const x: X = {
     a: 'a',
 };
@@ -1182,7 +1182,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // 오류: 객체 리터럴에는 알려진 프로퍼티만 지정할 수 있습니다
 };
 ```
 
@@ -1266,8 +1266,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // 구조적 타이핑으로 인해 유효함
+const w: X = { a: 'a', b: 'b' }; // 초과 프로퍼티 검사로 인해 유효하지 않음
 ```
 
 ### 약한 타입
@@ -1292,7 +1292,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // 유효하지 않음
 ```
 
 권장되지는 않지만 필요하다면 타입 단언을 사용하여 이 검사를 우회할 수 있습니다.
@@ -1303,7 +1303,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // 유효함
 ```
 
 또는 약한 타입의 인덱스 시그니처에 `unknown`을 추가할 수 있습니다.
@@ -1316,7 +1316,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // 유효함
 ```
 
 ### 엄격한 객체 리터럴 검사(Freshness)
@@ -1335,20 +1335,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // 신선도 검사: 유효하지 않은 할당
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // 신선도 검사: 유효하지 않은 할당
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // 타입 확장: 구조적으로 타입이 호환되므로 오류 없음
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // 신선도 검사: 유효하지 않은 인수
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // 타입 확장: 신선도 검사 없음
 ```
 
 ### 타입 추론
@@ -1363,7 +1363,7 @@ TypeScript는 다음 상황에서 어노테이션이 제공되지 않아도 타�
 예를 들면 다음과 같습니다.
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // 추론된 타입은 string
 ```
 
 TypeScript 컴파일러는 값이나 표현식을 분석하고 사용 가능한 정보를 바탕으로 타입을 결정합니다.
@@ -1373,19 +1373,19 @@ TypeScript 컴파일러는 값이나 표현식을 분석하고 사용 가능한 
 타입 추론에 여러 표현식이 사용되면 TypeScript는 "최적 공통 타입"을 찾습니다. 예를 들면 다음과 같습니다.
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // 추론된 타입: (string | number | null)[]
 ```
 
 컴파일러가 최적 공통 타입을 찾을 수 없으면 유니온 타입을 반환합니다. 예를 들면 다음과 같습니다.
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // 추론된 타입: (RegExp | Date)[]
 ```
 
 TypeScript는 변수의 위치를 바탕으로 "문맥적 타이핑"을 사용하여 타입을 추론합니다. 다음 예제에서 컴파일러는 다양한 일반 JavaScript 구문과 DOM의 앰비언트 선언이 들어 있는 lib.d.ts 파일에 정의된 `click` 이벤트 타입을 바탕으로 `e`가 `MouseEvent` 타입임을 압니다.
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // e의 추론된 타입은 MouseEvent
 ```
 
 ### 타입 넓히기
@@ -1395,9 +1395,9 @@ window.addEventListener('click', function (e) {}); // The inferred type of e is 
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript는 넓은 타입인 string으로 추론함
+let y: 'y' | 'x' = 'y'; // y의 타입은 리터럴 타입의 유니온
+y = x; // 유효하지 않음. 'string' 타입은 '"x" | "y"' 타입에 할당할 수 없습니다.
 ```
 
 TypeScript는 초기화할 때 제공된 단일 값(`x`)을 바탕으로 `x`에 `string`을 할당하며, 이는 타입 넓히기의 예입니다.
@@ -1411,9 +1411,9 @@ TypeScript는 예를 들어 "const"를 사용하여 타입 넓히기 과정을 �
 예를 들면 다음과 같습니다.
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript는 x의 타입을 더 좁은 타입인 'x'로 추론함
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // 유효함: x의 타입은 'x'로 추론됨
 ```
 
 `const`를 사용해 변수 x를 선언하면 타입이 특정 리터럴 값 'x'로 좁혀집니다. x의 타입이 좁혀졌으므로 오류 없이 변수 y에 할당할 수 있습니다.
@@ -1425,10 +1425,10 @@ TypeScript 버전 5.0부터 제네릭 타입 매개변수에 `const` 속성을 �
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // 여기서는 const를 사용하지 않음
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // 추론된 타입: { a: string; b: string; }
 ```
 
 보이는 것처럼 프로퍼티 `a`와 `b`는 `string` 타입으로 추론됩니다.
@@ -1437,10 +1437,10 @@ const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // 타입 매개변수에 const 한정자 사용
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // 추론된 타입: { a: "a"; b: "b"; }
 ```
 
 이제 프로퍼티 `a`와 `b`가 단순한 `string` 타입이 아니라 문자열 리터럴로 추론되는 것을 확인할 수 있습니다.
@@ -1471,7 +1471,7 @@ const v = {
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // readonly [1, 2, 3] 타입의 튜플
 ```
 
 ### 명시적 타입 어노테이션
@@ -1480,9 +1480,9 @@ const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // 추론된 타입: number (타입 확장)
 };
-v.x = 3; // Valid
+v.x = 3; // 유효함
 ```
 
 리터럴 타입의 유니온을 사용하면 타입 어노테이션을 더 구체적으로 만들 수 있습니다.
@@ -1490,10 +1490,10 @@ v.x = 3; // Valid
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // 이제 x는 리터럴 타입의 유니온: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // 유효함
+v.x = 100; // 유효하지 않음
 ```
 
 ### 타입 좁히기
@@ -1510,7 +1510,7 @@ v.x = 100; // Invalid
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // 조건에 의해 좁혀진 타입은 number
 }
 ```
 
@@ -1545,9 +1545,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // 타입은 A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // 타입은 B
     }
 };
 ```
@@ -1559,11 +1559,11 @@ TypeScript가 타입을 판별할 수 없는 경우에는 "사용자 정의 타�
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // 타입은 (string | null)[]이며 TypeScript가 타입을 올바르게 추론하지 못함
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // 사용자 정의 타입 가드
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // 타입 서술어를 사용하는 타입 가드로 타입을 좁혀 이제 타입은 올바른 string[]
 ```
 
 #### Switch-true 좁히기
@@ -1620,9 +1620,9 @@ TypeScript는 16진수, 2진수, 8진수도 지원합니다. 예를 들면 다�
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // 16진수는 0x로 시작
+const binary: number = 0b1010; // 2진수는 0b로 시작
+const octal: number = 0o633; // 8진수는 0o로 시작
 ```
 
 ### bigint
@@ -1675,17 +1675,17 @@ console.log(obj[b]); // 456
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // 유니온
 ```
 
 TypeScript는 다음 구문을 사용하여 읽기 전용 배열을 지원합니다.
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // 읽기 전용 한정자
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // 유효하지 않음
 ```
 
 TypeScript는 튜플과 읽기 전용 튜플을 지원합니다.
@@ -1754,7 +1754,7 @@ const sum = (a = 10, b: number): number => a + b;
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // 선택적 프로퍼티
 };
 ```
 
@@ -1801,7 +1801,7 @@ type K = {
 const k: K = { x: 'x', 1: 'b' };
 console.log(k['x']);
 console.log(k[1]);
-console.log(k['1']); // Same result as k[1]
+console.log(k['1']); // k[1]과 같은 결과
 ```
 
 JavaScript는 `number` 인덱스를 자동으로 `string` 인덱스로 변환하므로 `k[1]`과 `k["1"]`은 같은 값을 반환합니다.
@@ -1865,9 +1865,9 @@ TypeScript의 리터럴 타입에는 숫자, 문자열, 불리언이 있습니�
 리터럴의 예제는 다음과 같습니다.
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // 문자열 리터럴 타입
+const b = 1; // 숫자 리터럴 타입
+const c = true; // 불리언 리터럴 타입
 ```
 
 문자열, 숫자, 불리언 리터럴 타입은 유니온, 타입 가드, 타입 별칭에서 사용됩니다.
@@ -1884,8 +1884,8 @@ type O = 'a' | 'b' | 'c';
 다음 예제에서 TypeScript는 `x`의 값을 나중에 변경할 수 없으므로 이를 리터럴 타입으로 간주하는 반면, `y`는 나중에 언제든지 수정할 수 있으므로 string으로 추론합니다.
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // 이 값을 변경할 수 없으므로 리터럴 타입 'x'
+let y = 'y'; // 이 값을 변경할 수 있으므로 string 타입
 ```
 
 다음 예제에서 TypeScript는 값이 나중에 언제든지 변경될 수 있다고 간주하므로 `o.x`를 `string`으로(`a` 리터럴이 아니라) 추론합니다.
@@ -1895,12 +1895,12 @@ let y = 'y'; // Type string, as we can change this value
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // 더 넓은 string 타입
 };
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // 'string' 타입의 인수는 'X' 타입의 매개변수에 할당할 수 없습니다
 ```
 
 보이는 것처럼 X가 더 좁은 타입이므로 `o.x`를 `fn`에 전달할 때 코드에서 오류가 발생합니다.
@@ -1947,7 +1947,7 @@ TypeScript에서 숫자 열거형은 각 상수에 숫자 값이 할당되는 �
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // 값은 0부터 시작
     Medium,
     Large,
 }
@@ -2043,7 +2043,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // 인덱스 표현식의 타입이 'number'가 아니므로 요소는 암시적으로 'any' 타입입니다.
 ```
 
 ### 앰비언트 열거형
@@ -2055,23 +2055,23 @@ TypeScript의 앰비언트 열거형은 관련 구현 없이 선언 파일(*.d.t
 TypeScript에서 계산된 멤버는 런타임에 값이 계산되는 열거형 멤버이고, 상수 멤버는 컴파일 시간에 값이 설정되어 런타임에 변경할 수 없는 멤버입니다. 계산된 멤버는 일반 열거형에서 사용할 수 있으며, 상수 멤버는 일반 열거형과 const 열거형 모두에서 사용할 수 있습니다.
 
 ```typescript
-// Constant members
+// 상수 멤버
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6 컴파일 시 생성
 ```
 
 ```typescript
-// Computed members
+// 계산된 멤버
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // 런타임에 생성된 난수
 ```
 
 열거형은 멤버 타입으로 구성된 유니온으로 표현됩니다. 각 멤버의 값은 상수 표현식이나 비상수 표현식을 통해 결정할 수 있으며, 상숫값을 갖는 멤버에는 리터럴 타입이 할당됩니다. 예를 들어 타입 E와 그 하위 타입 E.A, E.B, E.C의 선언을 살펴보세요. 이 경우 E는 유니온 E.A | E.B | E.C를 나타냅니다.
@@ -2080,9 +2080,9 @@ console.log(Color.Blue); // random number generated at run time
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // 숫자 리터럴
+    B = 'bar', // 문자열 리터럴
+    C = identity(42), // 불투명한 계산값
 }
 
 console.log(E.C); //42
@@ -2101,7 +2101,7 @@ typeof 타입 가드는 내장 JavaScript 타입을 바탕으로 변수의 타�
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x는 number
     }
     return -1;
 };
@@ -2240,7 +2240,7 @@ const f2 = (
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // 오류. isString이 const가 아니므로 타입이 좁혀지지 않음
     }
 };
 
@@ -2250,7 +2250,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // 오류. 함수 본문에서 obj에 할당하므로 타입이 좁혀지지 않음
     }
 };
 ```
@@ -2285,12 +2285,12 @@ TypeScript의 판별 유니온은 판별자라고 하는 공통 프로퍼티를 
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // 판별자
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // 판별자
     radius: number;
 };
 
@@ -2323,7 +2323,7 @@ const printValue = (val: string | number) => {
     } else if (typeof val === 'number') {
         console.log(val.toFixed(2));
     } else {
-        // val has type never here because it can never be anything other than a string or a number
+        // val은 문자열 또는 숫자 이외의 값일 수 없으므로 여기서 타입은 never
         const neverVal: never = val;
         console.log(`Unexpected value: ${neverVal}`);
     }
@@ -2347,7 +2347,7 @@ const move = (direction: Direction) => {
             break;
         default:
             const exhaustiveCheck: never = direction;
-            console.log(exhaustiveCheck); // This line will never be executed
+            console.log(exhaustiveCheck); // 이 줄은 실행되지 않음
     }
 };
 ```
@@ -2402,7 +2402,7 @@ type Point = [number, number];
 type T = string;
 type Tuple1 = [T, T];
 type Tuple2 = [a: T, b: T];
-type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
+type Tuple3 = [a: T, T]; // 이름 있는 튜플과 이름 없는 튜플의 조합
 ```
 
 ## 고정 길이 튜플
@@ -2414,7 +2414,7 @@ type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // 오류
 ```
 
 ## 유니온 타입
@@ -2423,8 +2423,8 @@ x.push(2); // Error
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // 유효함
+x = 123; // 유효함
 ```
 
 ## 인터섹션 타입
@@ -2440,7 +2440,7 @@ type Y = {
     b: string;
 };
 
-type J = X & Y; // Intersection
+type J = X & Y; // 인터섹션
 
 const j: J = {
     a: 'a',
@@ -2457,7 +2457,7 @@ type Dictionary<T> = {
     [key: string]: T;
 };
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-console.log(myDict['a']); // Returns a
+console.log(myDict['a']); // a를 반환
 ```
 
 ## 값에서 타입 얻기
@@ -2465,7 +2465,7 @@ console.log(myDict['a']); // Returns a
 TypeScript에서 값으로부터 타입 얻기란 타입 추론을 통해 값이나 표현식에서 타입을 자동으로 추론하는 것을 의미합니다.
 
 ```typescript
-const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immutable), but widens it to 'string' with 'let' (reassignable).
+const x = 'x'; // TypeScript는 'const'(불변)를 사용하면 'x'를 문자열 리터럴로 추론하지만, 'let'(재할당 가능)을 사용하면 'string'으로 확장합니다.
 ```
 
 ## 함수 반환값에서 타입 얻기
@@ -2473,7 +2473,7 @@ const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immuta
 함수 반환값으로부터 타입 얻기란 함수의 구현을 바탕으로 반환 타입을 자동으로 추론하는 기능을 의미합니다. 이를 통해 TypeScript는 명시적인 타입 어노테이션 없이 함수가 반환하는 값의 타입을 결정할 수 있습니다.
 
 ```typescript
-const add = (x: number, y: number) => x + y; // TypeScript can infer that the return type of the function is a number
+const add = (x: number, y: number) => x + y; // TypeScript는 함수의 반환 타입을 number로 추론할 수 있음
 ```
 
 ## 모듈에서 타입 얻기
@@ -2486,7 +2486,7 @@ const add = (x: number, y: number) => x + y; // TypeScript can infer that the re
 export const add = (x: number, y: number) => x + y;
 // index.ts
 import { add } from 'calc';
-const r = add(1, 2); // r is number
+const r = add(1, 2); // r은 number
 ```
 
 ## 매핑된 타입
@@ -2522,11 +2522,11 @@ TypeScript의 매핑된 타입 수정자를 사용하면 기존 타입 내의 �
 예제:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // 모든 프로퍼티를 읽기 전용으로 표시
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // 모든 프로퍼티를 변경 가능으로 표시
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // 모든 프로퍼티를 선택적으로 표시
 ```
 
 ## 조건부 타입
@@ -2539,8 +2539,8 @@ type IsArray<T> = T extends any[] ? true : false;
 const myArray = [1, 2, 3];
 const myNumber = 42;
 
-type IsMyArrayAnArray = IsArray<typeof myArray>; // Type true
-type IsMyNumberAnArray = IsArray<typeof myNumber>; // Type false
+type IsMyArrayAnArray = IsArray<typeof myArray>; // true 타입
+type IsMyNumberAnArray = IsArray<typeof myNumber>; // false 타입
 ```
 
 ## 분배 조건부 타입
@@ -2606,8 +2606,8 @@ type ProductId = `id-${Products}-${Status}`; // "id-p1-active" | "id-p1-inactive
 
 ```typescript
 let value: any;
-value = true; // Valid
-value = 7; // Valid
+value = true; // 유효함
+value = 7; // 유효함
 ```
 
 ## Unknown 타입
@@ -2620,10 +2620,10 @@ TypeScript에서 `unknown` 타입은 타입을 알 수 없는 값을 나타냅�
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // 유효함
+let value2: any = value; // 유효함
+let value3: boolean = value; // 유효하지 않음
+let value4: number = value; // 유효하지 않음
 ```
 
 ```typescript
@@ -2652,7 +2652,7 @@ const sayHello = (): void => {
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // 작업 수행
     }
 };
 ```
@@ -2672,10 +2672,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // 위로 이동
             break;
         case 'down':
-            // move down
+            // 아래로 이동
             break;
         default:
             const exhaustiveCheck: never = direction;
@@ -2740,10 +2740,10 @@ TypeScript에서 타입은 데이터의 형태를 정의하고 타입 검사를 
 ### 기본 타입
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myNumber: number = 123; // number 타입
+let myBoolean: boolean = true; // boolean 타입
+let myArray: string[] = ['a', 'b']; // 문자열 배열
+let myTuple: [string, number] = ['a', 123]; // 튜플
 ```
 
 ### 객체와 인터페이스
@@ -2755,14 +2755,14 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### 유니온 타입과 인터섹션 타입
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // 유니온 타입
+let myUnion: MyType = 'hello'; // 문자열일 수 있음
+myUnion = 123; // 또는 숫자
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // 인터섹션 타입
+let myCombined: CombinedType = { name: 'John', age: 25 }; // name과 age 프로퍼티를 모두 가지는 객체
 ```
 
 ## 내장 원시 타입
@@ -2808,11 +2808,11 @@ TypeScript는 JavaScript의 상위 집합이며 일반적으로 사용되는 모
 TypeScript의 함수 오버로드를 사용하면 하나의 함수 이름에 여러 함수 시그니처를 정의할 수 있어, 여러 방식으로 호출할 수 있는 함수를 정의할 수 있습니다. 다음은 예제입니다.
 
 ```typescript
-// Overloads
+// 오버로드
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// 구현
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -2822,8 +2822,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // 유효함
+sayHi(['aa', 'bb']); // 유효함
 ```
 
 다음은 `class` 안에서 함수 오버로드를 사용하는 또 다른 예제입니다.
@@ -2836,11 +2836,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // 오버로드
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // 구현
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;
@@ -2959,7 +2959,7 @@ const c: B = {
 유니온 타입과 인터섹션 타입을 정의할 때는 타입 별칭이 더 유연합니다. `type` 키워드를 사용하면 `|` 연산자로 유니온 타입을, `&` 연산자로 인터섹션 타입을 쉽게 만들 수 있습니다. 인터페이스도 유니온 타입을 간접적으로 나타낼 수 있지만 인터섹션 타입을 기본적으로 지원하지 않습니다.
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // 유니온
 
 type Person = {
     name: string;
@@ -2971,7 +2971,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // 인터섹션
 ```
 
 인터페이스를 사용한 예제:
@@ -2984,7 +2984,7 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // 인터페이스의 유니온
 ```
 
 ## 클래스
@@ -3022,7 +3022,7 @@ TypeScript에서 클래스의 인스턴스를 만들려면 `new` 키워드 다�
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // 출력: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### 생성자
@@ -3126,10 +3126,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// 기본 클래스의 인스턴스를 직접 생성하려고 하면 오류 발생
+// const baseObj = new BaseClass(); // 오류: 'BaseClass' 클래스의 생성자는 protected입니다.
 
-// Create an instance of the derived class
+// 파생 클래스의 인스턴스 생성
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -3228,8 +3228,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // 생성자의 "private"와 "public" 키워드는
+        // 해당 클래스 프로퍼티를 자동으로 선언하고 초기화합니다.
     }
     public introduce(): void {
         console.log(
@@ -3264,7 +3264,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // 출력: Whiskers meows.
 ```
 
 ### 제네릭과 함께 사용하기
@@ -3352,7 +3352,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* 로그 출력:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -3377,7 +3377,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // 로그 출력: HELLO!
 ```
 
 #### 메서드 데코레이터
@@ -3459,10 +3459,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // 유효함: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // 예외 발생: Invalid!
 ```
 
 #### 데코레이터 메타데이터
@@ -3474,15 +3474,15 @@ console.log(obj2.getValue); // Throw: Invalid!
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // 간단한 폴리필
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // 컨텍스트는 metadata 프로퍼티를 포함함: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // 메타데이터 객체에 원시값 설정
     context.metadata[context.name] = true;
 }
 
@@ -3497,7 +3497,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // 메타데이터 정보 가져오기
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -3532,11 +3532,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// 기본 클래스의 인스턴스 생성
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// 파생 클래스의 인스턴스 생성
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -3626,7 +3626,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // 프로퍼티에 값을 명시적으로 할당할 필요가 없습니다.
     }
     log() {
         console.log(this.property2);
@@ -3642,8 +3642,8 @@ x.log();
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // 오버로드 시그니처 1
+    add(a: string, b: string): string; // 오버로드 시그니처 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -3657,7 +3657,7 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // 로그 출력 15
 ```
 
 ## 제네릭
@@ -3720,7 +3720,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // 유효하지 않음
 ```
 
 버전 3.4 RC에서 도입된 주목할 만한 제네릭 기능으로 제네릭 타입 인수를 전파하는 고차 함수 타입 추론이 있습니다.
@@ -3747,10 +3747,10 @@ const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // 값의 타입이 'string'으로 좁혀짐
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // 값의 타입이 'number'로 좁혀짐
         console.log(value.toFixed(2));
     }
 }
@@ -3778,7 +3778,7 @@ const obj = {
     prop1: 'Origin',
 };
 
-log(obj); // Valid
+log(obj); // 유효함
 ```
 
 ## 네임스페이스 지정
@@ -3862,7 +3862,7 @@ console.log(obj[key2]); // value 2
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // A와 B의 인터섹션
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -3888,7 +3888,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // 프로퍼티가 읽기 전용이 됨
 ```
 
 조건부 타입:
@@ -3971,7 +3971,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // 유효하지 않음
 ```
 
 #### Record\<K, T\>
@@ -4140,8 +4140,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // "log"가 "this"의 일부이므로 유효함.
+        this.update(); // 유효하지 않음
     },
 };
 ```
@@ -4185,23 +4185,23 @@ NoInfer는 제네릭 함수 범위 내에서 타입이 자동으로 추론되는
 예제:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// 제네릭 함수 범위 내에서 타입을 자동으로 추론합니다.
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // 여기서 타입은 ("a" | "b" | "c")[]
 ```
 
 NoInfer를 사용한 경우:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// NoInfer를 사용하여 타입 추론을 방지하는 함수 예제
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // 오류: '"c"' 타입의 타입 인수는 '"a" | "b"' 타입의 매개변수에 할당할 수 없습니다.
 ```
 
 ## 기타
@@ -4214,11 +4214,11 @@ Try-Catch-Finally 블록:
 
 ```typescript
 try {
-    // Code that might throw an error
+    // 오류가 발생할 수 있는 코드
 } catch (error) {
-    // Handle the error
+    // 오류 처리
 } finally {
-    // Code that always executes, finally is optional
+    // 항상 실행되는 코드. finally는 선택 사항
 }
 ```
 
@@ -4226,14 +4226,14 @@ try {
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // 다양한 타입의 오류가 발생할 수 있는 코드
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // TypeError 처리
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // RangeError 처리
     } else {
-        // Handle other errors
+        // 기타 오류 처리
     }
 }
 ```
@@ -4279,10 +4279,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// MyClass를 확장하여 Identifiable과 Selectable의 동작 포함
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// 클래스에 믹스인을 적용하는 함수
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -4297,7 +4297,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// MyClass에 믹스인 적용
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -4412,10 +4412,10 @@ JavaScript 코드베이스로 작업할 때 추가 어노테이션이 포함된 
 
 ```typescript
 /**
- * Computes the power of a given number
+ * 주어진 수의 거듭제곱을 계산
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – 식의 밑 값
+ * @param {number} exponent – 식의 지수 값
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -4511,7 +4511,7 @@ TypeScript에서는 `new.target` 메타 프로퍼티를 사용하여 함수나 �
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // 인스턴스 생성에 사용된 생성자 함수 로그 출력
     }
 }
 
@@ -4536,7 +4536,7 @@ TypeScript의 동적 import 표현식 구문은 다음과 같습니다.
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // 동적 임포트
         widget.render(container);
     }
 }
@@ -4848,8 +4848,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // 유효함
+produceDog = produceAnimal; // 오류
 ```
 
 **반공변성(값 소비):** 모든 `Animal`을 받는 함수는 `Dog`를 받는 함수가 필요한 곳에서 사용할 수 있습니다. 개도 처리할 수 있지만 개만 받는 함수는 모든 동물을 안전하게 처리할 수 없습니다.
@@ -4861,8 +4861,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // 유효함
+consumeAnimal = consumeDog; // strictFunctionTypes를 사용하면 오류
 ```
 
 화살표는 안전한 할당 방향을 나타냅니다.
@@ -4878,8 +4878,8 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // 허용되지만 안전하지 않음
+// 이제 dogs에는 Dog가 아닌 Animal이 포함됩니다.
 ```
 
 **컴파일러 옵션:** `strictFunctionTypes`를 사용하면 독립적인 함수의 매개변수를 반공변적으로 검사합니다. 사용하지 않으면 안전하지 않아도 양방향을 허용할 수 있습니다(양변성). 메서드와 생성자 선언의 매개변수는 예외입니다.
@@ -4932,37 +4932,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// `User`를 사용한 타입 주석
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// 다음 줄에서는 TypeScript가 올바르게 추론할 수 없음
+user.attributes?.map(console.log); // 'string | string[]' 타입에 'map' 프로퍼티가 없습니다. 'string' 타입에 'map' 프로퍼티가 없습니다.
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// `as`를 사용한 타입 단언
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// 여기서도 TypeScript가 올바르게 추론할 수 없음
+user2.attributes?.map(console.log); // 'string | string[]' 타입에 'map' 프로퍼티가 없습니다. 'string' 타입에 'map' 프로퍼티가 없습니다.
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// `satisfies` 연산자를 사용하면 이제 타입을 올바르게 추론할 수 있음
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript가 올바르게 추론함: string[]
+user3.nickName; // TypeScript가 올바르게 추론함: undefined
 ```
 
 ### 타입 전용 가져오기와 내보내기
@@ -5016,7 +5016,7 @@ export type { T } from './mod';
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // 간단한 폴리필
 
 const doWork = (): Disposable => {
     return {
@@ -5029,9 +5029,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // 리소스 선언
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // 리소스 해제(예: `work[Symbol.dispose]()` 실행)
 
 console.log(3);
 ```
@@ -5062,7 +5062,7 @@ interface Disposable {
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // `C`, `B`, `A` 순서로 해제합니다.
 ```
 
 이후 코드가 실행되거나 예외가 발생하더라도 리소스는 반드시 폐기됩니다. 이 과정에서 폐기 작업이 예외를 던져 다른 예외를 억제할 수 있습니다. 억제된 오류에 대한 정보를 유지하기 위해 새로운 네이티브 예외인 `SuppressedError`가 도입되었습니다.
@@ -5074,8 +5074,8 @@ interface Disposable {
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // 리소스 선언
+} // 리소스 해제(예: `await work[Symbol.asyncDispose]()` 실행)
 ```
 
 비동기적으로 폐기 가능한 리소스는 `Disposable` 또는 `AsyncDisposable` 인터페이스를 준수해야 합니다.
@@ -5090,12 +5090,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // 간단한 폴리필
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // 객체가 비동기적으로 해제될 때 호출되는 메서드
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // 연결을 닫고 프로미스 반환
         return this.close();
     }
 
@@ -5107,10 +5107,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // 새 연결을 생성하고 범위를 벗어나면 비동기적으로 해제
+    await using connection = new DatabaseConnection(); //  리소스 선언
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // 리소스 해제(예: `await connection[Symbol.asyncDispose]()` 실행)
 
 doWork();
 ```
@@ -5149,7 +5149,7 @@ TypeScript 5.5.4부터는 컴파일 시간에 정규 표현식 리터럴의 일�
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // 오류: 이 역참조는 존재하지 않는 그룹을 참조합니다.
 ```
 
 ### import defer

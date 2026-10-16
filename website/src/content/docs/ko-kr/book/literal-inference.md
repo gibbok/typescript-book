@@ -11,8 +11,8 @@ sidebar:
 다음 예제에서 TypeScript는 `x`의 값을 나중에 변경할 수 없으므로 이를 리터럴 타입으로 간주하는 반면, `y`는 나중에 언제든지 수정할 수 있으므로 string으로 추론합니다.
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // 이 값을 변경할 수 없으므로 리터럴 타입 'x'
+let y = 'y'; // 이 값을 변경할 수 있으므로 string 타입
 ```
 
 다음 예제에서 TypeScript는 값이 나중에 언제든지 변경될 수 있다고 간주하므로 `o.x`를 `string`으로(`a` 리터럴이 아니라) 추론합니다.
@@ -22,12 +22,12 @@ let y = 'y'; // Type string, as we can change this value
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // 더 넓은 string 타입
 };
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // 'string' 타입의 인수는 'X' 타입의 매개변수에 할당할 수 없습니다
 ```
 
 보이는 것처럼 X가 더 좁은 타입이므로 `o.x`를 `fn`에 전달할 때 코드에서 오류가 발생합니다.

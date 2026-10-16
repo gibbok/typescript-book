@@ -418,7 +418,7 @@ Operator '+' cannot be applied to types 'number' and 'boolean'.
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // Аргумент от тип 'string' не може да се присвои на параметър от тип 'number'.
 ```
 
 Въпреки това, TypeScript все още може да генерира изпълним JavaScript код:
@@ -455,11 +455,11 @@ const makeNoise = (animal: Animal) => {
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Дискриминирано обединение
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Дискриминирано обединение
     meow: () => void;
 }
 type Animal = Dog | Cat;
@@ -613,9 +613,9 @@ tsc --init
 Ето няколко примера за CLI команди, които се изпълняват с настройките по подразбиране:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // Компилиране на конкретен файл (main.ts) до JavaScript
+tsc src/*.ts // Компилиране на всички .ts файлове в папката 'src' до JavaScript
+tsc app.ts util.ts --outfile index.js // Компилиране на два TypeScript файла (app.ts и util.ts) в един JavaScript файл (index.js)
 ```
 
 ### Конфигурационен файл на TypeScript
@@ -897,22 +897,22 @@ y('a', 1);
 Сравнението на параметрите на функциите е успешно, ако изходните и целевите параметри могат да бъдат присвоени към супертипове или подтипове (bivariance).
 
 ```typescript
-// Supertype
+// Надтип
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// Подтип
 class Y extends X {}
-// Subtype
+// Подтип
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
+// Бивариантността допуска надтипове
 console.log(getA(new X('x'))); // Валидно
 console.log(getA(new Y('Y'))); // Валидно
 console.log(getA(new Z('z'))); // Валидно
@@ -1180,7 +1180,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // Грешка: обектният литерал може да съдържа само известни свойства
 };
 ```
 
@@ -1394,7 +1394,7 @@ window.addEventListener('click', function (e) {}); // Типът, който с�
 <!-- skip -->
 ```typescript
 let x = 'x'; // TypeScript извежда като string, широк тип
-let y: 'y' | 'x' = 'y'; // Типът на y е "union" на литерални типове
+let y: 'y' | 'x' = 'y'; // Типът на y е обединение на литерални типове
 y = x; // Невалиден Тип 'string' не може да бъде присвоен на типа '"x" | "y"'.
 ```
 
@@ -1434,7 +1434,7 @@ const values = identity({ a: 'a', b: 'b' }); // Изведения тип е: { 
 
 ```typescript
 function identity<const T>(value: T) {
-    // Използване на const modifier върху type параметри
+    // Използване на модификатора const върху параметри на типове
     return value;
 }
 const values = identity({ a: 'a', b: 'b' }); // Изведения тип е: { a: "a"; b: "b"; }
@@ -1468,7 +1468,7 @@ const v = {
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple от readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // Кортеж readonly [1, 2, 3]
 ```
 
 ### Явна типова анотация
@@ -1558,9 +1558,9 @@ const data = ['a', null, 'c', 'd', null, 'f'];
 
 const r1 = data.filter(x => x != null); // Типът е (string | null)[], TypeScript не успя да определи типа правилно
 
-const isValid = (item: string | null): item is string => item !== null; // Потребителски type guard
+const isValid = (item: string | null): item is string => item !== null; // Потребителска защита на тип
 
-const r2 = data.filter(isValid); // Типът вече е string[], като използвахме predicate type guard успяхме да стесним типа
+const r2 = data.filter(isValid); // Типът вече е string[], като чрез предикат за защита на тип успяхме да го стесним
 ```
 
 #### Switch-true narrowing
@@ -1672,14 +1672,14 @@ console.log(obj[b]); // 456
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // Обединение
 ```
 
 TypeScript поддържа readonly масиви чрез следния синтаксис:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly модификатор
+const x: readonly string[] = ['a', 'b']; // Модификатор readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
 j.push('x'); // Невалидно
@@ -1862,9 +1862,9 @@ Literal types в TypeScript са числа, низове и булеви сто
 Пример за literal стойности:
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // Низов литерален тип
+const b = 1; // Числов литерален тип
+const c = true; // Булев литерален тип
 ```
 
 String, Numeric и Boolean literal types се използват в unions, type guards и type aliases.
@@ -1881,7 +1881,7 @@ Literal inference е функционалност в TypeScript, която по
 В следния пример може да се види, че TypeScript счита `x` за literal type, тъй като стойността не може да бъде променяна по-късно, докато `y` се извежда като string, тъй като може да бъде променяна:
 
 ```typescript
-const x = 'x'; // Типът на 'x' е literal type, тъй като тази стойност не може да бъде променена
+const x = 'x'; // Типът на 'x' е литерален тип, тъй като тази стойност не може да бъде променена
 let y = 'y'; // Типът е string, тъй като тази стойност може да бъде променена
 ```
 
@@ -1897,7 +1897,7 @@ let o = {
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // Аргумент от тип 'string' не може да се присвои на параметър от тип 'X'
 ```
 
 Както се вижда, кодът хвърля грешка при подаване на `o.x` към `fn`, тъй като `X` е по-тесен тип.
@@ -2040,7 +2040,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // Елементът неявно има тип 'any', защото индексният израз не е от тип 'number'.
 ```
 
 ### Ambient enums
@@ -2399,7 +2399,7 @@ Tuple типовете могат да включват опционални е�
 type T = string;
 type Tuple1 = [T, T];
 type Tuple2 = [a: T, b: T];
-type Tuple3 = [a: T, T]; // Именуван Tuple тип плюс анонимен Tuple тип
+type Tuple3 = [a: T, T]; // Именуван кортеж плюс анонимен кортеж
 ```
 
 ## Tuple с фиксирана дължина
@@ -2411,7 +2411,7 @@ Tuple с фиксирана дължина са полезни, когато т�
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // Грешка
 ```
 
 ## Union тип
@@ -2437,7 +2437,7 @@ type Y = {
     b: string;
 };
 
-type J = X & Y; // Intersection
+type J = X & Y; // Сечение
 
 const j: J = {
     a: 'a',
@@ -2462,7 +2462,7 @@ console.log(myDict['a']); // Връща a
 Type from Value в TypeScript се отнася до автоматичното извеждане на тип от стойност или израз чрез type inference.
 
 ```typescript
-const x = 'x'; // TypeScript извежда 'x' като string literal с 'const' (immutable), но го разширява до 'string' с 'let' (reassignable).
+const x = 'x'; // TypeScript извежда 'x' като низов литерал с 'const' (неизменяем), но го разширява до 'string' с 'let' (може да се присвоява повторно).
 ```
 
 ## Тип от резултат на функция
@@ -2649,7 +2649,7 @@ const sayHello = (): void => {
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // извършване на действие
     }
 };
 ```
@@ -2669,10 +2669,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // движение нагоре
             break;
         case 'down':
-            // move down
+            // движение надолу
             break;
         default:
             const exhaustiveCheck: never = direction;
@@ -2740,7 +2740,7 @@ type TypeName = {
 let myNumber: number = 123; // number тип
 let myBoolean: boolean = true; // boolean тип
 let myArray: string[] = ['a', 'b']; // масив от string
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myTuple: [string, number] = ['a', 123]; // кортеж
 ```
 
 ### Обекти и Interfaces
@@ -2752,13 +2752,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Union и Intersection типове
 
 ```typescript
-type MyType = string | number; // Union тип
+type MyType = string | number; // Тип обединение
 let myUnion: MyType = 'hello'; // Може да бъде string
 myUnion = 123; // Или number
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection тип
+type CombinedType = TypeA & TypeB; // Тип сечение
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Обект със свойства name и age
 ```
 
@@ -2805,11 +2805,11 @@ TypeScript е надмножество (superset) на JavaScript и включ�
 Function overloads в TypeScript позволяват да дефинирате множество сигнатури на функция за едно и също име на функция, което позволява тя да бъде извиквана по различни начини. Ето пример:
 
 ```typescript
-// Overloads
+// Претоварвания
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// Реализация
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -2833,11 +2833,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // претоварване
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // реализация
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;
@@ -2956,7 +2956,7 @@ Union и Intersection типове:
 Types са по-гъвкави при дефиниране на Union и Intersection типове. С ключовата дума `type` можете лесно да създавате union типове чрез оператора `|` и intersection типове чрез оператора `&`. Докато interfaces могат индиректно да представят union типове, те нямат вградена поддръжка за intersection типове.
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // Обединение
 
 type Person = {
     name: string;
@@ -2968,7 +2968,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // Сечение
 ```
 
 Пример с interfaces:
@@ -2981,7 +2981,7 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union от interfaces
+type C = A | B; // Обединение на интерфейси
 ```
 
 ## Class
@@ -3019,7 +3019,7 @@ class Person {
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // Изход: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Constructor
@@ -3124,7 +3124,7 @@ class DerivedClass extends BaseClass {
 }
 
 // Опит за директно създаване на инстанция на базовия клас ще доведе до грешка
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// const baseObj = new BaseClass(); // Грешка: конструкторът на класа 'BaseClass' е защитен.
 
 // Създаване на инстанция на наследения клас
 const derivedObj = new DerivedClass(10);
@@ -3261,7 +3261,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // Изход: Whiskers meows.
 ```
 
 ### С generics
@@ -3349,7 +3349,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* Извежда:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -3374,7 +3374,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // Извежда: HELLO!
 ```
 
 #### Method Decorator
@@ -3459,7 +3459,7 @@ const obj = new MyClass(10);
 console.log(obj.getValue); // Валидно: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Невалидно!
+console.log(obj2.getValue); // Хвърля изключение: Невалидно!
 ```
 
 #### Metadata за декоратори
@@ -3471,15 +3471,15 @@ Metadata може да се използва за различни цели, к�
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Прост polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Прост полифил
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context съдържа metadata за свойства: DecoratorMetadata
+    | ClassMethodDecoratorContext; // Контекстът съдържа метаданни за свойства: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Задава metadata обект с примитивна стойност
+    // Задава обект с метаданни с примитивна стойност
     context.metadata[context.name] = true;
 }
 
@@ -3494,7 +3494,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Взима metadata информация
+const metadata = MyClass[Symbol.metadata]; // Получава метаданни
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -3639,8 +3639,8 @@ Method overloading позволява на един клас да има мно�
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // Сигнатура на претоварване 1
+    add(a: string, b: string): string; // Сигнатура на претоварване 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -3654,7 +3654,7 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // Извежда 15
 ```
 
 ## Generics
@@ -3859,7 +3859,7 @@ Intersection типове (`&`):
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // Сечение на A и B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -3885,7 +3885,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Свойствата стават read-only
+type ImmutablePerson = Mutable<Person>; // Свойствата стават достъпни само за четене
 ```
 
 Условни типове:
@@ -4137,7 +4137,7 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Валидно as "log" is a part of "this".
+        this.log('some error'); // Валидно, тъй като "log" е част от "this".
         this.update(); // Невалидно
     },
 };
@@ -4182,23 +4182,23 @@ NoInfer е utility тип, създаден да блокира автомати
 Пример:
 
 ```typescript
-// Автоматично извеждане на типове в generic функция
+// Автоматично извеждане на типове в обобщена функция
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // Типът тук е ("a" | "b" | "c")[]
 ```
 
 С NoInfer:
 
 <!-- skip -->
 ```typescript
-// Примерна функция, която използва NoInfer, за да предотврати type inference
+// Примерна функция, която използва NoInfer, за да предотврати извеждането на типове
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // Грешка: аргумент от тип '"c"' не може да се присвои на параметър от тип '"a" | "b"'.
 ```
 
 ## Други
@@ -4279,7 +4279,7 @@ class MyClass {
 // Разширяване на MyClass с поведението на Identifiable и Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Функция за прилагане на mixins към клас
+// Функция за прилагане на миксини към клас
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -4294,7 +4294,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Прилагане на mixins към MyClass
+// Прилагане на миксини към MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -4508,7 +4508,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // Извежда функцията конструктор, използвана за създаване на екземпляр
     }
 }
 
@@ -4533,7 +4533,7 @@ const child = new Child(); // [Function: Child]
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // Динамично импортиране
         widget.render(container);
     }
 }
@@ -4845,8 +4845,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // Валидно
+produceDog = produceAnimal; // Грешка
 ```
 
 **Контравариантност (приемане на стойности):** функция, която приема всеки `Animal`, може да замени функция, приемаща `Dog`. Тя обработва и кучета; функция само за кучета не може безопасно да обработва всички животни.
@@ -4858,8 +4858,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // Валидно
+consumeAnimal = consumeDog; // Грешка при включен strictFunctionTypes
 ```
 
 Стрелките показват посоката на безопасното присвояване:
@@ -4875,8 +4875,8 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // Позволено, но небезопасно
+// dogs вече съдържа Animal, който не е Dog.
 ```
 
 **Настройка на компилатора:** с `strictFunctionTypes` параметрите на самостоятелните функции се проверяват контравариантно. Без тази настройка TypeScript може да позволи и двете посоки (бивариантност), макар да е опасно. Параметрите в декларации на методи и конструктори са изключение.
@@ -4913,7 +4913,7 @@ const obj: MyObject = {
     'key-b': 456,
 };
 
-console.log(obj[uniqueSymbol]); // Unique symbol key
+console.log(obj[uniqueSymbol]); // Ключ с уникален символ
 console.log(obj['key-a']); // 123
 console.log(obj['key-b']); // 456
 ```
@@ -4929,37 +4929,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// Анотация на тип чрез `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// В следните редове TypeScript няма да може да направи правилно inference
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// В следните редове TypeScript няма да може да изведе правилно типовете
+user.attributes?.map(console.log); // Свойството 'map' не съществува в типа 'string | string[]'. Свойството 'map' не съществува в типа 'string'.
 user.nickName; // string | string[] | undefined
 
-// Type assertion с `as`
+// Твърдение за тип с `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// И тук TypeScript няма да може да направи правилно inference
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// И тук TypeScript няма да може да изведе правилно типовете
+user2.attributes?.map(console.log); // Свойството 'map' не съществува в типа 'string | string[]'. Свойството 'map' не съществува в типа 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Използвайки `satisfies` операторите, можем да направим правилно inference на типовете
+// Използвайки оператора `satisfies`, вече можем да изведем правилно типовете
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript инферира правилно: string[]
-user3.nickName; // TypeScript инферира правилно: undefined
+user3.attributes?.map(console.log); // TypeScript извежда правилно: string[]
+user3.nickName; // TypeScript извежда правилно: undefined
 ```
 
 ### Type-Only Imports и Export
@@ -5013,7 +5013,7 @@ export type { T } from './mod';
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Прост полифил
 
 const doWork = (): Disposable => {
     return {
@@ -5026,9 +5026,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // Ресурсът е деклариран
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // Ресурсът е освободен (например се изпълнява `work[Symbol.dispose]()`)
 
 console.log(3);
 ```
@@ -5059,7 +5059,7 @@ interface Disposable {
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // освобождава `C`, после `B`, после `A`.
 ```
 
 Resources се гарантира, че ще бъдат disposed, дори ако последващ код или exception възникне. Това може да доведе до ситуация, в която disposal хвърля exception, който може да suppress-не друг. За да се запази информация за suppressed errors, се въвежда нов native exception `SuppressedError`.
@@ -5071,8 +5071,8 @@ Resources се гарантира, че ще бъдат disposed, дори ак�
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // Ресурсът е деклариран
+} // Ресурсът е освободен (например се изпълнява `await work[Symbol.asyncDispose]()`)
 ```
 
 За да бъде ресурсът асинхронно освобождаем, той трябва да отговаря на интерфейса `Disposable` или `AsyncDisposable`:
@@ -5087,12 +5087,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Прост полифил
 
 class DatabaseConnection implements AsyncDisposable {
     // Метод, който се извиква, когато обектът се унищожава асинхронно
     [Symbol.asyncDispose]() {
-        // Затваряне на връзката и връщане на promise
+        // Затваряне на връзката и връщане на обещание
         return this.close();
     }
 
@@ -5105,9 +5105,9 @@ class DatabaseConnection implements AsyncDisposable {
 
 async function doWork() {
     // Създаване на нова връзка и асинхронно освобождаване, когато излезе от обхвата
-    await using connection = new DatabaseConnection(); //  Resource е деклариран
+    await using connection = new DatabaseConnection(); //  Ресурсът е деклариран
     console.log('Doing some work...');
-} // Resource е освободен (например, `await connection[Symbol.asyncDispose]()` се извиква)
+} // Ресурсът е освободен (например се извиква `await connection[Symbol.asyncDispose]()`)
 
 doWork();
 ```
@@ -5146,7 +5146,7 @@ const config = import('./config.json', { with: { type: 'json' } });
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // Грешка: тази обратна препратка сочи към несъществуваща група.
 ```
 
 ### import defer

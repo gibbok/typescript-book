@@ -34,7 +34,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // Platné
 ```
 
 ### Základní pravidla porovnávání v TypeScriptu
@@ -47,7 +47,7 @@ Typ „X“ je kompatibilní s „Y“, pokud má „Y“ alespoň stejné člen
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // Platné, protože obsahuje alespoň stejné členy jako X
 const r: X = y;
 ```
 
@@ -58,8 +58,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Platné
+x = y; // Platné
 ```
 
 Návratové typy funkcí musí být stejné:
@@ -70,8 +70,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // Neplatné
+x = y; // Neplatné
 ```
 
 Návratový typ zdrojové funkce musí být podtypem návratového typu cílové funkce:
@@ -80,8 +80,8 @@ Návratový typ zdrojové funkce musí být podtypem návratového typu cílové
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // Platné
+y = x; // Neplatné, chybí člen b
 ```
 
 Vynechání parametrů funkce je povoleno, protože jde o běžnou praxi v JavaScriptu, například při použití „Array.prototype.map()“:
@@ -96,8 +96,8 @@ Proto jsou následující deklarace typů zcela platné:
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // Chybí parametr b
+y = x; // Platné
 ```
 
 Jakékoli další volitelné parametry zdrojového typu jsou platné:
@@ -107,8 +107,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // Platné
+x = y; //Platné
 ```
 
 Jakékoli volitelné parametry cílového typu bez odpovídajících parametrů ve zdrojovém typu jsou platné a nepředstavují chybu:
@@ -118,15 +118,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Platné
+x = y; // Platné
 ```
 
 Se zbytkovým parametrem se zachází jako s nekonečnou řadou volitelných parametrů:
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //platné
 ```
 
 Funkce s přetížením jsou platné, pokud je signatura přetížení kompatibilní se signaturou implementace:
@@ -138,10 +138,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // Platné
+x('a', 1); // Platné
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // Neplatné, nekompatibilní se signaturou implementace
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -153,25 +153,25 @@ y('a', 1);
 Porovnání parametrů funkcí uspěje, pokud jsou zdrojové a cílové parametry přiřaditelné nadtypům nebo podtypům (bivariance).
 
 ```typescript
-// Supertype
+// Nadtyp
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// Podtyp
 class Y extends X {}
-// Subtype
+// Podtyp
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// Bivariance připouští nadtypy
+console.log(getA(new X('x'))); // Platné
+console.log(getA(new Y('Y'))); // Platné
+console.log(getA(new Z('z'))); // Platné
 ```
 
 Výčtové typy lze porovnávat s čísly a naopak a takové porovnání je platné, ale porovnání hodnot různých výčtových typů je neplatné.
@@ -187,9 +187,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // Platné
+const ya: Y = 0; // Platné
+X.A === Y.A; // Neplatné
 ```
 
 U instancí třídy se kontroluje kompatibilita jejich soukromých a chráněných členů:
@@ -210,7 +210,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // Neplatné
 ```
 
 Kontrola při porovnávání nezohledňuje odlišnou hierarchii dědičnosti, například:
@@ -238,8 +238,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // Platné
+x === z; // Platné, i když z pochází z jiné hierarchie dědičnosti
 ```
 
 Generické typy se porovnávají podle struktury výsledného typu po uplatnění generického parametru; porovnává se pouze konečný výsledek jako negenerický typ.
@@ -251,14 +251,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // Neplatné, protože se argument typu používá ve výsledné struktuře
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // Platné, protože se argument typu nepoužívá ve výsledné struktuře
 ```
 
 Pokud generické typy nemají určený typový argument, se všemi neurčenými argumenty se zachází jako s typem „any“:
@@ -268,7 +268,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // Platné
 ```
 
 Pamatujte:
@@ -277,26 +277,26 @@ Pamatujte:
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // Platné, každý typ lze přiřadit sám sobě
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // Platné, všechny typy lze přiřadit typu any
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // Platné, všechny typy lze přiřadit typu unknown
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // Platné, unknown lze přiřadit pouze sobě a typu any
+let e2: any = e; // Platné
+let e3: number = e; // Neplatné
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // Neplatné, typu never nelze nic přiřadit
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // Neplatné, void nelze přiřadit žádnému typu a žádný typ nelze přiřadit typu void kromě any
+g = g1; // Platné
 ```
 
 Poznamenejme, že při zapnuté volbě „strictNullChecks“ se s „null“ a „undefined“ zachází podobně jako s „void“; jinak jsou podobné typu „never“.
@@ -354,7 +354,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // Platné
 ```
 
 Průnik (T1 & T2) vytváří užší množinu (pouze společné prvky):
@@ -369,8 +369,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // Neplatné
+const j: XY = { a: 'a', b: 'b' }; // Platné
 ```
 
 Klíčové slovo `extends` lze v tomto kontextu chápat jako „je podmnožinou“. Nastavuje omezení pro typ. Při použití s generickým typem omezuje `extends` generický typový parametr na konkrétnější typ.
@@ -404,7 +404,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // Platné
 ```
 
 ### Přiřazení typu: deklarace typů a přetypování
@@ -420,7 +420,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// Deklarace typu
 const x: X = {
     a: 'a',
 };
@@ -436,7 +436,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // Chyba: objektový literál může obsahovat pouze známé vlastnosti
 };
 ```
 
@@ -520,8 +520,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // Platné díky strukturálnímu typování
+const w: X = { a: 'a', b: 'b' }; // Neplatné kvůli kontrole nadbytečných vlastností
 ```
 
 ### Slabé typy
@@ -546,7 +546,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // Neplatné
 ```
 
 Ačkoli se to nedoporučuje, v případě potřeby lze tuto kontrolu obejít pomocí přetypování:
@@ -557,7 +557,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // Platné
 ```
 
 Nebo přidáním `unknown` do indexové signatury slabého typu:
@@ -570,7 +570,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // Platné
 ```
 
 ### Přísná kontrola objektových literálů (čerstvost)
@@ -589,20 +589,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // Kontrola čerstvosti: neplatné přiřazení
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // Kontrola čerstvosti: neplatné přiřazení
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // Rozšíření: bez chyb, typy jsou strukturálně kompatibilní
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // Kontrola čerstvosti: neplatný argument
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // Rozšíření: bez kontroly čerstvosti
 ```
 
 ### Odvozování typů
@@ -617,7 +617,7 @@ Pokud není uvedena anotace, TypeScript dokáže odvodit typy při:
 Například:
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // Odvozený typ je string
 ```
 
 Kompilátor TypeScriptu analyzuje hodnotu nebo výraz a určuje jejich typ na základě dostupných informací.
@@ -627,19 +627,19 @@ Kompilátor TypeScriptu analyzuje hodnotu nebo výraz a určuje jejich typ na z�
 Pokud se při odvozování typů používá více výrazů, TypeScript hledá „nejlepší společné typy“. Například:
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // Odvozený typ je: (string | number | null)[]
 ```
 
 Pokud kompilátor nemůže najít nejlepší společné typy, vrátí sjednocení typů. Například:
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // Odvozený typ je: (RegExp | Date)[]
 ```
 
 TypeScript k odvozování typů využívá „kontextové typování“ podle umístění proměnné. V následujícím příkladu kompilátor ví, že `e` je typu `MouseEvent`, díky typu události `click` definovanému v souboru lib.d.ts, který obsahuje ambientní deklarace různých běžných konstrukcí JavaScriptu a DOM:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // Odvozený typ e je MouseEvent
 ```
 
 ### Rozšiřování typů
@@ -649,9 +649,9 @@ V následujícím příkladu:
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript odvodí široký typ string
+let y: 'y' | 'x' = 'y'; // Typ y je sjednocením literálových typů
+y = x; // Neplatné: typ 'string' nelze přiřadit typu '"x" | "y"'.
 ```
 
 TypeScript přiřazuje `string` proměnné `x` na základě jediné hodnoty uvedené při inicializaci (`x`); jde o příklad rozšiřování.
@@ -665,9 +665,9 @@ Použití klíčového slova `const` při deklaraci proměnné vede v TypeScript
 Například:
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript odvodí pro x užší typ 'x'
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // Platné: typ x je odvozen jako 'x'
 ```
 
 Použitím `const` k deklaraci proměnné x se její typ zúží na konkrétní literálovou hodnotu 'x'. Protože je typ x zúžen, lze ji bez chyby přiřadit proměnné y.
@@ -679,10 +679,10 @@ Od verze TypeScriptu 5.0 lze u generického typového parametru uvést atribut `
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // Zde není const
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // Odvozený typ je: { a: string; b: string; }
 ```
 
 Jak vidíte, u vlastností `a` a `b` je odvozen typ `string`.
@@ -691,10 +691,10 @@ Nyní se podívejme na rozdíl oproti verzi s `const`:
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // Použití modifikátoru const u parametrů typu
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // Odvozený typ je: { a: "a"; b: "b"; }
 ```
 
 Nyní vidíme, že vlastnosti `a` a `b` jsou odvozeny jako řetězcové literály, nikoli pouze jako typy `string`.
@@ -725,7 +725,7 @@ To může být obzvláště užitečné při definování typu n-tice:
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // N-tice readonly [1, 2, 3]
 ```
 
 ### Explicitní typová anotace
@@ -734,9 +734,9 @@ Můžeme být konkrétní a uvést typ. V následujícím příkladu je vlastnos
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // Odvozený typ: number (rozšíření)
 };
-v.x = 3; // Valid
+v.x = 3; // Platné
 ```
 
 Typovou anotaci můžeme zpřesnit pomocí sjednocení literálových typů:
@@ -744,10 +744,10 @@ Typovou anotaci můžeme zpřesnit pomocí sjednocení literálových typů:
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // x je nyní sjednocením literálových typů: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // Platné
+v.x = 100; // Neplatné
 ```
 
 ### Zužování typů
@@ -764,7 +764,7 @@ Pomocí podmíněných příkazů, jako je `if` nebo `switch`, může TypeScript
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // Typ je number, zúžený podmínkou
 }
 ```
 
@@ -799,9 +799,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // typ je A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // typ je B
     }
 };
 ```
@@ -813,11 +813,11 @@ V případech, kdy TypeScript nedokáže určit typ, lze napsat pomocnou funkci 
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // Typ je (string | null)[], TypeScript nedokázal správně odvodit typ
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // Vlastní strážce typu
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // Typ je nyní správně string[], pomocí typového predikátu se podařilo typ zúžit
 ```
 
 #### Zužování pomocí switch-true

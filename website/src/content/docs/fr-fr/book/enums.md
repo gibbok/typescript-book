@@ -24,7 +24,7 @@ Dans TypeScript, une énumération numérique est une énumération dans laquell
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // la valeur commence à 0
     Medium,
     Large,
 }
@@ -120,7 +120,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // L'élément a implicitement le type 'any', car l'expression d'index n'est pas de type 'number'.
 ```
 
 ### Énumérations ambiantes
@@ -132,23 +132,23 @@ Dans TypeScript, une énumération ambiante est un type d’énumération défin
 Dans TypeScript, un membre calculé est un membre d’une énumération dont la valeur est calculée lors de l’exécution, tandis qu’un membre constant est un membre dont la valeur est définie au moment de la compilation et ne peut pas être modifiée lors de l’exécution. Les membres calculés sont autorisés dans les énumérations classiques, tandis que les membres constants sont autorisés à la fois dans les énumérations classiques et constantes.
 
 ```typescript
-// Constant members
+// Membres constants
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6 généré à la compilation
 ```
 
 ```typescript
-// Computed members
+// Membres calculés
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // nombre aléatoire généré à l'exécution
 ```
 
 Les énumérations sont représentées par des unions composées des types de leurs membres. La valeur de chaque membre peut être déterminée au moyen d’expressions constantes ou non constantes, les membres possédant des valeurs constantes recevant des types littéraux. Pour illustrer cela, considérons la déclaration du type E et de ses sous-types E.A, E.B et E.C. Dans ce cas, E représente l’union E.A | E.B | E.C.
@@ -157,9 +157,9 @@ Les énumérations sont représentées par des unions composées des types de le
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // Littéral numérique
+    B = 'bar', // Littéral de chaîne
+    C = identity(42), // Valeur calculée opaque
 }
 
 console.log(E.C); //42

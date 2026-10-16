@@ -10,7 +10,7 @@ Birleşim Türü, birkaç türden biri olabilen bir değeri temsil eden türdür
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // Geçerli
+x = 123; // Geçerli
 ```
 

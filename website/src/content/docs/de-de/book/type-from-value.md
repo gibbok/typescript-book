@@ -9,6 +9,6 @@ sidebar:
 Ein Typ aus einem Wert bezeichnet in TypeScript die automatische Ableitung eines Typs aus einem Wert oder Ausdruck durch Typinferenz.
 
 ```typescript
-const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immutable), but widens it to 'string' with 'let' (reassignable).
+const x = 'x'; // TypeScript leitet 'x' mit 'const' als String-Literal ab (unveränderlich), erweitert den Typ mit 'let' jedoch zu 'string' (neu zuweisbar).
 ```
 

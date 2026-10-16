@@ -34,7 +34,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // Gültig
 ```
 
 ### Grundlegende Vergleichsregeln von TypeScript
@@ -47,7 +47,7 @@ Ein Typ „X“ ist mit „Y“ kompatibel, wenn „Y“ mindestens dieselben El
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // Gültig, da mindestens dieselben Member wie in X vorhanden sind
 const r: X = y;
 ```
 
@@ -58,8 +58,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Gültig
+x = y; // Gültig
 ```
 
 Die Rückgabetypen von Funktionen müssen identisch sein:
@@ -70,8 +70,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // Ungültig
+x = y; // Ungültig
 ```
 
 Der Rückgabetyp einer Quellfunktion muss ein Untertyp des Rückgabetyps einer Zielfunktion sein:
@@ -80,8 +80,8 @@ Der Rückgabetyp einer Quellfunktion muss ein Untertyp des Rückgabetyps einer Z
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // Gültig
+y = x; // Ungültig, Member b fehlt
 ```
 
 Das Verwerfen von Funktionsparametern ist zulässig, da dies in JavaScript gängige Praxis ist, beispielsweise bei der Verwendung von „Array.prototype.map()“:
@@ -96,8 +96,8 @@ Daher sind die folgenden Typdeklarationen vollständig gültig:
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // Parameter b fehlt
+y = x; // Gültig
 ```
 
 Alle zusätzlichen optionalen Parameter des Quelltyps sind gültig:
@@ -107,8 +107,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // Gültig
+x = y; //Gültig
 ```
 
 Alle optionalen Parameter des Zieltyps ohne entsprechende Parameter im Quelltyp sind gültig und stellen keinen Fehler dar:
@@ -118,15 +118,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Gültig
+x = y; // Gültig
 ```
 
 Der Restparameter wird als unendliche Reihe optionaler Parameter behandelt:
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //gültig
 ```
 
 Funktionen mit Überladungen sind gültig, wenn die Überladungssignatur mit ihrer Implementierungssignatur kompatibel ist:
@@ -138,10 +138,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // Gültig
+x('a', 1); // Gültig
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // Ungültig, nicht mit der Implementierungssignatur kompatibel
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -153,25 +153,25 @@ y('a', 1);
 Der Vergleich von Funktionsparametern ist erfolgreich, wenn die Quell- und Zielparameter Ober- oder Untertypen zugewiesen werden können (Bivarianz).
 
 ```typescript
-// Supertype
+// Obertyp
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// Untertyp
 class Y extends X {}
-// Subtype
+// Untertyp
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// Bivarianz akzeptiert Obertypen
+console.log(getA(new X('x'))); // Gültig
+console.log(getA(new Y('Y'))); // Gültig
+console.log(getA(new Z('z'))); // Gültig
 ```
 
 Enums können mit Zahlen verglichen und diesen zugewiesen werden und umgekehrt. Der Vergleich von Enum-Werten verschiedener Enum-Typen ist jedoch ungültig.
@@ -187,9 +187,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // Gültig
+const ya: Y = 0; // Gültig
+X.A === Y.A; // Ungültig
 ```
 
 Bei Instanzen einer Klasse wird eine Kompatibilitätsprüfung ihrer privaten und geschützten Elemente durchgeführt:
@@ -210,7 +210,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // Ungültig
 ```
 
 Die Vergleichsprüfung berücksichtigt unterschiedliche Vererbungshierarchien nicht, zum Beispiel:
@@ -238,8 +238,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // Gültig
+x === z; // Gültig, auch wenn z aus einer anderen Vererbungshierarchie stammt
 ```
 
 Generische Typen werden anhand ihrer Strukturen verglichen, die sich nach Anwendung des generischen Parameters ergeben. Nur das Endergebnis wird als nicht generischer Typ verglichen.
@@ -251,14 +251,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // Ungültig, da das Typargument in der endgültigen Struktur verwendet wird
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // Gültig, da das Typargument nicht in der endgültigen Struktur verwendet wird
 ```
 
 Wenn bei generischen Typen kein Typargument angegeben ist, werden alle nicht angegebenen Argumente als Typen mit „any“ behandelt:
@@ -268,7 +268,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // Gültig
 ```
 
 Beachten Sie:
@@ -277,26 +277,26 @@ Beachten Sie:
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // Gültig, alles kann sich selbst zugewiesen werden
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // Gültig, alle Typen können any zugewiesen werden
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // Gültig, alle Typen können unknown zugewiesen werden
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // Gültig, unknown kann nur sich selbst und any zugewiesen werden
+let e2: any = e; // Gültig
+let e3: number = e; // Ungültig
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // Ungültig, nichts kann never zugewiesen werden
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // Ungültig, void kann außer any keinem Typ zugewiesen werden und umgekehrt
+g = g1; // Gültig
 ```
 
 Beachten Sie, dass „null“ und „undefined“ bei aktiviertem „strictNullChecks“ ähnlich wie „void“ behandelt werden; andernfalls verhalten sie sich ähnlich wie „never“.
@@ -354,7 +354,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // Gültig
 ```
 
 Eine Schnittmenge (T1 & T2) erzeugt eine kleinere Menge (nur gemeinsame Werte):
@@ -369,8 +369,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // Ungültig
+const j: XY = { a: 'a', b: 'b' }; // Gültig
 ```
 
 Das Schlüsselwort `extends` kann in diesem Zusammenhang als „Teilmenge von“ verstanden werden. Es legt eine Einschränkung für einen Typ fest. Wird `extends` mit einem generischen Typ verwendet, schränkt es den generischen Typparameter auf einen spezifischeren Typ ein.
@@ -404,7 +404,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // Gültig
 ```
 
 ### Einen Typ zuweisen: Typdeklarationen und Typassertionen
@@ -420,7 +420,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// Typdeklaration
 const x: X = {
     a: 'a',
 };
@@ -436,7 +436,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // Fehler: Ein Objektliteral darf nur bekannte Eigenschaften angeben
 };
 ```
 
@@ -520,8 +520,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // Gültig aufgrund struktureller Typisierung
+const w: X = { a: 'a', b: 'b' }; // Ungültig aufgrund der Prüfung auf überschüssige Eigenschaften
 ```
 
 ### Schwache Typen
@@ -546,7 +546,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // Ungültig
 ```
 
 Obwohl dies nicht empfohlen wird, kann diese Prüfung bei Bedarf mithilfe einer Typassertion umgangen werden:
@@ -557,7 +557,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // Gültig
 ```
 
 Oder indem dem schwachen Typ eine Indexsignatur mit `unknown` hinzugefügt wird:
@@ -570,7 +570,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // Gültig
 ```
 
 ### Strikte Prüfung von Objektliteralen (Freshness)
@@ -589,20 +589,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // Frischeprüfung: Ungültige Zuweisung
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // Frischeprüfung: Ungültige Zuweisung
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // Typerweiterung: Keine Fehler, strukturell typkompatibel
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // Frischeprüfung: Ungültiges Argument
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // Typerweiterung: Keine Frischeprüfung
 ```
 
 ### Typinferenz
@@ -617,7 +617,7 @@ TypeScript kann Typen ableiten, wenn in folgenden Situationen keine Annotation a
 Zum Beispiel:
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // Der abgeleitete Typ ist string
 ```
 
 Der TypeScript-Compiler analysiert den Wert oder Ausdruck und bestimmt dessen Typ anhand der verfügbaren Informationen.
@@ -627,19 +627,19 @@ Der TypeScript-Compiler analysiert den Wert oder Ausdruck und bestimmt dessen Ty
 Wenn bei der Typinferenz mehrere Ausdrücke verwendet werden, sucht TypeScript nach den „besten gemeinsamen Typen“. Zum Beispiel:
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // Der abgeleitete Typ ist: (string | number | null)[]
 ```
 
 Wenn der Compiler keine besten gemeinsamen Typen finden kann, gibt er einen Union-Typ zurück. Zum Beispiel:
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // Der abgeleitete Typ ist: (RegExp | Date)[]
 ```
 
 TypeScript nutzt „kontextuelle Typisierung“, um Typen anhand der Position einer Variablen abzuleiten. Im folgenden Beispiel weiß der Compiler, dass `e` vom Typ `MouseEvent` ist. Grundlage dafür ist der in der Datei lib.d.ts definierte Ereignistyp `click`; diese Datei enthält Umgebungsdeklarationen für verschiedene gängige JavaScript-Konstrukte und das DOM:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // Der abgeleitete Typ von e ist MouseEvent
 ```
 
 ### Typerweiterung
@@ -649,9 +649,9 @@ Im folgenden Beispiel:
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript leitet string ab, einen breiten Typ
+let y: 'y' | 'x' = 'y'; // Der Typ von y ist eine Union von Literaltypen
+y = x; // Ungültig: Der Typ 'string' kann dem Typ '"x" | "y"' nicht zugewiesen werden.
 ```
 
 TypeScript weist den Typ `string` der Variablen `x` anhand des einzelnen bei der Initialisierung angegebenen Werts (`x`) zu. Dies ist ein Beispiel für eine Typerweiterung.
@@ -665,9 +665,9 @@ Die Verwendung des Schlüsselworts `const` bei der Deklaration einer Variablen f
 Zum Beispiel:
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript leitet den Typ von x als 'x' ab, einen engeren Typ
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // Gültig: Der Typ von x wird als 'x' abgeleitet
 ```
 
 Durch die Deklaration der Variablen x mit `const` wird ihr Typ auf den konkreten Literalwert 'x' eingegrenzt. Da der Typ von x eingegrenzt ist, kann er der Variablen y fehlerfrei zugewiesen werden.
@@ -679,10 +679,10 @@ Ab TypeScript-Version 5.0 kann das Attribut `const` für einen generischen Typpa
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // Hier kein const
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // Der abgeleitete Typ ist: { a: string; b: string; }
 ```
 
 Wie Sie sehen, wird für die Eigenschaften `a` und `b` der Typ `string` abgeleitet.
@@ -691,10 +691,10 @@ Betrachten wir nun den Unterschied bei der Variante mit `const`:
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // Verwendung des Modifikators const für Typparameter
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // Der abgeleitete Typ ist: { a: "a"; b: "b"; }
 ```
 
 Nun ist zu erkennen, dass die Eigenschaften `a` und `b` als Zeichenkettenliterale statt lediglich als `string`-Typen abgeleitet werden.
@@ -725,7 +725,7 @@ Dies kann bei der Definition des Typs für ein Tupel besonders nützlich sein:
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // Tupel readonly [1, 2, 3]
 ```
 
 ### Explizite Typannotation
@@ -734,9 +734,9 @@ Wir können einen Typ explizit angeben. Im folgenden Beispiel ist die Eigenschaf
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // Abgeleiteter Typ: number (Typerweiterung)
 };
-v.x = 3; // Valid
+v.x = 3; // Gültig
 ```
 
 Mithilfe einer Union von Literaltypen können wir die Typannotation spezifischer gestalten:
@@ -744,10 +744,10 @@ Mithilfe einer Union von Literaltypen können wir die Typannotation spezifischer
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // x ist nun eine Union von Literaltypen: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // Gültig
+v.x = 100; // Ungültig
 ```
 
 ### Type Narrowing
@@ -764,7 +764,7 @@ Mithilfe bedingter Anweisungen wie `if` oder `switch` kann TypeScript den Typ an
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // Der Typ ist number, der durch die Bedingung eingegrenzt wurde
 }
 ```
 
@@ -799,9 +799,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // Typ ist A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // Typ ist B
     }
 };
 ```
@@ -813,11 +813,11 @@ Wenn TypeScript einen Typ nicht bestimmen kann, lässt sich eine Hilfsfunktion s
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // Der Typ ist (string | null)[], TypeScript konnte ihn nicht korrekt ableiten
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // Benutzerdefinierter Type Guard
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // Der Typ ist nun korrekt string[], durch den prädikatbasierten Type Guard konnten wir ihn eingrenzen
 ```
 
 #### Switch-true Narrowing

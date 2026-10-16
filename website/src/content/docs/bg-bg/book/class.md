@@ -39,7 +39,7 @@ class Person {
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // Изход: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Constructor
@@ -144,7 +144,7 @@ class DerivedClass extends BaseClass {
 }
 
 // Опит за директно създаване на инстанция на базовия клас ще доведе до грешка
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// const baseObj = new BaseClass(); // Грешка: конструкторът на класа 'BaseClass' е защитен.
 
 // Създаване на инстанция на наследения клас
 const derivedObj = new DerivedClass(10);
@@ -281,7 +281,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // Изход: Whiskers meows.
 ```
 
 ### С generics
@@ -369,7 +369,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* Извежда:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -394,7 +394,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // Извежда: HELLO!
 ```
 
 #### Method Decorator
@@ -479,7 +479,7 @@ const obj = new MyClass(10);
 console.log(obj.getValue); // Валидно: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Невалидно!
+console.log(obj2.getValue); // Хвърля изключение: Невалидно!
 ```
 
 #### Metadata за декоратори
@@ -491,15 +491,15 @@ Metadata може да се използва за различни цели, к�
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Прост polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Прост полифил
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context съдържа metadata за свойства: DecoratorMetadata
+    | ClassMethodDecoratorContext; // Контекстът съдържа метаданни за свойства: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Задава metadata обект с примитивна стойност
+    // Задава обект с метаданни с примитивна стойност
     context.metadata[context.name] = true;
 }
 
@@ -514,7 +514,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Взима metadata информация
+const metadata = MyClass[Symbol.metadata]; // Получава метаданни
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -659,8 +659,8 @@ Method overloading позволява на един клас да има мно�
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // Сигнатура на претоварване 1
+    add(a: string, b: string): string; // Сигнатура на претоварване 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -674,6 +674,6 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // Извежда 15
 ```
 

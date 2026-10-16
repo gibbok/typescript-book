@@ -15,10 +15,10 @@ Modifier Mapped Type dalam TypeScript memungkinkan transformasi properti di dala
 Contoh:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Semua properti ditandai sebagai hanya-baca
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Semua properti ditandai sebagai dapat diubah
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // Semua properti ditandai sebagai opsional
 ```
 

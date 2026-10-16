@@ -24,7 +24,7 @@ enum Color {
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // تبدأ القيمة من 0
     Medium,
     Large,
 }
@@ -121,7 +121,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // نوع العنصر ضمنيًا هو 'any' لأن تعبير الفهرسة ليس من النوع 'number'.
 ```
 
 ### التعدادات المحيطية
@@ -133,23 +133,23 @@ console.log(Grade[failGrade]); // Element implicitly has an 'any' type because i
 في TypeScript، العضو المحسوب هو عضو في تعداد تُحسب قيمته في وقت التشغيل، بينما العضو الثابت هو عضو تُحدَّد قيمته في وقت التصريف ولا يمكن تغييرها في أثناء وقت التشغيل. يُسمح بالأعضاء المحسوبة في التعدادات العادية، بينما يُسمح بالأعضاء الثابتة في كل من التعدادات العادية والثابتة.
 
 ```typescript
-// Constant members
+// أعضاء ثابتة
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6، تُولّد أثناء الترجمة
 ```
 
 ```typescript
-// Computed members
+// أعضاء محسوبة
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // عدد عشوائي يُولّد أثناء التشغيل
 ```
 
 يُعبَّر عن التعدادات باتحادات تتألف من أنواع أعضائها. ويمكن تحديد قيم كل عضو من خلال تعبيرات ثابتة أو غير ثابتة، مع إسناد أنواع حرفية إلى الأعضاء التي تمتلك قيمًا ثابتة. للتوضيح، تأمل تصريح النوع E وأنواعه الفرعية E.A وE.B وE.C. في هذه الحالة، يمثّل E الاتحاد E.A | E.B | E.C.
@@ -158,9 +158,9 @@ console.log(Color.Blue); // random number generated at run time
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // قيمة عددية حرفية
+    B = 'bar', // سلسلة نصية حرفية
+    C = identity(42), // قيمة محسوبة معتمة
 }
 
 console.log(E.C); //42

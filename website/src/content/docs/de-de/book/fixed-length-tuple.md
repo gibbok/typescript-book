@@ -13,6 +13,6 @@ Tupel mit fester Länge sind nützlich, wenn Sie eine Sammlung von Werten mit ei
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // Fehler
 ```
 

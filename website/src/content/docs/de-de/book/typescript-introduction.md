@@ -67,14 +67,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 Das Typsystem von TypeScript ist weitgehend vom Laufzeitverhalten von JavaScript geprägt. Der Additionsoperator (+), der in JavaScript entweder Zeichenketten verketten oder Zahlen addieren kann, wird in TypeScript beispielsweise auf dieselbe Weise modelliert:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // Das Ergebnis hat den Typ string
 ```
 
 Das TypeScript-Team hat sich bewusst dafür entschieden, ungewöhnliche Verwendungen von JavaScript als Fehler zu kennzeichnen. Betrachten Sie beispielsweise den folgenden gültigen JavaScript-Code:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // In JavaScript ist das Ergebnis gleich 2
 ```
 
 TypeScript gibt jedoch einen Fehler aus:
@@ -93,7 +93,7 @@ Hier ist ein Beispiel für TypeScript-Code mit einem Typfehler:
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // Ein Argument vom Typ 'string' kann keinem Parameter vom Typ 'number' zugewiesen werden.
 ```
 
 Dennoch kann weiterhin ausführbarer JavaScript-Code erzeugt werden:
@@ -120,7 +120,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' bezeichnet nur einen Typ, wird hier aber als Wert verwendet.
         // ...
     }
 };
@@ -130,11 +130,11 @@ Da die Typen nach der Kompilierung entfernt werden, kann dieser Code nicht in Ja
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Diskriminierte Union
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Diskriminierte Union
     meow: () => void;
 }
 type Animal = Dog | Cat;

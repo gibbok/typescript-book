@@ -15,10 +15,10 @@ Los modificadores de tipos mapeados permiten transformar las propiedades de un t
 Ejemplos:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Todas las propiedades se marcan como de solo lectura
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Todas las propiedades se marcan como mutables
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // Todas las propiedades se marcan como opcionales
 ```
 

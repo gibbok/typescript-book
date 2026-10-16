@@ -9,11 +9,11 @@ sidebar:
 En TypeScript, les surcharges de fonction permettent de définir plusieurs signatures de fonction pour un seul nom de fonction, ce qui permet de définir des fonctions pouvant être appelées de plusieurs manières. En voici un exemple :
 
 ```typescript
-// Overloads
+// Surcharges
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// Implémentation
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -23,8 +23,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // Valide
+sayHi(['aa', 'bb']); // Valide
 ```
 
 Voici un autre exemple d'utilisation de surcharges de fonction au sein d'une `class` :
@@ -37,11 +37,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // surcharge
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // implémentation
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;

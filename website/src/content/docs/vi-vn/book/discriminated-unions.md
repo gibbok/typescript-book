@@ -10,12 +10,12 @@ Discriminated Union trong TypeScript là một loại union type sử dụng m�
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // Thuộc tính phân biệt
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // Thuộc tính phân biệt
     radius: number;
 };
 

@@ -24,7 +24,7 @@ Výčtové typy lze definovat různými způsoby:
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // hodnota začíná od 0
     Medium,
     Large,
 }
@@ -120,7 +120,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // Prvek má implicitně typ 'any', protože indexový výraz není typu 'number'.
 ```
 
 ### Ambientní výčtové typy
@@ -132,23 +132,23 @@ Ambientní výčtový typ v TypeScriptu je druh výčtového typu definovaný v 
 V TypeScriptu je vypočítávaný člen členem výčtového typu, jehož hodnota se počítá za běhu, zatímco konstantní člen je člen, jehož hodnota je nastavena v době překladu a za běhu ji nelze změnit. Vypočítávané členy jsou povoleny v běžných výčtových typech, zatímco konstantní členy jsou povoleny v běžných i konstantních výčtových typech.
 
 ```typescript
-// Constant members
+// Konstantní členy
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6, vypočteno při kompilaci
 ```
 
 ```typescript
-// Computed members
+// Vypočítávané členy
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // náhodné číslo generované za běhu
 ```
 
 Výčtové typy jsou vyjádřeny sjednoceními tvořenými typy jejich členů. Hodnoty jednotlivých členů lze určit pomocí konstantních nebo nekonstantních výrazů, přičemž členům s konstantními hodnotami jsou přiřazeny literálové typy. Pro ilustraci zvažte deklaraci typu E a jeho podtypů E.A, E.B a E.C. V tomto případě E představuje sjednocení E.A | E.B | E.C.
@@ -157,9 +157,9 @@ Výčtové typy jsou vyjádřeny sjednoceními tvořenými typy jejich členů. 
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // Číselný literál
+    B = 'bar', // Řetězcový literál
+    C = identity(42), // Neprůhledná vypočítávaná hodnota
 }
 
 console.log(E.C); //42

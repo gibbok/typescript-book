@@ -64,7 +64,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // Tidak valid
 ```
 
 Salah satu fitur generik penting yang diperkenalkan pada versi 3.4 RC adalah inferensi tipe fungsi tingkat tinggi, yang meneruskan argumen tipe generik:
@@ -91,10 +91,10 @@ Penyempitan kontekstual untuk generik adalah mekanisme dalam TypeScript yang mem
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // Nilai dipersempit menjadi tipe 'string'
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // Nilai dipersempit menjadi tipe 'number'
         console.log(value.toFixed(2));
     }
 }

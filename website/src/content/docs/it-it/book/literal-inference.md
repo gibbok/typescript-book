@@ -11,8 +11,8 @@ L'inferenza letterale è una funzionalità di TypeScript che consente di dedurre
 Nell'esempio seguente possiamo vedere che TypeScript considera `x` un tipo letterale in quanto il valore non può essere modificato in seguito, mentre `y` viene dedotto come stringa in quanto può essere modificato in seguito.
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, because we can change this value
+const x = 'x'; // Tipo letterale di 'x', perché questo valore non può essere modificato
+let y = 'y'; // Tipo string, perché possiamo modificare questo valore
 ```
 
 Nell'esempio seguente possiamo vedere che `o.x` è stato dedotto come `string` (e non come un letterale di `a`), poiché TypeScript considera che il valore possa essere modificato in qualsiasi momento successivo.

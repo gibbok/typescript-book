@@ -14,11 +14,11 @@ TypeScript ช่วยให้คุณดักจับและจัดก
 
 ```typescript
 try {
-    // Code that might throw an error
+    // โค้ดที่อาจโยนข้อผิดพลาด
 } catch (error) {
-    // Handle the error
+    // จัดการข้อผิดพลาด
 } finally {
-    // Code that always executes, finally is optional
+    // โค้ดที่ทำงานเสมอ โดย finally เป็นทางเลือก
 }
 ```
 
@@ -26,14 +26,14 @@ try {
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // โค้ดที่อาจโยนข้อผิดพลาดหลายชนิด
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // จัดการ TypeError
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // จัดการ RangeError
     } else {
-        // Handle other errors
+        // จัดการข้อผิดพลาดอื่น ๆ
     }
 }
 ```
@@ -79,10 +79,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// ขยาย MyClass ให้มีพฤติกรรมของ Identifiable และ Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// ฟังก์ชันสำหรับนำมิกซ์อินไปใช้กับคลาส
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -97,7 +97,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// นำมิกซ์อินไปใช้กับ MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -212,10 +212,10 @@ TypeScript ยังรองรับ async iterator และ async Generator 
 
 ```typescript
 /**
- * Computes the power of a given number
+ * คำนวณเลขยกกำลังของตัวเลขที่กำหนด
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – ค่าฐานของนิพจน์
+ * @param {number} exponent – ค่าเลขชี้กำลังของนิพจน์
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -311,7 +311,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // แสดงฟังก์ชันคอนสตรักเตอร์ที่ใช้สร้างอินสแตนซ์
     }
 }
 
@@ -336,7 +336,7 @@ const child = new Child(); // [Function: Child]
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // การนำเข้าแบบไดนามิก
         widget.render(container);
     }
 }
@@ -648,8 +648,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // ถูกต้อง
+produceDog = produceAnimal; // ข้อผิดพลาด
 ```
 
 **Contravariance (การรับค่า):** ฟังก์ชันที่รับ `Animal` ทุกชนิดใช้แทนฟังก์ชันที่รับ `Dog` ได้ เพราะรับสุนัขได้ด้วย แต่ฟังก์ชันที่รับเฉพาะสุนัขไม่สามารถจัดการสัตว์ทุกชนิดได้อย่างปลอดภัย
@@ -661,8 +661,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // ถูกต้อง
+consumeAnimal = consumeDog; // เกิดข้อผิดพลาดเมื่อใช้ strictFunctionTypes
 ```
 
 ลูกศรแสดงทิศทางการกำหนดค่าที่ปลอดภัย:
@@ -678,8 +678,8 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // อนุญาต แต่ไม่ปลอดภัย
+// ตอนนี้ dogs มี Animal ที่ไม่ใช่ Dog
 ```
 
 **ตัวเลือกคอมไพเลอร์:** เมื่อเปิด `strictFunctionTypes` พารามิเตอร์ของฟังก์ชันทั่วไปจะถูกตรวจแบบ contravariance หากปิด อาจยอมรับทั้งสองทิศทาง (bivariance) แม้ไม่ปลอดภัย พารามิเตอร์ในประกาศเมธอดและคอนสตรักเตอร์เป็นข้อยกเว้น
@@ -732,37 +732,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// การระบุชนิดโดยใช้ `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// ในบรรทัดต่อไปนี้ TypeScript จะไม่สามารถอนุมานได้อย่างถูกต้อง
+user.attributes?.map(console.log); // ไม่มีพร็อพเพอร์ตี 'map' ในชนิด 'string | string[]' และไม่มีพร็อพเพอร์ตี 'map' ในชนิด 'string'
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// การยืนยันชนิดโดยใช้ `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// ที่นี่ TypeScript ก็ไม่สามารถอนุมานได้อย่างถูกต้องเช่นกัน
+user2.attributes?.map(console.log); // ไม่มีพร็อพเพอร์ตี 'map' ในชนิด 'string | string[]' และไม่มีพร็อพเพอร์ตี 'map' ในชนิด 'string'
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// เมื่อใช้ตัวดำเนินการ `satisfies` เราสามารถอนุมานชนิดได้อย่างถูกต้องแล้ว
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript อนุมานได้อย่างถูกต้อง: string[]
+user3.nickName; // TypeScript อนุมานได้อย่างถูกต้อง: undefined
 ```
 
 ### การ Import และ Export เฉพาะชนิด
@@ -816,7 +816,7 @@ export type { T } from './mod';
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // polyfill อย่างง่าย
 
 const doWork = (): Disposable => {
     return {
@@ -829,9 +829,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // ประกาศทรัพยากร
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // กำจัดทรัพยากร (เช่น ประเมิน `work[Symbol.dispose]()`)
 
 console.log(3);
 ```
@@ -862,7 +862,7 @@ interface Disposable {
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // กำจัด `C` จากนั้น `B` แล้วจึง `A`
 ```
 
 มีการรับประกันว่าทรัพยากรจะถูกกำจัด แม้ว่าโค้ดหรือข้อยกเว้นที่ตามมาจะเกิดขึ้นก็ตาม การกำจัดอาจทำให้เกิดข้อยกเว้นซึ่งอาจบดบังข้อยกเว้นอีกตัวหนึ่งได้ จึงมีการเพิ่มข้อยกเว้นเนทีฟแบบใหม่ชื่อ `SuppressedError` เพื่อเก็บรักษาข้อมูลเกี่ยวกับข้อผิดพลาดที่ถูกบดบัง
@@ -874,8 +874,8 @@ interface Disposable {
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // ประกาศทรัพยากร
+} // กำจัดทรัพยากร (เช่น ประเมิน `await work[Symbol.asyncDispose]()`)
 ```
 
 ทรัพยากรที่กำจัดแบบอะซิงโครนัสได้ต้องเป็นไปตาม interface `Disposable` หรือ `AsyncDisposable`:
@@ -890,12 +890,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // polyfill อย่างง่าย
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // เมธอดที่เรียกเมื่ออ็อบเจกต์ถูกกำจัดแบบอะซิงโครนัส
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // ปิดการเชื่อมต่อและคืนค่า promise
         return this.close();
     }
 
@@ -907,10 +907,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // สร้างการเชื่อมต่อใหม่และกำจัดแบบอะซิงโครนัสเมื่อออกนอกขอบเขต
+    await using connection = new DatabaseConnection(); //  ประกาศทรัพยากร
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // กำจัดทรัพยากร (เช่น ประเมิน `await connection[Symbol.asyncDispose]()`)
 
 doWork();
 ```
@@ -949,7 +949,7 @@ const config = import('./config.json', { with: { type: 'json' } });
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // ข้อผิดพลาด: การอ้างอิงย้อนกลับนี้อ้างถึงกลุ่มที่ไม่มีอยู่
 ```
 
 ### import defer

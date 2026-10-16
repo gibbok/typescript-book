@@ -13,7 +13,7 @@ Zum Beispiel eine Endlosschleife:
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // etwas tun
     }
 };
 ```
@@ -33,10 +33,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // nach oben bewegen
             break;
         case 'down':
-            // move down
+            // nach unten bewegen
             break;
         default:
             const exhaustiveCheck: never = direction;

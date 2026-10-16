@@ -13,9 +13,9 @@ Les types littéraux dans TypeScript sont les nombres, les chaînes et les bool�
 Exemples de littéraux :
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // Type littéral de chaîne
+const b = 1; // Type littéral numérique
+const c = true; // Type littéral booléen
 ```
 
 Les types littéraux de chaîne, numériques et booléens sont utilisés dans les unions, les gardes de type et les alias de type.

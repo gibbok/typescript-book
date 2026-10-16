@@ -13,7 +13,7 @@ Por ejemplo, un bucle infinito:
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // Haz algo
     }
 };
 ```
@@ -33,10 +33,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // Mueve hacia arriba
             break;
         case 'down':
-            // move down
+            // Mueve hacia abajo
             break;
         default:
             const exhaustiveCheck: never = direction;

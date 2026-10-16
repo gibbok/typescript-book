@@ -75,9 +75,9 @@ tsc --init
 다음은 기본 설정으로 실행되는 CLI 명령의 몇 가지 예입니다.
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // 특정 파일(main.ts)을 JavaScript로 컴파일
+tsc src/*.ts // 'src' 폴더 아래의 모든 .ts 파일을 JavaScript로 컴파일
+tsc app.ts util.ts --outfile index.js // 두 TypeScript 파일(app.ts와 util.ts)을 하나의 JavaScript 파일(index.js)로 컴파일
 ```
 
 ### TypeScript 구성 파일

@@ -11,7 +11,7 @@ Ett objekt kan specificera valfria egenskaper genom att lägga till ett frågete
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // Valfri
 };
 ```
 

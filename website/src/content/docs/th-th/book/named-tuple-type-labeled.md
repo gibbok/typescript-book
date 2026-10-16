@@ -12,6 +12,6 @@ sidebar:
 type T = string;
 type Tuple1 = [T, T];
 type Tuple2 = [a: T, b: T];
-type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
+type Tuple3 = [a: T, T]; // ทูเพิลที่มีชื่อร่วมกับทูเพิลที่ไม่มีชื่อ
 ```
 

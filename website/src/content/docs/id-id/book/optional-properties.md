@@ -11,7 +11,7 @@ Sebuah objek dapat menentukan properti opsional dengan menambahkan tanda tanya `
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // Opsional
 };
 ```
 

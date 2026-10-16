@@ -13,7 +13,7 @@ Ví dụ, một vòng lặp vô hạn:
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // làm điều gì đó
     }
 };
 ```
@@ -33,10 +33,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // di chuyển lên
             break;
         case 'down':
-            // move down
+            // di chuyển xuống
             break;
         default:
             const exhaustiveCheck: never = direction;
