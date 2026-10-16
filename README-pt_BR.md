@@ -2755,13 +2755,13 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Tipos de União e Interseção
 
 ```typescript
-type MyType = string | number; // Tipo de união (Union type)
+type MyType = string | number; // Tipo de união
 let myUnion: MyType = 'hello'; // Pode ser uma string
 myUnion = 123; // Ou um número
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Tipo de interseção (Intersection type)
+type CombinedType = TypeA & TypeB; // Tipo de interseção
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Objeto com as propriedades name e age
 ```
 
@@ -4848,8 +4848,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // Válido
+produceDog = produceAnimal; // Erro
 ```
 
 **Contravariância (consumo):** uma função que aceita qualquer `Animal` pode substituir uma que aceita um `Dog`. Ela também aceita cachorros; uma função que aceita apenas cachorros não pode processar todos os animais.
@@ -4861,8 +4861,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // Válido
+consumeAnimal = consumeDog; // Erro com strictFunctionTypes
 ```
 
 As setas indicam o sentido das atribuições seguras:
@@ -4878,8 +4878,8 @@ As setas indicam o sentido das atribuições seguras:
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // Permitido, mas inseguro
+// dogs agora contém um Animal que não é um Dog.
 ```
 
 **Opção do compilador:** com `strictFunctionTypes`, parâmetros de funções independentes são verificados de maneira contravariante. Sem essa opção, TypeScript pode aceitar os dois sentidos (bivariância), mesmo sem segurança. Parâmetros declarados em métodos e construtores são uma exceção.

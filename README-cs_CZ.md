@@ -394,14 +394,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 Typový systém TypeScriptu je do značné míry ovlivněn chováním JavaScriptu za běhu. Například operátor sčítání (+), který v JavaScriptu může provádět buď spojování řetězců, nebo sčítání čísel, je v TypeScriptu modelován stejným způsobem:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // Výsledek je typu string
 ```
 
 Tým stojící za TypeScriptem se záměrně rozhodl označovat neobvyklé použití JavaScriptu za chyby. Uvažujme například následující platný kód JavaScriptu:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // V JavaScriptu je výsledek roven 2
 ```
 
 TypeScript však ohlásí chybu:
@@ -420,7 +420,7 @@ Zde je příklad kódu TypeScriptu s typovou chybou:
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // Argument typu 'string' nelze přiřadit parametru typu 'number'.
 ```
 
 Přesto může vzniknout spustitelný výstup v JavaScriptu:
@@ -447,7 +447,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' označuje pouze typ, ale zde se používá jako hodnota.
         // ...
     }
 };
@@ -457,11 +457,11 @@ Protože jsou typy po kompilaci odstraněny, nelze tento kód spustit v JavaScri
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Diskriminované sjednocení
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Diskriminované sjednocení
     meow: () => void;
 }
 type Animal = Dog | Cat;
@@ -615,9 +615,9 @@ Při místním spuštění příkazu `tsc` TypeScript zkompiluje kód s konfigur
 Zde je několik příkladů příkazů z příkazového řádku s výchozím nastavením:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // Kompilace konkrétního souboru (main.ts) do JavaScriptu
+tsc src/*.ts // Kompilace všech souborů .ts ve složce 'src' do JavaScriptu
+tsc app.ts util.ts --outfile index.js // Kompilace dvou souborů TypeScriptu (app.ts a util.ts) do jednoho souboru JavaScriptu (index.js)
 ```
 
 ### Konfigurační soubor TypeScriptu
@@ -780,7 +780,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // Platné
 ```
 
 ### Základní pravidla porovnávání v TypeScriptu
@@ -793,7 +793,7 @@ Typ „X“ je kompatibilní s „Y“, pokud má „Y“ alespoň stejné člen
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // Platné, protože obsahuje alespoň stejné členy jako X
 const r: X = y;
 ```
 
@@ -804,8 +804,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Platné
+x = y; // Platné
 ```
 
 Návratové typy funkcí musí být stejné:
@@ -816,8 +816,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // Neplatné
+x = y; // Neplatné
 ```
 
 Návratový typ zdrojové funkce musí být podtypem návratového typu cílové funkce:
@@ -826,8 +826,8 @@ Návratový typ zdrojové funkce musí být podtypem návratového typu cílové
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // Platné
+y = x; // Neplatné, chybí člen b
 ```
 
 Vynechání parametrů funkce je povoleno, protože jde o běžnou praxi v JavaScriptu, například při použití „Array.prototype.map()“:
@@ -842,8 +842,8 @@ Proto jsou následující deklarace typů zcela platné:
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // Chybí parametr b
+y = x; // Platné
 ```
 
 Jakékoli další volitelné parametry zdrojového typu jsou platné:
@@ -853,8 +853,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // Platné
+x = y; //Platné
 ```
 
 Jakékoli volitelné parametry cílového typu bez odpovídajících parametrů ve zdrojovém typu jsou platné a nepředstavují chybu:
@@ -864,15 +864,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Platné
+x = y; // Platné
 ```
 
 Se zbytkovým parametrem se zachází jako s nekonečnou řadou volitelných parametrů:
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //platné
 ```
 
 Funkce s přetížením jsou platné, pokud je signatura přetížení kompatibilní se signaturou implementace:
@@ -884,10 +884,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // Platné
+x('a', 1); // Platné
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // Neplatné, nekompatibilní se signaturou implementace
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -899,25 +899,25 @@ y('a', 1);
 Porovnání parametrů funkcí uspěje, pokud jsou zdrojové a cílové parametry přiřaditelné nadtypům nebo podtypům (bivariance).
 
 ```typescript
-// Supertype
+// Nadtyp
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// Podtyp
 class Y extends X {}
-// Subtype
+// Podtyp
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// Bivariance připouští nadtypy
+console.log(getA(new X('x'))); // Platné
+console.log(getA(new Y('Y'))); // Platné
+console.log(getA(new Z('z'))); // Platné
 ```
 
 Výčtové typy lze porovnávat s čísly a naopak a takové porovnání je platné, ale porovnání hodnot různých výčtových typů je neplatné.
@@ -933,9 +933,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // Platné
+const ya: Y = 0; // Platné
+X.A === Y.A; // Neplatné
 ```
 
 U instancí třídy se kontroluje kompatibilita jejich soukromých a chráněných členů:
@@ -956,7 +956,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // Neplatné
 ```
 
 Kontrola při porovnávání nezohledňuje odlišnou hierarchii dědičnosti, například:
@@ -984,8 +984,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // Platné
+x === z; // Platné, i když z pochází z jiné hierarchie dědičnosti
 ```
 
 Generické typy se porovnávají podle struktury výsledného typu po uplatnění generického parametru; porovnává se pouze konečný výsledek jako negenerický typ.
@@ -997,14 +997,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // Neplatné, protože se argument typu používá ve výsledné struktuře
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // Platné, protože se argument typu nepoužívá ve výsledné struktuře
 ```
 
 Pokud generické typy nemají určený typový argument, se všemi neurčenými argumenty se zachází jako s typem „any“:
@@ -1014,7 +1014,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // Platné
 ```
 
 Pamatujte:
@@ -1023,26 +1023,26 @@ Pamatujte:
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // Platné, každý typ lze přiřadit sám sobě
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // Platné, všechny typy lze přiřadit typu any
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // Platné, všechny typy lze přiřadit typu unknown
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // Platné, unknown lze přiřadit pouze sobě a typu any
+let e2: any = e; // Platné
+let e3: number = e; // Neplatné
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // Neplatné, typu never nelze nic přiřadit
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // Neplatné, void nelze přiřadit žádnému typu a žádný typ nelze přiřadit typu void kromě any
+g = g1; // Platné
 ```
 
 Poznamenejme, že při zapnuté volbě „strictNullChecks“ se s „null“ a „undefined“ zachází podobně jako s „void“; jinak jsou podobné typu „never“.
@@ -1100,7 +1100,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // Platné
 ```
 
 Průnik (T1 & T2) vytváří užší množinu (pouze společné prvky):
@@ -1115,8 +1115,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // Neplatné
+const j: XY = { a: 'a', b: 'b' }; // Platné
 ```
 
 Klíčové slovo `extends` lze v tomto kontextu chápat jako „je podmnožinou“. Nastavuje omezení pro typ. Při použití s generickým typem omezuje `extends` generický typový parametr na konkrétnější typ.
@@ -1150,7 +1150,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // Platné
 ```
 
 ### Přiřazení typu: deklarace typů a přetypování
@@ -1166,7 +1166,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// Deklarace typu
 const x: X = {
     a: 'a',
 };
@@ -1182,7 +1182,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // Chyba: objektový literál může obsahovat pouze známé vlastnosti
 };
 ```
 
@@ -1266,8 +1266,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // Platné díky strukturálnímu typování
+const w: X = { a: 'a', b: 'b' }; // Neplatné kvůli kontrole nadbytečných vlastností
 ```
 
 ### Slabé typy
@@ -1292,7 +1292,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // Neplatné
 ```
 
 Ačkoli se to nedoporučuje, v případě potřeby lze tuto kontrolu obejít pomocí přetypování:
@@ -1303,7 +1303,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // Platné
 ```
 
 Nebo přidáním `unknown` do indexové signatury slabého typu:
@@ -1316,7 +1316,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // Platné
 ```
 
 ### Přísná kontrola objektových literálů (čerstvost)
@@ -1335,20 +1335,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // Kontrola čerstvosti: neplatné přiřazení
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // Kontrola čerstvosti: neplatné přiřazení
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // Rozšíření: bez chyb, typy jsou strukturálně kompatibilní
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // Kontrola čerstvosti: neplatný argument
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // Rozšíření: bez kontroly čerstvosti
 ```
 
 ### Odvozování typů
@@ -1363,7 +1363,7 @@ Pokud není uvedena anotace, TypeScript dokáže odvodit typy při:
 Například:
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // Odvozený typ je string
 ```
 
 Kompilátor TypeScriptu analyzuje hodnotu nebo výraz a určuje jejich typ na základě dostupných informací.
@@ -1373,19 +1373,19 @@ Kompilátor TypeScriptu analyzuje hodnotu nebo výraz a určuje jejich typ na z�
 Pokud se při odvozování typů používá více výrazů, TypeScript hledá „nejlepší společné typy“. Například:
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // Odvozený typ je: (string | number | null)[]
 ```
 
 Pokud kompilátor nemůže najít nejlepší společné typy, vrátí sjednocení typů. Například:
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // Odvozený typ je: (RegExp | Date)[]
 ```
 
 TypeScript k odvozování typů využívá „kontextové typování“ podle umístění proměnné. V následujícím příkladu kompilátor ví, že `e` je typu `MouseEvent`, díky typu události `click` definovanému v souboru lib.d.ts, který obsahuje ambientní deklarace různých běžných konstrukcí JavaScriptu a DOM:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // Odvozený typ e je MouseEvent
 ```
 
 ### Rozšiřování typů
@@ -1395,9 +1395,9 @@ V následujícím příkladu:
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript odvodí široký typ string
+let y: 'y' | 'x' = 'y'; // Typ y je sjednocením literálových typů
+y = x; // Neplatné: typ 'string' nelze přiřadit typu '"x" | "y"'.
 ```
 
 TypeScript přiřazuje `string` proměnné `x` na základě jediné hodnoty uvedené při inicializaci (`x`); jde o příklad rozšiřování.
@@ -1411,9 +1411,9 @@ Použití klíčového slova `const` při deklaraci proměnné vede v TypeScript
 Například:
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript odvodí pro x užší typ 'x'
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // Platné: typ x je odvozen jako 'x'
 ```
 
 Použitím `const` k deklaraci proměnné x se její typ zúží na konkrétní literálovou hodnotu 'x'. Protože je typ x zúžen, lze ji bez chyby přiřadit proměnné y.
@@ -1425,10 +1425,10 @@ Od verze TypeScriptu 5.0 lze u generického typového parametru uvést atribut `
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // Zde není const
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // Odvozený typ je: { a: string; b: string; }
 ```
 
 Jak vidíte, u vlastností `a` a `b` je odvozen typ `string`.
@@ -1437,10 +1437,10 @@ Nyní se podívejme na rozdíl oproti verzi s `const`:
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // Použití modifikátoru const u parametrů typu
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // Odvozený typ je: { a: "a"; b: "b"; }
 ```
 
 Nyní vidíme, že vlastnosti `a` a `b` jsou odvozeny jako řetězcové literály, nikoli pouze jako typy `string`.
@@ -1471,7 +1471,7 @@ To může být obzvláště užitečné při definování typu n-tice:
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // N-tice readonly [1, 2, 3]
 ```
 
 ### Explicitní typová anotace
@@ -1480,9 +1480,9 @@ Můžeme být konkrétní a uvést typ. V následujícím příkladu je vlastnos
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // Odvozený typ: number (rozšíření)
 };
-v.x = 3; // Valid
+v.x = 3; // Platné
 ```
 
 Typovou anotaci můžeme zpřesnit pomocí sjednocení literálových typů:
@@ -1490,10 +1490,10 @@ Typovou anotaci můžeme zpřesnit pomocí sjednocení literálových typů:
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // x je nyní sjednocením literálových typů: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // Platné
+v.x = 100; // Neplatné
 ```
 
 ### Zužování typů
@@ -1510,7 +1510,7 @@ Pomocí podmíněných příkazů, jako je `if` nebo `switch`, může TypeScript
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // Typ je number, zúžený podmínkou
 }
 ```
 
@@ -1545,9 +1545,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // typ je A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // typ je B
     }
 };
 ```
@@ -1559,11 +1559,11 @@ V případech, kdy TypeScript nedokáže určit typ, lze napsat pomocnou funkci 
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // Typ je (string | null)[], TypeScript nedokázal správně odvodit typ
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // Vlastní strážce typu
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // Typ je nyní správně string[], pomocí typového predikátu se podařilo typ zúžit
 ```
 
 #### Zužování pomocí switch-true
@@ -1620,9 +1620,9 @@ TypeScript podporuje také šestnáctkový, dvojkový a osmičkový zápis, nap�
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // Šestnáctkové číslo začíná na 0x
+const binary: number = 0b1010; // Dvojkové číslo začíná na 0b
+const octal: number = 0o633; // Osmičkové číslo začíná na 0o
 ```
 
 ### bigint
@@ -1675,17 +1675,17 @@ Typ `array` je datový typ, který může uchovávat více hodnot stejného i r�
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // Sjednocení
 ```
 
 TypeScript podporuje pole pouze pro čtení pomocí následující syntaxe:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // Modifikátor readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // Neplatné
 ```
 
 TypeScript podporuje n-tice a n-tice pouze pro čtení:
@@ -1754,7 +1754,7 @@ Objekt může určit volitelné vlastnosti přidáním otazníku `?` na konec n�
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // Volitelné
 };
 ```
 
@@ -1801,7 +1801,7 @@ type K = {
 const k: K = { x: 'x', 1: 'b' };
 console.log(k['x']);
 console.log(k[1]);
-console.log(k['1']); // Same result as k[1]
+console.log(k['1']); // Stejný výsledek jako k[1]
 ```
 
 Pamatujte, že JavaScript automaticky převádí index typu `number` na index typu `string`, takže `k[1]` i `k["1"]` vracejí stejnou hodnotu.
@@ -1865,9 +1865,9 @@ Literálové typy v TypeScriptu jsou čísla, řetězce a booleovské hodnoty.
 Příklad literálů:
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // Řetězcový literálový typ
+const b = 1; // Číselný literálový typ
+const c = true; // Booleovský literálový typ
 ```
 
 Řetězcové, číselné a booleovské literálové typy se používají ve sjednoceních, typových strážcích a typových aliasech.
@@ -1884,8 +1884,8 @@ Odvozování literálových typů je funkce TypeScriptu, která umožňuje odvod
 V následujícím příkladu vidíme, že TypeScript považuje `x` za literálový typ, protože hodnotu již později nelze změnit, zatímco u `y` odvodí typ string, protože ji lze později kdykoli upravit.
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // Literálový typ 'x', protože tuto hodnotu nelze změnit
+let y = 'y'; // Typ string, protože tuto hodnotu lze změnit
 ```
 
 V následujícím příkladu vidíme, že typ `o.x` byl odvozen jako `string` (a nikoli jako literál `a`), protože TypeScript předpokládá, že hodnotu lze později kdykoli změnit.
@@ -1895,12 +1895,12 @@ V následujícím příkladu vidíme, že typ `o.x` byl odvozen jako `string` (a
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // Toto je širší typ string
 };
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // Argument typu 'string' nelze přiřadit parametru typu 'X'
 ```
 
 Jak vidíte, kód při předání `o.x` do `fn` vyvolá chybu, protože X je užší typ.
@@ -1947,7 +1947,7 @@ Výčtové typy lze definovat různými způsoby:
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // hodnota začíná od 0
     Medium,
     Large,
 }
@@ -2043,7 +2043,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // Prvek má implicitně typ 'any', protože indexový výraz není typu 'number'.
 ```
 
 ### Ambientní výčtové typy
@@ -2055,23 +2055,23 @@ Ambientní výčtový typ v TypeScriptu je druh výčtového typu definovaný v 
 V TypeScriptu je vypočítávaný člen členem výčtového typu, jehož hodnota se počítá za běhu, zatímco konstantní člen je člen, jehož hodnota je nastavena v době překladu a za běhu ji nelze změnit. Vypočítávané členy jsou povoleny v běžných výčtových typech, zatímco konstantní členy jsou povoleny v běžných i konstantních výčtových typech.
 
 ```typescript
-// Constant members
+// Konstantní členy
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6, vypočteno při kompilaci
 ```
 
 ```typescript
-// Computed members
+// Vypočítávané členy
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // náhodné číslo generované za běhu
 ```
 
 Výčtové typy jsou vyjádřeny sjednoceními tvořenými typy jejich členů. Hodnoty jednotlivých členů lze určit pomocí konstantních nebo nekonstantních výrazů, přičemž členům s konstantními hodnotami jsou přiřazeny literálové typy. Pro ilustraci zvažte deklaraci typu E a jeho podtypů E.A, E.B a E.C. V tomto případě E představuje sjednocení E.A | E.B | E.C.
@@ -2080,9 +2080,9 @@ Výčtové typy jsou vyjádřeny sjednoceními tvořenými typy jejich členů. 
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // Číselný literál
+    B = 'bar', // Řetězcový literál
+    C = identity(42), // Neprůhledná vypočítávaná hodnota
 }
 
 console.log(E.C); //42
@@ -2101,7 +2101,7 @@ Typový strážce typeof je konkrétní typový strážce v TypeScriptu, který 
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x je typu number
     }
     return -1;
 };
@@ -2240,7 +2240,7 @@ Několik příkladů, kdy k zužování nedochází:
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // Chyba, bez zúžení, protože isString není const
     }
 };
 
@@ -2250,7 +2250,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // Chyba, bez zúžení, protože obj se přiřazuje v těle funkce
     }
 };
 ```
@@ -2285,12 +2285,12 @@ Diskriminovaná sjednocení v TypeScriptu jsou druhem sjednoceného typu, který
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // Diskriminant
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // Diskriminant
     radius: number;
 };
 
@@ -2323,7 +2323,7 @@ const printValue = (val: string | number) => {
     } else if (typeof val === 'number') {
         console.log(val.toFixed(2));
     } else {
-        // val has type never here because it can never be anything other than a string or a number
+        // val má zde typ never, protože nemůže být ničím jiným než řetězcem nebo číslem
         const neverVal: never = val;
         console.log(`Unexpected value: ${neverVal}`);
     }
@@ -2347,7 +2347,7 @@ const move = (direction: Direction) => {
             break;
         default:
             const exhaustiveCheck: never = direction;
-            console.log(exhaustiveCheck); // This line will never be executed
+            console.log(exhaustiveCheck); // Tento řádek se nikdy neprovede
     }
 };
 ```
@@ -2402,7 +2402,7 @@ Typy n-tic mohou obsahovat volitelné popisky nebo názvy pro každý prvek. Tyt
 type T = string;
 type Tuple1 = [T, T];
 type Tuple2 = [a: T, b: T];
-type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
+type Tuple3 = [a: T, T]; // Pojmenovaná n-tice spolu s anonymní n-ticí
 ```
 
 ## N-tice s pevnou délkou
@@ -2414,7 +2414,7 @@ N-tice s pevnou délkou jsou užitečné, když potřebujete reprezentovat kolek
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // Chyba
 ```
 
 ## Sjednocený typ
@@ -2423,8 +2423,8 @@ Sjednocený typ je typ, který představuje hodnotu, jež může být jedním z 
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // Platné
+x = 123; // Platné
 ```
 
 ## Průnikové typy
@@ -2440,7 +2440,7 @@ type Y = {
     b: string;
 };
 
-type J = X & Y; // Intersection
+type J = X & Y; // Průnik
 
 const j: J = {
     a: 'a',
@@ -2457,7 +2457,7 @@ type Dictionary<T> = {
     [key: string]: T;
 };
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-console.log(myDict['a']); // Returns a
+console.log(myDict['a']); // Vrací a
 ```
 
 ## Typ z hodnoty
@@ -2465,7 +2465,7 @@ console.log(myDict['a']); // Returns a
 Typ z hodnoty v TypeScriptu označuje automatické odvození typu z hodnoty nebo výrazu prostřednictvím odvozování typů.
 
 ```typescript
-const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immutable), but widens it to 'string' with 'let' (reassignable).
+const x = 'x'; // TypeScript odvodí 'x' jako řetězcový literál s 'const' (neměnný), ale rozšíří jej na 'string' s 'let' (lze znovu přiřadit).
 ```
 
 ## Typ z návratové hodnoty funkce
@@ -2473,7 +2473,7 @@ const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immuta
 Typ z návratové hodnoty funkce označuje možnost automaticky odvodit návratový typ funkce na základě její implementace. TypeScript tak může určit typ hodnoty vrácené funkcí bez explicitních typových anotací.
 
 ```typescript
-const add = (x: number, y: number) => x + y; // TypeScript can infer that the return type of the function is a number
+const add = (x: number, y: number) => x + y; // TypeScript dokáže odvodit, že návratový typ funkce je číslo
 ```
 
 ## Typ z modulu
@@ -2486,7 +2486,7 @@ Typ z modulu označuje možnost používat exportované hodnoty modulu k automat
 export const add = (x: number, y: number) => x + y;
 // index.ts
 import { add } from 'calc';
-const r = add(1, 2); // r is number
+const r = add(1, 2); // r je typu number
 ```
 
 ## Mapované typy
@@ -2522,11 +2522,11 @@ Modifikátory mapovaných typů v TypeScriptu umožňují transformovat vlastnos
 Příklady:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Všechny vlastnosti jsou označeny pouze pro čtení
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Všechny vlastnosti jsou označeny jako měnitelné
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // Všechny vlastnosti jsou označeny jako volitelné
 ```
 
 ## Podmíněné typy
@@ -2539,8 +2539,8 @@ type IsArray<T> = T extends any[] ? true : false;
 const myArray = [1, 2, 3];
 const myNumber = 42;
 
-type IsMyArrayAnArray = IsArray<typeof myArray>; // Type true
-type IsMyNumberAnArray = IsArray<typeof myNumber>; // Type false
+type IsMyArrayAnArray = IsArray<typeof myArray>; // Typ true
+type IsMyNumberAnArray = IsArray<typeof myNumber>; // Typ false
 ```
 
 ## Distributivní podmíněné typy
@@ -2606,8 +2606,8 @@ Použitím typu `any` dáváte kompilátoru TypeScriptu najevo, že hodnoty maj�
 
 ```typescript
 let value: any;
-value = true; // Valid
-value = 7; // Valid
+value = true; // Platné
+value = 7; // Platné
 ```
 
 ## Typ unknown
@@ -2620,10 +2620,10 @@ Typ `unknown` lze přiřadit pouze typu `any` a samotnému typu `unknown` a pře
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // Platné
+let value2: any = value; // Platné
+let value3: boolean = value; // Neplatné
+let value4: number = value; // Neplatné
 ```
 
 ```typescript
@@ -2652,7 +2652,7 @@ Například nekonečná smyčka:
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // provést nějakou akci
     }
 };
 ```
@@ -2672,10 +2672,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // posunout nahoru
             break;
         case 'down':
-            // move down
+            // posunout dolů
             break;
         default:
             const exhaustiveCheck: never = direction;
@@ -2740,10 +2740,10 @@ V TypeScriptu se typy používají k definování struktury dat a vynucení typo
 ### Základní typy
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myNumber: number = 123; // typ number
+let myBoolean: boolean = true; // typ boolean
+let myArray: string[] = ['a', 'b']; // pole řetězců
+let myTuple: [string, number] = ['a', 123]; // n-tice
 ```
 
 ### Objekty a rozhraní
@@ -2755,14 +2755,14 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Sjednocení a průniky typů
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // Typ sjednocení
+let myUnion: MyType = 'hello'; // Může být řetězec
+myUnion = 123; // Nebo číslo
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // Typ průniku
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Objekt s vlastnostmi name i age
 ```
 
 ## Vestavěné primitivní typy
@@ -2808,11 +2808,11 @@ Zde je seznam některých běžně používaných vestavěných objektů JavaScr
 Přetížení funkcí v TypeScriptu umožňuje definovat více signatur pro jeden název funkce, takže ji lze volat různými způsoby. Zde je příklad:
 
 ```typescript
-// Overloads
+// Přetížení
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// Implementace
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -2822,8 +2822,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // Platné
+sayHi(['aa', 'bb']); // Platné
 ```
 
 Zde je další příklad použití přetížení funkcí ve třídě (`class`):
@@ -2836,11 +2836,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // přetížení
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // implementace
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;
@@ -2959,7 +2959,7 @@ Sjednocení a průniky typů:
 Typy jsou při definování sjednocení a průniků typů flexibilnější. Pomocí klíčového slova `type` můžete snadno vytvářet sjednocení typů operátorem `|` a průniky typů operátorem `&`. Přestože rozhraní mohou také nepřímo reprezentovat sjednocení typů, nemají vestavěnou podporu pro průniky typů.
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // Sjednocení
 
 type Person = {
     name: string;
@@ -2971,7 +2971,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // Průnik
 ```
 
 Příklad s rozhraními:
@@ -2984,7 +2984,7 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // Sjednocení rozhraní
 ```
 
 ## Třída
@@ -3022,7 +3022,7 @@ K vytvoření instance třídy v TypeScriptu můžete použít klíčové slovo 
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // Výstup: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Konstruktor
@@ -3126,10 +3126,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// Pokus o přímé vytvoření instance základní třídy způsobí chybu
+// const baseObj = new BaseClass(); // Chyba: konstruktor třídy 'BaseClass' je chráněný.
 
-// Create an instance of the derived class
+// Vytvoření instance odvozené třídy
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -3228,8 +3228,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // Klíčová slova "private" a "public" v konstruktoru
+        // automaticky deklarují a inicializují odpovídající vlastnosti třídy.
     }
     public introduce(): void {
         console.log(
@@ -3264,7 +3264,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // Výstup: Whiskers meows.
 ```
 
 ### S generiky
@@ -3352,7 +3352,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* Výpis:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -3377,7 +3377,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // Výpis: HELLO!
 ```
 
 #### Dekorátor metody
@@ -3459,10 +3459,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // Platné: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // Vyhodí výjimku: Invalid!
 ```
 
 #### Metadata dekorátorů
@@ -3474,15 +3474,15 @@ Metadata lze využít k různým účelům, například k ladění, serializaci 
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Jednoduchý polyfill
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // Kontext obsahuje metadata vlastnosti: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // Nastavit primitivní hodnotu v objektu metadat
     context.metadata[context.name] = true;
 }
 
@@ -3497,7 +3497,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // Získání metadat
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -3532,11 +3532,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// Vytvoření instance základní třídy
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// Vytvoření instance odvozené třídy
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -3626,7 +3626,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // Hodnoty není nutné vlastnostem přiřazovat explicitně.
     }
     log() {
         console.log(this.property2);
@@ -3642,8 +3642,8 @@ Přetěžování metod umožňuje třídě mít více metod se stejným názvem,
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // Signatura přetížení 1
+    add(a: string, b: string): string; // Signatura přetížení 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -3657,7 +3657,7 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // Vypíše 15
 ```
 
 ## Generika
@@ -3720,7 +3720,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // Neplatné
 ```
 
 Významnou funkcí generik zavedenou ve verzi 3.4 RC je odvozování typů funkcí vyššího řádu, které přenáší generické typové argumenty:
@@ -3747,10 +3747,10 @@ Kontextové zužování typů u generik je mechanismus v TypeScriptu, který kom
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // Hodnota je zúžena na typ 'string'
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // Hodnota je zúžena na typ 'number'
         console.log(value.toFixed(2));
     }
 }
@@ -3778,7 +3778,7 @@ const obj = {
     prop1: 'Origin',
 };
 
-log(obj); // Valid
+log(obj); // Platné
 ```
 
 ## Jmenné prostory
@@ -3862,7 +3862,7 @@ Umožňují spojit více typů do jednoho typu:
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // Průnik A a B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -3888,7 +3888,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // Vlastnosti se stanou dostupnými pouze pro čtení
 ```
 
 Podmíněné typy:
@@ -3971,7 +3971,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // Neplatné
 ```
 
 #### Record\<K, T\>
@@ -4140,8 +4140,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // Platné, protože "log" je součástí "this".
+        this.update(); // Neplatné
     },
 };
 ```
@@ -4185,23 +4185,23 @@ NoInfer je pomocný typ navržený k blokování automatického odvozování typ
 Příklad:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// Automatické odvozování typů v rámci generické funkce.
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // Typ je zde ("a" | "b" | "c")[]
 ```
 
 S NoInfer:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// Příklad funkce, která používá NoInfer k zabránění odvozování typů
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // Chyba: argument typu '"c"' nelze přiřadit parametru typu '"a" | "b"'.
 ```
 
 ## Ostatní
@@ -4214,11 +4214,11 @@ Bloky Try-Catch-Finally:
 
 ```typescript
 try {
-    // Code that might throw an error
+    // Kód, který může vyhodit chybu
 } catch (error) {
-    // Handle the error
+    // Zpracování chyby
 } finally {
-    // Code that always executes, finally is optional
+    // Kód, který se provede vždy, finally je volitelné
 }
 ```
 
@@ -4226,14 +4226,14 @@ Můžete také zpracovávat různé typy chyb:
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // Kód, který může vyhodit různé typy chyb
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // Zpracování TypeError
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // Zpracování RangeError
     } else {
-        // Handle other errors
+        // Zpracování ostatních chyb
     }
 }
 ```
@@ -4279,10 +4279,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// Rozšířit MyClass o chování Identifiable a Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// Funkce pro aplikaci mixinů na třídu
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -4297,7 +4297,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// Aplikovat mixiny na MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -4412,10 +4412,10 @@ Příklad:
 
 ```typescript
 /**
- * Computes the power of a given number
+ * Vypočítá mocninu zadaného čísla
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – Základ výrazu
+ * @param {number} exponent – Exponent výrazu
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -4511,7 +4511,7 @@ V TypeScriptu můžete použít metavlastnost `new.target`, která umožňuje zj
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // Vypíše funkci konstruktoru použitou k vytvoření instance
     }
 }
 
@@ -4536,7 +4536,7 @@ Syntaxe výrazů dynamického importu v TypeScriptu je následující:
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // Dynamický import
         widget.render(container);
     }
 }
@@ -4848,8 +4848,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // Platné
+produceDog = produceAnimal; // Chyba
 ```
 
 **Kontravariance (přijímání hodnot):** funkce přijímající libovolné `Animal` může zastoupit funkci přijímající `Dog`. Zvládne i psy; funkce určená jen pro psy nemůže bezpečně přijmout každé zvíře.
@@ -4861,8 +4861,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // Platné
+consumeAnimal = consumeDog; // Chyba při zapnutém strictFunctionTypes
 ```
 
 Šipky ukazují směr bezpečného přiřazení:
@@ -4878,8 +4878,8 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // Povoleno, ale nebezpečné
+// dogs nyní obsahuje Animal, který není Dog.
 ```
 
 **Nastavení překladače:** při zapnutém `strictFunctionTypes` se parametry samostatných funkcí kontrolují kontravariantně. Bez této volby může TypeScript povolit oba směry (bivarianci), i když nejsou bezpečné. Parametry deklarované v metodách a konstruktorech tvoří výjimku.
@@ -4916,7 +4916,7 @@ const obj: MyObject = {
     'key-b': 456,
 };
 
-console.log(obj[uniqueSymbol]); // Unique symbol key
+console.log(obj[uniqueSymbol]); // Klíč unikátního symbolu
 console.log(obj['key-a']); // 123
 console.log(obj['key-b']); // 456
 ```
@@ -4932,37 +4932,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// Typová anotace pomocí `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Na následujících řádcích TypeScript nedokáže správně odvodit typy
+user.attributes?.map(console.log); // Vlastnost 'map' neexistuje v typu 'string | string[]'. Vlastnost 'map' neexistuje v typu 'string'.
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// Typové tvrzení pomocí `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Ani zde TypeScript nedokáže správně odvodit typy
+user2.attributes?.map(console.log); // Vlastnost 'map' neexistuje v typu 'string | string[]'. Vlastnost 'map' neexistuje v typu 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// Pomocí operátoru `satisfies` nyní můžeme správně odvodit typy
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript správně odvodí: string[]
+user3.nickName; // TypeScript správně odvodí: undefined
 ```
 
 ### Importy a exporty pouze typů
@@ -5016,7 +5016,7 @@ Příklad:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Jednoduchý polyfill
 
 const doWork = (): Disposable => {
     return {
@@ -5029,9 +5029,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // Zdroj je deklarován
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // Zdroj je uvolněn (např. se vyhodnotí `work[Symbol.dispose]()`)
 
 console.log(3);
 ```
@@ -5062,7 +5062,7 @@ Deklarace `using` zaznamenávají operace uvolnění prostředků do zásobníku
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // uvolní `C`, poté `B`, poté `A`.
 ```
 
 Je zaručeno, že prostředky budou uvolněny, i když následuje další kód nebo dojde k výjimkám. Při uvolňování tak může dojít k vyvolání výjimky, která případně potlačí jinou výjimku. Pro zachování informací o potlačených chybách je zavedena nová nativní výjimka `SuppressedError`.
@@ -5074,8 +5074,8 @@ Deklarace `await using` spravuje asynchronně uvolnitelný prostředek. Hodnota 
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // Zdroj je deklarován
+} // Zdroj je uvolněn (např. se vyhodnotí `await work[Symbol.asyncDispose]()`)
 ```
 
 Asynchronně uvolnitelný prostředek musí splňovat buď rozhraní `Disposable`, nebo `AsyncDisposable`:
@@ -5090,12 +5090,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Jednoduchý polyfill
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // Metoda volaná při asynchronním uvolnění objektu
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // Zavřít spojení a vrátit promise
         return this.close();
     }
 
@@ -5107,10 +5107,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // Vytvořit nové spojení a asynchronně jej uvolnit při opuštění rozsahu platnosti
+    await using connection = new DatabaseConnection(); //  Zdroj je deklarován
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Zdroj je uvolněn (např. se vyhodnotí `await connection[Symbol.asyncDispose]()`)
 
 doWork();
 ```
@@ -5149,7 +5149,7 @@ Od verze 5.5.4 TypeScript při kompilaci kontroluje literály regulárních výr
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // Chyba: tento zpětný odkaz odkazuje na neexistující skupinu.
 ```
 
 ### import defer

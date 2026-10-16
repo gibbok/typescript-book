@@ -394,14 +394,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 ระบบชนิดข้อมูลของ TypeScript ได้รับอิทธิพลอย่างมากจากพฤติกรรม runtime ของ JavaScript ตัวอย่างเช่น ตัวดำเนินการบวก (+) ซึ่งใน JavaScript สามารถต่อสตริงหรือบวกตัวเลขได้ ถูกจำลองในลักษณะเดียวกันใน TypeScript:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // ผลลัพธ์มีชนิด string
 ```
 
 ทีมงาน TypeScript ตั้งใจให้การใช้ JavaScript ในรูปแบบที่ผิดปกติถูกระบุเป็นข้อผิดพลาด ตัวอย่างเช่น ลองพิจารณาโค้ด JavaScript ที่ถูกต้องต่อไปนี้:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // ใน JavaScript ผลลัพธ์เท่ากับ 2
 ```
 
 อย่างไรก็ตาม TypeScript จะแจ้งข้อผิดพลาด:
@@ -420,7 +420,7 @@ Operator '+' cannot be applied to types 'number' and 'boolean'.
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // อาร์กิวเมนต์ชนิด 'string' ไม่สามารถกำหนดให้พารามิเตอร์ชนิด 'number' ได้
 ```
 
 อย่างไรก็ตาม ยังสามารถสร้างผลลัพธ์ JavaScript ที่รันได้:
@@ -447,7 +447,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' อ้างถึงเพียงชนิด แต่ถูกใช้เป็นค่าที่นี่
         // ...
     }
 };
@@ -457,11 +457,11 @@ const makeNoise = (animal: Animal) => {
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // ยูเนียนแบบมีแท็ก
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // ยูเนียนแบบมีแท็ก
     meow: () => void;
 }
 type Animal = Dog | Cat;
@@ -615,9 +615,9 @@ tsc --init
 ต่อไปนี้คือตัวอย่างคำสั่ง CLI ที่ทำงานด้วยค่าเริ่มต้น:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // คอมไพล์ไฟล์ที่ระบุ (main.ts) เป็น JavaScript
+tsc src/*.ts // คอมไพล์ไฟล์ .ts ทั้งหมดในโฟลเดอร์ 'src' เป็น JavaScript
+tsc app.ts util.ts --outfile index.js // คอมไพล์ไฟล์ TypeScript สองไฟล์ (app.ts และ util.ts) เป็นไฟล์ JavaScript ไฟล์เดียว (index.js)
 ```
 
 ### ไฟล์กำหนดค่า TypeScript
@@ -780,7 +780,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // ถูกต้อง
 ```
 
 ### กฎพื้นฐานในการเปรียบเทียบของ TypeScript
@@ -793,7 +793,7 @@ const y: Y = x; // Valid
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // ถูกต้อง เพราะมีสมาชิกอย่างน้อยเหมือนกับ X
 const r: X = y;
 ```
 
@@ -804,8 +804,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // ถูกต้อง
+x = y; // ถูกต้อง
 ```
 
 ชนิดค่าที่ส่งกลับของฟังก์ชันต้องเหมือนกัน:
@@ -816,8 +816,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // ไม่ถูกต้อง
+x = y; // ไม่ถูกต้อง
 ```
 
 ชนิดค่าที่ส่งกลับของฟังก์ชันต้นทางต้องเป็นชนิดย่อยของชนิดค่าที่ส่งกลับของฟังก์ชันเป้าหมาย:
@@ -826,8 +826,8 @@ x = y; // Invalid
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // ถูกต้อง
+y = x; // ไม่ถูกต้อง ไม่มีสมาชิก b
 ```
 
 อนุญาตให้ละทิ้งพารามิเตอร์ของฟังก์ชันได้ เนื่องจากเป็นแนวปฏิบัติทั่วไปใน JavaScript เช่น เมื่อใช้ "Array.prototype.map()":
@@ -842,8 +842,8 @@ y = x; // Invalid member b is missing
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // ไม่มีพารามิเตอร์ b
+y = x; // ถูกต้อง
 ```
 
 พารามิเตอร์ทางเลือกเพิ่มเติมใด ๆ ของชนิดต้นทางถือว่าถูกต้อง:
@@ -853,8 +853,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // ถูกต้อง
+x = y; //ถูกต้อง
 ```
 
 พารามิเตอร์ทางเลือกใด ๆ ของชนิดเป้าหมายที่ไม่มีพารามิเตอร์ที่สอดคล้องกันในชนิดต้นทางถือว่าถูกต้องและไม่เป็นข้อผิดพลาด:
@@ -864,15 +864,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // ถูกต้อง
+x = y; // ถูกต้อง
 ```
 
 พารามิเตอร์ rest จะถือเป็นชุดพารามิเตอร์ทางเลือกที่มีจำนวนไม่สิ้นสุด:
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //ถูกต้อง
 ```
 
 ฟังก์ชันที่มีโอเวอร์โหลดจะถูกต้อง หากลายเซ็นโอเวอร์โหลดเข้ากันได้กับลายเซ็นการนำไปใช้:
@@ -884,10 +884,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // ถูกต้อง
+x('a', 1); // ถูกต้อง
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // ไม่ถูกต้อง ไม่เข้ากันกับลายเซ็นของการใช้งานจริง
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -899,25 +899,25 @@ y('a', 1);
 การเปรียบเทียบพารามิเตอร์ของฟังก์ชันจะสำเร็จ หากพารามิเตอร์ต้นทางและเป้าหมายสามารถกำหนดให้กับชนิดแม่หรือชนิดย่อยได้ (bivariance)
 
 ```typescript
-// Supertype
+// ชนิดแม่
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// ชนิดย่อย
 class Y extends X {}
-// Subtype
+// ชนิดย่อย
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// ความแปรปรวนสองทางยอมรับชนิดแม่
+console.log(getA(new X('x'))); // ถูกต้อง
+console.log(getA(new Y('Y'))); // ถูกต้อง
+console.log(getA(new Z('z'))); // ถูกต้อง
 ```
 
 Enum สามารถเปรียบเทียบและใช้ร่วมกับตัวเลขได้ รวมถึงในทางกลับกัน แต่การเปรียบเทียบค่า Enum จากชนิด Enum ที่ต่างกันถือว่าไม่ถูกต้อง
@@ -933,9 +933,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // ถูกต้อง
+const ya: Y = 0; // ถูกต้อง
+X.A === Y.A; // ไม่ถูกต้อง
 ```
 
 อินสแตนซ์ของคลาสจะต้องผ่านการตรวจสอบความเข้ากันได้ของสมาชิก private และ protected:
@@ -956,7 +956,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // ไม่ถูกต้อง
 ```
 
 การตรวจสอบการเปรียบเทียบจะไม่พิจารณาความแตกต่างของลำดับชั้นการสืบทอด ตัวอย่างเช่น:
@@ -984,8 +984,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // ถูกต้อง
+x === z; // ถูกต้อง แม้ว่า z มาจากลำดับชั้นการสืบทอดที่ต่างกัน
 ```
 
 Generic จะเปรียบเทียบกันโดยใช้โครงสร้างตามชนิดผลลัพธ์หลังจากนำพารามิเตอร์ generic ไปใช้ โดยจะเปรียบเทียบเฉพาะผลลัพธ์สุดท้ายในฐานะชนิดที่ไม่ใช่ generic
@@ -997,14 +997,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // ไม่ถูกต้อง เพราะมีการใช้อาร์กิวเมนต์ชนิดในโครงสร้างสุดท้าย
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // ถูกต้อง เพราะไม่มีการใช้อาร์กิวเมนต์ชนิดในโครงสร้างสุดท้าย
 ```
 
 เมื่อ generic ไม่ได้ระบุอาร์กิวเมนต์ชนิด อาร์กิวเมนต์ที่ไม่ระบุทั้งหมดจะถือเป็นชนิด "any":
@@ -1014,7 +1014,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // ถูกต้อง
 ```
 
 โปรดจำไว้ว่า:
@@ -1023,26 +1023,26 @@ x = y; // Valid
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // ถูกต้อง ทุกชนิดสามารถกำหนดให้ตัวเองได้
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // ถูกต้อง ทุกชนิดสามารถกำหนดให้ any ได้
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // ถูกต้อง ทุกชนิดสามารถกำหนดให้ unknown ได้
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // ถูกต้อง unknown สามารถกำหนดให้ตัวเองและ any เท่านั้น
+let e2: any = e; // ถูกต้อง
+let e3: number = e; // ไม่ถูกต้อง
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // ไม่ถูกต้อง ไม่มีสิ่งใดกำหนดให้ never ได้
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // ไม่ถูกต้อง void ไม่สามารถกำหนดให้หรือรับค่าจากชนิดใดได้ยกเว้น any
+g = g1; // ถูกต้อง
 ```
 
 โปรดทราบว่าเมื่อเปิดใช้งาน "strictNullChecks" ค่า "null" และ "undefined" จะถูกจัดการคล้ายกับ "void" มิฉะนั้นจะคล้ายกับ "never"
@@ -1100,7 +1100,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // ถูกต้อง
 ```
 
 อินเตอร์เซกชัน (T1 & T2) สร้างเซตที่แคบลง (เฉพาะส่วนที่มีร่วมกัน):
@@ -1115,8 +1115,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // ไม่ถูกต้อง
+const j: XY = { a: 'a', b: 'b' }; // ถูกต้อง
 ```
 
 ในบริบทนี้ คีย์เวิร์ด `extends` สามารถถือว่าหมายถึง "เป็นเซตย่อยของ" โดยใช้กำหนดข้อจำกัดให้กับชนิด เมื่อใช้ `extends` กับ generic คีย์เวิร์ดนี้จะจำกัดพารามิเตอร์ชนิด generic ให้เป็นชนิดที่เฉพาะเจาะจงยิ่งขึ้น
@@ -1150,7 +1150,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // ถูกต้อง
 ```
 
 ### การกำหนดชนิด: การประกาศชนิดและการยืนยันชนิด
@@ -1166,7 +1166,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// การประกาศชนิด
 const x: X = {
     a: 'a',
 };
@@ -1182,7 +1182,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // ข้อผิดพลาด: อ็อบเจกต์ลิเทอรัลระบุได้เฉพาะพร็อพเพอร์ตีที่รู้จัก
 };
 ```
 
@@ -1266,8 +1266,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // ถูกต้อง เพราะระบบชนิดเชิงโครงสร้าง
+const w: X = { a: 'a', b: 'b' }; // ไม่ถูกต้อง เพราะการตรวจสอบพร็อพเพอร์ตีส่วนเกิน
 ```
 
 ### ชนิดแบบอ่อน
@@ -1292,7 +1292,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // ไม่ถูกต้อง
 ```
 
 แม้จะไม่แนะนำ แต่หากจำเป็นก็สามารถข้ามการตรวจสอบนี้ได้โดยใช้การยืนยันชนิด:
@@ -1303,7 +1303,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // ถูกต้อง
 ```
 
 หรือเพิ่ม `unknown` ลงใน index signature ของชนิดแบบอ่อน:
@@ -1316,7 +1316,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // ถูกต้อง
 ```
 
 ### การตรวจสอบ Object Literal อย่างเข้มงวด (Freshness)
@@ -1335,20 +1335,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // การตรวจสอบ freshness: การกำหนดค่าไม่ถูกต้อง
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // การตรวจสอบ freshness: การกำหนดค่าไม่ถูกต้อง
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // การขยายชนิด: ไม่มีข้อผิดพลาด ชนิดเข้ากันได้ในเชิงโครงสร้าง
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // การตรวจสอบ freshness: อาร์กิวเมนต์ไม่ถูกต้อง
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // การขยายชนิด: ไม่มีการตรวจสอบ freshness
 ```
 
 ### การอนุมานชนิด
@@ -1363,7 +1363,7 @@ TypeScript สามารถอนุมานชนิดได้เมื่
 ตัวอย่างเช่น:
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // ชนิดที่อนุมานได้คือ string
 ```
 
 คอมไพเลอร์ TypeScript จะวิเคราะห์ค่าหรือนิพจน์ และกำหนดชนิดโดยอิงจากข้อมูลที่มีอยู่
@@ -1373,19 +1373,19 @@ let x = 'x'; // The type inferred is string
 เมื่อใช้หลายนิพจน์ในการอนุมานชนิด TypeScript จะค้นหา "ชนิดร่วมที่เหมาะสมที่สุด" ตัวอย่างเช่น:
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // ชนิดที่อนุมานได้คือ: (string | number | null)[]
 ```
 
 หากคอมไพเลอร์ไม่พบชนิดร่วมที่เหมาะสมที่สุด ก็จะส่งกลับชนิดยูเนียน ตัวอย่างเช่น:
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // ชนิดที่อนุมานได้คือ: (RegExp | Date)[]
 ```
 
 TypeScript ใช้ "การกำหนดชนิดตามบริบท" โดยอิงจากตำแหน่งของตัวแปรเพื่ออนุมานชนิด ในตัวอย่างต่อไปนี้ คอมไพเลอร์ทราบว่า `e` มีชนิดเป็น `MouseEvent` เนื่องจากชนิดเหตุการณ์ `click` ที่กำหนดไว้ในไฟล์ lib.d.ts ซึ่งมีการประกาศแบบ ambient สำหรับโครงสร้าง JavaScript ที่ใช้กันทั่วไปและ DOM:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // ชนิดของ e ที่อนุมานได้คือ MouseEvent
 ```
 
 ### การขยายชนิด
@@ -1395,9 +1395,9 @@ window.addEventListener('click', function (e) {}); // The inferred type of e is 
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript อนุมานเป็น string ซึ่งเป็นชนิดที่กว้าง
+let y: 'y' | 'x' = 'y'; // ชนิดของ y เป็นยูเนียนของชนิดลิเทอรัล
+y = x; // ไม่ถูกต้อง ชนิด 'string' ไม่สามารถกำหนดให้ชนิด '"x" | "y"' ได้
 ```
 
 TypeScript กำหนด `string` ให้กับ `x` โดยอิงจากค่าเดียวที่ให้ไว้ระหว่างการกำหนดค่าเริ่มต้น (`x`) ซึ่งเป็นตัวอย่างของการขยายชนิด
@@ -1411,9 +1411,9 @@ TypeScript มีวิธีควบคุมกระบวนการขย
 ตัวอย่างเช่น:
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript อนุมานชนิดของ x เป็น 'x' ซึ่งเป็นชนิดที่แคบกว่า
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // ถูกต้อง: ชนิดของ x ถูกอนุมานเป็น 'x'
 ```
 
 เมื่อใช้ `const` เพื่อประกาศตัวแปร x ชนิดของตัวแปรจะถูกจำกัดให้แคบลงเหลือค่าลิเทอรัลเฉพาะ 'x' เนื่องจากชนิดของ x แคบลง จึงสามารถกำหนดให้กับตัวแปร y ได้โดยไม่มีข้อผิดพลาด
@@ -1425,10 +1425,10 @@ y = x; // Valid: The type of x is inferred as 'x'
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // ไม่มี const ที่นี่
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // ชนิดที่อนุมานได้คือ: { a: string; b: string; }
 ```
 
 ดังที่เห็น พร็อพเพอร์ตี `a` และ `b` ได้รับการอนุมานว่ามีชนิดเป็น `string`
@@ -1437,10 +1437,10 @@ const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // ใช้ตัวปรับแต่ง const กับพารามิเตอร์ชนิด
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // ชนิดที่อนุมานได้คือ: { a: "a"; b: "b"; }
 ```
 
 ตอนนี้จะเห็นว่าพร็อพเพอร์ตี `a` และ `b` ได้รับการอนุมานเป็นลิเทอรัลสตริง แทนที่จะเป็นเพียงชนิด `string`
@@ -1471,7 +1471,7 @@ const v = {
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // ทูเพิล readonly [1, 2, 3]
 ```
 
 ### คำอธิบายประกอบชนิดอย่างชัดเจน
@@ -1480,9 +1480,9 @@ const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // ชนิดที่อนุมานได้: number (การขยายชนิด)
 };
-v.x = 3; // Valid
+v.x = 3; // ถูกต้อง
 ```
 
 เราสามารถทำให้คำอธิบายประกอบชนิดเฉพาะเจาะจงยิ่งขึ้นได้โดยใช้ยูเนียนของชนิดลิเทอรัล:
@@ -1490,10 +1490,10 @@ v.x = 3; // Valid
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // ตอนนี้ x เป็นยูเนียนของชนิดลิเทอรัล: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // ถูกต้อง
+v.x = 100; // ไม่ถูกต้อง
 ```
 
 ### การจำกัดชนิดให้แคบลง
@@ -1510,7 +1510,7 @@ v.x = 100; // Invalid
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // ชนิดคือ number ซึ่งถูกจำกัดให้แคบลงด้วยเงื่อนไข
 }
 ```
 
@@ -1545,9 +1545,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // ชนิดคือ A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // ชนิดคือ B
     }
 };
 ```
@@ -1559,11 +1559,11 @@ const x = (input: A | B): string | number => {
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // ชนิดคือ (string | null)[] โดย TypeScript ไม่สามารถอนุมานชนิดได้อย่างถูกต้อง
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // ตัวตรวจสอบชนิดที่กำหนดเอง
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // ตอนนี้ชนิดถูกต้องเป็น string[] โดยใช้ตัวตรวจสอบชนิดแบบเพรดิเคตเพื่อจำกัดชนิดให้แคบลง
 ```
 
 #### การจำกัดชนิดด้วย Switch-true
@@ -1620,9 +1620,9 @@ TypeScript ยังรองรับเลขฐานสิบหก เล�
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // เลขฐานสิบหกขึ้นต้นด้วย 0x
+const binary: number = 0b1010; // เลขฐานสองขึ้นต้นด้วย 0b
+const octal: number = 0o633; // เลขฐานแปดขึ้นต้นด้วย 0o
 ```
 
 ### bigint
@@ -1675,17 +1675,17 @@ console.log(obj[b]); // 456
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // ยูเนียน
 ```
 
 TypeScript รองรับอาร์เรย์แบบอ่านอย่างเดียวด้วยไวยากรณ์ต่อไปนี้:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // ตัวปรับแต่ง readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // ไม่ถูกต้อง
 ```
 
 TypeScript รองรับทูเพิลและทูเพิลแบบอ่านอย่างเดียว:
@@ -1754,7 +1754,7 @@ const sum = (a = 10, b: number): number => a + b;
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // เป็นทางเลือก
 };
 ```
 
@@ -1801,7 +1801,7 @@ type K = {
 const k: K = { x: 'x', 1: 'b' };
 console.log(k['x']);
 console.log(k[1]);
-console.log(k['1']); // Same result as k[1]
+console.log(k['1']); // ผลลัพธ์เดียวกับ k[1]
 ```
 
 โปรดทราบว่า JavaScript จะแปลงดัชนีชนิด `number` เป็นดัชนีชนิด `string` โดยอัตโนมัติ ดังนั้น `k[1]` หรือ `k["1"]` จึงคืนค่าเดียวกัน
@@ -1865,9 +1865,9 @@ interface B extends A {
 ตัวอย่างลิเทอรัล:
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // ชนิดลิเทอรัลสตริง
+const b = 1; // ชนิดลิเทอรัลตัวเลข
+const c = true; // ชนิดลิเทอรัลบูลีน
 ```
 
 ชนิดลิเทอรัลแบบสตริง ตัวเลข และบูลีนถูกใช้ในยูเนียน ตัวป้องกันชนิด และนามแฝงชนิด
@@ -1884,8 +1884,8 @@ type O = 'a' | 'b' | 'c';
 ในตัวอย่างต่อไปนี้ เราจะเห็นว่า TypeScript ถือว่า `x` เป็นชนิดลิเทอรัล เนื่องจากไม่สามารถเปลี่ยนค่าได้ในภายหลัง ขณะที่ `y` ถูกอนุมานเป็น string เนื่องจากสามารถแก้ไขค่าได้ในภายหลัง
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // ชนิดลิเทอรัล 'x' เพราะไม่สามารถเปลี่ยนค่านี้ได้
+let y = 'y'; // ชนิด string เพราะเราสามารถเปลี่ยนค่านี้ได้
 ```
 
 ในตัวอย่างต่อไปนี้ เราจะเห็นว่า `o.x` ถูกอนุมานเป็น `string` (ไม่ใช่ลิเทอรัลของ `a`) เนื่องจาก TypeScript พิจารณาว่าค่านี้สามารถเปลี่ยนได้ในภายหลัง
@@ -1895,12 +1895,12 @@ let y = 'y'; // Type string, as we can change this value
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // นี่คือสตริงที่มีชนิดกว้างกว่า
 };
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // อาร์กิวเมนต์ชนิด 'string' ไม่สามารถกำหนดให้พารามิเตอร์ชนิด 'X' ได้
 ```
 
 ดังที่เห็น โค้ดจะแสดงข้อผิดพลาดเมื่อส่ง `o.x` ไปยัง `fn` เนื่องจาก X เป็นชนิดที่แคบกว่า
@@ -1947,7 +1947,7 @@ enum Color {
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // ค่าเริ่มต้นจาก 0
     Medium,
     Large,
 }
@@ -2043,7 +2043,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // สมาชิกมีชนิด 'any' โดยปริยาย เนื่องจากนิพจน์ดัชนีไม่ใช่ชนิด 'number'
 ```
 
 ### Ambient enum
@@ -2055,23 +2055,23 @@ Ambient enum ใน TypeScript คือ Enum ชนิดหนึ่งที�
 ใน TypeScript สมาชิกที่คำนวณค่าคือสมาชิกของ Enum ที่มีการคำนวณค่าในเวลารันไทม์ ส่วนสมาชิกค่าคงที่คือสมาชิกที่กำหนดค่าในเวลาคอมไพล์และไม่สามารถเปลี่ยนแปลงได้ระหว่างรันไทม์ สมาชิกที่คำนวณค่าใช้ได้ใน Enum ปกติ ส่วนสมาชิกค่าคงที่ใช้ได้ทั้งใน Enum ปกติและ const enum
 
 ```typescript
-// Constant members
+// สมาชิกค่าคงที่
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6 ถูกสร้างขึ้นขณะคอมไพล์
 ```
 
 ```typescript
-// Computed members
+// สมาชิกที่คำนวณค่า
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // ตัวเลขสุ่มที่สร้างขณะรัน
 ```
 
 Enum แสดงด้วยยูเนียนที่ประกอบด้วยชนิดของสมาชิก ค่าของสมาชิกแต่ละตัวสามารถกำหนดผ่านนิพจน์ค่าคงที่หรือไม่ใช่ค่าคงที่ โดยสมาชิกที่มีค่าคงที่จะได้รับการกำหนดเป็นชนิดลิเทอรัล เพื่อให้เห็นภาพ ให้พิจารณาการประกาศชนิด E และชนิดย่อย E.A, E.B และ E.C ในกรณีนี้ E แทนยูเนียน E.A | E.B | E.C
@@ -2080,9 +2080,9 @@ Enum แสดงด้วยยูเนียนที่ประกอบด
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // ลิเทอรัลตัวเลข
+    B = 'bar', // ลิเทอรัลสตริง
+    C = identity(42), // ค่าที่คำนวณแบบทึบแสง
 }
 
 console.log(E.C); //42
@@ -2101,7 +2101,7 @@ TypeScript รองรับหลายวิธีในการจำกั
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x มีชนิด number
     }
     return -1;
 };
@@ -2240,7 +2240,7 @@ const f2 = (
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // เกิดข้อผิดพลาด ไม่มีการจำกัดชนิดให้แคบลงเพราะ isString ไม่ใช่ const
     }
 };
 
@@ -2250,7 +2250,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // เกิดข้อผิดพลาด ไม่มีการจำกัดชนิดให้แคบลงเพราะ obj ถูกกำหนดค่าในตัวฟังก์ชัน
     }
 };
 ```
@@ -2285,12 +2285,12 @@ const nums = [1, null, 2].filter(x => x !== null);
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // ตัวจำแนก
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // ตัวจำแนก
     radius: number;
 };
 
@@ -2323,7 +2323,7 @@ const printValue = (val: string | number) => {
     } else if (typeof val === 'number') {
         console.log(val.toFixed(2));
     } else {
-        // val has type never here because it can never be anything other than a string or a number
+        // val มีชนิด never ที่นี่ เพราะไม่สามารถเป็นสิ่งอื่นนอกจาก string หรือ number
         const neverVal: never = val;
         console.log(`Unexpected value: ${neverVal}`);
     }
@@ -2347,7 +2347,7 @@ const move = (direction: Direction) => {
             break;
         default:
             const exhaustiveCheck: never = direction;
-            console.log(exhaustiveCheck); // This line will never be executed
+            console.log(exhaustiveCheck); // บรรทัดนี้จะไม่มีวันทำงาน
     }
 };
 ```
@@ -2402,7 +2402,7 @@ type Point = [number, number];
 type T = string;
 type Tuple1 = [T, T];
 type Tuple2 = [a: T, b: T];
-type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
+type Tuple3 = [a: T, T]; // ทูเพิลที่มีชื่อร่วมกับทูเพิลที่ไม่มีชื่อ
 ```
 
 ## ทูเพิลความยาวคงที่
@@ -2414,7 +2414,7 @@ type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // ข้อผิดพลาด
 ```
 
 ## ชนิดยูเนียน
@@ -2423,8 +2423,8 @@ x.push(2); // Error
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // ถูกต้อง
+x = 123; // ถูกต้อง
 ```
 
 ## ชนิด Intersection
@@ -2440,7 +2440,7 @@ type Y = {
     b: string;
 };
 
-type J = X & Y; // Intersection
+type J = X & Y; // อินเตอร์เซกชัน
 
 const j: J = {
     a: 'a',
@@ -2457,7 +2457,7 @@ type Dictionary<T> = {
     [key: string]: T;
 };
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-console.log(myDict['a']); // Returns a
+console.log(myDict['a']); // คืนค่า a
 ```
 
 ## ชนิดจากค่า
@@ -2465,7 +2465,7 @@ console.log(myDict['a']); // Returns a
 ชนิดจากค่าใน TypeScript หมายถึงการอนุมานชนิดจากค่าหรือนิพจน์โดยอัตโนมัติผ่านกลไกการอนุมานชนิด
 
 ```typescript
-const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immutable), but widens it to 'string' with 'let' (reassignable).
+const x = 'x'; // TypeScript อนุมาน 'x' เป็นสตริงลิเทอรัลเมื่อใช้ 'const' (เปลี่ยนค่าไม่ได้) แต่ขยายเป็น 'string' เมื่อใช้ 'let' (กำหนดค่าใหม่ได้)
 ```
 
 ## ชนิดจากค่าที่ฟังก์ชันส่งคืน
@@ -2473,7 +2473,7 @@ const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immuta
 ชนิดจากค่าที่ฟังก์ชันส่งคืนหมายถึงความสามารถในการอนุมานชนิดค่าที่ส่งคืนของฟังก์ชันโดยอัตโนมัติจากอิมพลีเมนเทชัน ซึ่งช่วยให้ TypeScript กำหนดชนิดของค่าที่ฟังก์ชันส่งคืนได้โดยไม่ต้องมีคำกำกับชนิดอย่างชัดเจน
 
 ```typescript
-const add = (x: number, y: number) => x + y; // TypeScript can infer that the return type of the function is a number
+const add = (x: number, y: number) => x + y; // TypeScript สามารถอนุมานได้ว่าชนิดค่าคืนของฟังก์ชันคือ number
 ```
 
 ## ชนิดจากโมดูล
@@ -2486,7 +2486,7 @@ const add = (x: number, y: number) => x + y; // TypeScript can infer that the re
 export const add = (x: number, y: number) => x + y;
 // index.ts
 import { add } from 'calc';
-const r = add(1, 2); // r is number
+const r = add(1, 2); // r มีชนิด number
 ```
 
 ## Mapped Type
@@ -2522,11 +2522,11 @@ const x: MyNewType = {
 ตัวอย่าง:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // พร็อพเพอร์ตีทั้งหมดถูกกำหนดให้อ่านอย่างเดียว
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // พร็อพเพอร์ตีทั้งหมดถูกกำหนดให้เปลี่ยนแปลงได้
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // พร็อพเพอร์ตีทั้งหมดถูกกำหนดให้เป็นทางเลือก
 ```
 
 ## ชนิดแบบมีเงื่อนไข
@@ -2539,8 +2539,8 @@ type IsArray<T> = T extends any[] ? true : false;
 const myArray = [1, 2, 3];
 const myNumber = 42;
 
-type IsMyArrayAnArray = IsArray<typeof myArray>; // Type true
-type IsMyNumberAnArray = IsArray<typeof myNumber>; // Type false
+type IsMyArrayAnArray = IsArray<typeof myArray>; // ชนิด true
+type IsMyNumberAnArray = IsArray<typeof myNumber>; // ชนิด false
 ```
 
 ## ชนิดแบบมีเงื่อนไขที่แจกแจงได้
@@ -2606,8 +2606,8 @@ type ProductId = `id-${Products}-${Status}`; // "id-p1-active" | "id-p1-inactive
 
 ```typescript
 let value: any;
-value = true; // Valid
-value = 7; // Valid
+value = true; // ถูกต้อง
+value = 7; // ถูกต้อง
 ```
 
 ## ชนิด Unknown
@@ -2620,10 +2620,10 @@ value = 7; // Valid
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // ถูกต้อง
+let value2: any = value; // ถูกต้อง
+let value3: boolean = value; // ไม่ถูกต้อง
+let value4: number = value; // ไม่ถูกต้อง
 ```
 
 ```typescript
@@ -2652,7 +2652,7 @@ const sayHello = (): void => {
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // ทำบางอย่าง
     }
 };
 ```
@@ -2672,10 +2672,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // เลื่อนขึ้น
             break;
         case 'down':
-            // move down
+            // เลื่อนลง
             break;
         default:
             const exhaustiveCheck: never = direction;
@@ -2740,10 +2740,10 @@ type TypeName = {
 ### ชนิดพื้นฐาน
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myNumber: number = 123; // ชนิด number
+let myBoolean: boolean = true; // ชนิด boolean
+let myArray: string[] = ['a', 'b']; // อาร์เรย์ของสตริง
+let myTuple: [string, number] = ['a', 123]; // ทูเพิล
 ```
 
 ### ออบเจ็กต์และอินเทอร์เฟซ
@@ -2755,14 +2755,14 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### ชนิดยูเนียนและ Intersection
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // ชนิดยูเนียน
+let myUnion: MyType = 'hello'; // อาจเป็นสตริง
+myUnion = 123; // หรือเป็นตัวเลข
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // ชนิดอินเตอร์เซกชัน
+let myCombined: CombinedType = { name: 'John', age: 25 }; // อ็อบเจกต์ที่มีทั้งพร็อพเพอร์ตี name และ age
 ```
 
 ## ชนิดข้อมูลพื้นฐานในตัว
@@ -2808,11 +2808,11 @@ TypeScript เป็นซูเปอร์เซตของ JavaScript จึ
 โอเวอร์โหลดฟังก์ชันใน TypeScript ช่วยให้คุณกำหนดลายเซ็นฟังก์ชันหลายแบบสำหรับชื่อฟังก์ชันเดียว ทำให้สามารถกำหนดฟังก์ชันที่เรียกใช้ได้หลายรูปแบบ ต่อไปนี้คือตัวอย่าง:
 
 ```typescript
-// Overloads
+// โอเวอร์โหลด
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// การใช้งานจริง
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -2822,8 +2822,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // ถูกต้อง
+sayHi(['aa', 'bb']); // ถูกต้อง
 ```
 
 ต่อไปนี้เป็นอีกตัวอย่างของการใช้โอเวอร์โหลดฟังก์ชันภายใน `class`:
@@ -2836,11 +2836,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // โอเวอร์โหลด
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // การใช้งานจริง
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;
@@ -2959,7 +2959,7 @@ const c: B = {
 Type มีความยืดหยุ่นมากกว่าในการกำหนดชนิดยูเนียนและ Intersection ด้วยคีย์เวิร์ด `type` คุณสามารถสร้างชนิดยูเนียนได้ง่าย ๆ โดยใช้ตัวดำเนินการ `|` และสร้างชนิด intersection โดยใช้ตัวดำเนินการ `&` แม้ว่าอินเทอร์เฟซจะสามารถแทนชนิดยูเนียนทางอ้อมได้เช่นกัน แต่ไม่มีการรองรับชนิด intersection ในตัว
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // ยูเนียน
 
 type Person = {
     name: string;
@@ -2971,7 +2971,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // อินเตอร์เซกชัน
 ```
 
 ตัวอย่างที่ใช้อินเทอร์เฟซ:
@@ -2984,7 +2984,7 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // ยูเนียนของอินเทอร์เฟซ
 ```
 
 ## คลาส
@@ -3022,7 +3022,7 @@ class Person {
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // ผลลัพธ์: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### คอนสตรักเตอร์
@@ -3126,10 +3126,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// การพยายามสร้างอินสแตนซ์ของคลาสฐานโดยตรงจะทำให้เกิดข้อผิดพลาด
+// const baseObj = new BaseClass(); // ข้อผิดพลาด: คอนสตรักเตอร์ของคลาส 'BaseClass' เป็น protected
 
-// Create an instance of the derived class
+// สร้างอินสแตนซ์ของคลาสที่สืบทอด
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -3228,8 +3228,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // คีย์เวิร์ด "private" และ "public" ในคอนสตรักเตอร์
+        // ประกาศและกำหนดค่าเริ่มต้นให้พร็อพเพอร์ตีของคลาสที่สอดคล้องกันโดยอัตโนมัติ
     }
     public introduce(): void {
         console.log(
@@ -3264,7 +3264,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // ผลลัพธ์: Whiskers meows.
 ```
 
 ### การใช้ร่วมกับ Generic
@@ -3352,7 +3352,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* แสดงค่า:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -3377,7 +3377,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // แสดงค่า: HELLO!
 ```
 
 #### Method Decorator
@@ -3459,10 +3459,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // ถูกต้อง: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // โยนข้อผิดพลาด: Invalid!
 ```
 
 #### Metadata ของ Decorator
@@ -3474,15 +3474,15 @@ Metadata สามารถใช้เพื่อวัตถุประส�
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // polyfill อย่างง่าย
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // บริบทมี metadata ของพร็อพเพอร์ตี: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // กำหนดค่าอ็อบเจกต์ metadata ด้วยค่าพื้นฐาน
     context.metadata[context.name] = true;
 }
 
@@ -3497,7 +3497,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // รับข้อมูล metadata
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -3532,11 +3532,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// สร้างอินสแตนซ์ของคลาสฐาน
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// สร้างอินสแตนซ์ของคลาสที่สืบทอด
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -3626,7 +3626,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // ไม่จำเป็นต้องกำหนดค่าให้พร็อพเพอร์ตีอย่างชัดเจน
     }
     log() {
         console.log(this.property2);
@@ -3642,8 +3642,8 @@ x.log();
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // ลายเซ็นโอเวอร์โหลด 1
+    add(a: string, b: string): string; // ลายเซ็นโอเวอร์โหลด 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -3657,7 +3657,7 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // แสดงค่า 15
 ```
 
 ## Generic
@@ -3720,7 +3720,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // ไม่ถูกต้อง
 ```
 
 ฟีเจอร์ generic ที่สำคัญซึ่งเพิ่มเข้ามาในเวอร์ชัน 3.4 RC คือการอนุมานชนิดของฟังก์ชันลำดับสูง ซึ่งส่งต่ออาร์กิวเมนต์ชนิด generic:
@@ -3747,10 +3747,10 @@ const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // ค่าถูกจำกัดให้แคบลงเป็นชนิด 'string'
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // ค่าถูกจำกัดให้แคบลงเป็นชนิด 'number'
         console.log(value.toFixed(2));
     }
 }
@@ -3778,7 +3778,7 @@ const obj = {
     prop1: 'Origin',
 };
 
-log(obj); // Valid
+log(obj); // ถูกต้อง
 ```
 
 ## Namespace
@@ -3862,7 +3862,7 @@ console.log(obj[key2]); // value 2
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // อินเตอร์เซกชันของ A และ B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -3888,7 +3888,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // พร็อพเพอร์ตีเปลี่ยนเป็นอ่านอย่างเดียว
 ```
 
 ชนิด Conditional:
@@ -3971,7 +3971,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // ไม่ถูกต้อง
 ```
 
 #### Record\<K, T\>
@@ -4140,8 +4140,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // ถูกต้อง เพราะ "log" เป็นส่วนหนึ่งของ "this"
+        this.update(); // ไม่ถูกต้อง
     },
 };
 ```
@@ -4185,23 +4185,23 @@ NoInfer เป็น utility type ที่ออกแบบมาเพื่�
 ตัวอย่าง:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// การอนุมานชนิดอัตโนมัติภายในขอบเขตของฟังก์ชันเจเนอริก
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // ชนิดที่นี่คือ ("a" | "b" | "c")[]
 ```
 
 เมื่อใช้ NoInfer:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// ตัวอย่างฟังก์ชันที่ใช้ NoInfer เพื่อป้องกันการอนุมานชนิด
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // ข้อผิดพลาด: อาร์กิวเมนต์ชนิด '"c"' ไม่สามารถกำหนดให้พารามิเตอร์ชนิด '"a" | "b"' ได้
 ```
 
 ## อื่น ๆ
@@ -4214,11 +4214,11 @@ TypeScript ช่วยให้คุณดักจับและจัดก
 
 ```typescript
 try {
-    // Code that might throw an error
+    // โค้ดที่อาจโยนข้อผิดพลาด
 } catch (error) {
-    // Handle the error
+    // จัดการข้อผิดพลาด
 } finally {
-    // Code that always executes, finally is optional
+    // โค้ดที่ทำงานเสมอ โดย finally เป็นทางเลือก
 }
 ```
 
@@ -4226,14 +4226,14 @@ try {
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // โค้ดที่อาจโยนข้อผิดพลาดหลายชนิด
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // จัดการ TypeError
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // จัดการ RangeError
     } else {
-        // Handle other errors
+        // จัดการข้อผิดพลาดอื่น ๆ
     }
 }
 ```
@@ -4279,10 +4279,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// ขยาย MyClass ให้มีพฤติกรรมของ Identifiable และ Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// ฟังก์ชันสำหรับนำมิกซ์อินไปใช้กับคลาส
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -4297,7 +4297,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// นำมิกซ์อินไปใช้กับ MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -4412,10 +4412,10 @@ TypeScript ยังรองรับ async iterator และ async Generator 
 
 ```typescript
 /**
- * Computes the power of a given number
+ * คำนวณเลขยกกำลังของตัวเลขที่กำหนด
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – ค่าฐานของนิพจน์
+ * @param {number} exponent – ค่าเลขชี้กำลังของนิพจน์
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -4511,7 +4511,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // แสดงฟังก์ชันคอนสตรักเตอร์ที่ใช้สร้างอินสแตนซ์
     }
 }
 
@@ -4536,7 +4536,7 @@ const child = new Child(); // [Function: Child]
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // การนำเข้าแบบไดนามิก
         widget.render(container);
     }
 }
@@ -4848,8 +4848,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // ถูกต้อง
+produceDog = produceAnimal; // ข้อผิดพลาด
 ```
 
 **Contravariance (การรับค่า):** ฟังก์ชันที่รับ `Animal` ทุกชนิดใช้แทนฟังก์ชันที่รับ `Dog` ได้ เพราะรับสุนัขได้ด้วย แต่ฟังก์ชันที่รับเฉพาะสุนัขไม่สามารถจัดการสัตว์ทุกชนิดได้อย่างปลอดภัย
@@ -4861,8 +4861,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // ถูกต้อง
+consumeAnimal = consumeDog; // เกิดข้อผิดพลาดเมื่อใช้ strictFunctionTypes
 ```
 
 ลูกศรแสดงทิศทางการกำหนดค่าที่ปลอดภัย:
@@ -4878,8 +4878,8 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // อนุญาต แต่ไม่ปลอดภัย
+// ตอนนี้ dogs มี Animal ที่ไม่ใช่ Dog
 ```
 
 **ตัวเลือกคอมไพเลอร์:** เมื่อเปิด `strictFunctionTypes` พารามิเตอร์ของฟังก์ชันทั่วไปจะถูกตรวจแบบ contravariance หากปิด อาจยอมรับทั้งสองทิศทาง (bivariance) แม้ไม่ปลอดภัย พารามิเตอร์ในประกาศเมธอดและคอนสตรักเตอร์เป็นข้อยกเว้น
@@ -4932,37 +4932,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// การระบุชนิดโดยใช้ `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// ในบรรทัดต่อไปนี้ TypeScript จะไม่สามารถอนุมานได้อย่างถูกต้อง
+user.attributes?.map(console.log); // ไม่มีพร็อพเพอร์ตี 'map' ในชนิด 'string | string[]' และไม่มีพร็อพเพอร์ตี 'map' ในชนิด 'string'
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// การยืนยันชนิดโดยใช้ `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// ที่นี่ TypeScript ก็ไม่สามารถอนุมานได้อย่างถูกต้องเช่นกัน
+user2.attributes?.map(console.log); // ไม่มีพร็อพเพอร์ตี 'map' ในชนิด 'string | string[]' และไม่มีพร็อพเพอร์ตี 'map' ในชนิด 'string'
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// เมื่อใช้ตัวดำเนินการ `satisfies` เราสามารถอนุมานชนิดได้อย่างถูกต้องแล้ว
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript อนุมานได้อย่างถูกต้อง: string[]
+user3.nickName; // TypeScript อนุมานได้อย่างถูกต้อง: undefined
 ```
 
 ### การ Import และ Export เฉพาะชนิด
@@ -5016,7 +5016,7 @@ export type { T } from './mod';
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // polyfill อย่างง่าย
 
 const doWork = (): Disposable => {
     return {
@@ -5029,9 +5029,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // ประกาศทรัพยากร
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // กำจัดทรัพยากร (เช่น ประเมิน `work[Symbol.dispose]()`)
 
 console.log(3);
 ```
@@ -5062,7 +5062,7 @@ interface Disposable {
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // กำจัด `C` จากนั้น `B` แล้วจึง `A`
 ```
 
 มีการรับประกันว่าทรัพยากรจะถูกกำจัด แม้ว่าโค้ดหรือข้อยกเว้นที่ตามมาจะเกิดขึ้นก็ตาม การกำจัดอาจทำให้เกิดข้อยกเว้นซึ่งอาจบดบังข้อยกเว้นอีกตัวหนึ่งได้ จึงมีการเพิ่มข้อยกเว้นเนทีฟแบบใหม่ชื่อ `SuppressedError` เพื่อเก็บรักษาข้อมูลเกี่ยวกับข้อผิดพลาดที่ถูกบดบัง
@@ -5074,8 +5074,8 @@ interface Disposable {
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // ประกาศทรัพยากร
+} // กำจัดทรัพยากร (เช่น ประเมิน `await work[Symbol.asyncDispose]()`)
 ```
 
 ทรัพยากรที่กำจัดแบบอะซิงโครนัสได้ต้องเป็นไปตาม interface `Disposable` หรือ `AsyncDisposable`:
@@ -5090,12 +5090,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // polyfill อย่างง่าย
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // เมธอดที่เรียกเมื่ออ็อบเจกต์ถูกกำจัดแบบอะซิงโครนัส
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // ปิดการเชื่อมต่อและคืนค่า promise
         return this.close();
     }
 
@@ -5107,10 +5107,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // สร้างการเชื่อมต่อใหม่และกำจัดแบบอะซิงโครนัสเมื่อออกนอกขอบเขต
+    await using connection = new DatabaseConnection(); //  ประกาศทรัพยากร
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // กำจัดทรัพยากร (เช่น ประเมิน `await connection[Symbol.asyncDispose]()`)
 
 doWork();
 ```
@@ -5149,7 +5149,7 @@ const config = import('./config.json', { with: { type: 'json' } });
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // ข้อผิดพลาด: การอ้างอิงย้อนกลับนี้อ้างถึงกลุ่มที่ไม่มีอยู่
 ```
 
 ### import defer

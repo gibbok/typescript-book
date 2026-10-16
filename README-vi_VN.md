@@ -394,14 +394,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 Hệ thống kiểu của TypeScript chịu ảnh hưởng lớn từ hành vi thời gian chạy của JavaScript. Ví dụ, toán tử cộng (+), trong JavaScript có thể thực hiện nối chuỗi hoặc cộng số, cũng được mô hình hóa tương tự trong TypeScript:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // Kết quả có kiểu string
 ```
 
 Nhóm phát triển TypeScript đã chủ động quyết định đánh dấu các cách sử dụng JavaScript bất thường là lỗi. Ví dụ, hãy xem đoạn mã JavaScript hợp lệ sau:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // Trong JavaScript, kết quả bằng 2
 ```
 
 Tuy nhiên, TypeScript báo lỗi:
@@ -420,7 +420,7 @@ Dưới đây là ví dụ về mã TypeScript có lỗi kiểu:
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // Đối số có kiểu 'string' không thể gán cho tham số có kiểu 'number'.
 ```
 
 Tuy nhiên, nó vẫn có thể tạo ra đầu ra JavaScript có thể thực thi:
@@ -447,7 +447,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // 'Dog' chỉ đề cập đến một kiểu, nhưng đang được dùng làm giá trị ở đây.
         // ...
     }
 };
@@ -457,11 +457,11 @@ Vì các kiểu bị xóa sau khi biên dịch, không có cách nào chạy đo
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // Union có thẻ
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // Union có thẻ
     meow: () => void;
 }
 type Animal = Dog | Cat;
@@ -615,9 +615,9 @@ Khi thực thi lệnh `tsc` cục bộ, TypeScript sẽ biên dịch mã bằng 
 Dưới đây là một số ví dụ về lệnh CLI chạy với thiết lập mặc định:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // Biên dịch một tệp cụ thể (main.ts) sang JavaScript
+tsc src/*.ts // Biên dịch mọi tệp .ts trong thư mục 'src' sang JavaScript
+tsc app.ts util.ts --outfile index.js // Biên dịch hai tệp TypeScript (app.ts và util.ts) thành một tệp JavaScript duy nhất (index.js)
 ```
 
 ### Tệp cấu hình TypeScript
@@ -780,7 +780,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // Hợp lệ
 ```
 
 ### Các quy tắc so sánh cơ bản của TypeScript
@@ -793,7 +793,7 @@ Một kiểu "X" tương thích với "Y" nếu "Y" có ít nhất các thành v
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // Hợp lệ, vì có ít nhất các thành viên giống X
 const r: X = y;
 ```
 
@@ -804,8 +804,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Hợp lệ
+x = y; // Hợp lệ
 ```
 
 Kiểu trả về của hàm phải giống nhau:
@@ -816,8 +816,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // Không hợp lệ
+x = y; // Không hợp lệ
 ```
 
 Kiểu trả về của hàm nguồn phải là kiểu con của kiểu trả về của hàm đích:
@@ -826,8 +826,8 @@ Kiểu trả về của hàm nguồn phải là kiểu con của kiểu trả v�
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // Hợp lệ
+y = x; // Không hợp lệ, thiếu thành viên b
 ```
 
 Việc bỏ qua tham số hàm được cho phép vì đây là cách làm phổ biến trong JavaScript, chẳng hạn khi sử dụng "Array.prototype.map()":
@@ -842,8 +842,8 @@ Do đó, các khai báo kiểu sau hoàn toàn hợp lệ:
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // Thiếu tham số b
+y = x; // Hợp lệ
 ```
 
 Mọi tham số tùy chọn bổ sung của kiểu nguồn đều hợp lệ:
@@ -853,8 +853,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // Hợp lệ
+x = y; //Hợp lệ
 ```
 
 Mọi tham số tùy chọn của kiểu đích không có tham số tương ứng trong kiểu nguồn đều hợp lệ và không phải là lỗi:
@@ -864,15 +864,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // Hợp lệ
+x = y; // Hợp lệ
 ```
 
 Rest parameter được coi như một chuỗi vô hạn các tham số tùy chọn:
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //hợp lệ
 ```
 
 Các hàm có overload hợp lệ nếu chữ ký overload tương thích với chữ ký triển khai:
@@ -884,10 +884,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // Hợp lệ
+x('a', 1); // Hợp lệ
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // Không hợp lệ, không tương thích với chữ ký triển khai
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -899,25 +899,25 @@ y('a', 1);
 Việc so sánh tham số hàm thành công nếu các tham số nguồn và đích có thể gán cho kiểu cha hoặc kiểu con (bivariance).
 
 ```typescript
-// Supertype
+// Kiểu cha
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// Kiểu con
 class Y extends X {}
-// Subtype
+// Kiểu con
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// Tính song biến chấp nhận các kiểu cha
+console.log(getA(new X('x'))); // Hợp lệ
+console.log(getA(new Y('Y'))); // Hợp lệ
+console.log(getA(new Z('z'))); // Hợp lệ
 ```
 
 Enum có thể so sánh và tương thích với số và ngược lại, nhưng việc so sánh các giá trị Enum từ các kiểu Enum khác nhau là không hợp lệ.
@@ -933,9 +933,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // Hợp lệ
+const ya: Y = 0; // Hợp lệ
+X.A === Y.A; // Không hợp lệ
 ```
 
 Các instance của một class phải trải qua kiểm tra tương thích đối với các thành viên private và protected của chúng:
@@ -956,7 +956,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // Không hợp lệ
 ```
 
 Kiểm tra so sánh không xét đến các cây phân cấp kế thừa khác nhau, ví dụ:
@@ -984,8 +984,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // Hợp lệ
+x === z; // Hợp lệ dù z thuộc một hệ thống phân cấp kế thừa khác
 ```
 
 Generic được so sánh bằng cấu trúc dựa trên kiểu kết quả sau khi áp dụng tham số generic; chỉ kết quả cuối cùng được so sánh như một kiểu không generic.
@@ -997,14 +997,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // Không hợp lệ vì đối số kiểu được dùng trong cấu trúc cuối cùng
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // Hợp lệ vì đối số kiểu không được dùng trong cấu trúc cuối cùng
 ```
 
 Khi generic không chỉ định type argument, tất cả argument chưa được chỉ định được xem là kiểu "any":
@@ -1014,7 +1014,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // Hợp lệ
 ```
 
 Hãy nhớ:
@@ -1023,26 +1023,26 @@ Hãy nhớ:
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // Hợp lệ, mọi kiểu đều có thể gán cho chính nó
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // Hợp lệ, mọi kiểu đều có thể gán cho any
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // Hợp lệ, mọi kiểu đều có thể gán cho unknown
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // Hợp lệ, unknown chỉ có thể gán cho chính nó và any
+let e2: any = e; // Hợp lệ
+let e3: number = e; // Không hợp lệ
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // Không hợp lệ, không có gì có thể gán cho never
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // Không hợp lệ, void không thể gán cho hoặc nhận giá trị từ bất cứ kiểu nào ngoại trừ any
+g = g1; // Hợp lệ
 ```
 
 Lưu ý rằng khi "strictNullChecks" được bật, "null" và "undefined" được xử lý tương tự "void"; nếu không, chúng tương tự "never".
@@ -1100,7 +1100,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // Hợp lệ
 ```
 
 Một intersection, (T1 & T2), tạo ra một tập hợp hẹp hơn (chỉ phần chung):
@@ -1115,8 +1115,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // Không hợp lệ
+const j: XY = { a: 'a', b: 'b' }; // Hợp lệ
 ```
 
 Trong ngữ cảnh này, từ khóa `extends` có thể được xem là "tập con của". Nó đặt một ràng buộc cho một kiểu. Khi `extends` được sử dụng với generic, nó giới hạn tham số kiểu generic thành một kiểu cụ thể hơn.
@@ -1150,7 +1150,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // Hợp lệ
 ```
 
 ### Gán kiểu: Khai báo kiểu và Type Assertion
@@ -1166,7 +1166,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// Khai báo kiểu
 const x: X = {
     a: 'a',
 };
@@ -1182,7 +1182,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // Lỗi: Đối tượng literal chỉ được chỉ định các thuộc tính đã biết
 };
 ```
 
@@ -1266,8 +1266,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // Hợp lệ nhờ hệ thống kiểu cấu trúc
+const w: X = { a: 'a', b: 'b' }; // Không hợp lệ do kiểm tra thuộc tính dư thừa
 ```
 
 ### Kiểu yếu
@@ -1292,7 +1292,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // Không hợp lệ
 ```
 
 Mặc dù không được khuyến nghị, nếu cần, có thể bỏ qua kiểm tra này bằng type assertion:
@@ -1303,7 +1303,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // Hợp lệ
 ```
 
 Hoặc bằng cách thêm `unknown` vào index signature của kiểu yếu:
@@ -1316,7 +1316,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // Hợp lệ
 ```
 
 ### Kiểm tra nghiêm ngặt object literal (Freshness)
@@ -1335,20 +1335,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // Kiểm tra freshness: Phép gán không hợp lệ
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // Kiểm tra freshness: Phép gán không hợp lệ
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // Mở rộng kiểu: Không có lỗi, kiểu tương thích về cấu trúc
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // Kiểm tra freshness: Đối số không hợp lệ
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // Mở rộng kiểu: Không kiểm tra freshness
 ```
 
 ### Suy luận kiểu
@@ -1363,7 +1363,7 @@ TypeScript có thể suy luận kiểu khi không có chú thích được cung 
 Ví dụ:
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // Kiểu được suy luận là string
 ```
 
 Trình biên dịch TypeScript phân tích giá trị hoặc biểu thức và xác định kiểu của nó dựa trên thông tin có sẵn.
@@ -1373,19 +1373,19 @@ Trình biên dịch TypeScript phân tích giá trị hoặc biểu thức và x
 Khi nhiều biểu thức được sử dụng trong suy luận kiểu, TypeScript tìm kiếm "kiểu chung tốt nhất". Ví dụ:
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // Kiểu được suy luận là: (string | number | null)[]
 ```
 
 Nếu trình biên dịch không thể tìm thấy kiểu chung tốt nhất, nó trả về một union type. Ví dụ:
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // Kiểu được suy luận là: (RegExp | Date)[]
 ```
 
 TypeScript sử dụng "contextual typing" dựa trên vị trí của biến để suy luận kiểu. Trong ví dụ sau, trình biên dịch biết rằng `e` có kiểu `MouseEvent` nhờ kiểu sự kiện `click` được định nghĩa trong tệp lib.d.ts, chứa các khai báo ambient cho nhiều cấu trúc JavaScript phổ biến và DOM:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // Kiểu được suy luận của e là MouseEvent
 ```
 
 ### Type Widening
@@ -1395,9 +1395,9 @@ Trong ví dụ sau:
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // TypeScript suy luận thành string, một kiểu rộng
+let y: 'y' | 'x' = 'y'; // kiểu của y là union của các kiểu literal
+y = x; // Không hợp lệ, kiểu 'string' không thể gán cho kiểu '"x" | "y"'.
 ```
 
 TypeScript gán `string` cho `x` dựa trên giá trị duy nhất được cung cấp khi khởi tạo (`x`); đây là một ví dụ về widening.
@@ -1411,9 +1411,9 @@ Sử dụng từ khóa `const` khi khai báo biến dẫn đến suy luận ki�
 Ví dụ:
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // TypeScript suy luận kiểu của x là 'x', một kiểu hẹp hơn
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // Hợp lệ: Kiểu của x được suy luận là 'x'
 ```
 
 Bằng cách dùng `const` để khai báo biến x, kiểu của nó được thu hẹp thành giá trị literal cụ thể 'x'. Vì kiểu của x được thu hẹp, nó có thể được gán cho biến y mà không có lỗi.
@@ -1425,10 +1425,10 @@ Từ TypeScript phiên bản 5.0, có thể chỉ định thuộc tính `const` 
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // Không có const ở đây
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // Kiểu được suy luận là: { a: string; b: string; }
 ```
 
 Như bạn có thể thấy, các thuộc tính `a` và `b` được suy luận có kiểu `string`.
@@ -1437,10 +1437,10 @@ Bây giờ, hãy xem sự khác biệt với phiên bản `const`:
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // Dùng từ khóa bổ nghĩa const trên tham số kiểu
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // Kiểu được suy luận là: { a: "a"; b: "b"; }
 ```
 
 Bây giờ chúng ta có thể thấy các thuộc tính `a` và `b` được suy luận là các string literal thay vì chỉ là kiểu `string`.
@@ -1471,7 +1471,7 @@ const v = {
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // Tuple readonly [1, 2, 3]
 ```
 
 ### Chú thích kiểu tường minh
@@ -1480,9 +1480,9 @@ Chúng ta có thể chỉ định cụ thể và truyền một kiểu. Trong v�
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // Kiểu được suy luận: number (mở rộng kiểu)
 };
-v.x = 3; // Valid
+v.x = 3; // Hợp lệ
 ```
 
 Chúng ta có thể làm cho chú thích kiểu cụ thể hơn bằng cách sử dụng một union của các literal type:
@@ -1490,10 +1490,10 @@ Chúng ta có thể làm cho chú thích kiểu cụ thể hơn bằng cách s�
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // x hiện là union của các kiểu literal: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // Hợp lệ
+v.x = 100; // Không hợp lệ
 ```
 
 ### Thu hẹp kiểu
@@ -1510,7 +1510,7 @@ Bằng cách sử dụng các câu lệnh điều kiện như `if` hoặc `switc
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // Kiểu là number, đã được thu hẹp bởi điều kiện
 }
 ```
 
@@ -1545,9 +1545,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // kiểu là A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // kiểu là B
     }
 };
 ```
@@ -1559,11 +1559,11 @@ Trong những trường hợp TypeScript không thể xác định một kiểu,
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // Kiểu là (string | null)[], TypeScript không thể suy luận kiểu chính xác
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // Bộ kiểm tra kiểu tùy chỉnh
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // Kiểu hiện đã đúng là string[], nhờ dùng bộ kiểm tra kiểu vị từ để thu hẹp kiểu
 ```
 
 #### Thu hẹp bằng switch-true
@@ -1620,9 +1620,9 @@ TypeScript cũng hỗ trợ hệ thập lục phân, nhị phân và bát phân,
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // Số thập lục phân bắt đầu bằng 0x
+const binary: number = 0b1010; // Số nhị phân bắt đầu bằng 0b
+const octal: number = 0o633; // Số bát phân bắt đầu bằng 0o
 ```
 
 ### bigint
@@ -1682,10 +1682,10 @@ TypeScript hỗ trợ mảng readonly bằng cú pháp sau:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // Từ khóa bổ nghĩa readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // Không hợp lệ
 ```
 
 TypeScript hỗ trợ tuple và readonly tuple:
@@ -1754,7 +1754,7 @@ Một đối tượng có thể chỉ định Thuộc tính tùy chọn bằng c
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // Tùy chọn
 };
 ```
 
@@ -1801,7 +1801,7 @@ type K = {
 const k: K = { x: 'x', 1: 'b' };
 console.log(k['x']);
 console.log(k[1]);
-console.log(k['1']); // Same result as k[1]
+console.log(k['1']); // Kết quả giống k[1]
 ```
 
 Lưu ý rằng JavaScript tự động chuyển một index kiểu `number` thành index kiểu `string`, vì vậy `k[1]` hoặc `k["1"]` trả về cùng một giá trị.
@@ -1865,9 +1865,9 @@ Literal Type trong TypeScript là số, chuỗi và boolean.
 Ví dụ về literal:
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // Kiểu literal chuỗi
+const b = 1; // Kiểu literal số
+const c = true; // Kiểu literal boolean
 ```
 
 String, Numeric và Boolean Literal Type được dùng trong union, type guard và type alias.
@@ -1884,8 +1884,8 @@ Literal Inference là một tính năng trong TypeScript cho phép suy luận ki
 Trong ví dụ sau, chúng ta có thể thấy TypeScript coi `x` là literal type vì giá trị không thể thay đổi về sau, trong khi `y` được suy luận là string vì nó có thể được sửa đổi bất kỳ lúc nào sau đó.
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // Kiểu literal 'x', vì giá trị này không thể thay đổi
+let y = 'y'; // Kiểu string, vì ta có thể thay đổi giá trị này
 ```
 
 Trong ví dụ sau, chúng ta có thể thấy `o.x` được suy luận là `string` (không phải literal của `a`) vì TypeScript cho rằng giá trị có thể thay đổi bất kỳ lúc nào sau đó.
@@ -1895,12 +1895,12 @@ Trong ví dụ sau, chúng ta có thể thấy `o.x` được suy luận là `st
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // Đây là chuỗi có kiểu rộng hơn
 };
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // Đối số có kiểu 'string' không thể gán cho tham số có kiểu 'X'
 ```
 
 Như bạn có thể thấy, mã gây lỗi khi truyền `o.x` vào `fn` vì X là kiểu hẹp hơn.
@@ -1947,7 +1947,7 @@ Trong TypeScript, Numeric Enum là một Enum mà mỗi hằng được gán m�
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // giá trị bắt đầu từ 0
     Medium,
     Large,
 }
@@ -2043,7 +2043,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // Phần tử ngầm định có kiểu 'any' vì biểu thức chỉ mục không có kiểu 'number'.
 ```
 
 ### Ambient enum
@@ -2055,23 +2055,23 @@ Ambient enum trong TypeScript là một kiểu Enum được định nghĩa tron
 Trong TypeScript, computed member là thành viên của Enum có giá trị được tính tại thời gian chạy, còn constant member là thành viên có giá trị được đặt tại thời điểm biên dịch và không thể thay đổi trong thời gian chạy. Computed member được phép trong Enum thông thường, còn constant member được phép trong cả Enum thông thường và const enum.
 
 ```typescript
-// Constant members
+// Các thành viên hằng
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6 được tạo tại thời điểm biên dịch
 ```
 
 ```typescript
-// Computed members
+// Các thành viên được tính toán
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // số ngẫu nhiên được tạo tại thời điểm chạy
 ```
 
 Enum được biểu diễn bằng các union gồm kiểu của các thành viên. Giá trị của mỗi thành viên có thể được xác định thông qua biểu thức hằng hoặc không hằng, trong đó các thành viên có giá trị hằng được gán literal type. Để minh họa, hãy xem khai báo kiểu E và các kiểu con E.A, E.B và E.C. Trong trường hợp này, E biểu diễn union E.A | E.B | E.C.
@@ -2080,9 +2080,9 @@ Enum được biểu diễn bằng các union gồm kiểu của các thành vi�
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // Literal số
+    B = 'bar', // Literal chuỗi
+    C = identity(42), // Giá trị được tính toán không tường minh
 }
 
 console.log(E.C); //42
@@ -2101,7 +2101,7 @@ Type guard typeof là một type guard cụ thể trong TypeScript kiểm tra ki
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // x có kiểu number
     }
     return -1;
 };
@@ -2240,7 +2240,7 @@ Một số ví dụ mà việc thu hẹp không xảy ra:
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // Lỗi, không thu hẹp kiểu vì isString không phải const
     }
 };
 
@@ -2250,7 +2250,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // Lỗi, không thu hẹp kiểu vì obj được gán trong thân hàm
     }
 };
 ```
@@ -2285,12 +2285,12 @@ Discriminated Union trong TypeScript là một loại union type sử dụng m�
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // Thuộc tính phân biệt
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // Thuộc tính phân biệt
     radius: number;
 };
 
@@ -2323,7 +2323,7 @@ const printValue = (val: string | number) => {
     } else if (typeof val === 'number') {
         console.log(val.toFixed(2));
     } else {
-        // val has type never here because it can never be anything other than a string or a number
+        // val có kiểu never ở đây vì nó không thể là bất cứ thứ gì ngoài string hoặc number
         const neverVal: never = val;
         console.log(`Unexpected value: ${neverVal}`);
     }
@@ -2347,7 +2347,7 @@ const move = (direction: Direction) => {
             break;
         default:
             const exhaustiveCheck: never = direction;
-            console.log(exhaustiveCheck); // This line will never be executed
+            console.log(exhaustiveCheck); // Dòng này sẽ không bao giờ được thực thi
     }
 };
 ```
@@ -2402,7 +2402,7 @@ Tuple type có thể bao gồm nhãn hoặc tên tùy chọn cho từng phần t
 type T = string;
 type Tuple1 = [T, T];
 type Tuple2 = [a: T, b: T];
-type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
+type Tuple3 = [a: T, T]; // Tuple có tên kết hợp với tuple ẩn danh
 ```
 
 ## Tuple có độ dài cố định
@@ -2414,7 +2414,7 @@ Fixed Length Tuple hữu ích khi bạn cần biểu diễn một tập hợp gi
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // Lỗi
 ```
 
 ## Union Type
@@ -2423,8 +2423,8 @@ Union Type là kiểu biểu diễn một giá trị có thể thuộc một tro
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // Hợp lệ
+x = 123; // Hợp lệ
 ```
 
 ## Intersection Type
@@ -2440,7 +2440,7 @@ type Y = {
     b: string;
 };
 
-type J = X & Y; // Intersection
+type J = X & Y; // Giao
 
 const j: J = {
     a: 'a',
@@ -2457,7 +2457,7 @@ type Dictionary<T> = {
     [key: string]: T;
 };
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-console.log(myDict['a']); // Returns a
+console.log(myDict['a']); // Trả về a
 ```
 
 ## Kiểu từ giá trị
@@ -2465,7 +2465,7 @@ console.log(myDict['a']); // Returns a
 Type from Value trong TypeScript nói đến việc tự động suy luận kiểu từ một giá trị hoặc biểu thức thông qua type inference.
 
 ```typescript
-const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immutable), but widens it to 'string' with 'let' (reassignable).
+const x = 'x'; // TypeScript suy luận 'x' là literal chuỗi khi dùng 'const' (bất biến), nhưng mở rộng thành 'string' khi dùng 'let' (có thể gán lại).
 ```
 
 ## Kiểu từ giá trị trả về của hàm
@@ -2473,7 +2473,7 @@ const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immuta
 Type from Func Return nói đến khả năng tự động suy luận kiểu trả về của một hàm dựa trên phần triển khai. Điều này cho phép TypeScript xác định kiểu của giá trị được hàm trả về mà không cần chú thích kiểu tường minh.
 
 ```typescript
-const add = (x: number, y: number) => x + y; // TypeScript can infer that the return type of the function is a number
+const add = (x: number, y: number) => x + y; // TypeScript có thể suy luận rằng kiểu trả về của hàm là number
 ```
 
 ## Kiểu từ module
@@ -2486,7 +2486,7 @@ Type from Module nói đến khả năng sử dụng các giá trị được ex
 export const add = (x: number, y: number) => x + y;
 // index.ts
 import { add } from 'calc';
-const r = add(1, 2); // r is number
+const r = add(1, 2); // r có kiểu number
 ```
 
 ## Mapped Type
@@ -2522,11 +2522,11 @@ Mapped Type Modifier trong TypeScript cho phép biến đổi các thuộc tính
 Ví dụ:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // Tất cả thuộc tính được đánh dấu là chỉ đọc
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Tất cả thuộc tính được đánh dấu là có thể thay đổi
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // Tất cả thuộc tính được đánh dấu là tùy chọn
 ```
 
 ## Conditional Type
@@ -2539,8 +2539,8 @@ type IsArray<T> = T extends any[] ? true : false;
 const myArray = [1, 2, 3];
 const myNumber = 42;
 
-type IsMyArrayAnArray = IsArray<typeof myArray>; // Type true
-type IsMyNumberAnArray = IsArray<typeof myNumber>; // Type false
+type IsMyArrayAnArray = IsArray<typeof myArray>; // Kiểu true
+type IsMyNumberAnArray = IsArray<typeof myNumber>; // Kiểu false
 ```
 
 ## Distributive Conditional Type
@@ -2606,8 +2606,8 @@ Khi sử dụng kiểu `any`, bạn cho trình biên dịch TypeScript biết r�
 
 ```typescript
 let value: any;
-value = true; // Valid
-value = 7; // Valid
+value = true; // Hợp lệ
+value = 7; // Hợp lệ
 ```
 
 ## Kiểu unknown
@@ -2620,10 +2620,10 @@ Kiểu `unknown` chỉ có thể gán cho `any` và chính `unknown`, đồng th
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // Hợp lệ
+let value2: any = value; // Hợp lệ
+let value3: boolean = value; // Không hợp lệ
+let value4: number = value; // Không hợp lệ
 ```
 
 ```typescript
@@ -2652,7 +2652,7 @@ Ví dụ, một vòng lặp vô hạn:
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // làm điều gì đó
     }
 };
 ```
@@ -2672,10 +2672,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // di chuyển lên
             break;
         case 'down':
-            // move down
+            // di chuyển xuống
             break;
         default:
             const exhaustiveCheck: never = direction;
@@ -2740,9 +2740,9 @@ Trong TypeScript, type được dùng để định nghĩa hình dạng của d�
 ### Kiểu cơ bản
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
+let myNumber: number = 123; // kiểu number
+let myBoolean: boolean = true; // kiểu boolean
+let myArray: string[] = ['a', 'b']; // mảng chuỗi
 let myTuple: [string, number] = ['a', 123]; // tuple
 ```
 
@@ -2755,14 +2755,14 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### Union Type và Intersection Type
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // Kiểu union
+let myUnion: MyType = 'hello'; // Có thể là một chuỗi
+myUnion = 123; // Hoặc một số
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // Kiểu giao
+let myCombined: CombinedType = { name: 'John', age: 25 }; // Đối tượng có cả thuộc tính name và age
 ```
 
 ## Primitive Type tích hợp
@@ -2808,11 +2808,11 @@ Dưới đây là danh sách một số đối tượng JavaScript tích hợp t
 Function overload trong TypeScript cho phép bạn định nghĩa nhiều chữ ký hàm cho một tên hàm duy nhất, nhờ đó có thể định nghĩa các hàm được gọi theo nhiều cách. Dưới đây là một ví dụ:
 
 ```typescript
-// Overloads
+// Các overload
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// Phần triển khai
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -2822,8 +2822,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // Hợp lệ
+sayHi(['aa', 'bb']); // Hợp lệ
 ```
 
 Dưới đây là một ví dụ khác về sử dụng function overload trong một `class`:
@@ -2840,7 +2840,7 @@ class Greeter {
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // phần triển khai
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;
@@ -2971,7 +2971,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // Giao
 ```
 
 Ví dụ với interface:
@@ -2984,7 +2984,7 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // Union của các interface
 ```
 
 ## Class
@@ -3022,7 +3022,7 @@ Class có một phương thức `public` tên là sayHi, phương thức này gh
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // Kết quả: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### Constructor
@@ -3126,10 +3126,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// Việc cố tạo trực tiếp một thể hiện của lớp cơ sở sẽ gây ra lỗi
+// const baseObj = new BaseClass(); // Lỗi: Hàm khởi tạo của lớp 'BaseClass' là protected.
 
-// Create an instance of the derived class
+// Tạo một thể hiện của lớp dẫn xuất
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -3228,8 +3228,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // Các từ khóa "private" và "public" trong hàm khởi tạo
+        // tự động khai báo và khởi tạo các thuộc tính tương ứng của lớp.
     }
     public introduce(): void {
         console.log(
@@ -3264,7 +3264,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // Kết quả: Whiskers meows.
 ```
 
 ### Với Generic
@@ -3352,7 +3352,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* In ra:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -3377,7 +3377,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // In ra: HELLO!
 ```
 
 #### Method Decorator
@@ -3459,10 +3459,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // Hợp lệ: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // Ném lỗi: Invalid!
 ```
 
 #### Metadata của Decorator
@@ -3474,15 +3474,15 @@ Metadata có thể được dùng cho nhiều mục đích như debugging, seria
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // Polyfill đơn giản
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // Ngữ cảnh chứa metadata của thuộc tính: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // Gán một giá trị nguyên thủy cho đối tượng metadata
     context.metadata[context.name] = true;
 }
 
@@ -3497,7 +3497,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // Lấy thông tin metadata
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -3532,11 +3532,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// Tạo một thể hiện của lớp cơ sở
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// Tạo một thể hiện của lớp dẫn xuất
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -3626,7 +3626,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // Không cần gán tường minh các giá trị cho thuộc tính.
     }
     log() {
         console.log(this.property2);
@@ -3642,8 +3642,8 @@ Method overloading cho phép một class có nhiều phương thức cùng tên 
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // Chữ ký overload 1
+    add(a: string, b: string): string; // Chữ ký overload 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -3657,7 +3657,7 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // In ra 15
 ```
 
 ## Generic
@@ -3720,7 +3720,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // Không hợp lệ
 ```
 
 Một tính năng generic đáng chú ý được giới thiệu trong phiên bản 3.4 RC là suy luận kiểu cho higher-order function, giúp lan truyền các generic type argument:
@@ -3747,10 +3747,10 @@ Contextual narrowing cho generic là cơ chế trong TypeScript cho phép trình
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // Giá trị được thu hẹp thành kiểu 'string'
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // Giá trị được thu hẹp thành kiểu 'number'
         console.log(value.toFixed(2));
     }
 }
@@ -3778,7 +3778,7 @@ const obj = {
     prop1: 'Origin',
 };
 
-log(obj); // Valid
+log(obj); // Hợp lệ
 ```
 
 ## Namespace
@@ -3862,7 +3862,7 @@ Cho phép bạn kết hợp nhiều kiểu thành một kiểu duy nhất:
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // Giao của A và B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -3888,7 +3888,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // Các thuộc tính trở thành chỉ đọc
 ```
 
 Conditional type:
@@ -3971,7 +3971,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // Không hợp lệ
 ```
 
 #### Record\<K, T\>
@@ -4140,8 +4140,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // Hợp lệ vì "log" là một phần của "this".
+        this.update(); // Không hợp lệ
     },
 };
 ```
@@ -4185,23 +4185,23 @@ NoInfer là một utility type được thiết kế để chặn việc tự đ
 Ví dụ:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// Suy luận kiểu tự động trong phạm vi của một hàm generic.
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // Kiểu ở đây là ("a" | "b" | "c")[]
 ```
 
 Với NoInfer:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// Hàm ví dụ dùng NoInfer để ngăn suy luận kiểu
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // Lỗi: Đối số kiểu '"c"' không thể gán cho tham số có kiểu '"a" | "b"'.
 ```
 
 ## Khác
@@ -4214,11 +4214,11 @@ Khối Try-Catch-Finally:
 
 ```typescript
 try {
-    // Code that might throw an error
+    // Mã có thể ném ra lỗi
 } catch (error) {
-    // Handle the error
+    // Xử lý lỗi
 } finally {
-    // Code that always executes, finally is optional
+    // Mã luôn được thực thi, finally là tùy chọn
 }
 ```
 
@@ -4226,14 +4226,14 @@ Bạn cũng có thể xử lý các loại lỗi khác nhau:
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // Mã có thể ném ra các loại lỗi khác nhau
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // Xử lý TypeError
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // Xử lý RangeError
     } else {
-        // Handle other errors
+        // Xử lý các lỗi khác
     }
 }
 ```
@@ -4279,10 +4279,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// Mở rộng MyClass để bao gồm hành vi của Identifiable và Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// Hàm để áp dụng mixin cho một lớp
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -4297,7 +4297,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// Áp dụng mixin cho MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -4412,10 +4412,10 @@ Ví dụ:
 
 ```typescript
 /**
- * Computes the power of a given number
+ * Tính lũy thừa của một số cho trước
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – Giá trị cơ số của biểu thức
+ * @param {number} exponent – Giá trị số mũ của biểu thức
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -4511,7 +4511,7 @@ Bạn có thể dùng meta-property `new.target` trong TypeScript, cho phép xá
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // In ra hàm khởi tạo được dùng để tạo thể hiện
     }
 }
 
@@ -4536,7 +4536,7 @@ Cú pháp cho biểu thức dynamic import trong TypeScript như sau:
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // Nhập động
         widget.render(container);
     }
 }
@@ -4848,8 +4848,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // Hợp lệ
+produceDog = produceAnimal; // Lỗi
 ```
 
 **Contravariance (nhận giá trị):** hàm nhận mọi `Animal` có thể thay thế hàm chỉ nhận `Dog`. Hàm đó xử lý được cả chó; hàm chỉ nhận chó không thể xử lý an toàn mọi động vật.
@@ -4861,8 +4861,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // Hợp lệ
+consumeAnimal = consumeDog; // Lỗi khi dùng strictFunctionTypes
 ```
 
 Mũi tên cho biết hướng gán an toàn:
@@ -4878,8 +4878,8 @@ Mũi tên cho biết hướng gán an toàn:
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // Được phép, nhưng không an toàn
+// dogs hiện chứa một Animal không phải là Dog.
 ```
 
 **Tùy chọn trình biên dịch:** khi bật `strictFunctionTypes`, tham số của hàm độc lập được kiểm tra theo contravariance. Nếu tắt, TypeScript có thể cho phép cả hai hướng (bivariance) dù không an toàn. Tham số trong khai báo phương thức và hàm tạo là ngoại lệ.
@@ -4932,37 +4932,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// Chú thích kiểu bằng `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Trong các dòng sau, TypeScript không thể suy luận chính xác
+user.attributes?.map(console.log); // Thuộc tính 'map' không tồn tại trên kiểu 'string | string[]'. Thuộc tính 'map' không tồn tại trên kiểu 'string'.
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// Khẳng định kiểu bằng `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// Ở đây cũng vậy, TypeScript không thể suy luận chính xác
+user2.attributes?.map(console.log); // Thuộc tính 'map' không tồn tại trên kiểu 'string | string[]'. Thuộc tính 'map' không tồn tại trên kiểu 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// Với toán tử `satisfies`, giờ ta có thể suy luận kiểu chính xác
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // TypeScript suy luận chính xác: string[]
+user3.nickName; // TypeScript suy luận chính xác: undefined
 ```
 
 ### Import và Export chỉ dành cho Type
@@ -5016,7 +5016,7 @@ Ví dụ:
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // Polyfill đơn giản
 
 const doWork = (): Disposable => {
     return {
@@ -5029,9 +5029,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // Tài nguyên được khai báo
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // Tài nguyên được giải phóng (ví dụ: `work[Symbol.dispose]()` được thực thi)
 
 console.log(3);
 ```
@@ -5062,7 +5062,7 @@ Khai báo `using` ghi các thao tác dispose resource vào một stack, bảo đ
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // giải phóng `C`, rồi `B`, rồi `A`.
 ```
 
 Resource được bảo đảm sẽ được dispose ngay cả khi mã tiếp theo hoặc exception xảy ra. Điều này có thể dẫn đến việc dispose phát sinh exception và có khả năng suppress một exception khác. Để giữ lại thông tin về các lỗi bị suppress, một native exception mới, `SuppressedError`, được giới thiệu.
@@ -5074,8 +5074,8 @@ Khai báo `await using` xử lý một resource được dispose bất đồng b
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // Tài nguyên được khai báo
+} // Tài nguyên được giải phóng (ví dụ: `await work[Symbol.asyncDispose]()` được thực thi)
 ```
 
 Với resource được dispose bất đồng bộ, nó phải tuân theo interface `Disposable` hoặc `AsyncDisposable`:
@@ -5090,12 +5090,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Polyfill đơn giản
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // Phương thức được gọi khi đối tượng được giải phóng bất đồng bộ
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // Đóng kết nối và trả về một promise
         return this.close();
     }
 
@@ -5107,10 +5107,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // Tạo kết nối mới và giải phóng bất đồng bộ khi ra khỏi phạm vi
+    await using connection = new DatabaseConnection(); //  Tài nguyên được khai báo
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // Tài nguyên được giải phóng (ví dụ: `await connection[Symbol.asyncDispose]()` được thực thi)
 
 doWork();
 ```
@@ -5149,7 +5149,7 @@ Kể từ TypeScript 5.5.4, TypeScript kiểm tra regex literal để phát hi�
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // Lỗi: Tham chiếu ngược này đề cập đến một nhóm không tồn tại.
 ```
 
 ### import defer

@@ -394,14 +394,14 @@ Property 'y' does not exist on type '{ x: number; }'.
 يتأثر نظام الأنواع في TypeScript إلى حد كبير بسلوك JavaScript في وقت التشغيل. فمثلًا، تجري نمذجة معامل الجمع (+)، الذي يمكنه في JavaScript إجراء ربط النصوص أو الجمع العددي، بالطريقة نفسها في TypeScript:
 
 ```typescript
-const result = '1' + 1; // Result is of type string
+const result = '1' + 1; // النتيجة من النوع string
 ```
 
 اتخذ الفريق المسؤول عن TypeScript قرارًا متعمّدًا باعتبار الاستخدامات غير المعتادة في JavaScript أخطاءً. على سبيل المثال، لنتناول شيفرة JavaScript الصالحة التالية:
 
 <!-- skip -->
 ```typescript
-const result = 1 + true; // In JavaScript, the result is equal to 2
+const result = 1 + true; // في JavaScript، تساوي النتيجة 2
 ```
 
 لكن TypeScript تُصدر خطأً:
@@ -420,7 +420,7 @@ Operator '+' cannot be applied to types 'number' and 'boolean'.
 <!-- skip -->
 ```typescript
 const add = (a: number, b: number): number => a + b;
-const result = add('x', 'y'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+const result = add('x', 'y'); // لا يمكن إسناد وسيط من النوع 'string' إلى معامل من النوع 'number'.
 ```
 
 ومع ذلك، لا يزال بإمكانها إنتاج مخرجات JavaScript قابلة للتنفيذ:
@@ -447,7 +447,7 @@ interface Cat extends Animal {
 }
 const makeNoise = (animal: Animal) => {
     if (animal instanceof Dog) {
-        // 'Dog' only refers to a type, but is being used as a value here.
+        // يشير 'Dog' إلى نوع فقط، لكنه يُستخدم هنا كقيمة.
         // ...
     }
 };
@@ -457,11 +457,11 @@ const makeNoise = (animal: Animal) => {
 
 ```typescript
 interface Dog {
-    kind: 'dog'; // Tagged union
+    kind: 'dog'; // اتحاد موسوم
     bark: () => void;
 }
 interface Cat {
-    kind: 'cat'; // Tagged union
+    kind: 'cat'; // اتحاد موسوم
     meow: () => void;
 }
 type Animal = Dog | Cat;
@@ -615,9 +615,9 @@ tsc --init
 فيما يلي بعض أمثلة أوامر واجهة سطر الأوامر التي تعمل بالإعدادات الافتراضية:
 
 ```shell
-tsc main.ts // Compile a specific file (main.ts) to JavaScript
-tsc src/*.ts // Compile any .ts files under the 'src' folder to JavaScript
-tsc app.ts util.ts --outfile index.js // Compile two TypeScript files (app.ts and util.ts) into a single JavaScript file (index.js)
+tsc main.ts // ترجمة ملف محدد (main.ts) إلى JavaScript
+tsc src/*.ts // ترجمة ملفات .ts الموجودة في المجلد 'src' إلى JavaScript
+tsc app.ts util.ts --outfile index.js // ترجمة ملفي TypeScript ‏(app.ts و util.ts) إلى ملف JavaScript واحد (index.js)
 ```
 
 ### ملف تهيئة TypeScript
@@ -780,7 +780,7 @@ type Y = {
     a: string;
 };
 const x: X = { a: 'a' };
-const y: Y = x; // Valid
+const y: Y = x; // صحيح
 ```
 
 ### قواعد المقارنة الأساسية في TypeScript
@@ -793,7 +793,7 @@ const y: Y = x; // Valid
 type X = {
     a: string;
 };
-const y = { a: 'A', b: 'B' }; // Valid, as it has at least the same members as X
+const y = { a: 'A', b: 'B' }; // صحيح، لأنه يحتوي على الأقل على الأعضاء نفسها الموجودة في X
 const r: X = y;
 ```
 
@@ -804,8 +804,8 @@ type X = (a: number) => void;
 type Y = (a: number) => void;
 let x: X = (j: number) => undefined;
 let y: Y = (k: number) => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // صحيح
+x = y; // صحيح
 ```
 
 يجب أن تكون أنواع إرجاع الدوال متماثلة:
@@ -816,8 +816,8 @@ type X = (a: number) => undefined;
 type Y = (a: number) => number;
 let x: X = (a: number) => undefined;
 let y: Y = (a: number) => 1;
-y = x; // Invalid
-x = y; // Invalid
+y = x; // غير صحيح
+x = y; // غير صحيح
 ```
 
 يجب أن يكون نوع إرجاع الدالة المصدر نوعًا فرعيًا من نوع إرجاع الدالة الهدف:
@@ -826,8 +826,8 @@ x = y; // Invalid
 ```typescript
 let x = () => ({ a: 'A' });
 let y = () => ({ a: 'A', b: 'B' });
-x = y; // Valid
-y = x; // Invalid member b is missing
+x = y; // صحيح
+y = x; // غير صحيح، العضو b مفقود
 ```
 
 يُسمح بتجاهل معاملات الدوال، إذ إنها ممارسة شائعة في JavaScript، مثل استخدام "Array.prototype.map()":
@@ -842,8 +842,8 @@ y = x; // Invalid member b is missing
 type X = (a: number) => undefined;
 type Y = (a: number, b: number) => undefined;
 let x: X = (a: number) => undefined;
-let y: Y = (a: number) => undefined; // Missing b parameter
-y = x; // Valid
+let y: Y = (a: number) => undefined; // المعامل b مفقود
+y = x; // صحيح
 ```
 
 تكون أي معاملات اختيارية إضافية في النوع المصدر صالحة:
@@ -853,8 +853,8 @@ type X = (a: number, b?: number, c?: number) => undefined;
 type Y = (a: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; //Valid
+y = x; // صحيح
+x = y; //صحيح
 ```
 
 تُعد أي معاملات اختيارية في النوع الهدف لا تقابلها معاملات في النوع المصدر صالحة، ولا تمثل خطأ:
@@ -864,15 +864,15 @@ type X = (a: number) => undefined;
 type Y = (a: number, b?: number) => undefined;
 let x: X = a => undefined;
 let y: Y = a => undefined;
-y = x; // Valid
-x = y; // Valid
+y = x; // صحيح
+x = y; // صحيح
 ```
 
 يُعامل معامل البقية كسلسلة لا نهائية من المعاملات الاختيارية:
 
 ```typescript
 type X = (a: number, ...rest: number[]) => undefined;
-let x: X = a => undefined; //valid
+let x: X = a => undefined; //صحيح
 ```
 
 تكون الدوال ذات الأحمال الزائدة صالحة إذا كان توقيع الحمل الزائد متوافقًا مع توقيع تنفيذها:
@@ -884,10 +884,10 @@ function x(a: string, b: number): void;
 function x(a: string, b?: number): void {
     console.log(a, b);
 }
-x('a'); // Valid
-x('a', 1); // Valid
+x('a'); // صحيح
+x('a', 1); // صحيح
 
-function y(a: string): void; // Invalid, not compatible with implementation signature
+function y(a: string): void; // غير صحيح، غير متوافق مع توقيع التنفيذ
 function y(a: string, b: number): void;
 function y(a: string, b: number): void {
     console.log(a, b);
@@ -899,25 +899,25 @@ y('a', 1);
 تنجح مقارنة معاملات الدوال إذا كان من الممكن إسناد المعاملات المصدر والهدف إلى الأنواع الفائقة أو الأنواع الفرعية (التباين الثنائي).
 
 ```typescript
-// Supertype
+// نوع أعلى
 class X {
     a: string;
     constructor(value: string) {
         this.a = value;
     }
 }
-// Subtype
+// نوع فرعي
 class Y extends X {}
-// Subtype
+// نوع فرعي
 class Z extends X {}
 
 type GetA = (x: X) => string;
 const getA: GetA = x => x.a;
 
-// Bivariance does accept supertypes
-console.log(getA(new X('x'))); // Valid
-console.log(getA(new Y('Y'))); // Valid
-console.log(getA(new Z('z'))); // Valid
+// التغاير ثنائي الاتجاه يقبل الأنواع الأعلى
+console.log(getA(new X('x'))); // صحيح
+console.log(getA(new Y('Y'))); // صحيح
+console.log(getA(new Z('z'))); // صحيح
 ```
 
 يمكن مقارنة التعدادات بالأرقام والعكس صحيح ويكون ذلك صالحًا، لكن مقارنة قيم تعداد من أنواع تعداد مختلفة غير صالحة.
@@ -933,9 +933,9 @@ enum Y {
     B,
     C,
 }
-const xa: number = X.A; // Valid
-const ya: Y = 0; // Valid
-X.A === Y.A; // Invalid
+const xa: number = X.A; // صحيح
+const ya: Y = 0; // صحيح
+X.A === Y.A; // غير صحيح
 ```
 
 تخضع مثيلات الصنف لفحص توافق أعضائها الخاصة والمحمية:
@@ -956,7 +956,7 @@ class Y {
     }
 }
 
-let x: X = new Y('y'); // Invalid
+let x: X = new Y('y'); // غير صحيح
 ```
 
 لا يأخذ فحص المقارنة في الحسبان اختلاف التسلسل الهرمي للوراثة، على سبيل المثال:
@@ -984,8 +984,8 @@ class Z {
 let x: X = new X('x');
 let y: Y = new Y('y');
 let z: Z = new Z('z');
-x === y; // Valid
-x === z; // Valid even if z is from a different inheritance hierarchy
+x === y; // صحيح
+x === z; // صحيح حتى لو كان z من تسلسل وراثة مختلف
 ```
 
 تُقارن الأنواع العامة باستخدام بنيتها استنادًا إلى النوع الناتج بعد تطبيق معامل النوع العام، ولا يُقارن إلا الناتج النهائي بوصفه نوعًا غير عام.
@@ -997,14 +997,14 @@ interface X<T> {
 }
 let x: X<number> = { a: 1 };
 let y: X<string> = { a: 'a' };
-x === y; // Invalid as the type argument is used in the final structure
+x === y; // غير صحيح لأن وسيط النوع يُستخدم في البنية النهائية
 ```
 
 ```typescript
 interface X<T> {}
 const x: X<number> = 1;
 const y: X<string> = 'a';
-x === y; // Valid as the type argument is not used in the final structure
+x === y; // صحيح لأن وسيط النوع لا يُستخدم في البنية النهائية
 ```
 
 عندما لا يُحدَّد وسيط النوع للأنواع العامة، تُعامل جميع الوسائط غير المحددة على أنها من النوع "any":
@@ -1014,7 +1014,7 @@ type X = <T>(x: T) => T;
 type Y = <K>(y: K) => K;
 let x: X = x => x;
 let y: Y = y => y;
-x = y; // Valid
+x = y; // صحيح
 ```
 
 تذكّر:
@@ -1023,26 +1023,26 @@ x = y; // Valid
 ```typescript
 let a: number = 1;
 let b: number = 2;
-a = b; // Valid, everything is assignable to itself
+a = b; // صحيح، يمكن إسناد كل شيء إلى نفسه
 
 let c: any;
-c = 1; // Valid, all types are assignable to any
+c = 1; // صحيح، يمكن إسناد جميع الأنواع إلى any
 
 let d: unknown;
-d = 1; // Valid, all types are assignable to unknown
+d = 1; // صحيح، يمكن إسناد جميع الأنواع إلى unknown
 
 let e: unknown;
-let e1: unknown = e; // Valid, unknown is only assignable to itself and any
-let e2: any = e; // Valid
-let e3: number = e; // Invalid
+let e1: unknown = e; // صحيح، لا يمكن إسناد unknown إلا إلى نفسه وإلى any
+let e2: any = e; // صحيح
+let e3: number = e; // غير صحيح
 
 let f: never;
-f = 1; // Invalid, nothing is assignable to never
+f = 1; // غير صحيح، لا يمكن إسناد أي شيء إلى never
 
 let g: void;
 let g1: any;
-g = 1; // Invalid, void is not assignable to or from anything except any
-g = g1; // Valid
+g = 1; // غير صحيح، لا يمكن الإسناد من void أو إليه باستثناء any
+g = g1; // صحيح
 ```
 
 يرجى ملاحظة أنه عند تفعيل "strictNullChecks"، يُعامل "null" و"undefined" على نحو مماثل لـ "void"؛ وإلا فيُعاملان على نحو مماثل لـ "never".
@@ -1100,7 +1100,7 @@ type Y = {
     b: string;
 };
 type XY = X | Y;
-const r: XY = { a: 'a', b: 'x' }; // Valid
+const r: XY = { a: 'a', b: 'x' }; // صحيح
 ```
 
 ينشئ التقاطع، (T1 & T2)، مجموعة أضيق (المشترك فقط):
@@ -1115,8 +1115,8 @@ type Y = {
     b: string;
 };
 type XY = X & Y;
-const r: XY = { a: 'a' }; // Invalid
-const j: XY = { a: 'a', b: 'b' }; // Valid
+const r: XY = { a: 'a' }; // غير صحيح
+const j: XY = { a: 'a', b: 'b' }; // صحيح
 ```
 
 يمكن اعتبار الكلمة المفتاحية `extends` بمعنى "مجموعة جزئية من" في هذا السياق. فهي تضع قيدًا لنوع ما. وعندما تُستخدم `extends` مع نوع عام، فإنها تقيّد معامل النوع العام بنوع أكثر تحديدًا.
@@ -1150,7 +1150,7 @@ interface Z1 {
 }
 const z1: Z1 = { a: 'a', b: 'b', c: 'c' };
 
-const r: Z1 = z; // Valid
+const r: Z1 = z; // صحيح
 ```
 
 ### إسناد نوع: تصريحات الأنواع وتوكيدات الأنواع
@@ -1166,7 +1166,7 @@ type X = {
     a: string;
 };
 
-// Type declaration
+// تصريح نوع
 const x: X = {
     a: 'a',
 };
@@ -1182,7 +1182,7 @@ type X = {
 
 const x: X = {
     a: 'a',
-    b: 'b', // Error: Object literal may only specify known properties
+    b: 'b', // خطأ: لا يمكن للكائن الحرفي تحديد سوى الخصائص المعروفة
 };
 ```
 
@@ -1266,8 +1266,8 @@ type X = {
     a: string;
 };
 const y = { a: 'a', b: 'b' };
-const x: X = y; // Valid because structural typing
-const w: X = { a: 'a', b: 'b' }; // Invalid because excess property checking
+const x: X = y; // صحيح بفضل نظام الأنواع البنيوي
+const w: X = { a: 'a', b: 'b' }; // غير صحيح بسبب فحص الخصائص الزائدة
 ```
 
 ### الأنواع الضعيفة
@@ -1292,7 +1292,7 @@ type Options = {
 
 const fn = (options: Options) => undefined;
 
-fn({ c: 'c' }); // Invalid
+fn({ c: 'c' }); // غير صحيح
 ```
 
 رغم أن ذلك غير موصى به، يمكن عند الحاجة تجاوز هذا الفحص باستخدام توكيد النوع:
@@ -1303,7 +1303,7 @@ type Options = {
     b?: string;
 };
 const fn = (options: Options) => undefined;
-fn({ c: 'c' } as Options); // Valid
+fn({ c: 'c' } as Options); // صحيح
 ```
 
 أو بإضافة `unknown` إلى توقيع الفهرس في النوع الضعيف:
@@ -1316,7 +1316,7 @@ type Options = {
 };
 
 const fn = (options: Options) => undefined;
-fn({ c: 'c' }); // Valid
+fn({ c: 'c' }); // صحيح
 ```
 
 ### الفحص الصارم للكائنات الحرفية (الحداثة)
@@ -1335,20 +1335,20 @@ type X = { a: string };
 type Y = { a: string; b: string };
 
 let x: X;
-x = { a: 'a', b: 'b' }; // Freshness check: Invalid assignment
+x = { a: 'a', b: 'b' }; // فحص الحداثة: إسناد غير صحيح
 var y: Y;
-y = { a: 'a', bx: 'bx' }; // Freshness check: Invalid assignment
+y = { a: 'a', bx: 'bx' }; // فحص الحداثة: إسناد غير صحيح
 
 const fn = (x: X) => console.log(x.a);
 
 fn(x);
-fn(y); // Widening: No errors, structurally type compatible
+fn(y); // توسيع النوع: لا أخطاء، الأنواع متوافقة بنيويًا
 
-fn({ a: 'a', bx: 'b' }); // Freshness check: Invalid argument
+fn({ a: 'a', bx: 'b' }); // فحص الحداثة: وسيط غير صحيح
 
 let c: X = { a: 'a' };
 let d: Y = { a: 'a', b: '' };
-c = d; // Widening: No Freshness check
+c = d; // توسيع النوع: لا يوجد فحص للحداثة
 ```
 
 ### استدلال الأنواع
@@ -1363,7 +1363,7 @@ c = d; // Widening: No Freshness check
 على سبيل المثال:
 
 ```typescript
-let x = 'x'; // The type inferred is string
+let x = 'x'; // النوع المستنتج هو string
 ```
 
 يحلل مصرّف TypeScript القيمة أو التعبير، ويحدد نوعه استنادًا إلى المعلومات المتاحة.
@@ -1373,19 +1373,19 @@ let x = 'x'; // The type inferred is string
 عند استخدام عدة تعبيرات في استدلال الأنواع، تبحث TypeScript عن "أفضل الأنواع المشتركة". على سبيل المثال:
 
 ```typescript
-let x = [1, 'x', 1, null]; // The type inferred is: (string | number | null)[]
+let x = [1, 'x', 1, null]; // النوع المستنتج هو: (string | number | null)[]
 ```
 
 إذا لم يتمكن المصرّف من العثور على أفضل الأنواع المشتركة، فإنه يعيد نوع اتحاد. على سبيل المثال:
 
 ```typescript
-let x = [new RegExp('x'), new Date()]; // Type inferred is: (RegExp | Date)[]
+let x = [new RegExp('x'), new Date()]; // النوع المستنتج هو: (RegExp | Date)[]
 ```
 
 تستخدم TypeScript "التنميط السياقي" استنادًا إلى موضع المتغير لاستدلال الأنواع. في المثال التالي، يعرف المصرّف أن `e` من النوع `MouseEvent` بسبب نوع الحدث `click` المعرّف في الملف lib.d.ts، الذي يحتوي على تصريحات محيطية لمختلف بُنى JavaScript الشائعة وDOM:
 
 ```typescript
-window.addEventListener('click', function (e) {}); // The inferred type of e is MouseEvent
+window.addEventListener('click', function (e) {}); // النوع المستنتج للمتغير e هو MouseEvent
 ```
 
 ### توسيع النوع
@@ -1395,9 +1395,9 @@ window.addEventListener('click', function (e) {}); // The inferred type of e is 
 
 <!-- skip -->
 ```typescript
-let x = 'x'; // TypeScript infers as string, a wide type
-let y: 'y' | 'x' = 'y'; // y types is a union of literal types
-y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
+let x = 'x'; // يستنتج TypeScript النوع string، وهو نوع واسع
+let y: 'y' | 'x' = 'y'; // نوع y هو اتحاد أنواع حرفية
+y = x; // غير صحيح: لا يمكن إسناد النوع 'string' إلى النوع '"x" | "y"'.
 ```
 
 تُسند TypeScript النوع `string` إلى `x` استنادًا إلى القيمة الوحيدة المقدمة أثناء التهيئة (`x`)، وهذا مثال على التوسيع.
@@ -1411,9 +1411,9 @@ y = x; // Invalid Type 'string' is not assignable to type '"x" | "y"'.
 على سبيل المثال:
 
 ```typescript
-const x = 'x'; // TypeScript infers the type of x as 'x', a narrower type
+const x = 'x'; // يستنتج TypeScript أن نوع x هو 'x'، وهو نوع أضيق
 let y: 'y' | 'x' = 'y';
-y = x; // Valid: The type of x is inferred as 'x'
+y = x; // صحيح: النوع المستنتج للمتغير x هو 'x'
 ```
 
 باستخدام `const` للتصريح عن المتغير x، يُضيّق نوعه إلى القيمة الحرفية المحددة 'x'. وبما أن نوع x قد ضُيّق، فيمكن إسناده إلى المتغير y من دون أي خطأ.
@@ -1425,10 +1425,10 @@ y = x; // Valid: The type of x is inferred as 'x'
 
 ```typescript
 function identity<T>(value: T) {
-    // No const here
+    // لا يوجد const هنا
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b: string; }
+const values = identity({ a: 'a', b: 'b' }); // النوع المستنتج هو: { a: string; b: string; }
 ```
 
 كما ترى، يُستدل على أن الخاصيتين `a` و`b` من النوع `string`.
@@ -1437,10 +1437,10 @@ const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: string; b
 
 ```typescript
 function identity<const T>(value: T) {
-    // Using const modifier on type parameters
+    // استخدام المعدّل const مع معاملات النوع
     return value;
 }
-const values = identity({ a: 'a', b: 'b' }); // Type inferred is: { a: "a"; b: "b"; }
+const values = identity({ a: 'a', b: 'b' }); // النوع المستنتج هو: { a: "a"; b: "b"; }
 ```
 
 يمكننا الآن ملاحظة أن الخاصيتين `a` و`b` تُستنتجان بوصفهما قيمتين نصيتين حرفيتين بدلًا من مجرد نوعي `string`.
@@ -1471,7 +1471,7 @@ const v = {
 
 ```typescript
 const x = [1, 2, 3]; // number[]
-const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
+const y = [1, 2, 3] as const; // صف readonly [1, 2, 3]
 ```
 
 ### التعليق التوضيحي الصريح للنوع
@@ -1480,9 +1480,9 @@ const y = [1, 2, 3] as const; // Tuple of readonly [1, 2, 3]
 
 ```typescript
 const v = {
-    x: 1, // Inferred type: number (widening)
+    x: 1, // النوع المستنتج: number (توسيع)
 };
-v.x = 3; // Valid
+v.x = 3; // صحيح
 ```
 
 يمكننا جعل التعليق التوضيحي للنوع أكثر تحديدًا باستخدام اتحاد من الأنواع الحرفية:
@@ -1490,10 +1490,10 @@ v.x = 3; // Valid
 <!-- skip -->
 ```typescript
 const v: { x: 1 | 2 | 3 } = {
-    x: 1, // x is now a union of literal types: 1 | 2 | 3
+    x: 1, // نوع x الآن اتحاد أنواع حرفية: 1 | 2 | 3
 };
-v.x = 3; // Valid
-v.x = 100; // Invalid
+v.x = 3; // صحيح
+v.x = 100; // غير صحيح
 ```
 
 ### تضييق النوع
@@ -1510,7 +1510,7 @@ v.x = 100; // Invalid
 let x: number | undefined = 10;
 
 if (x !== undefined) {
-    x += 100; // The type is number, which had been narrowed by the condition
+    x += 100; // النوع هو number، وقد ضُيّق بواسطة الشرط
 }
 ```
 
@@ -1545,9 +1545,9 @@ type B = { type: 'type_b'; value: string };
 const x = (input: A | B): string | number => {
     switch (input.type) {
         case 'type_a':
-            return input.value + 100; // type is A
+            return input.value + 100; // النوع هو A
         case 'type_b':
-            return input.value + 'extra'; // type is B
+            return input.value + 'extra'; // النوع هو B
     }
 };
 ```
@@ -1559,11 +1559,11 @@ const x = (input: A | B): string | number => {
 ```typescript
 const data = ['a', null, 'c', 'd', null, 'f'];
 
-const r1 = data.filter(x => x != null); // The type is (string | null)[], TypeScript was not able to infer the type properly
+const r1 = data.filter(x => x != null); // النوع هو (string | null)[]، لم يتمكن TypeScript من استنتاج النوع بشكل صحيح
 
-const isValid = (item: string | null): item is string => item !== null; // Custom type guard
+const isValid = (item: string | null): item is string => item !== null; // حارس نوع مخصص
 
-const r2 = data.filter(isValid); // The type is fine now string[], by using the predicate type guard we were able to narrow the type
+const r2 = data.filter(isValid); // النوع صحيح الآن وهو string[]، إذ تمكنا من تضييق النوع باستخدام حارس نوع ذي مسند
 ```
 
 #### التضييق باستخدام Switch-true
@@ -1620,9 +1620,9 @@ const isReady: boolean = true;
 
 ```typescript
 const decimal: number = 10;
-const hexadecimal: number = 0xa00d; // Hexadecimal starts with 0x
-const binary: number = 0b1010; // Binary starts with 0b
-const octal: number = 0o633; // Octal starts with 0o
+const hexadecimal: number = 0xa00d; // يبدأ التمثيل الست عشري بالبادئة 0x
+const binary: number = 0b1010; // يبدأ التمثيل الثنائي بالبادئة 0b
+const octal: number = 0o633; // يبدأ التمثيل الثماني بالبادئة 0o
 ```
 
 ### bigint
@@ -1675,17 +1675,17 @@ console.log(obj[b]); // 456
 ```typescript
 const x: string[] = ['a', 'b'];
 const y: Array<string> = ['a', 'b'];
-const j: Array<string | number> = ['a', 1, 'b', 2]; // Union
+const j: Array<string | number> = ['a', 1, 'b', 2]; // اتحاد
 ```
 
 يدعم TypeScript المصفوفات المخصّصة للقراءة فقط باستخدام الصياغة الآتية:
 
 <!-- skip -->
 ```typescript
-const x: readonly string[] = ['a', 'b']; // Readonly modifier
+const x: readonly string[] = ['a', 'b']; // المعدّل readonly
 const y: ReadonlyArray<string> = ['a', 'b'];
 const j: ReadonlyArray<string | number> = ['a', 1, 'b', 2];
-j.push('x'); // Invalid
+j.push('x'); // غير صحيح
 ```
 
 يدعم TypeScript أنواع Tuple وأنواع Tuple المخصّصة للقراءة فقط:
@@ -1754,7 +1754,7 @@ const sum = (a = 10, b: number): number => a + b;
 ```typescript
 type X = {
     a: number;
-    b?: number; // Optional
+    b?: number; // اختياري
 };
 ```
 
@@ -1801,7 +1801,7 @@ type K = {
 const k: K = { x: 'x', 1: 'b' };
 console.log(k['x']);
 console.log(k[1]);
-console.log(k['1']); // Same result as k[1]
+console.log(k['1']); // النتيجة نفسها التي يعطيها k[1]
 ```
 
 يرجى ملاحظة أن JavaScript يحوّل تلقائيًا فهرسًا من النوع `number` إلى فهرس من النوع `string`، ولذلك يُرجع `k[1]` أو `k["1"]` القيمة نفسها.
@@ -1865,9 +1865,9 @@ interface B extends A {
 مثال على القيم الحرفية:
 
 ```typescript
-const a = 'a'; // String literal type
-const b = 1; // Numeric literal type
-const c = true; // Boolean literal type
+const a = 'a'; // نوع سلسلة نصية حرفية
+const b = 1; // نوع قيمة عددية حرفية
+const c = true; // نوع قيمة منطقية حرفية
 ```
 
 تُستخدم الأنواع الحرفية النصية والعددية والمنطقية في الاتحادات وحراس الأنواع والأسماء المستعارة للأنواع.
@@ -1884,8 +1884,8 @@ type O = 'a' | 'b' | 'c';
 في المثال الآتي، يمكننا أن نرى أن TypeScript يعدّ `x` نوعًا حرفيًا لأن القيمة لا يمكن تغييرها في أي وقت لاحق، بينما يُستنتج `y` بوصفه من النوع string لأنه يمكن تعديله في أي وقت لاحق.
 
 ```typescript
-const x = 'x'; // Literal type of 'x', because this value cannot be changed
-let y = 'y'; // Type string, as we can change this value
+const x = 'x'; // نوع حرفي 'x'، لأن هذه القيمة لا يمكن تغييرها
+let y = 'y'; // النوع string، لأننا نستطيع تغيير هذه القيمة
 ```
 
 في المثال الآتي، يمكننا أن نرى أن `o.x` استُنتج بوصفه `string` (لا قيمة حرفية من `a`) لأن TypeScript يعتبر أن القيمة يمكن تغييرها في أي وقت لاحق.
@@ -1895,12 +1895,12 @@ let y = 'y'; // Type string, as we can change this value
 type X = 'a' | 'b';
 
 let o = {
-    x: 'a', // This is a wider string
+    x: 'a', // هذا نوع string أوسع
 };
 
 const fn = (x: X) => `${x}-foo`;
 
-console.log(fn(o.x)); // Argument of type 'string' is not assignable to parameter of type 'X'
+console.log(fn(o.x)); // لا يمكن إسناد وسيط من النوع 'string' إلى معامل من النوع 'X'
 ```
 
 كما ترى، تطرح الشيفرة خطأ عند تمرير `o.x` إلى `fn` لأن X نوع أضيق.
@@ -1947,7 +1947,7 @@ enum Color {
 
 ```typescript
 enum Size {
-    Small, // value starts from 0
+    Small, // تبدأ القيمة من 0
     Medium,
     Large,
 }
@@ -2044,7 +2044,7 @@ console.log(Grade[90]); // A
 
 const failGrade = Grade.F;
 console.log(failGrade); // fail
-console.log(Grade[failGrade]); // Element implicitly has an 'any' type because index expression is not of type 'number'.
+console.log(Grade[failGrade]); // نوع العنصر ضمنيًا هو 'any' لأن تعبير الفهرسة ليس من النوع 'number'.
 ```
 
 ### التعدادات المحيطية
@@ -2056,23 +2056,23 @@ console.log(Grade[failGrade]); // Element implicitly has an 'any' type because i
 في TypeScript، العضو المحسوب هو عضو في تعداد تُحسب قيمته في وقت التشغيل، بينما العضو الثابت هو عضو تُحدَّد قيمته في وقت التصريف ولا يمكن تغييرها في أثناء وقت التشغيل. يُسمح بالأعضاء المحسوبة في التعدادات العادية، بينما يُسمح بالأعضاء الثابتة في كل من التعدادات العادية والثابتة.
 
 ```typescript
-// Constant members
+// أعضاء ثابتة
 enum Color {
     Red = 1,
     Green = 5,
     Blue = Red + Green,
 }
-console.log(Color.Blue); // 6 generation at compilation time
+console.log(Color.Blue); // 6، تُولّد أثناء الترجمة
 ```
 
 ```typescript
-// Computed members
+// أعضاء محسوبة
 enum Color {
     Red = 1,
     Green = Math.pow(2, 2),
     Blue = Math.floor(Math.random() * 3) + 1,
 }
-console.log(Color.Blue); // random number generated at run time
+console.log(Color.Blue); // عدد عشوائي يُولّد أثناء التشغيل
 ```
 
 يُعبَّر عن التعدادات باتحادات تتألف من أنواع أعضائها. ويمكن تحديد قيم كل عضو من خلال تعبيرات ثابتة أو غير ثابتة، مع إسناد أنواع حرفية إلى الأعضاء التي تمتلك قيمًا ثابتة. للتوضيح، تأمل تصريح النوع E وأنواعه الفرعية E.A وE.B وE.C. في هذه الحالة، يمثّل E الاتحاد E.A | E.B | E.C.
@@ -2081,9 +2081,9 @@ console.log(Color.Blue); // random number generated at run time
 const identity = (value: number) => value;
 
 enum E {
-    A = 2 * 5, // Numeric literal
-    B = 'bar', // String literal
-    C = identity(42), // Opaque computed
+    A = 2 * 5, // قيمة عددية حرفية
+    B = 'bar', // سلسلة نصية حرفية
+    C = identity(42), // قيمة محسوبة معتمة
 }
 
 console.log(E.C); //42
@@ -2102,7 +2102,7 @@ console.log(E.C); //42
 ```typescript
 const fn = (x: number | string) => {
     if (typeof x === 'number') {
-        return x + 1; // x is number
+        return x + 1; // نوع x هو number
     }
     return -1;
 };
@@ -2241,7 +2241,7 @@ const f2 = (
 const f1 = (x: unknown) => {
     let isString = typeof x === 'string';
     if (isString) {
-        x.length; // Error, no narrowing because isString it is not const
+        x.length; // خطأ، لا يحدث تضييق لأن isString ليس const
     }
 };
 
@@ -2251,7 +2251,7 @@ const f6 = (
     const isFoo = obj.kind === 'foo';
     obj = obj;
     if (isFoo) {
-        obj.foo; // Error, no narrowing because obj is assigned in function body
+        obj.foo; // خطأ، لا يحدث تضييق لأن obj يُسنَد في جسم الدالة
     }
 };
 ```
@@ -2286,12 +2286,12 @@ const nums = [1, null, 2].filter(x => x !== null);
 
 ```typescript
 type Square = {
-    kind: 'square'; // Discriminant
+    kind: 'square'; // مميّز
     size: number;
 };
 
 type Circle = {
-    kind: 'circle'; // Discriminant
+    kind: 'circle'; // مميّز
     radius: number;
 };
 
@@ -2324,7 +2324,7 @@ const printValue = (val: string | number) => {
     } else if (typeof val === 'number') {
         console.log(val.toFixed(2));
     } else {
-        // val has type never here because it can never be anything other than a string or a number
+        // نوع val هنا هو never لأنه لا يمكن أن يكون سوى سلسلة نصية أو عدد
         const neverVal: never = val;
         console.log(`Unexpected value: ${neverVal}`);
     }
@@ -2348,7 +2348,7 @@ const move = (direction: Direction) => {
             break;
         default:
             const exhaustiveCheck: never = direction;
-            console.log(exhaustiveCheck); // This line will never be executed
+            console.log(exhaustiveCheck); // لن يُنفَّذ هذا السطر مطلقًا
     }
 };
 ```
@@ -2403,7 +2403,7 @@ type Point = [number, number];
 type T = string;
 type Tuple1 = [T, T];
 type Tuple2 = [a: T, b: T];
-type Tuple3 = [a: T, T]; // Named Tuple plus Anonymous Tuple
+type Tuple3 = [a: T, T]; // صف مسمّى مع صف مجهول
 ```
 
 ## Tuple ثابت الطول
@@ -2415,7 +2415,7 @@ Tuple ثابت الطول هو نوع محدد من Tuple يفرض عددًا ث
 <!-- skip -->
 ```typescript
 const x = [10, 'hello'] as const;
-x.push(2); // Error
+x.push(2); // خطأ
 ```
 
 ## نوع الاتحاد
@@ -2424,8 +2424,8 @@ x.push(2); // Error
 
 ```typescript
 let x: string | number;
-x = 'hello'; // Valid
-x = 123; // Valid
+x = 'hello'; // صحيح
+x = 123; // صحيح
 ```
 
 ## أنواع التقاطع
@@ -2441,7 +2441,7 @@ type Y = {
     b: string;
 };
 
-type J = X & Y; // Intersection
+type J = X & Y; // تقاطع
 
 const j: J = {
     a: 'a',
@@ -2458,7 +2458,7 @@ type Dictionary<T> = {
     [key: string]: T;
 };
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
-console.log(myDict['a']); // Returns a
+console.log(myDict['a']); // يُرجع a
 ```
 
 ## النوع من القيمة
@@ -2466,7 +2466,7 @@ console.log(myDict['a']); // Returns a
 يشير «النوع من القيمة» في TypeScript إلى الاستدلال التلقائي لنوع من قيمة أو تعبير من خلال استدلال النوع.
 
 ```typescript
-const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immutable), but widens it to 'string' with 'let' (reassignable).
+const x = 'x'; // يستنتج TypeScript أن 'x' نوع نصي حرفي مع const (غير قابل للتغيير)، لكنه يوسعه إلى string مع let (قابل لإعادة الإسناد).
 ```
 
 ## النوع من القيمة المرجعة للدالة
@@ -2474,7 +2474,7 @@ const x = 'x'; // TypeScript infers 'x' as a string literal with 'const' (immuta
 يشير «النوع من القيمة المرجعة للدالة» إلى القدرة على استدلال نوع الإرجاع لدالة تلقائيًا استنادًا إلى تنفيذها. ويتيح ذلك لـ TypeScript تحديد نوع القيمة التي تُرجعها الدالة من دون تعليقات توضيحية صريحة للنوع.
 
 ```typescript
-const add = (x: number, y: number) => x + y; // TypeScript can infer that the return type of the function is a number
+const add = (x: number, y: number) => x + y; // يستطيع TypeScript استنتاج أن نوع القيمة المعادة من الدالة هو number
 ```
 
 ## النوع من الوحدة
@@ -2487,7 +2487,7 @@ const add = (x: number, y: number) => x + y; // TypeScript can infer that the re
 export const add = (x: number, y: number) => x + y;
 // index.ts
 import { add } from 'calc';
-const r = add(1, 2); // r is number
+const r = add(1, 2); // نوع r هو number
 ```
 
 ## الأنواع المعيّنة
@@ -2523,11 +2523,11 @@ const x: MyNewType = {
 أمثلة:
 
 ```typescript
-type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // All properties marked as read-only
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] }; // جميع الخصائص محددة للقراءة فقط
 
-type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked as mutable
+type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // جميع الخصائص محددة كقابلة للتعديل
 
-type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
+type MyPartial<T> = { [P in keyof T]?: T[P] }; // جميع الخصائص محددة كاختيارية
 ```
 
 ## الأنواع الشرطية
@@ -2540,8 +2540,8 @@ type IsArray<T> = T extends any[] ? true : false;
 const myArray = [1, 2, 3];
 const myNumber = 42;
 
-type IsMyArrayAnArray = IsArray<typeof myArray>; // Type true
-type IsMyNumberAnArray = IsArray<typeof myNumber>; // Type false
+type IsMyArrayAnArray = IsArray<typeof myArray>; // النوع true
+type IsMyNumberAnArray = IsArray<typeof myNumber>; // النوع false
 ```
 
 ## الأنواع الشرطية التوزيعية
@@ -2607,8 +2607,8 @@ type ProductId = `id-${Products}-${Status}`; // "id-p1-active" | "id-p1-inactive
 
 ```typescript
 let value: any;
-value = true; // Valid
-value = 7; // Valid
+value = true; // صحيح
+value = 7; // صحيح
 ```
 
 ## النوع Unknown
@@ -2621,10 +2621,10 @@ value = 7; // Valid
 ```typescript
 let value: unknown;
 
-let value1: unknown = value; // Valid
-let value2: any = value; // Valid
-let value3: boolean = value; // Invalid
-let value4: number = value; // Invalid
+let value1: unknown = value; // صحيح
+let value2: any = value; // صحيح
+let value3: boolean = value; // غير صحيح
+let value4: number = value; // غير صحيح
 ```
 
 ```typescript
@@ -2653,7 +2653,7 @@ const sayHello = (): void => {
 ```typescript
 const infiniteLoop = (): never => {
     while (true) {
-        // do something
+        // تنفيذ شيء ما
     }
 };
 ```
@@ -2673,10 +2673,10 @@ type Direction = 'up' | 'down';
 const move = (direction: Direction): void => {
     switch (direction) {
         case 'up':
-            // move up
+            // التحرك للأعلى
             break;
         case 'down':
-            // move down
+            // التحرك للأسفل
             break;
         default:
             const exhaustiveCheck: never = direction;
@@ -2741,10 +2741,10 @@ type TypeName = {
 ### الأنواع الأساسية
 
 ```typescript
-let myNumber: number = 123; // number type
-let myBoolean: boolean = true; // boolean type
-let myArray: string[] = ['a', 'b']; // array of strings
-let myTuple: [string, number] = ['a', 123]; // tuple
+let myNumber: number = 123; // النوع number
+let myBoolean: boolean = true; // النوع boolean
+let myArray: string[] = ['a', 'b']; // مصفوفة سلاسل نصية
+let myTuple: [string, number] = ['a', 123]; // صف
 ```
 
 ### الكائنات والواجهات
@@ -2756,14 +2756,14 @@ const x: { name: string; age: number } = { name: 'Simon', age: 7 };
 ### أنواع الاتحاد والتقاطع
 
 ```typescript
-type MyType = string | number; // Union type
-let myUnion: MyType = 'hello'; // Can be a string
-myUnion = 123; // Or a number
+type MyType = string | number; // نوع اتحاد
+let myUnion: MyType = 'hello'; // يمكن أن يكون سلسلة نصية
+myUnion = 123; // أو عددًا
 
 type TypeA = { name: string };
 type TypeB = { age: number };
-type CombinedType = TypeA & TypeB; // Intersection type
-let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
+type CombinedType = TypeA & TypeB; // نوع تقاطع
+let myCombined: CombinedType = { name: 'John', age: 25 }; // كائن يحتوي على الخاصيتين name و age
 ```
 
 ## الأنواع الأولية المضمّنة
@@ -2809,11 +2809,11 @@ TypeScript هو مجموعة فائقة من JavaScript؛ ويشمل جميع ك
 تتيح لك التحميلات الزائدة للدوال في TypeScript تعريف عدة تواقيع دوال لاسم دالة واحد، مما يتيح لك تعريف دوال يمكن استدعاؤها بطرائق متعددة. إليك مثالًا:
 
 ```typescript
-// Overloads
+// تحميلات زائدة
 function sayHi(name: string): string;
 function sayHi(names: string[]): string[];
 
-// Implementation
+// التنفيذ
 function sayHi(name: unknown): unknown {
     if (typeof name === 'string') {
         return `Hi, ${name}!`;
@@ -2823,8 +2823,8 @@ function sayHi(name: unknown): unknown {
     throw new Error('Invalid value');
 }
 
-sayHi('xx'); // Valid
-sayHi(['aa', 'bb']); // Valid
+sayHi('xx'); // صحيح
+sayHi(['aa', 'bb']); // صحيح
 ```
 
 إليك مثالًا آخر على استخدام التحميلات الزائدة للدوال داخل `class`:
@@ -2837,11 +2837,11 @@ class Greeter {
         this.message = message;
     }
 
-    // overload
+    // تحميل زائد
     sayHi(name: string): string;
     sayHi(names: string[]): ReadonlyArray<string>;
 
-    // implementation
+    // التنفيذ
     sayHi(name: unknown): unknown {
         if (typeof name === 'string') {
             return `${this.message}, ${name}!`;
@@ -2960,7 +2960,7 @@ const c: B = {
 تكون الأنواع أكثر مرونة عند تعريف أنواع الاتحاد والتقاطع. باستخدام الكلمة المفتاحية `type`، يمكنك بسهولة إنشاء أنواع اتحاد باستخدام المعامل `|` وأنواع تقاطع باستخدام المعامل `&`. وعلى الرغم من أن الواجهات يمكنها أيضًا تمثيل أنواع الاتحاد بصورة غير مباشرة، فإنها لا توفر دعمًا مضمّنًا لأنواع التقاطع.
 
 ```typescript
-type Department = 'dep-x' | 'dep-y'; // Union
+type Department = 'dep-x' | 'dep-y'; // اتحاد
 
 type Person = {
     name: string;
@@ -2972,7 +2972,7 @@ type Employee = {
     department: Department;
 };
 
-type EmployeeInfo = Person & Employee; // Intersection
+type EmployeeInfo = Person & Employee; // تقاطع
 ```
 
 مثال باستخدام الواجهات:
@@ -2985,7 +2985,7 @@ interface B {
     y: 'y';
 }
 
-type C = A | B; // Union of interfaces
+type C = A | B; // اتحاد واجهات
 ```
 
 ## الصنف
@@ -3023,7 +3023,7 @@ class Person {
 <!-- skip -->
 ```typescript
 const myObject = new Person('John Doe', 25);
-myObject.sayHi(); // Output: Hello, my name is John Doe and I am 25 years old.
+myObject.sayHi(); // الناتج: Hello, my name is John Doe and I am 25 years old.
 ```
 
 ### المُنشئ
@@ -3127,10 +3127,10 @@ class DerivedClass extends BaseClass {
     }
 }
 
-// Attempting to instantiate the base class directly will result in an error
-// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+// ستؤدي محاولة إنشاء مثيل من الصنف الأساسي مباشرة إلى خطأ
+// const baseObj = new BaseClass(); // خطأ: مُنشئ الصنف 'BaseClass' محمي.
 
-// Create an instance of the derived class
+// إنشاء مثيل من الصنف المشتق
 const derivedObj = new DerivedClass(10);
 ```
 
@@ -3229,8 +3229,8 @@ class Person {
         private name: string,
         public age: number
     ) {
-        // The "private" and "public" keywords in the constructor
-        // automatically declare and initialize the corresponding class properties.
+        // الكلمتان المفتاحيتان "private" و "public" في المُنشئ
+        // تُصرّحان عن خصائص الصنف المقابلة وتُهيّئانها تلقائيًا.
     }
     public introduce(): void {
         console.log(
@@ -3265,7 +3265,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat('Whiskers');
-cat.makeSound(); // Output: Whiskers meows.
+cat.makeSound(); // الناتج: Whiskers meows.
 ```
 
 ### باستخدام الأنواع العامة
@@ -3353,7 +3353,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* يطبع:
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -3378,7 +3378,7 @@ class MyClass {
     prop1 = 'hello!';
 }
 
-console.log(new MyClass().prop1); // Logs: HELLO!
+console.log(new MyClass().prop1); // يطبع: HELLO!
 ```
 
 #### مزخرف الأسلوب
@@ -3460,10 +3460,10 @@ class MyClass {
 }
 
 const obj = new MyClass(10);
-console.log(obj.getValue); // Valid: 10
+console.log(obj.getValue); // صحيح: 10
 
 const obj2 = new MyClass(999);
-console.log(obj2.getValue); // Throw: Invalid!
+console.log(obj2.getValue); // يرمي: Invalid!
 ```
 
 #### البيانات الوصفية للمزخرفات
@@ -3475,15 +3475,15 @@ console.log(obj2.getValue); // Throw: Invalid!
 
 ```typescript
 //@ts-ignore
-Symbol.metadata ??= Symbol('Symbol.metadata'); // Simple polyfill
+Symbol.metadata ??= Symbol('Symbol.metadata'); // تعويض توافق بسيط
 
 type Context =
     | ClassFieldDecoratorContext
     | ClassAccessorDecoratorContext
-    | ClassMethodDecoratorContext; // Context contains property metadata: DecoratorMetadata
+    | ClassMethodDecoratorContext; // يحتوي السياق على بيانات الخاصية الوصفية: DecoratorMetadata
 
 function setMetadata(_target: any, context: Context) {
-    // Set the metadata object with a primitive value
+    // ضبط كائن البيانات الوصفية بقيمة أولية
     context.metadata[context.name] = true;
 }
 
@@ -3498,7 +3498,7 @@ class MyClass {
     fn() {}
 }
 
-const metadata = MyClass[Symbol.metadata]; // Get metadata information
+const metadata = MyClass[Symbol.metadata]; // الحصول على البيانات الوصفية
 
 console.log(JSON.stringify(metadata)); // {"bar":true,"baz":true,"foo":true}
 ```
@@ -3533,11 +3533,11 @@ class Dog extends Animal {
     }
 }
 
-// Create an instance of the base class
+// إنشاء مثيل من الصنف الأساسي
 const animal = new Animal('Generic Animal');
 animal.speak(); // The animal makes a sound
 
-// Create an instance of the derived class
+// إنشاء مثيل من الصنف المشتق
 const dog = new Dog('Max', 'Labrador');
 dog.speak(); // Woof! Woof!"
 ```
@@ -3627,7 +3627,7 @@ class MyClass {
         private property1: string = 'default value',
         public property2: number = 42
     ) {
-        // There is no need to assign the values to the properties explicitly.
+        // لا حاجة لإسناد القيم إلى الخصائص صراحةً.
     }
     log() {
         console.log(this.property2);
@@ -3643,8 +3643,8 @@ x.log();
 
 ```typescript
 class MyClass {
-    add(a: number, b: number): number; // Overload signature 1
-    add(a: string, b: string): string; // Overload signature 2
+    add(a: number, b: number): number; // توقيع التحميل الزائد 1
+    add(a: string, b: string): string; // توقيع التحميل الزائد 2
 
     add(a: number | string, b: number | string): number | string {
         if (typeof a === 'number' && typeof b === 'number') {
@@ -3658,7 +3658,7 @@ class MyClass {
 }
 
 const r = new MyClass();
-console.log(r.add(10, 5)); // Logs 15
+console.log(r.add(10, 5)); // يطبع 15
 ```
 
 ## الأنواع العامة
@@ -3721,7 +3721,7 @@ const printLen = <T extends { length: number }>(value: T): void => {
 printLen('Hello'); // 5
 printLen([1, 2, 3]); // 3
 printLen({ length: 10 }); // 10
-printLen(123); // Invalid
+printLen(123); // غير صحيح
 ```
 
 إحدى الميزات البارزة للأنواع العامة التي قُدّمت في الإصدار 3.4 RC هي استدلال أنواع الدوال ذات الرتبة الأعلى، الذي ينشر وسائط الأنواع العامة:
@@ -3748,10 +3748,10 @@ const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value is narrowed down to type 'string'
+        // تُضيَّق القيمة إلى النوع 'string'
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value is narrowed down to type 'number'
+        // تُضيَّق القيمة إلى النوع 'number'
         console.log(value.toFixed(2));
     }
 }
@@ -3779,7 +3779,7 @@ const obj = {
     prop1: 'Origin',
 };
 
-log(obj); // Valid
+log(obj); // صحيح
 ```
 
 ## مساحات الأسماء
@@ -3863,7 +3863,7 @@ console.log(obj[key2]); // value 2
 ```typescript
 type A = { foo: number };
 type B = { bar: string };
-type C = A & B; // Intersection of A and B
+type C = A & B; // تقاطع A و B
 const obj: C = { foo: 42, bar: 'hello' };
 ```
 
@@ -3889,7 +3889,7 @@ type Person = {
     name: string;
     age: number;
 };
-type ImmutablePerson = Mutable<Person>; // Properties become read-only
+type ImmutablePerson = Mutable<Person>; // تصبح الخصائص للقراءة فقط
 ```
 
 الأنواع الشرطية:
@@ -3972,7 +3972,7 @@ type Person = {
 type A = Readonly<Person>;
 
 const a: A = { name: 'Simon', age: 17 };
-a.name = 'John'; // Invalid
+a.name = 'John'; // غير صحيح
 ```
 
 #### Record\<K, T\>
@@ -4141,8 +4141,8 @@ type Logger = {
 
 let helperFunctions: { [name: string]: Function } & ThisType<Logger> = {
     hello: function () {
-        this.log('some error'); // Valid as "log" is a part of "this".
-        this.update(); // Invalid
+        this.log('some error'); // صحيح لأن "log" جزء من "this".
+        this.update(); // غير صحيح
     },
 };
 ```
@@ -4186,23 +4186,23 @@ NoInfer هو نوع أداة مساعدة مصمم لمنع الاستدلال �
 مثال:
 
 ```typescript
-// Automatic inference of types within the scope of a generic function.
+// استنتاج الأنواع تلقائيًا ضمن نطاق دالة معمّمة.
 function fn<T extends string>(x: T[], y: T) {
     return x.concat(y);
 }
-const r = fn(['a', 'b'], 'c'); // Type here is ("a" | "b" | "c")[]
+const r = fn(['a', 'b'], 'c'); // النوع هنا هو ("a" | "b" | "c")[]
 ```
 
 باستخدام NoInfer:
 
 <!-- skip -->
 ```typescript
-// Example function that uses NoInfer to prevent type inference
+// دالة مثال تستخدم NoInfer لمنع استنتاج النوع
 function fn2<T extends string>(x: T[], y: NoInfer<T>) {
     return x.concat(y);
 }
 
-const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+const r2 = fn2(['a', 'b'], 'c'); // خطأ: لا يمكن إسناد وسيط من النوع '"c"' إلى معامل من النوع '"a" | "b"'.
 ```
 
 ## مواضيع أخرى
@@ -4215,11 +4215,11 @@ const r2 = fn2(['a', 'b'], 'c'); // Error: Type Argument of type '"c"' is not as
 
 ```typescript
 try {
-    // Code that might throw an error
+    // شيفرة قد ترمي خطأ
 } catch (error) {
-    // Handle the error
+    // معالجة الخطأ
 } finally {
-    // Code that always executes, finally is optional
+    // شيفرة تُنفَّذ دائمًا، و finally اختياري
 }
 ```
 
@@ -4227,14 +4227,14 @@ try {
 
 ```typescript
 try {
-    // Code that might throw different types of errors
+    // شيفرة قد ترمي أنواعًا مختلفة من الأخطاء
 } catch (error) {
     if (error instanceof TypeError) {
-        // Handle TypeError
+        // معالجة TypeError
     } else if (error instanceof RangeError) {
-        // Handle RangeError
+        // معالجة RangeError
     } else {
-        // Handle other errors
+        // معالجة الأخطاء الأخرى
     }
 }
 ```
@@ -4280,10 +4280,10 @@ class MyClass {
     constructor() {}
 }
 
-// Extend MyClass to include the behavior of Identifiable and Selectable
+// توسيع MyClass لتشمل سلوك Identifiable و Selectable
 interface MyClass extends Identifiable, Selectable {}
 
-// Function to apply mixins to a class
+// دالة لتطبيق الخلطات على صنف
 function applyMixins(source: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
@@ -4298,7 +4298,7 @@ function applyMixins(source: any, baseCtors: any[]) {
     });
 }
 
-// Apply the mixins to MyClass
+// تطبيق الخلطات على MyClass
 applyMixins(MyClass, [Identifiable, Selectable]);
 let o = new MyClass();
 o.name = 'abc';
@@ -4413,10 +4413,10 @@ for (const num of generator) {
 
 ```typescript
 /**
- * Computes the power of a given number
+ * تحسب قوة العدد المعطى
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – قيمة أساس التعبير
+ * @param {number} exponent – قيمة أس التعبير
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -4512,7 +4512,7 @@ async function* asyncNumbers(): AsyncIterableIterator<number> {
 ```typescript
 class Parent {
     constructor() {
-        console.log(new.target); // Logs the constructor function used to create an instance
+        console.log(new.target); // يطبع دالة المُنشئ المستخدمة لإنشاء مثيل
     }
 }
 
@@ -4537,7 +4537,7 @@ const child = new Child(); // [Function: Child]
 async function renderWidget() {
     const container = document.getElementById('widget');
     if (container !== null) {
-        const widget = await import('./widget'); // Dynamic import
+        const widget = await import('./widget'); // استيراد ديناميكي
         widget.render(container);
     }
 }
@@ -4849,8 +4849,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // صحيح
+produceDog = produceAnimal; // خطأ
 ```
 
 **التغاير العكسي (استقبال القيم):** يمكن استخدام دالة تقبل أي `Animal` بدلًا من دالة تقبل `Dog`. فهي تقبل الكلاب أيضًا، أما الدالة المخصصة للكلاب فلا يمكنها التعامل بأمان مع كل الحيوانات.
@@ -4862,8 +4862,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // صحيح
+consumeAnimal = consumeDog; // خطأ عند استخدام strictFunctionTypes
 ```
 
 توضح الأسهم اتجاه الإسناد الآمن:
@@ -4879,8 +4879,8 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // مسموح، لكنه غير آمن
+// يحتوي dogs الآن على كائن Animal ليس من النوع Dog.
 ```
 
 **خيار المترجم:** مع تفعيل `strictFunctionTypes`، تُفحص معاملات الدوال المستقلة وفق التغاير العكسي. بدونه قد يقبل TypeScript الاتجاهين (التغاير الثنائي) حتى إن لم يكونا آمنين. معاملات تعريفات الطرق والبناة استثناء من هذا الفحص.
@@ -4917,7 +4917,7 @@ const obj: MyObject = {
     'key-b': 456,
 };
 
-console.log(obj[uniqueSymbol]); // Unique symbol key
+console.log(obj[uniqueSymbol]); // مفتاح رمز فريد
 console.log(obj['key-a']); // 123
 console.log(obj['key-b']); // 456
 ```
@@ -4933,37 +4933,37 @@ type Columns = 'name' | 'nickName' | 'attributes';
 
 type User = Record<Columns, string | string[] | undefined>;
 
-// Type Annotation using `User`
+// توصيف النوع باستخدام `User`
 const user: User = {
     name: 'Simone',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 };
 
-// In the following lines, TypeScript won't be able to infer properly
-user.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// لن يتمكن TypeScript من استنتاج الأنواع بشكل صحيح في الأسطر التالية
+user.attributes?.map(console.log); // الخاصية 'map' غير موجودة في النوع 'string | string[]'. الخاصية 'map' غير موجودة في النوع 'string'.
 user.nickName; // string | string[] | undefined
 
-// Type assertion using `as`
+// توكيد النوع باستخدام `as`
 const user2 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } as User;
 
-// Here too, TypeScript won't be able to infer properly
-user2.attributes?.map(console.log); // Property 'map' does not exist on type 'string | string[]'. Property 'map' does not exist on type 'string'.
+// لن يتمكن TypeScript هنا أيضًا من استنتاج الأنواع بشكل صحيح
+user2.attributes?.map(console.log); // الخاصية 'map' غير موجودة في النوع 'string | string[]'. الخاصية 'map' غير موجودة في النوع 'string'.
 user2.nickName; // string | string[] | undefined
 
-// Using the `satisfies` operator we can properly infer the types now
+// باستخدام العامل `satisfies`، يمكننا الآن استنتاج الأنواع بشكل صحيح
 const user3 = {
     name: 'Simon',
     nickName: undefined,
     attributes: ['dev', 'admin'],
 } satisfies User;
 
-user3.attributes?.map(console.log); // TypeScript infers correctly: string[]
-user3.nickName; // TypeScript infers correctly: undefined
+user3.attributes?.map(console.log); // يستنتج TypeScript بشكل صحيح: string[]
+user3.nickName; // يستنتج TypeScript بشكل صحيح: undefined
 ```
 
 ### عمليات الاستيراد والتصدير الخاصة بالأنواع فقط
@@ -5017,7 +5017,7 @@ export type { T } from './mod';
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.dispose ??= Symbol('Symbol.dispose'); // Simple polyfill
+Symbol.dispose ??= Symbol('Symbol.dispose'); // تعويض توافق بسيط
 
 const doWork = (): Disposable => {
     return {
@@ -5030,9 +5030,9 @@ const doWork = (): Disposable => {
 console.log(1);
 
 {
-    using work = doWork(); // Resource is declared
+    using work = doWork(); // يُصرَّح عن المورد
     console.log(2);
-} // Resource is disposed (e.g., `work[Symbol.dispose]()` is evaluated)
+} // يُحرَّر المورد (مثلًا، يُقيَّم `work[Symbol.dispose]()`)
 
 console.log(3);
 ```
@@ -5063,7 +5063,7 @@ interface Disposable {
     using j = getA(),
         y = getB();
     using k = getC();
-} // disposes `C`, then `B`, then `A`.
+} // يُحرِّر `C`، ثم `B`، ثم `A`.
 ```
 
 يُضمن التخلص من الموارد حتى إذا وقع استثناء أو جرى تنفيذ شيفرة لاحقة. قد يؤدي هذا إلى احتمال أن تطرح عملية التخلص استثناءً قد يكبت استثناءً آخر. وللاحتفاظ بمعلومات عن الأخطاء المكبوتة، أُضيف استثناء أصلي جديد هو `SuppressedError`.
@@ -5075,8 +5075,8 @@ interface Disposable {
 <!-- skip -->
 ```typescript
 async function doWorkAsync() {
-    await using work = doWorkAsync(); // Resource is declared
-} // Resource is disposed (e.g., `await work[Symbol.asyncDispose]()` is evaluated)
+    await using work = doWorkAsync(); // يُصرَّح عن المورد
+} // يُحرَّر المورد (مثلًا، يُقيَّم `await work[Symbol.asyncDispose]()`)
 ```
 
 لكي يكون المورد قابلًا للتخلص منه بصورة غير متزامنة، يجب أن يلتزم بواجهة `Disposable` أو `AsyncDisposable`:
@@ -5091,12 +5091,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // تعويض توافق بسيط
 
 class DatabaseConnection implements AsyncDisposable {
-    // A method that is called when the object is disposed asynchronously
+    // طريقة تُستدعى عند تحرير الكائن بشكل غير متزامن
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // إغلاق الاتصال وإرجاع وعد
         return this.close();
     }
 
@@ -5108,10 +5108,10 @@ class DatabaseConnection implements AsyncDisposable {
 }
 
 async function doWork() {
-    // Create a new connection and dispose it asynchronously when it goes out of scope
-    await using connection = new DatabaseConnection(); //  Resource is declared
+    // إنشاء اتصال جديد وتحريره بشكل غير متزامن عند خروجه من النطاق
+    await using connection = new DatabaseConnection(); //  يُصرَّح عن المورد
     console.log('Doing some work...');
-} // Resource is disposed (e.g., `await connection[Symbol.asyncDispose]()` is evaluated)
+} // يُحرَّر المورد (مثلًا، يُقيَّم `await connection[Symbol.asyncDispose]()`)
 
 doWork();
 ```
@@ -5150,7 +5150,7 @@ const config = import('./config.json', { with: { type: 'json' } });
 
 <!-- skip -->
 ```typescript
-let r = /(a)\2/; // Error: This backreference refers to a group that does not exist.
+let r = /(a)\2/; // خطأ: يشير هذا المرجع الخلفي إلى مجموعة غير موجودة.
 ```
 
 ### import defer

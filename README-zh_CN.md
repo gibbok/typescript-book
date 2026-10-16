@@ -3321,7 +3321,7 @@ class Person {
     }
 }
 const person = new Person('Simon');
-/* Logs:
+/* 日志输出：
 {"name":"Simon"}
 {"kind":"class","name":"Person"}
 */
@@ -3715,10 +3715,10 @@ const boxList = pipe(box, list); // <V>(x: V) => { value: V }[]
 ```typescript
 function process<T>(value: T): void {
     if (typeof value === 'string') {
-        // Value 的类型被缩小到 'string' 类型
+        // 值的类型被缩小到 'string' 类型
         console.log(value.length);
     } else if (typeof value === 'number') {
-        // Value 的类型被缩小到 'number' 类型
+        // 值的类型被缩小到 'number' 类型
         console.log(value.toFixed(2));
     }
 }
@@ -4378,10 +4378,10 @@ TypeScript 还支持异步迭代器和异步生成器。
 
 ```typescript
 /**
- * Computes the power of a given number
+ * 计算给定数的幂
  * @constructor
- * @param {number} base – The base value of the expression
- * @param {number} exponent – The exponent value of the expression
+ * @param {number} base – 表达式的底数
+ * @param {number} exponent – 表达式的指数
  */
 function power(base: number, exponent: number) {
     return Math.pow(base, exponent);
@@ -4804,8 +4804,8 @@ type Producer<T> = () => T;
 declare let produceAnimal: Producer<Animal>;
 declare let produceDog: Producer<Dog>;
 
-produceAnimal = produceDog; // Valid
-produceDog = produceAnimal; // Error
+produceAnimal = produceDog; // 有效
+produceDog = produceAnimal; // 错误
 ```
 
 **逆变（接收值）：** 接受任意 `Animal` 的函数可以用于需要接受 `Dog` 的函数的位置。它也能处理狗；只接受狗的函数无法安全地处理所有动物。
@@ -4817,8 +4817,8 @@ type Consumer<T> = (value: T) => void;
 declare let consumeAnimal: Consumer<Animal>;
 declare let consumeDog: Consumer<Dog>;
 
-consumeDog = consumeAnimal; // Valid
-consumeAnimal = consumeDog; // Error with strictFunctionTypes
+consumeDog = consumeAnimal; // 有效
+consumeAnimal = consumeDog; // 启用 strictFunctionTypes 时出错
 ```
 
 箭头表示安全赋值的方向：
@@ -4834,8 +4834,8 @@ consumeAnimal = consumeDog; // Error with strictFunctionTypes
 const dogs: Dog[] = [new Dog()];
 const animals: Animal[] = dogs;
 
-animals.push(new Animal()); // Allowed, but unsafe
-// dogs now contains an Animal that is not a Dog.
+animals.push(new Animal()); // 允许，但不安全
+// dogs 现在包含一个不是 Dog 的 Animal。
 ```
 
 **编译器选项：** 启用 `strictFunctionTypes` 时，独立函数的参数按逆变方式检查。未启用时，TypeScript 可能允许双向赋值（双变），即使并不安全。方法和构造函数声明中的参数是例外。
@@ -5047,12 +5047,12 @@ interface AsyncDisposable {
 <!-- skip -->
 ```typescript
 //@ts-ignore
-Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // Simple polyfill
+Symbol.asyncDispose ??= Symbol('Symbol.asyncDispose'); // 简单的兼容性填充
 
 class DatabaseConnection implements AsyncDisposable {
     // 当对象被异步释放时会被调用的方法
     [Symbol.asyncDispose]() {
-        // Close the connection and return a promise
+        // 关闭连接并返回一个 Promise
         return this.close();
     }
 
