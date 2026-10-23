@@ -162,6 +162,7 @@ gtag('config', 'G-SR2LV8LB90');
       title: 'TypeScript Book',
       customCss: ['./src/styles/custom.css'],
       components: {
+        LanguageSelect: './src/components/LanguageSelect.astro',
         PageFrame: './src/components/PageFrame.astro',
         PageTitle: './src/components/PageTitle.astro',
         PageSidebar: './src/components/RightSidebarBanner.astro',
