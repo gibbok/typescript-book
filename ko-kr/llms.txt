@@ -81,4 +81,5 @@
 - [TypeScript 7에 워크스페이스 심볼 검색 범위가 추가되었습니다](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-7-workspace-symbol-search-scope/index.md): 네이티브 언어 서비스에 워크스페이스 심볼 검색을 현재 프로젝트로 제한할 수 있는 설정이 추가되었습니다.
 - [TypeScript 네이티브 API에 계층형 가상 파일 시스템 추가](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-native-api-adds-layered-vfs/index.md): TypeScript 네이티브 API는 메모리 내 또는 계층형 가상 파일 시스템으로 스냅샷을 업데이트하고 파일 추가, 변경, 삭제 및 호스트 폴백을 표현할 수 있습니다.
 - [TypeScript 네이티브 API에 typescript-eslint가 필요한 API 추가](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-native-api-adds-typescript-eslint-apis/index.md): TypeScript 네이티브 API에 typescript-eslint가 필요한 검사기 및 타입 API가 추가되어 도구 호환성 차이가 줄어듭니다.
+- [TypeScript 네이티브 컴파일러, 타입 검사기 최적화로 메모리 사용량 감소](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/2026/typescript-native-compiler-memory-optimizations/index.md): 병합된 변경 사항은 구조화된 타입 레코드를 줄이고 메모리 할당과 캐싱을 개선합니다.
 - [TypeScript 뉴스](https://gibbok.github.io/typescript-book/ko-kr/typescript-news/index.md): TypeScript 개발자를 위한 최신 공식 TypeScript 릴리스, 발표, 변경 사항의 간결한 요약입니다.
