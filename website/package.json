@@ -14,7 +14,7 @@
     "deploy": "npm run build && npx gh-pages -d dist"
   },
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
+    "@astrojs/check": "^0.9.12",
     "@astrojs/sitemap": "3.1.6",
     "@astrojs/starlight": "^0.22.4",
     "astro": "^4.16.19",
