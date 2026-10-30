@@ -1,0 +1,53 @@
+name: Temporary TypeScript News Validation 2026-10-30
+on:
+  push:
+    branches:
+      - gbk/typescript-news-2026-10-30-wasi
+permissions:
+  contents: read
+jobs:
+  verify-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - name: News verifier
+        run: python3 .agents/skills/create-typescript-news/scripts/verify_news.py
+      - name: News verifier tests
+        run: python3 -m unittest discover -s .agents/skills/create-typescript-news/scripts -p 'test_*.py'
+      - name: News list tests
+        run: npm --prefix website run test:news
+      - name: Install website dependencies
+        run: npm --prefix website ci
+      - name: Production build
+        run: npm --prefix website run build
+      - name: Inspect generated pages and metadata
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          locales=['','zh-cn/','it-it/','pt-br/','sv-se/','bg-bg/','es-es/','ja-jp/','fr-fr/','ko-kr/','id-id/','de-de/','pl-pl/','tr-tr/','cs-cz/','vi-vn/','th-th/','ru-ru/','ar/']
+          dist=Path('website/dist')
+          slug='typescript-native-compiler-adds-experimental-wasm-support'
+          for locale in locales:
+              path=dist / locale / 'typescript-news' / '2026' / slug / 'index.html'
+              assert path.exists(), f'Missing generated page: {path}'
+              html=path.read_text()
+              assert '2026-10-29' in html, f'Missing date: {path}'
+              assert 'typescript/wasm' in html, f'Missing technical content: {path}'
+              assert 'article:published_time' in html, f'Missing published metadata: {path}'
+              if locale=='ar/':
+                  assert 'dir="rtl"' in html, 'Missing Arabic RTL'
+              landing=dist / locale / 'typescript-news' / 'index.html'
+              archive=dist / locale / 'typescript-news' / '2026' / 'index.html'
+              assert landing.exists() and archive.exists(), f'Missing news index/archive: {locale}'
+              assert slug in landing.read_text() and slug in archive.read_text(), f'Missing news link: {locale}'
+          sitemap=' '.join(p.read_text() for p in dist.glob('*sitemap*.xml'))
+          assert slug in sitemap, 'Article missing from sitemap'
+          print('Verified all 19 localized routes, metadata, archives, latest lists, Arabic RTL and sitemap.')
+          PY
