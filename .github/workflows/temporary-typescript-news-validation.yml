@@ -1,0 +1,41 @@
+name: Temporary TypeScript News Validation
+on:
+  push:
+    branches:
+      - gbk/typescript-news-2026-11-06-incremental-rebuilds
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python3 .agents/skills/create-typescript-news/scripts/verify_news.py
+      - run: python3 -m unittest discover -s .agents/skills/create-typescript-news/scripts -p 'test_*.py'
+      - run: npm --prefix website ci
+      - run: npm --prefix website run test:news
+      - run: npm --prefix website run build
+      - name: Verify localized generated routes
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          config = Path('website/src/config/locales.ts').read_text()
+          locales = re.findall(r"^  '([^']+)': \\{", config, re.M)
+          locales = ['root'] + locales
+          dist = Path('website/dist')
+          slug = 'typescript-parallel-incremental-rebuilds'
+          for loc in locales:
+              segment = '' if loc == 'root' else loc + '/'
+              matches = list(dist.rglob(f'{slug}/index.html'))
+              expected = [p for p in matches if f'/{segment}typescript-news/2026/' in str(p)]
+              assert expected, (loc, matches)
+              html = expected[0].read_text()
+              assert '2026-11-03' in html
+              if loc == 'ar': assert 'dir="rtl"' in html
+          print(f'Validated {len(locales)} localized routes')
+          PY
