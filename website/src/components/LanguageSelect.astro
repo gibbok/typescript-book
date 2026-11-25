@@ -1,11 +1,10 @@
 ---
 import DefaultLanguageSelect from '@astrojs/starlight/components/LanguageSelect.astro';
 import Select from '@astrojs/starlight/components/Select.astro';
-import type { Props } from '@astrojs/starlight/props';
 import { locales } from '../config/locales';
 
-const { entry, labels, locale } = Astro.props;
-const is404 = entry.slug === '404' || entry.slug.endsWith('/404');
+const { id, locale } = Astro.locals.starlightRoute;
+const is404 = id === '404' || id.endsWith('/404');
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const homePath = (code: string) => `${base}/${code === 'root' ? '' : `${code}/`}`;
 ---
@@ -14,8 +13,7 @@ const homePath = (code: string) => `${base}/${code === 'root' ? '' : `${code}/`}
 	<error-page-language-select>
 		<Select
 			icon="translate"
-			label={labels['languageSelect.accessibleLabel']}
-			value={homePath(locale ?? 'root')}
+			label={Astro.locals.t('languageSelect.accessibleLabel')}
 			options={Object.entries(locales).map(([code, language]) => ({
 				value: homePath(code),
 				selected: code === (locale ?? 'root'),
@@ -25,7 +23,7 @@ const homePath = (code: string) => `${base}/${code === 'root' ? '' : `${code}/`}
 		/>
 	</error-page-language-select>
 ) : (
-	<DefaultLanguageSelect {...Astro.props} />
+	<DefaultLanguageSelect />
 )}
 
 <script>

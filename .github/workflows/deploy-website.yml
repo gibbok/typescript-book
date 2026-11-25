@@ -27,7 +27,7 @@ jobs:
           ref: ${{ github.event_name == 'workflow_dispatch' && 'main' || github.event.pull_request.base.ref }}
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version-file: website/.nvmrc
           cache: npm
           cache-dependency-path: website/package-lock.json
       - name: Install website dependencies

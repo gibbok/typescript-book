@@ -62,3 +62,19 @@ test.describe('core reader journeys', () => {
     ).toBeVisible();
   });
 });
+
+test('opens and closes the book navigation on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(gettingStartedPath);
+  await page.getByRole('button', { name: 'Reject non-essential' }).click();
+
+  const toggle = page.getByRole('button', { name: 'Menu', exact: true });
+  const chapter = page.locator('#starlight__sidebar').getByRole('link', {
+    name: /Type Annotations$/,
+  });
+  await expect(chapter).toBeHidden();
+  await toggle.click();
+  await expect(chapter).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(chapter).toBeHidden();
+});

@@ -31,11 +31,11 @@ test('publication years are unique and in descending order', () => {
 
 test('news lists sort newest first and break same-date ties by canonical slug', () => {
 	const entries = [
-		article('typescript-news/2026/zulu.md', 'Zulu', '2026-04-01'),
-		article('typescript-news/2026/alpha.md', 'Alpha', '2026-04-01'),
-		article('typescript-news/2026/beta.md', 'Beta', '2026-04-02'),
-		article('typescript-news/2025/older.md', 'Older', '2025-12-31'),
-		article('typescript-news/2026/index.mdx', 'Archive page', '2026-04-03'),
+		article('typescript-news/2026/zulu', 'Zulu', '2026-04-01'),
+		article('typescript-news/2026/alpha', 'Alpha', '2026-04-01'),
+		article('typescript-news/2026/beta', 'Beta', '2026-04-02'),
+		article('typescript-news/2025/older', 'Older', '2025-12-31'),
+		article('typescript-news/2026', 'Archive page', '2026-04-03'),
 	];
 
 	assert.deepEqual(
@@ -50,8 +50,8 @@ test('news lists sort newest first and break same-date ties by canonical slug', 
 
 test('localized archives use localized entries and preserve the shared article route', () => {
 	const entries = [
-		article('typescript-news/2026/example.md', 'English title', '2026-04-01'),
-		article('fr-fr/typescript-news/2026/example.md', 'Titre français', '2026-04-01'),
+		article('typescript-news/2026/example', 'English title', '2026-04-01'),
+		article('fr-fr/typescript-news/2026/example', 'Titre français', '2026-04-01'),
 	];
 	const [localized] = getNewsArticles(entries, 'fr-fr', 2026);
 

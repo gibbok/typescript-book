@@ -29,7 +29,7 @@ export function getNewsArticles(entries, locale, year) {
 	for (const entry of entries) {
 		if (!entry.id.startsWith(prefix)) continue;
 
-		const match = entry.id.slice(prefix.length).match(/^(\d{4})\/([^/]+)\.(?:md|mdx)$/);
+		const match = entry.id.slice(prefix.length).match(/^(\d{4})\/([^/]+)$/);
 		if (!match || match[2] === 'index') continue;
 		if (year !== undefined && match[1] !== String(year)) continue;
 

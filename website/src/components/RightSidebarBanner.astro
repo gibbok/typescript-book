@@ -1,9 +1,6 @@
 ---
-import type { Props } from '@astrojs/starlight/props';
 import Default from '@astrojs/starlight/components/PageSidebar.astro';
 import PlusEditionSidebarCard from './PlusEditionSidebarCard.astro';
-
-const props = Astro.props as Props;
 ---
 
 <style>
@@ -15,8 +12,8 @@ const props = Astro.props as Props;
 </style>
 
 <div class="right-sidebar-banner">
-    <PlusEditionSidebarCard lang={Astro.props.lang} />
+    <PlusEditionSidebarCard lang={Astro.locals.starlightRoute.lang} />
     <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CWBDPK3L&placement=gibbokgithubio&format=cover" id="_carbonads_js" is:inline></script>
 </div>
 
-<Default {...props} />
+<Default />

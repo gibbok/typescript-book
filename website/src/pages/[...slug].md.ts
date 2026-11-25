@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 
   return entries.map((entry) => ({
     params: { slug: getMarkdownPath(entry).slice(1, -3) },
-    props: { content: `# ${getPageTitle(entry)}\n\n${entry.body}` },
+    props: { content: `# ${getPageTitle(entry)}\n\n${entry.body ?? ''}` },
   }));
 }
 

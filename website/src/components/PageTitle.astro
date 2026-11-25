@@ -1,9 +1,8 @@
 ---
 import Default from '@astrojs/starlight/components/PageTitle.astro';
-import type { Props } from '@astrojs/starlight/props';
 
-const props = Astro.props as Props;
-const isPlusEditionLanding = props.entry.slug === 'plus-edition' || props.entry.slug.endsWith('/plus-edition');
+const { id } = Astro.locals.starlightRoute;
+const isPlusEditionLanding = id === 'plus-edition' || id.endsWith('/plus-edition');
 ---
 
 {
@@ -17,6 +16,6 @@ const isPlusEditionLanding = props.entry.slug === 'plus-edition' || props.entry.
 			</style>
 		</>
 	) : (
-		<Default {...props} />
+		<Default />
 	)
 }
