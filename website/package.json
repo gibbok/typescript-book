@@ -14,15 +14,14 @@
     "deploy": "npm run build && npx gh-pages -d dist"
   },
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
-    "@astrojs/sitemap": "3.1.6",
-    "@astrojs/starlight": "^0.22.4",
-    "astro": "^4.16.19",
-    "sharp": "^0.35.5",
-    "typescript": "^5.9.3"
+    "@astrojs/check": "0.9.12",
+    "@astrojs/starlight": "0.43.1",
+    "astro": "7.4.13",
+    "sharp": "0.35.5",
+    "typescript": "6.0.3"
   },
   "devDependencies": {
-    "@playwright/test": "^1.65.1",
-    "gh-pages": "^6.1.1"
+    "@playwright/test": "1.65.1",
+    "gh-pages": "6.3.0"
   }
 }

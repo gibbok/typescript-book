@@ -1,10 +1,9 @@
 ---
 import { Image } from 'astro:assets';
-import CallToAction from '@astrojs/starlight/components/CallToAction.astro';
-import type { Props } from '@astrojs/starlight/props';
+import { LinkButton } from '@astrojs/starlight/components';
 import PlusEditionHomePromotion from './PlusEditionHomePromotion.astro';
 
-const { entry } = Astro.props;
+const { entry, lang } = Astro.locals.starlightRoute;
 const { data } = entry;
 const { title = data.title, tagline, image, actions = [] } = data.hero || {};
 
@@ -48,15 +47,15 @@ if (image) {
 		</div>
 		{actions.length > 0 && (
 			<div class="sl-flex actions">
-				{actions.map((action) => (
-					<CallToAction {...action}>{action.text}</CallToAction>
+				{actions.map(({ link, variant, icon, text, attrs }) => (
+					<LinkButton href={link} {variant} icon={icon?.name} {...attrs}>{text}{icon?.html && <Fragment set:html={icon.html} />}</LinkButton>
 				))}
 			</div>
 		)}
 	</div>
 </div>
 
-<PlusEditionHomePromotion lang={Astro.props.lang} />
+<PlusEditionHomePromotion lang={lang} />
 
 <!-- Carbon ADS
 <div class="home-banner">

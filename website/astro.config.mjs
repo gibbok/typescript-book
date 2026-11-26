@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import { readdirSync, readFileSync } from 'node:fs';
-import sitemap from '@astrojs/sitemap';
 import starlight from '@astrojs/starlight';
 import { defaultLocale, locales } from './src/config/locales.ts';
 import { sortNewsYears } from './src/lib/news-archive.js';
@@ -168,16 +167,16 @@ gtag('config', 'G-SR2LV8LB90');
         PageSidebar: './src/components/RightSidebarBanner.astro',
         Hero: './src/components/Hero.astro',
       },
-      social: {
-        github: 'https://github.com/gibbok/typescript-book',
-        blueSky: 'https://bsky.app/profile/gibbok.bsky.social',
-      },
+      social: [
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/gibbok/typescript-book' },
+        { icon: 'blueSky', label: 'Bluesky', href: 'https://bsky.app/profile/gibbok.bsky.social' },
+      ],
       defaultLocale,
       locales,
       sidebar: [
         {
           label: 'TypeScript Book',
-          autogenerate: { directory: 'book' },
+          items: [{ autogenerate: { directory: 'book' } }],
         },
         {
           label: 'TypeScript News',
@@ -190,6 +189,5 @@ gtag('config', 'G-SR2LV8LB90');
         },
       ],
     }),
-    sitemap(),
   ],
 });

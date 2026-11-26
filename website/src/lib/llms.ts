@@ -38,25 +38,17 @@ export const getPageTitle = (entry: DocsEntry) =>
   entry.data.title ?? titleFromId(entry.id);
 
 export const getPageDescription = (entry: DocsEntry) => {
-  if (entry.id.endsWith('/table-of-contents.md')) {
+  if (entry.id.endsWith('/table-of-contents')) {
     return getPageTitle(entry);
   }
 
-  const description = entry.data.description ?? firstParagraph(entry.body);
+  const description = entry.data.description ?? firstParagraph(entry.body ?? '');
 
   return removeMarkdownSyntax(description);
 };
 
-const withoutContentExtension = (id: string) =>
-  id
-    .replace(/\.(?:md|mdx)$/, '')
-    .replace(/\/index$/, '')
-    .replace(/^index$/, '');
-
 export const getMarkdownPath = (entry: DocsEntry) =>
-  withoutContentExtension(entry.id)
-    ? `/${withoutContentExtension(entry.id)}/index.md`
-    : '/index.md';
+  entry.id === 'index' ? '/index.md' : `/${entry.id}/index.md`;
 
 export const getMarkdownUrl = (entry: DocsEntry) =>
   `${siteBaseUrl}${getMarkdownPath(entry)}`;
@@ -69,9 +61,9 @@ export const getDocsForLocale = (entries: DocsEntry[], locale: Locale) =>
   getPublishedDocs(entries).filter((entry) => {
     const isLocalized = Object.keys(locales)
       .filter((configuredLocale) => configuredLocale !== defaultLocale)
-      .some((configuredLocale) => entry.id.startsWith(`${configuredLocale}/`));
+      .some((configuredLocale) => entry.id === configuredLocale || entry.id.startsWith(`${configuredLocale}/`));
 
     return locale === defaultLocale
       ? !isLocalized
-      : entry.id.startsWith(`${locale}/`);
+      : entry.id === locale || entry.id.startsWith(`${locale}/`);
   });

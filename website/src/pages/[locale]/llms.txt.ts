@@ -20,9 +20,9 @@ export async function getStaticPaths() {
     }));
 }
 
-export const GET: APIRoute = ({ props }) => {
+export const GET: APIRoute = ({ props, params }) => {
   const entries = props.entries as Awaited<ReturnType<typeof getCollection<'docs'>>>;
-  const homePage = entries.find((entry) => entry.id.endsWith('/index.mdx'));
+  const homePage = entries.find((entry) => entry.id === params.locale);
   if (!homePage) {
     throw new Error('The localized documentation home page is required to generate llms.txt.');
   }

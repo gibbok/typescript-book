@@ -29,7 +29,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run preview -- --host 127.0.0.1',
+    command: 'npm run preview -- --host 127.0.0.1 --ignore-lock',
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

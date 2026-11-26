@@ -10,7 +10,7 @@ import {
 
 export const GET: APIRoute = async () => {
   const entries = getDocsForLocale(await getCollection('docs'), 'root');
-  const homePage = entries.find((entry) => entry.id === 'index.mdx');
+  const homePage = entries.find((entry) => entry.id === 'index');
   if (!homePage) {
     throw new Error('The root documentation page is required to generate llms.txt.');
   }
