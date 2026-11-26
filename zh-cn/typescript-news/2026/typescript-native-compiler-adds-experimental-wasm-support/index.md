@@ -1,6 +1,5 @@
 ﻿# TypeScript 原生编译器新增实验性 WebAssembly 支持
 
-
 **发布日期:** 2026-10-29
 
 微软于 2026 年 10 月 29 日合并了原生 TypeScript 编译器的实验性 `wasip1/wasm` 支持。该变更允许编译器在 WASI 宿主中运行，并提供可在浏览器中使用的 JavaScript API 传输方式。

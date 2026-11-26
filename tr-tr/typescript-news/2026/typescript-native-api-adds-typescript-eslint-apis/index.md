@@ -1,6 +1,5 @@
 ﻿# TypeScript yerel API'si typescript-eslint için gerekli API'leri ekliyor
 
-
 **Yayımlandı:** 14 Eylül 2026
 
 TypeScript yerel API'si artık `typescript-eslint` için gereken ek denetleyici ve tür API'lerini sunarak TypeScript'in programatik API'sine bağlı araçlardaki uyumluluk boşluklarını azaltıyor.

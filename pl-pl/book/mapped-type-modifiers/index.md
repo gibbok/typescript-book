@@ -1,7 +1,5 @@
 ﻿# Modyfikatory typów mapowanych
 
-
-
 Modyfikatory typów mapowanych w TypeScript umożliwiają przekształcanie właściwości w istniejącym typie:
 
 * `readonly` lub `+readonly`: Powoduje, że właściwość w typie mapowanym jest tylko do odczytu.
@@ -17,4 +15,3 @@ type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Wszystkie właściwośc
 
 type MyPartial<T> = { [P in keyof T]?: T[P] }; // Wszystkie właściwości oznaczone jako opcjonalne
 ```
-

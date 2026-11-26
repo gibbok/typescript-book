@@ -1,7 +1,5 @@
 ﻿# Kiểu từ module
 
-
-
 Type from Module nói đến khả năng sử dụng các giá trị được export của một module để tự động suy luận kiểu của chúng. Khi một module export một giá trị có kiểu cụ thể, TypeScript có thể dùng thông tin đó để tự động suy luận kiểu của giá trị khi nó được import vào module khác.
 
 <!-- skip -->
@@ -12,4 +10,3 @@ export const add = (x: number, y: number) => x + y;
 import { add } from 'calc';
 const r = add(1, 2); // r có kiểu number
 ```
-

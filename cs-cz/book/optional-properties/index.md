@@ -1,7 +1,5 @@
 ﻿# Volitelné vlastnosti
 
-
-
 Objekt může určit volitelné vlastnosti přidáním otazníku `?` na konec názvu vlastnosti:
 
 ```typescript
@@ -20,4 +18,3 @@ type X = {
 };
 const x = ({ a, b = 100 }: X) => a + b;
 ```
-

@@ -1,7 +1,5 @@
 ﻿# İndirmeler ve web sitesi
 
-
-
 EPUB sürümünü de indirebilirsiniz:
 
 [https://github.com/gibbok/typescript-book/tree/main/downloads](https://github.com/gibbok/typescript-book/tree/main/downloads)
@@ -9,4 +7,3 @@ EPUB sürümünü de indirebilirsiniz:
 Çevrimiçi sürüme buradan ulaşabilirsiniz:
 
 [https://gibbok.github.io/typescript-book](https://gibbok.github.io/typescript-book)
-

@@ -1,6 +1,5 @@
 ﻿# Die native TypeScript-API erhält geschichtete virtuelle Dateisysteme
 
-
 **Veröffentlicht:** 9. September 2026
 
 Die native TypeScript-API kann Snapshots nun mit expliziten Daten eines virtuellen Dateisystems erstellen und aktualisieren. Werkzeuge können damit hinzugefügte, geänderte und entfernte Dateien abbilden, ohne die gesamte Dateisystemeingabe neu aufzubauen.

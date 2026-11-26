@@ -1,7 +1,5 @@
 ﻿# Intersektionstyper
 
-
-
 En intersektionstyp är en typ som representerar ett värde som har alla egenskaper hos två eller flera typer. Intersektionstyper betecknas med symbolen `&` mellan varje typ.
 
 ```typescript
@@ -20,4 +18,3 @@ const j: J = {
     b: 'b',
 };
 ```
-

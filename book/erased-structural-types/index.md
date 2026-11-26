@@ -1,7 +1,5 @@
 ﻿# Erased Structural Types
 
-
-
 In TypeScript, objects do not have to match a specific, exact type. For instance, if we create an object that fulfills an interface's requirements, we can utilize that object in places where that interface is required, even if there was no explicit connection between them.
 Example:
 
@@ -21,4 +19,3 @@ const obj = {
 
 log(obj); // Valid
 ```
-

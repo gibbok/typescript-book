@@ -1,7 +1,5 @@
 ﻿# Trippelsnedstreck-direktiv
 
-
-
 Trippelsnedstreck-direktiv är speciella kommentarer som ger instruktioner till kompilatorn om hur en fil ska bearbetas. Dessa direktiv börjar med tre på varandra följande snedstreck (`///`) och placeras vanligtvis överst i en TypeScript-fil och har ingen effekt på körbeteendet.
 
 Trippelsnedstreck-direktiv används för att referera till externa beroenden, specificera modulinläsningsbeteende, aktivera/inaktivera vissa kompilatorfunktioner, med mera. Några exempel:
@@ -26,4 +24,3 @@ Aktivera kompilatoralternativ, i följande exempel strikt läge:
 ```typescript
 /// <strict|noImplicitAny|noUnusedLocals|noUnusedParameters>
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Tipos Condicionais (Conditional Types)
 
-
-
 Tipos condicionais são uma forma de criar um tipo que depende de uma condição, em que o tipo a ser criado é determinado com base no resultado da condição. Eles são definidos usando a palavra-chave `extends` e um operador ternário para escolher condicionalmente entre dois tipos.
 
 ```typescript
@@ -13,4 +11,3 @@ const myNumber = 42;
 type IsMyArrayAnArray = IsArray<typeof myArray>; // Tipo true
 type IsMyNumberAnArray = IsArray<typeof myNumber>; // Tipo false
 ```
-

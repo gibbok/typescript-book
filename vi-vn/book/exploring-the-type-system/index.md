@@ -1,7 +1,5 @@
 ﻿# Khám phá hệ thống kiểu
 
-
-
 ### Dịch vụ ngôn ngữ TypeScript
 
 Dịch vụ ngôn ngữ TypeScript, còn được gọi là tsserver, cung cấp nhiều tính năng như báo lỗi, chẩn đoán, biên dịch khi lưu, đổi tên, đi đến định nghĩa, danh sách gợi ý hoàn thành, hỗ trợ chữ ký và nhiều tính năng khác. Dịch vụ này chủ yếu được các môi trường phát triển tích hợp (IDE) sử dụng để cung cấp hỗ trợ IntelliSense. Nó tích hợp liền mạch với Visual Studio Code và được các công cụ như Conquer of Completion (Coc) sử dụng.
@@ -834,4 +832,3 @@ function classify(x: unknown) {
     }
 }
 ```
-

@@ -1,7 +1,5 @@
 ﻿# 接口及类型
 
-
-
 ### 通用语法
 
 在 TypeScript 中，接口定义对象的结构，指定对象必须具有的属性或方法的名称和类型。在 TypeScript 中定义接口的常用语法如下：
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // 交集
 let myCombined: CombinedType = { name: 'John', age: 25 }; // 对象同时有name和age属性
 ```
-

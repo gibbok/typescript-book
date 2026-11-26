@@ -1,7 +1,5 @@
 ﻿# Intersection Type
 
-
-
 Intersection Type là kiểu biểu diễn một giá trị có tất cả thuộc tính của hai hoặc nhiều kiểu. Intersection Type được biểu diễn bằng ký hiệu `&` giữa mỗi kiểu.
 
 ```typescript
@@ -20,4 +18,3 @@ const j: J = {
     b: 'b',
 };
 ```
-

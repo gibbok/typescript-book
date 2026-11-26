@@ -1,7 +1,5 @@
 ﻿# Utöka typer
 
-
-
 Det är möjligt att utöka ett `interface` (kopiera medlemmar från en annan typ):
 
 ```typescript
@@ -49,4 +47,3 @@ interface B extends A {
     b: string;
 }
 ```
-

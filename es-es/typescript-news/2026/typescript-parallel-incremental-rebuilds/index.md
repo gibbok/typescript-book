@@ -1,6 +1,5 @@
 ﻿# TypeScript acelera las compilaciones incrementales con comprobaciones paralelas
 
-
 Un cambio incorporado al compilador paraleliza la comprobación de firmas de archivos afectados por cambios en módulos muy importados. Antes esta fase era secuencial.
 
 ## Qué cambió

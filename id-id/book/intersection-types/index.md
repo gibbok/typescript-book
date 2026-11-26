@@ -1,7 +1,5 @@
 ﻿# Tipe Intersection
 
-
-
 Tipe Intersection adalah tipe yang merepresentasikan nilai yang memiliki semua properti dari dua atau lebih tipe. Tipe Intersection dinyatakan menggunakan simbol `&` di antara setiap tipe.
 
 ```typescript
@@ -20,4 +18,3 @@ const j: J = {
     b: 'b',
 };
 ```
-

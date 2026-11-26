@@ -1,7 +1,5 @@
 ﻿# Tipos de objeto
 
-
-
 En TypeScript, los tipos de objeto describen la forma de un objeto. Especifican los nombres y tipos de sus propiedades, así como si son obligatorias u opcionales.
 
 En TypeScript puedes definir tipos de objeto de dos formas principales:
@@ -31,4 +29,3 @@ También es posible definir un tipo de forma anónima:
 const sum = (x: { a: number; b: number }) => x.a + x.b;
 console.log(sum({ a: 5, b: 1 }));
 ```
-

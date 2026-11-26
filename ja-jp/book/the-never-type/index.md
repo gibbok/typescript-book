@@ -1,7 +1,5 @@
 ﻿# never 型について
 
-
-
 変数が値をまったく含められない型まで絞り込まれると、TypeScript コンパイラはその変数が `never` 型でなければならないと推論します。これは、never 型が決して生成されることのない値を表すためです。
 
 ```typescript
@@ -17,4 +15,3 @@ const printValue = (val: string | number) => {
     }
 };
 ```
-

@@ -1,6 +1,5 @@
 ﻿# TypeScript przyspiesza kompilacje przyrostowe dzięki równoległym kontrolom
 
-
 Scalona zmiana kompilatora umożliwia równoległe sprawdzanie sygnatur plików dotkniętych edycją często importowanych modułów. Wcześniej etap ten działał sekwencyjnie.
 
 ## Co się zmieniło

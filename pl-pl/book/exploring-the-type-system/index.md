@@ -1,7 +1,5 @@
 ﻿# Poznawanie systemu typów
 
-
-
 ### Usługa językowa TypeScript
 
 Usługa językowa TypeScript, znana również jako tsserver, oferuje różne funkcje, takie jak raportowanie błędów, diagnostyka, kompilacja przy zapisie, zmiana nazw, przechodzenie do definicji, listy uzupełnień, podpowiedzi dotyczące sygnatur i inne. Jest używana przede wszystkim przez zintegrowane środowiska programistyczne (IDE) do obsługi IntelliSense. Płynnie integruje się z Visual Studio Code i jest wykorzystywana przez narzędzia takie jak Conquer of Completion (Coc).
@@ -834,4 +832,3 @@ function classify(x: unknown) {
     }
 }
 ```
-

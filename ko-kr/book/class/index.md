@@ -1,7 +1,5 @@
 ﻿# 클래스
 
-
-
 ### 클래스 공통 구문
 
 TypeScript에서 `class` 키워드는 클래스를 정의하는 데 사용됩니다. 아래에서 예제를 확인할 수 있습니다.
@@ -672,4 +670,3 @@ class MyClass {
 const r = new MyClass();
 console.log(r.add(10, 5)); // 로그 출력 15
 ```
-

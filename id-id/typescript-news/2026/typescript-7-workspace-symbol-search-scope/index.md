@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 menambahkan cakupan pencarian simbol workspace
 
-
 **Diterbitkan:** 7 Agustus 2026
 
 Microsoft menggabungkan cakupan pencarian simbol workspace untuk language service native TypeScript.

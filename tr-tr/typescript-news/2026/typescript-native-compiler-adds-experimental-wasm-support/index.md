@@ -1,6 +1,5 @@
 ﻿# TypeScript yerel derleyicisine deneysel WebAssembly desteği eklendi
 
-
 **Yayımlanma:** 2026-10-29
 
 Microsoft, 29 Ekim 2026'da yerel TypeScript derleyicisine deneysel `wasip1/wasm` desteğini birleştirdi. Bu değişiklik, derleyicinin WASI ortamlarında çalışmasını ve tarayıcıda kullanılabilen bir JavaScript API aktarımını sağlıyor.

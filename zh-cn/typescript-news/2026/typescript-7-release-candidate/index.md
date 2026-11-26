@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.0 发布候选版已公布
 
-
 **发布日期：** 2026 年 6 月 18 日
 
 Microsoft 发布了 TypeScript 7.0 发布候选版，这是 TypeScript 7 稳定版发布前的最终预览版。

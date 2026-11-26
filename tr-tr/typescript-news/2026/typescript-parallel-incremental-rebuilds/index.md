@@ -1,6 +1,5 @@
 ﻿# TypeScript paralel denetimlerle artımlı derlemeleri hızlandırıyor
 
-
 Derleyiciye eklenen değişiklik, çok sayıda dosyanın içe aktardığı modüllerdeki düzenlemelerden etkilenen dosyaların imza denetimini paralelleştiriyor. Bu aşama önceden sıralı çalışıyordu.
 
 ## Neler değişti

@@ -1,7 +1,5 @@
 ﻿# TypeScript 入門
 
-
-
 ### TypeScript とは？
 
 TypeScript は、JavaScript を基盤とする強く型付けされたプログラミング言語です。元々は 2012 年に Anders Hejlsberg によって設計され、現在は Microsoft がオープンソースプロジェクトとして開発および保守しています。
@@ -212,4 +210,3 @@ TypeScript で使用できるモダン JavaScript 機能の一部を以下に示
 * 関数のデフォルトパラメーター。
 
 これらのモダン JavaScript 機能を活用することで、開発者は TypeScript でより表現力に富んだ簡潔なコードを記述できます。
-

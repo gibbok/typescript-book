@@ -1,7 +1,5 @@
 ﻿# Manipulowanie typami
 
-
-
 ### Tworzenie typów na podstawie innych typów
 
 Można tworzyć nowe typy przez komponowanie, modyfikowanie lub przekształcanie istniejących typów.
@@ -354,4 +352,3 @@ function fn2<T extends string>(x: T[], y: NoInfer<T>) {
 
 const r2 = fn2(['a', 'b'], 'c'); // Błąd: Argument typu '"c"' nie może być przypisany do parametru typu '"a" | "b"'.
 ```
-

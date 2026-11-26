@@ -1,7 +1,5 @@
 ﻿# Salt Okunur Özellikler
 
-
-
 Bir özelliğin yeniden yazılamamasını sağlayan ancak tamamen değişmez olduğuna dair herhangi bir güvence vermeyen `readonly` değiştiricisini kullanarak özelliğe yazmayı önlemek mümkündür:
 
 ```typescript
@@ -21,4 +19,3 @@ type K = {
     readonly [index: number]: string;
 };
 ```
-

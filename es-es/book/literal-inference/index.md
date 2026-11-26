@@ -1,7 +1,5 @@
 ﻿# Inferencia de literales
 
-
-
 La inferencia de literales es una característica de TypeScript que permite inferir el tipo de una variable o parámetro a partir de su valor.
 
 En el siguiente ejemplo vemos que TypeScript considera que `x` es un tipo literal porque su valor no puede cambiar posteriormente, mientras que `y` se infiere como string porque puede modificarse.
@@ -45,4 +43,3 @@ let o = {
     x: 'a' as X,
 };
 ```
-

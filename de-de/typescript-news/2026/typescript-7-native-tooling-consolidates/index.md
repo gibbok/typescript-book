@@ -1,6 +1,5 @@
 ﻿# Die nativen Tools von TypeScript 7 werden zusammengeführt
 
-
 **Veröffentlicht:** 27. Juli 2026
 
 Die TypeScript-Maintainer haben klargestellt, wie die nativen Tools von TypeScript 7 nach der stabilen Veröffentlichung zusammengeführt werden.

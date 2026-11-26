@@ -1,6 +1,5 @@
 ﻿# Nativní kompilátor TypeScript přidává experimentální podporu WebAssembly
 
-
 **Publikováno:** 2026-10-29
 
 Microsoft 29. října 2026 sloučil experimentální podporu `wasip1/wasm` do nativního kompilátoru TypeScriptu. Změna umožňuje spouštět kompilátor v prostředí WASI a přidává transport pro JavaScript API použitelný v prohlížeči.

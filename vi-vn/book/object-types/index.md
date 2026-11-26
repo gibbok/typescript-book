@@ -1,7 +1,5 @@
 ﻿# Kiểu đối tượng
 
-
-
 Trong TypeScript, kiểu đối tượng mô tả hình dạng của một đối tượng. Chúng chỉ định tên và kiểu của các thuộc tính của đối tượng, cũng như các thuộc tính đó là bắt buộc hay tùy chọn.
 
 Trong TypeScript, bạn có thể định nghĩa kiểu đối tượng theo hai cách chính:
@@ -31,4 +29,3 @@ Cũng có thể định nghĩa một kiểu ẩn danh:
 const sum = (x: { a: number; b: number }) => x.a + x.b;
 console.log(sum({ a: 5, b: 1 }));
 ```
-

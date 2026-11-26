@@ -1,7 +1,5 @@
 ﻿# 매핑된 타입 수정자
 
-
-
 TypeScript의 매핑된 타입 수정자를 사용하면 기존 타입 내의 프로퍼티를 변환할 수 있습니다.
 
 * `readonly` 또는 `+readonly`: 매핑된 타입의 프로퍼티를 읽기 전용으로 만듭니다.
@@ -17,4 +15,3 @@ type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // 모든 프로퍼티를 
 
 type MyPartial<T> = { [P in keyof T]?: T[P] }; // 모든 프로퍼티를 선택적으로 표시
 ```
-

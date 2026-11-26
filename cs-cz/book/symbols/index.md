@@ -1,7 +1,5 @@
 ﻿# Symboly
 
-
-
 Symboly jsou primitivním datovým typem, který představuje neměnnou hodnotu se zaručenou globální jedinečností po celou dobu běhu programu.
 
 Symboly lze použít jako klíče vlastností objektů a poskytují způsob, jak vytvářet neenumerovatelné vlastnosti.
@@ -20,4 +18,3 @@ console.log(obj[key2]); // value 2
 ```
 
 Ve WeakMaps a WeakSets lze nyní jako klíče používat symboly.
-

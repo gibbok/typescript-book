@@ -1,6 +1,5 @@
 ﻿# Die native API von TypeScript 7 erhält Emit-Methoden
 
-
 **Veröffentlicht:** 24. Juli 2026
 
 Die native TypeScript-Codebasis wurde um programmatische Emit-APIs für Tools erweitert, die JavaScript- oder Deklarationsausgaben erzeugen müssen.

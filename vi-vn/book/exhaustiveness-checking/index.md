@@ -1,7 +1,5 @@
 ﻿# Kiểm tra tính đầy đủ
 
-
-
 Exhaustiveness checking là một tính năng trong TypeScript bảo đảm tất cả trường hợp có thể có của một discriminated union đều được xử lý trong câu lệnh `switch` hoặc câu lệnh `if`.
 
 ```typescript
@@ -23,4 +21,3 @@ const move = (direction: Direction) => {
 ```
 
 Kiểu `never` được dùng để bảo đảm trường hợp default là đầy đủ và TypeScript sẽ báo lỗi nếu một giá trị mới được thêm vào kiểu Direction mà không được xử lý trong câu lệnh switch.
-

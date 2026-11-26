@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 adds a workspace-symbol search scope
 
-
 **Published:** August 7, 2026
 
 Microsoft merged a workspace-symbol search scope for TypeScript's native language service.

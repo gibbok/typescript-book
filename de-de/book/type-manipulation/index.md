@@ -1,7 +1,5 @@
 ﻿# Typmanipulation
 
-
-
 ### Erstellen von Typen aus Typen
 
 Neue Typen können durch das Kombinieren, Manipulieren oder Transformieren vorhandener Typen erstellt werden.
@@ -354,4 +352,3 @@ function fn2<T extends string>(x: T[], y: NoInfer<T>) {
 
 const r2 = fn2(['a', 'b'], 'c'); // Fehler: Ein Argument vom Typ '"c"' kann keinem Parameter vom Typ '"a" | "b"' zugewiesen werden.
 ```
-

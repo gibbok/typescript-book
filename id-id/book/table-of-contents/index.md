@@ -1,7 +1,5 @@
 ﻿# Daftar Isi
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
   - [Dukung Proyek Ini](../support-the-project/)
@@ -218,4 +216,3 @@
     - [Pemeriksaan Sintaks Ekspresi Reguler](../others/#pemeriksaan-sintaks-ekspresi-reguler)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

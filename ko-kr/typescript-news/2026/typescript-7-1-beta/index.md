@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 Beta, 모듈형 API와 ES2026 지원 추가
 
-
 **게시일:** 2026년 10월 20일
 
 Microsoft가 새로운 네이티브 컴파일러 API와 JavaScript 기능 지원을 포함한 TypeScript 7.1 Beta를 공개했습니다. 다음 명령으로 베타 버전을 시험할 수 있습니다.

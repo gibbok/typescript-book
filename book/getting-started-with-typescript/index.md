@@ -1,7 +1,5 @@
 ﻿# Getting Started With TypeScript
 
-
-
 ### Installation
 
 Visual Studio Code provides excellent support for the TypeScript language but does not include the TypeScript compiler. To install the TypeScript compiler, you can use a package manager like npm or yarn:
@@ -205,4 +203,3 @@ The fifth step is to enable "noImplicitAny," which will enforce that all types a
 During the migration, you can use the `@ts-check` directive, which enables TypeScript type checking in a JavaScript file. This directive provides a loose version of type checking and can be initially used to identify issues in JavaScript files. When `@ts-check` is included in a file, TypeScript will try to deduce definitions using JSDoc-style comments. However, consider using JSDoc annotations only at a very early stage of the migration.
 
 Consider keeping the default value of `noEmitOnError` in your tsconfig.json as false. This will allow you to output JavaScript source code even if errors are reported.
-

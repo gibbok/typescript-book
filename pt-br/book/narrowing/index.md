@@ -1,7 +1,5 @@
 ﻿# Estreitamento de Tipos (Narrowing)
 
-
-
 O estreitamento de tipos (narrowing) no TypeScript é o processo de refinar o tipo de uma variável dentro de um bloco condicional. Isso é útil ao trabalhar com tipos de união, em que uma variável pode ter mais de um tipo.
 
 O TypeScript reconhece várias maneiras de estreitar o tipo:
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

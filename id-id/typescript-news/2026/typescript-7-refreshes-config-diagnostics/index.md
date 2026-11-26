@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 menyegarkan diagnosis konfigurasi setelah perubahan berkas
 
-
 **Diterbitkan:** 30 Juli 2026
 
 Microsoft menggabungkan perbaikan yang menyegarkan diagnosis berkas konfigurasi di language service native TypeScript setelah berkas `tsconfig.json` atau `jsconfig.json` yang dilacak berubah.

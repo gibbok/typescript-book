@@ -1,10 +1,7 @@
 ﻿# Değerden Tür
 
-
-
 TypeScript'te Değerden Tür, tür çıkarımı aracılığıyla bir değer veya ifadeden türün otomatik olarak çıkarılmasını ifade eder.
 
 ```typescript
 const x = 'x'; // TypeScript, 'x' değerini const ile dize sabiti olarak çıkarır (değişmez), ancak let ile string türüne genişletir (yeniden atanabilir).
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Predykaty typów
 
-
-
 Predykaty typów w TypeScript to funkcje zwracające wartość logiczną, które służą do zawężania typu zmiennej do bardziej szczegółowego typu.
 
 ```typescript
@@ -21,4 +19,3 @@ TypeScript 5.5 automatycznie wnioskuje predykaty typów (takie jak `x is T`) w f
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

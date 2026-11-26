@@ -1,7 +1,5 @@
 ﻿# Fördefinierade villkorliga typer
 
-
-
 I TypeScript är fördefinierade villkorliga typer inbyggda villkorliga typer som tillhandahålls av språket. De är utformade för att utföra vanliga typtransformationer baserade på egenskaperna hos en given typ.
 
 `Exclude<UnionType, ExcludedType>`: Denna typ tar bort alla typer från Type som kan tilldelas till ExcludedType.
@@ -19,4 +17,3 @@ I TypeScript är fördefinierade villkorliga typer inbyggda villkorliga typer so
 `Partial<Type>`: Denna typ gör alla egenskaper i Type valfria.
 
 `Readonly<Type>`: Denna typ gör alla egenskaper i Type skrivskyddade.
-

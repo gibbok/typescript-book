@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 làm mới diagnostics cấu hình sau khi file thay đổi
 
-
 **Đã xuất bản:** July 30, 2026
 
 Microsoft đã merge một bản sửa làm mới diagnostics của file cấu hình trong language service native của TypeScript sau khi một file `tsconfig.json` hoặc `jsconfig.json` được theo dõi thay đổi.

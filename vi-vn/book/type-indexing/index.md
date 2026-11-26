@@ -1,7 +1,5 @@
 ﻿# Type Indexing
 
-
-
 Type indexing nói đến khả năng định nghĩa các kiểu có thể được index bằng một key chưa biết trước, sử dụng index signature để chỉ định kiểu cho các thuộc tính không được khai báo tường minh.
 
 ```typescript
@@ -11,4 +9,3 @@ type Dictionary<T> = {
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
 console.log(myDict['a']); // Trả về a
 ```
-

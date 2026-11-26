@@ -1,7 +1,5 @@
 ﻿# Hợp nhất và mở rộng
 
-
-
 Merging và extension nói đến hai khái niệm khác nhau liên quan đến làm việc với type và interface.
 
 Merging cho phép bạn kết hợp nhiều khai báo có cùng tên thành một định nghĩa duy nhất, ví dụ khi bạn định nghĩa một interface có cùng tên nhiều lần:
@@ -43,4 +41,3 @@ const dog: Bird = {
     },
 };
 ```
-

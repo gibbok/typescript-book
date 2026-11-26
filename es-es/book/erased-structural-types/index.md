@@ -1,7 +1,5 @@
 ﻿# Tipos estructurales eliminados
 
-
-
 En TypeScript, los objetos no tienen que coincidir con un tipo concreto y exacto. Si creamos un objeto que cumple los requisitos de una interfaz, podemos utilizarlo donde se exija dicha interfaz aunque no exista una conexión explícita entre ambos.
 Ejemplo:
 
@@ -21,4 +19,3 @@ const obj = {
 
 log(obj); // Válido
 ```
-

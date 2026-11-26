@@ -1,7 +1,5 @@
 ﻿# Obsah
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
   - [Podpořte projekt](../support-the-project/)
@@ -218,4 +216,3 @@
     - [Kontrola syntaxe regulárních výrazů](../others/#kontrola-syntaxe-regulárních-výrazů)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

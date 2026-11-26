@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 rättar setter-åtkomst i unions- och intersection-typer
 
-
 **Publicerad:** 24 augusti 2026
 
 Microsoft har slagit ihop en rättning i TypeScripts inbyggda typkontroll som håller läs- och skrivåtkomst separata för egenskaper som syntetiseras från unions- och intersection-typer.

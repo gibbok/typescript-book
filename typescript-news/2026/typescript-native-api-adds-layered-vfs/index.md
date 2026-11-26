@@ -1,6 +1,5 @@
 ﻿# TypeScript native API adds layered virtual file systems
 
-
 **Published:** September 9, 2026
 
 The native TypeScript API can now build and update snapshots with explicit virtual file system data. This lets tools model file additions, edits, and removals without rebuilding the entire file system input.

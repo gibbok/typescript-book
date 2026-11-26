@@ -1,6 +1,5 @@
 ﻿# TypeScript 7이 Go to Implementation의 메모리 사용을 개선했습니다
 
-
 **게시일:** 2026년 7월 30일
 
 Microsoft는 TypeScript의 네이티브 언어 서비스에서 Go to Implementation의 메모리 확장 문제를 수정한 변경 사항을 병합했습니다.

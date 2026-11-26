@@ -1,7 +1,5 @@
 ﻿# توسعة الأنواع
 
-
-
 يمكن توسيع `interface` (بنسخ الأعضاء من نوع آخر):
 
 ```typescript
@@ -49,4 +47,3 @@ interface B extends A {
     b: string;
 }
 ```
-

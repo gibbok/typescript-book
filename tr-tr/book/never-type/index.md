@@ -1,7 +1,5 @@
 ﻿# Never türü
 
-
-
 `never` türü, hiçbir zaman ortaya çıkmayan değerleri temsil eder. Hiçbir zaman dönmeyen veya hata fırlatan fonksiyonları ya da ifadeleri belirtmek için kullanılır.
 
 Örneğin, sonsuz bir döngü:
@@ -40,4 +38,3 @@ const move = (direction: Direction): void => {
     }
 };
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Enum
 
-
-
 ใน TypeScript `enum` คือชุดของค่าคงที่ที่มีชื่อ
 
 ```typescript
@@ -160,4 +158,3 @@ enum E {
 
 console.log(E.C); //42
 ```
-

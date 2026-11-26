@@ -1,7 +1,5 @@
 ﻿# คำแปล
 
-
-
 หนังสือเล่มนี้ได้รับการแปลเป็นหลายภาษา ได้แก่:
 
 [ภาษาอังกฤษ](https://github.com/gibbok/typescript-book/blob/main/README.md)
@@ -40,4 +38,3 @@
 
 [ภาษาอาหรับ](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
 [ภาษาเช็ก](https://github.com/gibbok/typescript-book/blob/main/README-cs_CZ.md)
-

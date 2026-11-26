@@ -1,7 +1,5 @@
 ﻿# Interface และ Type
 
-
-
 ### ไวยากรณ์ทั่วไป
 
 ใน TypeScript อินเทอร์เฟซกำหนดโครงสร้างของออบเจ็กต์ โดยระบุชื่อและชนิดของพร็อพเพอร์ตีหรือเมธอดที่ออบเจ็กต์ต้องมี ไวยากรณ์ทั่วไปสำหรับกำหนดอินเทอร์เฟซใน TypeScript มีดังนี้:
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // ชนิดอินเตอร์เซกชัน
 let myCombined: CombinedType = { name: 'John', age: 25 }; // อ็อบเจกต์ที่มีทั้งพร็อพเพอร์ตี name และ age
 ```
-

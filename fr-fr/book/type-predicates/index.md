@@ -1,7 +1,5 @@
 ﻿# Prédicats de type
 
-
-
 Dans TypeScript, les prédicats de type sont des fonctions qui renvoient une valeur booléenne et servent à réduire le type d’une variable à un type plus spécifique.
 
 ```typescript
@@ -21,4 +19,3 @@ TypeScript 5.5 infère automatiquement les prédicats de type (comme `x is T`) d
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

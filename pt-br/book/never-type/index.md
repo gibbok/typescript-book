@@ -1,7 +1,5 @@
 ﻿# Tipo never
 
-
-
 O tipo `never` representa valores que nunca ocorrem. É usado para denotar funções ou expressões que nunca retornam ou que lançam um erro.
 
 Por exemplo, um loop infinito:
@@ -40,4 +38,3 @@ const move = (direction: Direction): void => {
     }
 };
 ```
-

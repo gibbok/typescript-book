@@ -1,7 +1,5 @@
 ﻿# Memulai dengan TypeScript
 
-
-
 ### Instalasi
 
 Visual Studio Code menyediakan dukungan yang sangat baik untuk bahasa TypeScript, tetapi tidak menyertakan compiler TypeScript. Untuk menginstal compiler TypeScript, Anda dapat menggunakan package manager seperti npm atau yarn:
@@ -206,4 +204,3 @@ Langkah kelima adalah mengaktifkan "noImplicitAny", yang akan memastikan bahwa s
 Selama migrasi, Anda dapat menggunakan direktif `@ts-check`, yang mengaktifkan pemeriksaan tipe TypeScript dalam berkas JavaScript. Direktif ini menyediakan pemeriksaan tipe yang lebih longgar dan pada tahap awal dapat digunakan untuk mengidentifikasi masalah dalam berkas JavaScript. Ketika `@ts-check` disertakan dalam suatu berkas, TypeScript akan mencoba menyimpulkan definisi menggunakan komentar bergaya JSDoc. Namun, pertimbangkan untuk menggunakan anotasi JSDoc hanya pada tahap yang sangat awal dalam migrasi.
 
 Pertimbangkan untuk mempertahankan nilai default `noEmitOnError` dalam `tsconfig.json` sebagai `false`. Ini akan memungkinkan Anda menghasilkan kode sumber JavaScript meskipun terdapat error yang dilaporkan.
-

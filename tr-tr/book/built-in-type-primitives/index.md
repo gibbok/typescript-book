@@ -1,7 +1,5 @@
 ﻿# Yerleşik İlkel Türler
 
-
-
 TypeScript, değişkenleri, fonksiyon parametrelerini ve dönüş türlerini tanımlamak için kullanılabilecek çeşitli yerleşik ilkel türlere sahiptir:
 
 * `number`: Tam sayılar ve kayan noktalı sayılar dâhil olmak üzere sayısal değerleri temsil eder.
@@ -14,4 +12,3 @@ TypeScript, değişkenleri, fonksiyon parametrelerini ve dönüş türlerini tan
 * `any`: Dinamik veya bilinmeyen bir türü temsil eder. any türündeki değişkenler her türden değer tutabilir ve tür denetimini atlar.
 * `void`: Herhangi bir türün yokluğunu temsil eder. Genellikle değer döndürmeyen fonksiyonların dönüş türü olarak kullanılır.
 * `never`: Hiçbir zaman ortaya çıkmayan değerlerin türünü temsil eder. Genellikle hata fırlatan veya sonsuz döngüye giren fonksiyonların dönüş türü olarak kullanılır.
-

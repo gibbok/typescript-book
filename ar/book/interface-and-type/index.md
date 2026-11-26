@@ -1,7 +1,5 @@
 ﻿# الواجهة والنوع
 
-
-
 ### الصياغة الشائعة
 
 في TypeScript، تحدد الواجهات بنية الكائنات، مع تعيين أسماء الخصائص أو الأساليب التي يجب أن يحتوي عليها الكائن وأنواعها. والصياغة الشائعة لتعريف واجهة في TypeScript هي كما يلي:
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // نوع تقاطع
 let myCombined: CombinedType = { name: 'John', age: 25 }; // كائن يحتوي على الخاصيتين name و age
 ```
-

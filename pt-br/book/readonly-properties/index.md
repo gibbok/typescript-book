@@ -1,7 +1,5 @@
 ﻿# Propriedades Somente de Leitura (Readonly)
 
-
-
 É possível impedir a escrita em uma propriedade usando o modificador `readonly`, que garante que a propriedade não possa ser reescrita, mas não fornece nenhuma garantia de imutabilidade total:
 
 ```typescript
@@ -21,4 +19,3 @@ type K = {
     readonly [index: number]: string;
 };
 ```
-

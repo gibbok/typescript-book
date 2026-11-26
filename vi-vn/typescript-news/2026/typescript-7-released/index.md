@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.0 hiện đã khả dụng
 
-
 **Đã xuất bản:** July 8, 2026
 
 Microsoft đã phát hành TypeScript 7.0, phiên bản ổn định đầu tiên được xây dựng trên codebase Go native mới của project.

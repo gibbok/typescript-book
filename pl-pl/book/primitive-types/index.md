@@ -1,7 +1,5 @@
 ﻿# Typy pierwotne
 
-
-
 TypeScript obsługuje 7 typów pierwotnych. Pierwotny typ danych to typ, który nie jest obiektem i nie ma powiązanych z nim żadnych metod. W TypeScript wszystkie typy pierwotne są niezmienne, co oznacza, że po przypisaniu ich wartości nie można ich zmienić.
 
 ### string
@@ -121,4 +119,3 @@ Typ `any` może być przydatny podczas stopniowej migracji z JavaScript do TypeS
 W nowych projektach należy używać opcji konfiguracji TypeScript `noImplicitAny`, dzięki której TypeScript zgłasza błędy w miejscach, gdzie użyto lub wywnioskowano `any`.
 
 Typ `any` jest zwykle źródłem błędów, które mogą maskować rzeczywiste problemy z typami. Należy unikać jego używania, gdy tylko jest to możliwe.
-

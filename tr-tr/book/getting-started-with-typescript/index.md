@@ -1,7 +1,5 @@
 ﻿# TypeScript'e Başlarken
 
-
-
 ### Kurulum
 
 Visual Studio Code, TypeScript dili için mükemmel destek sunar, ancak TypeScript derleyicisini içermez. TypeScript derleyicisini kurmak için npm veya yarn gibi bir paket yöneticisi kullanabilirsiniz:
@@ -205,4 +203,3 @@ Beşinci adım, tüm türlerin bilinmesini ve tanımlanmasını zorunlu kılacak
 Geçiş sırasında, bir JavaScript dosyasında TypeScript tür denetimini etkinleştiren `@ts-check` yönergesini kullanabilirsiniz. Bu yönerge, tür denetiminin esnek bir sürümünü sağlar ve başlangıçta JavaScript dosyalarındaki sorunları belirlemek için kullanılabilir. Bir dosyaya `@ts-check` eklendiğinde TypeScript, JSDoc biçimindeki yorumları kullanarak tanımları çıkarmaya çalışır. Ancak JSDoc ek açıklamalarını yalnızca geçişin çok erken bir aşamasında kullanmayı değerlendirin.
 
 tsconfig.json dosyanızda `noEmitOnError` seçeneğinin varsayılan değeri olan false değerini korumayı değerlendirin. Bu, hatalar bildirilse bile JavaScript kaynak kodu çıktısı almanıza olanak tanır.
-

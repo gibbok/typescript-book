@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 adiciona um escopo de busca para símbolos do espaço de trabalho
 
-
 **Publicado:** 7 de agosto de 2026
 
 A Microsoft incorporou um escopo de busca de símbolos do espaço de trabalho ao serviço de linguagem nativo do TypeScript.

@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 เพิ่ม import attributes ให้ ambient module
 
-
 **เผยแพร่:** 1 กันยายน 2026
 
 คอมไพเลอร์ native ของ TypeScript รองรับชนิดของ import attributes ในการประกาศ ambient module แบบ pattern แล้ว จึงสามารถแยก import ด้วย attributes เช่น `type: 'css'` หรือ `type: 'text'` ได้

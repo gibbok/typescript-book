@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 ajoute une portée de recherche des symboles de l'espace de travail
 
-
 **Publié le :** 7 août 2026
 
 Microsoft a intégré au service de langage natif de TypeScript une portée pour la recherche des symboles de l'espace de travail.

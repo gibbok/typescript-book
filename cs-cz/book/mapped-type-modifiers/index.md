@@ -1,7 +1,5 @@
 ﻿# Modifikátory mapovaných typů
 
-
-
 Modifikátory mapovaných typů v TypeScriptu umožňují transformovat vlastnosti v existujícím typu:
 
 * `readonly` nebo `+readonly`: Nastaví vlastnost v mapovaném typu jako pouze pro čtení.
@@ -17,4 +15,3 @@ type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Všechny vlastnosti jso
 
 type MyPartial<T> = { [P in keyof T]?: T[P] }; // Všechny vlastnosti jsou označeny jako volitelné
 ```
-

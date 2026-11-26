@@ -1,7 +1,5 @@
 ﻿# Typové predikáty
 
-
-
 Typové predikáty v TypeScriptu jsou funkce, které vracejí booleovskou hodnotu a slouží k zúžení typu proměnné na konkrétnější typ.
 
 ```typescript
@@ -21,4 +19,3 @@ TypeScript 5.5 automaticky odvozuje typové predikáty (například `x is T`) ve
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

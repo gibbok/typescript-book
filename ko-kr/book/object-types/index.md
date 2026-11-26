@@ -1,7 +1,5 @@
 ﻿# 객체 타입
 
-
-
 TypeScript에서 객체 타입은 객체의 형태를 설명합니다. 객체 프로퍼티의 이름과 타입뿐만 아니라 해당 프로퍼티가 필수인지 선택 사항인지도 지정합니다.
 
 TypeScript에서는 주로 다음 두 가지 방식으로 객체 타입을 정의할 수 있습니다.
@@ -31,4 +29,3 @@ type Point = {
 const sum = (x: { a: number; b: number }) => x.a + x.b;
 console.log(sum({ a: 5, b: 1 }));
 ```
-

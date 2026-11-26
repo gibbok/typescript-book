@@ -1,7 +1,5 @@
 ﻿# Mapped Type
 
-
-
 Mapped Type dalam TypeScript memungkinkan Anda membuat tipe baru berdasarkan tipe yang sudah ada dengan mentransformasi setiap properti menggunakan fungsi pemetaan. Dengan memetakan tipe yang sudah ada, Anda dapat membuat tipe baru yang merepresentasikan informasi yang sama dalam format berbeda. Untuk membuat mapped type, Anda mengakses properti tipe yang sudah ada menggunakan operator `keyof`, lalu mengubahnya untuk menghasilkan tipe baru.
 Dalam contoh berikut:
 
@@ -21,4 +19,3 @@ const x: MyNewType = {
 ```
 
 Kita mendefinisikan `MyMappedType` untuk memetakan properti-properti `T`, sehingga menghasilkan tipe baru dengan setiap properti berupa array dari tipe aslinya. Dengan menggunakan ini, kita membuat `MyNewType` untuk merepresentasikan informasi yang sama seperti `MyType`, tetapi setiap propertinya berupa array.
-

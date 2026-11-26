@@ -1,7 +1,5 @@
 ﻿# 条件类型
 
-
-
 条件类型是一种创建依赖于条件的类型的方法，其中要创建的类型是根据条件的结果确定的。它们是使用 `extends` 关键字和三元运算符来定义的，以便有条件地在两种类型之间进行选择。
 
 ```typescript
@@ -13,4 +11,3 @@ const myNumber = 42;
 type IsMyArrayAnArray = IsArray<typeof myArray>; // true 类型
 type IsMyNumberAnArray = IsArray<typeof myNumber>; // false 类型
 ```
-

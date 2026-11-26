@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 在配置文件更改后刷新诊断信息
 
-
 **发布日期：** 2026 年 7 月 30 日
 
 Microsoft 在 TypeScript 的原生语言服务中合并了一项修复，可在受监视的 `tsconfig.json` 或 `jsconfig.json` 文件更改后刷新配置文件诊断信息。

@@ -1,6 +1,5 @@
 ﻿# L’API native de TypeScript ajoute des systèmes de fichiers virtuels en couches
 
-
 **Publié le :** 9 septembre 2026
 
 L’API native de TypeScript peut désormais créer et mettre à jour des snapshots à partir de données explicites de système de fichiers virtuel. Les outils peuvent ainsi représenter les ajouts, modifications et suppressions de fichiers sans reconstruire toute l’entrée du système de fichiers.

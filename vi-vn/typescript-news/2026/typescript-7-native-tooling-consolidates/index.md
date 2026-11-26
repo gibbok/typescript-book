@@ -1,6 +1,5 @@
 ﻿# Công cụ native của TypeScript 7 đang được hợp nhất
 
-
 **Đã xuất bản:** July 27, 2026
 
 Các maintainer TypeScript đã làm rõ cách công cụ TypeScript 7 native sẽ được hợp nhất sau bản phát hành ổn định.

@@ -1,7 +1,5 @@
 ﻿# Conditional Type
 
-
-
 Conditional Type là cách tạo một kiểu phụ thuộc vào một điều kiện, trong đó kiểu được tạo ra được xác định dựa trên kết quả của điều kiện. Chúng được định nghĩa bằng từ khóa `extends` và toán tử ba ngôi để chọn có điều kiện giữa hai kiểu.
 
 ```typescript
@@ -13,4 +11,3 @@ const myNumber = 42;
 type IsMyArrayAnArray = IsArray<typeof myArray>; // Kiểu true
 type IsMyNumberAnArray = IsArray<typeof myNumber>; // Kiểu false
 ```
-

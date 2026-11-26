@@ -1,7 +1,5 @@
 ﻿# TypeScript 入门
 
-
-
 ### 安装
 
 Visual Studio Code 为 TypeScript 语言提供了出色的支持，但不包含 TypeScript 编译器。要安装 TypeScript 编译器，您可以使用包管理器，例如 npm 或 yarn：
@@ -205,4 +203,3 @@ yarn add --dev @types/package-name
 在迁移过程中，您可以使用 `@ts-check` 指令，该指令在 JavaScript 文件中启用 TypeScript 类型检查。该指令提供了宽松版本的类型检查，最初可用于识别 JavaScript 文件中的问题。当 `@ts-check` 包含在文件中时，TypeScript 将尝试使用 JSDoc 风格的注释来推断定义。但是，仅在迁移的早期阶段考虑使用 JSDoc 注释。
 
 考虑在您的 `tsconfig.json` 文件中将 `noEmitOnError` 设置为 false，即使报告错误，这也将允许您输出 JavaScript 源代码。
-

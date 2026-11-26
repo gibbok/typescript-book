@@ -1,7 +1,5 @@
 ﻿# Tipo a partir de Módulo
 
-
-
 Tipo a partir de módulo refere-se à capacidade de usar os valores exportados de um módulo para inferir automaticamente seus tipos. Quando um módulo exporta um valor com um tipo específico, o TypeScript pode usar essa informação para inferir automaticamente o tipo desse valor quando ele é importado para outro módulo.
 
 <!-- skip -->
@@ -12,4 +10,3 @@ export const add = (x: number, y: number) => x + y;
 import { add } from 'calc';
 const r = add(1, 2); // r é number
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Różnice między typem a interfejsem
 
-
-
 Scalanie deklaracji (rozszerzanie):
 
 Interfejsy obsługują scalanie deklaracji, co oznacza, że można zdefiniować wiele interfejsów o tej samej nazwie, a TypeScript scali je w jeden interfejs zawierający połączone właściwości i metody. Typy natomiast nie obsługują scalania deklaracji. Może to być przydatne, gdy chce się dodać funkcjonalność lub dostosować istniejące typy bez modyfikowania pierwotnych definicji albo poprawić brakujące lub nieprawidłowe typy.
@@ -89,4 +87,3 @@ interface B {
 
 type C = A | B; // Unia interfejsów
 ```
-

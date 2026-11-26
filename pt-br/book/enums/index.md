@@ -1,7 +1,5 @@
 ﻿# Enums
 
-
-
 No TypeScript, um `enum` é um conjunto de valores constantes nomeados.
 
 ```typescript
@@ -160,4 +158,3 @@ enum E {
 
 console.log(E.C); //42
 ```
-

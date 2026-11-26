@@ -1,7 +1,5 @@
 ﻿# Narrowing
 
-
-
 TypeScript-Narrowing ist der Prozess, bei dem der Typ einer Variablen innerhalb eines bedingten Blocks präzisiert wird. Dies ist bei der Arbeit mit Union-Typen nützlich, bei denen eine Variable mehr als einen Typ haben kann.
 
 TypeScript erkennt mehrere Möglichkeiten, einen Typ einzugrenzen:
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

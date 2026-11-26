@@ -1,7 +1,5 @@
 ﻿# Built-in Type Primitives
 
-
-
 TypeScript has several built-in type primitives that can be used to define variables, function parameters, and return types:
 
 * `number`: Represents numeric values, including integers and floating-point numbers.
@@ -14,4 +12,3 @@ TypeScript has several built-in type primitives that can be used to define varia
 * `any`: Represents a dynamic or unknown type. Variables of type any can hold values of any type, and they bypass type checking.
 * `void`: Represents the absence of any type. It is commonly used as the return type of functions that do not return a value.
 * `never`: Represents a type for values that never occur. It is typically used as the return type of functions that throw an error or enter an infinite loop.
-

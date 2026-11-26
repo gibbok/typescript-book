@@ -1,7 +1,5 @@
 ﻿# Propiedades opcionales
 
-
-
 Un objeto puede especificar propiedades opcionales añadiendo un signo de interrogación `?` al final del nombre de la propiedad:
 
 ```typescript
@@ -20,4 +18,3 @@ type X = {
 };
 const x = ({ a, b = 100 }: X) => a + b;
 ```
-

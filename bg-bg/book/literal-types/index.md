@@ -1,7 +1,5 @@
 ﻿# Literal Types
 
-
-
 Literal type е множество с един елемент от по-общ тип, което дефинира много конкретна стойност, представляваща JavaScript примитив.
 
 Literal types в TypeScript са числа, низове и булеви стойности.
@@ -20,4 +18,3 @@ String, Numeric и Boolean literal types се използват в unions, type
 ```typescript
 type O = 'a' | 'b' | 'c';
 ```
-

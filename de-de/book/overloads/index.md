@@ -1,7 +1,5 @@
 ﻿# Überladungen
 
-
-
 Funktionsüberladungen in TypeScript ermöglichen es Ihnen, mehrere Funktionssignaturen für einen einzelnen Funktionsnamen zu definieren. So können Sie Funktionen definieren, die auf unterschiedliche Weise aufgerufen werden können. Hier ist ein Beispiel:
 
 ```typescript
@@ -49,4 +47,3 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Sovraccarichi
 
-
-
 Gli overload di funzione in TypeScript consentono di definire più firme di funzione per un singolo nome di funzione, consentendo di definire funzioni che possono essere chiamate in più modi. Ecco un esempio:
 
 ```typescript
@@ -49,4 +47,3 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Symbol
 
-
-
 Simbol adalah tipe data primitif yang merepresentasikan nilai yang tidak dapat diubah serta dijamin unik secara global selama masa hidup program.
 
 Simbol dapat digunakan sebagai kunci untuk properti objek dan menyediakan cara untuk membuat properti yang tidak dapat dienumerasi.
@@ -20,4 +18,3 @@ console.log(obj[key2]); // value 2
 ```
 
 Dalam WeakMap dan WeakSet, simbol kini dapat digunakan sebagai kunci.
-

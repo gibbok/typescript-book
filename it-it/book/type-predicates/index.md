@@ -1,7 +1,5 @@
 ﻿# Predicati di tipo
 
-
-
 I predicati di tipo in TypeScript sono funzioni che restituiscono un valore booleano e vengono utilizzate per restringere il tipo di una variabile a un tipo più specifico.
 
 ```typescript
@@ -15,4 +13,3 @@ const foo = (bar: unknown) => {
     }
 };
 ```
-

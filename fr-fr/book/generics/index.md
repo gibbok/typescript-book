@@ -1,7 +1,5 @@
 ﻿# Génériques
 
-
-
 Les génériques permettent de créer des composants et des fonctions réutilisables pouvant fonctionner avec plusieurs types. Grâce aux génériques, vous pouvez paramétrer des types, des fonctions et des interfaces, ce qui leur permet d'opérer sur différents types sans les spécifier explicitement au préalable.
 
 Les génériques permettent de rendre le code plus flexible et réutilisable.
@@ -98,4 +96,3 @@ function process<T>(value: T): void {
 process('hello'); // 5
 process(3.14159); // 3.14
 ```
-

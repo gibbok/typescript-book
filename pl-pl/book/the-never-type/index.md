@@ -1,7 +1,5 @@
 ﻿# Specjalny typ never
 
-
-
 Gdy zmienna zostanie zawężona do typu, który nie może zawierać żadnych wartości, kompilator TypeScript wywnioskuje, że zmienna musi być typu `never`. Dzieje się tak, ponieważ typ `never` reprezentuje wartość, której nigdy nie można utworzyć.
 
 ```typescript
@@ -17,4 +15,3 @@ const printValue = (val: string | number) => {
     }
 };
 ```
-

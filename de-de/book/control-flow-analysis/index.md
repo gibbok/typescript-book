@@ -1,7 +1,5 @@
 ﻿# Kontrollflussanalyse
 
-
-
 Die Kontrollflussanalyse ist in TypeScript eine Möglichkeit, den Codefluss statisch zu analysieren, um die Typen von Variablen abzuleiten. Dadurch kann der Compiler die Typen dieser Variablen anhand der Analyseergebnisse nach Bedarf eingrenzen.
 
 Vor TypeScript 4.4 wurde die Kontrollflussanalyse nur auf Code innerhalb einer if-Anweisung angewendet. Seit TypeScript 4.4 kann sie auch auf bedingte Ausdrücke und Zugriffe auf Diskriminanteigenschaften angewendet werden, auf die indirekt über const-Variablen verwiesen wird.
@@ -51,4 +49,3 @@ const f6 = (
 ```
 
 Hinweise: In bedingten Ausdrücken werden bis zu fünf Indirektionsebenen analysiert.
-

@@ -1,7 +1,5 @@
 ﻿# Sobrecargas (Overloads)
 
-
-
 As sobrecargas de função (function overloads) no TypeScript permitem definir múltiplas assinaturas para um mesmo nome de função, permitindo que as funções sejam chamadas de diversas maneiras. Aqui está um exemplo:
 
 ```typescript
@@ -49,4 +47,3 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
-

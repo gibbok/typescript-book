@@ -1,7 +1,5 @@
 ﻿# Properti Readonly
 
-
-
 Penulisan ulang suatu properti dapat dicegah dengan menggunakan modifier `readonly`, yang memastikan bahwa properti tersebut tidak dapat ditulis ulang, tetapi tidak memberikan jaminan immutability secara menyeluruh:
 
 ```typescript
@@ -21,4 +19,3 @@ type K = {
     readonly [index: number]: string;
 };
 ```
-

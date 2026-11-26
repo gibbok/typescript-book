@@ -1,7 +1,5 @@
 ﻿# Narrowing
 
-
-
 TypeScript narrowing е процес на уточняване на типа на променлива в рамките на условен блок. Това е полезно при работа с union типове, където променлива може да има повече от един тип.
 
 TypeScript поддържа няколко начина за стесняване на типа:
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

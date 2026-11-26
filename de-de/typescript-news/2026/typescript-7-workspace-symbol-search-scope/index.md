@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 fügt einen Suchbereich für Workspace-Symbole hinzu
 
-
 **Veröffentlicht:** 7. August 2026
 
 Microsoft hat einen Suchbereich für Workspace-Symbole in den nativen Language Service von TypeScript übernommen.

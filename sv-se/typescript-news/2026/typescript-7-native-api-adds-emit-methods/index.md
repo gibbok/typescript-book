@@ -1,6 +1,5 @@
 ﻿# TypeScript 7:s inbyggda API får emit-metoder
 
-
 **Publicerad:** 24 juli 2026
 
 TypeScripts inbyggda kodbas har fått programmatiska emit-API:er för verktyg som behöver generera JavaScript- eller deklarationsutdata.

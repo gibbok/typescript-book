@@ -1,7 +1,5 @@
 ﻿# Literálové typy
 
-
-
 Literálový typ je jednoprvková množina v rámci obecnějšího typu; definuje zcela konkrétní hodnotu, která je primitivem JavaScriptu.
 
 Literálové typy v TypeScriptu jsou čísla, řetězce a booleovské hodnoty.
@@ -20,4 +18,3 @@ V následujícím příkladu vidíte typový alias sjednocení. `O` se skládá 
 ```typescript
 type O = 'a' | 'b' | 'c';
 ```
-

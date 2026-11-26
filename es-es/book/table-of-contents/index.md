@@ -1,7 +1,5 @@
 ﻿# Índice
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
   - [Apoya el proyecto](../support-the-project/)
@@ -218,4 +216,3 @@
     - [Comprobación de la sintaxis de expresiones regulares](../others/#comprobación-de-la-sintaxis-de-expresiones-regulares)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

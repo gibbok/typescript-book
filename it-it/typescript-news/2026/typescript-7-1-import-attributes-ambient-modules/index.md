@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 aggiunge gli attributi di import ai moduli ambient
 
-
 **Pubblicato:** 1 settembre 2026
 
 Il compilatore nativo di TypeScript ora supporta tipi per gli attributi di import nelle dichiarazioni di moduli ambient con pattern. Le dichiarazioni possono così distinguere import con attributi come `type: 'css'` o `type: 'text'`.

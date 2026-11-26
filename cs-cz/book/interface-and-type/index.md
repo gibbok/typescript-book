@@ -1,7 +1,5 @@
 ﻿# Rozhraní a typ
 
-
-
 ### Obvyklá syntaxe
 
 V TypeScriptu definují rozhraní strukturu objektů a určují názvy a typy vlastností nebo metod, které objekt musí mít. Obvyklá syntaxe pro definici rozhraní v TypeScriptu je následující:
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // Typ průniku
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Objekt s vlastnostmi name i age
 ```
-

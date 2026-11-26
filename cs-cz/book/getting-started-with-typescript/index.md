@@ -1,7 +1,5 @@
 ﻿# Začínáme s TypeScriptem
 
-
-
 ### Instalace
 
 Visual Studio Code poskytuje výbornou podporu jazyka TypeScript, ale neobsahuje jeho kompilátor. K instalaci kompilátoru TypeScriptu můžete použít správce balíčků, například npm nebo yarn:
@@ -205,4 +203,3 @@ Pátým krokem je zapnutí „noImplicitAny“, které vynutí, aby všechny typ
 Během migrace můžete použít direktivu `@ts-check`, která zapíná kontrolu typů TypeScriptu v souboru JavaScriptu. Tato direktiva poskytuje mírnější variantu kontroly typů a lze ji zpočátku využít k odhalování problémů v souborech JavaScriptu. Pokud je v souboru uvedeno `@ts-check`, TypeScript se pokusí odvodit definice pomocí komentářů ve stylu JSDoc. Použití anotací JSDoc však zvažujte pouze ve velmi rané fázi migrace.
 
 Zvažte ponechání výchozí hodnoty `noEmitOnError` ve vašem tsconfig.json na false. To umožní vygenerovat zdrojový kód JavaScriptu i při ohlášených chybách.
-

@@ -1,6 +1,5 @@
 ﻿# Natywny kompilator TypeScript ogranicza zużycie pamięci dzięki optymalizacjom sprawdzania typów
 
-
 **Opublikowano:** 14 października 2026 r.
 
 Microsoft scalił kilka optymalizacji pamięci w natywnym kompilatorze TypeScript. Ograniczają one pamięć utrzymywaną przez wewnętrzne struktury modułu sprawdzania typów bez zmiany składni TypeScript.

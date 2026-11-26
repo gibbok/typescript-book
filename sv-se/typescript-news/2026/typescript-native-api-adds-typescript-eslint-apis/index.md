@@ -1,6 +1,5 @@
 ﻿# TypeScripts inbyggda API lägger till API:er som typescript-eslint behöver
 
-
 **Publicerad:** 14 september 2026
 
 TypeScripts inbyggda API exponerar nu fler checker- och typ-API:er som `typescript-eslint` behöver, vilket minskar kompatibilitetsluckor för verktyg som använder TypeScripts programmatiska API.

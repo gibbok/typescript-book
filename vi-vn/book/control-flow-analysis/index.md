@@ -1,7 +1,5 @@
 ﻿# Phân tích luồng điều khiển
 
-
-
 Control Flow Analysis trong TypeScript là cách phân tích tĩnh luồng mã để suy luận kiểu của biến, cho phép trình biên dịch thu hẹp kiểu của các biến đó khi cần, dựa trên kết quả phân tích.
 
 Trước TypeScript 4.4, phân tích luồng mã chỉ được áp dụng cho mã bên trong câu lệnh if, nhưng kể từ TypeScript 4.4, nó cũng có thể được áp dụng cho các biểu thức điều kiện và truy cập thuộc tính discriminant được tham chiếu gián tiếp thông qua biến const.
@@ -51,4 +49,3 @@ const f6 = (
 ```
 
 Ghi chú: Tối đa năm cấp độ gián tiếp được phân tích trong biểu thức điều kiện.
-

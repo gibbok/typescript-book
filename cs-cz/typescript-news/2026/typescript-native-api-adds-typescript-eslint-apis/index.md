@@ -1,6 +1,5 @@
 ﻿# Nativní API TypeScriptu přidává API potřebná pro typescript-eslint
 
-
 **Publikováno:** 14. září 2026
 
 Nativní API TypeScriptu nyní zpřístupňuje další API checkeru a typů potřebná pro `typescript-eslint`, čímž zmenšuje mezery v kompatibilitě nástrojů závislých na programovém API TypeScriptu.

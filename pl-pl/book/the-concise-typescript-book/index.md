@@ -1,7 +1,5 @@
 ﻿# The Concise TypeScript Book
 
-
-
 The Concise TypeScript Book przedstawia kompleksowy i zwięzły przegląd możliwości TypeScript. Zawiera jasne objaśnienia wszystkich aspektów najnowszej wersji języka — od rozbudowanego systemu typów po zaawansowane funkcje.
 
 Niezależnie od tego, czy jesteś osobą początkującą, czy doświadczonym programistą, ta książka stanowi nieocenione źródło wiedzy, które pozwoli Ci lepiej zrozumieć TypeScript i sprawniej się nim posługiwać.
@@ -33,4 +31,3 @@ Wydanie Plus obejmuje:
 Kupując wydanie Plus, bezpośrednio wspierasz także dalszy rozwój i utrzymanie bezpłatnej książki o otwartym kodzie źródłowym.
 
 Wydanie Plus jest dostępne w języku angielskim i włoskim w serwisie Amazon na całym świecie. [Poznaj wydanie Plus i kup je w serwisie Amazon](https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme).
-

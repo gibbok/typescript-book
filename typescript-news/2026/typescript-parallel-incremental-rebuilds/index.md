@@ -1,6 +1,5 @@
 ﻿# TypeScript speeds up incremental rebuilds with parallel signature checks
 
-
 A merged compiler change parallelizes signature checks for files affected by edits to widely imported modules. Previously, this phase processed dependent files sequentially.
 
 ## What changed

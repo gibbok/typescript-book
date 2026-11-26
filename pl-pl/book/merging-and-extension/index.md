@@ -1,7 +1,5 @@
 ﻿# Scalanie i rozszerzanie
 
-
-
 Scalanie i rozszerzanie odnoszą się do dwóch różnych koncepcji związanych z pracą z typami i interfejsami.
 
 Scalanie pozwala połączyć wiele deklaracji o tej samej nazwie w jedną definicję, na przykład gdy wielokrotnie definiuje się interfejs o tej samej nazwie:
@@ -43,4 +41,3 @@ const dog: Bird = {
     },
 };
 ```
-

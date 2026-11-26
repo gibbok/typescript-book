@@ -1,7 +1,5 @@
 ﻿# Downloads und Website
 
-
-
 Sie können außerdem die EPUB-Version herunterladen:
 
 [https://github.com/gibbok/typescript-book/tree/main/downloads](https://github.com/gibbok/typescript-book/tree/main/downloads)
@@ -9,4 +7,3 @@ Sie können außerdem die EPUB-Version herunterladen:
 Eine Online-Version ist verfügbar unter:
 
 [https://gibbok.github.io/typescript-book](https://gibbok.github.io/typescript-book)
-

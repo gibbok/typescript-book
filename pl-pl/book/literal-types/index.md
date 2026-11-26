@@ -1,7 +1,5 @@
 ﻿# Typy literałowe
 
-
-
 Typ literałowy jest zbiorem jednoelementowym należącym do typu zbiorczego; definiuje bardzo dokładną wartość, która jest typem pierwotnym JavaScript.
 
 Typami literałowymi w TypeScript są liczby, ciągi znaków i wartości logiczne.
@@ -20,4 +18,3 @@ W poniższym przykładzie można zobaczyć alias typu unii. `O` składa się wy�
 ```typescript
 type O = 'a' | 'b' | 'c';
 ```
-

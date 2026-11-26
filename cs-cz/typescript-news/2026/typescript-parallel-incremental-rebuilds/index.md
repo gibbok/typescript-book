@@ -1,6 +1,5 @@
 ﻿# TypeScript zrychluje inkrementální sestavení paralelní kontrolou signatur
 
-
 Sloučená změna kompilátoru umožňuje paralelní kontrolu signatur souborů ovlivněných úpravou často importovaného modulu. Dříve tato fáze probíhala sekvenčně.
 
 ## Co se změnilo

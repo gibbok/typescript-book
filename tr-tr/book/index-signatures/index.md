@@ -1,7 +1,5 @@
 ﻿# Dizin İmzaları
 
-
-
 TypeScript'te dizin imzası olarak `string`, `number` ve `symbol` kullanabiliriz:
 
 ```typescript
@@ -15,4 +13,3 @@ console.log(k['1']); // k[1] ile aynı sonuç
 ```
 
 JavaScript'in `number` türündeki bir dizini otomatik olarak `string` türündeki bir dizine dönüştürdüğünü lütfen unutmayın; bu nedenle `k[1]` veya `k["1"]` aynı değeri döndürür.
-

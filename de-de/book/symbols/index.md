@@ -1,7 +1,5 @@
 ﻿# Symbole
 
-
-
 Symbole sind ein primitiver Datentyp, der einen unveränderlichen Wert darstellt, dessen globale Eindeutigkeit während der gesamten Laufzeit des Programms garantiert ist.
 
 Symbole können als Schlüssel für Objekteigenschaften verwendet werden und bieten eine Möglichkeit, nicht aufzählbare Eigenschaften zu erstellen.
@@ -20,4 +18,3 @@ console.log(obj[key2]); // value 2
 ```
 
 In WeakMaps und WeakSets sind Symbole nun als Schlüssel zulässig.
-

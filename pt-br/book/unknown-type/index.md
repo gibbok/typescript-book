@@ -1,7 +1,5 @@
 ﻿# Tipo unknown
 
-
-
 No TypeScript, o tipo `unknown` representa um valor de um tipo desconhecido. Ao contrário do tipo `any`, que permite qualquer tipo de valor, `unknown` exige uma verificação ou asserção de tipo antes de poder ser usado de uma maneira específica; portanto, nenhuma operação é permitida em um `unknown` sem primeiro realizar uma asserção de tipo ou estreitar seu tipo para um mais específico.
 
 O tipo `unknown` só é atribuível a si mesmo e ao tipo `any`; é uma alternativa segura em termos de tipos ao `any`.
@@ -22,4 +20,3 @@ const add = (a: unknown, b: unknown): number | undefined =>
 console.log(add(1, 2)); // 3
 console.log(add('x', 2)); // undefined
 ```
-

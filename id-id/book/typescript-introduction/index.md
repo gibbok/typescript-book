@@ -1,7 +1,5 @@
 ﻿# Pengenalan TypeScript
 
-
-
 ### Apa itu TypeScript?
 
 TypeScript adalah bahasa pemrograman bertipe kuat yang dikembangkan berdasarkan JavaScript. Bahasa ini awalnya dirancang oleh Anders Hejlsberg pada tahun 2012 dan saat ini dikembangkan serta dipelihara oleh Microsoft sebagai proyek sumber terbuka.
@@ -213,4 +211,3 @@ Berikut adalah beberapa fitur JavaScript modern yang dapat digunakan dalam TypeS
 * Parameter fungsi default.
 
 Dengan memanfaatkan fitur JavaScript modern ini, pengembang dapat menulis kode TypeScript yang lebih ekspresif dan ringkas.
-

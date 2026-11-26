@@ -1,7 +1,5 @@
 ﻿# Tipe Kondisional
 
-
-
 Tipe Kondisional adalah cara untuk membuat tipe yang bergantung pada suatu kondisi, ketika tipe yang akan dibuat ditentukan berdasarkan hasil kondisi tersebut. Tipe ini didefinisikan menggunakan kata kunci `extends` dan operator ternary untuk memilih salah satu dari dua tipe secara kondisional.
 
 ```typescript
@@ -13,4 +11,3 @@ const myNumber = 42;
 type IsMyArrayAnArray = IsArray<typeof myArray>; // Tipe true
 type IsMyNumberAnArray = IsArray<typeof myNumber>; // Tipe false
 ```
-

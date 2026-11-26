@@ -1,6 +1,5 @@
 ﻿# TypeScript 네이티브 API에 typescript-eslint가 필요한 API 추가
 
-
 **게시일:** 2026년 9월 14일
 
 TypeScript 네이티브 API가 이제 `typescript-eslint`에 필요한 추가 검사기 및 타입 API를 제공하여 TypeScript 프로그래밍 API에 의존하는 도구의 호환성 차이를 줄입니다.

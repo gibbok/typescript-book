@@ -1,7 +1,5 @@
 ﻿# Interface và Type
 
-
-
 ### Cú pháp chung
 
 Trong TypeScript, interface định nghĩa cấu trúc của đối tượng, chỉ định tên và kiểu của các thuộc tính hoặc phương thức mà một đối tượng phải có. Cú pháp thông thường để định nghĩa interface trong TypeScript như sau:
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // Kiểu giao
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Đối tượng có cả thuộc tính name và age
 ```
-

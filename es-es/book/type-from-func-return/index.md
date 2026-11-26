@@ -1,10 +1,7 @@
 ﻿# Tipo a partir del retorno de una función
 
-
-
 El tipo a partir del retorno de una función permite inferir automáticamente el tipo de retorno según su implementación. De este modo, TypeScript puede determinar el tipo del valor devuelto sin anotaciones de tipo explícitas.
 
 ```typescript
 const add = (x: number, y: number) => x + y; // TypeScript puede inferir que el tipo de retorno de la función es number
 ```
-

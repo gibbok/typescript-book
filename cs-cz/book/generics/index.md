@@ -1,7 +1,5 @@
 ﻿# Generika
 
-
-
 Generika umožňují vytvářet znovupoužitelné komponenty a funkce, které mohou pracovat s více typy. Pomocí generik můžete parametrizovat typy, funkce a rozhraní, a umožnit jim tak pracovat s různými typy bez nutnosti je předem explicitně určit.
 
 Generika umožňují vytvářet flexibilnější kód, který lze snáze znovu použít.
@@ -98,4 +96,3 @@ function process<T>(value: T): void {
 process('hello'); // 5
 process(3.14159); // 3.14
 ```
-

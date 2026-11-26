@@ -1,7 +1,5 @@
 ﻿# 인덱스 시그니처
 
-
-
 TypeScript에서는 `string`, `number`, `symbol`을 인덱스 시그니처로 사용할 수 있습니다.
 
 ```typescript
@@ -15,4 +13,3 @@ console.log(k['1']); // k[1]과 같은 결과
 ```
 
 JavaScript는 `number` 인덱스를 자동으로 `string` 인덱스로 변환하므로 `k[1]`과 `k["1"]`은 같은 값을 반환합니다.
-

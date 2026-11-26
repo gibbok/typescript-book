@@ -1,7 +1,5 @@
 ﻿# Eşlenmiş Tür Değiştiricileri
 
-
-
 TypeScript'teki Eşlenmiş Tür Değiştiricileri, mevcut bir tür içindeki özelliklerin dönüştürülmesini sağlar:
 
 * `readonly` veya `+readonly`: Bu, eşlenmiş türdeki bir özelliği salt okunur hâle getirir.
@@ -17,4 +15,3 @@ type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Tüm özellikler deği�
 
 type MyPartial<T> = { [P in keyof T]?: T[P] }; // Tüm özellikler isteğe bağlı olarak işaretlendi
 ```
-

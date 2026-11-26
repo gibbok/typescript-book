@@ -1,7 +1,5 @@
 ﻿# Anotaciones de tipo
 
-
-
 En las variables declaradas mediante `var`, `let` y `const` puede añadirse un tipo de forma opcional:
 
 ```typescript
@@ -39,4 +37,3 @@ const sum = (a = 10, b: number): number => a + b;
 Esto resulta especialmente útil en funciones más complejas, ya que escribir el tipo de retorno antes de la implementación puede ayudarte a razonar sobre la función.
 
 En general, considera anotar las firmas de tipo, pero no las variables locales del cuerpo, y añade siempre tipos a los literales de objeto.
-

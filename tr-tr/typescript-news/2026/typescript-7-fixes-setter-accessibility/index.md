@@ -1,6 +1,5 @@
 ﻿# TypeScript 7, birleşimlerde ve kesişimlerde setter erişilebilirliğini düzeltiyor
 
-
 **Yayımlandı:** 24 Ağustos 2026
 
 Microsoft, birleşimlerden ve kesişimlerden sentezlenen özelliklerde okuma ve yazma erişilebilirliğini ayrı tutan bir yerel TypeScript denetleyicisi düzeltmesini birleştirdi.

@@ -1,7 +1,5 @@
 ﻿# Bedingte Typen
 
-
-
 Bedingte Typen sind eine Möglichkeit, einen von einer Bedingung abhängigen Typ zu erstellen, wobei der zu erstellende Typ anhand des Ergebnisses der Bedingung bestimmt wird. Sie werden mit dem Schlüsselwort `extends` und einem ternären Operator definiert, um bedingt zwischen zwei Typen zu wählen.
 
 ```typescript
@@ -13,4 +11,3 @@ const myNumber = 42;
 type IsMyArrayAnArray = IsArray<typeof myArray>; // Typ true
 type IsMyNumberAnArray = IsArray<typeof myNumber>; // Typ false
 ```
-

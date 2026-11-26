@@ -1,6 +1,5 @@
 ﻿# TypeScript yerel derleyicisi tür denetleyici optimizasyonlarıyla bellek kullanımını azaltıyor
 
-
 **Yayımlandı:** 14 Ekim 2026
 
 Microsoft, TypeScript'in yerel derleyicisine çeşitli bellek optimizasyonları ekledi. Bu değişiklikler TypeScript sözdizimini değiştirmeden tür denetleyicisinin iç veri yapılarının tuttuğu belleği azaltıyor.

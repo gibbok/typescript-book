@@ -1,7 +1,5 @@
 ﻿# Raderade strukturella typer
 
-
-
 I TypeScript behöver objekt inte matcha en specifik, exakt typ. Till exempel, om vi skapar ett objekt som uppfyller ett gränssnitts krav, kan vi använda det objektet på platser där det gränssnittet krävs, även om det inte finns någon explicit koppling mellan dem.
 Exempel:
 
@@ -21,4 +19,3 @@ const obj = {
 
 log(obj); // Giltigt
 ```
-

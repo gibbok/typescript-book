@@ -1,7 +1,5 @@
 ﻿# Interface dan Type
 
-
-
 ### Sintaks Umum
 
 Dalam TypeScript, interface mendefinisikan struktur objek dengan menentukan nama dan tipe properti atau metode yang harus dimiliki sebuah objek. Sintaks umum untuk mendefinisikan interface dalam TypeScript adalah sebagai berikut:
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // Tipe irisan
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Objek dengan properti name dan age
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Üç Eğik Çizgi Yönergeleri
 
-
-
 Üç eğik çizgi yönergeleri, bir dosyanın nasıl işleneceği hakkında derleyiciye talimatlar veren özel yorumlardır. Bu yönergeler art arda üç eğik çizgiyle (`///`) başlar, genellikle bir TypeScript dosyasının en üstüne yerleştirilir ve çalışma zamanı davranışını etkilemez.
 
 Üç eğik çizgi yönergeleri; harici bağımlılıklara başvurmak, modül yükleme davranışını belirtmek, belirli derleyici özelliklerini etkinleştirmek veya devre dışı bırakmak ve daha fazlası için kullanılır. Birkaç örnek:
@@ -26,4 +24,3 @@ Derleyici seçeneklerini etkinleştirme; aşağıdaki örnekte katı mod:
 ```typescript
 /// <strict|noImplicitAny|noUnusedLocals|noUnusedParameters>
 ```
-

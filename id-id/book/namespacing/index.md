@@ -1,7 +1,5 @@
 ﻿# Namespace
 
-
-
 Dalam TypeScript, namespace digunakan untuk mengatur kode ke dalam wadah logis, mencegah benturan penamaan, dan menyediakan cara untuk mengelompokkan kode yang saling berkaitan.
 Penggunaan kata kunci `export` memungkinkan akses ke namespace dari luar modul.
 
@@ -19,4 +17,3 @@ const a: MyNamespace.MyInterface1 = {
     prop1: true,
 };
 ```
-

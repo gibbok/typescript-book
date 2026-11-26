@@ -1,7 +1,5 @@
 ﻿# Table des matières
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
   - [Soutenir le projet](../support-the-project/)
@@ -218,4 +216,3 @@
     - [Vérification de la syntaxe des expressions régulières](../others/#vérification-de-la-syntaxe-des-expressions-régulières)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

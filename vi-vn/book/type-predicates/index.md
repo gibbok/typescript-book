@@ -1,7 +1,5 @@
 ﻿# Type Predicate
 
-
-
 Type Predicate trong TypeScript là các hàm trả về giá trị boolean và được dùng để thu hẹp kiểu của một biến thành kiểu cụ thể hơn.
 
 ```typescript
@@ -21,4 +19,3 @@ TypeScript 5.5 tự động suy luận type predicate (như `x is T`) trong các
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Literal Type
 
-
-
 Literal Type là một tập hợp một phần tử trong một kiểu tập hợp; nó định nghĩa một giá trị rất chính xác là primitive của JavaScript.
 
 Literal Type trong TypeScript là số, chuỗi và boolean.
@@ -20,4 +18,3 @@ Trong ví dụ sau, bạn có thể thấy một union type alias. `O` chỉ g�
 ```typescript
 type O = 'a' | 'b' | 'c';
 ```
-

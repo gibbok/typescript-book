@@ -1,7 +1,5 @@
 ﻿# Combinación y extensión
 
-
-
 La combinación y la extensión son dos conceptos distintos relacionados con los tipos y las interfaces.
 
 La combinación permite reunir varias declaraciones con el mismo nombre en una única definición; por ejemplo, al definir varias veces una interfaz con el mismo nombre:
@@ -43,4 +41,3 @@ const dog: Bird = {
     },
 };
 ```
-

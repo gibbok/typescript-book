@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 refreshes config diagnostics after file changes
 
-
 **Published:** July 30, 2026
 
 Microsoft merged a fix that refreshes configuration-file diagnostics in TypeScript's native language service after a tracked `tsconfig.json` or `jsconfig.json` file changes.

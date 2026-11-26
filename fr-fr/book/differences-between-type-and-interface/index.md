@@ -1,7 +1,5 @@
 ﻿# Différences entre type et interface
 
-
-
 Fusion de déclarations (augmentation) :
 
 Les interfaces prennent en charge la fusion de déclarations, ce qui signifie que vous pouvez définir plusieurs interfaces portant le même nom et que TypeScript les fusionnera en une seule interface regroupant leurs propriétés et méthodes. En revanche, les types ne prennent pas en charge la fusion de déclarations. Cela peut être utile lorsque vous souhaitez ajouter des fonctionnalités ou personnaliser des types existants sans modifier les définitions d'origine, ou encore corriger des types manquants ou incorrects.
@@ -89,4 +87,3 @@ interface B {
 
 type C = A | B; // Union d'interfaces
 ```
-

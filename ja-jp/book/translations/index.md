@@ -1,7 +1,5 @@
 ﻿# 翻訳
 
-
-
 本書は、以下を含む複数の言語に翻訳されています。
 
 [英語](https://github.com/gibbok/typescript-book/blob/main/README.md)
@@ -40,4 +38,3 @@
 
 [アラビア語](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
 [チェコ語](https://github.com/gibbok/typescript-book/blob/main/README-cs_CZ.md)
-

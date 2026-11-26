@@ -1,7 +1,5 @@
 ﻿# Silinen Yapısal Türler
 
-
-
 TypeScript'te nesnelerin belirli ve tam bir türle eşleşmesi gerekmez. Örneğin, bir arayüzün gereksinimlerini karşılayan bir nesne oluşturursak, aralarında açık bir bağlantı kurulmamış olsa bile, bu nesneyi söz konusu arayüzün gerekli olduğu yerlerde kullanabiliriz.
 Örnek:
 
@@ -21,4 +19,3 @@ const obj = {
 
 log(obj); // Geçerli
 ```
-

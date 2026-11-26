@@ -1,7 +1,5 @@
 ﻿# İsteğe Bağlı Özellikler
 
-
-
 Bir nesne, özellik adının sonuna soru işareti `?` ekleyerek İsteğe Bağlı Özellikler belirtebilir:
 
 ```typescript
@@ -20,4 +18,3 @@ type X = {
 };
 const x = ({ a, b = 100 }: X) => a + b;
 ```
-

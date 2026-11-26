@@ -1,7 +1,5 @@
 ﻿# Rozdíly mezi typem a rozhraním
 
-
-
 Slučování deklarací (rozšíření):
 
 Rozhraní podporují slučování deklarací, což znamená, že můžete definovat více rozhraní se stejným názvem a TypeScript je sloučí do jediného rozhraní se spojenými vlastnostmi a metodami. Typy naproti tomu slučování deklarací nepodporují. To může být užitečné, když chcete přidat další funkčnost nebo přizpůsobit existující typy bez úpravy původních definic nebo opravování chybějících či nesprávných typů.
@@ -89,4 +87,3 @@ interface B {
 
 type C = A | B; // Sjednocení rozhraní
 ```
-

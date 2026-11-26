@@ -1,7 +1,5 @@
 ﻿# Primitive di tipo predefinite
 
-
-
 TypeScript dispone di diverse primitive di tipo predefinite che possono essere utilizzate per definire variabili, parametri di funzione e tipi restituiti:
 
 * `number`: rappresenta valori numerici, inclusi numeri interi e numeri in virgola mobile.
@@ -14,4 +12,3 @@ TypeScript dispone di diverse primitive di tipo predefinite che possono essere u
 * `any`: rappresenta un tipo dinamico o sconosciuto. Le variabili di tipo any possono contenere valori di qualsiasi tipo e ignorano il controllo del tipo.
 * `void`: rappresenta l'assenza di qualsiasi tipo. È comunemente usato come tipo di ritorno di funzioni che non restituiscono alcun valore.
 * `never`: rappresenta un tipo per valori che non si verificano mai. È tipicamente usato come tipo di ritorno di funzioni che generano un errore o entrano in un ciclo infinito.
-

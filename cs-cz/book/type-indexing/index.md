@@ -1,7 +1,5 @@
 ﻿# Indexování typů
 
-
-
 Indexování typů označuje možnost definovat typy, které lze indexovat předem neznámým klíčem, s využitím indexové signatury k určení typu vlastností, které nejsou explicitně deklarovány.
 
 ```typescript
@@ -11,4 +9,3 @@ type Dictionary<T> = {
 const myDict: Dictionary<string> = { a: 'a', b: 'b' };
 console.log(myDict['a']); // Vrací a
 ```
-

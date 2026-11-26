@@ -1,6 +1,5 @@
 ﻿# Natywny interfejs API TypeScript 7 dodaje metody generowania danych wyjściowych
 
-
 **Opublikowano:** 24 lipca 2026 r.
 
 Do natywnej bazy kodu TypeScript dodano programistyczne interfejsy API generowania danych wyjściowych przeznaczone dla narzędzi, które muszą generować kod JavaScript lub deklaracje.

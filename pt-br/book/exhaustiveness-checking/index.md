@@ -1,7 +1,5 @@
 ﻿# Verificação de exaustividade
 
-
-
 A verificação de exaustividade (exhaustiveness checking) é um recurso no TypeScript que garante que todos os casos possíveis de uma união discriminada sejam tratados em uma instrução `switch` ou `if`.
 
 ```typescript
@@ -23,4 +21,3 @@ const move = (direction: Direction) => {
 ```
 
 O tipo `never` é usado para garantir que o caso `default` seja exaustivo e que o TypeScript aponte um erro se um novo valor for adicionado ao tipo `Direction` sem ser tratado na instrução switch.
-

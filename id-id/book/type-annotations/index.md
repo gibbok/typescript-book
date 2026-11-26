@@ -1,7 +1,5 @@
 ﻿# Anotasi Tipe
 
-
-
 Pada variabel yang dideklarasikan menggunakan `var`, `let`, dan `const`, anotasi tipe dapat ditambahkan secara opsional:
 
 ```typescript
@@ -39,4 +37,3 @@ const sum = (a = 10, b: number): number => a + b;
 Hal ini sangat berguna untuk fungsi yang lebih kompleks, karena menuliskan tipe kembalian sebelum implementasi dapat membantu Anda memikirkan fungsi tersebut secara menyeluruh.
 
 Secara umum, pertimbangkan untuk memberi anotasi pada signature tipe, tetapi tidak pada variabel lokal di dalam isi fungsi, dan selalu tambahkan tipe pada literal objek.
-

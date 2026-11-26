@@ -1,7 +1,5 @@
 ﻿# Réduction de type
 
-
-
 La réduction de type dans TypeScript est le processus qui consiste à affiner le type d’une variable au sein d’un bloc conditionnel. Elle est utile lorsque vous travaillez avec des types union, où une variable peut avoir plusieurs types.
 
 TypeScript reconnaît plusieurs façons de réduire le type :
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

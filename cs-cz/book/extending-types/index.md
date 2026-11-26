@@ -1,7 +1,5 @@
 ﻿# Rozšíření typů
 
-
-
 Je možné rozšířit `interface` (zkopírovat členy z jiného typu):
 
 ```typescript
@@ -49,4 +47,3 @@ interface B extends A {
     b: string;
 }
 ```
-

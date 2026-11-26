@@ -1,7 +1,5 @@
 ﻿# Schnittmengentypen
 
-
-
 Ein Schnittmengentyp ist ein Typ, der einen Wert darstellt, der alle Eigenschaften von zwei oder mehr Typen besitzt. Schnittmengentypen werden durch das Symbol `&` zwischen den einzelnen Typen gekennzeichnet.
 
 ```typescript
@@ -20,4 +18,3 @@ const j: J = {
     b: 'b',
 };
 ```
-

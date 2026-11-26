@@ -1,7 +1,5 @@
 ﻿# Често използвани вградени JS обекти
 
-
-
 TypeScript е надмножество (superset) на JavaScript и включва всички често използвани вградени JavaScript обекти. Можете да намерите обширен списък с тези обекти в документацията на Mozilla Developer Network (MDN):
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 
@@ -22,4 +20,3 @@ TypeScript е надмножество (superset) на JavaScript и включ�
 * Set
 * Promise
 * Intl
-

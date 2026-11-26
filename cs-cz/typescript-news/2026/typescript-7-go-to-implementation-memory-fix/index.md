@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 zlepšuje využití paměti funkce Go to Implementation
 
-
 **Zveřejněno:** 30. července 2026
 
 Microsoft sloučil opravu škálování spotřeby paměti funkce Go to Implementation v nativní jazykové službě TypeScriptu.

@@ -1,7 +1,5 @@
 ﻿# Literaltypen
 
-
-
 Ein Literaltyp ist eine einelementige Menge innerhalb eines umfassenden Typs; er definiert einen sehr genauen Wert, der ein JavaScript-Primitivwert ist.
 
 Literaltypen in TypeScript sind Zahlen, Strings und boolesche Werte.
@@ -20,4 +18,3 @@ Im folgenden Beispiel sehen Sie einen Union-Typalias. `O` besteht nur aus den an
 ```typescript
 type O = 'a' | 'b' | 'c';
 ```
-

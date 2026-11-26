@@ -1,7 +1,5 @@
 ﻿# Diretivas Triple-Slash
 
-
-
 As diretivas triple-slash são comentários especiais que fornecem instruções ao compilador sobre como processar um arquivo. Essas diretivas começam com três barras consecutivas (`///`), normalmente são colocadas no início de um arquivo TypeScript e não afetam o comportamento em tempo de execução.
 
 As diretivas triple-slash são usadas para referenciar dependências externas, especificar o comportamento de carregamento de módulos, habilitar ou desabilitar certos recursos do compilador e muito mais. Alguns exemplos:
@@ -26,4 +24,3 @@ Habilitar opções do compilador, no exemplo a seguir, o modo estrito:
 ```typescript
 /// <strict|noImplicitAny|noUnusedLocals|noUnusedParameters>
 ```
-

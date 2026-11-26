@@ -1,7 +1,5 @@
 ﻿# Klasa
 
-
-
 ### Podstawowa składnia klasy
 
 Słowo kluczowe `class` służy w TypeScript do definiowania klasy. Poniżej znajduje się przykład:
@@ -672,4 +670,3 @@ class MyClass {
 const r = new MyClass();
 console.log(r.add(10, 5)); // Wypisuje 15
 ```
-

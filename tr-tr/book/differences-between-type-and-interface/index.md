@@ -1,7 +1,5 @@
 ﻿# Tür ve Arayüz Arasındaki Farklar
 
-
-
 Bildirim birleştirme (genişletme):
 
 Arayüzler bildirim birleştirmeyi destekler; bu, aynı ada sahip birden fazla arayüz tanımlayabileceğiniz ve TypeScript'in bunları birleştirilmiş özellikler ile metotlara sahip tek bir arayüzde birleştireceği anlamına gelir. Öte yandan türler bildirim birleştirmeyi desteklemez. Bu, özgün tanımları değiştirmeden veya eksik ya da hatalı türlere yama uygulamadan ek işlevsellik katmak veya mevcut türleri özelleştirmek istediğinizde yararlı olabilir.
@@ -89,4 +87,3 @@ interface B {
 
 type C = A | B; // Arayüzlerin birleşimi
 ```
-

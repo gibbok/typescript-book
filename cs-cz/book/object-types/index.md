@@ -1,7 +1,5 @@
 ﻿# Objektové typy
 
-
-
 Objektové typy v TypeScriptu popisují strukturu objektu. Určují názvy a typy jeho vlastností i to, zda jsou tyto vlastnosti povinné, nebo volitelné.
 
 V TypeScriptu můžete objektové typy definovat dvěma hlavními způsoby:
@@ -31,4 +29,3 @@ Typ lze také definovat anonymně:
 const sum = (x: { a: number; b: number }) => x.a + x.b;
 console.log(sum({ a: 5, b: 1 }));
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Giới thiệu về TypeScript
 
-
-
 ### TypeScript là gì?
 
 TypeScript là một ngôn ngữ lập trình có hệ thống kiểu mạnh, được xây dựng dựa trên JavaScript. Ban đầu ngôn ngữ này do Anders Hejlsberg thiết kế vào năm 2012 và hiện được Microsoft phát triển và duy trì như một dự án mã nguồn mở.
@@ -212,4 +210,3 @@ Dưới đây là một số tính năng JavaScript hiện đại có thể sử
 * Tham số hàm mặc định.
 
 Bằng cách tận dụng các tính năng JavaScript hiện đại này, lập trình viên có thể viết mã TypeScript biểu đạt rõ ràng và ngắn gọn hơn.
-

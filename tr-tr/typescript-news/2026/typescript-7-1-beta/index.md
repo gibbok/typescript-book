@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 Beta modüler API'ler ve ES2026 desteği sunuyor
 
-
 **Yayımlanma tarihi:** 20 Ekim 2026
 
 Microsoft, yeni yerel derleyici API'leri ve JavaScript özellikleri desteğiyle TypeScript 7.1 Beta'yı yayımladı. Beta sürümünü denemek için:

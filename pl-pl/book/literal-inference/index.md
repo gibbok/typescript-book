@@ -1,7 +1,5 @@
 ﻿# Wnioskowanie typów literałowych
 
-
-
 Wnioskowanie typów literałowych to funkcja TypeScript, która pozwala wywnioskować typ zmiennej lub parametru na podstawie jego wartości.
 
 W poniższym przykładzie widać, że TypeScript traktuje `x` jako typ literałowy, ponieważ jego wartości nie można później zmienić, natomiast `y` jest wnioskowane jako `string`, ponieważ można je później zmodyfikować.
@@ -45,4 +43,3 @@ let o = {
     x: 'a' as X,
 };
 ```
-

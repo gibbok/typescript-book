@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 dodaje atrybuty importu do modułów ambient
 
-
 **Opublikowano:** 1 września 2026 r.
 
 Natywny kompilator TypeScript obsługuje teraz typy atrybutów importu w deklaracjach wzorcowych modułów ambient. Dzięki temu deklaracje mogą rozróżniać importy za pomocą atrybutów takich jak `type: 'css'` lub `type: 'text'`.

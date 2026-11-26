@@ -1,6 +1,5 @@
 ﻿# TypeScript native API adds APIs needed by typescript-eslint
 
-
 **Published:** September 14, 2026
 
 The native TypeScript API now exposes additional checker and type APIs needed by `typescript-eslint`, reducing compatibility gaps for tools that depend on TypeScript's programmatic API.

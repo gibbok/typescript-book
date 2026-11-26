@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 Beta 引入模块化 API 和 ES2026 支持
 
-
 **发布日期:** 2026 年 10 月 20 日
 
 微软发布了 TypeScript 7.1 Beta，带来新的原生编译器 API 和 JavaScript 语言支持。可使用以下命令试用预览版：

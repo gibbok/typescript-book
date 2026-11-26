@@ -1,7 +1,5 @@
 ﻿# Penggabungan dan Ekstensi
 
-
-
 Penggabungan dan ekstensi mengacu pada dua konsep berbeda yang berkaitan dengan penggunaan tipe dan interface.
 
 Penggabungan memungkinkan Anda menggabungkan beberapa deklarasi dengan nama yang sama menjadi satu definisi, misalnya ketika Anda mendefinisikan interface dengan nama yang sama beberapa kali:
@@ -43,4 +41,3 @@ const dog: Bird = {
     },
 };
 ```
-

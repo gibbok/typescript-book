@@ -1,7 +1,5 @@
 ﻿# Generic
 
-
-
 Generic cho phép bạn tạo các component và hàm có thể tái sử dụng, hoạt động với nhiều kiểu. Với generic, bạn có thể tham số hóa kiểu, hàm và interface, cho phép chúng hoạt động trên các kiểu khác nhau mà không cần chỉ định tường minh từ trước.
 
 Generic cho phép bạn làm cho mã linh hoạt và có thể tái sử dụng hơn.
@@ -98,4 +96,3 @@ function process<T>(value: T): void {
 process('hello'); // 5
 process(3.14159); // 3.14
 ```
-

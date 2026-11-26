@@ -1,7 +1,5 @@
 ﻿# Manipulasi Tipe
 
-
-
 ### Membuat Tipe dari Tipe
 
 Tipe baru dapat dibuat dengan menyusun, memanipulasi, atau mentransformasi tipe yang sudah ada.
@@ -354,4 +352,3 @@ function fn2<T extends string>(x: T[], y: NoInfer<T>) {
 
 const r2 = fn2(['a', 'b'], 'c'); // Kesalahan: Argumen tipe '"c"' tidak dapat ditetapkan ke parameter bertipe '"a" | "b"'.
 ```
-

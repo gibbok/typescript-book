@@ -1,7 +1,5 @@
 ﻿# Objetos JS integrados habituales
 
-
-
 TypeScript es un superconjunto de JavaScript e incluye todos sus objetos integrados habituales. Puedes encontrar una lista extensa en la documentación de Mozilla Developer Network (MDN):
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 
@@ -22,4 +20,3 @@ Esta es una lista de algunos objetos JavaScript integrados de uso habitual:
 * Set
 * Promise
 * Intl
-

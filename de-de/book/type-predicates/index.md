@@ -1,7 +1,5 @@
 ﻿# Typprädikate
 
-
-
 Typprädikate sind in TypeScript Funktionen, die einen booleschen Wert zurückgeben und verwendet werden, um den Typ einer Variablen auf einen spezifischeren Typ einzugrenzen.
 
 ```typescript
@@ -21,4 +19,3 @@ TypeScript 5.5 leitet Typprädikate (wie `x is T`) in Funktionen wie `.filter` a
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

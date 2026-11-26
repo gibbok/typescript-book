@@ -1,7 +1,5 @@
 ﻿# 오버로드
 
-
-
 TypeScript의 함수 오버로드를 사용하면 하나의 함수 이름에 여러 함수 시그니처를 정의할 수 있어, 여러 방식으로 호출할 수 있는 함수를 정의할 수 있습니다. 다음은 예제입니다.
 
 ```typescript
@@ -49,4 +47,3 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Thao tác kiểu
 
-
-
 ### Tạo kiểu từ kiểu
 
 Có thể tạo các kiểu mới bằng cách kết hợp, thao tác hoặc biến đổi các kiểu hiện có.
@@ -354,4 +352,3 @@ function fn2<T extends string>(x: T[], y: NoInfer<T>) {
 
 const r2 = fn2(['a', 'b'], 'c'); // Lỗi: Đối số kiểu '"c"' không thể gán cho tham số có kiểu '"a" | "b"'.
 ```
-

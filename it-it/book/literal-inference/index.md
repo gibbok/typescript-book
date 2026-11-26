@@ -1,7 +1,5 @@
 ﻿# Inferenza letterale
 
-
-
 L'inferenza letterale è una funzionalità di TypeScript che consente di dedurre il tipo di una variabile o di un parametro in base al suo valore.
 
 Nell'esempio seguente possiamo vedere che TypeScript considera `x` un tipo letterale in quanto il valore non può essere modificato in seguito, mentre `y` viene dedotto come stringa in quanto può essere modificato in seguito.
@@ -45,4 +43,3 @@ let o = {
     x: 'a' as X,
 };
 ```
-

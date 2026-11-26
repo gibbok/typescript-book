@@ -1,6 +1,5 @@
 ﻿# TypeScript 7이 파일 변경 후 구성 진단을 새로 고칩니다
 
-
 **게시일:** 2026년 7월 30일
 
 Microsoft는 추적 중인 `tsconfig.json` 또는 `jsconfig.json` 파일이 변경된 후 TypeScript의 네이티브 언어 서비스에서 구성 파일 진단을 새로 고치는 수정 사항을 병합했습니다.

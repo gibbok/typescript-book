@@ -1,6 +1,5 @@
 ﻿# Trình biên dịch TypeScript gốc bổ sung hỗ trợ WebAssembly thử nghiệm
 
-
 **Ngày đăng:** 2026-10-29
 
 Ngày 29 tháng 10 năm 2026, Microsoft đã hợp nhất hỗ trợ `wasip1/wasm` thử nghiệm vào trình biên dịch TypeScript gốc. Thay đổi này cho phép chạy trình biên dịch trong môi trường WASI và cung cấp phương thức truyền tải API JavaScript có thể dùng trong trình duyệt.

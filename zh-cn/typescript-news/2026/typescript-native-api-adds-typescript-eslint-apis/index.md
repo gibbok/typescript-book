@@ -1,6 +1,5 @@
 ﻿# TypeScript 原生 API 新增 typescript-eslint 所需的 API
 
-
 **发布日期：** 2026 年 9 月 14 日
 
 TypeScript 原生 API 现在公开了 `typescript-eslint` 所需的更多检查器和类型 API，从而减少依赖 TypeScript 编程 API 的工具之间的兼容性缺口。

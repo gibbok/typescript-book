@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 sửa khả năng truy cập setter trong union và intersection
 
-
 **Đã xuất bản:** August 24, 2026
 
 Microsoft đã merge một bản sửa cho bộ kiểm tra TypeScript native, giữ khả năng truy cập đọc và ghi tách biệt đối với các thuộc tính được tổng hợp từ union và intersection.

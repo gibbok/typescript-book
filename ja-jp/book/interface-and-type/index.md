@@ -1,7 +1,5 @@
 ﻿# インターフェースと型
 
-
-
 ### 共通の構文
 
 TypeScript では、インターフェースはオブジェクトの構造を定義し、オブジェクトが持つ必要のあるプロパティまたはメソッドの名前と型を指定します。TypeScript でインターフェースを定義する一般的な構文は次のとおりです。
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // 交差型
 let myCombined: CombinedType = { name: 'John', age: 25 }; // name と age の両方のプロパティを持つオブジェクト
 ```
-

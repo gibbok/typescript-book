@@ -1,7 +1,5 @@
 ﻿# 探索类型系统
 
-
-
 ### TypeScript 的语言服务
 
 TypeScript 的语言服务，也被称为 tsserver，提供了各种功能，例如错误报告、诊断、保存时编译、重命名、跳转到定义、补全列表、签名帮助等。它主要由集成开发环境 (IDE) 使用来提供 IntelliSense 支持。它与 Visual Studio Code 无缝集成，并由 Conquer of Completion (Coc) 等工具使用。
@@ -828,4 +826,3 @@ function classify(x: unknown) {
     }
 }
 ```
-

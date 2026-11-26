@@ -1,7 +1,5 @@
 ﻿# Tipe Literal
 
-
-
 Tipe Literal adalah himpunan berelemen tunggal di dalam tipe kolektif; tipe ini mendefinisikan nilai yang sangat spesifik dan merupakan primitif JavaScript.
 
 Tipe Literal dalam TypeScript adalah number, string, dan boolean.
@@ -20,4 +18,3 @@ Dalam contoh berikut, Anda dapat melihat sebuah type alias union. `O` hanya terd
 ```typescript
 type O = 'a' | 'b' | 'c';
 ```
-

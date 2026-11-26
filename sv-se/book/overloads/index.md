@@ -1,7 +1,5 @@
 ﻿# Överlagringar
 
-
-
 Funktionsöverlagringar i TypeScript låter dig definiera flera funktionssignaturer för ett enda funktionsnamn, vilket gör det möjligt att definiera funktioner som kan anropas på flera sätt. Här är ett exempel:
 
 ```typescript
@@ -49,4 +47,3 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
-

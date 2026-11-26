@@ -1,7 +1,5 @@
 ﻿# Распространённые встроенные объекты JS
 
-
-
 TypeScript является надмножеством JavaScript и включает все широко используемые встроенные объекты JavaScript. Подробный список этих объектов можно найти в документации Mozilla Developer Network (MDN):
 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 
@@ -22,4 +20,3 @@ TypeScript является надмножеством JavaScript и включ�
 * Set
 * Promise
 * Intl
-

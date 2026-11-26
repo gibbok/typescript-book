@@ -1,7 +1,5 @@
 ﻿# 型の絞り込み
 
-
-
 TypeScript の型の絞り込みは、条件ブロック内で変数の型をより具体的にするプロセスです。これは、変数が複数の型を持つ可能性があるユニオン型を扱う際に役立ちます。
 
 TypeScript は、型を絞り込むいくつかの方法を認識します。
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

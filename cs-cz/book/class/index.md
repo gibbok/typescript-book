@@ -1,7 +1,5 @@
 ﻿# Třída
 
-
-
 ### Obvyklá syntaxe třídy
 
 Klíčové slovo `class` se v TypeScriptu používá k definování třídy. Níže vidíte příklad:
@@ -672,4 +670,3 @@ class MyClass {
 const r = new MyClass();
 console.log(r.add(10, 5)); // Vypíše 15
 ```
-

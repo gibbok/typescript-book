@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 poprawia kontrolę dostępności setterów w uniach i przecięciach
 
-
 **Opublikowano:** 24 sierpnia 2026 r.
 
 Microsoft scalił poprawkę natywnego mechanizmu sprawdzania typów TypeScript, która rozdziela dostępność odczytu i zapisu dla właściwości syntetyzowanych z unii i przecięć.

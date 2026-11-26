@@ -1,7 +1,5 @@
 ﻿# Arayüz ve Tür
 
-
-
 ### Yaygın Sözdizimi
 
 TypeScript'te arayüzler, bir nesnenin sahip olması gereken özelliklerin veya metotların adlarını ve türlerini belirterek nesnelerin yapısını tanımlar. TypeScript'te arayüz tanımlamak için yaygın sözdizimi şöyledir:
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // Kesişim türü
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Hem name hem de age özelliklerine sahip nesne
 ```
-

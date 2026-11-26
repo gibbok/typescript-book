@@ -1,6 +1,5 @@
 ﻿# Nativní kompilátor TypeScriptu snižuje spotřebu paměti optimalizacemi kontroly typů
 
-
 **Zveřejněno:** 14. října 2026
 
 Microsoft sloučil několik optimalizací paměti do nativního kompilátoru TypeScriptu. Snižují paměť uchovávanou interními datovými strukturami kontroly typů, aniž by měnily syntaxi TypeScriptu.

@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 thêm phạm vi tìm kiếm workspace-symbol
 
-
 **Đã xuất bản:** August 7, 2026
 
 Microsoft đã merge một phạm vi tìm kiếm workspace-symbol cho language service native của TypeScript.

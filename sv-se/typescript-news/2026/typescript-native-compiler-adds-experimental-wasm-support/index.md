@@ -1,6 +1,5 @@
 ﻿# TypeScripts inbyggda kompilator får experimentellt WebAssembly-stöd
 
-
 **Publicerad:** 2026-10-29
 
 Den 29 oktober 2026 slog Microsoft samman experimentellt stöd för `wasip1/wasm` i TypeScripts inbyggda kompilator. Ändringen gör det möjligt att köra kompilatorn i WASI-miljöer och ger ett JavaScript-API med transport som fungerar i webbläsaren.

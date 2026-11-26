@@ -1,7 +1,5 @@
 ﻿# 枚举
 
-
-
 在 TypeScript 中，枚举是一组命名常量值。
 
 ```typescript
@@ -159,4 +157,3 @@ enum E {
 
 console.log(E.C); //42
 ```
-

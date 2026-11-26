@@ -1,6 +1,5 @@
 ﻿# TypeScript 7, Go to Implementation bellek kullanımını iyileştiriyor
 
-
 **Yayımlandı:** 30 Temmuz 2026
 
 Microsoft, TypeScript'in yerel dil hizmetindeki Go to Implementation özelliği için bellek ölçeklendirme sorununu gideren bir düzeltmeyi birleştirdi.

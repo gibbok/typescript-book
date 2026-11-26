@@ -1,7 +1,5 @@
 ﻿# Inférence des littéraux
 
-
-
 L’inférence des littéraux est une fonctionnalité de TypeScript qui permet d’inférer le type d’une variable ou d’un paramètre à partir de sa valeur.
 
 Dans l’exemple suivant, nous pouvons voir que TypeScript considère `x` comme un type littéral, car sa valeur ne peut plus être modifiée ultérieurement, tandis que `y` est inféré comme une chaîne puisqu’il peut être modifié ultérieurement.
@@ -45,4 +43,3 @@ let o = {
     x: 'a' as X,
 };
 ```
-

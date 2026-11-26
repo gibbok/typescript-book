@@ -1,7 +1,5 @@
 ﻿# Literal Types
 
-
-
 A Literal Type is a single-element set within a collective type; it defines a very exact value that is a JavaScript primitive.
 
 Literal Types in TypeScript are numbers, strings, and booleans.
@@ -20,4 +18,3 @@ In the following example, you can see a union type alias. `O` consists of only t
 ```typescript
 type O = 'a' | 'b' | 'c';
 ```
-

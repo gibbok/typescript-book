@@ -1,6 +1,5 @@
 ﻿# Il compilatore nativo TypeScript riduce l'uso di memoria nel type checker
 
-
 **Pubblicato:** 14 ottobre 2026
 
 Microsoft ha integrato diverse ottimizzazioni della memoria nel compilatore nativo di TypeScript. Le modifiche riducono la memoria trattenuta dalle strutture interne del type checker senza cambiare la sintassi di TypeScript.

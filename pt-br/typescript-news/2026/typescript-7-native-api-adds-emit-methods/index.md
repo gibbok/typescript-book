@@ -1,6 +1,5 @@
 ﻿# API nativa do TypeScript 7 adiciona métodos de emit
 
-
 **Publicado:** 24 de julho de 2026
 
 A base de código nativa do TypeScript adicionou APIs programáticas de emit para ferramentas que precisam gerar saída JavaScript ou de declarações.

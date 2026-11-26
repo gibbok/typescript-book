@@ -1,7 +1,5 @@
 ﻿# Types primitifs
 
-
-
 TypeScript prend en charge 7 types primitifs. Un type de données primitif désigne un type qui n’est pas un objet et auquel aucune méthode n’est associée. Dans TypeScript, tous les types primitifs sont immuables, ce qui signifie que leurs valeurs ne peuvent plus être modifiées une fois affectées.
 
 ### string
@@ -121,4 +119,3 @@ Le type `any` peut être utile lors d’une migration progressive de JavaScript 
 Pour les nouveaux projets, utilisez l’option de configuration TypeScript `noImplicitAny`, qui permet à TypeScript de signaler les erreurs aux endroits où `any` est utilisé ou inféré.
 
 Le type `any` est généralement une source d’erreurs susceptible de masquer de véritables problèmes dans vos types. Évitez autant que possible de l’utiliser.
-

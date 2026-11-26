@@ -1,7 +1,5 @@
 ﻿# TypeScript 시작하기
 
-
-
 ### 설치
 
 Visual Studio Code는 TypeScript 언어를 훌륭하게 지원하지만 TypeScript 컴파일러는 포함하지 않습니다. TypeScript 컴파일러를 설치하려면 npm 또는 yarn 같은 패키지 관리자를 사용할 수 있습니다.
@@ -205,4 +203,3 @@ yarn add --dev @types/package-name
 마이그레이션 중에는 JavaScript 파일에서 TypeScript 타입 검사를 활성화하는 `@ts-check` 지시어를 사용할 수 있습니다. 이 지시어는 느슨한 형태의 타입 검사를 제공하며 처음에는 JavaScript 파일의 문제를 식별하는 데 사용할 수 있습니다. 파일에 `@ts-check`가 포함되면 TypeScript는 JSDoc 스타일 주석을 사용하여 정의를 추론하려고 합니다. 다만 JSDoc 어노테이션은 마이그레이션의 아주 초기 단계에서만 사용하는 것을 고려하세요.
 
 tsconfig.json에서 `noEmitOnError`의 기본값을 false로 유지하는 것을 고려하세요. 그러면 오류가 보고되더라도 JavaScript 소스 코드를 출력할 수 있습니다.
-

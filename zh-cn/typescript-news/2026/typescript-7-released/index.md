@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.0 现已发布
 
-
 **发布日期：** 2026 年 7 月 8 日
 
 Microsoft 已发布 TypeScript 7.0，这是首个基于该项目全新原生 Go 代码库构建的稳定版本。

@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.0 je nyní k dispozici
 
-
 **Zveřejněno:** 8. července 2026
 
 Microsoft vydal TypeScript 7.0, první stabilní verzi založenou na novém nativním kódu projektu napsaném v Go.

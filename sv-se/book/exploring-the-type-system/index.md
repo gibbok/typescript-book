@@ -1,7 +1,5 @@
 ﻿# Utforska typsystemet
 
-
-
 ### TypeScript-språktjänsten
 
 TypeScript-språktjänsten, även känd som tsserver, erbjuder olika funktioner såsom felrapportering, diagnostik, kompilera-vid-sparning, namnbyte, gå till definition, kompletteringslistor, signaturhjälp och mer. Den används främst av integrerade utvecklingsmiljöer (IDE:er) för att ge IntelliSense-stöd. Den integreras sömlöst med Visual Studio Code och används av verktyg som Conquer of Completion (Coc).
@@ -834,4 +832,3 @@ function classify(x: unknown) {
     }
 }
 ```
-

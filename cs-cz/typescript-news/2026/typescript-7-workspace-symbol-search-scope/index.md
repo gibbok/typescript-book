@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 přidává rozsah vyhledávání symbolů v pracovním prostoru
 
-
 **Zveřejněno:** 7. srpna 2026
 
 Microsoft sloučil možnost nastavit rozsah vyhledávání symbolů v pracovním prostoru pro nativní jazykovou službu TypeScriptu.

@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 usprawnia wykorzystanie pamięci przez funkcję Go to Implementation
 
-
 **Opublikowano:** 30 lipca 2026 r.
 
 Microsoft scalił poprawkę skalowania zużycia pamięci przez funkcję Go to Implementation w natywnej usłudze językowej TypeScript.

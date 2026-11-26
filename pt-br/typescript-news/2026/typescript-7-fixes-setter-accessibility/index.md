@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 corrige a acessibilidade de setters em unions e intersections
 
-
 **Publicado:** 24 de agosto de 2026
 
 A Microsoft integrou uma correção no verificador nativo do TypeScript que mantém separadas as acessibilidades de leitura e escrita para propriedades sintetizadas a partir de unions e intersections.

@@ -1,7 +1,5 @@
 ﻿# Das Typsystem erkunden
 
-
-
 ### Der TypeScript-Sprachdienst
 
 Der TypeScript Language Service, auch als tsserver bekannt, bietet verschiedene Funktionen wie Fehlerberichte, Diagnosen, Kompilierung beim Speichern, Umbenennen, Springen zur Definition, Vervollständigungslisten, Signaturhilfe und mehr. Er wird hauptsächlich von integrierten Entwicklungsumgebungen (IDEs) verwendet, um IntelliSense-Unterstützung bereitzustellen. Er lässt sich nahtlos in Visual Studio Code integrieren und wird von Werkzeugen wie Conquer of Completion (Coc) genutzt.
@@ -834,4 +832,3 @@ function classify(x: unknown) {
     }
 }
 ```
-

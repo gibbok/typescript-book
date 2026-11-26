@@ -1,7 +1,5 @@
 ﻿# Interface и Type
 
-
-
 ### Общ синтаксис
 
 В TypeScript, interface дефинират структурата на обекти, като задават имената и типовете на свойствата или методите, които даден обект трябва да има. Общият синтаксис за дефиниране на interface в TypeScript е следният:
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // Тип сечение
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Обект със свойства name и age
 ```
-

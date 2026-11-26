@@ -1,7 +1,5 @@
 ﻿# 缩小范围
 
-
-
 TypeScript 缩小范围是细化条件块内变量类型的过程。这在使用联合类型时很有用，其中一个变量可以有多个类型。
 
 TypeScript 可识别多种缩小类型范围的方法：
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

@@ -1,6 +1,5 @@
 ﻿# La API nativa de TypeScript añade APIs necesarias para typescript-eslint
 
-
 **Publicado:** 14 de septiembre de 2026
 
 La API nativa de TypeScript ahora expone APIs adicionales del comprobador y de tipos necesarias para `typescript-eslint`, reduciendo brechas de compatibilidad para las herramientas que dependen de la API programática de TypeScript.

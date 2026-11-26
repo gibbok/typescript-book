@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 Beta bổ sung API dạng mô-đun và hỗ trợ ES2026
 
-
 **Xuất bản:** 20 tháng 10 năm 2026
 
 Microsoft phát hành TypeScript 7.1 Beta với các API trình biên dịch native mới và hỗ trợ tính năng JavaScript. Dùng lệnh sau để thử bản beta:

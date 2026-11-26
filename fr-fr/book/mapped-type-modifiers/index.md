@@ -1,7 +1,5 @@
 ﻿# Modificateurs de types mappés
 
-
-
 En TypeScript, les modificateurs de types mappés permettent de transformer les propriétés d'un type existant :
 
 * `readonly` ou `+readonly` : rend une propriété du type mappé accessible en lecture seule.
@@ -17,4 +15,3 @@ type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Toutes les propriétés
 
 type MyPartial<T> = { [P in keyof T]?: T[P] }; // Toutes les propriétés sont facultatives
 ```
-

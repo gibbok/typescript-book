@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1이 ambient 모듈에 import attributes를 추가했습니다
 
-
 **게시일:** 2026년 9월 1일
 
 TypeScript의 네이티브 컴파일러는 이제 패턴 ambient 모듈 선언에서 import attributes 타입을 지원합니다. 따라서 선언은 `type: 'css'` 또는 `type: 'text'` 같은 속성으로 import를 구분할 수 있습니다.

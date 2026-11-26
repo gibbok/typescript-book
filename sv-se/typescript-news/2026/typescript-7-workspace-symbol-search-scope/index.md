@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 lägger till ett sökomfång för arbetsytans symboler
 
-
 **Publicerad:** 7 augusti 2026
 
 Microsoft har infört ett sökomfång för arbetsytans symboler i TypeScripts inbyggda språktjänst.

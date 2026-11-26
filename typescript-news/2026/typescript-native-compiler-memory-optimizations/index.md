@@ -1,6 +1,5 @@
 ﻿# TypeScript native compiler reduces memory use with checker optimizations
 
-
 **Published:** October 14, 2026
 
 Microsoft merged several memory optimizations into TypeScript's native compiler. They reduce memory retained by internal type-checker data structures without changing TypeScript syntax.

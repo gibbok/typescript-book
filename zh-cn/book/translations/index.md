@@ -1,7 +1,5 @@
 ﻿# 翻译
 
-
-
 本书已被翻译成多种语言版本，包括：
 
 [英语](https://github.com/gibbok/typescript-book/blob/main/README.md)
@@ -40,4 +38,3 @@
 
 [阿拉伯语](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
 [捷克语](https://github.com/gibbok/typescript-book/blob/main/README-cs_CZ.md)
-

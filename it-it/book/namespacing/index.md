@@ -1,7 +1,5 @@
 ﻿# Namespace
 
-
-
 In TypeScript, gli spazi dei nomi vengono utilizzati per organizzare il codice in contenitori logici, prevenendo collisioni di nomi e fornendo un modo per raggruppare il codice correlato.
 L'utilizzo delle parole chiave `export` consente l'accesso allo spazio dei nomi nei moduli "esterni".
 
@@ -19,4 +17,3 @@ const a: MyNamespace.MyInterface1 = {
     prop1: true,
 };
 ```
-

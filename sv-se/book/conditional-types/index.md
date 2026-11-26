@@ -1,7 +1,5 @@
 ﻿# Villkorliga typer
 
-
-
 Villkorliga typer är ett sätt att skapa en typ som beror på ett villkor, där typen som ska skapas bestäms baserat på resultatet av villkoret. De definieras med nyckelordet `extends` och en ternär operator för att villkorligt välja mellan två typer.
 
 ```typescript
@@ -13,4 +11,3 @@ const myNumber = 42;
 type IsMyArrayAnArray = IsArray<typeof myArray>; // Typen true
 type IsMyNumberAnArray = IsArray<typeof myNumber>; // Typen false
 ```
-

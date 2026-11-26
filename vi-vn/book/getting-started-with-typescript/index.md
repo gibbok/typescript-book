@@ -1,7 +1,5 @@
 ﻿# Bắt đầu với TypeScript
 
-
-
 ### Cài đặt
 
 Visual Studio Code hỗ trợ rất tốt ngôn ngữ TypeScript nhưng không bao gồm trình biên dịch TypeScript. Để cài đặt trình biên dịch TypeScript, bạn có thể sử dụng trình quản lý gói như npm hoặc yarn:
@@ -205,4 +203,3 @@ Bước thứ năm là bật "noImplicitAny", điều này sẽ bắt buộc m�
 Trong quá trình chuyển đổi, bạn có thể dùng directive `@ts-check`, cho phép TypeScript kiểm tra kiểu trong tệp JavaScript. Directive này cung cấp một phiên bản kiểm tra kiểu lỏng hơn và ban đầu có thể dùng để xác định vấn đề trong các tệp JavaScript. Khi `@ts-check` được thêm vào tệp, TypeScript sẽ cố gắng suy ra các định nghĩa bằng comment theo phong cách JSDoc. Tuy nhiên, chỉ nên cân nhắc dùng chú thích JSDoc ở giai đoạn rất sớm của quá trình chuyển đổi.
 
 Hãy cân nhắc giữ giá trị mặc định của `noEmitOnError` trong tsconfig.json là false. Điều này cho phép bạn xuất mã nguồn JavaScript ngay cả khi có lỗi được báo cáo.
-

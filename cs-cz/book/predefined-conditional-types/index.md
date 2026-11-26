@@ -1,7 +1,5 @@
 ﻿# Předdefinované podmíněné typy
 
-
-
 Předdefinované podmíněné typy v TypeScriptu jsou vestavěné podmíněné typy poskytované jazykem. Jsou navrženy k provádění běžných transformací typů na základě vlastností daného typu.
 
 `Exclude<UnionType, ExcludedType>`: Tento typ odstraní z Type všechny typy, které jsou přiřaditelné k ExcludedType.
@@ -19,4 +17,3 @@ Předdefinované podmíněné typy v TypeScriptu jsou vestavěné podmíněné t
 `Partial<Type>`: Tento typ nastaví všechny vlastnosti v Type jako volitelné.
 
 `Readonly<Type>`: Tento typ nastaví všechny vlastnosti v Type jako pouze pro čtení.
-

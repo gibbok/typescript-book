@@ -1,7 +1,5 @@
 ﻿# Tür İşleme
 
-
-
 ### Türlerden Tür Oluşturma
 
 Mevcut türleri birleştirerek, işleyerek veya dönüştürerek yeni türler oluşturmak mümkündür.
@@ -354,4 +352,3 @@ function fn2<T extends string>(x: T[], y: NoInfer<T>) {
 
 const r2 = fn2(['a', 'b'], 'c'); // Hata: '"c"' türündeki argüman '"a" | "b"' türündeki parametreye atanamaz.
 ```
-

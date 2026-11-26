@@ -1,7 +1,5 @@
 ﻿# Tipe Kondisional yang Telah Didefinisikan
 
-
-
 Dalam TypeScript, tipe kondisional yang telah didefinisikan adalah tipe kondisional bawaan yang disediakan oleh bahasa tersebut. Tipe-tipe ini dirancang untuk melakukan transformasi tipe yang umum berdasarkan karakteristik tipe tertentu.
 
 `Exclude<UnionType, ExcludedType>`: Tipe ini menghapus semua tipe dari Type yang dapat ditetapkan ke ExcludedType.
@@ -19,4 +17,3 @@ Dalam TypeScript, tipe kondisional yang telah didefinisikan adalah tipe kondisio
 `Partial<Type>`: Tipe ini membuat semua properti dalam Type menjadi opsional.
 
 `Readonly<Type>`: Tipe ini membuat semua properti dalam Type menjadi hanya-baca.
-

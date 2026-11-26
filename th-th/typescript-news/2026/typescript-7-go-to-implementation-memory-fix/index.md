@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 ปรับปรุงการใช้หน่วยความจำของ Go to Implementation
 
-
 **เผยแพร่:** 30 กรกฎาคม 2026
 
 Microsoft ได้ merge การแก้ไขปัญหาการเพิ่มขึ้นของการใช้หน่วยความจำสำหรับ Go to Implementation ในบริการภาษาแบบเนทีฟของ TypeScript

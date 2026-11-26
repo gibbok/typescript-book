@@ -1,7 +1,5 @@
 ﻿# 目次
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
   - [プロジェクトを支援する](../support-the-project/)
@@ -218,4 +216,3 @@
     - [正規表現の構文チェック](../others/#正規表現の構文チェック)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

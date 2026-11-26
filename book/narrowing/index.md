@@ -1,7 +1,5 @@
 ﻿# Narrowing
 
-
-
 TypeScript narrowing is the process of refining the type of a variable within a conditional block. This is useful when working with union types, where a variable can have more than one type.
 
 TypeScript recognizes several ways to narrow the type:
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

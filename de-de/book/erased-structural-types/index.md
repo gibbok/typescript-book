@@ -1,7 +1,5 @@
 ﻿# Strukturelle Typen mit Typlöschung
 
-
-
 In TypeScript müssen Objekte keinem bestimmten, exakten Typ entsprechen. Wenn wir beispielsweise ein Objekt erstellen, das die Anforderungen eines Interfaces erfüllt, können wir dieses Objekt an Stellen verwenden, an denen dieses Interface erforderlich ist, selbst wenn zwischen beiden keine explizite Verbindung besteht.
 Beispiel:
 
@@ -21,4 +19,3 @@ const obj = {
 
 log(obj); // Gültig
 ```
-

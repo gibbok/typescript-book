@@ -1,7 +1,5 @@
 ﻿# Exhaustiveness checking
 
-
-
 Exhaustiveness checking is a feature in TypeScript that ensures all possible cases of a discriminated union are handled in a `switch` statement or an `if` statement.
 
 ```typescript
@@ -23,4 +21,3 @@ const move = (direction: Direction) => {
 ```
 
 The `never` type is used to ensure that the default case is exhaustive and that TypeScript will raise an error if a new value is added to the Direction type without being handled in the switch statement.
-

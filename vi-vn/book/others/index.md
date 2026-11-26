@@ -1,7 +1,5 @@
 ﻿# Khác
 
-
-
 ### Lỗi và xử lý ngoại lệ
 
 TypeScript cho phép bạn bắt và xử lý lỗi bằng các cơ chế xử lý lỗi JavaScript tiêu chuẩn:

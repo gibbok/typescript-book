@@ -1,7 +1,5 @@
 ﻿# Any türü
 
-
-
 `any` türü, her türlü değeri (ilkel değerler, nesneler, diziler, fonksiyonlar, hatalar, semboller) temsil etmek için kullanılabilen özel bir türdür (evrensel üst tür). Genellikle bir değerin türünün derleme zamanında bilinmediği durumlarda ya da TypeScript tür tanımları bulunmayan harici API'ler veya kütüphanelerden gelen değerlerle çalışırken kullanılır.
 
 `any` türünü kullanarak TypeScript derleyicisine değerlerin herhangi bir sınırlama olmadan temsil edilmesi gerektiğini belirtirsiniz. Kodunuzdaki tür güvenliğini en üst düzeye çıkarmak için şunları göz önünde bulundurun:
@@ -15,4 +13,3 @@ let value: any;
 value = true; // Geçerli
 value = 7; // Geçerli
 ```
-

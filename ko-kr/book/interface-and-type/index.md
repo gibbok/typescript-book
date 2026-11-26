@@ -1,7 +1,5 @@
 ﻿# 인터페이스와 타입
 
-
-
 ### 공통 구문
 
 TypeScript에서 인터페이스는 객체의 구조를 정의하며 객체가 가져야 하는 프로퍼티 또는 메서드의 이름과 타입을 지정합니다. TypeScript에서 인터페이스를 정의하는 일반적인 구문은 다음과 같습니다.
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // 인터섹션 타입
 let myCombined: CombinedType = { name: 'John', age: 25 }; // name과 age 프로퍼티를 모두 가지는 객체
 ```
-

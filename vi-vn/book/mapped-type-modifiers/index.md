@@ -1,7 +1,5 @@
 ﻿# Modifier của Mapped Type
 
-
-
 Mapped Type Modifier trong TypeScript cho phép biến đổi các thuộc tính trong một kiểu hiện có:
 
 * `readonly` hoặc `+readonly`: Làm cho một thuộc tính trong mapped type chỉ đọc.
@@ -17,4 +15,3 @@ type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Tất cả thuộc tín
 
 type MyPartial<T> = { [P in keyof T]?: T[P] }; // Tất cả thuộc tính được đánh dấu là tùy chọn
 ```
-

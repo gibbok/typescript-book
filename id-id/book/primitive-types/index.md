@@ -1,7 +1,5 @@
 ﻿# Tipe Primitif
 
-
-
 TypeScript mendukung 7 tipe primitif. Tipe data primitif merujuk pada tipe yang bukan merupakan objek dan tidak memiliki metode apa pun yang terkait dengannya. Dalam TypeScript, semua tipe primitif bersifat immutable, yang berarti nilainya tidak dapat diubah setelah ditetapkan.
 
 ### string
@@ -121,4 +119,3 @@ Tipe `any` dapat berguna selama migrasi bertahap dari JavaScript ke TypeScript, 
 Untuk proyek baru, gunakan konfigurasi TypeScript `noImplicitAny`, yang memungkinkan TypeScript melaporkan error ketika `any` digunakan atau diinferensi.
 
 Tipe `any` biasanya menjadi sumber error yang dapat menyamarkan masalah sebenarnya pada tipe Anda. Hindari menggunakannya sebisa mungkin.
-

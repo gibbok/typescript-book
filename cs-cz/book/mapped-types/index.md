@@ -1,7 +1,5 @@
 ﻿# Mapované typy
 
-
-
 Mapované typy v TypeScriptu umožňují vytvářet nové typy na základě existujícího typu transformací každé vlastnosti pomocí mapovací funkce. Mapováním existujících typů můžete vytvářet nové typy, které představují stejné informace v jiném formátu. Mapovaný typ vytvoříte tak, že přistoupíte k vlastnostem existujícího typu pomocí operátoru `keyof` a poté je upravíte, čímž vznikne nový typ.
 V následujícím příkladu:
 
@@ -21,4 +19,3 @@ const x: MyNewType = {
 ```
 
 definujeme MyMappedType tak, aby mapoval vlastnosti T a vytvořil nový typ, v němž je každá vlastnost polem svého původního typu. Pomocí toho vytváříme MyNewType, který představuje stejné informace jako MyType, ale každá vlastnost je polem.
-

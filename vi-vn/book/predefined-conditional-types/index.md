@@ -1,7 +1,5 @@
 ﻿# Conditional Type được định nghĩa sẵn
 
-
-
 Trong TypeScript, Predefined Conditional Type là các conditional type tích hợp do ngôn ngữ cung cấp. Chúng được thiết kế để thực hiện các phép biến đổi kiểu phổ biến dựa trên đặc điểm của một kiểu nhất định.
 
 `Exclude<UnionType, ExcludedType>`: Kiểu này loại bỏ khỏi Type tất cả các kiểu có thể gán cho ExcludedType.
@@ -19,4 +17,3 @@ Trong TypeScript, Predefined Conditional Type là các conditional type tích h�
 `Partial<Type>`: Kiểu này biến tất cả thuộc tính trong Type thành tùy chọn.
 
 `Readonly<Type>`: Kiểu này biến tất cả thuộc tính trong Type thành readonly.
-

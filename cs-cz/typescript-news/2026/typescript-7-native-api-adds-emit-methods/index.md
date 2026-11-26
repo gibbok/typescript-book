@@ -1,6 +1,5 @@
 ﻿# Nativní API TypeScriptu 7 přidává metody pro generování výstupu
 
-
 **Zveřejněno:** 24. července 2026
 
 Do nativního kódu TypeScriptu byla přidána programová API pro generování výstupu určená nástrojům, které potřebují generovat JavaScript nebo deklarace.

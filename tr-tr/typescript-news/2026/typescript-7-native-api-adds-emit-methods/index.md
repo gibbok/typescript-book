@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 yerel API'si emit metotları ekliyor
 
-
 **Yayımlandı:** 24 Temmuz 2026
 
 Yerel TypeScript kod tabanı, JavaScript veya bildirim çıktısı oluşturması gereken araçlar için programatik emit API'leri ekledi.

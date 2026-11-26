@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 añade atributos de importación a módulos ambient
 
-
 **Publicado:** 1 de septiembre de 2026
 
 El compilador nativo de TypeScript ahora admite tipos de atributos de importación en declaraciones de módulos ambient con patrón. Así, las declaraciones pueden distinguir imports mediante atributos como `type: 'css'` o `type: 'text'`.

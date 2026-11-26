@@ -1,7 +1,5 @@
 ﻿# Kapsamlılık denetimi
 
-
-
 Kapsamlılık denetimi, ayırt edici bir birleşimin tüm olası durumlarının bir `switch` veya `if` ifadesinde ele alınmasını sağlayan bir TypeScript özelliğidir.
 
 ```typescript
@@ -23,4 +21,3 @@ const move = (direction: Direction) => {
 ```
 
 `never` türü, varsayılan durumun kapsamlı olmasını ve switch ifadesinde ele alınmadan Direction türüne yeni bir değer eklenirse TypeScript'in hata vermesini sağlamak için kullanılır.
-

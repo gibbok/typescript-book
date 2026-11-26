@@ -1,7 +1,5 @@
 ﻿# TypeScript を始める
 
-
-
 ### インストール
 
 Visual Studio Code は TypeScript 言語を十分にサポートしていますが、TypeScript コンパイラは含まれていません。TypeScript コンパイラをインストールするには、npm や yarn などのパッケージマネージャーを使用できます。
@@ -205,4 +203,3 @@ yarn add --dev @types/package-name
 移行中は、JavaScript ファイルで TypeScript の型チェックを有効にする `@ts-check` ディレクティブを使用できます。このディレクティブは緩やかな型チェックを提供し、最初の段階で JavaScript ファイル内の問題を特定するために使用できます。ファイルに `@ts-check` が含まれている場合、TypeScript は JSDoc 形式のコメントを使用して定義を推論しようとします。ただし、JSDoc アノテーションの使用は、移行のごく初期段階に限ることを検討してください。
 
 tsconfig.json の `noEmitOnError` は、デフォルト値の false のままにすることを検討してください。これにより、エラーが報告された場合でも JavaScript ソースコードを出力できます。
-

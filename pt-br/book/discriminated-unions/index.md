@@ -1,7 +1,5 @@
 ﻿# Uniões Discriminadas
 
-
-
 Uniões discriminadas (Discriminated Unions) no TypeScript são um tipo de união que usa uma propriedade comum, conhecida como discriminante, para estreitar o conjunto de tipos possíveis para a união.
 
 ```typescript
@@ -32,4 +30,3 @@ const circle: Circle = { kind: 'circle', radius: 2 };
 console.log(area(square)); // 25
 console.log(area(circle)); // 12.566370614359172
 ```
-

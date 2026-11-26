@@ -1,7 +1,5 @@
 ﻿# Inferência Literal
 
-
-
 A inferência literal é um recurso do TypeScript que permite que o tipo de uma variável ou parâmetro seja inferido com base em seu valor.
 
 No exemplo a seguir, podemos ver que o TypeScript considera `x` um tipo literal, pois o valor não pode ser alterado posteriormente, enquanto `y` é inferido como string, pois pode ser modificado posteriormente.
@@ -45,4 +43,3 @@ let o = {
     x: 'a' as X,
 };
 ```
-

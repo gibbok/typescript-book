@@ -1,7 +1,5 @@
 ﻿# Typmanipulation
 
-
-
 ### Skapa typer från typer
 
 Det är möjligt att skapa nya typer genom att komponera, manipulera eller transformera befintliga typer.
@@ -354,4 +352,3 @@ function fn2<T extends string>(x: T[], y: NoInfer<T>) {
 
 const r2 = fn2(['a', 'b'], 'c'); // Fel: Ett argument av typen '"c"' kan inte tilldelas en parameter av typen '"a" | "b"'.
 ```
-

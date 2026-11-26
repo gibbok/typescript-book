@@ -1,6 +1,5 @@
 ﻿# Kompiler native TypeScript mengurangi penggunaan memori melalui optimasi pemeriksa tipe
 
-
 **Diterbitkan:** 14 Oktober 2026
 
 Microsoft menggabungkan sejumlah optimasi memori ke kompiler native TypeScript. Perubahan ini mengurangi memori yang dipertahankan struktur internal pemeriksa tipe tanpa mengubah sintaks TypeScript.

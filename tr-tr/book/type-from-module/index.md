@@ -1,7 +1,5 @@
 ﻿# Modülden Tür
 
-
-
 Modülden Tür, bir modülün dışa aktarılan değerlerini kullanarak bunların türlerini otomatik olarak çıkarma yeteneğini ifade eder. Bir modül belirli bir türe sahip bir değeri dışa aktardığında TypeScript, bu değer başka bir modüle içe aktarılırken türünü otomatik olarak çıkarmak için bu bilgiyi kullanabilir.
 
 <!-- skip -->
@@ -12,4 +10,3 @@ export const add = (x: number, y: number) => x + y;
 import { add } from 'calc';
 const r = add(1, 2); // r number türündedir
 ```
-

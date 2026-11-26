@@ -1,7 +1,5 @@
 ﻿# Interfaz y tipo
 
-
-
 ### Sintaxis habitual
 
 En TypeScript, las interfaces definen la estructura de los objetos y especifican los nombres y tipos de las propiedades o métodos que deben tener. La sintaxis habitual para definir una interfaz es la siguiente:
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // Tipo de intersección
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Objeto con las propiedades name y age
 ```
-

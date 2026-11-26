@@ -1,7 +1,5 @@
 ﻿# クラス
 
-
-
 ### クラスの一般的な構文
 
 TypeScript では、クラスを定義するために `class` キーワードを使用します。以下に例を示します。
@@ -672,4 +670,3 @@ class MyClass {
 const r = new MyClass();
 console.log(r.add(10, 5)); // ログ出力 15
 ```
-

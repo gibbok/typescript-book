@@ -1,7 +1,5 @@
 ﻿# Otros
 
-
-
 ### Gestión de errores y excepciones
 
 TypeScript permite capturar y gestionar errores mediante los mecanismos estándar de JavaScript:

@@ -1,7 +1,5 @@
 ﻿# TypeScript 简介
 
-
-
 ### 什么是 TypeScript？
 
 TypeScript 是一种基于 JavaScript 的强类型编程语言。它最初由 Anders Hejlsberg 于 2012 年设计，目前由微软开发和维护，是一个开源项目。
@@ -210,4 +208,3 @@ TypeScript 可以将代码编译为自 ECMAScript 3 (1999) 以来任何已发布
 * 默认函数参数。
 
 通过利用这些现代 JavaScript 功能，开发人员可以在 TypeScript 中编写更具表现力和简洁的代码。
-

@@ -1,7 +1,5 @@
 ﻿# Extension des types
 
-
-
 Il est possible d’étendre une `interface` (en copiant les membres d’un autre type) :
 
 ```typescript
@@ -49,4 +47,3 @@ interface B extends A {
     b: string;
 }
 ```
-

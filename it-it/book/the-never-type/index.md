@@ -1,7 +1,5 @@
 ﻿# Il tipo never
 
-
-
 Quando una variabile viene ristretta a un tipo che non può contenere alcun valore, il compilatore TypeScript dedurrà che la variabile deve essere del tipo `never`. Questo perché il tipo `never` rappresenta un valore che non può mai essere prodotto.
 
 ```typescript
@@ -17,4 +15,3 @@ const printValue = (val: string | number) => {
     }
 };
 ```
-

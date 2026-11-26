@@ -1,7 +1,5 @@
 ﻿# Traduções
 
-
-
 Este livro foi traduzido para vários idiomas, incluindo:
 
 [Inglês](https://github.com/gibbok/typescript-book/blob/main/README.md)
@@ -40,4 +38,3 @@ Este livro foi traduzido para vários idiomas, incluindo:
 
 [Árabe](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
 [Tcheco](https://github.com/gibbok/typescript-book/blob/main/README-cs_CZ.md)
-

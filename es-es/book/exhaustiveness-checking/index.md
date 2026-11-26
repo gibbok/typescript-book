@@ -1,7 +1,5 @@
 ﻿# Comprobación exhaustiva
 
-
-
 La comprobación exhaustiva garantiza que todos los casos posibles de una unión discriminada se gestionen en una sentencia `switch` o `if`.
 
 ```typescript
@@ -23,4 +21,3 @@ const move = (direction: Direction) => {
 ```
 
 El tipo `never` garantiza que el caso predeterminado sea exhaustivo y que TypeScript genere un error si se añade un nuevo valor al tipo Direction sin gestionarlo en la sentencia switch.
-

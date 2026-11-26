@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 Beta introduces modular APIs and ES2026 support
 
-
 **Published:** October 20, 2026
 
 Microsoft released TypeScript 7.1 Beta with new native compiler APIs and JavaScript language support. Try the preview with:

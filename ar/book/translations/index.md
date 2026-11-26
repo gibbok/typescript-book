@@ -1,7 +1,5 @@
 ﻿# الترجمات
 
-
-
 تُرجم هذا الكتاب إلى عدة لغات، منها:
 
 [الإنجليزية](https://github.com/gibbok/typescript-book/blob/main/README.md)
@@ -40,4 +38,3 @@
 
 [العربية](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
 [التشيكية](https://github.com/gibbok/typescript-book/blob/main/README-cs_CZ.md)
-

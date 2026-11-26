@@ -1,7 +1,5 @@
 ﻿# Sabit Değer Çıkarımı
 
-
-
 Sabit Değer Çıkarımı, bir değişkenin veya parametrenin türünün değerine göre çıkarılmasına olanak tanıyan bir TypeScript özelliğidir.
 
 Aşağıdaki örnekte TypeScript'in, değeri daha sonra değiştirilemeyeceği için `x`'i sabit değer türü olarak değerlendirdiğini; buna karşılık `y` daha sonra herhangi bir zamanda değiştirilebildiği için türünün string olarak çıkarıldığını görebiliriz.
@@ -45,4 +43,3 @@ let o = {
     x: 'a' as X,
 };
 ```
-

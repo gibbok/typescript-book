@@ -1,7 +1,5 @@
 ﻿# Úvod do TypeScriptu
 
-
-
 ### Co je TypeScript?
 
 TypeScript je silně typovaný programovací jazyk, který vychází z JavaScriptu. Původně jej v roce 2012 navrhl Anders Hejlsberg a v současnosti jej vyvíjí a udržuje Microsoft jako open-source projekt.
@@ -212,4 +210,3 @@ Zde jsou některé moderní funkce JavaScriptu, které lze v TypeScriptu použí
 * Výchozí parametry funkcí.
 
 Využitím těchto moderních funkcí JavaScriptu mohou vývojáři v TypeScriptu psát výstižnější a stručnější kód.
-

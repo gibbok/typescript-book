@@ -1,7 +1,5 @@
 ﻿# Klass
 
-
-
 ### Vanlig klasssyntax
 
 Nyckelordet `class` används i TypeScript för att definiera en klass. Nedan kan du se ett exempel:
@@ -672,4 +670,3 @@ class MyClass {
 const r = new MyClass();
 console.log(r.add(10, 5)); // Skriver ut 15
 ```
-

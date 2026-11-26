@@ -1,7 +1,5 @@
 ﻿# Mapped Type Modifiers
 
-
-
 Mapped Type Modifiers in TypeScript enable the transformation of properties within an existing type:
 
 * `readonly` or `+readonly`: This renders a property in the mapped type as read-only.
@@ -17,4 +15,3 @@ type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // All properties marked a
 
 type MyPartial<T> = { [P in keyof T]?: T[P] }; // All properties marked as optional
 ```
-

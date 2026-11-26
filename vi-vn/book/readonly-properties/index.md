@@ -1,7 +1,5 @@
 ﻿# Thuộc tính readonly
 
-
-
 Có thể ngăn việc ghi vào một thuộc tính bằng modifier `readonly`, bảo đảm thuộc tính không thể được ghi lại nhưng không cung cấp bảo đảm về tính bất biến hoàn toàn:
 
 ```typescript
@@ -21,4 +19,3 @@ type K = {
     readonly [index: number]: string;
 };
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Inferensi Literal
 
-
-
 Inferensi Literal adalah fitur dalam TypeScript yang memungkinkan tipe suatu variabel atau parameter diinferensi berdasarkan nilainya.
 
 Dalam contoh berikut, kita dapat melihat bahwa TypeScript menganggap `x` sebagai tipe literal karena nilainya tidak dapat diubah di kemudian hari, sedangkan `y` diinferensi sebagai string karena dapat diubah di kemudian hari.
@@ -45,4 +43,3 @@ let o = {
     x: 'a' as X,
 };
 ```
-

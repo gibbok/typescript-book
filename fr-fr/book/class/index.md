@@ -1,7 +1,5 @@
 ﻿# Classe
 
-
-
 ### Syntaxe courante d'une classe
 
 Le mot-clé `class` sert à définir une classe en TypeScript. Vous trouverez un exemple ci-dessous :
@@ -672,4 +670,3 @@ class MyClass {
 const r = new MyClass();
 console.log(r.add(10, 5)); // Affiche 15
 ```
-

@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 ajoute les attributs d’import aux modules ambient
 
-
 **Publié le :** 1er septembre 2026
 
 Le compilateur natif de TypeScript prend désormais en charge les types d’attributs d’import dans les déclarations de modules ambient à motif. Les déclarations peuvent ainsi distinguer les imports avec des attributs tels que `type: 'css'` ou `type: 'text'`.

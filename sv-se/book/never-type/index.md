@@ -1,7 +1,5 @@
 ﻿# Användning av Never-typen
 
-
-
 Typen `never` representerar värden som aldrig förekommer. Den används för att beteckna funktioner eller uttryck som aldrig returnerar eller kastar ett fel.
 
 Till exempel en oändlig loop:
@@ -40,4 +38,3 @@ const move = (direction: Direction): void => {
     }
 };
 ```
-

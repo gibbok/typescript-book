@@ -1,7 +1,5 @@
 ﻿# Typy warunkowe
 
-
-
 Typy warunkowe umożliwiają tworzenie typu zależnego od warunku, gdzie typ do utworzenia jest określany na podstawie wyniku warunku. Definiuje się je za pomocą słowa kluczowego `extends` i operatora trójargumentowego, aby warunkowo wybrać jeden z dwóch typów.
 
 ```typescript
@@ -13,4 +11,3 @@ const myNumber = 42;
 type IsMyArrayAnArray = IsArray<typeof myArray>; // Typ true
 type IsMyNumberAnArray = IsArray<typeof myNumber>; // Typ false
 ```
-

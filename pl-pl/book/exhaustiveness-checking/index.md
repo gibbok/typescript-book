@@ -1,7 +1,5 @@
 ﻿# Sprawdzanie kompletności
 
-
-
 Sprawdzanie kompletności to funkcja TypeScript, która zapewnia obsługę wszystkich możliwych przypadków unii dyskryminowanej w instrukcji `switch` lub instrukcji `if`.
 
 ```typescript
@@ -23,4 +21,3 @@ const move = (direction: Direction) => {
 ```
 
 Typ `never` służy do zapewnienia kompletności przypadku domyślnego oraz do zagwarantowania, że TypeScript zgłosi błąd, jeśli do typu Direction zostanie dodana nowa wartość bez jej obsługi w instrukcji `switch`.
-

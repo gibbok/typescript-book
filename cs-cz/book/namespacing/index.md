@@ -1,7 +1,5 @@
 ﻿# Jmenné prostory
 
-
-
 V TypeScriptu se jmenné prostory používají k uspořádání kódu do logických celků, zabraňují kolizím názvů a poskytují způsob, jak seskupit související kód.
 Použití klíčového slova `export` umožňuje přístup ke jmennému prostoru z vnějších modulů.
 
@@ -19,4 +17,3 @@ const a: MyNamespace.MyInterface1 = {
     prop1: true,
 };
 ```
-

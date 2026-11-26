@@ -1,6 +1,5 @@
 ﻿# Ogłoszono wersję kandydującą TypeScript 7.0
 
-
 **Opublikowano:** 18 czerwca 2026 r.
 
 Firma Microsoft wydała wersję kandydującą TypeScript 7.0 jako ostatnią wersję przedpremierową przed stabilnym wydaniem TypeScript 7.

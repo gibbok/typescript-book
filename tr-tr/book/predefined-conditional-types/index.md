@@ -1,7 +1,5 @@
 ﻿# Önceden Tanımlanmış Koşullu Türler
 
-
-
 TypeScript'te Önceden Tanımlanmış Koşullu Türler, dil tarafından sağlanan yerleşik koşullu türlerdir. Belirli bir türün özelliklerine göre yaygın tür dönüşümlerini gerçekleştirmek üzere tasarlanmışlardır.
 
 `Exclude<UnionType, ExcludedType>`: Bu tür, Type içindeki ExcludedType'a atanabilen tüm türleri kaldırır.
@@ -19,4 +17,3 @@ TypeScript'te Önceden Tanımlanmış Koşullu Türler, dil tarafından sağlana
 `Partial<Type>`: Bu tür, Type içindeki tüm özellikleri isteğe bağlı hâle getirir.
 
 `Readonly<Type>`: Bu tür, Type içindeki tüm özellikleri salt okunur hâle getirir.
-

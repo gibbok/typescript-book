@@ -1,7 +1,5 @@
 ﻿# Tipe never
 
-
-
 Ketika sebuah variabel dipersempit menjadi tipe yang tidak dapat memuat nilai apa pun, compiler TypeScript akan menginferensi bahwa variabel tersebut harus bertipe `never`. Hal ini karena tipe `never` merepresentasikan nilai yang tidak akan pernah dapat dihasilkan.
 
 ```typescript
@@ -17,4 +15,3 @@ const printValue = (val: string | number) => {
     }
 };
 ```
-

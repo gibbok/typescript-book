@@ -1,7 +1,5 @@
 ﻿# Merging and Extension
 
-
-
 Merging and extension refer to two different concepts related to working with types and interfaces.
 
 Merging allows you to combine multiple declarations of the same name into a single definition, for example, when you define an interface with the same name multiple times:
@@ -43,4 +41,3 @@ const dog: Bird = {
     },
 };
 ```
-

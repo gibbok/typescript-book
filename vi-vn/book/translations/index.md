@@ -1,7 +1,5 @@
 ﻿# Các bản dịch
 
-
-
 Cuốn sách này đã được dịch sang một số ngôn ngữ, bao gồm:
 
 [Tiếng Anh](https://github.com/gibbok/typescript-book/blob/main/README.md)
@@ -40,4 +38,3 @@ Cuốn sách này đã được dịch sang một số ngôn ngữ, bao gồm:
 
 [Tiếng Ả Rập](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
 [Tiếng Séc](https://github.com/gibbok/typescript-book/blob/main/README-cs_CZ.md)
-

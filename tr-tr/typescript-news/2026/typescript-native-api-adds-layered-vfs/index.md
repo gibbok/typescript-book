@@ -1,6 +1,5 @@
 ﻿# TypeScript yerel API'si katmanlı sanal dosya sistemleri ekliyor
 
-
 **Yayımlandı:** 9 Eylül 2026
 
 TypeScript yerel API'si artık açık sanal dosya sistemi verileriyle snapshot oluşturup güncelleyebilir. Araçlar, dosya sistemi girdisinin tamamını yeniden oluşturmadan dosya ekleme, düzenleme ve kaldırma işlemlerini modelleyebilir.

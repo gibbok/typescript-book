@@ -1,7 +1,5 @@
 ﻿# Vollständigkeitsprüfung
 
-
-
 Die Vollständigkeitsprüfung ist eine Funktion von TypeScript, die sicherstellt, dass alle möglichen Fälle einer diskriminierten Union in einer `switch`- oder `if`-Anweisung behandelt werden.
 
 ```typescript
@@ -23,4 +21,3 @@ const move = (direction: Direction) => {
 ```
 
 Der Typ `never` wird verwendet, um sicherzustellen, dass der Standardfall vollständig ist und TypeScript einen Fehler ausgibt, wenn dem Typ Direction ein neuer Wert hinzugefügt wird, ohne dass dieser in der switch-Anweisung behandelt wird.
-

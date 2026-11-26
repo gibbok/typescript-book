@@ -1,7 +1,5 @@
 ﻿# 重载
 
-
-
 TypeScript 中的函数重载允许您为单个函数名称定义多个函数签名，从而使您能够定义可以多种方式调用的函数。这是一个例子：
 
 ```typescript
@@ -49,4 +47,3 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
-

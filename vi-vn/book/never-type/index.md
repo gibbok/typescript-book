@@ -1,7 +1,5 @@
 ﻿# Kiểu dữ liệu never
 
-
-
 Kiểu `never` biểu diễn các giá trị không bao giờ xảy ra. Nó được dùng để biểu thị các hàm hoặc biểu thức không bao giờ trả về hoặc luôn throw lỗi.
 
 Ví dụ, một vòng lặp vô hạn:
@@ -40,4 +38,3 @@ const move = (direction: Direction): void => {
     }
 };
 ```
-

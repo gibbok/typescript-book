@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 memperbaiki aksesibilitas setter pada union dan intersection
 
-
 **Diterbitkan:** 24 Agustus 2026
 
 Microsoft menggabungkan perbaikan pemeriksa TypeScript native yang memisahkan akses baca dan tulis untuk properti yang dihasilkan dari union dan intersection.

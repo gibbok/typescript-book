@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 原生工具正在整合
 
-
 **发布日期：** 2026 年 7 月 27 日
 
 TypeScript 维护者澄清了稳定版发布后 TypeScript 7 原生工具将如何整合。

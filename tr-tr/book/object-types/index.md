@@ -1,7 +1,5 @@
 ﻿# Nesne Türleri
 
-
-
 TypeScript'te nesne türleri bir nesnenin şeklini açıklar. Nesnenin özelliklerinin adlarını ve türlerini, ayrıca bu özelliklerin zorunlu mu yoksa isteğe bağlı mı olduğunu belirtirler.
 
 TypeScript'te nesne türlerini iki temel yolla tanımlayabilirsiniz:
@@ -31,4 +29,3 @@ Bir türü anonim olarak tanımlamak da mümkündür:
 const sum = (x: { a: number; b: number }) => x.a + x.b;
 console.log(sum({ a: 5, b: 1 }));
 ```
-

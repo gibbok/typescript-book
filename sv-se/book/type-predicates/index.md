@@ -1,7 +1,5 @@
 ﻿# Typpredikat
 
-
-
 Typpredikat i TypeScript är funktioner som returnerar ett booleskt värde och används för att avsmalma typen av en variabel till en mer specifik typ.
 
 ```typescript
@@ -21,4 +19,3 @@ TypeScript 5.5 härleder automatiskt typpredikat (som `x is T`) i funktioner som
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

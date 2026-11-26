@@ -1,7 +1,5 @@
 ﻿# Fusion et extension
 
-
-
 La fusion et l'extension désignent deux concepts différents liés à l'utilisation des types et des interfaces.
 
 La fusion permet de combiner plusieurs déclarations portant le même nom en une seule définition, par exemple lorsque vous définissez plusieurs fois une interface portant le même nom :
@@ -43,4 +41,3 @@ const dog: Bird = {
     },
 };
 ```
-

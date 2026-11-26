@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 atualiza os diagnósticos de configuração após alterações nos arquivos
 
-
 **Publicado:** 30 de julho de 2026
 
 A Microsoft integrou uma correção que atualiza os diagnósticos dos arquivos de configuração no serviço de linguagem nativo do TypeScript após a alteração de um arquivo `tsconfig.json` ou `jsconfig.json` monitorado.

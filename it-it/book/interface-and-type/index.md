@@ -1,7 +1,5 @@
 ﻿# Interfaccia e tipo
 
-
-
 ### Sintassi comune
 
 In TypeScript, le interfacce definiscono la struttura degli oggetti, specificando i nomi e i tipi di proprietà o metodi che un oggetto deve avere. La sintassi comune per definire un'interfaccia in TypeScript è la seguente:
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // Tipo intersezione
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Oggetto con proprietà name e age
 ```
-

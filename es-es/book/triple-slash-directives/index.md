@@ -1,7 +1,5 @@
 ﻿# Directivas de triple barra
 
-
-
 Las directivas de triple barra son comentarios especiales que indican al compilador cómo procesar un archivo. Comienzan con tres barras consecutivas (`///`), suelen situarse al principio de un archivo TypeScript y no afectan al comportamiento en tiempo de ejecución.
 
 Se utilizan para referenciar dependencias externas, especificar el comportamiento de carga de módulos, activar o desactivar características del compilador y otros fines. Algunos ejemplos:
@@ -26,4 +24,3 @@ Activar opciones del compilador; en el siguiente ejemplo, el modo estricto:
 ```typescript
 /// <strict|noImplicitAny|noUnusedLocals|noUnusedParameters>
 ```
-

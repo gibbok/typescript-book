@@ -1,7 +1,5 @@
 ﻿# Ostatní
 
-
-
 ### Chyby a zpracování výjimek
 
 TypeScript umožňuje zachytávat a zpracovávat chyby pomocí standardních mechanismů JavaScriptu pro zpracování chyb:

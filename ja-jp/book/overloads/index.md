@@ -1,7 +1,5 @@
 ﻿# オーバーロード
 
-
-
 TypeScript の関数オーバーロードを使用すると、1 つの関数名に対して複数の関数シグネチャを定義でき、複数の方法で呼び出せる関数を定義できます。例を次に示します。
 
 ```typescript
@@ -49,4 +47,3 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
-

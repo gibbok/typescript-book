@@ -1,6 +1,5 @@
 ﻿# API native của TypeScript 7 thêm các phương thức emit
 
-
 **Đã xuất bản:** July 24, 2026
 
 Codebase TypeScript native đã thêm các API emit theo chương trình cho những công cụ cần tạo output JavaScript hoặc declaration.

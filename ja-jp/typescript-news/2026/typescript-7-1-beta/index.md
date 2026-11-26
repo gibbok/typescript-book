@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 Beta、モジュール化された API と ES2026 対応を追加
 
-
 **公開日:** 2026年10月20日
 
 Microsoft は、新しいネイティブコンパイラー API と JavaScript 機能への対応を含む TypeScript 7.1 Beta を公開しました。ベータ版は次のコマンドで試せます。

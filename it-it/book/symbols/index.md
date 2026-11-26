@@ -1,7 +1,5 @@
 ﻿# Simboli
 
-
-
 I simboli sono un tipo di dati primitivo che rappresenta un valore immutabile la cui unicità globale è garantita per tutta la durata del programma.
 
 I simboli possono essere utilizzati come chiavi per le proprietà degli oggetti e forniscono un modo per creare proprietà non enumerabili.
@@ -20,4 +18,3 @@ console.log(obj[key2]); // valore 2
 ```
 
 Nei WeakMap e nei WeakSet, i simboli sono ora consentiti come chiavi.
-

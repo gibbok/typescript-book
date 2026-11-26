@@ -1,7 +1,5 @@
 ﻿# Literalhärledning
 
-
-
 Literalhärledning är en funktion i TypeScript som gör att typen av en variabel eller parameter kan härledas baserat på dess värde.
 
 I följande exempel kan vi se att TypeScript betraktar `x` som en literaltyp eftersom värdet inte kan ändras senare, medan `y` härleds som sträng eftersom det kan ändras när som helst.
@@ -45,4 +43,3 @@ let o = {
     x: 'a' as X,
 };
 ```
-

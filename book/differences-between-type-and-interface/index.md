@@ -1,7 +1,5 @@
 ﻿# Differences between Type and Interface
 
-
-
 Declaration merging (augmentation):
 
 Interfaces support declaration merging, which means that you can define multiple interfaces with the same name, and TypeScript will merge them into a single interface with the combined properties and methods. On the other hand, types do not support declaration merging. This can be helpful when you want to add extra functionality or customize existing types without modifying the original definitions or patching missing or incorrect types.
@@ -89,4 +87,3 @@ interface B {
 
 type C = A | B; // Union of interfaces
 ```
-

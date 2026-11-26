@@ -1,7 +1,5 @@
 ﻿# Literaltypinferenz
 
-
-
 Die Literaltypinferenz ist eine Funktion von TypeScript, mit der der Typ einer Variablen oder eines Parameters anhand seines Werts abgeleitet werden kann.
 
 Im folgenden Beispiel sehen wir, dass TypeScript `x` als Literaltyp betrachtet, da der Wert später nicht geändert werden kann. `y` wird dagegen als String abgeleitet, da der Wert später jederzeit geändert werden kann.
@@ -45,4 +43,3 @@ let o = {
     x: 'a' as X,
 };
 ```
-

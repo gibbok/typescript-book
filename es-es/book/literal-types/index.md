@@ -1,7 +1,5 @@
 ﻿# Tipos literales
 
-
-
 Un tipo literal es un conjunto de un solo elemento dentro de un tipo colectivo; define un valor muy concreto que es un primitivo de JavaScript.
 
 Los tipos literales de TypeScript son números, cadenas y booleanos.
@@ -20,4 +18,3 @@ En el siguiente ejemplo puedes ver un alias de tipo de unión. `O` consta única
 ```typescript
 type O = 'a' | 'b' | 'c';
 ```
-

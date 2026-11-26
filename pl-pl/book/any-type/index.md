@@ -1,7 +1,5 @@
 ﻿# Typ any
 
-
-
 Typ `any` jest specjalnym typem (uniwersalnym nadtypem), którego można użyć do reprezentowania wartości dowolnego typu (typów pierwotnych, obiektów, tablic, funkcji, błędów, symboli). Jest często używany w sytuacjach, gdy typ wartości nie jest znany w czasie kompilacji lub podczas pracy z wartościami pochodzącymi z zewnętrznych interfejsów API albo bibliotek, które nie mają typów TypeScript.
 
 Używając typu `any`, informuje się kompilator TypeScript, że wartości powinny być reprezentowane bez żadnych ograniczeń. Aby zmaksymalizować bezpieczeństwo typów w kodzie, należy rozważyć następujące kwestie:
@@ -15,4 +13,3 @@ let value: any;
 value = true; // Poprawne
 value = 7; // Poprawne
 ```
-

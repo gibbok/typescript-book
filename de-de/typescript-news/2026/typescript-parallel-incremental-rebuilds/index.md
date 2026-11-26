@@ -1,6 +1,5 @@
 ﻿# TypeScript beschleunigt inkrementelle Builds durch parallele Prüfungen
 
-
 Eine übernommene Compiler-Änderung parallelisiert die Signaturprüfung von Dateien, die von Änderungen an häufig importierten Modulen betroffen sind. Zuvor lief diese Phase sequenziell.
 
 ## Was sich ändert

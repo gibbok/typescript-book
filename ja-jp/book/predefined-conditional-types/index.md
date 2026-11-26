@@ -1,7 +1,5 @@
 ﻿# 定義済み条件型
 
-
-
 TypeScript の定義済み条件型は、言語によって提供される組み込みの条件型です。指定された型の特性に基づいて、一般的な型変換を実行するよう設計されています。
 
 `Exclude<UnionType, ExcludedType>`: Type から ExcludedType に代入可能なすべての型を除外します。
@@ -19,4 +17,3 @@ TypeScript の定義済み条件型は、言語によって提供される組み
 `Partial<Type>`: Type のすべてのプロパティをオプショナルにします。
 
 `Readonly<Type>`: Type のすべてのプロパティを読み取り専用にします。
-

@@ -1,7 +1,5 @@
 ﻿# Exploración del sistema de tipos
 
-
-
 ### El servicio del lenguaje de TypeScript
 
 El servicio del lenguaje de TypeScript, también conocido como tsserver, ofrece distintas funciones, como informes de errores, diagnósticos, compilación al guardar, cambio de nombre, navegación a la definición, listas de finalización, ayuda de firmas y muchas más. Lo utilizan principalmente los entornos de desarrollo integrados (IDE) para ofrecer compatibilidad con IntelliSense. Se integra a la perfección con Visual Studio Code y lo emplean herramientas como Conquer of Completion (Coc).
@@ -834,4 +832,3 @@ function classify(x: unknown) {
     }
 }
 ```
-

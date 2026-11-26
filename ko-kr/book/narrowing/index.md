@@ -1,7 +1,5 @@
 ﻿# 좁히기
 
-
-
 TypeScript 좁히기는 조건부 블록 내에서 변수의 타입을 구체화하는 과정입니다. 변수가 둘 이상의 타입을 가질 수 있는 유니온 타입을 다룰 때 유용합니다.
 
 TypeScript는 타입을 좁히는 여러 가지 방법을 인식합니다.
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

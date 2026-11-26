@@ -1,7 +1,5 @@
 ﻿# Tentang Penulis
 
-
-
 Simone Poggiali adalah Staff Engineer berpengalaman yang memiliki minat besar dalam menulis kode berkualitas profesional sejak era 90-an. Sepanjang karier internasionalnya, ia telah berkontribusi pada banyak proyek untuk beragam klien, mulai dari perusahaan rintisan hingga organisasi besar. Perusahaan ternama seperti HelloFresh, Siemens, O2, Leroy Merlin, dan Snowplow telah memperoleh manfaat dari keahlian dan dedikasinya.
 
 Anda dapat menghubungi Simone Poggiali melalui platform berikut:
@@ -12,4 +10,3 @@ Anda dapat menghubungi Simone Poggiali melalui platform berikut:
 * Email: gibbok.coding📧gmail.com
 
 Daftar lengkap kontributor: [https://github.com/gibbok/typescript-book/graphs/contributors](https://github.com/gibbok/typescript-book/graphs/contributors)
-

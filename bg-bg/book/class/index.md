@@ -1,7 +1,5 @@
 ﻿# Class
 
-
-
 ### Общ синтаксис на Class
 
 Ключовата дума `class` се използва в TypeScript за дефиниране на клас. По-долу е показан пример:
@@ -672,4 +670,3 @@ class MyClass {
 const r = new MyClass();
 console.log(r.add(10, 5)); // Извежда 15
 ```
-

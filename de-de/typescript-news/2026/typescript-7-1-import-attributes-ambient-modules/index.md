@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 fügt Importattribute zu Ambient-Modulen hinzu
 
-
 **Veröffentlicht:** 1. September 2026
 
 Der native TypeScript-Compiler unterstützt jetzt Typen für Importattribute in Pattern-Ambient-Moduldeklarationen. Dadurch können Deklarationen Imports anhand von Attributen wie `type: 'css'` oder `type: 'text'` unterscheiden.

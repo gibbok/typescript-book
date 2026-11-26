@@ -1,7 +1,5 @@
 ﻿# Diferenças entre Tipo e Interface
 
-
-
 Mesclagem de declarações (augmentation):
 
 As interfaces suportam a mesclagem de declarações, o que significa que você pode definir várias interfaces com o mesmo nome, e o TypeScript as mesclará em uma única interface com as propriedades e métodos combinados. Por outro lado, os tipos (types) não suportam a mesclagem de declarações. Isso pode ser útil quando você deseja adicionar funcionalidades extras ou personalizar tipos existentes sem modificar as definições originais ou corrigir tipos ausentes ou incorretos.
@@ -89,4 +87,3 @@ interface B {
 
 type C = A | B; // União de interfaces
 ```
-

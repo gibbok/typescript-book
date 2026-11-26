@@ -1,7 +1,5 @@
 ﻿# Memperluas Tipe
 
-
-
 Sebuah `interface` dapat diperluas (menyalin member dari tipe lain):
 
 ```typescript
@@ -49,4 +47,3 @@ interface B extends A {
     b: string;
 }
 ```
-

@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 menambahkan atribut impor ke modul ambient
 
-
 **Diterbitkan:** 1 September 2026
 
 Kompiler native TypeScript kini mendukung tipe atribut impor pada deklarasi modul ambient berpola. Dengan demikian, deklarasi dapat membedakan import melalui atribut seperti `type: 'css'` atau `type: 'text'`.

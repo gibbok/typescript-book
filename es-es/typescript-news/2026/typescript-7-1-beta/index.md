@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 Beta incorpora API modulares y compatibilidad con ES2026
 
-
 **Publicado:** 20 de octubre de 2026
 
 Microsoft ha publicado TypeScript 7.1 Beta, con nuevas API nativas del compilador y compatibilidad con funciones de JavaScript. Para probar la beta:

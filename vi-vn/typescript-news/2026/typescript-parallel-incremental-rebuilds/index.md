@@ -1,6 +1,5 @@
 ﻿# TypeScript tăng tốc biên dịch tăng dần bằng kiểm tra song song
 
-
 Thay đổi đã được hợp nhất vào trình biên dịch cho phép kiểm tra song song chữ ký của các tệp bị ảnh hưởng khi sửa mô-đun được nhập rộng rãi. Trước đây bước này chạy tuần tự.
 
 ## Điều gì thay đổi

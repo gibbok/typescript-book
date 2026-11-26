@@ -1,7 +1,5 @@
 ﻿# Tipe Never
 
-
-
 Tipe `never` merepresentasikan nilai yang tidak pernah terjadi. Tipe ini digunakan untuk menunjukkan fungsi atau ekspresi yang tidak pernah mengembalikan nilai atau melempar error.
 
 Misalnya, sebuah perulangan tak terbatas:
@@ -40,4 +38,3 @@ const move = (direction: Direction): void => {
     }
 };
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Sabit Değer Türleri
 
-
-
 Sabit Değer Türü, toplu bir tür içindeki tek öğeli bir kümedir; JavaScript ilkel türü olan son derece kesin bir değeri tanımlar.
 
 TypeScript'teki Sabit Değer Türleri sayılar, dizeler ve boole değerleridir.
@@ -20,4 +18,3 @@ Aşağıdaki örnekte bir birleşim türü takma adı görebilirsiniz. `O` yaln�
 ```typescript
 type O = 'a' | 'b' | 'c';
 ```
-

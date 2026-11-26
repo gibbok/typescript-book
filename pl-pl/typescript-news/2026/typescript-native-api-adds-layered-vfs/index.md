@@ -1,6 +1,5 @@
 ﻿# Natywne API TypeScript dodaje warstwowe wirtualne systemy plików
 
-
 **Opublikowano:** 9 września 2026 r.
 
 Natywne API TypeScript może teraz tworzyć i aktualizować snapshoty z jawnymi danymi wirtualnego systemu plików. Narzędzia mogą odwzorowywać dodawanie, modyfikowanie i usuwanie plików bez ponownego budowania całego wejścia systemu plików.

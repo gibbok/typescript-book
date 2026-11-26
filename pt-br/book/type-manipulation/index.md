@@ -1,7 +1,5 @@
 ﻿# Manipulação de Tipos
 
-
-
 ### Criando Tipos a partir de Tipos
 
 É possível criar novos tipos compondo, manipulando ou transformando tipos existentes.
@@ -354,4 +352,3 @@ function fn2<T extends string>(x: T[], y: NoInfer<T>) {
 
 const r2 = fn2(['a', 'b'], 'c'); // Erro: Argumento de tipo '"c"' não é atribuível ao parâmetro do tipo '"a" | "b"'.
 ```
-

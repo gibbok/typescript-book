@@ -1,7 +1,5 @@
 ﻿# Tipi letterali
 
-
-
 Un tipo letterale è un singolo insieme di elementi di un tipo collettivo; definisce un valore molto preciso che è una primitiva JavaScript.
 
 I tipi letterali in TypeScript sono numeri, stringhe e booleani.
@@ -21,4 +19,3 @@ Nell'esempio seguente, è possibile vedere un alias di tipo unione. `O` è costi
 ```typescript
 type O = 'a' | 'b' | 'c';
 ```
-

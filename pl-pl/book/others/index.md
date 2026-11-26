@@ -1,7 +1,5 @@
 ﻿# Inne
 
-
-
 ### Obsługa błędów i wyjątków
 
 TypeScript pozwala przechwytywać i obsługiwać błędy za pomocą standardowych mechanizmów obsługi błędów języka JavaScript:

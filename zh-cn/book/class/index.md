@@ -1,7 +1,5 @@
 ﻿# Class
 
-
-
 ### 通用语法
 
 TypeScript 中使用关键字 `class` 来定义类。下面，您可以看到一个示例：
@@ -665,4 +663,3 @@ class MyClass {
 const r = new MyClass();
 console.log(r.add(10, 5)); // 日志：15
 ```
-

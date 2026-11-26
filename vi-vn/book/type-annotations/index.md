@@ -1,7 +1,5 @@
 ﻿# Chú thích kiểu
 
-
-
 Trên các biến được khai báo bằng `var`, `let` và `const`, có thể tùy chọn thêm một kiểu:
 
 ```typescript
@@ -39,4 +37,3 @@ const sum = (a = 10, b: number): number => a + b;
 Điều này đặc biệt hữu ích với các hàm phức tạp hơn, vì viết kiểu trả về trước phần triển khai có thể giúp bạn suy nghĩ rõ hơn về hàm.
 
 Nói chung, hãy cân nhắc chú thích chữ ký kiểu, nhưng không cần chú thích các biến cục bộ trong thân hàm, và luôn thêm kiểu cho object literal.
-

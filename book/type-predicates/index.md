@@ -1,7 +1,5 @@
 ﻿# Type Predicates
 
-
-
 Type Predicates in TypeScript are functions that return a boolean value and are used to narrow the type of a variable to a more specific type.
 
 ```typescript
@@ -21,4 +19,3 @@ TypeScript 5.5 automatically infers type predicates (like `x is T`) in functions
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

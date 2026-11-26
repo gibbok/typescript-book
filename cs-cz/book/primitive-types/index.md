@@ -1,7 +1,5 @@
 ﻿# Primitivní typy
 
-
-
 TypeScript podporuje 7 primitivních typů. Primitivní datový typ označuje typ, který není objektem a nemá žádné přidružené metody. V TypeScriptu jsou všechny primitivní typy neměnné, což znamená, že jejich hodnoty nelze po přiřazení změnit.
 
 ### string
@@ -121,4 +119,3 @@ Typ `any` může být užitečný při postupné migraci z JavaScriptu na TypeSc
 U nových projektů používejte konfiguraci TypeScriptu `noImplicitAny`, která umožňuje TypeScriptu hlásit chyby tam, kde je `any` použit nebo odvozen.
 
 Typ `any` je obvykle zdrojem chyb, které mohou skrývat skutečné problémy s vašimi typy. Vyhýbejte se jeho použití, jak jen to je možné.
-

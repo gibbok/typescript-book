@@ -1,7 +1,5 @@
 ﻿# Các kiểu nguyên thủy
 
-
-
 TypeScript hỗ trợ 7 kiểu nguyên thủy. Kiểu dữ liệu nguyên thủy là kiểu không phải đối tượng và không có phương thức nào gắn với nó. Trong TypeScript, mọi kiểu nguyên thủy đều bất biến, nghĩa là giá trị của chúng không thể thay đổi sau khi được gán.
 
 ### string
@@ -121,4 +119,3 @@ Kiểu `any` có thể hữu ích trong quá trình chuyển đổi dần từ J
 Với dự án mới, hãy sử dụng cấu hình TypeScript `noImplicitAny`, cho phép TypeScript báo lỗi tại những nơi `any` được sử dụng hoặc suy luận.
 
 Kiểu `any` thường là nguồn gây lỗi có thể che giấu các vấn đề thực sự với kiểu của bạn. Hãy tránh sử dụng nó nhiều nhất có thể.
-

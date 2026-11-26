@@ -1,7 +1,5 @@
 ﻿# Skillnader mellan Type och Interface
 
-
-
 Deklarationssammanslagning (augmentering):
 
 Interface stöder deklarationssammanslagning, vilket innebär att du kan definiera flera interface med samma namn, och TypeScript kommer att slå samman dem till ett enda interface med de kombinerade egenskaperna och metoderna. Å andra sidan stöder typer inte deklarationssammanslagning. Detta kan vara användbart när du vill lägga till extra funktionalitet eller anpassa befintliga typer utan att ändra de ursprungliga definitionerna eller korrigera saknade eller felaktiga typer.
@@ -89,4 +87,3 @@ interface B {
 
 type C = A | B; // Union av gränssnitt
 ```
-

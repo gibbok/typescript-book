@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 opravuje přístupnost setterů v uniích a průnicích
 
-
 **Zveřejněno:** 24. srpna 2026
 
 Microsoft sloučil opravu nativní kontroly typů TypeScriptu, která u vlastností syntetizovaných z unií a průniků zachovává oddělenou přístupnost pro čtení a zápis.

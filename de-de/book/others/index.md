@@ -1,7 +1,5 @@
 ﻿# Sonstiges
 
-
-
 ### Fehler- und Ausnahmebehandlung
 
 TypeScript ermöglicht es Ihnen, Fehler mit den standardmäßigen Fehlerbehandlungsmechanismen von JavaScript abzufangen und zu behandeln:

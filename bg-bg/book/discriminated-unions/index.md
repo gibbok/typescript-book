@@ -1,7 +1,5 @@
 ﻿# Discriminated Unions
 
-
-
 Discriminated Unions в TypeScript са тип на обединение, който използва общо свойство, известно като дискриминант, за да стесни набора от възможни типове за обединението.
 
 ```typescript
@@ -32,4 +30,3 @@ const circle: Circle = { kind: 'circle', radius: 2 };
 console.log(area(square)); // 25
 console.log(area(circle)); // 12.566370614359172
 ```
-

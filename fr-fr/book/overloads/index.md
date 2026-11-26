@@ -1,7 +1,5 @@
 ﻿# Surcharges
 
-
-
 En TypeScript, les surcharges de fonction permettent de définir plusieurs signatures de fonction pour un seul nom de fonction, ce qui permet de définir des fonctions pouvant être appelées de plusieurs manières. En voici un exemple :
 
 ```typescript
@@ -49,4 +47,3 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
-

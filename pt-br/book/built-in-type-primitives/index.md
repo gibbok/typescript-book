@@ -1,7 +1,5 @@
 ﻿# Tipos Primitivos Integrados
 
-
-
 O TypeScript possui vários tipos primitivos integrados que podem ser usados para definir variáveis, parâmetros de função e tipos de retorno:
 
 * `number`: Representa valores numéricos, incluindo inteiros e números de ponto flutuante.
@@ -14,4 +12,3 @@ O TypeScript possui vários tipos primitivos integrados que podem ser usados par
 * `any`: Representa um tipo dinâmico ou desconhecido. Variáveis do tipo any podem conter valores de qualquer tipo e ignoram a verificação de tipos.
 * `void`: Representa a ausência de qualquer tipo. É comumente usado como o tipo de retorno de funções que não retornam um valor.
 * `never`: Representa um tipo para valores que nunca ocorrem. É normalmente usado como o tipo de retorno de funções que lançam um erro ou entram em um loop infinito.
-

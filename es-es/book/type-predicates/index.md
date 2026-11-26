@@ -1,7 +1,5 @@
 ﻿# Predicados de tipo
 
-
-
 Los predicados de tipo de TypeScript son funciones que devuelven un valor booleano y se utilizan para restringir el tipo de una variable a otro más específico.
 
 ```typescript
@@ -21,4 +19,3 @@ TypeScript 5.5 infiere automáticamente predicados de tipo (como `x is T`) en fu
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

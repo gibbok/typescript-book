@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 が ambient module に import attributes を追加
 
-
 **公開日:** 2026年9月1日
 
 TypeScript のネイティブコンパイラは、パターン ambient module 宣言で import attributes の型をサポートするようになりました。これにより、`type: 'css'` や `type: 'text'` などの属性で import を区別できます。

@@ -1,7 +1,5 @@
 ﻿# Slučování a rozšiřování
 
-
-
 Slučování a rozšiřování označují dva různé koncepty související s prací s typy a rozhraními.
 
 Slučování umožňuje spojit více deklarací se stejným názvem do jediné definice, například když několikrát definujete rozhraní se stejným názvem:
@@ -43,4 +41,3 @@ const dog: Bird = {
     },
 };
 ```
-

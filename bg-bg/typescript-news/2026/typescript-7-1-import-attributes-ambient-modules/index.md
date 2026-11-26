@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 добавя import attributes към ambient модули
 
-
 **Публикувано:** 1 септември 2026 г.
 
 Нативният компилатор на TypeScript вече поддържа типове за import attributes в pattern ambient module декларации. Така декларациите могат да разграничават import-и с атрибути като `type: 'css'` или `type: 'text'`.

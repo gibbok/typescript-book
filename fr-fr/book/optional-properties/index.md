@@ -1,7 +1,5 @@
 ﻿# Propriétés facultatives
 
-
-
 Un objet peut spécifier des propriétés facultatives en ajoutant un point d’interrogation `?` à la fin du nom de la propriété :
 
 ```typescript
@@ -20,4 +18,3 @@ type X = {
 };
 const x = ({ a, b = 100 }: X) => a + b;
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Birleştirme ve Genişletme
 
-
-
 Birleştirme ve genişletme, türler ve arayüzlerle çalışmaya ilişkin iki farklı kavramı ifade eder.
 
 Birleştirme, aynı ada sahip birden fazla bildirimi tek bir tanımda bir araya getirmenize olanak tanır. Örneğin, aynı ada sahip bir arayüzü birden fazla kez tanımladığınızda:
@@ -43,4 +41,3 @@ const dog: Bird = {
     },
 };
 ```
-

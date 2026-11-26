@@ -1,7 +1,5 @@
 ﻿# Tipe Struktural yang Dihapus
 
-
-
 Dalam TypeScript, objek tidak harus cocok dengan tipe tertentu secara persis. Misalnya, jika kita membuat objek yang memenuhi persyaratan suatu antarmuka, kita dapat menggunakan objek tersebut di tempat yang memerlukan antarmuka itu, meskipun tidak ada hubungan eksplisit di antara keduanya.
 Contoh:
 
@@ -21,4 +19,3 @@ const obj = {
 
 log(obj); // Valid
 ```
-

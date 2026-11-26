@@ -1,7 +1,5 @@
 ﻿# Unterschiede zwischen Typ und Interface
 
-
-
 Deklarationszusammenführung (Augmentation):
 
 Interfaces unterstützen die Deklarationszusammenführung. Das bedeutet, dass Sie mehrere Interfaces mit demselben Namen definieren können und TypeScript sie zu einem einzigen Interface mit den kombinierten Eigenschaften und Methoden zusammenführt. Typen hingegen unterstützen keine Deklarationszusammenführung. Dies kann hilfreich sein, wenn Sie zusätzliche Funktionalität hinzufügen oder bestehende Typen anpassen möchten, ohne die ursprünglichen Definitionen zu ändern oder fehlende beziehungsweise fehlerhafte Typen zu korrigieren.
@@ -89,4 +87,3 @@ interface B {
 
 type C = A | B; // Union von Interfaces
 ```
-

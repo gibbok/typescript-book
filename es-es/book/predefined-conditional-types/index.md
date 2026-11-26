@@ -1,7 +1,5 @@
 ﻿# Tipos condicionales predefinidos
 
-
-
 En TypeScript, los tipos condicionales predefinidos son tipos integrados que proporciona el lenguaje para realizar transformaciones habituales según las características de un tipo.
 
 `Exclude<UnionType, ExcludedType>`: elimina de Type todos los tipos asignables a ExcludedType.
@@ -19,4 +17,3 @@ En TypeScript, los tipos condicionales predefinidos son tipos integrados que pro
 `Partial<Type>`: convierte en opcionales todas las propiedades de Type.
 
 `Readonly<Type>`: convierte todas las propiedades de Type en propiedades de solo lectura.
-

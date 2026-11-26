@@ -1,7 +1,5 @@
 ﻿# Exploring the Type System
 
-
-
 ### The TypeScript Language Service
 
 The TypeScript Language Service, also known as tsserver, offers various features such as error reporting, diagnostics, compile-on-save, renaming, go to definition, completion lists, signature help, and more. It is primarily used by integrated development environments (IDEs) to provide IntelliSense support. It seamlessly integrates with Visual Studio Code and is utilized by tools like Conquer of Completion (Coc).
@@ -834,4 +832,3 @@ function classify(x: unknown) {
     }
 }
 ```
-

@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.0 リリース候補版を発表
 
-
 **公開日:** 2026年6月18日
 
 Microsoft は、TypeScript 7 安定版の前に提供する最後のプレビューとして、TypeScript 7.0 リリース候補版を公開しました。

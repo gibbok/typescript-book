@@ -1,7 +1,5 @@
 ﻿# Diskriminerade unioner
 
-
-
 Diskriminerade unioner i TypeScript är en typ av unionstyp som använder en gemensam egenskap, känd som diskriminanten, för att avsmalma uppsättningen av möjliga typer för unionen.
 
 ```typescript
@@ -32,4 +30,3 @@ const circle: Circle = { kind: 'circle', radius: 2 };
 console.log(area(square)); // 25
 console.log(area(circle)); // 12.566370614359172
 ```
-

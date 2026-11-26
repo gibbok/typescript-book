@@ -1,7 +1,5 @@
 ﻿# Tipe Objek
 
-
-
 Dalam TypeScript, tipe objek mendeskripsikan bentuk sebuah objek. Tipe ini menentukan nama dan tipe properti objek, serta apakah properti tersebut wajib atau opsional.
 
 Dalam TypeScript, Anda dapat mendefinisikan tipe objek dengan dua cara utama:
@@ -31,4 +29,3 @@ Tipe juga dapat didefinisikan secara anonim:
 const sum = (x: { a: number; b: number }) => x.a + x.b;
 console.log(sum({ a: 5, b: 1 }));
 ```
-

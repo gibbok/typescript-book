@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 verbessert die Speichernutzung von „Go to Implementation“
 
-
 **Veröffentlicht:** 30. Juli 2026
 
 Microsoft hat eine Korrektur an der Speicherskalierung von „Go to Implementation“ im nativen Language Service von TypeScript zusammengeführt.

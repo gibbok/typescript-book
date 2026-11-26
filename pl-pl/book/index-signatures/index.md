@@ -1,7 +1,5 @@
 ﻿# Sygnatury indeksowe
 
-
-
 W TypeScript można używać typów `string`, `number` i `symbol` jako sygnatur indeksowych:
 
 ```typescript
@@ -15,4 +13,3 @@ console.log(k['1']); // Ten sam wynik co k[1]
 ```
 
 Należy pamiętać, że JavaScript automatycznie konwertuje indeks typu `number` na indeks typu `string`, dlatego `k[1]` i `k["1"]` zwracają tę samą wartość.
-

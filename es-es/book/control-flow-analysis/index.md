@@ -1,7 +1,5 @@
 ﻿# Análisis del flujo de control
 
-
-
 El análisis del flujo de control de TypeScript analiza estáticamente el flujo del código para inferir los tipos de las variables, lo que permite al compilador restringirlos cuando sea necesario según los resultados.
 
 Antes de TypeScript 4.4, el análisis del flujo solo se aplicaba al código dentro de una sentencia if; desde TypeScript 4.4 también puede aplicarse a expresiones condicionales y accesos a propiedades discriminantes referenciados indirectamente mediante variables const.
@@ -51,4 +49,3 @@ const f6 = (
 ```
 
 Notas: en las expresiones condicionales se analizan hasta cinco niveles de indirección.
-

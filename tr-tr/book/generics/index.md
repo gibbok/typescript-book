@@ -1,7 +1,5 @@
 ﻿# Jenerikler
 
-
-
 Jenerikler, birden çok türle çalışabilen yeniden kullanılabilir bileşenler ve işlevler oluşturmanıza olanak tanır. Jeneriklerle türleri, işlevleri ve arayüzleri parametreleştirerek bunların farklı türler üzerinde, söz konusu türleri önceden açıkça belirtmeden çalışmasını sağlayabilirsiniz.
 
 Jenerikler, kodu daha esnek ve yeniden kullanılabilir hâle getirmenize olanak tanır.
@@ -98,4 +96,3 @@ function process<T>(value: T): void {
 process('hello'); // 5
 process(3.14159); // 3.14
 ```
-

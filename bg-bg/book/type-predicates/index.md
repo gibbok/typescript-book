@@ -1,7 +1,5 @@
 ﻿# Type Predicates
 
-
-
 Type Predicates в TypeScript са функции, които връщат boolean стойност и се използват за стесняване на типа на променлива до по-специфичен тип.
 
 ```typescript
@@ -21,4 +19,3 @@ TypeScript 5.5 автоматично извежда type predicates (като `
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

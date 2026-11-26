@@ -1,7 +1,5 @@
 ﻿# Generics
 
-
-
 Generics gör det möjligt att skapa återanvändbara komponenter och funktioner som kan arbeta med flera typer. Med generics kan du parameterisera typer, funktioner och gränssnitt, vilket gör att de kan arbeta med olika typer utan att explicit specificera dem i förväg.
 
 Generics gör det möjligt att göra koden mer flexibel och återanvändbar.
@@ -98,4 +96,3 @@ function process<T>(value: T): void {
 process('hello'); // 5
 process(3.14159); // 3.14
 ```
-

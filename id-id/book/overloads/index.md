@@ -1,7 +1,5 @@
 ﻿# Overload
 
-
-
 Overload fungsi dalam TypeScript memungkinkan Anda mendefinisikan beberapa signature fungsi untuk satu nama fungsi, sehingga Anda dapat mendefinisikan fungsi yang bisa dipanggil dengan berbagai cara. Berikut contohnya:
 
 ```typescript
@@ -49,4 +47,3 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Objekttyper
 
-
-
 I TypeScript beskriver objekttyper formen på ett objekt. De specificerar namnen och typerna på objektets egenskaper, samt huruvida dessa egenskaper är obligatoriska eller valfria.
 
 I TypeScript kan du definiera objekttyper på två primära sätt:
@@ -31,4 +29,3 @@ Det är också möjligt att definiera en typ anonymt:
 const sum = (x: { a: number; b: number }) => x.a + x.b;
 console.log(sum({ a: 5, b: 1 }));
 ```
-

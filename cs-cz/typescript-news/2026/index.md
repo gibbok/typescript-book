@@ -1,6 +1,5 @@
 ﻿# Novinky TypeScriptu — 2026
 
-
 import NewsList from '../../../../../components/NewsList.astro';
 
 [ Novinky TypeScriptu ](../)

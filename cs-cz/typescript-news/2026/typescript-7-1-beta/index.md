@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 Beta přináší modulární API a podporu ES2026
 
-
 **Publikováno:** 20. října 2026
 
 Microsoft vydal TypeScript 7.1 Beta s novými nativními API kompilátoru a podporou funkcí JavaScriptu. Betaverzi lze vyzkoušet příkazem:

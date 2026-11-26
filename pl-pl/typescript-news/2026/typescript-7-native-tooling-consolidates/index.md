@@ -1,6 +1,5 @@
 ﻿# Natywne narzędzia TypeScript 7 są konsolidowane
 
-
 **Opublikowano:** 27 lipca 2026 r.
 
 Opiekunowie TypeScript wyjaśnili, w jaki sposób natywne narzędzia TypeScript 7 zostaną skonsolidowane po stabilnym wydaniu.

@@ -1,7 +1,5 @@
 ﻿# Differenze tra tipo e interfaccia
 
-
-
 Unione delle dichiarazioni (aumento):
 
 Le interfacce supportano l'unione delle dichiarazioni, il che significa che è possibile definire più interfacce con lo stesso nome e TypeScript le unirà in un'unica interfaccia con le proprietà e i metodi combinati. D'altra parte, i tipi non supportano l'unione delle dichiarazioni. Questo può essere utile quando si desidera aggiungere funzionalità extra o personalizzare i tipi esistenti senza modificare le definizioni originali o correggere tipi mancanti o errati.
@@ -89,4 +87,3 @@ interface B {
 
 type C = A | B; // Unione di interfacce
 ```
-

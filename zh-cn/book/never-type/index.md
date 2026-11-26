@@ -1,7 +1,5 @@
 ﻿# never 类型
 
-
-
 `never` 类型表示从未出现过的值。它用于表示从不返回或抛出错误的函数或表达式。
 
 例如无限循环：
@@ -40,4 +38,3 @@ const move = (direction: Direction): void => {
     }
 };
 ```
-

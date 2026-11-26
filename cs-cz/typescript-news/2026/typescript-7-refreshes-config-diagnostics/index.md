@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 obnovuje diagnostiku konfigurace po změnách souborů
 
-
 **Zveřejněno:** 30. července 2026
 
 Microsoft sloučil opravu, která obnovuje diagnostiku konfiguračních souborů v nativní jazykové službě TypeScriptu po změně sledovaného souboru `tsconfig.json` nebo `jsconfig.json`.

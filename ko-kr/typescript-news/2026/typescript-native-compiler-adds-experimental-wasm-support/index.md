@@ -1,6 +1,5 @@
 ﻿# TypeScript 네이티브 컴파일러에 실험적 WebAssembly 지원 추가
 
-
 **게시일:** 2026-10-29
 
 Microsoft는 2026년 10월 29일 TypeScript 네이티브 컴파일러에 실험적인 `wasip1/wasm` 지원을 병합했습니다. 이 변경으로 WASI 호스트에서 컴파일러를 실행하고 브라우저에서도 사용할 수 있는 JavaScript API 전송 방식을 활용할 수 있습니다.

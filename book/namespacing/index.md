@@ -1,7 +1,5 @@
 ﻿# Namespacing
 
-
-
 In TypeScript, namespaces are used to organize code into logical containers, preventing naming collisions and providing a way to group related code together.
 The use of the `export` keyword allows access to the namespace from outside modules.
 
@@ -19,4 +17,3 @@ const a: MyNamespace.MyInterface1 = {
     prop1: true,
 };
 ```
-

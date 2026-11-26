@@ -1,7 +1,5 @@
 ﻿# 타입 확장
 
-
-
 `interface`를 확장할 수 있습니다(다른 타입에서 멤버를 복사합니다).
 
 ```typescript
@@ -49,4 +47,3 @@ interface B extends A {
     b: string;
 }
 ```
-

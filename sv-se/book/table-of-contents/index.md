@@ -1,7 +1,5 @@
 ﻿# Innehållsförteckning
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
   - [Stöd projektet](../support-the-project/)
@@ -218,4 +216,3 @@
     - [Syntaxkontroll för reguljära uttryck](../others/#syntaxkontroll-för-reguljära-uttryck)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

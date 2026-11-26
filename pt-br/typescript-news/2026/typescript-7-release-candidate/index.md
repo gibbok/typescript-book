@@ -1,6 +1,5 @@
 ﻿# Release candidate do TypeScript 7.0 anunciada
 
-
 **Publicado:** 18 de junho de 2026
 
 A Microsoft lançou a release candidate do TypeScript 7.0 como a prévia final antes da versão estável do TypeScript 7.

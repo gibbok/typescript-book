@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 dodaje zakres wyszukiwania symboli w obszarze roboczym
 
-
 **Opublikowano:** 7 sierpnia 2026 r.
 
 Firma Microsoft scaliła zmianę wprowadzającą zakres wyszukiwania symboli w obszarze roboczym w natywnej usłudze językowej TypeScript.

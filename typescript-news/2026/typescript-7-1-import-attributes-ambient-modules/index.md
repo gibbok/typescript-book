@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 adds import attributes to ambient modules
 
-
 **Published:** September 1, 2026
 
 TypeScript's native compiler now supports import-attribute types on pattern ambient module declarations. This lets declarations distinguish imports by attributes such as `type: 'css'` or `type: 'text'`.

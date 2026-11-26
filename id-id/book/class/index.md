@@ -1,7 +1,5 @@
 ﻿# Class
 
-
-
 ### Sintaks Umum Class
 
 Kata kunci `class` digunakan dalam TypeScript untuk mendefinisikan sebuah class. Berikut adalah contohnya:
@@ -672,4 +670,3 @@ class MyClass {
 const r = new MyClass();
 console.log(r.add(10, 5)); // Mencetak 15
 ```
-

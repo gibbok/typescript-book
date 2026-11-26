@@ -1,7 +1,5 @@
 ﻿# Typy obiektowe
 
-
-
 W TypeScript typy obiektowe opisują strukturę obiektu. Określają nazwy i typy właściwości obiektu, a także to, czy właściwości te są wymagane, czy opcjonalne.
 
 W TypeScript typy obiektowe można definiować na dwa podstawowe sposoby:
@@ -31,4 +29,3 @@ Można również zdefiniować typ anonimowo:
 const sum = (x: { a: number; b: number }) => x.a + x.b;
 console.log(sum({ a: 5, b: 1 }));
 ```
-

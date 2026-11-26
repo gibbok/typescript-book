@@ -1,7 +1,5 @@
 ﻿# Terjemahan
 
-
-
 Buku ini telah diterjemahkan ke dalam beberapa bahasa, termasuk:
 
 [Bahasa Inggris](https://github.com/gibbok/typescript-book/blob/main/README.md)
@@ -40,4 +38,3 @@ Buku ini telah diterjemahkan ke dalam beberapa bahasa, termasuk:
 
 [Bahasa Arab](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
 [Bahasa Ceko](https://github.com/gibbok/typescript-book/blob/main/README-cs_CZ.md)
-

@@ -1,7 +1,5 @@
 ﻿# Přetížení
 
-
-
 Přetížení funkcí v TypeScriptu umožňuje definovat více signatur pro jeden název funkce, takže ji lze volat různými způsoby. Zde je příklad:
 
 ```typescript
@@ -49,4 +47,3 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
-

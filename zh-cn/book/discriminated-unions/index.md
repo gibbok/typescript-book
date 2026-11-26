@@ -1,7 +1,5 @@
 ﻿# 可区分联合
 
-
-
 TypeScript 中的可区分联合是一种联合类型，它使用称为判别式的公共属性来缩小联合的可能类型集。
 
 ```typescript
@@ -32,4 +30,3 @@ const circle: Circle = { kind: 'circle', radius: 2 };
 console.log(area(square)); // 25
 console.log(area(circle)); // 12.566370614359172
 ```
-

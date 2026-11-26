@@ -1,7 +1,5 @@
 ﻿# Kontrol Akışı Analizi
 
-
-
 TypeScript'te Kontrol Akışı Analizi, değişkenlerin türlerini çıkarmak için kod akışını statik olarak analiz etmenin ve analiz sonuçlarına göre derleyicinin bu değişkenlerin türlerini gerektiği gibi daraltmasına olanak tanımanın bir yoludur.
 
 TypeScript 4.4'ten önce kod akışı analizi yalnızca bir if ifadesi içindeki koda uygulanıyordu; ancak TypeScript 4.4'ten itibaren const değişkenleri üzerinden dolaylı olarak başvurulan koşullu ifadelere ve ayırt edici özellik erişimlerine de uygulanabilir.
@@ -51,4 +49,3 @@ const f6 = (
 ```
 
 Notlar: Koşullu ifadelerde en fazla beş dolaylılık düzeyi analiz edilir.
-

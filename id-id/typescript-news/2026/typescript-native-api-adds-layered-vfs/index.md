@@ -1,6 +1,5 @@
 ﻿# API native TypeScript menambahkan sistem berkas virtual berlapis
 
-
 **Diterbitkan:** 9 September 2026
 
 API native TypeScript kini dapat membuat dan memperbarui snapshot dengan data sistem berkas virtual yang eksplisit. Tool dapat memodelkan penambahan, perubahan, dan penghapusan berkas tanpa membangun ulang seluruh input sistem berkas.

@@ -1,7 +1,5 @@
 ﻿# 열거형
 
-
-
 TypeScript에서 `enum`은 이름이 지정된 상숫값의 집합입니다.
 
 ```typescript
@@ -160,4 +158,3 @@ enum E {
 
 console.log(E.C); //42
 ```
-

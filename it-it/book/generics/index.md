@@ -1,7 +1,5 @@
 ﻿# Generici
 
-
-
 I generici consentono di creare componenti e funzioni riutilizzabili che possono funzionare con più tipi. Con i generici, è possibile parametrizzare tipi, funzioni e interfacce, consentendo loro di operare su tipi diversi senza doverli specificare esplicitamente in anticipo.
 
 I generici consentono di rendere il codice più flessibile e riutilizzabile.
@@ -98,4 +96,3 @@ function process<T>(value: T): void {
 process('hello'); // 5
 process(3.14159); // 3.14
 ```
-

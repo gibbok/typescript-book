@@ -1,7 +1,5 @@
 ﻿# Daraltma
 
-
-
 TypeScript daraltması, koşullu bir blok içinde bir değişkenin türünü daha belirgin hâle getirme işlemidir. Bu, bir değişkenin birden fazla türe sahip olabildiği birleşim türleriyle çalışırken kullanışlıdır.
 
 TypeScript, türü daraltmanın çeşitli yollarını tanır:
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

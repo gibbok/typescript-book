@@ -1,7 +1,5 @@
 ﻿# Tür Sistemini Keşfetme
 
-
-
 ### TypeScript Dil Hizmeti
 
 tsserver olarak da bilinen TypeScript Dil Hizmeti; hata bildirme, tanılama, kaydetme sırasında derleme, yeniden adlandırma, tanıma gitme, tamamlama listeleri, imza yardımı ve daha fazlası gibi çeşitli özellikler sunar. Öncelikle tümleşik geliştirme ortamları (IDE'ler) tarafından IntelliSense desteği sağlamak için kullanılır. Visual Studio Code ile sorunsuz biçimde tümleşir ve Conquer of Completion (Coc) gibi araçlar tarafından kullanılır.
@@ -834,4 +832,3 @@ function classify(x: unknown) {
     }
 }
 ```
-

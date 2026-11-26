@@ -1,7 +1,5 @@
 ﻿# Enums
 
-
-
 В TypeScript `enum` представлява множество от именувани константни стойности.
 
 ```typescript
@@ -160,4 +158,3 @@ enum E {
 
 console.log(E.C); //42
 ```
-

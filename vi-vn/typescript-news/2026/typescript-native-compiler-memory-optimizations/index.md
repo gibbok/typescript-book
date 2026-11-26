@@ -1,6 +1,5 @@
 ﻿# Trình biên dịch native TypeScript giảm sử dụng bộ nhớ nhờ tối ưu trình kiểm tra kiểu
 
-
 **Đã xuất bản:** 14 tháng 10, 2026
 
 Microsoft đã hợp nhất một số tối ưu bộ nhớ vào trình biên dịch native của TypeScript. Các thay đổi giảm bộ nhớ được giữ bởi cấu trúc dữ liệu nội bộ của trình kiểm tra kiểu mà không thay đổi cú pháp TypeScript.

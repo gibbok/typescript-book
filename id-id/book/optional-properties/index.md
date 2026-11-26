@@ -1,7 +1,5 @@
 ﻿# Properti Opsional
 
-
-
 Sebuah objek dapat menentukan properti opsional dengan menambahkan tanda tanya `?` di akhir nama properti:
 
 ```typescript
@@ -20,4 +18,3 @@ type X = {
 };
 const x = ({ a, b = 100 }: X) => a + b;
 ```
-

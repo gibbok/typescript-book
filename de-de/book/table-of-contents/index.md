@@ -1,7 +1,5 @@
 ﻿# Inhaltsverzeichnis
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
   - [Unterstützen Sie das Projekt](../support-the-project/)
@@ -218,4 +216,3 @@
     - [Syntaxprüfung regulärer Ausdrücke](../others/#syntaxprüfung-regulärer-ausdrücke)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

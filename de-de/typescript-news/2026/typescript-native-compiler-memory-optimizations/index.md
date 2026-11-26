@@ -1,6 +1,5 @@
 ﻿# Nativer TypeScript-Compiler senkt Speicherverbrauch durch Optimierungen im Typprüfer
 
-
 **Veröffentlicht:** 14. Oktober 2026
 
 Microsoft hat mehrere Speicheroptimierungen in den nativen TypeScript-Compiler übernommen. Sie reduzieren den von internen Datenstrukturen des Typprüfers gehaltenen Speicher, ohne die TypeScript-Syntax zu ändern.

@@ -1,6 +1,5 @@
 ﻿# TypeScripts inbyggda kompilator minskar minnesanvändningen med optimeringar i typkontrollen
 
-
 **Publicerad:** 14 oktober 2026
 
 Microsoft har slagit samman flera minnesoptimeringar i TypeScripts inbyggda kompilator. De minskar minnet som hålls kvar av typkontrollens interna datastrukturer utan att ändra TypeScript-syntaxen.

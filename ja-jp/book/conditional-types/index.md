@@ -1,7 +1,5 @@
 ﻿# 条件型
 
-
-
 条件型は条件に依存する型を作成する方法で、作成する型は条件の結果に基づいて決まります。`extends` キーワードと三項演算子を使用して定義し、2 つの型から条件に応じて 1 つを選択します。
 
 ```typescript
@@ -13,4 +11,3 @@ const myNumber = 42;
 type IsMyArrayAnArray = IsArray<typeof myArray>; // 型は true
 type IsMyNumberAnArray = IsArray<typeof myNumber>; // 型は false
 ```
-

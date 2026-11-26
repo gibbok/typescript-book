@@ -1,7 +1,5 @@
 ﻿# Zkoumání typového systému
 
-
-
 ### Jazyková služba TypeScriptu
 
 Jazyková služba TypeScriptu, známá také jako tsserver, nabízí různé funkce, například hlášení chyb, diagnostiku, kompilaci při uložení, přejmenování, přechod na definici, seznamy návrhů pro doplňování, nápovědu k signaturám a další. Používají ji především integrovaná vývojová prostředí (IDE) k poskytování podpory IntelliSense. Bezproblémově se integruje s Visual Studio Code a využívají ji nástroje jako Conquer of Completion (Coc).
@@ -834,4 +832,3 @@ function classify(x: unknown) {
     }
 }
 ```
-

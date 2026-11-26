@@ -1,7 +1,5 @@
 ﻿# Literal Inference
 
-
-
 Literal Inference is a feature in TypeScript that allows the type of a variable or parameter to be inferred based on its value.
 
 In the following example, we can see that TypeScript considers `x` a literal type as the value cannot be changed any time later, when instead `y` is inferred as string as it can be modified any time later.
@@ -45,4 +43,3 @@ let o = {
     x: 'a' as X,
 };
 ```
-

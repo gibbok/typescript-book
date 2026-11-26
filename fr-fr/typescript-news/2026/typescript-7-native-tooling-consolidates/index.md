@@ -1,6 +1,5 @@
 ﻿# L'outillage natif de TypeScript 7 est en cours de consolidation
 
-
 **Publié le :** 27 juillet 2026
 
 Les mainteneurs de TypeScript ont précisé comment l'outillage natif de TypeScript 7 serait consolidé après la version stable.

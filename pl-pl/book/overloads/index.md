@@ -1,7 +1,5 @@
 ﻿# Przeciążenia
 
-
-
 Przeciążenia funkcji w TypeScript pozwalają zdefiniować wiele sygnatur funkcji dla jednej nazwy, umożliwiając tworzenie funkcji, które można wywoływać na wiele sposobów. Oto przykład:
 
 ```typescript
@@ -49,4 +47,3 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Sammanslagning och utökning
 
-
-
 Sammanslagning och utökning avser två olika koncept relaterade till att arbeta med typer och interface.
 
 Sammanslagning låter dig kombinera flera deklarationer med samma namn till en enda definition, till exempel när du definierar ett interface med samma namn flera gånger:
@@ -43,4 +41,3 @@ const dog: Bird = {
     },
 };
 ```
-

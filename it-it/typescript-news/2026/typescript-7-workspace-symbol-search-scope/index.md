@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 aggiunge un ambito di ricerca per i simboli dell'area di lavoro
 
-
 **Pubblicato:** 7 agosto 2026
 
 Microsoft ha integrato un ambito di ricerca dei simboli dell'area di lavoro per il language service nativo di TypeScript.

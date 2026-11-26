@@ -1,7 +1,5 @@
 ﻿# Interface and Type
 
-
-
 ### Common Syntax
 
 In TypeScript, interfaces define the structure of objects, specifying the names and types of properties or methods that an object must have. The common syntax for defining an interface in TypeScript is as follows:
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // Intersection type
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Object with both name and age properties
 ```
-

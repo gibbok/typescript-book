@@ -1,7 +1,5 @@
 ﻿# Modifizierer gemappter Typen
 
-
-
 Modifizierer gemappter Typen ermöglichen in TypeScript die Transformation von Eigenschaften innerhalb eines vorhandenen Typs:
 
 * `readonly` oder `+readonly`: Dadurch wird eine Eigenschaft im gemappten Typ schreibgeschützt.
@@ -17,4 +15,3 @@ type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Alle Eigenschaften als 
 
 type MyPartial<T> = { [P in keyof T]?: T[P] }; // Alle Eigenschaften als optional markiert
 ```
-

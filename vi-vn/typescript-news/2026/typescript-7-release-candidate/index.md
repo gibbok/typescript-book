@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.0 release candidate được công bố
 
-
 **Đã xuất bản:** June 18, 2026
 
 Microsoft đã phát hành TypeScript 7.0 release candidate như bản preview cuối cùng trước bản phát hành TypeScript 7 ổn định.

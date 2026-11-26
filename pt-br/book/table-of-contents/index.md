@@ -1,7 +1,5 @@
 ﻿# Sumário
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
   - [Apoie o projeto](../support-the-project/)
@@ -218,4 +216,3 @@
     - [Verificação de Sintaxe de Expressões Regulares](../others/#verificação-de-sintaxe-de-expressões-regulares)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

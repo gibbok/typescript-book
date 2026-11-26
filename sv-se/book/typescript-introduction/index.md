@@ -1,7 +1,5 @@
 ﻿# Introduktion till TypeScript
 
-
-
 ### Vad är TypeScript?
 
 TypeScript är ett starkt typat programmeringsspråk som bygger på JavaScript. Det designades ursprungligen av Anders Hejlsberg 2012 och utvecklas och underhålls för närvarande av Microsoft som ett projekt med öppen källkod.
@@ -212,4 +210,3 @@ Här är några av de moderna JavaScript-funktioner som kan användas i TypeScri
 * Standardparametrar för funktioner.
 
 Genom att utnyttja dessa moderna JavaScript-funktioner kan utvecklare skriva mer uttrycksfull och koncis kod i TypeScript.
-

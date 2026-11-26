@@ -1,7 +1,5 @@
 ﻿# Firmas de índice
 
-
-
 En TypeScript podemos utilizar `string`, `number` y `symbol` como firmas de índice:
 
 ```typescript
@@ -15,4 +13,3 @@ console.log(k['1']); // El mismo resultado que k[1]
 ```
 
 Ten en cuenta que JavaScript convierte automáticamente un índice `number` en un índice `string`, por lo que `k[1]` y `k["1"]` devuelven el mismo valor.
-

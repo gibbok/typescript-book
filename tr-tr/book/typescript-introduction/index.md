@@ -1,7 +1,5 @@
 ﻿# TypeScript'e Giriş
 
-
-
 ### TypeScript nedir?
 
 TypeScript, JavaScript'i temel alan, güçlü tür sistemine sahip bir programlama dilidir. İlk olarak 2012'de Anders Hejlsberg tarafından tasarlanmıştır ve günümüzde Microsoft tarafından açık kaynaklı bir proje olarak geliştirilip sürdürülmektedir.
@@ -212,4 +210,3 @@ TypeScript'te kullanılabilecek modern JavaScript özelliklerinden bazıları ş
 * Varsayılan fonksiyon parametreleri.
 
 Geliştiriciler bu modern JavaScript özelliklerinden yararlanarak TypeScript'te daha anlamlı ve kısa kodlar yazabilir.
-

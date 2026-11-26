@@ -1,7 +1,5 @@
 ﻿# Informazioni sull'autore
 
-
-
 Simone Poggiali è uno Staff Engineer esperto, con una passione per la scrittura di codice di livello professionale fin dagli anni '90. Nel corso della sua carriera internazionale, ha contribuito a numerosi progetti per un'ampia gamma di clienti, dalle startup alle grandi organizzazioni. Aziende di spicco come HelloFresh, Siemens, O2, Leroy Merlin e Snowplow hanno beneficiato della sua competenza e dedizione.
 
 È possibile contattare Simone Poggiali sulle seguenti piattaforme:
@@ -12,4 +10,3 @@ Simone Poggiali è uno Staff Engineer esperto, con una passione per la scrittura
 * Email: gibbok.coding📧gmail.com
 
 Elenco completo dei collaboratori: [https://github.com/gibbok/typescript-book/graphs/contributors](https://github.com/gibbok/typescript-book/graphs/contributors)
-

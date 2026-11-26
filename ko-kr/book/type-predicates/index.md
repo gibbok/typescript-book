@@ -1,7 +1,5 @@
 ﻿# 타입 술어
 
-
-
 TypeScript의 타입 술어는 불리언 값을 반환하고 변수의 타입을 더 구체적인 타입으로 좁히는 데 사용되는 함수입니다.
 
 ```typescript
@@ -21,4 +19,3 @@ TypeScript 5.5는 타입 술어(예: `x is T`)를 `.filter` 같은 함수에서 
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

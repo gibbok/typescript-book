@@ -1,6 +1,5 @@
 ﻿# Nativní API TypeScriptu přidává vrstvené virtuální souborové systémy
 
-
 **Zveřejněno:** 9. září 2026
 
 Nativní API TypeScriptu nyní dokáže vytvářet a aktualizovat snapshoty s explicitními daty virtuálního souborového systému. Nástrojům to umožňuje modelovat přidávání, úpravy a odstraňování souborů bez opětovného vytváření celého vstupu souborového systému.

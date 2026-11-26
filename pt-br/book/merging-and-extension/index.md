@@ -1,7 +1,5 @@
 ﻿# Mesclagem e Extensão
 
-
-
 Mesclagem (merging) e extensão (extension) referem-se a dois conceitos diferentes relacionados ao trabalho com tipos e interfaces.
 
 A mesclagem permite combinar várias declarações do mesmo nome em uma única definição, por exemplo, quando você define uma interface com o mesmo nome várias vezes:
@@ -43,4 +41,3 @@ const dog: Bird = {
     },
 };
 ```
-

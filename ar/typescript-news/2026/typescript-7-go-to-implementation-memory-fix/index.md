@@ -1,6 +1,5 @@
 ﻿# يحسّن TypeScript 7 استخدام الذاكرة في Go to Implementation
 
-
 **نُشر في:** 30 يوليو 2026
 
 دمجت Microsoft إصلاحًا لتحجيم الذاكرة في Go to Implementation ضمن خدمة اللغة الأصلية في TypeScript.

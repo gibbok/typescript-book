@@ -1,7 +1,5 @@
 ﻿# Types littéraux
 
-
-
 Un type littéral est un ensemble à un seul élément au sein d’un type collectif ; il définit une valeur très précise qui est une primitive JavaScript.
 
 Les types littéraux dans TypeScript sont les nombres, les chaînes et les booléens.
@@ -20,4 +18,3 @@ Dans l’exemple suivant, vous pouvez voir un alias de type union. `O` se compos
 ```typescript
 type O = 'a' | 'b' | 'c';
 ```
-

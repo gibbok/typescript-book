@@ -1,7 +1,5 @@
 ﻿# Typannotationen
 
-
-
 Bei Variablen, die mit `var`, `let` und `const` deklariert werden, kann optional ein Typ hinzugefügt werden:
 
 ```typescript
@@ -39,4 +37,3 @@ const sum = (a = 10, b: number): number => a + b;
 Dies ist besonders bei komplexeren Funktionen nützlich, da das Festlegen des Rückgabetyps vor der Implementierung dabei helfen kann, die Funktion zu durchdenken.
 
 Erwägen Sie im Allgemeinen, Typsignaturen zu annotieren, jedoch keine lokalen Variablen im Funktionsrumpf, und fügen Sie Objektliteralen immer Typen hinzu.
-

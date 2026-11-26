@@ -1,7 +1,5 @@
 ﻿# Enum'lar
 
-
-
 TypeScript'te bir `enum`, adlandırılmış sabit değerler kümesidir.
 
 ```typescript
@@ -160,4 +158,3 @@ enum E {
 
 console.log(E.C); //42
 ```
-

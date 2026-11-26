@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 で Go to Implementation のメモリ使用量が改善
 
-
 **公開日:** 2026年7月30日
 
 Microsoft は、TypeScript のネイティブ言語サービスにおける Go to Implementation のメモリ使用量増加を抑える修正をマージしました。

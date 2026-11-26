@@ -1,7 +1,5 @@
 ﻿# За автора
 
-
-
 Simone Poggiali е опитен инженер с страст към писането на професионален код от 90-те години насам. През международната си кариера той е допринесъл за множество проекти за широк спектър от клиенти, от стартиращи компании до големи организации. Известни компании като HelloFresh, Siemens, O2, Leroy Merlin и Snowplow са се възползвали от неговия опит и отдаденост.
 
 Можете да се свържете със Simone Poggiali на следните платформи:
@@ -10,4 +8,3 @@ Simone Poggiali е опитен инженер с страст към писан
 * GitHub: [https://github.com/gibbok](https://github.com/gibbok)
 * Bluesky: [https://bsky.app/profile/gibbok.bsky.social](https://bsky.app/profile/gibbok.bsky.social)
 * Емейл: gibbok.coding📧gmail.com
-

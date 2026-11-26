@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.0 är nu tillgängligt
 
-
 **Publicerad:** 8 juli 2026
 
 Microsoft har släppt TypeScript 7.0, den första stabila versionen som bygger på projektets nya inbyggda kodbas i Go.

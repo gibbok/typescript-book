@@ -1,7 +1,5 @@
 ﻿# ตัวแก้ไข Mapped Type
 
-
-
 ตัวแก้ไข Mapped Type ใน TypeScript ช่วยให้แปลงพร็อพเพอร์ตีภายในชนิดที่มีอยู่ได้:
 
 * `readonly` หรือ `+readonly`: ทำให้พร็อพเพอร์ตีใน mapped type เป็นแบบอ่านอย่างเดียว
@@ -17,4 +15,3 @@ type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // พร็อพเพ�
 
 type MyPartial<T> = { [P in keyof T]?: T[P] }; // พร็อพเพอร์ตีทั้งหมดถูกกำหนดให้เป็นทางเลือก
 ```
-

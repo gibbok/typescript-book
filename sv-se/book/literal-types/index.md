@@ -1,7 +1,5 @@
 ﻿# Literaltyper
 
-
-
 En literaltyp är en enskild elementuppsättning från en kollektiv typ, den definierar ett mycket exakt värde som är en JavaScript-primitiv.
 
 Literaltyper i TypeScript är tal, strängar och booleaner.
@@ -20,4 +18,3 @@ I följande exempel kan du se ett unionstypealias. `O` består bara av de angivn
 ```typescript
 type O = 'a' | 'b' | 'c';
 ```
-

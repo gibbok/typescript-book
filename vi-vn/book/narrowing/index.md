@@ -1,7 +1,5 @@
 ﻿# Narrowing
 
-
-
 Narrowing trong TypeScript là quá trình tinh chỉnh kiểu của một biến bên trong một khối điều kiện. Điều này hữu ích khi làm việc với union type, nơi một biến có thể có nhiều hơn một kiểu.
 
 TypeScript nhận biết một số cách để thu hẹp kiểu:
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 ambient modüllere import öznitelikleri ekliyor
 
-
 **Yayımlandı:** 1 Eylül 2026
 
 TypeScript'in yerel derleyicisi artık desenli ambient modül bildirimlerinde import öznitelik türlerini destekliyor. Böylece bildirimler `type: 'css'` veya `type: 'text'` gibi özniteliklerle importları ayırt edebiliyor.

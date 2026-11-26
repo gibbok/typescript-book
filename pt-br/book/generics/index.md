@@ -1,7 +1,5 @@
 ﻿# Genéricos (Generics)
 
-
-
 Os genéricos permitem que você crie componentes e funções reutilizáveis que podem trabalhar com múltiplos tipos. Com os genéricos, você pode parametrizar tipos, funções e interfaces, permitindo que operem em diferentes tipos sem especificá-los explicitamente de antemão.
 
 Os genéricos permitem tornar o código mais flexível e reutilizável.
@@ -98,4 +96,3 @@ function process<T>(value: T): void {
 process('hello'); // 5
 process(3.14159); // 3.14
 ```
-

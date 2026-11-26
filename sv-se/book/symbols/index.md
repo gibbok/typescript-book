@@ -1,7 +1,5 @@
 ﻿# Symboler
 
-
-
 Symboler är en primitiv datatyp som representerar ett oföränderligt värde som garanterat är globalt unikt under hela programmets livstid.
 
 Symboler kan användas som nycklar för objektegenskaper och ger ett sätt att skapa icke-uppräkningsbara egenskaper.
@@ -20,4 +18,3 @@ console.log(obj[key2]); // value 2
 ```
 
 I WeakMaps och WeakSets är symboler nu tillåtna som nycklar.
-

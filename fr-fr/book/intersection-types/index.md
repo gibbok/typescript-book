@@ -1,7 +1,5 @@
 ﻿# Types intersection
 
-
-
 Un type intersection représente une valeur qui possède toutes les propriétés de deux types ou plus. Les types intersection sont indiqués à l'aide du symbole `&` entre chaque type.
 
 ```typescript
@@ -20,4 +18,3 @@ const j: J = {
     b: 'b',
 };
 ```
-

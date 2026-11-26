@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 fixes setter accessibility in unions and intersections
 
-
 **Published:** August 24, 2026
 
 Microsoft merged a native TypeScript checker fix that keeps read and write accessibility separate for properties synthesized from unions and intersections.

@@ -1,7 +1,5 @@
 ﻿# Wyliczenia
 
-
-
 W TypeScript `enum` jest zbiorem nazwanych wartości stałych.
 
 ```typescript
@@ -160,4 +158,3 @@ enum E {
 
 console.log(E.C); //42
 ```
-

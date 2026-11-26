@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 improves Go to Implementation memory use
 
-
 **Published:** July 30, 2026
 
 Microsoft merged a memory-scaling fix for Go to Implementation in TypeScript's native language service.

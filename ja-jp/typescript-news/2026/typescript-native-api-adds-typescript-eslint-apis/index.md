@@ -1,6 +1,5 @@
 ﻿# TypeScript ネイティブ API に typescript-eslint が必要とする API を追加
 
-
 **公開日:** 2026年9月14日
 
 TypeScript ネイティブ API に、`typescript-eslint` が必要とする追加のチェッカーおよび型 API が公開され、TypeScript のプログラム API に依存するツールの互換性の差が縮まりました。

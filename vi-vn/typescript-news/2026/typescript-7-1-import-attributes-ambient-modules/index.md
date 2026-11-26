@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 thêm thuộc tính import cho ambient module
 
-
 **Đã xuất bản:** 1 tháng 9, 2026
 
 Trình biên dịch native của TypeScript giờ hỗ trợ kiểu thuộc tính import trong khai báo ambient module dạng mẫu. Nhờ đó, khai báo có thể phân biệt import bằng các thuộc tính như `type: 'css'` hoặc `type: 'text'`.

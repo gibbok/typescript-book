@@ -1,7 +1,5 @@
 ﻿# Typ never
 
-
-
 Typ `never` představuje hodnoty, které nikdy nenastanou. Používá se k označení funkcí nebo výrazů, které se nikdy nevrátí nebo vyhodí chybu.
 
 Například nekonečná smyčka:
@@ -40,4 +38,3 @@ const move = (direction: Direction): void => {
     }
 };
 ```
-

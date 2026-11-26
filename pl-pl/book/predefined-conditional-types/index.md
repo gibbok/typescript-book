@@ -1,7 +1,5 @@
 ﻿# Predefiniowane typy warunkowe
 
-
-
 W TypeScript predefiniowane typy warunkowe są wbudowanymi typami warunkowymi udostępnianymi przez język. Zostały zaprojektowane do wykonywania typowych przekształceń typów na podstawie cech danego typu.
 
 `Exclude<UnionType, ExcludedType>`: Ten typ usuwa z Type wszystkie typy, które można przypisać do ExcludedType.
@@ -19,4 +17,3 @@ W TypeScript predefiniowane typy warunkowe są wbudowanymi typami warunkowymi ud
 `Partial<Type>`: Ten typ sprawia, że wszystkie właściwości w Type są opcjonalne.
 
 `Readonly<Type>`: Ten typ sprawia, że wszystkie właściwości w Type są tylko do odczytu.
-

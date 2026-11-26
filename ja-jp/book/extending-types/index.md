@@ -1,7 +1,5 @@
 ﻿# 型の拡張
 
-
-
 `interface` を拡張して、別の型からメンバーをコピーできます。
 
 ```typescript
@@ -49,4 +47,3 @@ interface B extends A {
     b: string;
 }
 ```
-

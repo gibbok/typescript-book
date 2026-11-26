@@ -1,7 +1,5 @@
 ﻿# Diğer Konular
 
-
-
 ### Hatalar ve İstisna İşleme
 
 TypeScript, standart JavaScript hata işleme mekanizmalarını kullanarak hataları yakalamanıza ve işlemenize olanak tanır:

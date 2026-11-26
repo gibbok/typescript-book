@@ -1,7 +1,5 @@
 ﻿# Clase
 
-
-
 ### Sintaxis habitual de las clases
 
 La palabra clave `class` se utiliza para definir una clase. A continuación se muestra un ejemplo:
@@ -672,4 +670,3 @@ class MyClass {
 const r = new MyClass();
 console.log(r.add(10, 5)); // Muestra 15
 ```
-

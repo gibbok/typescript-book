@@ -1,6 +1,5 @@
 ﻿# TypeScript 7:s inbyggda verktyg konsolideras
 
-
 **Publicerad:** 27 juli 2026
 
 TypeScript-underhållarna har klargjort hur de inbyggda verktygen för TypeScript 7 kommer att konsolideras efter den stabila versionen.

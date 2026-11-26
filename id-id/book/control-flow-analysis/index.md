@@ -1,7 +1,5 @@
 ﻿# Analisis Alur Kontrol
 
-
-
 Analisis Alur Kontrol dalam TypeScript adalah cara untuk menganalisis alur kode secara statis guna menginferensi tipe variabel, yang memungkinkan compiler mempersempit tipe variabel tersebut sesuai kebutuhan berdasarkan hasil analisis.
 
 Sebelum TypeScript 4.4, analisis alur kode hanya diterapkan pada kode di dalam statement if, tetapi mulai TypeScript 4.4, analisis ini juga dapat diterapkan pada ekspresi kondisional dan akses properti diskriminan yang dirujuk secara tidak langsung melalui variabel const.
@@ -51,4 +49,3 @@ const f6 = (
 ```
 
 Catatan: Hingga lima tingkat indireksi dianalisis dalam ekspresi kondisional.
-

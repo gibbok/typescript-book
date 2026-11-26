@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 原生 API 新增 emit 方法
 
-
 **发布日期：** 2026 年 7 月 24 日
 
 TypeScript 原生代码库新增了程序化 emit API，供需要生成 JavaScript 或声明输出的工具使用。

@@ -1,7 +1,5 @@
 ﻿# Sobrecargas
 
-
-
 Las sobrecargas de funciones de TypeScript permiten definir varias firmas para un mismo nombre, de modo que la función pueda llamarse de distintas formas. Este es un ejemplo:
 
 ```typescript
@@ -49,4 +47,3 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
-

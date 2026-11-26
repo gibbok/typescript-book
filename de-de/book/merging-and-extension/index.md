@@ -1,7 +1,5 @@
 ﻿# Zusammenführung und Erweiterung
 
-
-
 Zusammenführung und Erweiterung beziehen sich auf zwei unterschiedliche Konzepte bei der Arbeit mit Typen und Interfaces.
 
 Durch Zusammenführung können Sie mehrere Deklarationen mit demselben Namen zu einer einzigen Definition kombinieren, beispielsweise wenn Sie ein Interface mit demselben Namen mehrfach definieren:
@@ -43,4 +41,3 @@ const dog: Bird = {
     },
 };
 ```
-

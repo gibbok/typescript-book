@@ -1,7 +1,5 @@
 ﻿# Suy luận literal
 
-
-
 Literal Inference là một tính năng trong TypeScript cho phép suy luận kiểu của biến hoặc tham số dựa trên giá trị của nó.
 
 Trong ví dụ sau, chúng ta có thể thấy TypeScript coi `x` là literal type vì giá trị không thể thay đổi về sau, trong khi `y` được suy luận là string vì nó có thể được sửa đổi bất kỳ lúc nào sau đó.
@@ -45,4 +43,3 @@ let o = {
     x: 'a' as X,
 };
 ```
-

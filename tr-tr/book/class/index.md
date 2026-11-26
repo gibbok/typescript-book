@@ -1,7 +1,5 @@
 ﻿# Sınıf
 
-
-
 ### Sınıfın Yaygın Sözdizimi
 
 TypeScript'te bir sınıf tanımlamak için `class` anahtar sözcüğü kullanılır. Aşağıda bir örnek görebilirsiniz:
@@ -672,4 +670,3 @@ class MyClass {
 const r = new MyClass();
 console.log(r.add(10, 5)); // 15 yazdırır
 ```
-

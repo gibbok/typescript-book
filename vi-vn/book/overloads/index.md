@@ -1,7 +1,5 @@
 ﻿# Overload
 
-
-
 Function overload trong TypeScript cho phép bạn định nghĩa nhiều chữ ký hàm cho một tên hàm duy nhất, nhờ đó có thể định nghĩa các hàm được gọi theo nhiều cách. Dưới đây là một ví dụ:
 
 ```typescript
@@ -49,4 +47,3 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
-

@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 native API adds emit methods
 
-
 **Published:** July 24, 2026
 
 The native TypeScript codebase has added programmatic emit APIs for tools that need to generate JavaScript or declaration output.

@@ -1,6 +1,5 @@
 ﻿# API nativa do TypeScript adiciona sistemas de arquivos virtuais em camadas
 
-
 **Publicado:** 9 de setembro de 2026
 
 A API nativa do TypeScript agora pode criar e atualizar snapshots com dados explícitos de sistema de arquivos virtual. Isso permite que ferramentas representem adições, edições e remoções de arquivos sem reconstruir toda a entrada do sistema de arquivos.

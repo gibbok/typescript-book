@@ -1,7 +1,5 @@
 ﻿# جدول المحتويات
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [كتاب TypeScript الموجز](../the-concise-typescript-book/)
   - [دعم المشروع](../support-the-project/)
@@ -218,4 +216,3 @@
     - [التحقق من صياغة التعبيرات النمطية](../others/#التحقق-من-صياغة-التعبيرات-النمطية)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

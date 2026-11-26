@@ -1,7 +1,5 @@
 ﻿# Optionale Eigenschaften
 
-
-
 Ein Objekt kann optionale Eigenschaften angeben, indem dem Eigenschaftsnamen ein Fragezeichen `?` angehängt wird:
 
 ```typescript
@@ -20,4 +18,3 @@ type X = {
 };
 const x = ({ a, b = 100 }: X) => a + b;
 ```
-

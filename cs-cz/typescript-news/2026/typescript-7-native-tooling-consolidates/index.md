@@ -1,6 +1,5 @@
 ﻿# Nativní nástroje TypeScriptu 7 se sjednocují
 
-
 **Zveřejněno:** 27. července 2026
 
 Správci TypeScriptu upřesnili, jak se nativní nástroje TypeScriptu 7 sjednotí po vydání stabilní verze.

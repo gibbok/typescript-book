@@ -1,7 +1,5 @@
 ﻿# Tipos primitivos
 
-
-
 TypeScript admite 7 tipos primitivos. Un tipo de datos primitivo es un tipo que no es un objeto y no tiene métodos asociados. En TypeScript, todos los tipos primitivos son inmutables, lo que significa que sus valores no pueden cambiar una vez asignados.
 
 ### string
@@ -121,4 +119,3 @@ El tipo `any` puede resultar útil durante una migración gradual de JavaScript 
 En proyectos nuevos, utiliza la configuración `noImplicitAny` de TypeScript, que hace que TypeScript emita errores cuando se utiliza o infiere `any`.
 
 El tipo `any` suele ser una fuente de errores que puede ocultar problemas reales con los tipos. Evita utilizarlo siempre que sea posible.
-

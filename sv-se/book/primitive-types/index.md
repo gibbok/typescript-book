@@ -1,7 +1,5 @@
 ﻿# Primitiva typer
 
-
-
 TypeScript stöder 7 primitiva typer. En primitiv datatyp avser en typ som inte är ett objekt och som inte har några metoder kopplade till sig. I TypeScript är alla primitiva typer oföränderliga, vilket innebär att deras värden inte kan ändras efter att de har tilldelats.
 
 ### string
@@ -121,4 +119,3 @@ Typen `any` kan vara användbar vid en gradvis migrering från JavaScript till T
 För nya projekt, använd TypeScript-konfigurationen `noImplicitAny` som gör att TypeScript ger fel där `any` används eller härleds.
 
 Typen `any` är vanligtvis en källa till fel som kan dölja verkliga problem med dina typer. Undvik att använda den så mycket som möjligt.
-

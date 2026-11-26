@@ -1,7 +1,5 @@
 ﻿# 타입 시스템 살펴보기
 
-
-
 ### TypeScript 언어 서비스
 
 tsserver라고도 하는 TypeScript 언어 서비스는 오류 보고, 진단, 저장 시 컴파일, 이름 변경, 정의로 이동, 자동 완성 목록, 시그니처 도움말 등 다양한 기능을 제공합니다. 주로 통합 개발 환경(IDE)에서 IntelliSense 지원을 제공하는 데 사용됩니다. Visual Studio Code와 원활하게 통합되며 Conquer of Completion (Coc)과 같은 도구에서도 사용됩니다.
@@ -834,4 +832,3 @@ function classify(x: unknown) {
     }
 }
 ```
-

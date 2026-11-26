@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 네이티브 API에 emit 메서드가 추가되었습니다
 
-
 **게시일:** 2026년 7월 24일
 
 네이티브 TypeScript 코드베이스에 JavaScript 또는 선언 출력을 생성해야 하는 도구를 위한 프로그래밍 방식의 emit API가 추가되었습니다.

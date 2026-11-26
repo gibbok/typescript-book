@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 förbättrar minnesanvändningen för Gå till implementering
 
-
 **Publicerad:** 30 juli 2026
 
 Microsoft har infört en korrigering av minnesskalningen för Gå till implementering i TypeScripts inbyggda språktjänst.

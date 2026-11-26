@@ -1,7 +1,5 @@
 ﻿# Any-typen
 
-
-
 `any`-typen är en speciell typ (universell supertyp) som kan användas för att representera vilken typ av värde som helst (primitiver, objekt, arrayer, funktioner, fel, symboler). Den används ofta i situationer där typen av ett värde inte är känd vid kompilering, eller vid arbete med värden från externa API:er eller bibliotek som inte har TypeScript-typningar.
 
 Genom att använda `any`-typen indikerar du för TypeScript-kompilatorn att värden ska representeras utan några begränsningar. För att maximera typsäkerheten i din kod, överväg följande:
@@ -15,4 +13,3 @@ let value: any;
 value = true; // Giltigt
 value = 7; // Giltigt
 ```
-

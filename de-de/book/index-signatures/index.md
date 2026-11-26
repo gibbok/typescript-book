@@ -1,7 +1,5 @@
 ﻿# Indexsignaturen
 
-
-
 In TypeScript können wir `string`, `number` und `symbol` als Indexsignaturen verwenden:
 
 ```typescript
@@ -15,4 +13,3 @@ console.log(k['1']); // Dasselbe Ergebnis wie k[1]
 ```
 
 Beachten Sie, dass JavaScript einen Index vom Typ `number` automatisch in einen Index vom Typ `string` konvertiert, sodass `k[1]` und `k["1"]` denselben Wert zurückgeben.
-

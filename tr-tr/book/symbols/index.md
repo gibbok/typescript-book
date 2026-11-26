@@ -1,7 +1,5 @@
 ﻿# Semboller
 
-
-
 Semboller, programın yaşam süresi boyunca program genelinde benzersiz olması garanti edilen, değiştirilemez bir değeri temsil eden ilkel bir veri türüdür.
 
 Semboller, nesne özellikleri için anahtar olarak kullanılabilir ve numaralandırılamayan özellikler oluşturmanın bir yolunu sağlar.
@@ -20,4 +18,3 @@ console.log(obj[key2]); // value 2
 ```
 
 Artık WeakMap ve WeakSet'lerde sembollerin anahtar olarak kullanılmasına izin verilir.
-

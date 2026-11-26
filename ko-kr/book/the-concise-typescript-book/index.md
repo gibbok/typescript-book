@@ -1,7 +1,5 @@
 ﻿# The Concise TypeScript Book
 
-
-
 The Concise TypeScript Book은 TypeScript의 기능을 포괄적이면서도 간결하게 설명합니다. 강력한 타입 시스템부터 고급 기능까지 최신 버전의 언어가 제공하는 모든 측면을 명확하게 다룹니다.
 
 초보자든 숙련된 개발자든, 이 책은 TypeScript에 대한 이해와 숙련도를 높이는 데 매우 유용한 자료입니다.
@@ -33,4 +31,3 @@ Plus Edition에는 다음 내용이 포함됩니다.
 Plus Edition을 구매하면 무료 오픈 소스 도서의 지속적인 개발과 유지 관리도 직접 후원하게 됩니다.
 
 Plus Edition은 전 세계 Amazon에서 영어와 이탈리아어로 제공됩니다. [Plus Edition을 살펴보고 Amazon에서 구매하기](https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme).
-

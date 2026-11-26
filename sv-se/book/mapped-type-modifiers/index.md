@@ -1,7 +1,5 @@
 ﻿# Modifierare för mappade typer
 
-
-
 Modifierare för mappade typer i TypeScript möjliggör transformation av egenskaper inom en befintlig typ:
 
 * `readonly` eller `+readonly`: Detta gör en egenskap i den mappade typen skrivskyddad.
@@ -17,4 +15,3 @@ type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Alla egenskaper markera
 
 type MyPartial<T> = { [P in keyof T]?: T[P] }; // Alla egenskaper markerade som valfria
 ```
-

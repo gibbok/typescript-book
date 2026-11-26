@@ -1,7 +1,5 @@
 ﻿# Ayırt Edici Birleşimler
 
-
-
 TypeScript'te Ayırt Edici Birleşimler, birleşim için olası türler kümesini daraltmak üzere ayırt edici olarak bilinen ortak bir özellik kullanan birleşim türleridir.
 
 ```typescript
@@ -32,4 +30,3 @@ const circle: Circle = { kind: 'circle', radius: 2 };
 console.log(area(square)); // 25
 console.log(area(circle)); // 12.566370614359172
 ```
-

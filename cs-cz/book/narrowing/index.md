@@ -1,7 +1,5 @@
 ﻿# Zužování typů
 
-
-
 Zužování typů v TypeScriptu je proces zpřesňování typu proměnné uvnitř podmíněného bloku. To je užitečné při práci se sjednocenými typy, kdy proměnná může mít více než jeden typ.
 
 TypeScript rozpoznává několik způsobů zužování typů:
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

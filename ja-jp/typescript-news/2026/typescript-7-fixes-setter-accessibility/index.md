@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 が union と intersection の setter アクセス制御を修正
 
-
 **公開日:** 2026年8月24日
 
 Microsoft は、union と intersection から合成されるプロパティについて、読み取りと書き込みのアクセス制御を別々に保持する TypeScript ネイティブ型チェッカーの修正をマージしました。

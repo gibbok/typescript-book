@@ -1,7 +1,5 @@
 ﻿# مسندات الأنواع
 
-
-
 مسندات الأنواع في TypeScript هي دوال تُرجع قيمة منطقية وتُستخدم لتضييق نوع متغير إلى نوع أكثر تحديدًا.
 
 ```typescript
@@ -21,4 +19,3 @@ const foo = (bar: unknown) => {
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

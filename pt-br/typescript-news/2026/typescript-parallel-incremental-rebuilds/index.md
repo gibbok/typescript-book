@@ -1,6 +1,5 @@
 ﻿# TypeScript acelera recompilações incrementais com verificações paralelas
 
-
 Uma alteração incorporada ao compilador paraleliza a verificação de assinaturas dos arquivos afetados por mudanças em módulos muito importados. Antes, essa etapa era sequencial.
 
 ## O que mudou

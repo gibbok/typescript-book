@@ -1,7 +1,5 @@
 ﻿# Aşırı Yüklemeler
 
-
-
 TypeScript'te fonksiyon aşırı yüklemeleri, tek bir fonksiyon adı için birden fazla fonksiyon imzası tanımlamanıza ve böylece birden fazla şekilde çağrılabilen fonksiyonlar oluşturmanıza olanak tanır. İşte bir örnek:
 
 ```typescript
@@ -49,4 +47,3 @@ class Greeter {
 }
 console.log(new Greeter('Hello').sayHi('Simon'));
 ```
-

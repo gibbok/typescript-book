@@ -1,6 +1,5 @@
 ﻿# El compilador nativo de TypeScript incorpora soporte experimental para WebAssembly
 
-
 **Publicado:** 2026-10-29
 
 El 29 de octubre de 2026, Microsoft integró soporte experimental para `wasip1/wasm` en el compilador nativo de TypeScript. El cambio permite ejecutar el compilador en entornos WASI e introduce un transporte para la API JavaScript utilizable en el navegador.

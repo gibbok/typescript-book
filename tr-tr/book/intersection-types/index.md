@@ -1,7 +1,5 @@
 ﻿# Kesişim Türleri
 
-
-
 Kesişim Türü, iki veya daha fazla türün tüm özelliklerine sahip bir değeri temsil eden türdür. Kesişim Türleri, her türün arasında `&` simgesi kullanılarak gösterilir.
 
 ```typescript
@@ -20,4 +18,3 @@ const j: J = {
     b: 'b',
 };
 ```
-

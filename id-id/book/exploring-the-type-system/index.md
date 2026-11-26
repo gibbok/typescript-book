@@ -1,7 +1,5 @@
 ﻿# Menjelajahi Sistem Tipe
 
-
-
 ### Layanan Bahasa TypeScript
 
 TypeScript Language Service, yang juga dikenal sebagai tsserver, menawarkan berbagai fitur seperti pelaporan error, diagnostik, kompilasi saat menyimpan, penggantian nama, menuju definisi, daftar pelengkapan, bantuan signature, dan lainnya. Layanan ini terutama digunakan oleh lingkungan pengembangan terintegrasi (IDE) untuk menyediakan dukungan IntelliSense. Layanan ini terintegrasi dengan lancar dengan Visual Studio Code dan digunakan oleh alat seperti Conquer of Completion (Coc).
@@ -835,4 +833,3 @@ function classify(x: unknown) {
     }
 }
 ```
-

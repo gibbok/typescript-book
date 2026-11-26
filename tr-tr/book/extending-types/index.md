@@ -1,7 +1,5 @@
 ﻿# Türleri Genişletme
 
-
-
 Bir `interface`'i genişletmek (üyeleri başka bir türden kopyalamak) mümkündür:
 
 ```typescript
@@ -49,4 +47,3 @@ interface B extends A {
     b: string;
 }
 ```
-

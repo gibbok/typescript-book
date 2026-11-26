@@ -1,7 +1,5 @@
 ﻿# Interfejs i typ
 
-
-
 ### Podstawowa składnia
 
 W TypeScript interfejsy definiują strukturę obiektów, określając nazwy i typy właściwości lub metod, które musi mieć dany obiekt. Podstawowa składnia definiowania interfejsu w TypeScript wygląda następująco:
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // Typ przecięcia
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Obiekt z właściwościami name i age
 ```
-

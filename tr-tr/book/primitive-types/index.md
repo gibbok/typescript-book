@@ -1,7 +1,5 @@
 ﻿# İlkel Türler
 
-
-
 TypeScript 7 ilkel türü destekler. İlkel veri türü, nesne olmayan ve kendisiyle ilişkili herhangi bir yöntemi bulunmayan bir türü ifade eder. TypeScript'teki tüm ilkel türler değişmezdir; yani değerleri atandıktan sonra değiştirilemez.
 
 ### string
@@ -121,4 +119,3 @@ const y: readonly [string, number] = ['a', 1];
 Yeni projelerde `noImplicitAny` TypeScript yapılandırmasını kullanın; bu yapılandırma, `any` kullanıldığı veya çıkarıldığı yerlerde TypeScript'in hata vermesini sağlar.
 
 `any` türü genellikle türlerinizdeki gerçek sorunları maskeleyebilen bir hata kaynağıdır. Mümkün olduğunca kullanmaktan kaçının.
-

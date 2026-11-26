@@ -1,7 +1,5 @@
 ﻿# Ad Alanları
 
-
-
 TypeScript'te ad alanları, kodu mantıksal kapsayıcılar içinde düzenlemek, ad çakışmalarını önlemek ve ilişkili kodları bir arada gruplandırmak için kullanılır.
 `export` anahtar sözcüğünün kullanılması, modüllerin dışından ad alanına erişilmesine olanak tanır.
 
@@ -19,4 +17,3 @@ const a: MyNamespace.MyInterface1 = {
     prop1: true,
 };
 ```
-

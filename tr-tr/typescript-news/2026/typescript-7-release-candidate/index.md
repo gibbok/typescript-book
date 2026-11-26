@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.0 sürüm adayı duyuruldu
 
-
 **Yayımlandı:** 18 Haziran 2026
 
 Microsoft, kararlı TypeScript 7 sürümünden önceki son önizleme olarak TypeScript 7.0 sürüm adayını yayımladı.

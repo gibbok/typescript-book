@@ -1,7 +1,5 @@
 ﻿# Övrigt
 
-
-
 ### Fel och undantagshantering
 
 TypeScript låter dig fånga och hantera fel med hjälp av JavaScripts standardmekanismer för felhantering:

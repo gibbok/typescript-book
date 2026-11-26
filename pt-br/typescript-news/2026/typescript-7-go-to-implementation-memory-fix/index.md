@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 melhora o uso de memória de Ir para Implementação
 
-
 **Publicado:** 30 de julho de 2026
 
 A Microsoft incorporou uma correção de escalabilidade de memória para Ir para Implementação no serviço de linguagem nativo do TypeScript.

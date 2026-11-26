@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 yerel araçları birleştiriliyor
 
-
 **Yayımlandı:** 27 Temmuz 2026
 
 TypeScript bakımcıları, kararlı sürümün ardından yerel TypeScript 7 araçlarının nasıl birleştirileceğini açıkladı.

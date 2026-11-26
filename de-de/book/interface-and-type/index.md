@@ -1,7 +1,5 @@
 ﻿# Interface und Typ
 
-
-
 ### Allgemeine Syntax
 
 In TypeScript definieren Interfaces die Struktur von Objekten. Sie geben die Namen und Typen der Eigenschaften oder Methoden an, die ein Objekt besitzen muss. Die allgemeine Syntax zum Definieren eines Interfaces in TypeScript lautet wie folgt:
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // Schnittmengentyp
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Objekt mit den Eigenschaften name und age
 ```
-

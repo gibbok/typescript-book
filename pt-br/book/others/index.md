@@ -1,7 +1,5 @@
 ﻿# Outros
 
-
-
 ### Erros e Tratamento de Exceções
 
 O TypeScript permite capturar e tratar erros usando os mecanismos padrão de tratamento de erros do JavaScript:

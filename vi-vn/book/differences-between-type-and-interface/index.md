@@ -1,7 +1,5 @@
 ﻿# Khác biệt giữa Type và Interface
 
-
-
 Declaration merging (augmentation):
 
 Interface hỗ trợ declaration merging, nghĩa là bạn có thể định nghĩa nhiều interface có cùng tên và TypeScript sẽ hợp nhất chúng thành một interface duy nhất với các thuộc tính và phương thức kết hợp. Ngược lại, type không hỗ trợ declaration merging. Điều này có thể hữu ích khi bạn muốn thêm chức năng hoặc tùy chỉnh các kiểu hiện có mà không sửa đổi định nghĩa ban đầu, hoặc vá các kiểu bị thiếu hay không chính xác.
@@ -89,4 +87,3 @@ interface B {
 
 type C = A | B; // Union của các interface
 ```
-

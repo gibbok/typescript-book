@@ -1,6 +1,5 @@
 ﻿# API native TypeScript menambahkan API yang dibutuhkan typescript-eslint
 
-
 **Dipublikasikan:** 14 September 2026
 
 API native TypeScript kini mengekspos API pemeriksa dan tipe tambahan yang dibutuhkan `typescript-eslint`, sehingga mengurangi kesenjangan kompatibilitas untuk alat yang bergantung pada API terprogram TypeScript.

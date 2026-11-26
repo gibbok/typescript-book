@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 แก้ไขการเข้าถึง setter ใน union และ intersection
 
-
 **เผยแพร่:** 24 สิงหาคม 2026
 
 Microsoft ได้ merge การแก้ไขตัวตรวจสอบ TypeScript แบบเนทีฟ ซึ่งแยกการเข้าถึงเพื่ออ่านและเขียนออกจากกันสำหรับพร็อพเพอร์ตีที่สังเคราะห์จาก union และ intersection

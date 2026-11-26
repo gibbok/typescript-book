@@ -1,7 +1,5 @@
 ﻿# Wymazywane typy strukturalne
 
-
-
 W TypeScripcie obiekty nie muszą dokładnie odpowiadać konkretnemu typowi. Jeśli na przykład utworzymy obiekt spełniający wymagania interfejsu, możemy użyć go w miejscach, w których wymagany jest ten interfejs, nawet jeśli nie istnieje między nimi jawne powiązanie.
 Przykład:
 
@@ -21,4 +19,3 @@ const obj = {
 
 log(obj); // Poprawne
 ```
-

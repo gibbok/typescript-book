@@ -1,6 +1,5 @@
 ﻿# API TypeScript native bổ sung hệ thống tệp ảo phân lớp
 
-
 **Đã xuất bản:** 9 tháng 9, 2026
 
 API TypeScript native giờ có thể tạo và cập nhật snapshot bằng dữ liệu hệ thống tệp ảo tường minh. Công cụ có thể mô hình hóa việc thêm, sửa và xóa tệp mà không cần dựng lại toàn bộ đầu vào của hệ thống tệp.

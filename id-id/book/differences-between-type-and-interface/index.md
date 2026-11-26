@@ -1,7 +1,5 @@
 ﻿# Perbedaan antara Type dan Interface
 
-
-
 Penggabungan deklarasi (augmentasi):
 
 Interface mendukung penggabungan deklarasi, yang berarti Anda dapat mendefinisikan beberapa interface dengan nama yang sama dan TypeScript akan menggabungkannya menjadi satu interface dengan gabungan properti dan metode. Di sisi lain, type tidak mendukung penggabungan deklarasi. Hal ini dapat membantu ketika Anda ingin menambahkan fungsionalitas tambahan atau menyesuaikan tipe yang sudah ada tanpa mengubah definisi asli maupun menambal tipe yang hilang atau keliru.
@@ -89,4 +87,3 @@ interface B {
 
 type C = A | B; // Union antarmuka
 ```
-

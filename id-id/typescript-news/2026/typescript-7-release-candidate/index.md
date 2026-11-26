@@ -1,6 +1,5 @@
 ﻿# Kandidat rilis TypeScript 7.0 diumumkan
 
-
 **Diterbitkan:** 18 Juni 2026
 
 Microsoft merilis kandidat rilis TypeScript 7.0 sebagai pratinjau terakhir sebelum rilis stabil TypeScript 7.

@@ -1,7 +1,5 @@
 ﻿# Typ na podstawie modułu
 
-
-
 Typ na podstawie modułu oznacza możliwość użycia wartości eksportowanych przez moduł do automatycznego wnioskowania ich typów. Gdy moduł eksportuje wartość określonego typu, TypeScript może użyć tej informacji do automatycznego wywnioskowania typu tej wartości po zaimportowaniu jej do innego modułu.
 
 <!-- skip -->
@@ -12,4 +10,3 @@ export const add = (x: number, y: number) => x + y;
 import { add } from 'calc';
 const r = add(1, 2); // r jest typu number
 ```
-

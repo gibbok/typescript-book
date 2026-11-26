@@ -1,7 +1,5 @@
 ﻿# Özlü TypeScript Kitabı
 
-
-
 Özlü TypeScript Kitabı, TypeScript'in yeteneklerine ilişkin kapsamlı ve kısa bir genel bakış sunar. Dilin güçlü tür sisteminden gelişmiş özelliklerine kadar en son sürümünün tüm yönlerini kapsayan açık açıklamalar içerir.
 
 İster yeni başlayan ister deneyimli bir geliştirici olun, bu kitap TypeScript konusundaki anlayışınızı ve yetkinliğinizi geliştirmek için paha biçilmez bir kaynaktır.
@@ -33,4 +31,3 @@ Plus Edition şunları içerir:
 Plus Edition'ı satın alarak ücretsiz ve açık kaynaklı kitabın geliştirilmeye ve bakımının yapılmaya devam edilmesini de doğrudan desteklersiniz.
 
 Plus Edition, dünya genelinde Amazon'da İngilizce ve İtalyanca olarak sunulmaktadır. [Plus Edition'ı keşfedin ve Amazon'dan satın alın](https://gibbok.github.io/typescript-book/plus-edition/?utm_source=github&utm_medium=readme).
-

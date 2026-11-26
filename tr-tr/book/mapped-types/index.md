@@ -1,7 +1,5 @@
 ﻿# Eşlenmiş Türler
 
-
-
 TypeScript'teki Eşlenmiş Türler, her özelliği bir eşleme fonksiyonu kullanarak dönüştürüp mevcut bir türü temel alan yeni türler oluşturmanıza olanak tanır. Mevcut türleri eşleyerek aynı bilgiyi farklı bir biçimde temsil eden yeni türler oluşturabilirsiniz. Eşlenmiş bir tür oluşturmak için `keyof` operatörünü kullanarak mevcut bir türün özelliklerine erişir ve ardından yeni bir tür üretmek üzere bunları değiştirirsiniz.
 Aşağıdaki örnekte:
 
@@ -21,4 +19,3 @@ const x: MyNewType = {
 ```
 
 MyMappedType'ı, T'nin özellikleri üzerinde eşleme yaparak her özelliğin özgün türünün bir dizisi olduğu yeni bir tür oluşturacak şekilde tanımlarız. Bunu kullanarak MyType ile aynı bilgiyi, ancak her özelliği bir dizi olacak biçimde temsil eden MyNewType'ı oluştururuz.
-

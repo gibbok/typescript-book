@@ -1,7 +1,5 @@
 ﻿# 原始类型
 
-
-
 TypeScript 支持 7 种基本类型。原始数据类型是指不是对象并且没有任何与其关联的方法的类型。在 TypeScript 中，所有原始类型都是不可变的，这意味着它们的值一旦分配就无法更改。
 
 ### string
@@ -109,4 +107,3 @@ const y: readonly [string, number] = ['a', 1];
 对于新项目，请使用 TypeScript 配置 `noImplicitAny` ，该配置使 TypeScript 能够在any使用或推断时发出错误。
 
 `any` 通常是错误的来源，它可以掩盖类型的实际问题。尽可能避免使用它。
-

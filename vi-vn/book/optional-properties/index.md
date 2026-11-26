@@ -1,7 +1,5 @@
 ﻿# Thuộc tính tùy chọn
 
-
-
 Một đối tượng có thể chỉ định Thuộc tính tùy chọn bằng cách thêm dấu hỏi `?` vào cuối tên thuộc tính:
 
 ```typescript
@@ -20,4 +18,3 @@ type X = {
 };
 const x = ({ a, b = 100 }: X) => a + b;
 ```
-

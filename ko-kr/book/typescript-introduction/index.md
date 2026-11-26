@@ -1,7 +1,5 @@
 ﻿# TypeScript 소개
 
-
-
 ### TypeScript란?
 
 TypeScript는 JavaScript를 기반으로 구축된 강타입 프로그래밍 언어입니다. 원래 2012년에 Anders Hejlsberg가 설계했으며, 현재 Microsoft가 오픈 소스 프로젝트로 개발하고 유지 관리하고 있습니다.
@@ -212,4 +210,3 @@ TypeScript에서 사용할 수 있는 현대적인 JavaScript 기능은 다음�
 * 기본 함수 매개변수.
 
 이러한 현대적인 JavaScript 기능을 활용하면 개발자는 TypeScript에서 더 표현력 있고 간결한 코드를 작성할 수 있습니다.
-

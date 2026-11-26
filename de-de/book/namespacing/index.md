@@ -1,7 +1,5 @@
 ﻿# Namespaces
 
-
-
 In TypeScript werden Namespaces verwendet, um Code in logischen Containern zu organisieren, Namenskollisionen zu vermeiden und zusammengehörigen Code zu gruppieren.
 Die Verwendung des Schlüsselworts `export` ermöglicht den Zugriff auf den Namespace von außerhalb von Modulen.
 
@@ -19,4 +17,3 @@ const a: MyNamespace.MyInterface1 = {
     prop1: true,
 };
 ```
-

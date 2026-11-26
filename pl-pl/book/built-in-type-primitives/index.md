@@ -1,7 +1,5 @@
 ﻿# Wbudowane typy proste
 
-
-
 TypeScript ma kilka wbudowanych typów prostych, których można używać do definiowania zmiennych, parametrów funkcji i typów zwracanych:
 
 * `number`: reprezentuje wartości liczbowe, w tym liczby całkowite i zmiennoprzecinkowe.
@@ -14,4 +12,3 @@ TypeScript ma kilka wbudowanych typów prostych, których można używać do def
 * `any`: reprezentuje typ dynamiczny lub nieznany. Zmienne typu any mogą przechowywać wartości dowolnego typu i omijają kontrolę typów.
 * `void`: reprezentuje brak jakiegokolwiek typu. Jest powszechnie używany jako typ zwracany funkcji, które nie zwracają wartości.
 * `never`: reprezentuje typ wartości, które nigdy nie występują. Jest zazwyczaj używany jako typ zwracany funkcji, które zgłaszają błąd lub wchodzą w nieskończoną pętlę.
-

@@ -1,7 +1,5 @@
 ﻿# การขยายชนิด
 
-
-
 สามารถขยาย `interface` ได้ (คัดลอกสมาชิกจากชนิดอื่น):
 
 ```typescript
@@ -49,4 +47,3 @@ interface B extends A {
     b: string;
 }
 ```
-

@@ -1,7 +1,5 @@
 ﻿# Manipolazione dei tipi
 
-
-
 ### Creazione di tipi da tipi
 
 È possibile creare nuovi tipi componendo, manipolando o trasformando tipi esistenti.
@@ -354,4 +352,3 @@ function fn2<T extends string>(x: T[], y: NoInfer<T>) {
 
 const r2 = fn2(['a', 'b'], 'c'); // Errore: l'argomento di tipo '"c"' non è assegnabile al parametro di tipo '"a" | "b"'.
 ```
-

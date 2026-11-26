@@ -1,7 +1,5 @@
 ﻿# Explorando o Sistema de Tipos
 
-
-
 ### O Serviço de Linguagem do TypeScript
 
 O Serviço de Linguagem do TypeScript, também conhecido como tsserver, oferece vários recursos, como relatórios de erros, diagnósticos, compilação ao salvar, renomeação, navegação até a definição, listas de sugestões, ajuda sobre assinaturas e muito mais. É usado principalmente por ambientes de desenvolvimento integrados (IDEs) para fornecer suporte ao IntelliSense. Ele se integra perfeitamente ao Visual Studio Code e é utilizado por ferramentas como Conquer of Completion (Coc).
@@ -834,4 +832,3 @@ function classify(x: unknown) {
     }
 }
 ```
-

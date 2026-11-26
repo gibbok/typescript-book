@@ -1,6 +1,5 @@
 ﻿# L'API native de TypeScript 7 ajoute des méthodes d'émission
 
-
 **Publié le :** 24 juillet 2026
 
 La base de code native de TypeScript a ajouté des API programmatiques d'émission pour les outils devant générer une sortie JavaScript ou de déclarations.

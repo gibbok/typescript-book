@@ -1,6 +1,5 @@
 ﻿# TypeScripts inbyggda API får virtuella filsystem i lager
 
-
 **Publicerad:** 9 september 2026
 
 TypeScripts inbyggda API kan nu skapa och uppdatera ögonblicksbilder med explicit data för virtuella filsystem. Verktyg kan därmed modellera tillagda, ändrade och borttagna filer utan att bygga om hela filsystemets indata.

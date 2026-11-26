@@ -1,7 +1,5 @@
 ﻿# Union Terdiskriminasi
 
-
-
 Union Terdiskriminasi dalam TypeScript adalah jenis tipe union yang menggunakan properti umum, yang dikenal sebagai diskriminan, untuk mempersempit kumpulan kemungkinan tipe dalam union tersebut.
 
 ```typescript
@@ -32,4 +30,3 @@ const circle: Circle = { kind: 'circle', radius: 2 };
 console.log(area(square)); // 25
 console.log(area(circle)); // 12.566370614359172
 ```
-

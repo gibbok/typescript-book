@@ -1,7 +1,5 @@
 ﻿# Introdução ao TypeScript
 
-
-
 ### O que é TypeScript?
 
 TypeScript é uma linguagem de programação fortemente tipada que se baseia no JavaScript. Foi originalmente projetada por Anders Hejlsberg em 2012 e é atualmente desenvolvida e mantida pela Microsoft como um projeto de código aberto.
@@ -212,4 +210,3 @@ Aqui estão alguns dos recursos modernos do JavaScript que podem ser usados no T
 * Parâmetros de função com valores padrão.
 
 Ao aproveitar esses recursos modernos do JavaScript, os desenvolvedores podem escrever código mais expressivo e conciso no TypeScript.
-

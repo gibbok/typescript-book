@@ -1,7 +1,5 @@
 ﻿# Mở rộng kiểu
 
-
-
 Có thể mở rộng một `interface` (sao chép các thành viên từ một kiểu khác):
 
 ```typescript
@@ -49,4 +47,3 @@ interface B extends A {
     b: string;
 }
 ```
-

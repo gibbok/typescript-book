@@ -1,7 +1,5 @@
 ﻿# Kontrollflödesanalys
 
-
-
 Kontrollflödesanalys i TypeScript är ett sätt att statiskt analysera kodflödet för att härleda typer av variabler, vilket gör det möjligt för kompilatorn att avsmalma typerna av dessa variabler efter behov, baserat på resultaten av analysen.
 
 Före TypeScript 4.4 tillämpades kodflödesanalys enbart på kod inom en if-sats, men från och med TypeScript 4.4 kan den även tillämpas på villkorliga uttryck och diskriminantegenskapsåtkomster som indirekt refereras genom const-variabler.
@@ -51,4 +49,3 @@ const f6 = (
 ```
 
 Observera: Upp till fem nivåer av indirektion analyseras i villkorliga uttryck.
-

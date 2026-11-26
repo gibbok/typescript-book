@@ -1,6 +1,5 @@
 ﻿# TypeScript accelera le ricompilazioni incrementali con controlli paralleli
 
-
 Una modifica integrata nel compilatore parallelizza il controllo delle firme dei file interessati dalle modifiche a moduli importati da molti altri file. Prima questa fase era sequenziale.
 
 ## Cosa cambia

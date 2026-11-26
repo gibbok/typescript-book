@@ -1,7 +1,5 @@
 ﻿# Avsmalning
 
-
-
 TypeScript-avsmalning är processen att förfina typen av en variabel inom ett villkorsblock. Detta är användbart när man arbetar med unionstyper, där en variabel kan ha mer än en typ.
 
 TypeScript känner igen flera sätt att avsmalna typen:
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

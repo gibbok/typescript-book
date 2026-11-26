@@ -1,6 +1,5 @@
 ﻿# TypeScript snabbar upp inkrementella byggen med parallella kontroller
 
-
 En sammanslagen kompilatorändring gör att signaturer för filer som påverkas av ändringar i ofta importerade moduler kontrolleras parallellt. Tidigare gjordes detta sekventiellt.
 
 ## Vad har ändrats

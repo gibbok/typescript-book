@@ -1,7 +1,5 @@
 ﻿# Vordefinierte bedingte Typen
 
-
-
 Vordefinierte bedingte Typen sind in TypeScript integrierte bedingte Typen, die von der Sprache bereitgestellt werden. Sie sind dafür vorgesehen, gängige Typtransformationen anhand der Eigenschaften eines bestimmten Typs durchzuführen.
 
 `Exclude<UnionType, ExcludedType>`: Dieser Typ entfernt alle Typen aus Type, die ExcludedType zugewiesen werden können.
@@ -19,4 +17,3 @@ Vordefinierte bedingte Typen sind in TypeScript integrierte bedingte Typen, die 
 `Partial<Type>`: Dieser Typ macht alle Eigenschaften in Type optional.
 
 `Readonly<Type>`: Dieser Typ macht alle Eigenschaften in Type schreibgeschützt.
-

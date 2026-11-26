@@ -1,7 +1,5 @@
 ﻿# İçindekiler
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [Özlü TypeScript Kitabı](../the-concise-typescript-book/)
   - [Projeyi Destekleyin](../support-the-project/)
@@ -218,4 +216,3 @@
     - [Düzenli İfade Sözdizimi Denetimi](../others/#düzenli-i̇fade-sözdizimi-denetimi)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

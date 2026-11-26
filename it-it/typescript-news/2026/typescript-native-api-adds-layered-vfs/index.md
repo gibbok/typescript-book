@@ -1,6 +1,5 @@
 ﻿# L'API nativa di TypeScript aggiunge file system virtuali a livelli
 
-
 **Pubblicato:** 9 settembre 2026
 
 L'API nativa di TypeScript può ora creare e aggiornare snapshot con dati espliciti del file system virtuale. Gli strumenti possono così rappresentare aggiunte, modifiche e rimozioni di file senza ricostruire l'intero input del file system.

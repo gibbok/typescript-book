@@ -1,7 +1,5 @@
 ﻿# Właściwości opcjonalne
 
-
-
 Obiekt może określać właściwości opcjonalne przez dodanie znaku zapytania `?` na końcu nazwy właściwości:
 
 ```typescript
@@ -20,4 +18,3 @@ type X = {
 };
 const x = ({ a, b = 100 }: X) => a + b;
 ```
-

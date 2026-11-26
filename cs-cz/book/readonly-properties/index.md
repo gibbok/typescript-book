@@ -1,7 +1,5 @@
 ﻿# Vlastnosti pouze pro čtení
 
-
-
 Zápisu do vlastnosti lze zabránit pomocí modifikátoru `readonly`, který zajišťuje, že vlastnost nelze přepsat, ale neposkytuje žádnou záruku úplné neměnnosti:
 
 ```typescript
@@ -21,4 +19,3 @@ type K = {
     readonly [index: number]: string;
 };
 ```
-

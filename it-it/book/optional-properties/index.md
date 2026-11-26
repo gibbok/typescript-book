@@ -1,7 +1,5 @@
 ﻿# Proprietà facoltative
 
-
-
 Un oggetto può specificare proprietà facoltative aggiungendo un punto interrogativo `?` alla fine del nome della proprietà:
 
 ```typescript
@@ -20,4 +18,3 @@ type X = {
 };
 const x = ({ a, b = 100 }: X) => a + b;
 ```
-

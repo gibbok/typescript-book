@@ -1,7 +1,5 @@
 ﻿# Tipos Estruturais Apagados
 
-
-
 No TypeScript, os objetos não precisam corresponder a um tipo exato e específico. Por exemplo, se criarmos um objeto que satisfaça os requisitos de uma interface, podemos utilizar esse objeto em locais onde essa interface é necessária, mesmo que não haja uma conexão explícita entre eles.
 Exemplo:
 
@@ -21,4 +19,3 @@ const obj = {
 
 log(obj); // Válido
 ```
-

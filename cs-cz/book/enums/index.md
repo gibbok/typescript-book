@@ -1,7 +1,5 @@
 ﻿# Výčtové typy
 
-
-
 V TypeScriptu je `enum` množina pojmenovaných konstantních hodnot.
 
 ```typescript
@@ -160,4 +158,3 @@ enum E {
 
 console.log(E.C); //42
 ```
-

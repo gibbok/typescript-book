@@ -1,7 +1,5 @@
 ﻿# Przestrzenie nazw
 
-
-
 W TypeScripcie przestrzenie nazw służą do organizowania kodu w logiczne kontenery, co zapobiega konfliktom nazw i umożliwia grupowanie powiązanego kodu.
 Użycie słowa kluczowego `export` umożliwia dostęp do przestrzeni nazw spoza modułów.
 
@@ -19,4 +17,3 @@ const a: MyNamespace.MyInterface1 = {
     prop1: true,
 };
 ```
-

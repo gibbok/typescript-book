@@ -1,7 +1,5 @@
 ﻿# never 类型缩小
 
-
-
 当变量缩小为不能包含任何值的类型时，TypeScript 编译器将推断该变量必须属于该 never 类型。这是因为 never 类型代表永远无法生成的值。
 
 ```typescript
@@ -17,4 +15,3 @@ const printValue = (val: string | number) => {
     }
 };
 ```
-

@@ -1,6 +1,5 @@
 ﻿# TypeScript 7, çalışma alanı sembolü araması için kapsam ekliyor
 
-
 **Yayımlandı:** 7 Ağustos 2026
 
 Microsoft, TypeScript'in yerel dil hizmetine çalışma alanı sembolü arama kapsamı ekleyen bir değişikliği birleştirdi.

@@ -1,7 +1,5 @@
 ﻿# Съдържание
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
   - [Подкрепете проекта](../support-the-project/)
@@ -218,4 +216,3 @@
     - [Проверка на синтаксиса на регулярните изрази](../others/#проверка-на-синтаксиса-на-регулярните-изрази)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

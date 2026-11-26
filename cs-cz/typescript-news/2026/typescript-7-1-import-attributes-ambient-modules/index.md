@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 přidává atributy importu do ambientních modulů
 
-
 **Zveřejněno:** 1. září 2026
 
 Nativní kompilátor TypeScriptu nyní podporuje typy atributů importu v deklaracích ambientních modulů se vzorem. Deklarace tak mohou rozlišovat importy podle atributů, jako jsou `type: 'css'` nebo `type: 'text'`.

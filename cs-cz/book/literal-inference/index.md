@@ -1,7 +1,5 @@
 ﻿# Odvozování literálových typů
 
-
-
 Odvozování literálových typů je funkce TypeScriptu, která umožňuje odvodit typ proměnné nebo parametru na základě jeho hodnoty.
 
 V následujícím příkladu vidíme, že TypeScript považuje `x` za literálový typ, protože hodnotu již později nelze změnit, zatímco u `y` odvodí typ string, protože ji lze později kdykoli upravit.
@@ -45,4 +43,3 @@ let o = {
     x: 'a' as X,
 };
 ```
-

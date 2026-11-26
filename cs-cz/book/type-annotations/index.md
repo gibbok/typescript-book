@@ -1,7 +1,5 @@
 ﻿# Typové anotace
 
-
-
 U proměnných deklarovaných pomocí `var`, `let` a `const` lze volitelně přidat typ:
 
 ```typescript
@@ -39,4 +37,3 @@ const sum = (a = 10, b: number): number => a + b;
 To je užitečné zejména u složitějších funkcí, protože zápis návratového typu před implementací vám může pomoci funkci promyslet.
 
 Obecně zvažte anotování typových signatur, ale ne lokálních proměnných v těle funkce, a k objektovým literálům vždy přidávejte typy.
-

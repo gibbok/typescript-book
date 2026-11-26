@@ -1,6 +1,5 @@
 ﻿# API native của TypeScript bổ sung các API mà typescript-eslint cần
 
-
 **Xuất bản:** 14 tháng 9, 2026
 
 API native của TypeScript hiện cung cấp thêm các API về bộ kiểm tra và kiểu mà `typescript-eslint` cần, giúp giảm khoảng trống tương thích cho các công cụ phụ thuộc vào API lập trình của TypeScript.

@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 odświeża diagnostykę konfiguracji po zmianach plików
 
-
 **Opublikowano:** 30 lipca 2026 r.
 
 Firma Microsoft scaliła poprawkę, która odświeża diagnostykę plików konfiguracyjnych w natywnej usłudze językowej TypeScript po zmianie śledzonego pliku `tsconfig.json` lub `jsconfig.json`.

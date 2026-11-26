@@ -1,7 +1,5 @@
 ﻿# Others
 
-
-
 ### Errors and Exception Handling
 
 TypeScript allows you to catch and handle errors using standard JavaScript error handling mechanisms:

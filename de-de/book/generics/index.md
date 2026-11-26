@@ -1,7 +1,5 @@
 ﻿# Generics
 
-
-
 Mit Generics können Sie wiederverwendbare Komponenten und Funktionen erstellen, die mit mehreren Typen arbeiten können. Mithilfe von Generics können Sie Typen, Funktionen und Interfaces parametrisieren, sodass sie mit verschiedenen Typen arbeiten können, ohne diese vorher explizit anzugeben.
 
 Mit Generics können Sie Code flexibler und wiederverwendbarer gestalten.
@@ -98,4 +96,3 @@ function process<T>(value: T): void {
 process('hello'); // 5
 process(3.14159); // 3.14
 ```
-

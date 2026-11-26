@@ -1,6 +1,5 @@
 ﻿# TypeScript mempercepat build inkremental dengan pemeriksaan paralel
 
-
 Perubahan compiler yang telah digabungkan memungkinkan pemeriksaan paralel atas tanda tangan berkas yang terdampak perubahan pada modul yang banyak diimpor. Sebelumnya tahap ini berjalan berurutan.
 
 ## Apa yang berubah

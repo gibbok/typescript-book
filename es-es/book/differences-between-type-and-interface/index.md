@@ -1,7 +1,5 @@
 ﻿# Diferencias entre tipo e interfaz
 
-
-
 Combinación de declaraciones (ampliación):
 
 Las interfaces admiten la combinación de declaraciones: pueden definirse varias con el mismo nombre y TypeScript las combina en una sola con todas sus propiedades y métodos. Los tipos, en cambio, no la admiten. Esto resulta útil para añadir funcionalidad o personalizar tipos existentes sin modificar las definiciones originales, o para corregir tipos ausentes o incorrectos.
@@ -89,4 +87,3 @@ interface B {
 
 type C = A | B; // Unión de interfaces
 ```
-

@@ -1,6 +1,5 @@
 ﻿# Natywny kompilator TypeScript otrzymuje eksperymentalną obsługę WebAssembly
 
-
 **Opublikowano:** 2026-10-29
 
 29 października 2026 r. Microsoft scalił eksperymentalną obsługę `wasip1/wasm` w natywnym kompilatorze TypeScript. Zmiana umożliwia uruchamianie kompilatora w środowiskach WASI oraz korzystanie z transportu API JavaScript w przeglądarce.

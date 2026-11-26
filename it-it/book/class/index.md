@@ -1,7 +1,5 @@
 ﻿# Classe
 
-
-
 ### Sintassi comune della classe
 
 La parola chiave `class` viene utilizzata in TypeScript per definire una classe. Di seguito è riportato un esempio:
@@ -666,4 +664,3 @@ class MyClass {
 const r = new MyClass();
 console.log(r.add(10, 5)); // Log 15
 ```
-

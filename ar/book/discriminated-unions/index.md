@@ -1,7 +1,5 @@
 ﻿# الاتحادات المميَّزة
 
-
-
 الاتحادات المميَّزة في TypeScript هي نوع من أنواع الاتحاد يستخدم خاصية مشتركة، تُعرف باسم المميِّز، لتضييق مجموعة الأنواع الممكنة للاتحاد.
 
 ```typescript
@@ -32,4 +30,3 @@ const circle: Circle = { kind: 'circle', radius: 2 };
 console.log(area(square)); // 25
 console.log(area(circle)); // 12.566370614359172
 ```
-

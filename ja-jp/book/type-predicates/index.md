@@ -1,7 +1,5 @@
 ﻿# 型述語
 
-
-
 TypeScript の型述語は、真偽値を返す関数で、変数の型をより具体的な型へ絞り込むために使用されます。
 
 ```typescript
@@ -21,4 +19,3 @@ TypeScript 5.5 は、型述語（`x is T` など）を `.filter` などの関数
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

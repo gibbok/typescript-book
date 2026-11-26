@@ -1,7 +1,5 @@
 ﻿# Uttömmande kontroll
 
-
-
 Uttömmande kontroll är en funktion i TypeScript som säkerställer att alla möjliga fall av en diskriminerad union hanteras i en `switch`-sats eller en `if`-sats.
 
 ```typescript
@@ -23,4 +21,3 @@ const move = (direction: Direction) => {
 ```
 
 `never`-typen används för att säkerställa att default-fallet är uttömmande och att TypeScript kommer att ge ett fel om ett nytt värde läggs till i Direction-typen utan att det hanteras i switch-satsen.
-

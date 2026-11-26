@@ -1,7 +1,5 @@
 ﻿# Valfria egenskaper
 
-
-
 Ett objekt kan specificera valfria egenskaper genom att lägga till ett frågetecken `?` i slutet av egenskapsnamnet:
 
 ```typescript
@@ -20,4 +18,3 @@ type X = {
 };
 const x = ({ a, b = 100 }: X) => a + b;
 ```
-

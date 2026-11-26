@@ -1,6 +1,5 @@
 ﻿# TypeScript-nyheter
 
-
 import NewsList from '../../../../components/NewsList.astro';
 
 Följ viktiga TypeScript-versioner och projektuppdateringar genom kortfattade sammanfattningar baserade på officiella TypeScript-källor.

@@ -1,7 +1,5 @@
 ﻿# Typy generyczne
 
-
-
 Typy generyczne umożliwiają tworzenie komponentów i funkcji wielokrotnego użytku, które mogą współpracować z wieloma typami. Dzięki typom generycznym można parametryzować typy, funkcje i interfejsy, co pozwala im działać na różnych typach bez konieczności ich wcześniejszego jawnego określania.
 
 Typy generyczne pozwalają tworzyć bardziej elastyczny kod wielokrotnego użytku.
@@ -98,4 +96,3 @@ function process<T>(value: T): void {
 process('hello'); // 5
 process(3.14159); // 3.14
 ```
-

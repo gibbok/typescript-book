@@ -1,7 +1,5 @@
 ﻿# Pemeriksaan Kelengkapan
 
-
-
 Pemeriksaan kelengkapan adalah fitur dalam TypeScript yang memastikan semua kemungkinan kasus dari union terdiskriminasi ditangani dalam statement `switch` atau statement `if`.
 
 ```typescript
@@ -23,4 +21,3 @@ const move = (direction: Direction) => {
 ```
 
 Tipe `never` digunakan untuk memastikan bahwa kasus default bersifat exhaustive dan bahwa TypeScript akan menghasilkan error jika nilai baru ditambahkan ke tipe Direction tanpa ditangani dalam statement switch.
-

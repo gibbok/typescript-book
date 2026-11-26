@@ -1,7 +1,5 @@
 ﻿# Tür Yüklemleri
 
-
-
 TypeScript'te Tür Yüklemleri, boole değeri döndüren ve bir değişkenin türünü daha belirli bir türe daraltmak için kullanılan fonksiyonlardır.
 
 ```typescript
@@ -21,4 +19,3 @@ TypeScript 5.5, `x is T` gibi tür yüklemlerini `.filter` gibi fonksiyonlarda o
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

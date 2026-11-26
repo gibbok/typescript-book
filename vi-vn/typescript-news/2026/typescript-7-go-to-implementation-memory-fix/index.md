@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 cải thiện mức sử dụng bộ nhớ của Go to Implementation
 
-
 **Đã xuất bản:** July 30, 2026
 
 Microsoft đã merge một bản sửa về khả năng mở rộng bộ nhớ cho Go to Implementation trong language service native của TypeScript.

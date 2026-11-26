@@ -1,6 +1,5 @@
 ﻿# Tooling native TypeScript 7 sedang dikonsolidasikan
 
-
 **Diterbitkan:** 27 Juli 2026
 
 Para pengelola TypeScript telah menjelaskan bagaimana tooling TypeScript 7 native akan dikonsolidasikan setelah rilis stabil.

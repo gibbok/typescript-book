@@ -1,7 +1,5 @@
 ﻿# Direktif Triple-Slash
 
-
-
 Direktif triple-slash adalah komentar khusus yang memberikan instruksi kepada kompiler tentang cara memproses sebuah berkas. Direktif ini diawali dengan tiga garis miring berturut-turut (`///`), biasanya ditempatkan di bagian atas berkas TypeScript, dan tidak berpengaruh terhadap perilaku saat runtime.
 
 Direktif triple-slash digunakan untuk mereferensikan dependensi eksternal, menentukan perilaku pemuatan modul, mengaktifkan atau menonaktifkan fitur kompiler tertentu, dan lainnya. Beberapa contohnya:
@@ -26,4 +24,3 @@ Mengaktifkan opsi kompiler, dalam contoh berikut mode ketat:
 ```typescript
 /// <strict|noImplicitAny|noUnusedLocals|noUnusedParameters>
 ```
-

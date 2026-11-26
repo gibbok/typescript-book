@@ -1,7 +1,5 @@
 ﻿# Přiřazení
 
-
-
 Zužování typů pomocí přiřazení v TypeScriptu je způsob, jak zúžit typ proměnné na základě hodnoty, která je jí přiřazena. Při přiřazení hodnoty proměnné TypeScript odvodí její typ a zúží jej tak, aby odpovídal přiřazené hodnotě.
 
 ```typescript
@@ -15,4 +13,3 @@ if (typeof value === 'number') {
     console.log(value.toFixed(2));
 }
 ```
-

@@ -1,7 +1,5 @@
 ﻿# インデックスシグネチャ
 
-
-
 TypeScript では、インデックスシグネチャとして `string`、`number`、`symbol` を使用できます。
 
 ```typescript
@@ -15,4 +13,3 @@ console.log(k['1']); // k[1] と同じ結果
 ```
 
 JavaScript は `number` のインデックスを自動的に `string` のインデックスへ変換するため、`k[1]` と `k["1"]` は同じ値を返すことに注意してください。
-

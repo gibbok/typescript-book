@@ -1,7 +1,5 @@
 ﻿# Restricción
 
-
-
 La restricción de TypeScript es el proceso de precisar el tipo de una variable dentro de un bloque condicional. Resulta útil al trabajar con tipos de unión, donde una variable puede tener más de un tipo.
 
 TypeScript reconoce varias formas de restringir el tipo:
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

@@ -1,6 +1,5 @@
 ﻿# TypeScript 7, dosya değişikliklerinden sonra yapılandırma tanılamalarını yeniliyor
 
-
 **Yayımlandı:** 30 Temmuz 2026
 
 Microsoft, izlenen bir `tsconfig.json` veya `jsconfig.json` dosyası değiştikten sonra TypeScript'in yerel dil hizmetindeki yapılandırma dosyası tanılamalarını yenileyen bir düzeltmeyi birleştirdi.

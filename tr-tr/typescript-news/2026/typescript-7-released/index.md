@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.0 artık kullanılabilir
 
-
 **Yayımlandı:** 8 Temmuz 2026
 
 Microsoft, projenin yeni yerel Go kod tabanı üzerine kurulan ilk kararlı sürüm olan TypeScript 7.0'ı yayımladı.

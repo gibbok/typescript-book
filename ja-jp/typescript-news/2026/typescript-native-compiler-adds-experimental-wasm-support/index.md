@@ -1,6 +1,5 @@
 ﻿# TypeScript ネイティブコンパイラーに実験的な WebAssembly 対応が追加
 
-
 **公開日:** 2026-10-29
 
 Microsoft は 2026 年 10 月 29 日、TypeScript ネイティブコンパイラーに実験的な `wasip1/wasm` 対応をマージしました。これにより WASI ホストでコンパイラーを実行でき、ブラウザーでも利用可能な JavaScript API トランスポートが追加されます。

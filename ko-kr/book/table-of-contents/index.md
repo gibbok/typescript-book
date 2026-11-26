@@ -1,7 +1,5 @@
 ﻿# 목차
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
   - [프로젝트 후원하기](../support-the-project/)
@@ -218,4 +216,3 @@
     - [정규 표현식 구문 검사](../others/#정규-표현식-구문-검사)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

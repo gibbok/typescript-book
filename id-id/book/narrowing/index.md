@@ -1,7 +1,5 @@
 ﻿# Penyempitan
 
-
-
 Penyempitan TypeScript adalah proses mempersempit tipe suatu variabel di dalam blok kondisional. Hal ini berguna ketika bekerja dengan tipe union, ketika sebuah variabel dapat memiliki lebih dari satu tipe.
 
 TypeScript mengenali beberapa cara untuk mempersempit tipe:
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

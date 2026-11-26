@@ -1,7 +1,5 @@
 ﻿# Průnikové typy
 
-
-
 Průnikový typ je typ, který představuje hodnotu se všemi vlastnostmi dvou nebo více typů. Průnikové typy se zapisují pomocí symbolu `&` mezi jednotlivými typy.
 
 ```typescript
@@ -20,4 +18,3 @@ const j: J = {
     b: 'b',
 };
 ```
-

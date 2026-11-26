@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.1 lägger till importattribut i ambient-moduler
 
-
 **Publicerad:** 1 september 2026
 
 TypeScripts inbyggda kompilator stöder nu typer för importattribut i mönsterbaserade ambient-moduldeklarationer. Deklarationer kan därmed skilja mellan importer med attribut som `type: 'css'` och `type: 'text'`.

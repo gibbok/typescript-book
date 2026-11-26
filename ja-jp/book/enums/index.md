@@ -1,7 +1,5 @@
 ﻿# 列挙型
 
-
-
 TypeScript の `enum` は、名前付き定数値の集合です。
 
 ```typescript
@@ -160,4 +158,3 @@ enum E {
 
 console.log(E.C); //42
 ```
-

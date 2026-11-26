@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 korrigiert die Setter-Zugänglichkeit bei Union- und Intersection-Typen
 
-
 **Veröffentlicht:** 24. August 2026
 
 Microsoft hat eine Korrektur am nativen TypeScript-Type-Checker zusammengeführt, durch die bei Eigenschaften, die aus Union- und Intersection-Typen erzeugt werden, die Zugänglichkeit für Lese- und Schreibzugriffe getrennt bleibt.

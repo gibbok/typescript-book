@@ -1,6 +1,5 @@
 ﻿# Oznámen kandidát na vydání TypeScriptu 7.0
 
-
 **Zveřejněno:** 18. června 2026
 
 Microsoft vydal kandidáta na vydání TypeScriptu 7.0 jako poslední předběžnou verzi před stabilním vydáním TypeScriptu 7.

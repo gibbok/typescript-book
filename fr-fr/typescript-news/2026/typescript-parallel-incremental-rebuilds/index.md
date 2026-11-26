@@ -1,6 +1,5 @@
 ﻿# TypeScript accélère les reconstructions incrémentales grâce au parallélisme
 
-
 Une modification intégrée au compilateur parallélise la vérification des signatures des fichiers affectés par un changement dans un module très importé. Cette étape était auparavant séquentielle.
 
 ## Ce qui change

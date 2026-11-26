@@ -1,7 +1,5 @@
 ﻿# Diskriminovaná sjednocení
 
-
-
 Diskriminovaná sjednocení v TypeScriptu jsou druhem sjednoceného typu, který používá společnou vlastnost, označovanou jako diskriminant, k zúžení množiny možných typů ve sjednocení.
 
 ```typescript
@@ -32,4 +30,3 @@ const circle: Circle = { kind: 'circle', radius: 2 };
 console.log(area(square)); // 25
 console.log(area(circle)); // 12.566370614359172
 ```
-

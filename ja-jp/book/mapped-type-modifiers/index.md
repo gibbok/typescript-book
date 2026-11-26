@@ -1,7 +1,5 @@
 ﻿# マップ型の修飾子
 
-
-
 TypeScript のマップ型の修飾子を使用すると、既存の型内のプロパティを変換できます。
 
 * `readonly` または `+readonly`: マップ型のプロパティを読み取り専用にします。
@@ -17,4 +15,3 @@ type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // すべてのプロパ�
 
 type MyPartial<T> = { [P in keyof T]?: T[P] }; // すべてのプロパティをオプショナルにする
 ```
-

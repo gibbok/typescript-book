@@ -1,7 +1,5 @@
 ﻿# Çeviriler
 
-
-
 Bu kitap aşağıdakiler de dâhil olmak üzere birçok dile çevrilmiştir:
 
 [İngilizce](https://github.com/gibbok/typescript-book/blob/main/README.md)
@@ -40,4 +38,3 @@ Bu kitap aşağıdakiler de dâhil olmak üzere birçok dile çevrilmiştir:
 
 [Arapça](https://github.com/gibbok/typescript-book/blob/main/README-ar.md)
 [Çekçe](https://github.com/gibbok/typescript-book/blob/main/README-cs_CZ.md)
-

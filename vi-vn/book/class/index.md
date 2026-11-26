@@ -1,7 +1,5 @@
 ﻿# Class
 
-
-
 ### Cú pháp class thông dụng
 
 Từ khóa `class` được sử dụng trong TypeScript để định nghĩa một class. Dưới đây là một ví dụ:
@@ -672,4 +670,3 @@ class MyClass {
 const r = new MyClass();
 console.log(r.add(10, 5)); // In ra 15
 ```
-

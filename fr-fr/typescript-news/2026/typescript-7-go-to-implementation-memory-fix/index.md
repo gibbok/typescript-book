@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 réduit la consommation mémoire de Go to Implementation
 
-
 **Publié le :** 30 juillet 2026
 
 Microsoft a intégré dans le service de langage natif de TypeScript un correctif qui améliore la consommation mémoire de Go to Implementation à grande échelle.

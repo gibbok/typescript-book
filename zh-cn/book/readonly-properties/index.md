@@ -1,7 +1,5 @@
 ﻿# 只读属性
 
-
-
 是否可以通过使用修饰符来防止对属性进行写入，`readonly` 以确保该属性不能被重写，但不提供任何完全不变性的保证：
 
 ```typescript
@@ -21,4 +19,3 @@ type K = {
     readonly [index: number]: string;
 };
 ```
-

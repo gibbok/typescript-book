@@ -1,7 +1,5 @@
 ﻿# Spis treści
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [The Concise TypeScript Book](../the-concise-typescript-book/)
   - [Wesprzyj projekt](../support-the-project/)
@@ -218,4 +216,3 @@
     - [Sprawdzanie składni wyrażeń regularnych](../others/#sprawdzanie-składni-wyrażeń-regularnych)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

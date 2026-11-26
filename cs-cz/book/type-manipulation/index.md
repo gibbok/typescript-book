@@ -1,7 +1,5 @@
 ﻿# Manipulace s typy
 
-
-
 ### Vytváření typů z typů
 
 Nové typy lze vytvářet skládáním, úpravou nebo transformací existujících typů.
@@ -354,4 +352,3 @@ function fn2<T extends string>(x: T[], y: NoInfer<T>) {
 
 const r2 = fn2(['a', 'b'], 'c'); // Chyba: argument typu '"c"' nelze přiřadit parametru typu '"a" | "b"'.
 ```
-

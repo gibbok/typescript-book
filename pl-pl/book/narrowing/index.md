@@ -1,7 +1,5 @@
 ﻿# Zawężanie typów
 
-
-
 Zawężanie typów w TypeScript to proces uściślania typu zmiennej wewnątrz bloku warunkowego. Jest to przydatne podczas pracy z typami unii, gdy zmienna może mieć więcej niż jeden typ.
 
 TypeScript rozpoznaje kilka sposobów zawężania typu:
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

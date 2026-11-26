@@ -1,7 +1,5 @@
 ﻿# สารบัญ
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [หนังสือ TypeScript ฉบับกระชับ](../the-concise-typescript-book/)
   - [สนับสนุนโปรเจกต์](../support-the-project/)
@@ -218,4 +216,3 @@
     - [การตรวจสอบไวยากรณ์ Regular Expression](../others/#การตรวจสอบไวยากรณ์-regular-expression)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

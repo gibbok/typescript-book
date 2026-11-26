@@ -1,7 +1,5 @@
 ﻿# Predikat Tipe
 
-
-
 Predikat Tipe dalam TypeScript adalah fungsi yang mengembalikan nilai boolean dan digunakan untuk mempersempit tipe suatu variabel menjadi tipe yang lebih spesifik.
 
 ```typescript
@@ -21,4 +19,3 @@ TypeScript 5.5 secara otomatis menginferensi predikat tipe (seperti `x is T`) da
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 meningkatkan penggunaan memori Go to Implementation
 
-
 **Diterbitkan:** 30 Juli 2026
 
 Microsoft menggabungkan perbaikan penskalaan memori untuk Go to Implementation di language service native TypeScript.

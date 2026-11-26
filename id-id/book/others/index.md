@@ -1,7 +1,5 @@
 ﻿# Lain-lain
 
-
-
 ### Error dan Penanganan Exception
 
 TypeScript memungkinkan Anda menangkap dan menangani galat menggunakan mekanisme penanganan galat standar JavaScript:

@@ -1,6 +1,5 @@
 ﻿# TypeScript 7.0 릴리스 후보가 발표되었습니다
 
-
 **게시일:** 2026년 6월 18일
 
 Microsoft는 안정적인 TypeScript 7 출시 전 최종 프리뷰로 TypeScript 7.0 릴리스 후보를 출시했습니다.

@@ -1,7 +1,5 @@
 ﻿# Analiza przepływu sterowania
 
-
-
 Analiza przepływu sterowania w TypeScript to sposób statycznej analizy przepływu kodu w celu wywnioskowania typów zmiennych, co pozwala kompilatorowi zawężać typy tych zmiennych w razie potrzeby na podstawie wyników analizy.
 
 Przed TypeScript 4.4 analiza przepływu kodu była stosowana tylko do kodu wewnątrz instrukcji `if`, ale od TypeScript 4.4 może być również stosowana do wyrażeń warunkowych i dostępów do właściwości dyskryminujących, do których pośrednio odwołują się zmienne `const`.
@@ -51,4 +49,3 @@ const f6 = (
 ```
 
 Uwaga: W wyrażeniach warunkowych analizowanych jest do pięciu poziomów pośrednictwa.
-

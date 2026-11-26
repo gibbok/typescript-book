@@ -1,7 +1,5 @@
 ﻿# 类型谓词
 
-
-
 TypeScript 中的类型谓词是返回布尔值的函数，用于将变量的类型缩小为更具体的类型。
 
 ```typescript
@@ -21,4 +19,3 @@ TypeScript 5.5 会自动推断函数（例如 `.filter`）中的类型谓词（�
 ```typescript
 const nums = [1, null, 2].filter(x => x !== null);
 ```
-

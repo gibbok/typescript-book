@@ -1,7 +1,5 @@
 ﻿# Restringimento
 
-
-
 Il restringimento di TypeScript è il processo di perfezionamento del tipo di una variabile all'interno di un blocco condizionale. Questo è utile quando si lavora con tipi di unione, in cui una variabile può avere più di un tipo.
 
 TypeScript riconosce diversi modi per restringere il tipo:
@@ -100,4 +98,3 @@ const rectangle = new Rectangle(5, 10);
 console.log(area(square)); // 25
 console.log(area(rectangle)); // 50
 ```
-

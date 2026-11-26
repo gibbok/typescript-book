@@ -1,7 +1,5 @@
 ﻿# Interface och Type
 
-
-
 ### Gemensam syntax
 
 I TypeScript definierar interface strukturen hos objekt och specificerar namnen och typerna på egenskaper eller metoder som ett objekt måste ha. Den gemensamma syntaxen för att definiera ett interface i TypeScript är följande:
@@ -80,4 +78,3 @@ type TypeB = { age: number };
 type CombinedType = TypeA & TypeB; // Snittyp
 let myCombined: CombinedType = { name: 'John', age: 25 }; // Objekt med både egenskaperna name och age
 ```
-

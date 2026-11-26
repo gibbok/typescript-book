@@ -1,7 +1,5 @@
 ﻿# Primitive Types
 
-
-
 TypeScript supports 7 primitive types. A primitive data type refers to a type that is not an object and does not have any methods associated with it. In TypeScript, all primitive types are immutable, meaning their values cannot be changed once they are assigned.
 
 ### string
@@ -121,4 +119,3 @@ The `any` type could be useful during a gradual migration from JavaScript to Typ
 For new projects, use the TypeScript configuration `noImplicitAny`, which enables TypeScript to issue errors where `any` is used or inferred.
 
 The `any` type is usually a source of errors that can mask real problems with your types. Avoid using it as much as possible.
-

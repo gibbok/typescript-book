@@ -1,7 +1,5 @@
 ﻿# never Türü
 
-
-
 Bir değişken, hiçbir değer içeremeyen bir türe daraltıldığında TypeScript derleyicisi değişkenin `never` türünde olması gerektiğini çıkarır. Bunun nedeni, never türünün hiçbir zaman üretilemeyecek bir değeri temsil etmesidir.
 
 ```typescript
@@ -17,4 +15,3 @@ const printValue = (val: string | number) => {
     }
 };
 ```
-

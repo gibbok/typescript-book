@@ -1,7 +1,5 @@
 ﻿# Dağıtımlı Koşullu Türler
 
-
-
 Dağıtımlı Koşullu Türler, birleşimin her üyesine ayrı ayrı bir dönüşüm uygulayarak bir türün, türler birleşimi üzerine dağıtılmasını sağlayan bir özelliktir.
 Bu, özellikle eşlenmiş türlerle veya yüksek dereceli türlerle çalışırken faydalı olabilir.
 
@@ -10,4 +8,3 @@ type Nullable<T> = T extends any ? T | null : never;
 type NumberOrBool = number | boolean;
 type NullableNumberOrBool = Nullable<NumberOrBool>; // number | boolean | null
 ```
-

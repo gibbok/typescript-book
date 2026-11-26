@@ -1,6 +1,5 @@
 ﻿# TypeScript 7 migliora l'uso della memoria di Vai all'implementazione
 
-
 **Pubblicato:** 30 luglio 2026
 
 Microsoft ha integrato nel language service nativo di TypeScript una correzione relativa all'uso della memoria per Vai all'implementazione.

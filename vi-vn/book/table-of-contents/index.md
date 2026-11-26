@@ -1,7 +1,5 @@
 ﻿# Mục lục
 
-
-
 <!-- markdownlint-disable MD004 -->
 - [Cuốn sách TypeScript súc tích](../the-concise-typescript-book/)
   - [Hỗ trợ dự án](../support-the-project/)
@@ -218,4 +216,3 @@
     - [Kiểm tra cú pháp Regular Expression](../others/#kiểm-tra-cú-pháp-regular-expression)
     - [import defer](../others/#import-defer)
 <!-- markdownlint-enable MD004 -->
-

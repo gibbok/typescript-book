@@ -1,7 +1,5 @@
 ﻿# Eingebaute primitive Typen
 
-
-
 TypeScript verfügt über mehrere eingebaute primitive Typen, mit denen Variablen, Funktionsparameter und Rückgabetypen definiert werden können:
 
 * `number`: Stellt numerische Werte dar, einschließlich Ganzzahlen und Gleitkommazahlen.
@@ -14,4 +12,3 @@ TypeScript verfügt über mehrere eingebaute primitive Typen, mit denen Variable
 * `any`: Stellt einen dynamischen oder unbekannten Typ dar. Variablen vom Typ any können Werte jedes Typs enthalten und umgehen die Typprüfung.
 * `void`: Stellt das Fehlen eines beliebigen Typs dar. Er wird üblicherweise als Rückgabetyp von Funktionen verwendet, die keinen Wert zurückgeben.
 * `never`: Stellt einen Typ für Werte dar, die niemals auftreten. Er wird üblicherweise als Rückgabetyp von Funktionen verwendet, die einen Fehler auslösen oder in eine Endlosschleife eintreten.
-

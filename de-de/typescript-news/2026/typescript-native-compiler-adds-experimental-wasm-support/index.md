@@ -1,6 +1,5 @@
 ﻿# Nativer TypeScript-Compiler erhält experimentelle WebAssembly-Unterstützung
 
-
 **Veröffentlicht:** 2026-10-29
 
 Microsoft hat am 29. Oktober 2026 experimentelle Unterstützung für `wasip1/wasm` in den nativen TypeScript-Compiler integriert. Damit lässt sich der Compiler in WASI-Umgebungen ausführen; außerdem gibt es einen JavaScript-API-Transport für den Browser.

@@ -1,7 +1,5 @@
 ﻿# 预定义条件类型
 
-
-
 在 TypeScript 中，预定义的条件类型是语言提供的内置条件类型。它们旨在根据给定类型的特征执行常见的类型转换。
 
 `Exclude<UnionType, ExcludedType>`: 此类型从 Type 中删除可分配给 ExcludedType 的所有类型。
@@ -19,4 +17,3 @@
 `Partial<Type>`: 此类型使 Type 中的所有属性都是可选的。
 
 `Readonly<Type>`: 此类型使 Type 中的所有属性变为只读。
-

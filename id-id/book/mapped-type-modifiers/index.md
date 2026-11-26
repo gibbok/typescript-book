@@ -1,7 +1,5 @@
 ﻿# Modifier Mapped Type
 
-
-
 Modifier Mapped Type dalam TypeScript memungkinkan transformasi properti di dalam tipe yang sudah ada:
 
 * `readonly` atau `+readonly`: Ini menjadikan properti dalam mapped type sebagai read-only.
@@ -17,4 +15,3 @@ type Mutable<T> = { -readonly [P in keyof T]: T[P] }; // Semua properti ditandai
 
 type MyPartial<T> = { [P in keyof T]?: T[P] }; // Semua properti ditandai sebagai opsional
 ```
-
